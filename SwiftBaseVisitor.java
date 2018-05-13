@@ -1053,6 +1053,13 @@ public class SwiftBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitProtocol_keyword(SwiftParser.Protocol_keywordContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitProtocol_property_declaration(SwiftParser.Protocol_property_declarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

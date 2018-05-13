@@ -49,7 +49,7 @@ public class TypeLoader {
 
     static private ClassDefinition parseClass(String className, JSONObject src) {
 
-        ClassDefinition definition = new ClassDefinition(className, null, new LinkedHashMap<String, Instance>(), new ArrayList<String>());
+        ClassDefinition definition = new ClassDefinition(className, null, new LinkedHashMap<String, Instance>(), new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
 
         if(src.optJSONArray("generics") != null) {
             for(int i = 0; i < src.optJSONArray("generics").length(); i++) {

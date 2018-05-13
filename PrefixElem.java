@@ -69,7 +69,7 @@ public class PrefixElem {
         }
 
         if(type == null) {
-            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new ArrayList<String>());
+            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
             type = new Instance(tupleDefinition);
         }
         String code = getTupleCode(keys, elementList, type, rChild, visitor);
@@ -134,7 +134,7 @@ public class PrefixElem {
             }
             else {
                 String code = visitor.visit(rChild);
-                if(type != null && type.uniqueId().equals("Set")) code = "new Set(" + code + ")";
+                if(type != null && type.typeName().equals("Set")) code = "new Set(" + code + ")";
                 return code;
             }
         }

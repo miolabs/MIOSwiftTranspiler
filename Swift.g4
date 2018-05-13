@@ -436,7 +436,7 @@ class_body : '{' declarations? '}'  ;
 
 // GRAMMAR OF A PROTOCOL DECLARATION
 
-protocol_declaration : attributes? access_level_modifier? 'protocol' protocol_name type_inheritance_clause? protocol_body  ;
+protocol_declaration : attributes? access_level_modifier? protocol_keyword protocol_name type_inheritance_clause? protocol_body  ;
 protocol_name : identifier  ;
 protocol_body : '{' protocol_member_declarations? '}'  ;
 
@@ -447,6 +447,7 @@ protocol_member_declaration : protocol_property_declaration
  | protocol_associated_type_declaration
  ;
 protocol_member_declarations : protocol_member_declaration protocol_member_declarations? ;
+protocol_keyword : 'protocol';
 
 // GRAMMAR OF A PROTOCOL PROPERTY DECLARATION
 

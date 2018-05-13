@@ -903,6 +903,12 @@ public interface SwiftVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProtocol_member_declarations(SwiftParser.Protocol_member_declarationsContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#protocol_keyword}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProtocol_keyword(SwiftParser.Protocol_keywordContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#protocol_property_declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

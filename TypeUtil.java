@@ -1,3 +1,5 @@
+import org.antlr.v4.runtime.tree.ParseTree;
+
 import java.util.*;
 
 public class TypeUtil {
@@ -77,7 +79,7 @@ public class TypeUtil {
     }
     private static Instance fromTupleDefinition(SwiftParser.Tuple_type_element_listContext ctx, Visitor visitor) {
         LinkedHashMap<String, Instance> elems = flattenTupleDefinition(ctx, visitor);
-        ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", ctx), elems, new ArrayList<String>());
+        ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", ctx), elems, new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
         return new Instance(tupleDefinition);
     }
 
@@ -100,17 +102,17 @@ public class TypeUtil {
         return new Instance(new FunctionDefinition(null, parameterExternalNames, parameterTypes, 0, fromDefinition(returnType, visitor), new ArrayList<String>()));
     }
 
-    public static Instance fromFunction(SwiftParser.Function_resultContext functionResult, SwiftParser.StatementsContext statements, boolean isClosure, Visitor visitor) {
+    public static Instance fromFunction(SwiftParser.Function_resultContext functionResult, SwiftParser.StatementsContext statements, boolean isClosure, ParseTree ctx, Visitor visitor) {
         if(functionResult != null) return fromDefinition(functionResult.type(), visitor);
-        visitor.visitChildren(statements);
-        for(int i = 0; i < statements.getChildCount(); i++) {
+        if(statements != null) visitor.visitChildren(statements);
+        for(int i = 0; statements != null && i < statements.getChildCount(); i++) {
             if(WalkerUtil.has(SwiftParser.Return_statementContext.class, statements.getChild(i))) {
                 SwiftParser.ExpressionContext expression = ((SwiftParser.StatementContext)statements.getChild(i)).control_transfer_statement().return_statement().expression();
                 return expression != null ? infer(expression, visitor) : new Instance("Void", statements, visitor.cache);
             }
         }
-        if(isClosure && statements.getChildCount() > 0) return infer((SwiftParser.ExpressionContext) statements.getChild(statements.getChildCount() - 1), visitor);
-        return new Instance("Void", statements, visitor.cache);
+        if(isClosure && statements != null && statements.getChildCount() > 0) return infer((SwiftParser.ExpressionContext) statements.getChild(statements.getChildCount() - 1), visitor);
+        return new Instance("Void", ctx, visitor.cache);
     }
 
     public static Instance infer(SwiftParser.ExpressionContext ctx, Visitor visitor) {
@@ -119,23 +121,59 @@ public class TypeUtil {
 
     public static Instance alternative(PrefixOrExpression L, PrefixOrExpression R) {
         Instance type;
-        if(L.type().uniqueId().equals(R.type().uniqueId())) {
+        if(typesEqual(L.type().definition, L.type().generics, R.type())) {
             type = L.type();
         }
-        else if(L.type().uniqueId().equals("Void")) {
+        else if(L.type().typeName().equals("Void")) {
             Instance rClone = R.type();
             rClone.isOptional = true;
             return rClone;
         }
-        else if(R.type().uniqueId().equals("Void")) {
+        else if(R.type().typeName().equals("Void")) {
             Instance lClone = L.type();
             lClone.isOptional = true;
             return lClone;
         }
         else {
-            System.out.println("//Ambiguous return type: " + L.type().uniqueId() + " || " + R.type().uniqueId());
+            System.out.println("//Ambiguous return type: " + L.type().typeName() + " || " + R.type().typeName());
             type = L.type();
         }
         return type;
+    }
+
+    public static boolean conformsToType(Instance suppliedType, Instance expectedType) {
+        Definition suppliedDefinition = suppliedType.definition;
+        boolean suppliedIsProtocol = suppliedType.definition instanceof ClassDefinition && ((ClassDefinition) suppliedType.definition).isProtocol;
+        boolean expectedIsProtocol = expectedType.definition instanceof ClassDefinition && ((ClassDefinition) expectedType.definition).isProtocol;
+        while(suppliedDefinition != null) {
+            if(!suppliedIsProtocol && expectedIsProtocol) {
+                if(suppliedDefinition instanceof ClassDefinition) {
+                    for(ClassDefinition protocol : ((ClassDefinition) suppliedDefinition).protocols) {
+                        if(protocol == expectedType.definition) return true;
+                    }
+                }
+            }
+            else {
+                if(typesEqual(suppliedDefinition, suppliedType.generics, expectedType)) return true;
+            }
+            suppliedDefinition =
+                suppliedDefinition instanceof ClassDefinition && ((ClassDefinition) suppliedDefinition).superClass != null ?
+                (Definition)((ClassDefinition) suppliedDefinition).superClass.object : null;
+        }
+        return false;
+    }
+
+    public static boolean typesEqual(Definition suppliedDefinition, Map<String, Instance> suppliedGenerics, Instance expectedType) {
+        if(suppliedDefinition != expectedType.definition) return false;
+        if(expectedType.generics != null && expectedType.definition.generics != null && expectedType.definition.generics.size() > 0) {
+            if(suppliedGenerics == null) return false;
+            for(String genericKey: expectedType.definition.generics) {
+                if(
+                    !suppliedGenerics.containsKey(genericKey) ||
+                    !conformsToType(suppliedGenerics.get(genericKey), expectedType.generics.get(genericKey))
+                ) return false;
+            }
+        }
+        return true;
     }
 }

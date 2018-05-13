@@ -40,7 +40,7 @@ public class Initializer {
         SwiftParser.DeclarationsContext declarations =
             ctx instanceof SwiftParser.Class_bodyContext ? ((SwiftParser.Class_bodyContext)ctx).declarations() :
             ((SwiftParser.Struct_bodyContext)ctx).declarations();
-        return "{\n" + visitor.visit(declarations) + memberwiseInitializerCode + constructorCode + "}";
+        return "{\n" + (declarations != null ? visitor.visit(declarations) : "") + memberwiseInitializerCode + constructorCode + "}";
     }
 
     static private LinkedHashMap<String, Instance> initializers(ClassDefinition classDefinition) {
@@ -66,12 +66,10 @@ public class Initializer {
     static public void addMemberwiseInitializer(ClassDefinition classDefinition, ParseTree ctx, Visitor visitor) {
         if(!initializers(classDefinition).isEmpty()) return;
 
-        String nameAugment = "";
         ArrayList<String> parameterNames = new ArrayList<String>();
         ArrayList<Instance> parameterTypes = new ArrayList<Instance>();
         for(Map.Entry<String, Instance> entry : classDefinition.properties.entrySet()) {
             if(entry.getValue().definition instanceof FunctionDefinition) continue;
-            nameAugment += "$" + entry.getKey() + "_" + entry.getValue().uniqueId();
             parameterNames.add(entry.getKey());
             parameterTypes.add(entry.getValue());
         }
@@ -80,7 +78,7 @@ public class Initializer {
             FunctionDefinition function = new FunctionDefinition(null, parameterNames, parameterTypes, 0, new Instance("Void", ctx, visitor.cache), null);
             Instance initializer = new Instance(function);
             initializer.isInitializer = initializer.isMemberwiseInitializer = true;
-            classDefinition.properties.put("init" + nameAugment, initializer);
+            classDefinition.properties.put("init" + FunctionUtil.nameAugment(new ArrayList<String>(classDefinition.properties.keySet()), new ArrayList<Instance>(classDefinition.properties.values())), initializer);
         }
     }
 

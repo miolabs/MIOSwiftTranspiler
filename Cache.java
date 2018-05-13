@@ -13,20 +13,23 @@ public class Cache {
             this.object = object;
         }
     }
-    static class CacheBlockAndExpression {
-        public ParseTree block;
-        public Expression expression;
-
-        public CacheBlockAndExpression(ParseTree block, Expression expression) {
-            this.block = block;
-            this.expression = expression;
-        }
-    }
 
     private Map<ParseTree, Map<String, Object>> cache = new HashMap<ParseTree, Map<String, Object>>();
 
     static public boolean isStructureBlock(ParseTree node) {
-        return node instanceof SwiftParser.Class_bodyContext || node instanceof SwiftParser.Struct_bodyContext;
+        return (
+            node instanceof SwiftParser.Class_bodyContext ||
+            node instanceof SwiftParser.Struct_bodyContext ||
+            node instanceof SwiftParser.Protocol_bodyContext
+        );
+    }
+
+    static public String structureName(ParseTree ctx) {
+        return (
+            ctx instanceof SwiftParser.Class_declarationContext ? ((SwiftParser.Class_declarationContext)ctx).class_name().getText() :
+            ctx instanceof SwiftParser.Struct_declarationContext ? ((SwiftParser.Struct_declarationContext)ctx).struct_name().getText() :
+            ((SwiftParser.Protocol_declarationContext)ctx).protocol_name().getText()
+        );
     }
 
     public ParseTree findNearestAncestorBlock(ParseTree node) {
@@ -62,9 +65,14 @@ public class Cache {
             String className = classDeclaration.class_name().getText();
             return find(className, classDeclaration);
         }
-        else {
+        else if(block instanceof SwiftParser.Struct_bodyContext) {
             SwiftParser.Struct_declarationContext structDeclaration = (SwiftParser.Struct_declarationContext)((SwiftParser.Struct_bodyContext)block).parent;
             String className = structDeclaration.struct_name().getText();
+            return find(className, structDeclaration);
+        }
+        else {
+            SwiftParser.Protocol_declarationContext structDeclaration = (SwiftParser.Protocol_declarationContext)((SwiftParser.Protocol_bodyContext)block).parent;
+            String className = structDeclaration.protocol_name().getText();
             return find(className, structDeclaration);
         }
     }

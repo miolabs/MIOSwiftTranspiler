@@ -31,6 +31,12 @@ public class CacheVisitor extends Visitor {
         visit(ctx.property_declaration_body());
         return null;
     }
+    @Override public String visitProtocol_property_declaration(SwiftParser.Protocol_property_declarationContext ctx) {
+        String varName = ctx.variable_name().getText();
+        Instance varType = TypeUtil.fromDefinition(ctx.type_annotation().type(), this);
+        cache(varName, varType, ctx);
+        return null;
+    }
 
     private void cache(String varName, Object/*Definition/Instance*/ varType, ParseTree ctx) {
         if(varType instanceof FunctionDefinition) varName += FunctionUtil.nameAugment(((FunctionDefinition)varType).parameterExternalNames, ((FunctionDefinition)varType).parameterTypes);
@@ -45,18 +51,23 @@ public class CacheVisitor extends Visitor {
         visitFunctionDeclaration(ctx);
         return null;
     }
+    @Override public String visitProtocol_method_declaration(SwiftParser.Protocol_method_declarationContext ctx) {
+        visitFunctionDeclaration(ctx);
+        return null;
+    }
     private void visitFunctionDeclaration(ParserRuleContext ctx) {
 
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, this);
         cache.cacheOne(functionDefinition.name, functionDefinition, ctx);
 
-        SwiftParser.Code_blockContext codeBlockCtx = FunctionUtil.codeBlockCtx(ctx);
-        ArrayList<String> parameterLocalNames = FunctionUtil.parameterLocalNames(FunctionUtil.parameters(ctx));
-        for(int i = 0; i < parameterLocalNames.size(); i++) {
-            cache.cacheOne(parameterLocalNames.get(i), functionDefinition.parameterTypes.get(i), codeBlockCtx);
+        if(!(ctx instanceof SwiftParser.Protocol_method_declarationContext)) {
+            SwiftParser.Code_blockContext codeBlockCtx = FunctionUtil.codeBlockCtx(ctx);
+            ArrayList<String> parameterLocalNames = FunctionUtil.parameterLocalNames(FunctionUtil.parameters(ctx));
+            for(int i = 0; i < parameterLocalNames.size(); i++) {
+                cache.cacheOne(parameterLocalNames.get(i), functionDefinition.parameterTypes.get(i), codeBlockCtx);
+            }
+            visit(codeBlockCtx);
         }
-
-        visit(codeBlockCtx);
     }
 
     public void visitExplicit_closure_expression(PrefixElem elem, SwiftParser.Explicit_closure_expressionContext ctx, int paramPos) {
@@ -109,36 +120,56 @@ public class CacheVisitor extends Visitor {
     }*/
 
     @Override public String visitClass_declaration(SwiftParser.Class_declarationContext ctx) {
-        visitClassOrStructDeclaration(ctx);
+        visitClassOrStructOrProtocolDeclaration(ctx);
         return null;
     }
     @Override public String visitStruct_declaration(SwiftParser.Struct_declarationContext ctx) {
-        visitClassOrStructDeclaration(ctx);
+        visitClassOrStructOrProtocolDeclaration(ctx);
         return null;
     }
-    private void visitClassOrStructDeclaration(ParserRuleContext ctx) {
-        String className =
-                ctx instanceof SwiftParser.Class_declarationContext ? ((SwiftParser.Class_declarationContext)ctx).class_name().getText() :
-                ((SwiftParser.Struct_declarationContext)ctx).struct_name().getText();
+    @Override public String visitProtocol_declaration(SwiftParser.Protocol_declarationContext ctx) {
+        visitClassOrStructOrProtocolDeclaration(ctx);
+        return null;
+    }
+    private void visitClassOrStructOrProtocolDeclaration(ParserRuleContext ctx) {
+        int type = ctx instanceof SwiftParser.Class_declarationContext ? 0 : ctx instanceof SwiftParser.Struct_declarationContext ? 1 : 2;
+
+        String name = Cache.structureName(ctx);
 
         Cache.CacheBlockAndObject superClass = null;
+        List<ClassDefinition> protocols = new ArrayList<ClassDefinition>();
         SwiftParser.Type_inheritance_clauseContext typeInheritanceClauseCtx =
-                ctx instanceof SwiftParser.Class_declarationContext ? ((SwiftParser.Class_declarationContext)ctx).type_inheritance_clause() :
-                ((SwiftParser.Struct_declarationContext)ctx).type_inheritance_clause();
+                type == 0 ? ((SwiftParser.Class_declarationContext)ctx).type_inheritance_clause() :
+                type == 1 ? ((SwiftParser.Struct_declarationContext)ctx).type_inheritance_clause() :
+                ((SwiftParser.Protocol_declarationContext)ctx).type_inheritance_clause();
         if(typeInheritanceClauseCtx != null) {
-            String superClassName = typeInheritanceClauseCtx.type_inheritance_list().type_identifier().getText();
-            superClass = this.cache.find(superClassName, ctx);
+            SwiftParser.Type_inheritance_listContext typeInheritanceListCtx = typeInheritanceClauseCtx.type_inheritance_list();
+            while(typeInheritanceListCtx != null) {
+                String inheritedName = typeInheritanceListCtx.type_identifier().getText();
+                Cache.CacheBlockAndObject inheritedDefinition = cache.find(inheritedName, ctx);
+                if(type != 2 && ((ClassDefinition)inheritedDefinition.object).isProtocol) {
+                    protocols.add((ClassDefinition)inheritedDefinition.object);
+                }
+                else {
+                    superClass = inheritedDefinition;
+                }
+                typeInheritanceListCtx = typeInheritanceListCtx.type_inheritance_list();
+            }
         }
 
-        ClassDefinition classDefinition = new ClassDefinition(className, superClass, new LinkedHashMap<String, Instance>(), new ArrayList<String>());
+        ClassDefinition classDefinition = new ClassDefinition(name, superClass, new LinkedHashMap<String, Instance>(), new ArrayList<String>(), type == 2, protocols);
         if(ctx instanceof SwiftParser.Struct_declarationContext) {
             classDefinition.cloneOnAssignmentReplacement = new HashMap<String, Boolean>();
             classDefinition.cloneOnAssignmentReplacement.put("ts", true);
             classDefinition.cloneOnAssignmentReplacement.put("java", true);
         }
-        cache.cacheOne(className, classDefinition, ctx);
+        cache.cacheOne(name, classDefinition, ctx);
 
-        visit(ctx instanceof SwiftParser.Class_declarationContext ? ((SwiftParser.Class_declarationContext)ctx).class_body() : ((SwiftParser.Struct_declarationContext)ctx).struct_body());
+        visit(
+                type == 0 ? ((SwiftParser.Class_declarationContext) ctx).class_body() :
+                type == 1 ? ((SwiftParser.Struct_declarationContext) ctx).struct_body() :
+                ((SwiftParser.Protocol_declarationContext) ctx).protocol_body()
+        );
 
         if(ctx instanceof SwiftParser.Struct_declarationContext) Initializer.addMemberwiseInitializer(classDefinition, ctx, this);
         Initializer.addDefaultInitializer(classDefinition, ctx, this);

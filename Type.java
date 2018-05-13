@@ -22,7 +22,9 @@ class ClassDefinition extends Definition {
     public Map<String, String> typeReplacement;//ts, java, javaProtocol(e.g. Map for HashMap) -- string with generics
     public Cache.CacheBlockAndObject superClass;
     public Map<String, Instance> properties;
-    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<String> generics){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; }
+    boolean isProtocol;
+    public List<ClassDefinition> protocols;
+    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<String> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; }
     public Map<String, Cache.CacheBlockAndObject> getAllProperties() {
         Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
         ClassDefinition classDefinition = this;
@@ -55,7 +57,8 @@ class FunctionDefinition extends Definition {
         this.name = FunctionUtil.functionName(ctx, parameterExternalNames, parameterTypes);
 
         this.result =
-            ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), ((SwiftParser.Function_declarationContext) ctx).function_body().code_block().statements(), false, visitor) :
+            ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), FunctionUtil.codeBlockCtx(ctx).statements(), false, ctx, visitor) :
+            ctx instanceof SwiftParser.Protocol_method_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Protocol_method_declarationContext) ctx).function_signature().function_result(), null, false, ctx, visitor) :
             new Instance("Void", ctx, visitor.cache);
     }
 }
