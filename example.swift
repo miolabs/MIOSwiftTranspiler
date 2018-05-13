@@ -1,24 +1,13 @@
-protocol P1 {
-    var color: String{get set}
+func returnTuple() -> (Int,String) {
+    return (0, "val")
 }
-class C1: P1 {
-    var privateColor = "black"
-    var color: String {
-        get {
-            return privateColor
-        }
-        set(newColor) {
-            privateColor = newColor
-        }
-    }
+print(returnTuple().0)
+print(returnTuple().1)
+
+func returnOptionalTuple(shouldReturn: Bool) -> (Int,String)? {
+    return shouldReturn ? (0, "val") : nil
 }
-class C2: P1 {
-    var color = "black"
-}
-func printColor(p1: P1) {
-    print(p1.color)
-}
-var c1 = C1()
-var c2 = C2()
-printColor(p1: c1)
-printColor(p1: c2)
+print(returnOptionalTuple(shouldReturn: false)?.0)
+print(returnOptionalTuple(shouldReturn: false)?.1)
+print((returnOptionalTuple(shouldReturn: true)?.0)!)
+print((returnOptionalTuple(shouldReturn: true)?.1)!)

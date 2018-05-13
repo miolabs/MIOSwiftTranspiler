@@ -15,6 +15,14 @@ class Parent {
         }
     }
     var prop3: Int = 1
+    var prop4: Int {
+        get {
+            return 4
+        }
+        set(newProp) {
+
+        }
+    }
 }
 class Child: Parent {
     override func function() -> Int {
@@ -36,6 +44,11 @@ class Child: Parent {
             print("lol")
         }
     }
+    override var prop4: Int {
+        willSet {
+            print("lolol")
+        }
+    }
 }
 var parent = Parent()
 var child = Child()
@@ -53,3 +66,9 @@ parent.prop3 = 3
 child.prop3 = 3
 print(parent.prop3)
 print(child.prop3)
+print(parent.prop4)
+print(child.prop4)
+parent.prop4 = 3
+child.prop4 = 3
+print(parent.prop4)
+print(child.prop4)

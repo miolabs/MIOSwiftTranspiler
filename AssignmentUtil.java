@@ -112,7 +112,8 @@ public class AssignmentUtil {
         String propertyName = visitor.visitChildren(ctx.variable_name()).trim();
         Cache.CacheBlockAndObject property = visitor.cache.find(propertyName, ctx);
         String propertyType = ((Instance)property.object).targetType(visitor.targetLanguage, false, true);
-        String internalVar = "this." + propertyName + "$val";
+        String internalGetVar = "this." + propertyName + "$val";
+        String internalSetVar = "this." + propertyName + "$val = newValue";
 
         SwiftParser.WillSet_clauseContext willSetClause = declarationCtx.willSet_didSet_block().willSet_clause();
         SwiftParser.DidSet_clauseContext didSetClause = declarationCtx.willSet_didSet_block().didSet_clause();
@@ -122,18 +123,25 @@ public class AssignmentUtil {
         if(isOverride) {
             ClassDefinition classDefinition = (ClassDefinition)visitor.cache.findNearestAncestorStructure(ctx).object;
             Instance superPropertyType = new Instance((ClassDefinition)classDefinition.superClass.object).getProperty(propertyName);
-            if(!superPropertyType.isGetterSetter) internalVar = "this." + propertyName;
+            if(!superPropertyType.isGetterSetter) {
+                internalGetVar = "this." + propertyName;
+                internalSetVar = "this." + propertyName + " = newValue";
+            }
+            else {
+                internalGetVar = "super." + propertyName + "$get()";
+                internalSetVar = "super." + propertyName + "$set(newValue)";
+            }
         }
 
         return
             (!isOverride ? propertyName + "$val: " + propertyType + " " + (declarationCtx.initializer() != null ? visitor.visit(declarationCtx.initializer()) : "" ) + "\n" : "") +
-            propertyName + "$get(): " + propertyType + " { return " + internalVar + " }\n" +
+            propertyName + "$get(): " + propertyType + " { return " + internalGetVar + " }\n" +
             propertyName + "$set(newValue: " + propertyType + ") {\n" +
                 "let willSet = (" + willSetArgumentName(willSetClause) + ": " + propertyType + ") => " + visitor.visit(willSetClause.code_block()) + "\n" +
                 (didSetClause != null ? "let didSet = (" + didSetArgumentName(didSetClause) + ": " + propertyType + ") => " + visitor.visit(didSetClause.code_block()) + "\n" : "") +
-                (didSetClause != null ? "let oldValue: " + propertyType + " = " + internalVar + ";\n" : "") +
+                (didSetClause != null ? "let oldValue: " + propertyType + " = " + internalGetVar + ";\n" : "") +
                 "willSet(newValue);\n" +
-                internalVar + " = newValue;\n" +
+                internalSetVar + ";\n" +
                 (didSetClause != null ? "didSet(oldValue);\n" : "") +
             "}";
     }
