@@ -191,8 +191,8 @@ public class CacheVisitor extends Visitor {
             else {
                 valueVar = ctx.pattern().identifier_pattern().getText();
             }
-            cache.cacheOne(indexVar, iteratedType.typeName().equals("Dictionary") ? iteratedType.generics.get("Key") : new Instance("Int", ctx, cache), ctx.code_block());
-            cache.cacheOne(valueVar, iteratedType.typeName().equals("String") ? new Instance("String", ctx, cache) : iteratedType.generics.get("Value"), ctx.code_block());
+            cache.cacheOne(indexVar, iteratedType.typeName() != null && iteratedType.typeName().equals("Dictionary") ? iteratedType.generics.get("Key") : new Instance("Int", ctx, cache), ctx.code_block());
+            cache.cacheOne(valueVar, iteratedType.typeName() != null && iteratedType.typeName().equals("String") ? new Instance("String", ctx, cache) : iteratedType.generics.get("Value"), ctx.code_block());
         }
 
         visit(ctx.code_block());

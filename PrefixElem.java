@@ -12,7 +12,7 @@ public class PrefixElem {
     public boolean isSubscript;
     public Instance type;
     public List<String> functionCallParams;
-    public Object/*Defintion/Instance*/ typeBeforeCall;
+    public Object/*Definition/Instance*/ typeBeforeCall;
     public String initializerSignature;
     public boolean isOptional;
     public PrefixElem(String code, boolean isSubscript, Instance type, List<String> functionCallParams, Object typeBeforeCall, String initializerSignature) { this.code = code; this.isSubscript = isSubscript; this.type = type; this.functionCallParams = functionCallParams; this.typeBeforeCall = typeBeforeCall; this.initializerSignature = initializerSignature; this.isOptional = false; }
@@ -134,7 +134,7 @@ public class PrefixElem {
             }
             else {
                 String code = visitor.visit(rChild);
-                if(type != null && type.typeName().equals("Set")) code = "new Set(" + code + ")";
+                if(type != null && type.typeName() != null && type.typeName().equals("Set")) code = "new Set(" + code + ")";
                 return code;
             }
         }

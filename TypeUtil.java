@@ -124,12 +124,12 @@ public class TypeUtil {
         if(typesEqual(L.type().definition, L.type().generics, R.type())) {
             type = L.type();
         }
-        else if(L.type().typeName().equals("Void")) {
+        else if(L.type().typeName() != null && L.type().typeName().equals("Void")) {
             Instance rClone = R.type();
             rClone.isOptional = true;
             return rClone;
         }
-        else if(R.type().typeName().equals("Void")) {
+        else if(R.type().typeName() != null && R.type().typeName().equals("Void")) {
             Instance lClone = L.type();
             lClone.isOptional = true;
             return lClone;

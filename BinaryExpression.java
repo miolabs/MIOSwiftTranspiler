@@ -65,7 +65,7 @@ public class BinaryExpression implements PrefixOrExpression {
             }
         }
         else {
-            String assignment = isAssignment(alias) ? R.type().typeName().equals("Void") ? "N" : R.type().isOptional ? "TN" : "T" : null,
+            String assignment = isAssignment(alias) ? R.type().typeName() != null && R.type().typeName().equals("Void") ? "N" : R.type().isOptional ? "TN" : "T" : null,
                    lCode = isAssignment(alias) ? ((Prefix)L).code(assignment, ctx, visitor) : L.code(ctx, visitor), rCode = R.code(ctx, visitor);
 
             if(assignment != null) {
