@@ -122,14 +122,14 @@ public class Prefix implements PrefixOrExpression {
                 if(elem.type.isGetterSetter) LR += "$set(#ASS)";
                 else if(elem.type.isInout) LR += ".set(#ASS)";
                 else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
-                    LR = "if(#R$set in #L) { " + LR + "$set(#ASS); } else { " + LR + " = #ASS;}";
+                    LR = "if('#R$set' in #L) { " + LR + "$set(#ASS); } else { " + LR + " = #ASS;}";
                 }
             }
             else {
                 if(elem.type.isGetterSetter) LR += "$get()";
                 else if(elem.type.isInout) LR += ".get()";
                 else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
-                    LR = "(#R$get in #L ? " + LR + "$get() : " + LR + ")";
+                    LR = "('#R$get' in #L ? " + LR + "$get() : " + LR + ")";
                 }
             }
             if(elem.initializerSignature != null) LR = "new " + LR + "(\"" + elem.initializerSignature + "\",#AA)";
