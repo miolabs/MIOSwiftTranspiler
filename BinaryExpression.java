@@ -106,7 +106,8 @@ public class BinaryExpression implements PrefixOrExpression {
             boolean assignmentIsReplaced = assignment != null && (
                 ((Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("T") || Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("N"))) ||
                 ((Prefix) L).elems.get(((Prefix) L).elems.size() - 1).type.isGetterSetter ||
-                ((Prefix) L).elems.get(((Prefix) L).elems.size() - 1).type.isInout
+                ((Prefix) L).elems.get(((Prefix) L).elems.size() - 1).type.isInout ||
+                (((Prefix) L).elems.size() > 1 && ((ClassDefinition)((Prefix) L).elems.get(((Prefix) L).elems.size() - 2).type.definition).isProtocol)
             );
             this.code =
                     assignmentIsReplaced ? lCode.replaceAll("#ASS", Matcher.quoteReplacement(rCode)) :
