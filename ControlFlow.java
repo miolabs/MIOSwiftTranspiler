@@ -135,19 +135,32 @@ public class ControlFlow {
             if(result.length() > 0) {
                 result += " || ";
             }
-            RangeOperator rangeOperator = null;
-            if(WalkerUtil.isDirectDescendant(SwiftParser.ExpressionContext.class, caseItem)) {
-                rangeOperator = new RangeOperator(caseItem.pattern().expression_pattern().expression(), visitor);
+            if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, caseItem)) {
+                List<SwiftParser.Tuple_pattern_elementContext> tuples = caseItem.pattern().tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
+                result += "(";
+                for(int i = 0; i < tuples.size(); i++) {
+                    if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
+                    if(result.length() > 1) result += " && ";
+                    result += switchSingleCondition("$switch[" + i + "]", tuples.get(i).pattern(), visitor);
+                }
+                result += ")";
             }
-            if(rangeOperator != null && rangeOperator.comparator != null) {
-                result += "($switch >= (" + rangeOperator.from + ") && $switch " + rangeOperator.comparator + " (" + rangeOperator.to + "))";
-            }
-            else {
-                result += "($switch === " + visitor.visitChildren(caseItem.pattern()) + ")";
-            }
+            else result += switchSingleCondition("$switch", caseItem.pattern(), visitor);
             caseItem = caseItem.case_item_list();
         }
         return result;
+    }
+    static private String switchSingleCondition(String varName, SwiftParser.PatternContext ctx, Visitor visitor) {
+        RangeOperator rangeOperator = null;
+        if(WalkerUtil.isDirectDescendant(SwiftParser.ExpressionContext.class, ctx)) {
+            rangeOperator = new RangeOperator(ctx.expression_pattern().expression(), visitor);
+        }
+        if(rangeOperator != null && rangeOperator.comparator != null) {
+            return "(" + varName + " >= (" + rangeOperator.from + ") && " + varName + " " + rangeOperator.comparator + " (" + rangeOperator.to + "))";
+        }
+        else {
+            return "(" + varName + " === " + visitor.visitChildren(ctx) + ")";
+        }
     }
 
     static public String switchStatement(SwiftParser.Switch_statementContext ctx, Visitor visitor) {

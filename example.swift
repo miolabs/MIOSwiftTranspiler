@@ -1,9 +1,7 @@
-let a = 3
+var a = 1
 switch a {
-case 0..<3:
-    print("0/1/2")
-case 3...5:
-    print("3/4/5")
+case 1, 2, 3:
+    print("1/2/3")
 default:
-    print("not 0/1/2/3/4/5")
+    print("not 1/2/3")
 }

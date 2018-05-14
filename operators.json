@@ -94,5 +94,11 @@
   "is": {
     "priority": 8,
     "result": "Bool"
+  },
+  "...": {
+    "priority": 4
+  },
+  "..<": {
+    "priority": 4
   }
 }

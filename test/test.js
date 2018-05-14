@@ -44,6 +44,7 @@ languages.forEach(language => {
 
                             exec(compileCommand, (err, stdout) => {
                                 transpiledLog = stdout;
+                                //console.log(err);
 
                                 exec('swift ' + __dirname + '/' + dir + '/' + file, (err, stdout) => {
                                     expectedLog = stdout;
