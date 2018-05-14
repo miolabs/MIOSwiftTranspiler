@@ -20,6 +20,10 @@ public class TranspilerVisitor extends Visitor {
         return ControlFlow.repeatWhile(ctx, this);
     }
 
+    @Override public String visitSwitch_statement(SwiftParser.Switch_statementContext ctx) {
+        return ControlFlow.switchStatement(ctx, this);
+    }
+
     @Override public String visitIf_statement(SwiftParser.If_statementContext ctx) {
         return ControlFlow.ifThen(ctx, this);
     }
@@ -109,6 +113,9 @@ public class TranspilerVisitor extends Visitor {
         return "";
     }
     @Override public String visitInout(SwiftParser.InoutContext ctx) {
+        return "";
+    }
+    @Override public String visitFallthrough_statement(SwiftParser.Fallthrough_statementContext ctx) {
         return "";
     }
 

@@ -115,4 +115,63 @@ public class ControlFlow {
     static public String guard(SwiftParser.Guard_statementContext ctx, Visitor visitor) {
         return ifOrGuard(ctx, visitor);
     }
+
+    static private String switchCondition(SwiftParser.Switch_caseContext ctx, Visitor visitor) {
+        if(ctx.default_label() != null) return "true";
+
+        String result = "";
+        SwiftParser.Case_item_listContext caseItem = ctx.case_label().case_item_list();
+        while(caseItem != null) {
+            if(result.length() > 0) {
+                result += " || ";
+            }
+            result += "($switch === " + visitor.visitChildren(caseItem.pattern()) + ")";
+            caseItem = caseItem.case_item_list();
+        }
+        return result;
+    }
+
+    static public String switchStatement(SwiftParser.Switch_statementContext ctx, Visitor visitor) {
+        String result = "";
+
+        result += "const $switch = " + visitor.visitChildren(ctx.expression()) + ";\n";
+
+        List<SwiftParser.Switch_caseContext> switchCases = new ArrayList<SwiftParser.Switch_caseContext>();
+        SwiftParser.Switch_casesContext currSwitchCases = ctx.switch_cases();
+        while(currSwitchCases != null) {
+            switchCases.add(currSwitchCases.switch_case());
+            currSwitchCases = currSwitchCases.switch_cases();
+        }
+
+        for(int i = 0; i < switchCases.size(); i++) {
+            if(i > 0) result += "else ";
+            int j = 0;
+            for(; j < switchCases.size() - i; j++) {
+                //if the i+j'th case doesn't have fallthrough, break
+                if(!WalkerUtil.isDirectDescendant(SwiftParser.Fallthrough_statementContext.class, switchCases.get(i + j).statements().statement(switchCases.get(i + j).statements().statement().size() - 1))) break;
+            }
+            result += "if((";
+            for(int k = i; k <= i + j; k++) {
+                if(k > i) result += ") || (";
+                result += switchCondition(switchCases.get(k), visitor);
+            }
+            result += ")) {\n";
+            for(int k = i; k <= i + j; k++) {
+                if(k < i + j) {
+                    result += "if((";
+                    for(int l = i; l <= k; l++) {
+                        if(l > i) result += ") || (";
+                        result += switchCondition(switchCases.get(l), visitor);
+                    }
+                    result += ")) {\n";
+                }
+                result += visitor.visitChildren(switchCases.get(k).statements());
+                if(k < i + j) result += "}\n";
+            }
+            result += "}\n";
+            i += j;
+        }
+
+        return result;
+    }
 }
