@@ -28,16 +28,26 @@ class IfLet {
 }
 public class ControlFlow {
 
+    static class RangeOperator {
+        String from, to, comparator;
+        RangeOperator(SwiftParser.ExpressionContext expression, Visitor visitor) {
+            if(expression.binary_expressions() != null && expression.binary_expressions().binary_expression().size() > 0) {
+                SwiftParser.Binary_expressionContext binary = expression.binary_expressions().binary_expression(0);
+                from = visitor.visit(expression.prefix_expression());
+                to = new Expression(expression, null, true, visitor).code;
+                String binaryOperator = BinaryExpression.operatorAlias(binary.binary_operator());
+                comparator = binaryOperator.equals("...") ? "<=" : binaryOperator.equals("..<") ? "<" : null;
+            }
+        }
+    }
+
     static public String forIn(SwiftParser.For_in_statementContext ctx, Visitor visitor) {
         SwiftParser.ExpressionContext expression = ctx.expression();
 
         if(expression != null && expression.binary_expressions() != null) {
-            SwiftParser.Binary_expressionContext binary = expression.binary_expressions().binary_expression(0);
-            String from = visitor.visit(expression.prefix_expression()),
-                   to = new Expression(expression, null, true, visitor).code,
-                   varName = ctx.pattern().getText().equals("_") ? "$" : ctx.pattern().getText(),
-                   operator = BinaryExpression.operatorAlias(binary.binary_operator());
-            return "for(" + (visitor.targetLanguage.equals("ts") ? "let" : "int") + " " + varName + " = " + from + "; " + varName + " " + (operator.equals("...") ? "<=" : "<") + " " + to + "; " + varName + "++) " + visitor.visit(ctx.code_block());
+            RangeOperator rangeOperator = new RangeOperator(expression, visitor);
+            String varName = ctx.pattern().getText().equals("_") ? "$" : ctx.pattern().getText();
+            return "for(" + (visitor.targetLanguage.equals("ts") ? "let" : "int") + " " + varName + " = " + rangeOperator.from + "; " + varName + " " + rangeOperator.comparator + " (" + rangeOperator.to + "); " + varName + "++) " + visitor.visit(ctx.code_block());
         }
 
         Expression iteratedObject = new Expression(expression, null, visitor);
@@ -125,7 +135,16 @@ public class ControlFlow {
             if(result.length() > 0) {
                 result += " || ";
             }
-            result += "($switch === " + visitor.visitChildren(caseItem.pattern()) + ")";
+            RangeOperator rangeOperator = null;
+            if(WalkerUtil.isDirectDescendant(SwiftParser.ExpressionContext.class, caseItem)) {
+                rangeOperator = new RangeOperator(caseItem.pattern().expression_pattern().expression(), visitor);
+            }
+            if(rangeOperator != null && rangeOperator.comparator != null) {
+                result += "($switch >= (" + rangeOperator.from + ") && $switch " + rangeOperator.comparator + " (" + rangeOperator.to + "))";
+            }
+            else {
+                result += "($switch === " + visitor.visitChildren(caseItem.pattern()) + ")";
+            }
             caseItem = caseItem.case_item_list();
         }
         return result;
