@@ -70,6 +70,7 @@ class Instance {
     public boolean isOptional = false;
     public boolean isInout = false;
     public boolean isVariadicParameter = false;
+    public String enumerationDefinition = null;
     //class property modifiers
     public boolean isStatic = false;
     public boolean isOperator = false;

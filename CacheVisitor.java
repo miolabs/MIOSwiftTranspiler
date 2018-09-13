@@ -232,4 +232,9 @@ public class CacheVisitor extends Visitor {
         }
         return null;
     }
+
+    @Override public String visitEnum_declaration(SwiftParser.Enum_declarationContext ctx) {
+        Enumeration.cacheDeclaration(ctx, this);
+        return null;
+    }
 }

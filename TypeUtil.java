@@ -20,17 +20,7 @@ public class TypeUtil {
         else if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_typeContext.class, ctx)) type = fromTupleDefinition(ctx.tuple_type().tuple_type_body().tuple_type_element_list(), visitor);
         else if(ctx.type_identifier() != null && ctx.type_identifier().type_name() != null && ctx.type_identifier().type_name().getText().equals("Set")) type = fromSetDefinition(ctx.type_identifier(), visitor);
         else if(WalkerUtil.has(SwiftParser.Arrow_operatorContext.class, ctx)) type = fromFunctionDefinition(ctx.type(0), ctx.type(1), visitor);
-        else {
-            String typeName = ctx.getText();
-            Cache.CacheBlockAndObject classDefinition = visitor.cache.find(typeName, ctx);
-            if(classDefinition != null) {
-                type = new Instance(typeName, ctx, visitor.cache);
-                //type = (ClassDefinition)classDefinition.object;
-            }
-            else {
-                type = new Instance(typeName, ctx, visitor.cache);
-            }
-        }
+        else type = fromName(ctx.getText(), ctx, visitor);
 
         if(ctx.getParent().getParent() instanceof SwiftParser.ParameterContext && ((SwiftParser.ParameterContext)ctx.getParent().getParent()).range_operator() != null) {
             Instance baseType = type;
@@ -45,6 +35,17 @@ public class TypeUtil {
         type.isInout = isInout;
 
         return type;
+    }
+
+    public static Instance fromName(String typeName, ParseTree ctx, Visitor visitor) {
+        Cache.CacheBlockAndObject classDefinition = visitor.cache.find(typeName, ctx);
+        if(classDefinition != null) {
+            return new Instance(typeName, ctx, visitor.cache);
+            //(ClassDefinition)classDefinition.object;
+        }
+        else {
+            return new Instance(typeName, ctx, visitor.cache);
+        }
     }
 
     private static Instance fromDictionaryDefinition(SwiftParser.Dictionary_definitionContext ctx, Visitor visitor) {
@@ -77,7 +78,7 @@ public class TypeUtil {
         }
         return flattened;
     }
-    private static Instance fromTupleDefinition(SwiftParser.Tuple_type_element_listContext ctx, Visitor visitor) {
+    public static Instance fromTupleDefinition(SwiftParser.Tuple_type_element_listContext ctx, Visitor visitor) {
         LinkedHashMap<String, Instance> elems = flattenTupleDefinition(ctx, visitor);
         ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", ctx), elems, new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
         return new Instance(tupleDefinition);
