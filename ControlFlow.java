@@ -126,31 +126,51 @@ public class ControlFlow {
         return ifOrGuard(ctx, visitor);
     }
 
-    static private String switchCondition(SwiftParser.Switch_caseContext ctx, Visitor visitor) {
+    static public String switchCondition(Instance switchedType, SwiftParser.Switch_caseContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
         if(ctx.default_label() != null) return "true";
 
-        String result = "";
+        String result = "(";
         SwiftParser.Case_item_listContext caseItem = ctx.case_label().case_item_list();
         while(caseItem != null) {
-            if(result.length() > 0) {
+            if(result.length() > 1) {
                 result += " || ";
             }
-            if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, caseItem)) {
-                List<SwiftParser.Tuple_pattern_elementContext> tuples = caseItem.pattern().tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
-                result += "(";
-                for(int i = 0; i < tuples.size(); i++) {
-                    if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
-                    if(result.length() > 1) result += " && ";
-                    result += switchSingleCondition("$switch[" + i + "]", tuples.get(i).pattern(), visitor);
+            result += switchSingleCondition(switchedType, "$switch", caseItem.pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            if(caseItem.where_clause() != null) {
+                visitor.varNameReplacements = new ArrayList<String>();
+                for(int v = 0; v < valueBindingNames.size(); v++) {
+                    visitor.varNameReplacements.add(valueBindingNames.get(v));
+                    visitor.varNameReplacements.add(valueBindingExpressions.get(v));
                 }
-                result += ")";
+                result += ") && (" + visitor.visit(ctx.case_label().case_item_list().where_clause().where_expression().expression());
+                visitor.varNameReplacements = null;
             }
-            else result += switchSingleCondition("$switch", caseItem.pattern(), visitor);
             caseItem = caseItem.case_item_list();
         }
+        result += ")";
         return result;
     }
-    static private String switchSingleCondition(String varName, SwiftParser.PatternContext ctx, Visitor visitor) {
+    static private String switchSingleCondition(Instance switchedType, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
+
+        if(WalkerUtil.isDirectDescendant(SwiftParser.Value_binding_patternContext.class, ctx)) {
+            if(valueBindingNames != null) {
+                switchValueBinding(switchedType, varName, ctx.value_binding_pattern().pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            }
+            return "true";
+        }
+
+        if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
+            List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
+            String result = "(";
+            for(int i = 0; i < tuples.size(); i++) {
+                if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
+                if(result.length() > 1) result += " && ";
+                result += switchSingleCondition(switchedType.getProperty(i + ""), varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            }
+            result += ")";
+            return result;
+        }
+
         RangeOperator rangeOperator = null;
         if(WalkerUtil.isDirectDescendant(SwiftParser.ExpressionContext.class, ctx)) {
             rangeOperator = new RangeOperator(ctx.expression_pattern().expression(), visitor);
@@ -162,11 +182,26 @@ public class ControlFlow {
             return "(" + varName + " === " + visitor.visitChildren(ctx) + ")";
         }
     }
+    static private void switchValueBinding(Instance switchedType, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
+
+        if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
+            List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
+            for(int i = 0; i < tuples.size(); i++) {
+                switchValueBinding(switchedType.getProperty(i + ""), varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            }
+        }
+        else {
+            valueBindingNames.add(visitor.visitChildren(ctx).trim());
+            valueBindingExpressions.add(varName);
+            valueBindingTypes.add(switchedType);
+        }
+    }
 
     static public String switchStatement(SwiftParser.Switch_statementContext ctx, Visitor visitor) {
         String result = "";
 
         result += "const $switch = " + visitor.visitChildren(ctx.expression()) + ";\n";
+        Instance switchedType = TypeUtil.infer(ctx.expression(), visitor);
 
         List<SwiftParser.Switch_caseContext> switchCases = new ArrayList<SwiftParser.Switch_caseContext>();
         SwiftParser.Switch_casesContext currSwitchCases = ctx.switch_cases();
@@ -183,17 +218,23 @@ public class ControlFlow {
                 if(!WalkerUtil.isDirectDescendant(SwiftParser.Fallthrough_statementContext.class, switchCases.get(i + j).statements().statement(switchCases.get(i + j).statements().statement().size() - 1))) break;
             }
             result += "if((";
+            List<String> valueBindingNames = new ArrayList<String>();
+            List<String> valueBindingExpressions = new ArrayList<String>();
+            List<Instance> valueBindingTypes = new ArrayList<Instance>();
             for(int k = i; k <= i + j; k++) {
                 if(k > i) result += ") || (";
-                result += switchCondition(switchCases.get(k), visitor);
+                result += switchCondition(switchedType, switchCases.get(k), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
             result += ")) {\n";
+            for(int v = 0; v < valueBindingNames.size(); v++) {
+                result += "const " + valueBindingNames.get(v) + " = " + valueBindingExpressions.get(v) + ";\n";
+            }
             for(int k = i; k <= i + j; k++) {
                 if(k < i + j) {
                     result += "if((";
                     for(int l = i; l <= k; l++) {
                         if(l > i) result += ") || (";
-                        result += switchCondition(switchCases.get(l), visitor);
+                        result += switchCondition(switchedType, switchCases.get(l), null, null, null, visitor);
                     }
                     result += ")) {\n";
                 }

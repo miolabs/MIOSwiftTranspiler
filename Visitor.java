@@ -8,6 +8,7 @@ public class Visitor extends SwiftBaseVisitor<String> {
 
     public Cache cache;
     protected String targetLanguage;
+    public List<String> varNameReplacements = null;
 
     @Override protected String aggregateResult(String aggregate, String nextResult) {
         return aggregate + nextResult;

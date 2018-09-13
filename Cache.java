@@ -38,6 +38,7 @@ public class Cache {
                 node instanceof SwiftParser.Code_blockContext ||
                 node instanceof SwiftParser.Closure_expressionContext ||
                 node instanceof SwiftParser.Explicit_closure_expressionContext ||
+                node instanceof SwiftParser.Switch_caseContext ||
                 isStructureBlock(node);
         if(isBlock) return node;
         if(node == null || node.getParent() == null || node.getParent() == node) return null;

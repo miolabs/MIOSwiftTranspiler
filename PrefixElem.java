@@ -324,6 +324,10 @@ public class PrefixElem {
             else if(varName.equals("super")) {
                 instanceOrDefinition = new Instance((ClassDefinition)instanceOrDefinition);
             }
+            if(visitor.varNameReplacements != null) {
+                int index = visitor.varNameReplacements.indexOf(varName);
+                if(index >= 0) code = visitor.varNameReplacements.get(index + 1);
+            }
             if(functionCallParams != null) {
                 typeBeforeCall = instanceOrDefinition;
                 if(instanceOrDefinition instanceof Definition) {

@@ -1,7 +1,5 @@
-var a = 1
-switch a {
-case 1, 2, 3:
-    print("1/2/3")
-default:
-    print("not 1/2/3")
+let yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print(x)
 }

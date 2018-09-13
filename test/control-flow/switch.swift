@@ -159,3 +159,64 @@ case (-2...2, -2...2):
 default:
     print("point is outside of the box")
 }
+var nestedTuple = (0, (1, 2))
+switch nestedTuple {
+case (0, (1, 2)):
+    print("tuple is 0/1/2")
+default:
+    print("tuple is not 0/1/2")
+}
+var anotherPoint = (2, 0)
+switch anotherPoint {
+case (let x, 0):
+    print("on the x-axis with an x value of \(x)")
+case (0, let y):
+    print("on the y-axis with a y value of \(y)")
+case let (x, y):
+    print("somewhere else at (\(x), \(y))")
+}
+anotherPoint = (0, 2)
+switch anotherPoint {
+case (let x, 0):
+    print("on the x-axis with an x value of \(x)")
+case (0, let y):
+    print("on the y-axis with a y value of \(y)")
+case let (x, y):
+    print("somewhere else at (\(x), \(y))")
+}
+anotherPoint = (2, 2)
+switch anotherPoint {
+case (let x, 0):
+    print("on the x-axis with an x value of \(x)")
+case (0, let y):
+    print("on the y-axis with a y value of \(y)")
+case let (x, y):
+    print("somewhere else at (\(x), \(y))")
+}
+var yetAnotherPoint = (1, -1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    print("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    print("(\(x), \(y)) is just some arbitrary point")
+}
+yetAnotherPoint = (1, 1)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    print("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    print("(\(x), \(y)) is just some arbitrary point")
+}
+yetAnotherPoint = (3, 4)
+switch yetAnotherPoint {
+case let (x, y) where x == y:
+    print("(\(x), \(y)) is on the line x == y")
+case let (x, y) where x == -y:
+    print("(\(x), \(y)) is on the line x == -y")
+case let (x, y):
+    print("(\(x), \(y)) is just some arbitrary point")
+}

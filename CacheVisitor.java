@@ -1,4 +1,5 @@
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.ArrayList;
@@ -216,6 +217,19 @@ public class CacheVisitor extends Visitor {
 
     @Override public String visitGuard_statement(SwiftParser.Guard_statementContext ctx) {
         cacheIfLet(ctx, ctx.code_block());
+        return null;
+    }
+
+    @Override public String visitSwitch_case(SwiftParser.Switch_caseContext ctx) {
+        List<String> valueBindingNames = new ArrayList<String>();
+        List<String> valueBindingExpressions = new ArrayList<String>();
+        List<Instance> valueBindingTypes = new ArrayList<Instance>();
+        RuleContext parent = ctx;
+        while(parent != null && !(parent instanceof SwiftParser.Switch_statementContext)) parent = parent.parent;
+        ControlFlow.switchCondition(TypeUtil.infer(((SwiftParser.Switch_statementContext) parent).expression(), this), ctx, valueBindingNames, valueBindingExpressions, valueBindingTypes, this);
+        for(int v = 0; v < valueBindingNames.size(); v++) {
+            cache.cacheOne(valueBindingNames.get(v), valueBindingTypes.get(v), ctx);
+        }
         return null;
     }
 }
