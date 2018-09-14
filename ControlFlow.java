@@ -129,13 +129,15 @@ public class ControlFlow {
     static public String switchCondition(Instance switchedType, SwiftParser.Switch_caseContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
         if(ctx.default_label() != null) return "true";
 
+        EnumerationDefinition enumerationDefinition = switchedType.enumerationDefinition != null ? (EnumerationDefinition)visitor.cache.find(switchedType.enumerationDefinition, ctx).object : null;
+
         String result = "(";
         SwiftParser.Case_item_listContext caseItem = ctx.case_label().case_item_list();
         while(caseItem != null) {
             if(result.length() > 1) {
                 result += " || ";
             }
-            result += switchSingleCondition(switchedType, "$switch", caseItem.pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            result += switchSingleCondition(switchedType, enumerationDefinition, "$switch", caseItem.pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             if(caseItem.where_clause() != null) {
                 visitor.varNameReplacements = new ArrayList<String>();
                 for(int v = 0; v < valueBindingNames.size(); v++) {
@@ -150,13 +152,36 @@ public class ControlFlow {
         result += ")";
         return result;
     }
-    static private String switchSingleCondition(Instance switchedType, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
+    static private String switchSingleCondition(Instance switchedType, EnumerationDefinition enumerationDefinition, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
 
         if(WalkerUtil.isDirectDescendant(SwiftParser.Value_binding_patternContext.class, ctx)) {
+            SwiftParser.PatternContext pattern = ctx.value_binding_pattern().pattern();
             if(valueBindingNames != null) {
-                switchValueBinding(switchedType, varName, ctx.value_binding_pattern().pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                switchValueBinding(switchedType, enumerationDefinition, varName, pattern, valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            }
+            if(pattern.enum_case_pattern() != null) {
+                String caseName = pattern.enum_case_pattern().enum_case_name().identifier().getText();
+                return varName + ".chosen === " + enumerationDefinition.rawValues.get(caseName);
             }
             return "true";
+        }
+
+        if(WalkerUtil.isDirectDescendant(SwiftParser.Enum_case_patternContext.class, ctx)) {
+            String caseName = ctx.enum_case_pattern().enum_case_name().identifier().getText();
+            SwiftParser.Tuple_patternContext tuple = ctx.enum_case_pattern().tuple_pattern();
+            String result = "(";
+            boolean isTuple = enumerationDefinition.tupleTypes != null;
+            result += varName + (isTuple ? ".chosen" : "") + " === " + enumerationDefinition.rawValues.get(caseName);
+            if(tuple != null) {
+                List<SwiftParser.Tuple_pattern_elementContext> tuples = tuple.tuple_pattern_element_list().tuple_pattern_element();
+                for(int i = 0; i < tuples.size(); i++) {
+                    if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
+                    if(result.length() > 1) result += " && ";
+                    result += switchSingleCondition(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + ""), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                }
+            }
+            result += ")";
+            return result;
         }
 
         if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
@@ -165,7 +190,7 @@ public class ControlFlow {
             for(int i = 0; i < tuples.size(); i++) {
                 if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
                 if(result.length() > 1) result += " && ";
-                result += switchSingleCondition(switchedType.getProperty(i + ""), varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                result += switchSingleCondition(switchedType.getProperty(i + ""), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
             result += ")";
             return result;
@@ -182,12 +207,19 @@ public class ControlFlow {
             return "(" + varName + " === " + visitor.visitChildren(ctx) + ")";
         }
     }
-    static private void switchValueBinding(Instance switchedType, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
+    static private void switchValueBinding(Instance switchedType, EnumerationDefinition enumerationDefinition, String varName, SwiftParser.PatternContext ctx, List<String> valueBindingNames, List<String> valueBindingExpressions, List<Instance> valueBindingTypes, Visitor visitor) {
 
-        if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
+        if(WalkerUtil.isDirectDescendant(SwiftParser.Enum_case_patternContext.class, ctx)) {
+            String caseName = ctx.enum_case_pattern().enum_case_name().identifier().getText();
+            List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.enum_case_pattern().tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
+            for(int i = 0; i < tuples.size(); i++) {
+                switchValueBinding(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + ""), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+            }
+        }
+        else if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
             List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
             for(int i = 0; i < tuples.size(); i++) {
-                switchValueBinding(switchedType.getProperty(i + ""), varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                switchValueBinding(switchedType.getProperty(i + ""), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
         }
         else {
@@ -200,8 +232,8 @@ public class ControlFlow {
     static public String switchStatement(SwiftParser.Switch_statementContext ctx, Visitor visitor) {
         String result = "";
 
-        result += "const $switch = " + visitor.visitChildren(ctx.expression()) + ";\n";
         Instance switchedType = TypeUtil.infer(ctx.expression(), visitor);
+        result += "const $switch = " + visitor.visitChildren(ctx.expression()) + ";\n";
 
         List<SwiftParser.Switch_caseContext> switchCases = new ArrayList<SwiftParser.Switch_caseContext>();
         SwiftParser.Switch_casesContext currSwitchCases = ctx.switch_cases();

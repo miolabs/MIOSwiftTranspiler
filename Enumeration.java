@@ -10,7 +10,7 @@ public class Enumeration {
         Instance rawType;
 
         HashMap<String, String> rawValues = new LinkedHashMap<String, String>();
-        HashMap<String, Instance> tupleTypes = new LinkedHashMap<String, Instance>();
+        HashMap<String, Instance> tupleTypes = null;
 
         if(ctx.union_style_enum() != null) {
             rawType = new Instance("String", ctx, visitor.cache);
@@ -31,6 +31,7 @@ public class Enumeration {
                 for(int j = 0; j < cases.size(); j++) {
                     rawValues.put(cases.get(j).enum_case_name().getText(),  '"' + cases.get(j).enum_case_name().getText() + '"');
                     if(cases.get(j).tuple_type() != null) {
+                        if(tupleTypes == null) tupleTypes = new LinkedHashMap<String, Instance>();
                         tupleTypes.put(cases.get(j).enum_case_name().getText(), TypeUtil.fromTupleDefinition(cases.get(j).tuple_type().tuple_type_body().tuple_type_element_list(), visitor));
                     }
                 }
@@ -94,7 +95,6 @@ public class Enumeration {
             definition = (EnumerationDefinition)lType.definition;
         }
         if(isTuple) {
-            Instance tupleType = definition.tupleTypes.get(memberName);
             assignedType = definition.rawType;//FIXME
             List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, visitor);
             String tupleCode = "";
@@ -109,16 +109,4 @@ public class Enumeration {
         }
         return new PrefixElem(code, false, assignedType, null, null, null);
     }
-
-    /*public static Instance getProperty(Definition definition, String name) {
-        return ((EnumerationDefinition)definition).rawType;
-    }
-
-    public static String prefixCode(List<PrefixElem> elems, int chainPos) {
-        return ((EnumerationDefinition)elems.get(0).type.definition).rawValues.get(elems.get(chainPos).code);
-    }
-
-    public static String implicitMemberCode(Instance rType, String identifier, ParserRuleContext ctx, Visitor visitor) {
-        return ((EnumerationDefinition)visitor.cache.find(rType.enumerationDefinition, ctx).object).rawValues.get(identifier);
-    }*/
 }
