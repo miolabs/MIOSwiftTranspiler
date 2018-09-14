@@ -48,7 +48,7 @@ public class Prefix implements PrefixOrExpression {
 
             //handling .rawValue for enums
             if(currType != null && currType.enumerationDefinition != null) {
-                currType = currType.withoutPropertyInfo();
+                currType = currType.withoutPropertyInfo();//essentially used as .clone()
                 currType.enumerationDefinition = null;
                 continue;
             }

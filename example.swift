@@ -1,7 +1,8 @@
-enum Planet: Int {
-    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+enum Beverage: CaseIterable {
+    case coffee, tea, juice
 }
-let num = Planet.earth.rawValue
-print(num)
-let earth = Planet(rawValue: 3)
-print(earth!.rawValue)
+let numberOfChoices = Beverage.allCases.count
+print("\(numberOfChoices) beverages available")
+for beverage in Beverage.allCases {
+    print(beverage)
+}

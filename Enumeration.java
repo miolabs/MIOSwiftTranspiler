@@ -94,7 +94,17 @@ public class Enumeration {
             memberName = ((SwiftParser.Explicit_member_expressionContext) rChild).identifier().getText();
             definition = (EnumerationDefinition)lType.definition;
         }
-        if(isTuple) {
+        if(memberName.equals("allCases")) {//we should also test if conforms to CaseIterable protocol
+            code = "[";
+            for(Map.Entry<String, String> entry : definition.rawValues.entrySet()) {
+                code += (code.length() > 1 ? ", " : "") + entry.getValue();
+            }
+            code += "]";
+            assignedType = new Instance("Array", rChild, visitor.cache);
+            assignedType.generics = new HashMap<String, Instance>();
+            assignedType.generics.put("Value", definition.rawType);
+        }
+        else if(isTuple) {
             assignedType = definition.rawType;//naughty; stored value will be {chosen, tuple}, but declared type actually equal to chosen's type
             List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, visitor);
             String tupleCode = "";
@@ -111,7 +121,7 @@ public class Enumeration {
     }
 
     public static PrefixElem getPrefixElemFromRawValue(EnumerationDefinition definition, List<ParserRuleContext> functionCallParams, Visitor visitor) {
-        Instance rawType = definition.rawType.withoutPropertyInfo();
+        Instance rawType = definition.rawType.withoutPropertyInfo();//essentially used as .clone()
         rawType.isOptional = true;
         return new PrefixElem(visitor.visit(functionCallParams.get(0)), false, rawType, null, null, null);
     }
