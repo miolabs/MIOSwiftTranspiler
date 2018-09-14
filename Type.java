@@ -55,7 +55,7 @@ class FunctionDefinition extends Definition {
         this.parameterExternalNames = FunctionUtil.parameterExternalNames(parameters);
         this.parameterTypes = FunctionUtil.parameterTypes(parameters, visitor);
         this.numParametersWithDefaultValue = FunctionUtil.numParametersWithDefaultValue(parameters);
-        this.name = FunctionUtil.functionName(ctx, parameterExternalNames, parameterTypes);
+        this.name = FunctionUtil.functionName(ctx, parameterExternalNames, parameterTypes, visitor);
 
         this.result =
             ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), FunctionUtil.codeBlockCtx(ctx).statements(), false, ctx, visitor) :

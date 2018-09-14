@@ -51,11 +51,20 @@ public class FunctionUtil {
         return augment;
     }
 
-    static public String functionName(ParserRuleContext ctx, List<String> parameterExternalNames, List<Instance> parameterTypes) {
+    static public String functionName(ParserRuleContext ctx, List<String> parameterExternalNames, List<Instance> parameterTypes, Visitor visitor) {
         String baseName =
             ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_name().getText() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).function_name().getText() :
             "init";
+
+        Cache.CacheBlockAndObject operator = visitor.cache.find(baseName, ctx);
+        if(operator != null && operator.object instanceof Operator) {
+            baseName = "OP_" + ((Operator)operator.object).word;
+            for(int i = 0; i < parameterExternalNames.size(); i++) {
+                parameterExternalNames.set(i, "");
+            }
+        }
+
         return baseName + nameAugment(parameterExternalNames, parameterTypes);
     }
 
@@ -164,7 +173,7 @@ public class FunctionUtil {
 
         return (
             (!isInClass ? "function " : "") +
-            FunctionUtil.functionName(ctx, functionDefinition.parameterExternalNames, functionDefinition.parameterTypes) +
+            FunctionUtil.functionName(ctx, functionDefinition.parameterExternalNames, functionDefinition.parameterTypes, visitor) +
             "(" + visitor.visitChildren(parameterList(ctx)) + "):" +
                 functionDefinition.result.targetType(visitor.targetLanguage) +
             (ctx instanceof SwiftParser.Protocol_method_declarationContext ? "" : visitor.visit(codeBlockCtx(ctx)))

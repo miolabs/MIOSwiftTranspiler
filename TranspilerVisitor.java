@@ -53,7 +53,6 @@ public class TranspilerVisitor extends Visitor {
     @Override public String visitConstant_declaration(SwiftParser.Constant_declarationContext ctx) {
         return AssignmentUtil.handleConstantDeclaration(ctx, this);
     }
-
     @Override public String visitVariable_declaration(SwiftParser.Variable_declarationContext ctx) {
         return AssignmentUtil.handleVariableDeclaration(ctx, this);
     }

@@ -70,6 +70,7 @@ public class Initializer {
         ArrayList<Instance> parameterTypes = new ArrayList<Instance>();
         for(Map.Entry<String, Instance> entry : classDefinition.properties.entrySet()) {
             if(entry.getValue().definition instanceof FunctionDefinition) continue;
+            if(entry.getValue().isStatic) continue;
             parameterNames.add(entry.getKey());
             parameterTypes.add(entry.getValue());
         }
