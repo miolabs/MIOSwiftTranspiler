@@ -46,6 +46,13 @@ public class Prefix implements PrefixOrExpression {
                 functionCallParams.add(functionCall.trailing_closure().explicit_closure_expression());
             }
 
+            //handling .rawValue for enums
+            if(currType != null && currType.enumerationDefinition != null) {
+                currType = currType.withoutPropertyInfo();
+                currType.enumerationDefinition = null;
+                continue;
+            }
+
             PrefixElem elem = PrefixElem.get(ctx, functionCallParams, chain, chainPos, currType, (chainPos + (functionCallParams != null ? 1 : 0) >= chain.size() - 1) ? knownType : null, visitor);
             Map<String, String> codeReplacement = elem.codeReplacement();
             boolean skip = codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) && codeReplacement.get(visitor.targetLanguage).equals("");

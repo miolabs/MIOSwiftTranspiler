@@ -308,6 +308,9 @@ public class PrefixElem {
             else {
                 instanceOrDefinition = lType.getProperty(varName);
             }
+            if(instanceOrDefinition instanceof EnumerationDefinition && functionCallParams != null) {
+                return Enumeration.getPrefixElemFromRawValue((EnumerationDefinition)instanceOrDefinition, functionCallParams, visitor);
+            }
             if(instanceOrDefinition == null) {
                 cacheBlockAndObject = FunctionUtil.findFirstMatching(varName, isInitializer, allProperties);
                 if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;

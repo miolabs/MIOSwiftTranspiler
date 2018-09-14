@@ -95,7 +95,7 @@ public class Enumeration {
             definition = (EnumerationDefinition)lType.definition;
         }
         if(isTuple) {
-            assignedType = definition.rawType;//FIXME
+            assignedType = definition.rawType;//naughty; stored value will be {chosen, tuple}, but declared type actually equal to chosen's type
             List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, visitor);
             String tupleCode = "";
             for(int i = 0; i < functionCallParamsStr.size(); i++) {
@@ -108,5 +108,11 @@ public class Enumeration {
             assignedType = definition.rawType;
         }
         return new PrefixElem(code, false, assignedType, null, null, null);
+    }
+
+    public static PrefixElem getPrefixElemFromRawValue(EnumerationDefinition definition, List<ParserRuleContext> functionCallParams, Visitor visitor) {
+        Instance rawType = definition.rawType.withoutPropertyInfo();
+        rawType.isOptional = true;
+        return new PrefixElem(visitor.visit(functionCallParams.get(0)), false, rawType, null, null, null);
     }
 }
