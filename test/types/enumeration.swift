@@ -16,6 +16,7 @@ case .east:
 case .west:
     print("Where the skies are blue")
 }
+
 enum Barcode {
     case upc(Int, Int, Int, Int)
     case qrCode(String)
@@ -34,6 +35,7 @@ case let .upc(numberSystem, manufacturer, product, check):
 case let .qrCode(productCode):
     print("QR code: \(productCode).")
 }
+
 enum Planet: Int {
     case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
 }
@@ -41,3 +43,27 @@ let num = Planet.earth.rawValue
 print(num)
 let earth = Planet(rawValue: 3)
 print(earth!.rawValue)
+
+enum ArithmeticExpression {
+    case number(Int)
+    indirect case addition(ArithmeticExpression, ArithmeticExpression)
+    indirect case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+let five = ArithmeticExpression.number(5)
+let four = ArithmeticExpression.number(4)
+let sum = ArithmeticExpression.addition(five, four)
+let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
+func evaluate(_ expression: ArithmeticExpression) -> Int {
+    switch expression {
+    case let .number(value):
+        return value
+    case let .addition(left, right):
+        return evaluate(left) + evaluate(right)
+    case let .multiplication(left, right):
+        return evaluate(left) * evaluate(right)
+    }
+}
+print(evaluate(five))
+print(evaluate(four))
+print(evaluate(sum))
+print(evaluate(product))

@@ -34,6 +34,11 @@ public class TypeUtil {
         type.isGetterSetter = isGetterSetter;
         type.isInout = isInout;
 
+        if(type.definition instanceof EnumerationDefinition) {
+            type.enumerationDefinition = type.definition.name;
+            type.definition = ((EnumerationDefinition)type.definition).rawType.definition;
+        }
+
         return type;
     }
 
