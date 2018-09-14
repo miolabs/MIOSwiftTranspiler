@@ -4,25 +4,29 @@
       "ts": "string"
     },
     "properties": [{
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "String"}],
-      "type": "String"
+      "type": "String",
+      "static": true
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "String"}, {"type": "Int"}],
-      "type": "String"
+      "type": "String",
+      "static": true
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "String"}],
-      "type": "String"
+      "type": "String",
+      "static": true
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "String"}, {"type": "Double"}],
-      "type": "String"
+      "type": "String",
+      "static": true
     }, {
       "name": "characters",
       "codeReplacement": {
@@ -117,19 +121,21 @@
         "javaAssignmentNil": "#L.remove(#R)"
       }
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "[Value]"}, {"type": "[Value]"}],
       "type": "[Value]",
+      "static": true,
       "codeReplacement": {
         "ts": "#A0.concat(#A1)",
         "java": "new ArrayList<String>() { { addAll(#A0); addAll(#A1); } }"
       }
     }, {
-      "name": "+=",
+      "name": "OP_addAssign",
       "function": true,
       "parameters": [{"type": "[Value]"}, {"type": "[Value]"}],
       "type": "Void",
+      "static": true,
       "codeReplacement": {
         "ts": "#A0.pushMany(#A1)",
         "java": "#A0.addAll(#A1)"
@@ -270,18 +276,20 @@
         "java": "Integer.parseInt(#AA)"
       }
     }, {
-      "name": "/",
+      "name": "OP_divide",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Int"}],
       "type": "Int",
+      "static": true,
       "codeReplacement": {
         "ts": "((#A0 / #A1)|0)"
       }
     }, {
-      "name": "/=",
+      "name": "OP_divideAssign",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Int"}],
       "type": "Void",
+      "static": true,
       "codeReplacement": {
         "ts": "#A0 = ((#A0 / #A1)|0)"
       }
@@ -311,55 +319,65 @@
         "java": "#AA"
       }
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "+",
+      "name": "OP_add",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "-",
+      "name": "OP_subtract",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "-",
+      "name": "OP_subtract",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "*",
+      "name": "OP_multiply",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "*",
+      "name": "OP_multiple",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "/",
+      "name": "OP_divide",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "/",
+      "name": "OP_divide",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "%",
+      "name": "OP_mod",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }, {
-      "name": "%",
+      "name": "OP_mod",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
-      "type": "Double"
+      "type": "Double",
+      "static": true
     }]
   },
   "Void": {

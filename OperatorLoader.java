@@ -42,6 +42,8 @@ public class OperatorLoader {
             }
         }
 
+        definition.word = src.optString("word");
+
         return definition;
     }
 }

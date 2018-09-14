@@ -10,6 +10,7 @@ class Operator {
     public int priority;
     public Definition result;
     public Map<String, String> codeReplacement;
+    public String word;
 }
 
 abstract class Definition {

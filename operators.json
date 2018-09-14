@@ -1,104 +1,131 @@
 {
   "=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "assign"
   },
   "?:": {
-    "priority": 9
+    "priority": 9,
+    "word": "ternary"
   },
   "&&": {
     "priority": 7,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "and"
   },
   "||": {
     "priority": 7,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "or"
   },
   "??": {
     "priority": 7,
     "codeReplacement": {
       "ts": "((_.$nilCoalescing = #A0) != null ? _.$nilCoalescing : #A1)",
       "java": "(#A0 != null ? #A0 : #A1)"
-    }
+    },
+    "word": "nilCoalescing"
   },
   "===": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "identical"
   },
   "==": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "equal"
   },
   "!==": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "notIdentical"
   },
   "!=": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "notEqual"
   },
   ">": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "greater"
   },
   ">=": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "greaterOrEqual"
   },
   "<": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "less"
   },
   "<=": {
     "priority": 6,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "lessOrEqual"
   },
   "+": {
-    "priority": 5
+    "priority": 5,
+    "word": "add"
   },
   "-": {
-    "priority": 5
+    "priority": 5,
+    "word": "subtract"
   },
   "*": {
-    "priority": 4
+    "priority": 4,
+    "word": "multiply"
   },
   "/": {
-    "priority": 4
+    "priority": 4,
+    "word": "divide"
   },
   "%": {
-    "priority": 4
+    "priority": 4,
+    "word": "mod"
   },
   "+=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "addAssign"
   },
   "-=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "subtractAssign"
   },
   "*=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "multiplyAssign"
   },
   "/=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "divideAssign"
   },
   "%=": {
     "priority": 10,
-    "result": "Void"
+    "result": "Void",
+    "word": "modAssign"
   },
   "as": {
-    "priority": 8
+    "priority": 8,
+    "word": "as"
   },
   "is": {
     "priority": 8,
-    "result": "Bool"
+    "result": "Bool",
+    "word": "is"
   },
   "...": {
-    "priority": 4
+    "priority": 4,
+    "word": "closedRange"
   },
   "..<": {
-    "priority": 4
+    "priority": 4,
+    "word": "halfOpenRange"
   }
 }

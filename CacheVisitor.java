@@ -94,7 +94,6 @@ public class CacheVisitor extends Visitor {
     private void visitPropertyClause(ParserRuleContext ctx) {
         SwiftParser.Property_declarationContext propertyDeclaration = (SwiftParser.Property_declarationContext) ctx.parent.parent.parent;
         Instance propertyType = ((Instance)cache.find(propertyDeclaration.variable_name().getText(), ctx).object).withoutPropertyInfo();
-        //propertyType.isGetterSetter = null;
         SwiftParser.Code_blockContext blockContext =
             ctx instanceof SwiftParser.Setter_clauseContext ? ((SwiftParser.Setter_clauseContext)ctx).code_block() :
             ctx instanceof SwiftParser.WillSet_clauseContext ? ((SwiftParser.WillSet_clauseContext)ctx).code_block() :
@@ -172,7 +171,7 @@ public class CacheVisitor extends Visitor {
                 ((SwiftParser.Protocol_declarationContext) ctx).protocol_body()
         );
 
-        if(ctx instanceof SwiftParser.Struct_declarationContext) Initializer.addMemberwiseInitializer(classDefinition, ctx, this);
+        if(type == 1) Initializer.addMemberwiseInitializer(classDefinition, ctx, this);
         Initializer.addDefaultInitializer(classDefinition, ctx, this);
     }
 

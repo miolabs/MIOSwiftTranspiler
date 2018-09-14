@@ -1,23 +1,14 @@
-enum ArithmeticExpression {
-    case number(Int)
-    indirect case addition(ArithmeticExpression, ArithmeticExpression)
-    indirect case multiplication(ArithmeticExpression, ArithmeticExpression)
-}
-let five = ArithmeticExpression.number(5)
-let four = ArithmeticExpression.number(4)
-let sum = ArithmeticExpression.addition(five, four)
-let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(2))
-func evaluate(_ expression: ArithmeticExpression) -> Int {
-    switch expression {
-    case let .number(value):
-        return value
-    case let .addition(left, right):
-        return evaluate(left) + evaluate(right)
-    case let .multiplication(left, right):
-        return evaluate(left) * evaluate(right)
+struct Vector {
+    var x = 0, y = 0
+
+    static func + (left: Vector, right: Vector) -> Vector {
+        return Vector(x: left.x + right.x, y: left.y + right.y)
     }
 }
-print(evaluate(five))
-print(evaluate(four))
-print(evaluate(sum))
-print(evaluate(product))
+
+let vector = Vector(x: 3, y: 1)
+let anotherVector = Vector(x: 2, y: 6)
+let combinedVector = vector + anotherVector
+
+print(combinedVector.x)
+print(combinedVector.y)

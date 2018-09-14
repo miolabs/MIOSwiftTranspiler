@@ -78,7 +78,7 @@ public class Initializer {
             FunctionDefinition function = new FunctionDefinition(null, parameterNames, parameterTypes, 0, new Instance("Void", ctx, visitor.cache), null);
             Instance initializer = new Instance(function);
             initializer.isInitializer = initializer.isMemberwiseInitializer = true;
-            classDefinition.properties.put("init" + FunctionUtil.nameAugment(new ArrayList<String>(classDefinition.properties.keySet()), new ArrayList<Instance>(classDefinition.properties.values())), initializer);
+            classDefinition.properties.put("init" + FunctionUtil.nameAugment(parameterNames, parameterTypes), initializer);
         }
     }
 

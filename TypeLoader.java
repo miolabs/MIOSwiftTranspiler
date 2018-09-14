@@ -100,6 +100,7 @@ public class TypeLoader {
 
         //TODO property.isOperator = src.optBoolean("operator");
         property.isInitializer = src.optString("name").equals("init");
+        if(src.optBoolean("static")) property.isStatic = true;
 
         classDefinition.properties.put(name, property);
     }

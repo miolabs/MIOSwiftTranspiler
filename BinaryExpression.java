@@ -65,6 +65,9 @@ public class BinaryExpression implements PrefixOrExpression {
             }
         }
         else {
+            Operator operator = (Operator)visitor.cache.find(alias, ctx).object;
+            String word = "OP_" + operator.word;
+
             String assignment = isAssignment(alias) ? R.type().typeName() != null && R.type().typeName().equals("Void") ? "N" : R.type().isOptional ? "TN" : "T" : null,
                    lCode = isAssignment(alias) ? ((Prefix)L).code(assignment, ctx, visitor) : L.code(ctx, visitor), rCode = R.code(ctx, visitor);
 
@@ -85,21 +88,18 @@ public class BinaryExpression implements PrefixOrExpression {
                 parameterExternalNames.add("");
             }
             Instance functionOwner = null;
-            String augment = FunctionUtil.augmentFromCall(alias, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
+            String augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
             if(augment != null) functionOwner = L.type();
             else {
-                augment = FunctionUtil.augmentFromCall(alias, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
+                augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
                 if(augment != null) functionOwner = R.type();
             }
 
-            Operator operator = (Operator)visitor.cache.find(alias, ctx).object;
-            
-            this.type = augment != null ? functionOwner.getProperty(alias + augment).result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
+            this.type = augment != null ? functionOwner.getProperty(word + augment).result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
 
             if(definitionCode == null) {
                 definitionCode =
-                    augment != null && functionOwner.getProperty(alias + augment).codeReplacement != null && functionOwner.getProperty(alias + augment).codeReplacement.get(visitor.targetLanguage) != null ? functionOwner.getProperty(alias + augment).codeReplacement.get(visitor.targetLanguage) :
-                    //TODO perhaps add that later; currently screws with native operations, e.g. "" + "": augment != null ? functionOwner.targetType(visitor.targetLanguage, true, true) + "." + alias + "(#A0, #A1)" :
+                    augment != null && functionOwner.getProperty(word + augment).codeReplacement != null && functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) != null ? functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) :
                     operator.codeReplacement != null ? operator.codeReplacement.get(visitor.targetLanguage) :
                     "#A0 " + alias + " #A1";
             }
