@@ -118,7 +118,11 @@ public class Prefix implements PrefixOrExpression {
         }
         else {
             LR = "#L" + (chainPos == 0 ? "#R" : elem.isSubscript ? "[#R]" : ".#R");
-            if(isLast && assignment != null) {
+            if(chainPos > 0 && elems.get(0).type.definition instanceof EnumerationDefinition) {
+                //we're hiding Enumeration references, e.g. CompassPoint.west
+                LR = "#R";
+            }
+            else if(isLast && assignment != null) {
                 if(elem.type.isGetterSetter) LR += "$set(#ASS)";
                 else if(elem.type.isInout) LR += ".set(#ASS)";
                 else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {

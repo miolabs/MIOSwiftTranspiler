@@ -242,6 +242,9 @@ public class PrefixElem {
         if(rChild instanceof SwiftParser.Explicit_member_expressionContext) {
             code = ((SwiftParser.Explicit_member_expressionContext) rChild).identifier().getText();
         }
+        else if(WalkerUtil.isDirectDescendant(SwiftParser.Implicit_member_expressionContext.class, rChild)) {
+            return Enumeration.getPrefixElem(rChild, functionCallParams, null, rType, visitor);
+        }
         else if(rChild instanceof SwiftParser.Primary_expressionContext) {
             code = ((SwiftParser.Primary_expressionContext) rChild).identifier() != null ? ((SwiftParser.Primary_expressionContext) rChild).identifier().getText() : visitor.visit(rChild);
         }
@@ -267,6 +270,10 @@ public class PrefixElem {
         }
         else {
             code = visitor.visit(rChild);
+        }
+
+        if(lType != null && lType.definition instanceof EnumerationDefinition) {
+            return Enumeration.getPrefixElem(rChild, functionCallParams, lType, null, visitor);
         }
 
         String augment = null;
@@ -347,26 +354,31 @@ public class PrefixElem {
         }
 
         if(functionCallParams != null) {
-            functionCallParamsStr = new ArrayList<String>();
-            for(int i = 0; i < functionCallParams.size(); i++) {
-                String paramStr;
-                if(functionCallParams.get(i) instanceof SwiftParser.Explicit_closure_expressionContext) {
-                    paramStr = FunctionUtil.explicitParamClosureExpression(type, typeBeforeCall, (SwiftParser.Explicit_closure_expressionContext) functionCallParams.get(i), i, visitor);
-                }
-                else {
-                    FunctionDefinition functionDefinition =
-                        isInitializer ? (FunctionDefinition)type.getProperty("init" + augment).definition :
-                        typeBeforeCall instanceof FunctionDefinition ? (FunctionDefinition)typeBeforeCall :
-                        typeBeforeCall instanceof Instance ? (FunctionDefinition)((Instance)typeBeforeCall).definition :
-                        null;
-                    Instance knownType = functionDefinition != null && functionDefinition.parameterTypes.size() >= i + 1 ? type.specifyGenerics(functionDefinition.parameterTypes.get(i).withoutPropertyInfo()) : null;
-                    paramStr = new Expression(((SwiftParser.Expression_elementContext)functionCallParams.get(i)).expression(), knownType, visitor).code;
-                }
-                functionCallParamsStr.add(paramStr);
-            }
+            functionCallParamsStr = getFunctionCallParamsStr(functionCallParams, type, typeBeforeCall, isInitializer, augment, visitor);
         }
 
         return new PrefixElem(code, isSubscript, type, functionCallParamsStr, typeBeforeCall, isInitializer ? augment : null);
+    }
+
+    static public List<String> getFunctionCallParamsStr(List<ParserRuleContext> functionCallParams, Instance type, Object typeBeforeCall, boolean isInitializer, String augment, Visitor visitor) {
+        List<String> functionCallParamsStr = new ArrayList<String>();
+        for(int i = 0; i < functionCallParams.size(); i++) {
+            String paramStr;
+            if(functionCallParams.get(i) instanceof SwiftParser.Explicit_closure_expressionContext) {
+                paramStr = FunctionUtil.explicitParamClosureExpression(type, typeBeforeCall, (SwiftParser.Explicit_closure_expressionContext) functionCallParams.get(i), i, visitor);
+            }
+            else {
+                FunctionDefinition functionDefinition =
+                    isInitializer ? (FunctionDefinition)type.getProperty("init" + augment).definition :
+                    typeBeforeCall instanceof FunctionDefinition ? (FunctionDefinition)typeBeforeCall :
+                    typeBeforeCall instanceof Instance ? (FunctionDefinition)((Instance)typeBeforeCall).definition :
+                    null;
+                Instance knownType = functionDefinition != null && functionDefinition.parameterTypes.size() >= i + 1 ? type.specifyGenerics(functionDefinition.parameterTypes.get(i).withoutPropertyInfo()) : null;
+                paramStr = new Expression(((SwiftParser.Expression_elementContext)functionCallParams.get(i)).expression(), knownType, visitor).code;
+            }
+            functionCallParamsStr.add(paramStr);
+        }
+        return  functionCallParamsStr;
     }
 
     public Map<String, String> codeReplacement() {

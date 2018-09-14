@@ -1,9 +1,6 @@
 import org.antlr.v4.runtime.ParserRuleContext;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 public class Enumeration {
 
@@ -80,4 +77,48 @@ public class Enumeration {
         EnumerationDefinition enumDefinition = new EnumerationDefinition(enumName, rawType, rawValues, tupleTypes);
         visitor.cache.cacheOne(enumName, enumDefinition, ctx);
     }
+
+    public static PrefixElem getPrefixElem(ParserRuleContext rChild, List<ParserRuleContext> functionCallParams, Instance lType, Instance rType, Visitor visitor) {
+        boolean isImplicitMember = lType == null;
+        boolean isTuple = functionCallParams != null;
+        String memberName;
+        EnumerationDefinition definition;
+        String code;
+        Instance assignedType;
+        if(isImplicitMember) {
+            memberName = ((SwiftParser.Primary_expressionContext) rChild).implicit_member_expression().identifier().getText();
+            definition = (EnumerationDefinition)visitor.cache.find(rType.enumerationDefinition, rChild).object;
+        }
+        else {
+            memberName = ((SwiftParser.Explicit_member_expressionContext) rChild).identifier().getText();
+            definition = (EnumerationDefinition)lType.definition;
+        }
+        if(isTuple) {
+            Instance tupleType = definition.tupleTypes.get(memberName);
+            assignedType = definition.rawType;//FIXME
+            List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, visitor);
+            String tupleCode = "";
+            for(int i = 0; i < functionCallParamsStr.size(); i++) {
+                tupleCode += (i > 0 ? ", " : "") + i + ": " + functionCallParamsStr.get(i);
+            }
+            code = "{chosen: " + definition.rawValues.get(memberName) + ", tuple: {" + tupleCode + "}}";
+        }
+        else {
+            code = definition.rawValues.get(memberName);
+            assignedType = definition.rawType;
+        }
+        return new PrefixElem(code, false, assignedType, null, null, null);
+    }
+
+    /*public static Instance getProperty(Definition definition, String name) {
+        return ((EnumerationDefinition)definition).rawType;
+    }
+
+    public static String prefixCode(List<PrefixElem> elems, int chainPos) {
+        return ((EnumerationDefinition)elems.get(0).type.definition).rawValues.get(elems.get(chainPos).code);
+    }
+
+    public static String implicitMemberCode(Instance rType, String identifier, ParserRuleContext ctx, Visitor visitor) {
+        return ((EnumerationDefinition)visitor.cache.find(rType.enumerationDefinition, ctx).object).rawValues.get(identifier);
+    }*/
 }
