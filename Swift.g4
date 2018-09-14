@@ -656,7 +656,7 @@ primary_expression
  | literal_expression
  | closure_expression
  | parenthesized_expression
- //| implicit_member_expression NEEDED??
+ | implicit_member_expression
  | wildcard_expression
  | selector_expression
  ;

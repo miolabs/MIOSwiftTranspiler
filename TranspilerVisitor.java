@@ -118,6 +118,9 @@ public class TranspilerVisitor extends Visitor {
     @Override public String visitFallthrough_statement(SwiftParser.Fallthrough_statementContext ctx) {
         return "";
     }
+    @Override public String visitEnum_declaration(SwiftParser.Enum_declarationContext ctx) {
+        return "";
+    }
 
     @Override public String visitType_inheritance_clause(SwiftParser.Type_inheritance_clauseContext ctx) {
         String code = "";

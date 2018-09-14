@@ -63,6 +63,13 @@ class FunctionDefinition extends Definition {
     }
 }
 
+class EnumerationDefinition extends Definition {
+    public Instance rawType;
+    public HashMap<String, String> rawValues;
+    public HashMap<String, Instance> tupleTypes;
+    public EnumerationDefinition(String name, Instance rawType, HashMap<String, String> rawValues, HashMap<String, Instance> tupleTypes) { this.name = name; this.rawType = rawType; this.rawValues = rawValues; this.tupleTypes = tupleTypes; }
+}
+
 class Instance {
     public Definition definition;
     public String genericDefinition;
@@ -94,6 +101,7 @@ class Instance {
     public Instance withoutPropertyInfo() {
         Instance instance = new Instance(this.definition, this.genericDefinition, this.generics);
         instance.isOptional = isOptional;
+        instance.enumerationDefinition = enumerationDefinition;
         return instance;
     }
     public String targetType(String language) { return targetType(language, false, false); }
