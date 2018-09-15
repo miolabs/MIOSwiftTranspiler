@@ -20,8 +20,8 @@ public class BinaryExpression implements PrefixOrExpression {
     public String code(ParseTree ctx, Visitor visitor) {return code;}
     public Instance type() {return type;}
     public ParserRuleContext originalCtx() {return originalCtx;}
-    private Object L;
-    private Object R;
+    private Object/*Prefix_expressionContext or BinaryExpression*/ L;
+    private Object/*Prefix_expressionContext or BinaryExpression*/ R;
     private ParserRuleContext operator;
 
     public BinaryExpression(Object L, Object R, ParserRuleContext operator) {

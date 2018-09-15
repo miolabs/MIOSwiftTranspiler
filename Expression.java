@@ -27,7 +27,7 @@ public class Expression implements PrefixOrExpression {
 
         List<SwiftParser.Binary_expressionContext> binaries = ctx.binary_expressions() != null ? ctx.binary_expressions().binary_expression() : new ArrayList<SwiftParser.Binary_expressionContext>();
         ArrayList<ParserRuleContext> operators = new ArrayList<ParserRuleContext>();
-        ArrayList<Object /*ParserRuleContext or BinaryExpression*/> ctxs = new ArrayList<Object>();
+        ArrayList<Object /*Prefix_expressionContext or BinaryExpression*/> ctxs = new ArrayList<Object>();
 
         for(int i = -1 + (skipFirst ? 1 : 0); i < binaries.size(); i++) {
             if(skipFirst ? i >= 1 : i >= 0) {
