@@ -40,6 +40,17 @@ public class Expression implements PrefixOrExpression {
             }
         }
 
+        for(int i = 0; i < ctxs.size(); i++) {
+            if(ctxs.get(i) == null) continue;//sometimes that happens for some reason, check dictionaries-5
+            SwiftParser.Prefix_expressionContext prefixCtx = (SwiftParser.Prefix_expressionContext) ctxs.get(i);
+            if(prefixCtx.prefix_operator() != null) {
+                ctxs.set(i, new BinaryExpression(null, prefixCtx, prefixCtx.prefix_operator()));
+            }
+            else if(prefixCtx.postfix_expression().chain_postfix_expression() instanceof SwiftParser.Chain_postfix_operatorContext && !BinaryExpression.isOptionalChainingOperator(((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator())) {
+                ctxs.set(i, new BinaryExpression(prefixCtx, null, ((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator()));
+            }
+        }
+
         for(int priority = BinaryExpression.minOperatorPriority; priority <= BinaryExpression.maxOperatorPriority; priority++) {
             for(int i = 0; i < operators.size(); i++) {
                 ParserRuleContext operator = operators.get(i);
@@ -56,24 +67,9 @@ public class Expression implements PrefixOrExpression {
         }
 
         if(ctxs.get(0) instanceof SwiftParser.Prefix_expressionContext) {
-            SwiftParser.Prefix_expressionContext prefixCtx = (SwiftParser.Prefix_expressionContext) ctxs.get(0);
-            if(prefixCtx.prefix_operator() != null) {
-                BinaryExpression prefixExpression = new BinaryExpression(null, prefixCtx, prefixCtx.prefix_operator());
-                prefixExpression.compute(knownType, ctx, visitor);
-                this.code = prefixExpression.code;
-                this.type = prefixExpression.type;
-            }
-            else if(prefixCtx.postfix_expression().chain_postfix_expression() instanceof SwiftParser.Chain_postfix_operatorContext && !BinaryExpression.isOptionalChainingOperator(((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator())) {
-                BinaryExpression prefixExpression = new BinaryExpression(prefixCtx, null, ((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator());
-                prefixExpression.compute(knownType, ctx, visitor);
-                this.code = prefixExpression.code;
-                this.type = prefixExpression.type;
-            }
-            else {
-                Prefix prefix = new Prefix(prefixCtx, knownType, visitor);
-                this.code = prefix.code(ctx, visitor);
-                this.type = prefix.type();
-            }
+            Prefix prefix = new Prefix((SwiftParser.Prefix_expressionContext) ctxs.get(0), knownType, visitor);
+            this.code = prefix.code(ctx, visitor);
+            this.type = prefix.type();
         }
         else {
             BinaryExpression top = (BinaryExpression)ctxs.get(0);

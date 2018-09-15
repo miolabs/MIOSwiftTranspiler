@@ -142,5 +142,9 @@
     "codeReplacement": {
       "ts": "{get: () => #A1, set: $val => #A1 = $val}"
     }
+  },
+  "!": {
+    "priority": 3,
+    "word": "not"
   }
 }
