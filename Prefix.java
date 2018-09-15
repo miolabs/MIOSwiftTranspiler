@@ -168,10 +168,6 @@ public class Prefix implements PrefixOrExpression {
             }
         }
 
-        if(isLast && false/*isInOutExpression*/) {
-            nextCode = "{get: () => " + nextCode + ", set: $val => " + nextCode + " = $val}";
-        }
-
         return nextCode;
     }
 

@@ -127,5 +127,20 @@
   "..<": {
     "priority": 4,
     "word": "halfOpenRange"
+  },
+  "++": {
+    "priority": 3,
+    "word": "increment"
+  },
+  "--": {
+    "priority": 3,
+    "word": "decrement"
+  },
+  "&": {
+    "priority": 3,
+    "word": "inout",
+    "codeReplacement": {
+      "ts": "{get: () => #A1, set: $val => #A1 = $val}"
+    }
   }
 }

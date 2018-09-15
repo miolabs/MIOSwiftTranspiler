@@ -7,7 +7,7 @@ import java.util.List;
 //deals with expression context (as defined in Swift.g4), which is a basic code building block
 //breaks the expression up into binary operations (e.g. instance.method() + 1) and arranges them in the order of priority
 //then delegates the calculations to BinaryExpression (e.g. instance.method() + 1) and Prefix (e.g. instance.method())
-//perhaps it might be worth it to join BinaryExpression & Prefix into one module, s binary expressions are really just static functions
+//perhaps it might be worth it to join BinaryExpression & Prefix into one module, as binary expressions are really just static functions
 //(e.g. 1 + 2 is Int.add(1, 2), but that's some major refactoring, so let's leave it as is for now
 public class Expression implements PrefixOrExpression {
 
@@ -56,14 +56,21 @@ public class Expression implements PrefixOrExpression {
         }
 
         if(ctxs.get(0) instanceof SwiftParser.Prefix_expressionContext) {
-            if(((SwiftParser.Prefix_expressionContext) ctxs.get(0)).prefix_operator() != null) {
-                BinaryExpression prefixExpression = new BinaryExpression(null, ctxs.get(0), ((SwiftParser.Prefix_expressionContext) ctxs.get(0)).prefix_operator());
+            SwiftParser.Prefix_expressionContext prefixCtx = (SwiftParser.Prefix_expressionContext) ctxs.get(0);
+            if(prefixCtx.prefix_operator() != null) {
+                BinaryExpression prefixExpression = new BinaryExpression(null, prefixCtx, prefixCtx.prefix_operator());
+                prefixExpression.compute(knownType, ctx, visitor);
+                this.code = prefixExpression.code;
+                this.type = prefixExpression.type;
+            }
+            else if(prefixCtx.postfix_expression().chain_postfix_expression() instanceof SwiftParser.Chain_postfix_operatorContext && !BinaryExpression.isOptionalChainingOperator(((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator())) {
+                BinaryExpression prefixExpression = new BinaryExpression(prefixCtx, null, ((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator());
                 prefixExpression.compute(knownType, ctx, visitor);
                 this.code = prefixExpression.code;
                 this.type = prefixExpression.type;
             }
             else {
-                Prefix prefix = new Prefix((SwiftParser.Prefix_expressionContext)ctxs.get(0), knownType, visitor);
+                Prefix prefix = new Prefix(prefixCtx, knownType, visitor);
                 this.code = prefix.code(ctx, visitor);
                 this.type = prefix.type();
             }

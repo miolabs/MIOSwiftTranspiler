@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 //handles some logic around assignments, e.g. optional assignment dictionary?["key"] = "val", but the bulk of that is done by Prefix
 public class BinaryExpression implements PrefixOrExpression {
 
-    static public int minOperatorPriority = 4;
+    static public int minOperatorPriority = 3;
     static public int maxOperatorPriority = 10;
 
     Instance type;
@@ -147,5 +147,10 @@ public class BinaryExpression implements PrefixOrExpression {
             if(L.elems.get(i).isOptional) ifCode += (ifCode.length() > 0 ? " && " : "") + "(" + L.code(assignment, i, ctx, visitor) + ") != null";
         }
         return ifCode;
+    }
+
+    static public boolean isOptionalChainingOperator(SwiftParser.Postfix_operatorContext ctx) {
+        String alias = ctx.getText();
+        return alias.equals("?") || alias.equals("!");
     }
 }
