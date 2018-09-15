@@ -115,7 +115,7 @@ public class Cache {
         if(isStructureBlock(nearestAncestorBlock)) {
             //save the variable under class definition too
             CacheBlockAndObject classDefinition = getClassDefinition(nearestAncestorBlock);
-            Instance property = object instanceof FunctionDefinition ? new Instance((FunctionDefinition)object) : (Instance)object;
+            Instance property = (Instance)object;
             if(identifier.equals("init") || identifier.startsWith("init$")) {
                 property.isInitializer = true;
                 if(((SwiftParser.Initializer_declarationContext)ctx).initializer_head().getText().contains("?")) property.isFailableInitializer = true;
@@ -124,7 +124,7 @@ public class Cache {
                 property.codeReplacement = new HashMap<String, String>();
                 property.codeReplacement.put("ts", ((ClassDefinition)classDefinition.object).name + "." + identifier + "(#A0, #A1)");
             }
-            ((ClassDefinition)classDefinition.object).properties.put(identifier, property);
+            ((ClassDefinition) classDefinition.object).properties.put(identifier, property);
         }
 
         if(!cache.containsKey(nearestAncestorBlock)) {

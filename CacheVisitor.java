@@ -15,23 +15,42 @@ public class CacheVisitor extends Visitor {
         this.targetLanguage = targetLanguage;
     }
 
-    @Override public String visitPattern_initializer(SwiftParser.Pattern_initializerContext ctx) {
+    @Override public String visitConstant_declaration(SwiftParser.Constant_declarationContext ctx) {
+        visitPatternInitializers(ctx.constant_declaration_body().pattern_initializer_list().pattern_initializer(), ctx.constant_declaration_head().declaration_modifiers());
+        return null;
+    }
+    @Override public String visitVariable_declaration(SwiftParser.Variable_declarationContext ctx) {
+        if(ctx.variable_declaration_body().regular_variable_declaration() != null) {
+            visitPatternInitializers(ctx.variable_declaration_body().regular_variable_declaration().pattern_initializer_list().pattern_initializer(), ctx.variable_declaration_head().declaration_modifiers());
+        }
+        else {
+            visitPropertyDeclaration(ctx.variable_declaration_body().property_declaration(), ctx.variable_declaration_head().declaration_modifiers());
+            visitChildren(ctx);
+        }
+        return null;
+    }
+    private void visitPatternInitializers(List<SwiftParser.Pattern_initializerContext> initializers, SwiftParser.Declaration_modifiersContext modifiers) {
+        for(int i = 0; i < initializers.size(); i++) {
+            visitPatternInitializer(initializers.get(i), modifiers);
+        }
+    }
+    private void visitPatternInitializer(SwiftParser.Pattern_initializerContext ctx, SwiftParser.Declaration_modifiersContext modifiers) {
         String varName = ctx.pattern().identifier_pattern().getText();
         Instance varType =
                 ctx.pattern().type_annotation() != null && ctx.pattern().type_annotation().type() != null ? TypeUtil.fromDefinition(ctx.pattern().type_annotation().type(), this)
                 : TypeUtil.infer(ctx.initializer().expression(), this);
+        addModifiers(varType, modifiers);
         cache(varName, varType, ctx);
         visitChildren(ctx.initializer());
-        return null;
     }
-
-    @Override public String visitProperty_declaration(SwiftParser.Property_declarationContext ctx) {
+    private void visitPropertyDeclaration(SwiftParser.Property_declarationContext ctx, SwiftParser.Declaration_modifiersContext modifiers) {
         String varName = ctx.variable_name().getText();
         Instance varType = TypeUtil.fromDefinition(ctx.type_annotation().type(), this);
+        addModifiers(varType, modifiers);
         cache(varName, varType, ctx);
         visit(ctx.property_declaration_body());
-        return null;
     }
+
     @Override public String visitProtocol_property_declaration(SwiftParser.Protocol_property_declarationContext ctx) {
         String varName = ctx.variable_name().getText();
         Instance varType = TypeUtil.fromDefinition(ctx.type_annotation().type(), this);
@@ -45,21 +64,31 @@ public class CacheVisitor extends Visitor {
     }
 
     @Override public String visitFunction_declaration(SwiftParser.Function_declarationContext ctx) {
-        visitFunctionDeclaration(ctx);
+        visitFunctionDeclaration(ctx, ctx.function_head().declaration_modifiers());
         return null;
     }
     @Override public String visitInitializer_declaration(SwiftParser.Initializer_declarationContext ctx) {
-        visitFunctionDeclaration(ctx);
+        visitFunctionDeclaration(ctx, ctx.initializer_head().declaration_modifiers());
         return null;
     }
     @Override public String visitProtocol_method_declaration(SwiftParser.Protocol_method_declarationContext ctx) {
-        visitFunctionDeclaration(ctx);
+        visitFunctionDeclaration(ctx, ctx.function_head().declaration_modifiers());
         return null;
     }
-    private void visitFunctionDeclaration(ParserRuleContext ctx) {
+    private void visitFunctionDeclaration(ParserRuleContext ctx, SwiftParser.Declaration_modifiersContext modifiers) {
 
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, this);
-        cache.cacheOne(functionDefinition.name, functionDefinition, ctx);
+        Object cachedObject;
+        if(Cache.isStructureBlock(cache.findNearestAncestorBlock(ctx))) {
+            //it's actually method declaration
+            Instance instance = new Instance(functionDefinition);
+            addModifiers(instance, modifiers);
+            cachedObject = instance;
+        }
+        else {
+            cachedObject = functionDefinition;
+        }
+        cache.cacheOne(functionDefinition.name, cachedObject, ctx);
 
         if(!(ctx instanceof SwiftParser.Protocol_method_declarationContext)) {
             SwiftParser.Code_blockContext codeBlockCtx = FunctionUtil.codeBlockCtx(ctx);
@@ -69,6 +98,10 @@ public class CacheVisitor extends Visitor {
             }
             visit(codeBlockCtx);
         }
+    }
+
+    private void addModifiers(Instance property, SwiftParser.Declaration_modifiersContext modifiers) {
+        if(AssignmentUtil.isStatic(modifiers)) property.isStatic = true;
     }
 
     public void visitExplicit_closure_expression(PrefixElem elem, SwiftParser.Explicit_closure_expressionContext ctx, int paramPos) {

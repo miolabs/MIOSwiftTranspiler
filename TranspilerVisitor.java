@@ -33,13 +33,13 @@ public class TranspilerVisitor extends Visitor {
     }
 
     @Override public String visitFunction_declaration(SwiftParser.Function_declarationContext ctx) {
-        return FunctionUtil.functionDeclaration(ctx, this);
+        return FunctionUtil.functionDeclaration(ctx, ctx.function_head().declaration_modifiers(), this);
     }
     @Override public String visitInitializer_declaration(SwiftParser.Initializer_declarationContext ctx) {
-        return FunctionUtil.functionDeclaration(ctx, this);
+        return FunctionUtil.functionDeclaration(ctx, ctx.initializer_head().declaration_modifiers(), this);
     }
     @Override public String visitProtocol_method_declaration(SwiftParser.Protocol_method_declarationContext ctx) {
-        return FunctionUtil.functionDeclaration(ctx, this);
+        return FunctionUtil.functionDeclaration(ctx, ctx.function_head().declaration_modifiers(), this);
     }
 
     @Override public String visitType(SwiftParser.TypeContext ctx) {

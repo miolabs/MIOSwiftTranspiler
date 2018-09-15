@@ -167,11 +167,12 @@ public class FunctionUtil {
         return name.startsWith(varName) && (name.length() == varName.length() || name.startsWith(varName + "$"));
     }
 
-    static public String functionDeclaration(ParserRuleContext ctx, Visitor visitor) {
+    static public String functionDeclaration(ParserRuleContext ctx, SwiftParser.Declaration_modifiersContext modifiers, Visitor visitor) {
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, visitor);
         boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
 
         return (
+            (AssignmentUtil.isStatic(modifiers) ? "static " : "") +
             (!isInClass ? "function " : "") +
             FunctionUtil.functionName(ctx, functionDefinition.parameterExternalNames, functionDefinition.parameterTypes, visitor) +
             "(" + visitor.visitChildren(parameterList(ctx)) + "):" +

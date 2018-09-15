@@ -1,5 +1,6 @@
 import org.antlr.v4.runtime.ParserRuleContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AssignmentUtil {
@@ -49,14 +50,15 @@ public class AssignmentUtil {
     }
 
     static public String handleConstantDeclaration(SwiftParser.Constant_declarationContext ctx, Visitor visitor) {
-        return handleDeclaration("const", SwiftParser.Constant_declaration_headContext.class, ctx, visitor);
+        return handleDeclaration("const", SwiftParser.Constant_declaration_headContext.class, ctx.constant_declaration_head().declaration_modifiers(), ctx, visitor);
     }
     static public String handleVariableDeclaration(SwiftParser.Variable_declarationContext ctx, Visitor visitor) {
-        return handleDeclaration("let", SwiftParser.Variable_declaration_headContext.class, ctx, visitor);
+        return handleDeclaration("let", SwiftParser.Variable_declaration_headContext.class, ctx.variable_declaration_head().declaration_modifiers(), ctx, visitor);
     }
-    static private String handleDeclaration(String tsDeclarationHead, Class headClass, ParserRuleContext ctx, Visitor visitor) {
+    static private String handleDeclaration(String tsDeclarationHead, Class headClass, SwiftParser.Declaration_modifiersContext modifiers, ParserRuleContext ctx, Visitor visitor) {
         boolean isInClass = ctx.parent != null && ctx.parent.parent instanceof SwiftParser.DeclarationsContext;
         return
+            (isStatic(modifiers) ? "static " : "") +
             (visitor.targetLanguage.equals("ts") && !isInClass ? tsDeclarationHead + " " : "") +
             visitor.visitWithoutClasses(ctx, headClass);
     }
@@ -144,5 +146,14 @@ public class AssignmentUtil {
                 internalSetVar + ";\n" +
                 (didSetClause != null ? "didSet(oldValue);\n" : "") +
             "}";
+    }
+
+    static public boolean isStatic(SwiftParser.Declaration_modifiersContext currModifier) {
+        List<String> modifiers = new ArrayList<String>();
+        while(currModifier != null) {
+            modifiers.add(currModifier.declaration_modifier().getText());
+            currModifier = currModifier.declaration_modifiers();
+        }
+        return modifiers.contains("static");
     }
 }
