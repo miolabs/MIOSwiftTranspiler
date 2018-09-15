@@ -127,6 +127,8 @@ public class TypeUtil {
 
     public static Instance alternative(PrefixOrExpression L, PrefixOrExpression R) {
         Instance type;
+        if(L == null) return R.type();
+        if(R == null) return L.type();
         if(typesEqual(L.type().definition, L.type().generics, R.type())) {
             type = L.type();
         }

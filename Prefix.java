@@ -18,14 +18,12 @@ import java.util.regex.Matcher;
 public class Prefix implements PrefixOrExpression {
 
     private ParserRuleContext originalCtx;
-    private SwiftParser.Prefix_operatorContext prefixOperatorContext;
     public ArrayList<PrefixElem> elems = new ArrayList<PrefixElem>();
     public ParserRuleContext originalCtx() {return originalCtx;}
 
     public Prefix(SwiftParser.Prefix_expressionContext prefixCtx, Instance knownType, Visitor visitor) {
         ArrayList<ParserRuleContext> chain = flattenChain(prefixCtx);
         originalCtx = prefixCtx;
-        prefixOperatorContext = prefixCtx.prefix_operator();
 
         Instance currType = null;
         boolean nextIsOptional = false;
@@ -85,17 +83,13 @@ public class Prefix implements PrefixOrExpression {
     }
 
     public String code(ParseTree ctx, Visitor visitor) {
-        return elemCode(elems, 0, initString(), null, prefixOperatorContext != null && prefixOperatorContext.getText().equals("&"), ctx, visitor);
+        return elemCode(elems, 0, "", null, ctx, visitor);
     }
     public String code(String assignment, ParseTree ctx, Visitor visitor) {
-        return elemCode(elems, 0, initString(), assignment, prefixOperatorContext != null && prefixOperatorContext.getText().equals("&"), ctx, visitor);
+        return elemCode(elems, 0, "", assignment, ctx, visitor);
     }
     public String code(String assignment, int limit, ParseTree ctx, Visitor visitor) {
-        return elemCode(elems.subList(0, limit), 0, initString(), assignment, prefixOperatorContext != null && prefixOperatorContext.getText().equals("&"), ctx, visitor);
-    }
-    private String initString() {
-        //TODO we're completely ignoring prefix operator!!!
-        return prefixOperatorContext != null && !prefixOperatorContext.getText().equals("&") ? prefixOperatorContext.getText() : "";
+        return elemCode(elems.subList(0, limit), 0, "", assignment, ctx, visitor);
     }
     static public Map<String, String> replacements(List<PrefixElem> elems, int chainPos, boolean isLast, String assignment, Visitor visitor) {
         PrefixElem elem = elems.get(chainPos);
@@ -111,7 +105,7 @@ public class Prefix implements PrefixOrExpression {
         if(codeReplacement != null && isLast && assignment != null && assignment.contains("N") && codeReplacement.containsKey(visitor.targetLanguage + "AssignmentNil")) replacements.put("N", codeReplacement.get(visitor.targetLanguage + "AssignmentNil"));
         return replacements;
     }
-    static private String elemCode(List<PrefixElem> elems, int chainPos, String L, String assignment/*null/"T"/"N"/"TN"*/, boolean isInOutExpression, ParseTree ctx, Visitor visitor) {
+    static private String elemCode(List<PrefixElem> elems, int chainPos, String L, String assignment/*null/"T"/"N"/"TN"*/, ParseTree ctx, Visitor visitor) {
         PrefixElem elem = elems.get(chainPos);
         boolean isLast = chainPos + 1 >= elems.size();
 
@@ -160,7 +154,7 @@ public class Prefix implements PrefixOrExpression {
         }
 
         String nextCode =
-                !isLast ? elemCode(elems, chainPos + 1, LR, assignment, isInOutExpression, ctx, visitor)
+                !isLast ? elemCode(elems, chainPos + 1, LR, assignment, ctx, visitor)
                 : LR;
 
         if(elem.isOptional && assignment == null) {
@@ -174,7 +168,7 @@ public class Prefix implements PrefixOrExpression {
             }
         }
 
-        if(isLast && isInOutExpression) {
+        if(isLast && false/*isInOutExpression*/) {
             nextCode = "{get: () => " + nextCode + ", set: $val => " + nextCode + " = $val}";
         }
 

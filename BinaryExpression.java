@@ -37,11 +37,15 @@ public class BinaryExpression implements PrefixOrExpression {
             this.L = new Prefix((SwiftParser.Prefix_expressionContext) this.L, type, visitor);
             if(type == null && isAssignment(alias)) type = ((Prefix)this.L).type();
         }
-        else ((BinaryExpression)this.L).compute(type, ctx, visitor);
+        else if(this.L != null) {
+            ((BinaryExpression)this.L).compute(type, ctx, visitor);
+        }
         if(this.R instanceof SwiftParser.Prefix_expressionContext) {
             this.R = new Prefix((SwiftParser.Prefix_expressionContext) this.R, type, visitor);
         }
-        else if(this.R != null) ((BinaryExpression)this.R).compute(type, ctx, visitor);
+        else if(this.R != null) {
+            ((BinaryExpression)this.R).compute(type, ctx, visitor);
+        }
         L = (PrefixOrExpression)this.L;
         R = (PrefixOrExpression)this.R;
 
@@ -69,7 +73,8 @@ public class BinaryExpression implements PrefixOrExpression {
             String word = "OP_" + operator.word;
 
             String assignment = isAssignment(alias) ? R.type().typeName() != null && R.type().typeName().equals("Void") ? "N" : R.type().isOptional ? "TN" : "T" : null,
-                   lCode = isAssignment(alias) ? ((Prefix)L).code(assignment, ctx, visitor) : L.code(ctx, visitor), rCode = R.code(ctx, visitor);
+                   lCode = isAssignment(alias) ? ((Prefix)L).code(assignment, ctx, visitor) : L != null ? L.code(ctx, visitor) : "",
+                   rCode = R != null ? R.code(ctx, visitor) : "";
 
             if(assignment != null) {
                 if(lCode.equals("this")) {
@@ -81,17 +86,21 @@ public class BinaryExpression implements PrefixOrExpression {
 
             List<Instance> parameterTypes = new ArrayList<Instance>();
             List<String> parameterExternalNames = new ArrayList<String>();
-            parameterTypes.add(L.type());
-            parameterExternalNames.add("");
+            if(L != null) {
+                parameterTypes.add(L.type());
+                parameterExternalNames.add("");
+            }
+            else word += "_PREFIX";
             if(R != null) {
                 parameterTypes.add(R.type());
                 parameterExternalNames.add("");
             }
+            else word += "_POSTFIX";
             Instance functionOwner = null;
-            String augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
+            String augment = L != null ? FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition)L.type().definition).getAllProperties()) : null;
             if(augment != null) functionOwner = L.type();
-            else {
-                augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)L.type().definition).getAllProperties());
+            else if(R != null) {
+                augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)R.type().definition).getAllProperties());
                 if(augment != null) functionOwner = R.type();
             }
 

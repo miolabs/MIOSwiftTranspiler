@@ -46,6 +46,7 @@ class FunctionDefinition extends Definition {
     public List<String> parameterExternalNames;
     public List<Instance> parameterTypes;
     public int numParametersWithDefaultValue = 0;
+    public int operator = 0;//1: binary, 2: prefix, 3: postfix
     public Instance result;
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
     public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<String> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
@@ -55,7 +56,27 @@ class FunctionDefinition extends Definition {
         this.parameterExternalNames = FunctionUtil.parameterExternalNames(parameters);
         this.parameterTypes = FunctionUtil.parameterTypes(parameters, visitor);
         this.numParametersWithDefaultValue = FunctionUtil.numParametersWithDefaultValue(parameters);
-        this.name = FunctionUtil.functionName(ctx, parameterExternalNames, parameterTypes, visitor);
+
+        String baseName =
+            ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_name().getText() :
+            ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).function_name().getText() :
+            "init";
+
+        Cache.CacheBlockAndObject operator = visitor.cache.find(baseName, ctx);
+        if(operator != null && operator.object instanceof Operator) {
+            SwiftParser.Declaration_modifiersContext modifiers =
+                ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).function_head().declaration_modifiers() :
+                ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext) ctx).function_head().declaration_modifiers() :
+                null;
+            if(AssignmentUtil.modifiers(modifiers).contains("prefix")) this.operator = 2;
+            else if(AssignmentUtil.modifiers(modifiers).contains("postfix")) this.operator = 3;
+            else this.operator = 1;
+            baseName = "OP_" + ((Operator)operator.object).word + (this.operator == 2 ? "_PREFIX" : this.operator == 3 ? "_POSTFIX" : "");
+            for(int i = 0; i < parameterExternalNames.size(); i++) {
+                parameterExternalNames.set(i, "");
+            }
+        }
+        this.name = baseName + FunctionUtil.nameAugment(parameterExternalNames, parameterTypes);
 
         this.result =
             ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), FunctionUtil.codeBlockCtx(ctx).statements(), false, ctx, visitor) :

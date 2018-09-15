@@ -56,9 +56,17 @@ public class Expression implements PrefixOrExpression {
         }
 
         if(ctxs.get(0) instanceof SwiftParser.Prefix_expressionContext) {
-            Prefix prefix = new Prefix((SwiftParser.Prefix_expressionContext)ctxs.get(0), knownType, visitor);
-            this.code = prefix.code(ctx, visitor);
-            this.type = prefix.type();
+            if(((SwiftParser.Prefix_expressionContext) ctxs.get(0)).prefix_operator() != null) {
+                BinaryExpression prefixExpression = new BinaryExpression(null, ctxs.get(0), ((SwiftParser.Prefix_expressionContext) ctxs.get(0)).prefix_operator());
+                prefixExpression.compute(knownType, ctx, visitor);
+                this.code = prefixExpression.code;
+                this.type = prefixExpression.type;
+            }
+            else {
+                Prefix prefix = new Prefix((SwiftParser.Prefix_expressionContext)ctxs.get(0), knownType, visitor);
+                this.code = prefix.code(ctx, visitor);
+                this.type = prefix.type();
+            }
         }
         else {
             BinaryExpression top = (BinaryExpression)ctxs.get(0);
