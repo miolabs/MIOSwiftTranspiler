@@ -94,6 +94,7 @@ public class Prefix implements PrefixOrExpression {
         return elemCode(elems.subList(0, limit), 0, initString(), assignment, prefixOperatorContext != null && prefixOperatorContext.getText().equals("&"), ctx, visitor);
     }
     private String initString() {
+        //TODO we're completely ignoring prefix operator!!!
         return prefixOperatorContext != null && !prefixOperatorContext.getText().equals("&") ? prefixOperatorContext.getText() : "";
     }
     static public Map<String, String> replacements(List<PrefixElem> elems, int chainPos, boolean isLast, String assignment, Visitor visitor) {

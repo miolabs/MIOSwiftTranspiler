@@ -58,14 +58,22 @@ public class FunctionUtil {
             "init";
 
         Cache.CacheBlockAndObject operator = visitor.cache.find(baseName, ctx);
+        boolean isPrefix = false;
+        boolean isPostfix = false;
         if(operator != null && operator.object instanceof Operator) {
+            SwiftParser.Declaration_modifiersContext modifiers =
+                ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).function_head().declaration_modifiers() :
+                ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext) ctx).function_head().declaration_modifiers() :
+                null;
+            isPrefix = AssignmentUtil.modifiers(modifiers).contains("prefix");
+            isPostfix = AssignmentUtil.modifiers(modifiers).contains("postfix");
             baseName = "OP_" + ((Operator)operator.object).word;
             for(int i = 0; i < parameterExternalNames.size(); i++) {
                 parameterExternalNames.set(i, "");
             }
         }
 
-        return baseName + nameAugment(parameterExternalNames, parameterTypes);
+        return baseName + (isPrefix ? "$" : "") + nameAugment(parameterExternalNames, parameterTypes) + (isPostfix ? "$" : "");
     }
 
     static public ArrayList<Instance> parameterTypes(List<?extends ParserRuleContext> parameters, Visitor visitor) {
@@ -172,7 +180,7 @@ public class FunctionUtil {
         boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
 
         return (
-            (AssignmentUtil.isStatic(modifiers) ? "static " : "") +
+            (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
             (!isInClass ? "function " : "") +
             FunctionUtil.functionName(ctx, functionDefinition.parameterExternalNames, functionDefinition.parameterTypes, visitor) +
             "(" + visitor.visitChildren(parameterList(ctx)) + "):" +

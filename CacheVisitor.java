@@ -101,7 +101,7 @@ public class CacheVisitor extends Visitor {
     }
 
     private void addModifiers(Instance property, SwiftParser.Declaration_modifiersContext modifiers) {
-        if(AssignmentUtil.isStatic(modifiers)) property.isStatic = true;
+        if(AssignmentUtil.modifiers(modifiers).contains("static")) property.isStatic = true;
     }
 
     public void visitExplicit_closure_expression(PrefixElem elem, SwiftParser.Explicit_closure_expressionContext ctx, int paramPos) {

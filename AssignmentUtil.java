@@ -58,7 +58,7 @@ public class AssignmentUtil {
     static private String handleDeclaration(String tsDeclarationHead, Class headClass, SwiftParser.Declaration_modifiersContext modifiers, ParserRuleContext ctx, Visitor visitor) {
         boolean isInClass = ctx.parent != null && ctx.parent.parent instanceof SwiftParser.DeclarationsContext;
         return
-            (isStatic(modifiers) ? "static " : "") +
+            (modifiers(modifiers).contains("static") ? "static " : "") +
             (visitor.targetLanguage.equals("ts") && !isInClass ? tsDeclarationHead + " " : "") +
             visitor.visitWithoutClasses(ctx, headClass);
     }
@@ -148,12 +148,12 @@ public class AssignmentUtil {
             "}";
     }
 
-    static public boolean isStatic(SwiftParser.Declaration_modifiersContext currModifier) {
+    static public List<String> modifiers(SwiftParser.Declaration_modifiersContext currModifier) {
         List<String> modifiers = new ArrayList<String>();
         while(currModifier != null) {
             modifiers.add(currModifier.declaration_modifier().getText());
             currModifier = currModifier.declaration_modifiers();
         }
-        return modifiers.contains("static");
+        return modifiers;
     }
 }
