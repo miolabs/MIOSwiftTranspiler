@@ -110,8 +110,8 @@ public class BinaryExpression implements PrefixOrExpression {
                     FunctionDefinition functionDefinition = (FunctionDefinition)function.definition;
                     definitionCode = ((ClassDefinition)functionOwner.definition).name + "." + word + augment + "(";
                     for(int i = 0; i < functionDefinition.parameterTypes.size(); i++) {
-                        String argument = "#A" + (i + (functionDefinition.operator == 2 ? 1 : 0));
-                        if(functionDefinition.parameterTypes.get(i).isInout) argument = "{get: () => " + argument + ", set: $val => " + argument + " = $val}";
+                        int argumentI = i + (functionDefinition.operator == 2 ? 1 : 0);
+                        String argument = functionDefinition.parameterTypes.get(i).isInout ? "{get: () => #A" + argumentI + ", set: $val => #SA" + argumentI + "}" : "#A" + argumentI;
                         definitionCode += (i > 0 ? ", " : "") + argument;
                     }
                     definitionCode += ")";
@@ -123,15 +123,22 @@ public class BinaryExpression implements PrefixOrExpression {
                         "#A0 " + alias + " #A1";
                 }
             }
-            boolean assignmentIsReplaced = assignment != null && (
-                ((Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("T") || Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("N"))) ||
-                ((Prefix) L).elems.get(((Prefix) L).elems.size() - 1).type.isGetterSetter ||
-                ((Prefix) L).elems.get(((Prefix) L).elems.size() - 1).type.isInout ||
-                (((Prefix) L).elems.size() > 1 && ((ClassDefinition)((Prefix) L).elems.get(((Prefix) L).elems.size() - 2).type.definition).isProtocol)
-            );
-            this.code =
-                    assignmentIsReplaced ? lCode.replaceAll("#ASS", Matcher.quoteReplacement(rCode)) :
-                    definitionCode.replaceAll("#A0", Matcher.quoteReplacement(lCode)).replaceAll("#A1", Matcher.quoteReplacement(rCode));
+
+            if(lCode.contains("#ASS")) this.code = lCode.replaceAll("#ASS", Matcher.quoteReplacement(rCode)).replaceAll("#NOASS", "");
+            else if(lCode.contains("NOASS")) this.code = lCode.replaceAll("#NOASS", "");
+            else this.code = definitionCode.replaceAll("#A0", Matcher.quoteReplacement(lCode)).replaceAll("#A1", Matcher.quoteReplacement(rCode));
+
+            if(this.code.contains("#SA0")) {
+                String valAssignment = ((Prefix)L).code("T", ctx, visitor);//TODO work out if T/N/TN
+                valAssignment = valAssignment.contains("#ASS") ? valAssignment.replaceAll("#ASS", Matcher.quoteReplacement("$val")) : valAssignment + " = $val";
+                this.code = this.code.replaceAll("#SA0", Matcher.quoteReplacement(valAssignment));
+            }
+            if(this.code.contains("#SA1")) {
+                String valAssignment = ((Prefix)R).code("T", ctx, visitor);//TODO work out if T/N/TN
+                valAssignment = valAssignment.contains("#ASS") ? valAssignment.replaceAll("#ASS", Matcher.quoteReplacement("$val")) : valAssignment + " = $val";
+                this.code = this.code.replaceAll("#SA1", Matcher.quoteReplacement(valAssignment));
+            }
+
             if(assignment != null && ((Prefix) L).hasOptionals()) {
                 this.code = "if(" + optionalsGuardingIf(((Prefix) L), assignment, ctx, visitor) + "){" + this.code + ";}";
             }
@@ -150,7 +157,8 @@ public class BinaryExpression implements PrefixOrExpression {
     }
 
     static private boolean isAssignment(String alias) {
-        return alias.equals("=") || alias.equals("+=") || alias.equals("-=") || alias.equals("*=") || alias.equals("/=") || alias.equals("%=");
+        //TODO do a proper check, for instance mind overloaded operators
+        return alias.equals("=");// || alias.equals("+=") || alias.equals("-=") || alias.equals("*=") || alias.equals("/=") || alias.equals("%=");
     }
 
     static private String optionalsGuardingIf(Prefix L, String assignment, ParseTree ctx, Visitor visitor) {

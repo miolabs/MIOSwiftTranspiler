@@ -27,7 +27,7 @@
     "precedence": "MultiplicationPrecedence",
     "word": "bitwiseAND",
     "codeReplacementPrefix": {
-      "ts": "{get: () => #A1, set: $val => #A1 = $val}"
+      "ts": "{get: () => #A1, set: $val => #SA1}"
     }
   },
   "+": {

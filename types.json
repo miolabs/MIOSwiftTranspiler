@@ -60,8 +60,8 @@
       "codeReplacement": {
         "java": "#L.get(#R)",
         "javaAssignment": "#L.put(#R, #ASS)",
-        "tsAssignmentNil": "delete #L[#R]",
-        "javaAssignmentNil": "#L.remove(#R)"
+        "tsAssignmentNil": "delete #L[#R]#NOASS",
+        "javaAssignmentNil": "#L.remove(#R)#NOASS"
       }
     }, {
       "name": "count",
@@ -117,8 +117,8 @@
       "codeReplacement": {
         "java": "#L.get(#R)",
         "javaAssignment": "#L.put(#R, #ASS)",
-        "tsAssignmentNil": "#L.splice(#R, 1)",
-        "javaAssignmentNil": "#L.remove(#R)"
+        "tsAssignmentNil": "#L.splice(#R, 1)#NOASS",
+        "javaAssignmentNil": "#L.remove(#R)#NOASS"
       }
     }, {
       "name": "OP_add",
