@@ -131,7 +131,7 @@
         "java": "new ArrayList<String>() { { addAll(#A0); addAll(#A1); } }"
       }
     }, {
-      "name": "OP_addAssign",
+      "name": "OP_addAndAssign",
       "function": true,
       "parameters": [{"type": "[Value]"}, {"type": "[Value]"}],
       "type": "Void",
@@ -285,7 +285,7 @@
         "ts": "((#A0 / #A1)|0)"
       }
     }, {
-      "name": "OP_divideAssign",
+      "name": "OP_divideAndAssign",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Int"}],
       "type": "Void",
@@ -349,7 +349,7 @@
       "type": "Double",
       "static": true
     }, {
-      "name": "OP_multiple",
+      "name": "OP_multiply",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
       "type": "Double",
@@ -367,13 +367,13 @@
       "type": "Double",
       "static": true
     }, {
-      "name": "OP_mod",
+      "name": "OP_remainder",
       "function": true,
       "parameters": [{"type": "Int"}, {"type": "Double"}],
       "type": "Double",
       "static": true
     }, {
-      "name": "OP_mod",
+      "name": "OP_remainder",
       "function": true,
       "parameters": [{"type": "Double"}, {"type": "Int"}],
       "type": "Double",

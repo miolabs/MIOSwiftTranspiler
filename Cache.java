@@ -6,7 +6,7 @@ public class Cache {
 
     static class CacheBlockAndObject {
         public ParseTree block;
-        public Object object;//Operator/Definition/Instance
+        public Object object;//PrecedenceGroup/Operator/Definition/Instance
 
         public CacheBlockAndObject(ParseTree block, Object object) {
             this.block = block;
@@ -107,7 +107,7 @@ public class Cache {
         return allTypes;
     }
 
-    public void cacheOne(String identifier, Object object/*Operator/Definition/Instance*/, ParseTree ctx) {
+    public void cacheOne(String identifier, Object object/*PrecedenceGroup/Operator/Definition/Instance*/, ParseTree ctx) {
         //System.out.println("Caching " + identifier + " as " + object.uniqueId());
 
         ParseTree nearestAncestorBlock = findNearestAncestorBlock(ctx);

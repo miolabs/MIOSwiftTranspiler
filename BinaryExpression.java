@@ -3,6 +3,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 
 //deals with binary operations (e.g. a + b) -- tries to work out in which class the operation is defined
@@ -10,9 +11,6 @@ import java.util.regex.Matcher;
 //also has some hardcoded functionality for the conditional operator ?: and casting operator "as"
 //handles some logic around assignments, e.g. optional assignment dictionary?["key"] = "val", but the bulk of that is done by Prefix
 public class BinaryExpression implements PrefixOrExpression {
-
-    static public int minOperatorPriority = 3;
-    static public int maxOperatorPriority = 10;
 
     Instance type;
     String code;
@@ -50,7 +48,6 @@ public class BinaryExpression implements PrefixOrExpression {
         R = (PrefixOrExpression)this.R;
 
         if(operator instanceof SwiftParser.Conditional_operatorContext) {
-            //TODO should be grouping conditionals from right to left, e.g. true ? 1 : true ? 2 : 3 to true ? 1 : (true ? 2 : 3), currently that would be evaluated as 'true ? 1 : true'
             SwiftParser.Conditional_operatorContext conditionalOperator = (SwiftParser.Conditional_operatorContext)operator;
             Instance passType = TypeUtil.infer(conditionalOperator.expression(), visitor);
             Expression passExpression = new Expression(conditionalOperator.expression(), passType, visitor);
@@ -107,9 +104,10 @@ public class BinaryExpression implements PrefixOrExpression {
             this.type = augment != null ? functionOwner.getProperty(word + augment).result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
 
             if(definitionCode == null) {
+                Map<String, String> codeReplacement = L == null ? operator.codeReplacementPrefix : R == null ? operator.codeReplacementPostfix : operator.codeReplacementInfix;
                 definitionCode =
                     augment != null && functionOwner.getProperty(word + augment).codeReplacement != null && functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) != null ? functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) :
-                    operator.codeReplacement != null ? operator.codeReplacement.get(visitor.targetLanguage) :
+                    codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) ? codeReplacement.get(visitor.targetLanguage) :
                     "#A0 " + alias + " #A1";
             }
             boolean assignmentIsReplaced = assignment != null && (
@@ -127,10 +125,11 @@ public class BinaryExpression implements PrefixOrExpression {
         }
     }
 
-    static public int priorityForOperator(ParserRuleContext operator, ParseTree ctx, Visitor visitor) {
+    static public boolean operatorBelongsToPrecedenceGroup(ParserRuleContext operator, PrecedenceGroup precedenceGroup, ParseTree ctx, Visitor visitor) {
         String operatorAlias = BinaryExpression.operatorAlias(operator);
-        return ((Operator)visitor.cache.find(operatorAlias, ctx).object).priority;
+        return ((Operator)visitor.cache.find(operatorAlias, ctx).object).precedenceGroup == precedenceGroup;
     }
+
     static public String operatorAlias(ParserRuleContext operator) {
         if(operator instanceof SwiftParser.Conditional_operatorContext) return "?:";
         if(operator instanceof SwiftParser.Type_casting_operatorContext) return operator.getChild(0).getText();

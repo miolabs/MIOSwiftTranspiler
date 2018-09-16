@@ -101,8 +101,15 @@ public class Prefix implements PrefixOrExpression {
         }
         Map<String, String> replacements = new HashMap<String, String>();
         if(codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage)) replacements.put("", codeReplacement.get(visitor.targetLanguage));
-        if(codeReplacement != null && isLast && assignment != null && assignment.contains("T") && codeReplacement.containsKey(visitor.targetLanguage + "Assignment")) replacements.put("T", codeReplacement.get(visitor.targetLanguage + "Assignment"));
-        if(codeReplacement != null && isLast && assignment != null && assignment.contains("N") && codeReplacement.containsKey(visitor.targetLanguage + "AssignmentNil")) replacements.put("N", codeReplacement.get(visitor.targetLanguage + "AssignmentNil"));
+        if(isLast && assignment != null) {
+            if(assignment.contains("T")) {
+                if(codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage + "Assignment")) replacements.put("T", codeReplacement.get(visitor.targetLanguage + "Assignment"));
+                else if(assignment.contains("N")) replacements.put("T", "#L" + (chainPos == 0 ? "#R" : elem.isSubscript ? "[#R]" : ".#R") + " = #ASS");
+            }
+            if(assignment.contains("N")) {
+                if(codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage + "AssignmentNil")) replacements.put("N", codeReplacement.get(visitor.targetLanguage + "AssignmentNil"));
+            }
+        }
         return replacements;
     }
     static private String elemCode(List<PrefixElem> elems, int chainPos, String L, String assignment/*null/"T"/"N"/"TN"*/, ParseTree ctx, Visitor visitor) {
@@ -121,7 +128,7 @@ public class Prefix implements PrefixOrExpression {
         else {
             LR = "#L" + (chainPos == 0 ? "#R" : elem.isSubscript ? "[#R]" : ".#R");
             if(chainPos > 0 && elems.get(0).type.definition instanceof EnumerationDefinition) {
-                //we're hiding Enumeration references, e.g. CompassPoint.west
+                //we're hiding Enumeration references, e.g. `CompassPoint` in CompassPoint.west
                 LR = "#R";
             }
             else if(isLast && assignment != null) {

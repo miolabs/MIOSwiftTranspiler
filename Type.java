@@ -6,11 +6,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
+class PrecedenceGroup {
+    public boolean leftAssociativity;
+}
+
 class Operator {
-    public int priority;
-    public Definition result;
-    public Map<String, String> codeReplacement;
+    public PrecedenceGroup precedenceGroup;
     public String word;
+    public Definition result;
+    public Map<String, String> codeReplacementPrefix;
+    public Map<String, String> codeReplacementInfix;
+    public Map<String, String> codeReplacementPostfix;
 }
 
 abstract class Definition {

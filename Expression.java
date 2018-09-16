@@ -41,20 +41,21 @@ public class Expression implements PrefixOrExpression {
         }
 
         for(int i = 0; i < ctxs.size(); i++) {
-            if(ctxs.get(i) == null) continue;//sometimes that happens for some reason, check dictionaries-5
+            if(ctxs.get(i) == null) continue;
             SwiftParser.Prefix_expressionContext prefixCtx = (SwiftParser.Prefix_expressionContext) ctxs.get(i);
-            if(prefixCtx.prefix_operator() != null) {
-                ctxs.set(i, new BinaryExpression(null, prefixCtx, prefixCtx.prefix_operator()));
+            if(prefixCtx.postfix_expression().chain_postfix_expression() instanceof SwiftParser.Chain_postfix_operatorContext && !BinaryExpression.isOptionalChainingOperator(((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator())) {
+                ctxs.set(i, new BinaryExpression(ctxs.get(i), null, ((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator()));
             }
-            else if(prefixCtx.postfix_expression().chain_postfix_expression() instanceof SwiftParser.Chain_postfix_operatorContext && !BinaryExpression.isOptionalChainingOperator(((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator())) {
-                ctxs.set(i, new BinaryExpression(prefixCtx, null, ((SwiftParser.Chain_postfix_operatorContext) prefixCtx.postfix_expression().chain_postfix_expression()).postfix_operator()));
+            if(prefixCtx.prefix_operator() != null) {
+                ctxs.set(i, new BinaryExpression(null, ctxs.get(i)/*can't be prefixCtx because might be postfix binary expression as set above*/, prefixCtx.prefix_operator()));
             }
         }
 
-        for(int priority = BinaryExpression.minOperatorPriority; priority <= BinaryExpression.maxOperatorPriority; priority++) {
-            for(int i = 0; i < operators.size(); i++) {
+        for(int j = 0; j < PrecedenceGroupLoader.precedenceGroups.size(); j++) {
+            PrecedenceGroup precedenceGroup = PrecedenceGroupLoader.precedenceGroups.get(j);
+            for(int i = precedenceGroup.leftAssociativity ? 0 : operators.size() - 1; precedenceGroup.leftAssociativity ? i < operators.size() : i >= 0; i += precedenceGroup.leftAssociativity ? 1 : -1) {
                 ParserRuleContext operator = operators.get(i);
-                if(BinaryExpression.priorityForOperator(operator, ctx, visitor) != priority) continue;
+                if(!BinaryExpression.operatorBelongsToPrecedenceGroup(operator, precedenceGroup, ctx, visitor)) continue;
                 Object L = ctxs.get(i);
                 Object R = ctxs.get(i + 1);
                 BinaryExpression LR = new BinaryExpression(L, R, operator);
@@ -62,7 +63,7 @@ public class Expression implements PrefixOrExpression {
                 ctxs.remove(i);
                 ctxs.add(i, LR);
                 operators.remove(i);
-                i--;
+                if(precedenceGroup.leftAssociativity) i--;
             }
         }
 

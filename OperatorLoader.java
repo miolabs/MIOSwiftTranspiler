@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Map;
 
 public class OperatorLoader {
 
@@ -28,22 +29,32 @@ public class OperatorLoader {
     static private Operator parseDefinition(JSONObject src, Cache cache, SwiftParser.Top_levelContext topLevel) {
         Operator definition = new Operator();
 
-        definition.priority = src.optInt("priority");
+        if(src.has("precedence")) {
+            definition.precedenceGroup = (PrecedenceGroup)cache.find(src.optString("precedence"), topLevel).object;
+        }
 
         if(src.has("result")) {
             definition.result = (Definition)cache.find(src.optString("result"), topLevel).object;
         }
 
-        if(src.optJSONObject("codeReplacement") != null) {
-            definition.codeReplacement = new HashMap<String, String>();
-            for(int i = 0; i < src.optJSONObject("codeReplacement").names().length(); i++) {
-                String language = src.optJSONObject("codeReplacement").names().optString(i);
-                definition.codeReplacement.put(language, src.optJSONObject("codeReplacement").optString(language));
-            }
-        }
+        definition.codeReplacementPrefix = setCodeReplacement(src, "codeReplacementPrefix");
+        definition.codeReplacementInfix = setCodeReplacement(src, "codeReplacementInfix");
+        definition.codeReplacementPostfix = setCodeReplacement(src, "codeReplacementPostfix");
 
         definition.word = src.optString("word");
 
         return definition;
+    }
+
+    static private Map<String, String> setCodeReplacement(JSONObject src, String propertyName) {
+        if(src.optJSONObject(propertyName) != null) {
+            Map<String, String> codeReplacement = new HashMap<String, String>();
+            for(int i = 0; i < src.optJSONObject(propertyName).names().length(); i++) {
+                String language = src.optJSONObject(propertyName).names().optString(i);
+                codeReplacement.put(language, src.optJSONObject(propertyName).optString(language));
+            }
+            return codeReplacement;
+        }
+        return null;
     }
 }
