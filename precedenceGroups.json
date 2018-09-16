@@ -35,12 +35,16 @@
     "leftAssociativity": true,
     "priority": 8
   },
+  "DefaultCustomPrecedence": {
+    "leftAssociativity": true,
+    "priority": 9
+  },
   "TernaryPrecedence": {
     "leftAssociativity": false,
-    "priority": 9
+    "priority": 10
   },
   "AssignmentPrecedence": {
     "leftAssociativity": false,
-    "priority": 10
+    "priority": 11
   }
 }

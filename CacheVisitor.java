@@ -9,10 +9,13 @@ import java.util.List;
 
 public class CacheVisitor extends Visitor {
 
-    public CacheVisitor(Cache cache, String targetLanguage) {
+    SwiftParser.Top_levelContext topLevel;
+
+    public CacheVisitor(Cache cache, String targetLanguage, SwiftParser.Top_levelContext topLevel) {
         super();
         this.cache = cache;
         this.targetLanguage = targetLanguage;
+        this.topLevel = topLevel;
     }
 
     @Override public String visitConstant_declaration(SwiftParser.Constant_declarationContext ctx) {
@@ -267,6 +270,25 @@ public class CacheVisitor extends Visitor {
 
     @Override public String visitEnum_declaration(SwiftParser.Enum_declarationContext ctx) {
         Enumeration.cacheDeclaration(ctx, this);
+        return null;
+    }
+
+    @Override public String visitOperator_declaration(SwiftParser.Operator_declarationContext ctx) {
+        String operatorStr = ctx.infix_operator_declaration() != null ? ctx.infix_operator_declaration().operator().getText() : ctx.prefix_operator_declaration() != null ? ctx.prefix_operator_declaration().operator().getText() : ctx.postfix_operator_declaration().operator().getText();
+        String word = "";
+        for(int i = 0; i < operatorStr.length(); i++) {
+            word += "_" + ((int)operatorStr.charAt(i));
+        }
+
+        Operator operator = new Operator();
+        operator.word = word;
+        if(ctx.infix_operator_declaration() != null) {
+            String precedenceGroup = ctx.infix_operator_declaration().infix_operator_precedence_clause() != null ? ctx.infix_operator_declaration().infix_operator_precedence_clause().identifier().getText() : "DefaultCustomPrecedence";
+            operator.precedenceGroup = (PrecedenceGroup)cache.find(precedenceGroup, ctx).object;
+        }
+
+        cache.cacheOne(operatorStr, operator, this.topLevel);
+
         return null;
     }
 }

@@ -120,11 +120,6 @@ public class Cache {
                 property.isInitializer = true;
                 if(((SwiftParser.Initializer_declarationContext)ctx).initializer_head().getText().contains("?")) property.isFailableInitializer = true;
             }
-            if(property.definition instanceof FunctionDefinition && ((FunctionDefinition) property.definition).operator > 0) {
-                property.codeReplacement = new HashMap<String, String>();
-                String replacement = ((FunctionDefinition) property.definition).operator == 1 ? "#A0, #A1" : ((FunctionDefinition) property.definition).operator == 2 ? "#A1" : "#A0";
-                property.codeReplacement.put("ts", ((ClassDefinition)classDefinition.object).name + "." + identifier + "(" + replacement + ")");
-            }
             ((ClassDefinition) classDefinition.object).properties.put(identifier, property);
         }
 

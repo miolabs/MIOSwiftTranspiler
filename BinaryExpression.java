@@ -94,21 +94,34 @@ public class BinaryExpression implements PrefixOrExpression {
             }
             else word += "_POSTFIX";
             Instance functionOwner = null;
-            String augment = L != null ? FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition)L.type().definition).getAllProperties()) : null;
+            String augment = L != null ? FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition) L.type().definition).getAllProperties()) : null;
             if(augment != null) functionOwner = L.type();
             else if(R != null) {
                 augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)R.type().definition).getAllProperties());
                 if(augment != null) functionOwner = R.type();
             }
+            Instance function = augment != null ? functionOwner.getProperty(word + augment) : null;
 
-            this.type = augment != null ? functionOwner.getProperty(word + augment).result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
+            this.type = function != null ? function.result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
 
             if(definitionCode == null) {
                 Map<String, String> codeReplacement = L == null ? operator.codeReplacementPrefix : R == null ? operator.codeReplacementPostfix : operator.codeReplacementInfix;
-                definitionCode =
-                    augment != null && functionOwner.getProperty(word + augment).codeReplacement != null && functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) != null ? functionOwner.getProperty(word + augment).codeReplacement.get(visitor.targetLanguage) :
-                    codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) ? codeReplacement.get(visitor.targetLanguage) :
-                    "#A0 " + alias + " #A1";
+                if(function != null && ((FunctionDefinition)function.definition).operator > 0) {
+                    FunctionDefinition functionDefinition = (FunctionDefinition)function.definition;
+                    definitionCode = ((ClassDefinition)functionOwner.definition).name + "." + word + augment + "(";
+                    for(int i = 0; i < functionDefinition.parameterTypes.size(); i++) {
+                        String argument = "#A" + (i + (functionDefinition.operator == 2 ? 1 : 0));
+                        if(functionDefinition.parameterTypes.get(i).isInout) argument = "{get: () => " + argument + ", set: $val => " + argument + " = $val}";
+                        definitionCode += (i > 0 ? ", " : "") + argument;
+                    }
+                    definitionCode += ")";
+                }
+                else {
+                    definitionCode =
+                        augment != null && function.codeReplacement != null && function.codeReplacement.get(visitor.targetLanguage) != null ? function.codeReplacement.get(visitor.targetLanguage) :
+                        codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) ? codeReplacement.get(visitor.targetLanguage) :
+                        "#A0 " + alias + " #A1";
+                }
             }
             boolean assignmentIsReplaced = assignment != null && (
                 ((Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("T") || Prefix.replacements(((Prefix) L).elems, ((Prefix) L).elems.size() - 1, true, assignment, visitor).containsKey("N"))) ||

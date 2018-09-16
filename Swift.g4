@@ -39,7 +39,8 @@ top_level : statement* EOF ;
 
 statement
 // : assignment_statement ';'?
- : expression semicolon?
+ : operator_declaration semicolon? //has to take precedence over expression, as otherwise `infix operator +-` was parsed as two expressions `infix` `operator +-`; swapping expression & declaration wouldn't work either
+ | expression semicolon?
  | declaration semicolon?
  | loop_statement semicolon?
  | branch_statement semicolon?
@@ -296,7 +297,6 @@ declaration
  | deinitializer_declaration
  | extension_declaration
  | subscript_declaration
- | operator_declaration
  ;
 
 declarations : declaration+ ;
@@ -510,14 +510,10 @@ subscript_result : arrow_operator attributes? type  ;
 // GRAMMAR OF AN OPERATOR DECLARATION
 
 operator_declaration : prefix_operator_declaration | postfix_operator_declaration | infix_operator_declaration  ;
-prefix_operator_declaration : 'prefix' 'operator' operator '{' '}'  ;
-postfix_operator_declaration : 'postfix' 'operator' operator '{' '}'  ;
-infix_operator_declaration : 'infix' 'operator' operator '{' infix_operator_attributes '}' ; // Note: infix_operator_attributes is optional by definition so no ? needed
-infix_operator_attributes : precedence_clause? associativity_clause? ;
-precedence_clause : 'precedence' precedence_level ;
-precedence_level : integer_literal ;
-associativity_clause : 'associativity' associativity ;
-associativity : 'left' | 'right' | 'none' ;
+prefix_operator_declaration : 'prefix' 'operator' operator ;
+postfix_operator_declaration : 'postfix' 'operator' operator ;
+infix_operator_declaration : 'infix' 'operator' operator infix_operator_precedence_clause? ;
+infix_operator_precedence_clause: ':' identifier;
 
 // GRAMMAR OF A DECLARATION MODIFIER
 declaration_modifier

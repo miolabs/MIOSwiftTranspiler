@@ -155,4 +155,8 @@ public class TranspilerVisitor extends Visitor {
     @Override public String visitReturn_statement(SwiftParser.Return_statementContext ctx) {
         return Initializer.handleReturnStatement(ctx, this);
     }
+
+    @Override public String visitOperator_declaration(SwiftParser.Operator_declarationContext ctx) {
+        return "";
+    }
 }
