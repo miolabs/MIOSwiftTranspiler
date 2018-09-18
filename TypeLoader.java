@@ -49,11 +49,12 @@ public class TypeLoader {
 
     static private ClassDefinition parseClass(String className, JSONObject src) {
 
-        ClassDefinition definition = new ClassDefinition(className, null, new LinkedHashMap<String, Instance>(), new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
+        ClassDefinition definition = new ClassDefinition(className, null, new LinkedHashMap<String, Instance>(), new ArrayList<Generic>(), false, new ArrayList<ClassDefinition>());
 
         if(src.optJSONArray("generics") != null) {
             for(int i = 0; i < src.optJSONArray("generics").length(); i++) {
-                definition.generics.add(src.optJSONArray("generics").optString(i));
+                Generic generic = new Generic(src.optJSONArray("generics").optString(i), new ArrayList<ClassDefinition>());
+                definition.generics.add(generic);
             }
         }
 

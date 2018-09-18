@@ -19,9 +19,16 @@ class Operator {
     public Map<String, String> codeReplacementPostfix;
 }
 
+class Generic {//either generic or associatedtype
+    public String name;
+    public List<ClassDefinition> protocols;
+    public Generic(String name, List<ClassDefinition> protocols){ this.name = name; this.protocols = protocols; }
+}
+
 abstract class Definition {
     public String name;
-    public List<String> generics;
+    public List<Generic> generics;
+    //TODO associated type clarifications, że w tym protocole od tego generica, ten associatedtype (ta klasa/do tego protocolu)
     public Map<String, Boolean> cloneOnAssignmentReplacement;//ts->boolean, java->boolean
 }
 
@@ -31,7 +38,7 @@ class ClassDefinition extends Definition {
     public Map<String, Instance> properties;
     boolean isProtocol;
     public List<ClassDefinition> protocols;
-    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<String> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; }
+    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<Generic> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; }
     public Map<String, Cache.CacheBlockAndObject> getAllProperties() {
         Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
         ClassDefinition classDefinition = this;
@@ -55,7 +62,7 @@ class FunctionDefinition extends Definition {
     public int operator = 0;//1: infix, 2: prefix, 3: postfix
     public Instance result;
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
-    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<String> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
+    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<Generic> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
     public FunctionDefinition(ParserRuleContext ctx, Visitor visitor) {
         List<SwiftParser.ParameterContext> parameters = FunctionUtil.parameters(ctx);
 

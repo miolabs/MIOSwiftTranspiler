@@ -134,10 +134,9 @@ public class FunctionUtil {
                     expectedParameterType = functionType.parameterTypes.get(i);
                 }
                 if(lType != null) expectedParameterType = lType.specifyGenerics(expectedParameterType);
-                if(
-                    !expectedParameterExternalName.equals(parameterExternalNames.get(i)) ||
-                    (parameterTypes.get(i) != null && !TypeUtil.conformsToType(parameterTypes.get(i), expectedParameterType))
-                ) parametersMatch = false;
+                if(!expectedParameterExternalName.equals(parameterExternalNames.get(i))) { parametersMatch = false; break; }
+                if(isInitializer && expectedParameterType.definition == null && expectedParameterType.genericDefinition != null/* TODO && genericsNotYetSpecified*/) {}
+                else if(parameterTypes.get(i) != null && !TypeUtil.conformsToType(parameterTypes.get(i), expectedParameterType)){ parametersMatch = false; break; }
             }
             if(!parametersMatch) continue;
             if(parameterTypes.size() >= functionType.parameterTypes.size() - functionType.numParametersWithDefaultValue) return iterator.getKey().substring(defaultFunctionName.length());

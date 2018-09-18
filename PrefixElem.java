@@ -34,9 +34,6 @@ public class PrefixElem {
         if(chainPos == 0 && WalkerUtil.isDirectDescendant(SwiftParser.Dictionary_literalContext.class, rChild)) {
             return getDictionary(rChild, rType, functionCallParams, visitor);
         }
-        if(chainPos == 0 && rChild instanceof SwiftParser.Primary_expressionContext && ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause() != null) {
-            return getTemplatedConstructor(rChild, rType, functionCallParams, visitor);
-        }
         if(chainPos == 0 && WalkerUtil.isDirectDescendant(SwiftParser.LiteralContext.class, rChild)) {
             return getLiteral(rChild, rType, visitor);
         }
@@ -69,7 +66,7 @@ public class PrefixElem {
         }
 
         if(type == null) {
-            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new ArrayList<String>(), false, new ArrayList<ClassDefinition>());
+            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new ArrayList<Generic>(), false, new ArrayList<ClassDefinition>());
             type = new Instance(tupleDefinition);
         }
         String code = getTupleCode(keys, elementList, type, rChild, visitor);
@@ -197,23 +194,6 @@ public class PrefixElem {
         }
     }
 
-    static private PrefixElem getTemplatedConstructor(ParserRuleContext rChild, Instance type, List<ParserRuleContext/*Expression_elementContext or Closure_expressionContext*/> functionCallParams, Visitor visitor) {
-
-        SwiftParser.Generic_argument_clauseContext template = ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause();
-        String typeStr = visitor.visit(rChild.getChild(0)).trim();
-
-        if(typeStr.equals("Set")) {
-            if(type == null) {
-                type = new Instance("Set", rChild, visitor.cache);
-                type.generics = new HashMap<String, Instance>();
-                type.generics.put("Value", new Instance(template.generic_argument_list().generic_argument(0).getText(), rChild, visitor.cache));
-            }
-            return new PrefixElem(visitor.targetLanguage.equals("ts") ? "new Set()" : "new " + type.targetType(visitor.targetLanguage, true, false) + "()", false, type, null, null, null);
-        }
-
-        return null;
-    }
-
     static private PrefixElem getLiteral(ParserRuleContext rChild, Instance type, Visitor visitor) {
         String code = visitor.visit(rChild);
         if(WalkerUtil.isDirectDescendant(SwiftParser.Nil_literalContext.class, rChild)) {
@@ -234,9 +214,10 @@ public class PrefixElem {
     }
 
     static private PrefixElem getBasic(ParserRuleContext rChild, List<ParserRuleContext/*Expression_elementContext or Closure_expressionContext*/> functionCallParams, ArrayList<ParserRuleContext> chain, int chainPos, Instance lType, Instance rType, Visitor visitor) {
-        String code = null;
+        String code;
         boolean isSubscript = false;
         List<String> functionCallParamsStr = null;
+        List<Instance> parameterTypes = FunctionUtil.parameterTypes(functionCallParams, visitor);
         Instance type = null;
         Object typeBeforeCall = null;
         if(rChild instanceof SwiftParser.Explicit_member_expressionContext) {
@@ -290,7 +271,6 @@ public class PrefixElem {
             visitor.cache.getAllTypes(rChild);
 
         if(functionCallParams != null) {
-            List<Instance> parameterTypes = FunctionUtil.parameterTypes(functionCallParams, visitor);
             if(parameterTypes != null) augment = FunctionUtil.augmentFromCall(code, parameterTypes, FunctionUtil.parameterExternalNames(functionCallParams), lType, isInitializer, allProperties);
             if(!isInitializer && augment != null) code += augment;
         }
@@ -342,7 +322,19 @@ public class PrefixElem {
                 typeBeforeCall = instanceOrDefinition;
                 if(instanceOrDefinition instanceof Definition) {
                     if(instanceOrDefinition instanceof FunctionDefinition) type = ((FunctionDefinition)instanceOrDefinition).result;
-                    else type = new Instance((Definition)instanceOrDefinition);
+                    else {
+                        ClassDefinition initClass = (ClassDefinition)instanceOrDefinition;
+                        type = new Instance(initClass);
+                        if(!initClass.generics.isEmpty()) {
+                            type.generics = new HashMap<String, Instance>();
+                            List<Instance> initializerTypes = ((FunctionDefinition)initClass.properties.get("init" + augment).definition).parameterTypes;
+                            for(int i = 0; i < initializerTypes.size(); i++) {
+                                if(initializerTypes.get(i).genericDefinition != null && !type.generics.containsKey(initializerTypes.get(i).genericDefinition)) {
+                                    type.generics.put(initializerTypes.get(i).genericDefinition, parameterTypes.get(i));
+                                }
+                            }
+                        }
+                    }
                 }
                 else {
                     type = ((Instance)instanceOrDefinition).result();
@@ -354,6 +346,23 @@ public class PrefixElem {
                 }
                 else type = (Instance)instanceOrDefinition;
             }
+        }
+
+        if(rChild instanceof SwiftParser.Primary_expressionContext && ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause() != null) {
+            type.generics = new HashMap<String, Instance>();
+            List<SwiftParser.Generic_argumentContext> genericCtxs = ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause().generic_argument_list().generic_argument();
+            for(int i = 0; i < genericCtxs.size(); i++) {
+                Instance genericInstance = new Instance(genericCtxs.get(0).type().type_identifier().getText(), rChild, visitor.cache);
+                type.generics.put(type.definition.generics.get(i).name, genericInstance);
+            }
+        }
+
+        if(isInitializer && !type.definition.generics.isEmpty()) {
+            code += "<";
+            for(int i = 0; i < type.definition.generics.size(); i++) {
+                code += (i > 0 ? ", " : "") + type.generics.get(type.definition.generics.get(i).name).targetType(visitor.targetLanguage);
+            }
+            code += ">";
         }
 
         if(functionCallParams != null) {
