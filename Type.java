@@ -52,7 +52,7 @@ class FunctionDefinition extends Definition {
     public List<String> parameterExternalNames;
     public List<Instance> parameterTypes;
     public int numParametersWithDefaultValue = 0;
-    public int operator = 0;//1: binary, 2: prefix, 3: postfix
+    public int operator = 0;//1: infix, 2: prefix, 3: postfix
     public Instance result;
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
     public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<String> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
