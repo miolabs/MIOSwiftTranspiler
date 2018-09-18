@@ -129,12 +129,12 @@ public class BinaryExpression implements PrefixOrExpression {
             else this.code = definitionCode.replaceAll("#A0", Matcher.quoteReplacement(lCode)).replaceAll("#A1", Matcher.quoteReplacement(rCode));
 
             if(this.code.contains("#SA0")) {
-                String valAssignment = ((Prefix)L).code("T", ctx, visitor);//TODO work out if T/N/TN
+                String valAssignment = ((Prefix)L).code(L.type().isOptional ? "TN" : "T", ctx, visitor);
                 valAssignment = valAssignment.contains("#ASS") ? valAssignment.replaceAll("#ASS", Matcher.quoteReplacement("$val")) : valAssignment + " = $val";
                 this.code = this.code.replaceAll("#SA0", Matcher.quoteReplacement(valAssignment));
             }
             if(this.code.contains("#SA1")) {
-                String valAssignment = ((Prefix)R).code("T", ctx, visitor);//TODO work out if T/N/TN
+                String valAssignment = ((Prefix)R).code(R.type().isOptional ? "TN" : "T", ctx, visitor);
                 valAssignment = valAssignment.contains("#ASS") ? valAssignment.replaceAll("#ASS", Matcher.quoteReplacement("$val")) : valAssignment + " = $val";
                 this.code = this.code.replaceAll("#SA1", Matcher.quoteReplacement(valAssignment));
             }
