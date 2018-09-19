@@ -184,4 +184,14 @@ public class TypeUtil {
         }
         return true;
     }
+
+    public static String targetGenericType(Instance instance, String language) {
+        if(instance.definition.generics.isEmpty()) return "";
+        String type = "<";
+        for(int i = 0; i < instance.definition.generics.size(); i++) {
+            type += (i > 0 ? ", " : "") + instance.generics.get(instance.definition.generics.get(i).name).targetType(language);
+        }
+        type += ">";
+        return type;
+    }
 }

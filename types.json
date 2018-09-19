@@ -45,15 +45,23 @@
   "Dictionary": {
     "generics": ["Key", "Value"],
     "typeReplacement": {
-      "ts": "Dictionary<#Value>",
-      "java": "InitializableHashMap<#Key, #Value>",
-      "javaProtocol": "Map<#Key, #Value>"
+      "java": "InitializableHashMap",
+      "javaProtocol": "Map"
     },
     "cloneOnAssignmentReplacement": {
       "ts": true,
       "java": true
     },
     "properties": [{
+      "name": "init",
+      "function": true,
+      "parameters": [],
+      "type": "Dictionary<Hash, Value>",
+      "codeReplacement": {
+        "ts": "new Dictionary<#Value>()",
+        "java": "new Dictionary<#Hash, #Value>()"
+      }
+    }, {
       "name": "[]",
       "function": true,
       "type": "Value",
@@ -84,9 +92,9 @@
   "Array": {
     "generics": ["Value"],
     "typeReplacement": {
-      "ts": "Array<#Value>",
-      "java": "ArrayList<#Value>",
-      "javaProtocol": "List<#Value>"
+      "ts": "Array",
+      "java": "ArrayList",
+      "javaProtocol": "List"
     },
     "cloneOnAssignmentReplacement": {
       "ts": true,
@@ -236,15 +244,23 @@
   "Set": {
     "generics": ["Value"],
     "typeReplacement": {
-      "ts": "Set<#Value>",
-      "java": "HashSet<#Value>",
-      "javaProtocol": "Set<#Value>"
+      "java": "HashSet",
+      "javaProtocol": "Set"
     },
     "cloneOnAssignmentReplacement": {
       "ts": true,
       "java": true
     },
     "properties": [{
+      "name": "init",
+      "function": true,
+      "parameters": [],
+      "type": "Set<Value>",
+      "codeReplacement": {
+        "ts": "new Set<#Value>()",
+        "java": "new HashSet<#Value>()"
+      }
+    }, {
       "name": "count",
       "type": "Int",
       "codeReplacement": {

@@ -329,7 +329,7 @@ public class PrefixElem {
                             type.generics = new HashMap<String, Instance>();
                             List<Instance> initializerTypes = ((FunctionDefinition)initClass.properties.get("init" + augment).definition).parameterTypes;
                             for(int i = 0; i < initializerTypes.size(); i++) {
-                                if(initializerTypes.get(i).genericDefinition != null && !type.generics.containsKey(initializerTypes.get(i).genericDefinition)) {
+                                if(initializerTypes.get(i).definition == null && initializerTypes.get(i).genericDefinition != null && !type.generics.containsKey(initializerTypes.get(i).genericDefinition)) {
                                     type.generics.put(initializerTypes.get(i).genericDefinition, parameterTypes.get(i));
                                 }
                             }
@@ -352,17 +352,13 @@ public class PrefixElem {
             type.generics = new HashMap<String, Instance>();
             List<SwiftParser.Generic_argumentContext> genericCtxs = ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause().generic_argument_list().generic_argument();
             for(int i = 0; i < genericCtxs.size(); i++) {
-                Instance genericInstance = new Instance(genericCtxs.get(0).type().type_identifier().getText(), rChild, visitor.cache);
+                Instance genericInstance = new Instance(genericCtxs.get(i).type().type_identifier().getText(), rChild, visitor.cache);
                 type.generics.put(type.definition.generics.get(i).name, genericInstance);
             }
         }
 
-        if(isInitializer && !type.definition.generics.isEmpty()) {
-            code += "<";
-            for(int i = 0; i < type.definition.generics.size(); i++) {
-                code += (i > 0 ? ", " : "") + type.generics.get(type.definition.generics.get(i).name).targetType(visitor.targetLanguage);
-            }
-            code += ">";
+        if(isInitializer) {
+            code += TypeUtil.targetGenericType(type, visitor.targetLanguage);
         }
 
         if(functionCallParams != null) {

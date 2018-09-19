@@ -159,7 +159,7 @@ class Instance {
             }
         }
         if(type == null) type = "any";
-        //TODO might be different based on specified generics too
+        type += TypeUtil.targetGenericType(this, language);
         if(!isInout || baseIfInout) return type;
         return "{get: () => " + type + ", set: (val: " + type + ") => void}";
     }

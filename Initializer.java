@@ -72,7 +72,7 @@ public class Initializer {
             if(entry.getValue().definition instanceof FunctionDefinition) continue;
             if(entry.getValue().isStatic) continue;
             parameterNames.add(entry.getKey());
-            parameterTypes.add(entry.getValue());
+            parameterTypes.add(entry.getValue().withoutPropertyInfo());
         }
 
         if(!parameterNames.isEmpty()) {
