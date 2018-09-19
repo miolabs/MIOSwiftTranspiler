@@ -64,6 +64,9 @@ class FunctionDefinition extends Definition {
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
     public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<Generic> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
     public FunctionDefinition(ParserRuleContext ctx, Visitor visitor) {
+
+        this.generics = GenericUtil.fromParameterClause(GenericUtil.genericParameterClauseCtxFromFunction(ctx), visitor);
+
         List<SwiftParser.ParameterContext> parameters = FunctionUtil.parameters(ctx);
 
         this.parameterExternalNames = FunctionUtil.parameterExternalNames(parameters);
@@ -159,7 +162,7 @@ class Instance {
             }
         }
         if(type == null) type = "any";
-        type += TypeUtil.targetGenericType(this, language);
+        type += GenericUtil.targetType(this, language);
         if(!isInout || baseIfInout) return type;
         return "{get: () => " + type + ", set: (val: " + type + ") => void}";
     }

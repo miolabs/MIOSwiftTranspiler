@@ -110,13 +110,13 @@ public class TypeUtil {
 
     public static Instance fromFunction(SwiftParser.Function_resultContext functionResult, SwiftParser.StatementsContext statements, boolean isClosure, ParseTree ctx, Visitor visitor) {
         if(functionResult != null) return fromDefinition(functionResult.type(), visitor);
-        if(statements != null) visitor.visitChildren(statements);
+        /*if(statements != null) visitor.visitChildren(statements);
         for(int i = 0; statements != null && i < statements.getChildCount(); i++) {
             if(WalkerUtil.has(SwiftParser.Return_statementContext.class, statements.getChild(i))) {
                 SwiftParser.ExpressionContext expression = ((SwiftParser.StatementContext)statements.getChild(i)).control_transfer_statement().return_statement().expression();
                 return expression != null ? infer(expression, visitor) : new Instance("Void", statements, visitor.cache);
             }
-        }
+        }*/
         if(isClosure && statements != null && statements.getChildCount() > 0) return infer((SwiftParser.ExpressionContext) statements.getChild(statements.getChildCount() - 1), visitor);
         return new Instance("Void", ctx, visitor.cache);
     }
@@ -183,15 +183,5 @@ public class TypeUtil {
             }
         }
         return true;
-    }
-
-    public static String targetGenericType(Instance instance, String language) {
-        if(instance.definition.generics.isEmpty()) return "";
-        String type = "<";
-        for(int i = 0; i < instance.definition.generics.size(); i++) {
-            type += (i > 0 ? ", " : "") + instance.generics.get(instance.definition.generics.get(i).name).targetType(language);
-        }
-        type += ">";
-        return type;
     }
 }

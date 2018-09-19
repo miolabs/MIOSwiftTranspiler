@@ -321,7 +321,18 @@ public class PrefixElem {
             if(functionCallParams != null) {
                 typeBeforeCall = instanceOrDefinition;
                 if(instanceOrDefinition instanceof Definition) {
-                    if(instanceOrDefinition instanceof FunctionDefinition) type = ((FunctionDefinition)instanceOrDefinition).result;
+                    if(instanceOrDefinition instanceof FunctionDefinition) {
+                        FunctionDefinition functionDefinition = (FunctionDefinition)instanceOrDefinition;
+                        type = functionDefinition.result.withoutPropertyInfo();
+                        if(type.definition == null && type.genericDefinition != null) {
+                            for(int i = 0; i < parameterTypes.size() && i < functionDefinition.parameterTypes.size(); i++) {
+                                if(functionDefinition.parameterTypes.get(i).genericDefinition != null && functionDefinition.parameterTypes.get(i).genericDefinition.equals(type.genericDefinition)) {
+                                    type.definition = parameterTypes.get(i).definition;
+                                    break;
+                                }
+                            }
+                        }
+                    }
                     else {
                         ClassDefinition initClass = (ClassDefinition)instanceOrDefinition;
                         type = new Instance(initClass);
@@ -358,7 +369,7 @@ public class PrefixElem {
         }
 
         if(isInitializer) {
-            code += TypeUtil.targetGenericType(type, visitor.targetLanguage);
+            code += GenericUtil.targetType(type, visitor.targetLanguage);
         }
 
         if(functionCallParams != null) {

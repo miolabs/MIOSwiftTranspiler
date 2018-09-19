@@ -193,23 +193,11 @@ public class CacheVisitor extends Visitor {
             }
         }
 
-        List<Generic> generics = new ArrayList<Generic>();
         SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtx =
-                type == 0 ? ((SwiftParser.Class_declarationContext)ctx).generic_parameter_clause() :
-                type == 1 ? ((SwiftParser.Struct_declarationContext)ctx).generic_parameter_clause() :
-                null;
-        if(genericParameterClauseCtx != null) {
-            List<SwiftParser.Generic_parameterContext> genericCtxs = genericParameterClauseCtx.generic_parameter_list().generic_parameter();
-            for(int i = 0; i < genericCtxs.size(); i++) {
-                SwiftParser.Type_identifierContext currIdentifier = genericCtxs.get(i).type_identifier();
-                List<ClassDefinition> genericProtocols = new ArrayList<ClassDefinition>();
-                while(currIdentifier != null) {
-                    genericProtocols.add((ClassDefinition)cache.find(currIdentifier.type_name().getText(), ctx).object);
-                    currIdentifier = currIdentifier.type_identifier();
-                }
-                generics.add(new Generic(genericCtxs.get(i).type_name().getText(), genericProtocols));
-            }
-        }
+            type == 0 ? ((SwiftParser.Class_declarationContext)ctx).generic_parameter_clause() :
+            type == 1 ? ((SwiftParser.Struct_declarationContext)ctx).generic_parameter_clause() :
+            null;
+        List<Generic> generics = GenericUtil.fromParameterClause(genericParameterClauseCtx, this);
 
         ClassDefinition classDefinition = new ClassDefinition(name, superClass, new LinkedHashMap<String, Instance>(), generics, type == 2, protocols);
         if(ctx instanceof SwiftParser.Struct_declarationContext) {

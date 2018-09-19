@@ -92,15 +92,18 @@ public class FunctionUtil {
         Map<String, Cache.CacheBlockAndObject> matches = new HashMap<String, Cache.CacheBlockAndObject>();
         varName = varName.trim();
 
-        for(Map.Entry<String, Cache.CacheBlockAndObject> iterator:allProperties.entrySet()) {
-            boolean passes = (
-                (iterator.getValue().object instanceof Instance && ((Instance) iterator.getValue().object).definition instanceof FunctionDefinition) ||
-                iterator.getValue().object instanceof FunctionDefinition
-            ) && functionStartsWith(iterator.getKey(), varName);
-            if(passes) {
-                matches.put(iterator.getKey(), iterator.getValue());
+        if(allProperties != null) {
+            for(Map.Entry<String, Cache.CacheBlockAndObject> iterator:allProperties.entrySet()) {
+                boolean passes = (
+                        (iterator.getValue().object instanceof Instance && ((Instance) iterator.getValue().object).definition instanceof FunctionDefinition) ||
+                                iterator.getValue().object instanceof FunctionDefinition
+                ) && functionStartsWith(iterator.getKey(), varName);
+                if(passes) {
+                    matches.put(iterator.getKey(), iterator.getValue());
+                }
             }
         }
+
         return matches;
     }
 
@@ -152,11 +155,13 @@ public class FunctionUtil {
     static public String functionDeclaration(ParserRuleContext ctx, SwiftParser.Declaration_modifiersContext modifiers, Visitor visitor) {
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, visitor);
         boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
+        SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtx = GenericUtil.genericParameterClauseCtxFromFunction(ctx);
 
         return (
             (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
             (!isInClass ? "function " : "") +
             functionDefinition.name +
+            (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
             "(" + visitor.visitChildren(parameterList(ctx)) + "):" +
                 functionDefinition.result.targetType(visitor.targetLanguage) +
             (ctx instanceof SwiftParser.Protocol_method_declarationContext ? "" : visitor.visit(codeBlockCtx(ctx)))

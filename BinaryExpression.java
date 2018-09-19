@@ -94,10 +94,10 @@ public class BinaryExpression implements PrefixOrExpression {
             }
             else word += "_POSTFIX";
             Instance functionOwner = null;
-            String augment = L != null ? FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, ((ClassDefinition) L.type().definition).getAllProperties()) : null;
+            String augment = L != null ? FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, L.type(), false, L.type().definition != null ? ((ClassDefinition) L.type().definition).getAllProperties() : null) : null;
             if(augment != null) functionOwner = L.type();
             else if(R != null) {
-                augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, ((ClassDefinition)R.type().definition).getAllProperties());
+                augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, R.type().definition != null ? ((ClassDefinition)R.type().definition).getAllProperties() : null);
                 if(augment != null) functionOwner = R.type();
             }
             Instance function = augment != null ? functionOwner.getProperty(word + augment) : null;
