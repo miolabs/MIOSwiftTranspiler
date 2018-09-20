@@ -639,6 +639,12 @@ public interface SwiftVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypealias_head(SwiftParser.Typealias_headContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#typealias_keyword}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypealias_keyword(SwiftParser.Typealias_keywordContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#typealias_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

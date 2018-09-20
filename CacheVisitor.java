@@ -297,4 +297,9 @@ public class CacheVisitor extends Visitor {
 
         return null;
     }
+
+    @Override public String visitTypealias_declaration(SwiftParser.Typealias_declarationContext ctx) {
+        cache.cacheOne(ctx.typealias_head().typealias_name().getText(), TypeUtil.fromDefinition(ctx.typealias_assignment().type(), this).definition, ctx);
+        return null;
+    }
 }

@@ -367,9 +367,10 @@ didSet_clause : attributes? 'didSet' setter_name? code_block  ;
 // GRAMMAR OF A TYPE ALIAS DECLARATION
 
 typealias_declaration : typealias_head typealias_assignment  ;
-typealias_head : attributes? access_level_modifier? 'typealias' typealias_name  ;
+typealias_head : attributes? access_level_modifier? typealias_keyword typealias_name  ;
+typealias_keyword: 'typealias';
 typealias_name : identifier  ;
-typealias_assignment : assignment_operator type  ;
+typealias_assignment : '=' type  ;
 
 // GRAMMAR OF A FUNCTION DECLARATION
 // NOTE: Swift Grammar Spec indicates that a function_body is optional
