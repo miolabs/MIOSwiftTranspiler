@@ -106,7 +106,7 @@ public class CacheVisitor extends Visitor {
             visit(codeBlockCtxs.get(j));
         }
 
-        if(ctx instanceof SwiftParser.Subscript_declarationContext && codeBlockCtxs.get(1) != null) {
+        if(ctx instanceof SwiftParser.Subscript_declarationContext && codeBlockCtxs.size() == 2) {
             cache.cacheOne(AssignmentUtil.setterArgumentName((SwiftParser.Setter_clauseContext) codeBlockCtxs.get(1).parent), functionDefinition.result.withoutPropertyInfo(), codeBlockCtxs.get(1));
         }
     }

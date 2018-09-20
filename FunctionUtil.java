@@ -156,19 +156,23 @@ public class FunctionUtil {
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, visitor);
         boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
         SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtx = GenericUtil.genericParameterClauseCtxFromFunction(ctx);
+        boolean isSubscript = ctx instanceof SwiftParser.Subscript_declarationContext;
 
-        String code = (
-                (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
-                (!isInClass ? "function " : "") +
-                functionDefinition.name +
-                (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
-                "(" + visitor.visitChildren(parameterList(ctx)) + "):" +
-                functionDefinition.result.targetType(visitor.targetLanguage)
-        );
-
+        String code = "";
         List<SwiftParser.Code_blockContext> codeBlockCtxs = FunctionUtil.codeBlockCtxs(ctx);
         for(int j = 0; j < codeBlockCtxs.size(); j++) {
-            code += visitor.visit(codeBlockCtxs.get(j));
+            code += (
+                (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
+                (!isInClass ? "function " : "") +
+                functionDefinition.name + (isSubscript ? j == 0 ? "$get" : "$set" : "") +
+                (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
+                "(" +
+                visitor.visitChildren(parameterList(ctx)) +
+                (isSubscript && j == 1 ? ", " + AssignmentUtil.setterArgumentName((SwiftParser.Setter_clauseContext) codeBlockCtxs.get(1).parent) + ": " + functionDefinition.result.targetType(visitor.targetLanguage) : "") +
+                "):" +
+                functionDefinition.result.targetType(visitor.targetLanguage) +
+                visitor.visit(codeBlockCtxs.get(j))
+            );
         }
 
         return code;

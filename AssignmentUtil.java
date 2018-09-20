@@ -148,6 +148,10 @@ public class AssignmentUtil {
             "}";
     }
 
+    static public String handleSubscriptDeclaration(SwiftParser.Subscript_declarationContext ctx, Visitor visitor) {
+        return FunctionUtil.functionDeclaration(ctx, ctx.subscript_head().declaration_modifiers(), visitor);
+    }
+
     static public List<String> modifiers(SwiftParser.Declaration_modifiersContext currModifier) {
         List<String> modifiers = new ArrayList<String>();
         while(currModifier != null) {

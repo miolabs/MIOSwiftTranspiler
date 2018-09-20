@@ -69,6 +69,10 @@ public class TranspilerVisitor extends Visitor {
         return AssignmentUtil.handlePropertyDeclaration(ctx, this);
     }
 
+    @Override public String visitSubscript_declaration(SwiftParser.Subscript_declarationContext ctx) {
+        return AssignmentUtil.handleSubscriptDeclaration(ctx, this);
+    }
+
     @Override public String visitDeclaration(SwiftParser.DeclarationContext ctx) {
         boolean shouldBeNewLine = ctx.parent instanceof SwiftParser.DeclarationsContext;
         boolean shouldHaveSemicolon = shouldBeNewLine && !(ctx.getChild(0) instanceof SwiftParser.Function_declarationContext);
