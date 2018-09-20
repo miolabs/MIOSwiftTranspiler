@@ -157,15 +157,21 @@ public class FunctionUtil {
         boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
         SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtx = GenericUtil.genericParameterClauseCtxFromFunction(ctx);
 
-        return (
-            (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
-            (!isInClass ? "function " : "") +
-            functionDefinition.name +
-            (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
-            "(" + visitor.visitChildren(parameterList(ctx)) + "):" +
-                functionDefinition.result.targetType(visitor.targetLanguage) +
-            (ctx instanceof SwiftParser.Protocol_method_declarationContext ? "" : visitor.visit(codeBlockCtx(ctx)))
+        String code = (
+                (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
+                (!isInClass ? "function " : "") +
+                functionDefinition.name +
+                (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
+                "(" + visitor.visitChildren(parameterList(ctx)) + "):" +
+                functionDefinition.result.targetType(visitor.targetLanguage)
         );
+
+        List<SwiftParser.Code_blockContext> codeBlockCtxs = FunctionUtil.codeBlockCtxs(ctx);
+        for(int j = 0; j < codeBlockCtxs.size(); j++) {
+            code += visitor.visit(codeBlockCtxs.get(j));
+        }
+
+        return code;
     }
 
     static public String closureExpression(SwiftParser.Closure_expressionContext ctx, Instance type, List<ParserRuleContext/*Expression_elementContext or Closure_expressionContext*/> functionCallParams, Visitor visitor) {
@@ -228,13 +234,25 @@ public class FunctionUtil {
         return parameterNames;
     }
 
-    static public SwiftParser.Code_blockContext codeBlockCtx(ParserRuleContext ctx) {
-        return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_body().code_block() :
-               ((SwiftParser.Initializer_declarationContext)ctx).initializer_body().code_block();
+    static public List<SwiftParser.Code_blockContext> codeBlockCtxs(ParserRuleContext ctx) {
+        List<SwiftParser.Code_blockContext> codeBlockCtxs = new ArrayList<SwiftParser.Code_blockContext>();
+        if(ctx instanceof SwiftParser.Function_declarationContext) codeBlockCtxs.add(((SwiftParser.Function_declarationContext)ctx).function_body().code_block());
+        else if(ctx instanceof SwiftParser.Initializer_declarationContext) codeBlockCtxs.add(((SwiftParser.Initializer_declarationContext)ctx).initializer_body().code_block());
+        else if(ctx instanceof SwiftParser.Subscript_declarationContext) {
+            if(((SwiftParser.Subscript_declarationContext) ctx).code_block() != null) {
+                codeBlockCtxs.add(((SwiftParser.Subscript_declarationContext) ctx).code_block());
+            }
+            else {
+                codeBlockCtxs.add(((SwiftParser.Subscript_declarationContext) ctx).getter_setter_block().getter_clause().code_block());
+                if(((SwiftParser.Subscript_declarationContext) ctx).getter_setter_block().setter_clause() != null) codeBlockCtxs.add(((SwiftParser.Subscript_declarationContext) ctx).getter_setter_block().setter_clause().code_block());
+            }
+        }
+        return codeBlockCtxs;
     }
     static public SwiftParser.Parameter_listContext parameterList(ParserRuleContext ctx) {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_signature().parameter_clauses().parameter_clause().parameter_list() :
                ctx instanceof SwiftParser.Initializer_declarationContext ? ((SwiftParser.Initializer_declarationContext)ctx).parameter_clause().parameter_list() :
+               ctx instanceof SwiftParser.Subscript_declarationContext ? ((SwiftParser.Subscript_declarationContext)ctx).subscript_head().parameter_clause().parameter_list() :
                ((SwiftParser.Protocol_method_declarationContext)ctx).function_signature().parameter_clauses().parameter_clause().parameter_list();
     }
 }

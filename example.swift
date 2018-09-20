@@ -1,3 +1,8 @@
-typealias MyString = String
-var elo: MyString = "elo"
-print(elo.characters.count)
+class MyArray {
+    subscript(index: Int) -> Int {
+        get {
+            return 8
+        }
+        set(newValue) {}
+    }
+}

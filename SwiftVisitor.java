@@ -993,12 +993,6 @@ public interface SwiftVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubscript_head(SwiftParser.Subscript_headContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SwiftParser#subscript_result}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSubscript_result(SwiftParser.Subscript_resultContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link SwiftParser#operator_declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

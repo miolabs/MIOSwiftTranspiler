@@ -78,6 +78,10 @@ public class CacheVisitor extends Visitor {
         visitFunctionDeclaration(ctx, ctx.function_head().declaration_modifiers());
         return null;
     }
+    @Override public String visitSubscript_declaration(SwiftParser.Subscript_declarationContext ctx) {
+        visitFunctionDeclaration(ctx, ctx.subscript_head().declaration_modifiers());
+        return null;
+    }
     private void visitFunctionDeclaration(ParserRuleContext ctx, SwiftParser.Declaration_modifiersContext modifiers) {
 
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, this);
@@ -93,13 +97,17 @@ public class CacheVisitor extends Visitor {
         }
         cache.cacheOne(functionDefinition.name, cachedObject, ctx);
 
-        if(!(ctx instanceof SwiftParser.Protocol_method_declarationContext)) {
-            SwiftParser.Code_blockContext codeBlockCtx = FunctionUtil.codeBlockCtx(ctx);
+        List<SwiftParser.Code_blockContext> codeBlockCtxs = FunctionUtil.codeBlockCtxs(ctx);
+        for(int j = 0; j < codeBlockCtxs.size(); j++) {
             ArrayList<String> parameterLocalNames = FunctionUtil.parameterLocalNames(FunctionUtil.parameters(ctx));
             for(int i = 0; i < parameterLocalNames.size(); i++) {
-                cache.cacheOne(parameterLocalNames.get(i), functionDefinition.parameterTypes.get(i), codeBlockCtx);
+                cache.cacheOne(parameterLocalNames.get(i), functionDefinition.parameterTypes.get(i), codeBlockCtxs.get(j));
             }
-            visit(codeBlockCtx);
+            visit(codeBlockCtxs.get(j));
+        }
+
+        if(ctx instanceof SwiftParser.Subscript_declarationContext && codeBlockCtxs.get(1) != null) {
+            cache.cacheOne(AssignmentUtil.setterArgumentName((SwiftParser.Setter_clauseContext) codeBlockCtxs.get(1).parent), functionDefinition.result.withoutPropertyInfo(), codeBlockCtxs.get(1));
         }
     }
 
@@ -143,17 +151,6 @@ public class CacheVisitor extends Visitor {
 
         visit(blockContext);
     }
-
-    /*@Override public String visitClosure_expression(SwiftParser.Closure_expressionContext ctx) {
-        SwiftParser.Parameter_listContext parameterList = ctx.closure_signature().parameter_clause().parameter_list();
-        List<SwiftParser.ParameterContext> parameters = parameterList != null ? parameterList.parameter() : null;
-        ArrayList<Instance> parameterTypes = FunctionUtil.parameterTypes(parameters, this);
-        for(int i = 0; parameterTypes != null && i < parameterTypes.size(); i++) {
-            cache.cacheOne(FunctionUtil.parameterLocalName(parameters.get(i)), parameterTypes.get(i), ctx);
-        }
-
-        return null;
-    }*/
 
     @Override public String visitClass_declaration(SwiftParser.Class_declarationContext ctx) {
         visitClassOrStructOrProtocolDeclaration(ctx);

@@ -1,9 +1,7 @@
 import org.antlr.v4.runtime.ParserRuleContext;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class GenericUtil {
 
@@ -37,6 +35,7 @@ public class GenericUtil {
     public static SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtxFromFunction(ParserRuleContext ctx) {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).generic_parameter_clause() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).generic_parameter_clause() :
+            ctx instanceof SwiftParser.Subscript_declarationContext ? null :
             ((SwiftParser.Initializer_declarationContext)ctx).generic_parameter_clause();
     }
 }

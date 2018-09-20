@@ -467,7 +467,7 @@ protocol_initializer_declaration
 
 // GRAMMAR OF A PROTOCOL SUBSCRIPT DECLARATION
 
-protocol_subscript_declaration : subscript_head subscript_result getter_setter_keyword_block  ;
+protocol_subscript_declaration : subscript_head function_result getter_setter_keyword_block  ;
 
 // GRAMMAR OF A PROTOCOL ASSOCIATED TYPE DECLARATION
 
@@ -500,13 +500,12 @@ extension_body : '{' declarations?'}'  ;
 // GRAMMAR OF A SUBSCRIPT DECLARATION
 
 subscript_declaration
- : subscript_head subscript_result code_block
- | subscript_head subscript_result getter_setter_block
- | subscript_head subscript_result getter_setter_keyword_block
+ : subscript_head function_result getter_setter_block
+ | subscript_head function_result getter_setter_keyword_block
+ | subscript_head function_result code_block
  ;
 
 subscript_head : attributes? declaration_modifiers? 'subscript' parameter_clause  ;
-subscript_result : arrow_operator attributes? type  ;
 
 // GRAMMAR OF AN OPERATOR DECLARATION
 

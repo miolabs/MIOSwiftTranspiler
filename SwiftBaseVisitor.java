@@ -1158,13 +1158,6 @@ public class SwiftBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSubscript_result(SwiftParser.Subscript_resultContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitOperator_declaration(SwiftParser.Operator_declarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

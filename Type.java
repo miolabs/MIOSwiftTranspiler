@@ -76,6 +76,7 @@ class FunctionDefinition extends Definition {
         String baseName =
             ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_name().getText() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).function_name().getText() :
+            ctx instanceof SwiftParser.Subscript_declarationContext ? "OP_subscript" :
             "init";
 
         Cache.CacheBlockAndObject operator = visitor.cache.find(baseName, ctx);
@@ -83,6 +84,7 @@ class FunctionDefinition extends Definition {
             SwiftParser.Declaration_modifiersContext modifiers =
                 ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).function_head().declaration_modifiers() :
                 ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext) ctx).function_head().declaration_modifiers() :
+                ctx instanceof SwiftParser.Subscript_declarationContext ? ((SwiftParser.Subscript_declarationContext) ctx).subscript_head().declaration_modifiers() :
                 null;
             if(AssignmentUtil.modifiers(modifiers).contains("prefix")) this.operator = 2;
             else if(AssignmentUtil.modifiers(modifiers).contains("postfix")) this.operator = 3;
@@ -95,8 +97,9 @@ class FunctionDefinition extends Definition {
         this.name = baseName + FunctionUtil.nameAugment(parameterExternalNames, parameterTypes);
 
         this.result =
-            ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), FunctionUtil.codeBlockCtx(ctx).statements(), false, ctx, visitor) :
+            ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), null, false, ctx, visitor) :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Protocol_method_declarationContext) ctx).function_signature().function_result(), null, false, ctx, visitor) :
+            ctx instanceof SwiftParser.Subscript_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Subscript_declarationContext) ctx).function_result(), null, false, ctx, visitor) :
             new Instance("Void", ctx, visitor.cache);
     }
 }
