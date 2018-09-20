@@ -69,7 +69,7 @@ class FunctionDefinition extends Definition {
 
         List<SwiftParser.ParameterContext> parameters = FunctionUtil.parameters(ctx);
 
-        this.parameterExternalNames = FunctionUtil.parameterExternalNames(parameters);
+        this.parameterExternalNames = FunctionUtil.parameterExternalNames(parameters, ctx instanceof SwiftParser.Subscript_declarationContext);
         this.parameterTypes = FunctionUtil.parameterTypes(parameters, visitor);
         this.numParametersWithDefaultValue = FunctionUtil.numParametersWithDefaultValue(parameters);
 

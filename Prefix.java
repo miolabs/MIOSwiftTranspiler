@@ -104,7 +104,7 @@ public class Prefix implements PrefixOrExpression {
         if(isLast && assignment != null) {
             if(assignment.contains("T")) {
                 if(codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage + "Assignment")) replacements.put("T", codeReplacement.get(visitor.targetLanguage + "Assignment"));
-                else if(assignment.contains("N")) replacements.put("T", "#L" + (chainPos == 0 ? "#R" : elem.isSubscript ? "[#R]" : ".#R") + " = #ASS");
+                else if(assignment.contains("N")) replacements.put("T", "#L" + (chainPos == 0 ? "#R" : elem.replaceWithSubscript ? "[#R]" : ".#R") + " = #ASS");
             }
             if(assignment.contains("N")) {
                 if(codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage + "AssignmentNil")) replacements.put("N", codeReplacement.get(visitor.targetLanguage + "AssignmentNil"));
@@ -126,27 +126,29 @@ public class Prefix implements PrefixOrExpression {
                 replacement.get("");
         }
         else {
-            LR = "#L" + (chainPos == 0 ? "#R" : elem.isSubscript ? "[#R]" : ".#R");
+            LR = "#L" + (chainPos == 0 ? "#R" : elem.replaceWithSubscript ? "[#R]" : ".#R");
             if(chainPos > 0 && elems.get(0).type.definition instanceof EnumerationDefinition) {
                 //we're hiding Enumeration references, e.g. `CompassPoint` in CompassPoint.west
                 LR = "#R";
             }
             else if(isLast && assignment != null) {
-                if(elem.type.isGetterSetter) LR += "$set(#ASS)";
+                if(elem.isSubscript) LR += "$set(#AA, #ASS)";
+                else if(elem.type.isGetterSetter) LR += "$set(#ASS)";
                 else if(elem.type.isInout) LR += ".set(#ASS)";
                 else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
                     LR = "if('#R$set' in #L) { " + LR + "$set(#ASS); } else { " + LR + " = #ASS;}";
                 }
             }
             else {
-                if(elem.type.isGetterSetter) LR += "$get()";
+                if(elem.isSubscript) LR += "$get(#AA)";
+                else if(elem.type.isGetterSetter) LR += "$get()";
                 else if(elem.type.isInout) LR += ".get()";
                 else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
                     LR = "('#R$get' in #L ? " + LR + "$get() : " + LR + ")";
                 }
+                else if(elem.initializerSignature != null) LR = "new " + LR + "(\"" + elem.initializerSignature + "\",#AA)";
+                else if(elem.functionCallParams != null) LR += "(#AA)";
             }
-            if(elem.initializerSignature != null) LR = "new " + LR + "(\"" + elem.initializerSignature + "\",#AA)";
-            else if(elem.functionCallParams != null) LR += "(#AA)";
         }
 
         LR = LR.replaceAll("#L", Matcher.quoteReplacement(L)).replaceAll("#R", Matcher.quoteReplacement(elem.code.trim()));

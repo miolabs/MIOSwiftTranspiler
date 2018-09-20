@@ -79,7 +79,7 @@ public class Enumeration {
         visitor.cache.cacheOne(enumName, enumDefinition, ctx);
     }
 
-    public static PrefixElem getPrefixElem(ParserRuleContext rChild, List<ParserRuleContext> functionCallParams, Instance lType, Instance rType, Visitor visitor) {
+    public static PrefixElem getPrefixElem(ParserRuleContext rChild, List<? extends ParserRuleContext> functionCallParams, Instance lType, Instance rType, Visitor visitor) {
         boolean isImplicitMember = lType == null;
         boolean isTuple = functionCallParams != null;
         String memberName;
@@ -117,12 +117,12 @@ public class Enumeration {
             code = definition.rawValues.get(memberName);
             assignedType = definition.rawType;
         }
-        return new PrefixElem(code, false, assignedType, null, null, null);
+        return new PrefixElem(code, false, false, assignedType, null, null, null);
     }
 
-    public static PrefixElem getPrefixElemFromRawValue(EnumerationDefinition definition, List<ParserRuleContext> functionCallParams, Visitor visitor) {
+    public static PrefixElem getPrefixElemFromRawValue(EnumerationDefinition definition, List<? extends ParserRuleContext> functionCallParams, Visitor visitor) {
         Instance rawType = definition.rawType.withoutPropertyInfo();//essentially used as .clone()
         rawType.isOptional = true;
-        return new PrefixElem(visitor.visit(functionCallParams.get(0)), false, rawType, null, null, null);
+        return new PrefixElem(visitor.visit(functionCallParams.get(0)), false, false, rawType, null, null, null);
     }
 }

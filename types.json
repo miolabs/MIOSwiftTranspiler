@@ -62,14 +62,17 @@
         "java": "new Dictionary<#Hash, #Value>()"
       }
     }, {
-      "name": "[]",
+      "name": "OP_subscript",
       "function": true,
+      "parameters": [{"type": "Key"}],
       "type": "Value",
       "codeReplacement": {
-        "java": "#L.get(#R)",
-        "javaAssignment": "#L.put(#R, #ASS)",
-        "tsAssignmentNil": "delete #L[#R]#NOASS",
-        "javaAssignmentNil": "#L.remove(#R)#NOASS"
+        "ts": "#L[#AA]",
+        "java": "#L.get(#AA)",
+        "tsAssignment": "#L[#AA] = #ASS",
+        "javaAssignment": "#L.put(#AA, #ASS)",
+        "tsAssignmentNil": "delete #L[#AA]#NOASS",
+        "javaAssignmentNil": "#L.remove(#AA)#NOASS"
       }
     }, {
       "name": "count",
@@ -119,14 +122,17 @@
         "java": "new ArrayList<#Value>(Collections.nCopies(#A1, #A0))"
       }
     }, {
-      "name": "[]",
+      "name": "OP_subscript",
       "function": true,
+      "parameters": [{"type": "Int"}],
       "type": "Value",
       "codeReplacement": {
-        "java": "#L.get(#R)",
-        "javaAssignment": "#L.put(#R, #ASS)",
-        "tsAssignmentNil": "#L.splice(#R, 1)#NOASS",
-        "javaAssignmentNil": "#L.remove(#R)#NOASS"
+        "ts": "#L[#AA]",
+        "java": "#L.get(#AA)",
+        "tsAssignment": "#L[#AA] = #ASS",
+        "javaAssignment": "#L.put(#AA, #ASS)",
+        "tsAssignmentNil": "#L.splice(#AA, 1)#NOASS",
+        "javaAssignmentNil": "#L.remove(#AA)#NOASS"
       }
     }, {
       "name": "OP_add",

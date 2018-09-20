@@ -12,12 +12,13 @@ public class FunctionUtil {
         return parameterList != null ? parameterList.parameter() : new ArrayList<SwiftParser.ParameterContext>();
     }
 
-    static public ArrayList<String> parameterExternalNames(List<?extends ParserRuleContext> parameters) {
+    static public ArrayList<String> parameterExternalNames(List<?extends ParserRuleContext> parameters, boolean isSubscript) {
         ArrayList<String> names = new ArrayList<String>();
-        for(int i = 0; parameters != null && i < parameters.size(); i++) names.add(parameterExternalName(parameters.get(i), i));
+        for(int i = 0; parameters != null && i < parameters.size(); i++) names.add(parameterExternalName(parameters.get(i), isSubscript));
         return names;
     }
-    static private String parameterExternalName(ParserRuleContext parameter, int parameterPos) {
+    static private String parameterExternalName(ParserRuleContext parameter, boolean isSubscript) {
+        if(isSubscript) return "";
         if(parameter instanceof SwiftParser.ParameterContext) {
             if(((SwiftParser.ParameterContext)parameter).external_parameter_name() != null) {
                 if(((SwiftParser.ParameterContext)parameter).external_parameter_name().getText().equals("_")) return "";
@@ -68,7 +69,7 @@ public class FunctionUtil {
                 parameterType = null;
             }
             else {
-                parameterType = TypeUtil.infer(parameter instanceof SwiftParser.ParameterContext ? ((SwiftParser.ParameterContext) parameter).default_argument_clause().expression() : ((SwiftParser.Expression_elementContext) parameter).expression(), visitor);
+                parameterType = TypeUtil.infer(parameter instanceof SwiftParser.ParameterContext ? ((SwiftParser.ParameterContext) parameter).default_argument_clause().expression() : parameter instanceof SwiftParser.Expression_elementContext ? ((SwiftParser.Expression_elementContext) parameter).expression() : (SwiftParser.ExpressionContext) parameter, visitor);
             }
             if(parameterType == null) return null;
             parameterTypes.add(parameterType);
@@ -178,7 +179,7 @@ public class FunctionUtil {
         return code;
     }
 
-    static public String closureExpression(SwiftParser.Closure_expressionContext ctx, Instance type, List<ParserRuleContext/*Expression_elementContext or Closure_expressionContext*/> functionCallParams, Visitor visitor) {
+    static public String closureExpression(SwiftParser.Closure_expressionContext ctx, Instance type, List<? extends ParserRuleContext/*Expression_elementContext or Closure_expressionContext*/> functionCallParams, Visitor visitor) {
         String closureExpression = "";
         if(ctx.operator() != null) {
             closureExpression = "(a, b) => a " + ctx.operator().getText() + " b";
