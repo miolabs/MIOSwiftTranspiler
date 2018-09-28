@@ -7,7 +7,7 @@ var    exec = require('child_process').exec;
 var router = express.Router();
 
 const MAX_CODE_LENGTH = 10 * 1024;
-const JAR_PATH = path.join(__dirname, '../../out/artifacts/antlr4example_jar/antlr4example.jar');
+const JAR_PATH = path.join(__dirname, '../../../out/artifacts/antlr4example_jar/antlr4example.jar');
 
 router.post('*', function(req, res, next) {
 
