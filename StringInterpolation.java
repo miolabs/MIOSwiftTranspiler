@@ -7,14 +7,19 @@ import java.util.ArrayList;
 
 public class StringInterpolation {
 
-    static public void breakUp(String srcFile) {
-        String outFile = "./broke-up-string-interpolation.swift";
+    private BufferedWriter bw = null;
+
+    public StringInterpolation(String outFile) {
+        try {
+            bw = new BufferedWriter(new FileWriter(outFile));
+        } catch (Exception e) {}
+    }
+
+    public void breakUp(String srcFile) {
 
         BufferedReader br = null;
-        BufferedWriter bw = null;
         try {
             br = new BufferedReader(new FileReader(srcFile));
-            bw = new BufferedWriter(new FileWriter(outFile));
             String line;
             while ((line = br.readLine()) != null) {
                 bw.write(breakUpLine(line) + "\n");
@@ -28,12 +33,15 @@ public class StringInterpolation {
             } catch (IOException e) {
                 //
             }
-            try {
-                if(bw != null)
-                    bw.close();
-            } catch (IOException e) {
-                //
-            }
+        }
+    }
+
+    public void close() {
+        try {
+            if(bw != null)
+                bw.close();
+        } catch (IOException e) {
+            //
         }
     }
 

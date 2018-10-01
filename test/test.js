@@ -33,7 +33,7 @@ languages.forEach(language => {
                     it(file.replace('.swift', ''), done => {
                         var transpiledLog, expectedLog;
 
-                        exec('cd ' + root + 'out/production/antlr4example; export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"; export CLASSPATH=".:' + root + '/lib/*:$CLASSPATH"; java Main ' + root + 'test/' + dir + '/' + file + ' ' + language, (err, stdout, stderr) => {
+                        exec('cd ' + root + 'out/production/antlr4example; export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"; export CLASSPATH=".:' + root + '/lib/*:$CLASSPATH"; java Main ' + language + ' ' + root + 'test/' + dir + '/' + file, (err, stdout, stderr) => {
                             if(stderr) console.log(stderr);
                             var transpiledAmmended = language === 'ts' ? underscore + monkeyPatch + stdout : javaHeader + stdout + javaFooter;
                             fs.writeFileSync(root + 'test/test.' + language, transpiledAmmended);

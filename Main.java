@@ -5,17 +5,25 @@ import java.io.IOException;
 
 public class Main {
 
+    //args[0] - target language (either ts or java)
+    //args[1+] - input swift files to be transpiled
     public static void main(String [] args) {
 
-        String srcFile = args.length > 0 ? args[0] : "./example.swift";
-        String targetLanguage = args.length > 1 ? args[1] : "ts";
+        if(args.length == 0) args = new String[]{"ts", "./example.swift"};
 
-        StringInterpolation.breakUp(srcFile);
+        String targetLanguage = args[0];
+
+        String stringInterpolationFile = "./broke-up-string-interpolation.swift";
+        StringInterpolation stringInterpolation = new StringInterpolation(stringInterpolationFile);
+        for(int i = 1; i < args.length; i++) {
+            stringInterpolation.breakUp(args[i]);
+        }
+        stringInterpolation.close();
 
         ANTLRFileStream inputFile = null;
 
         try {
-            inputFile = new ANTLRFileStream("./broke-up-string-interpolation.swift");
+            inputFile = new ANTLRFileStream(stringInterpolationFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
