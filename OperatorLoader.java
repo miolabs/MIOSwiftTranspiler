@@ -34,7 +34,7 @@ public class OperatorLoader {
         }
 
         if(src.has("result")) {
-            definition.result = (Definition)cache.find(src.optString("result"), topLevel).object;
+            //TODO definition.result = (Definition)cache.find(src.optString("result"), topLevel).object;
         }
 
         definition.codeReplacementPrefix = setCodeReplacement(src, "codeReplacementPrefix");

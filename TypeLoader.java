@@ -1,147 +1,72 @@
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.RuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
 import org.apache.commons.io.IOUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 //loads in native data types (e.g. String, Array) and caches them as Definitions
 public class TypeLoader {
 
     static public void load(Cache cache, SwiftParser.Top_levelContext topLevel) {
-        InputStream is = Prefix.class.getResourceAsStream("types.json");
-        String jsonTxt = null;
-        JSONObject definitions = null;
-        try { jsonTxt = IOUtils.toString(is); } catch(IOException e) {}
-        try { definitions = new JSONObject(jsonTxt); } catch(JSONException e) {}
 
-        for(int i = 0; i < definitions.names().length(); i++) {
-            String className = definitions.names().optString(i);
-            JSONObject src = definitions.optJSONObject(className);
+        String[] definitionFiles = {"Any", "Void", "Bool", "Int", "Double", "String", "Dictionary", "Array", "Set", "Tuple", "print"};
 
-            Definition definition =
-                    src.optBoolean("function") ? parseFunction(className, src, true, cache, topLevel) :
-                    parseClass(className, src);
-
-            cache.cacheOne(className, definition, topLevel);
+        String txt = "";
+        for(int i = 0; i < definitionFiles.length; i++) {
+            InputStream is = Prefix.class.getResourceAsStream("./native-definitions/" + definitionFiles[i] + ".swift");
+            String fileTxt = null;
+            try { fileTxt = IOUtils.toString(is); } catch(IOException e) {}
+            txt += fileTxt + "\n";
         }
 
-        for(int i = 0; i < definitions.names().length(); i++) {
-            String className = definitions.names().optString(i);
-            JSONObject src = definitions.optJSONObject(className);
-            if(src.optBoolean("function")) continue;
-            ClassDefinition definition = (ClassDefinition)cache.find(className, topLevel).object;
+        SwiftLexer lexer = new SwiftLexer(new ANTLRInputStream(txt));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        SwiftParser parser = new SwiftParser(tokens);
+        SwiftParser.Top_levelContext tree = parser.top_level();
 
-            if(src.optJSONArray("properties") == null) continue;
-            for(int j = 0; j < src.optJSONArray("properties").length(); j++) {
-                JSONObject propertySrc = src.optJSONArray("properties").optJSONObject(j);
-
-                addProperty(definition, propertySrc, cache, topLevel);
-            }
+        //setting tree children's parents as topLevel, so that when we're bubbling up the tree in search of the class definition,
+        //we arrive at the same topLevel that the cache uses
+        for(int i = 0; i < tree.children.size(); i++) {
+            if(tree.children.get(i) instanceof RuleContext) ((RuleContext)tree.children.get(i)).parent = topLevel;
         }
+
+        CacheVisitor cacheVisitor = new CacheVisitor(cache, null, topLevel);
+        cacheVisitor.visit(tree);
     }
 
-    static private ClassDefinition parseClass(String className, JSONObject src) {
-
-        ClassDefinition definition = new ClassDefinition(className, null, new LinkedHashMap<String, Instance>(), new ArrayList<Generic>(), false, new ArrayList<ClassDefinition>());
-
-        if(src.optJSONArray("generics") != null) {
-            for(int i = 0; i < src.optJSONArray("generics").length(); i++) {
-                Generic generic = new Generic(src.optJSONArray("generics").optString(i), new ArrayList<ClassDefinition>());
-                definition.generics.add(generic);
-            }
+    static public void loadNativeDefinition(SwiftParser.Native_definition_declarationContext ctx, Visitor visitor) {
+        ParseTree nearestAncestorBlock = visitor.cache.findNearestAncestorBlock(ctx);
+        if(ctx.native_definition_declaration_role().getText().equals("typeReplacement")) {
+            ClassDefinition classDefinition = (ClassDefinition)visitor.cache.getClassDefinition(nearestAncestorBlock).object;
+            if(classDefinition.typeReplacement == null) classDefinition.typeReplacement = new HashMap<String, String>();
+            classDefinition.typeReplacement.put(ctx.native_definition_declaration_language().getText(), ctx.native_definition_declaration_string().getText().replaceAll("\"", ""));
         }
-
-        if(src.optJSONObject("typeReplacement") != null) {
-            definition.typeReplacement = new HashMap<String, String>();
-            for(int i = 0; i < src.optJSONObject("typeReplacement").names().length(); i++) {
-                String language = src.optJSONObject("typeReplacement").names().optString(i);
-                definition.typeReplacement.put(language, src.optJSONObject("typeReplacement").optString(language));
-            }
-        }
-
-        if(src.optJSONObject("cloneOnAssignmentReplacement") != null) {
-            definition.cloneOnAssignmentReplacement = new HashMap<String, Boolean>();
-            for(int i = 0; i < src.optJSONObject("cloneOnAssignmentReplacement").names().length(); i++) {
-                String language = src.optJSONObject("cloneOnAssignmentReplacement").names().optString(i);
-                definition.cloneOnAssignmentReplacement.put(language, src.optJSONObject("cloneOnAssignmentReplacement").optBoolean(language));
-            }
-        }
-
-        return definition;
-    }
-
-    static private void addProperty(ClassDefinition classDefinition, JSONObject src, Cache cache, SwiftParser.Top_levelContext topLevel) {
-
-        Instance property;
-        String name = src.optString("name");
-
-        if(src.optBoolean("function")) {
-            property = new Instance(parseFunction(src.optString("name"), src, false, cache, topLevel));
-            name += FunctionUtil.nameAugment(((FunctionDefinition)property.definition).parameterExternalNames, ((FunctionDefinition)property.definition).parameterTypes);
-            property.definition.name = name;
+        else if(visitor.cache.findNearestAncestorBlock(nearestAncestorBlock.getParent()) instanceof SwiftParser.Top_levelContext) {
+            ParserRuleContext functionContext = (ParserRuleContext)(nearestAncestorBlock.getParent().getParent());
+            String propertyName = new FunctionDefinition(functionContext, visitor).name;
+            FunctionDefinition functionDefinition = (FunctionDefinition)visitor.cache.find(propertyName, nearestAncestorBlock).object;
+            if(functionDefinition.codeReplacement == null) functionDefinition.codeReplacement = new HashMap<String, String>();
+            functionDefinition.codeReplacement.put(ctx.native_definition_declaration_language().getText(), ctx.native_definition_declaration_string().getText().replaceAll("\"", ""));
         }
         else {
-            property = parseType(src.optString("type"), cache, topLevel);
-        }
-
-        if(src.optJSONObject("codeReplacement") != null) {
-            property.codeReplacement = new HashMap<String, String>();
-            for(int i = 0; i < src.optJSONObject("codeReplacement").names().length(); i++) {
-                String language = src.optJSONObject("codeReplacement").names().optString(i);
-                property.codeReplacement.put(language, src.optJSONObject("codeReplacement").optString(language));
+            ClassDefinition classDefinition = (ClassDefinition)visitor.cache.getClassDefinition(visitor.cache.findNearestAncestorBlock(nearestAncestorBlock.getParent())).object;
+            String propertyName;
+            if(nearestAncestorBlock.getParent().getParent() instanceof SwiftParser.Property_declarationContext) {
+                propertyName = ((SwiftParser.Property_declarationContext)nearestAncestorBlock.getParent().getParent()).variable_name().getText();
             }
-        }
-
-        //TODO property.isOperator = src.optBoolean("operator");
-        property.isInitializer = src.optString("name").equals("init");
-        if(src.optBoolean("static")) property.isStatic = true;
-
-        classDefinition.properties.put(name, property);
-    }
-
-    static private FunctionDefinition parseFunction(String name, JSONObject src, boolean isTopLevel, Cache cache, SwiftParser.Top_levelContext topLevel) {
-
-        List<String> parameterExternalNames = new ArrayList<String>();
-        List<Instance> parameterTypes = new ArrayList<Instance>();
-        if(src.optJSONArray("parameters") != null) {
-            for(int i = 0; i < src.optJSONArray("parameters").length(); i++) {
-                JSONObject parameter = src.optJSONArray("parameters").optJSONObject(i);
-                parameterExternalNames.add(parameter.optString("externalName"));
-                parameterTypes.add(parseType(parameter.optString("type"), cache, topLevel));
+            else {
+                ParserRuleContext functionContext = (ParserRuleContext)(nearestAncestorBlock.getParent() instanceof SwiftParser.Subscript_declarationContext ? nearestAncestorBlock.getParent() : nearestAncestorBlock.getParent().getParent());
+                propertyName = new FunctionDefinition(functionContext, visitor).name;
             }
+            Instance property = classDefinition.properties.get(propertyName);
+            if(property.codeReplacement == null) property.codeReplacement = new HashMap<String, String>();
+            property.codeReplacement.put(ctx.native_definition_declaration_language().getText(), ctx.native_definition_declaration_string().getText().replaceAll("\"", ""));
+            if(property.definition instanceof FunctionDefinition) ((FunctionDefinition)property.definition).operator = 0;//FIXME
         }
-
-        FunctionDefinition definition = new FunctionDefinition(name, parameterExternalNames, parameterTypes, 0, parseType(src.optString("type"), cache, topLevel), null);
-
-        if(src.optJSONObject("codeReplacement") != null && isTopLevel) {
-            definition.codeReplacement = new HashMap<String, String>();
-            for(int i = 0; i < src.optJSONObject("codeReplacement").names().length(); i++) {
-                String language = src.optJSONObject("codeReplacement").names().optString(i);
-                definition.codeReplacement.put(language, src.optJSONObject("codeReplacement").optString(language));
-            }
-        }
-
-        return definition;
-    }
-
-    static private Instance parseType(String type, Cache cache, SwiftParser.Top_levelContext topLevel) {
-        if(type.equals("")) return new Instance(type, topLevel, cache);
-
-        SwiftLexer lexer = new SwiftLexer(new ANTLRInputStream("let a:" + type));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        SwiftParser.TypeContext typeContext = new SwiftParser(tokens).top_level().statement(0).declaration().constant_declaration().constant_declaration_body().pattern_initializer_list().pattern_initializer(0).pattern().type_annotation().type();
-
-        //setting typeContext's parent to topLevel, so that when we're bubbling up the tree in search of the class definition,
-        //we arrive at the same topLevel that the cache uses
-        typeContext.parent = topLevel;
-        //TODO refactor so that we don't have to create a dummy Visitor
-        return TypeUtil.fromDefinition(typeContext, new TranspilerVisitor(cache, null));
     }
 }

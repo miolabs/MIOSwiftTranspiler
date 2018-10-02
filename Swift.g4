@@ -297,6 +297,7 @@ declaration
  | deinitializer_declaration
  | extension_declaration
  | subscript_declaration
+ | native_definition_declaration
  ;
 
 declarations : declaration+ ;
@@ -506,6 +507,13 @@ subscript_declaration
  ;
 
 subscript_head : attributes? declaration_modifiers? 'subscript' parameter_clause  ;
+
+// GRAMMAR OF A NATIVE DEFINITON DECLARATION (our extension for bootstrapping native swift classes)
+
+native_definition_declaration: '!def' native_definition_declaration_role native_definition_declaration_language native_definition_declaration_string ;
+native_definition_declaration_role: 'typeReplacement' | 'codeReplacement';
+native_definition_declaration_language: identifier ;
+native_definition_declaration_string: string_literal ;
 
 // GRAMMAR OF AN OPERATOR DECLARATION
 

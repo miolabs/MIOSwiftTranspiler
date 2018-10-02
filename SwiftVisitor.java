@@ -993,6 +993,30 @@ public interface SwiftVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubscript_head(SwiftParser.Subscript_headContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SwiftParser#native_definition_declaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNative_definition_declaration(SwiftParser.Native_definition_declarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#native_definition_declaration_role}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNative_definition_declaration_role(SwiftParser.Native_definition_declaration_roleContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#native_definition_declaration_language}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNative_definition_declaration_language(SwiftParser.Native_definition_declaration_languageContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SwiftParser#native_definition_declaration_string}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNative_definition_declaration_string(SwiftParser.Native_definition_declaration_stringContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SwiftParser#operator_declaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

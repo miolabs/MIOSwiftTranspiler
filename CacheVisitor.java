@@ -299,4 +299,9 @@ public class CacheVisitor extends Visitor {
         cache.cacheOne(ctx.typealias_head().typealias_name().getText(), TypeUtil.fromDefinition(ctx.typealias_assignment().type(), this).definition, ctx);
         return null;
     }
+
+    @Override public String visitNative_definition_declaration(SwiftParser.Native_definition_declarationContext ctx) {
+        TypeLoader.loadNativeDefinition(ctx, this);
+        return null;
+    }
 }
