@@ -1,0 +1,15 @@
+{
+  "name": "definition-crawler",
+  "version": "0.0.0",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "node www.js"
+  },
+  "dependencies": {
+    "jsdom": "^12.2.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {}
+}
