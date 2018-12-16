@@ -6,10 +6,15 @@
     "start": "node www.js"
   },
   "dependencies": {
+    "fs-extra": "^7.0.0",
     "jsdom": "^12.2.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5",
     "url": "^0.11.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/fs-extra": "^5.0.4",
+    "@types/parse5": "^5.0.0",
+    "@types/request-promise-native": "^1.0.15"
+  }
 }
