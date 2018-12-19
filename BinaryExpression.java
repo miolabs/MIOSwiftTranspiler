@@ -100,7 +100,7 @@ public class BinaryExpression implements PrefixOrExpression {
                 augment = FunctionUtil.augmentFromCall(word, parameterTypes, parameterExternalNames, R.type(), false, R.type().definition != null ? ((ClassDefinition)R.type().definition).getAllProperties() : null);
                 if(augment != null) functionOwner = R.type();
             }
-            Instance function = augment != null ? functionOwner.getProperty(word + augment) : null;
+            Instance function = augment != null ? functionOwner.getProperty(word + augment, ctx, visitor) : null;
 
             this.type = function != null ? function.result() : operator.result != null ? new Instance(operator.result) : TypeUtil.alternative(L, R);
 

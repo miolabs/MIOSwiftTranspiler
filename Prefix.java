@@ -52,7 +52,7 @@ public class Prefix implements PrefixOrExpression {
             }
 
             PrefixElem elem = PrefixElem.get(ctx, functionCallParams, chain, chainPos, currType, (chainPos + (functionCallParams != null ? 1 : 0) >= chain.size() - 1) ? knownType : null, visitor);
-            Map<String, String> codeReplacement = elem.codeReplacement();
+            Map<String, String> codeReplacement = elem.codeReplacement(prefixCtx, visitor);
             boolean skip = codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) && codeReplacement.get(visitor.targetLanguage).equals("");
 
             if(functionCallParams != null) {
@@ -91,9 +91,9 @@ public class Prefix implements PrefixOrExpression {
     public String code(String assignment, int limit, ParseTree ctx, Visitor visitor) {
         return elemCode(elems.subList(0, limit), 0, "", assignment, ctx, visitor);
     }
-    static public Map<String, String> replacements(List<PrefixElem> elems, int chainPos, boolean isLast, String assignment, Visitor visitor) {
+    static public Map<String, String> replacements(List<PrefixElem> elems, int chainPos, boolean isLast, String assignment, ParseTree ctx, Visitor visitor) {
         PrefixElem elem = elems.get(chainPos);
-        Map<String, String> codeReplacement = elem.codeReplacement();
+        Map<String, String> codeReplacement = elem.codeReplacement(ctx, visitor);
         if(chainPos > 0 && elems.get(chainPos - 1).type.definition instanceof ClassDefinition && ((ClassDefinition) elems.get(chainPos - 1).type.definition).superClass != null && ((ClassDefinition)((ClassDefinition) elems.get(chainPos - 1).type.definition).superClass.object).name.equals("Tuple")) {
             codeReplacement = new HashMap<String, String>();
             codeReplacement.put("java", "((" + elem.type.targetType(visitor.targetLanguage) + ")#L.get(\"#R\"))");
@@ -117,7 +117,7 @@ public class Prefix implements PrefixOrExpression {
         boolean isLast = chainPos + 1 >= elems.size();
 
         String LR;
-        Map<String, String> replacement = replacements(elems, chainPos, isLast, assignment, visitor);
+        Map<String, String> replacement = replacements(elems, chainPos, isLast, assignment, ctx, visitor);
         if(!replacement.isEmpty()) {
             LR =
                 replacement.containsKey("T") && replacement.containsKey("N") ? "if((#ASS) != null) { " + replacement.get("T") + "; } else { " + replacement.get("N") + "; }" :
@@ -143,7 +143,7 @@ public class Prefix implements PrefixOrExpression {
                 if(elem.isSubscript) LR += "$get(#AA)";
                 else if(elem.type.isGetterSetter) LR += "$get()";
                 else if(elem.type.isInout) LR += ".get()";
-                else if(chainPos > 0 && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
+                else if(chainPos > 0 && elems.get(0).type.definition != null && ((ClassDefinition)elems.get(0).type.definition).isProtocol) {
                     LR = "('#R$get' in #L ? " + LR + "$get() : " + LR + ")";
                 }
                 else if(elem.initializerSignature != null) LR = "new " + LR + "(\"" + elem.initializerSignature + "\",#AA)";
@@ -171,7 +171,7 @@ public class Prefix implements PrefixOrExpression {
         }
 
         if(elem.initializerSignature != null) {
-            Instance initializer = elem.type.getProperty("init" + elem.initializerSignature);
+            Instance initializer = elem.type.getProperty("init" + elem.initializerSignature, ctx, visitor);
             if(initializer != null && initializer.isFailableInitializer) {
                 nextCode = "_.failableInit(" + nextCode + ")";
             }

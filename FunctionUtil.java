@@ -1,4 +1,5 @@
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,7 +8,7 @@ import java.util.Map;
 
 public class FunctionUtil {
 
-    static public List<SwiftParser.ParameterContext> parameters(ParserRuleContext ctx) {
+    static public List<SwiftParser.ParameterContext> parameters(ParseTree ctx) {
         SwiftParser.Parameter_listContext parameterList = FunctionUtil.parameterList(ctx);
         return parameterList != null ? parameterList.parameter() : new ArrayList<SwiftParser.ParameterContext>();
     }
@@ -254,7 +255,7 @@ public class FunctionUtil {
         }
         return codeBlockCtxs;
     }
-    static public SwiftParser.Parameter_listContext parameterList(ParserRuleContext ctx) {
+    static public SwiftParser.Parameter_listContext parameterList(ParseTree ctx) {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_signature().parameter_clauses().parameter_clause().parameter_list() :
                ctx instanceof SwiftParser.Initializer_declarationContext ? ((SwiftParser.Initializer_declarationContext)ctx).parameter_clause().parameter_list() :
                ctx instanceof SwiftParser.Subscript_declarationContext ? ((SwiftParser.Subscript_declarationContext)ctx).subscript_head().parameter_clause().parameter_list() :

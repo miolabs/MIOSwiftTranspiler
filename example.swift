@@ -1,10 +1,24 @@
-var numberOfFields:Int = 5
-var wheatYield:Double = 7.5
-var weatherWasGood:Bool = true
-
-var totalYield = Double(numberOfFields) * wheatYield
-if (weatherWasGood == true) {
-    totalYield = totalYield * 1.5
+func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
+    let temporaryA = a
+    a = b
+    b = temporaryA
 }
 
-print(totalYield)
+var someInt = 3
+var anotherInt = 107
+swapTwoValues(&someInt, &anotherInt)
+print(someInt)
+print(anotherInt)
+
+func justReturn<T>(_ a: T) -> T {
+    return a
+}
+print(justReturn("elo").characters.count)
+
+class Elo<T> {
+    func justReturn(_ a: T) -> T {
+        return a
+    }
+}
+var elo = Elo<String>()
+print(elo.justReturn("elo").characters.count)

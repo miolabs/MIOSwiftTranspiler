@@ -1,6 +1,6 @@
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,16 +19,20 @@ class Operator {
     public Map<String, String> codeReplacementPostfix;
 }
 
-class Generic {//either generic or associatedtype
+class Generic {//either generic or associatedtype (associatedtype is essentially a generic for protocol)
     public String name;
-    public List<ClassDefinition> protocols;
-    public Generic(String name, List<ClassDefinition> protocols){ this.name = name; this.protocols = protocols; }
+    //note that for associated we need to compute typeConstraints within the scope of a given Definition
+    //since there can be additional typeConstraints further down the inheritance chain
+    public List<ClassDefinition> typeConstraints;//either a protocol if "<Generic: Protocol>"/"where Ass: Protocol" or a class if "where Ass == Class"
+    public Generic(String name, List<ClassDefinition> typeConstraints){ this.name = name; this.typeConstraints = typeConstraints; }
 }
 
 abstract class Definition {
     public String name;
     public List<Generic> generics;
-    //TODO associated type clarifications, że w tym protocole od tego generica, ten associatedtype (ta klasa/do tego protocolu)
+    //in each inheritance, there can be additional typeConstraints for associatedtype
+    //we could redeclare the associatedtype, but that might get in the way of extension when we want to amend typeConstraints higher up
+    public Map<String, List<ClassDefinition>> associatedtypeAdditionalTypeConstraints;//genericName -> list of protocols/classes
     public Map<String, Boolean> cloneOnAssignmentReplacement;//ts->boolean, java->boolean
 }
 
@@ -38,7 +42,7 @@ class ClassDefinition extends Definition {
     public Map<String, Instance> properties;
     boolean isProtocol;
     public List<ClassDefinition> protocols;
-    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<Generic> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; }
+    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<Generic> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>(); }
     public Map<String, Cache.CacheBlockAndObject> getAllProperties() {
         Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
         ClassDefinition classDefinition = this;
@@ -62,10 +66,11 @@ class FunctionDefinition extends Definition {
     public int operator = 0;//1: infix, 2: prefix, 3: postfix
     public Instance result;
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
-    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<Generic> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
-    public FunctionDefinition(ParserRuleContext ctx, Visitor visitor) {
+    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<Generic> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>(); }
+    public FunctionDefinition(ParseTree ctx, Visitor visitor) {
 
         this.generics = GenericUtil.fromParameterClause(GenericUtil.genericParameterClauseCtxFromFunction(ctx), visitor);
+        this.associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>();
 
         List<SwiftParser.ParameterContext> parameters = FunctionUtil.parameters(ctx);
 
@@ -137,6 +142,7 @@ class Instance {
     public String uniqueId() {
         //something that will allow us to uniquely identify type, e.g. to figure out which overloaded function to use
         //TODO include scope if it's a name that's duplicated in the code
+        //TODO include generic types; see parameter-overload-generic.swift
         return definition instanceof ClassDefinition ? definition.name != null ? definition.name : "any" : genericDefinition != null ? genericDefinition : "any";
     }
     public Instance withoutPropertyInfo() {
@@ -169,15 +175,59 @@ class Instance {
         if(!isInout || baseIfInout) return type;
         return "{get: () => " + type + ", set: (val: " + type + ") => void}";
     }
-    public Instance getProperty(String name) {
-        ClassDefinition classDefinition = (ClassDefinition)definition;
-        Instance property;
-        do {
-            property = classDefinition.properties.get(name);
-            classDefinition = classDefinition.superClass != null ? (ClassDefinition)classDefinition.superClass.object : null;
-        } while(property == null && classDefinition != null);
-        if(property == null) return null;
-        return specifyGenerics(property);
+    public Instance getProperty(String name, ParseTree ctx, Visitor visitor) {
+
+        List<ClassDefinition> classDefinitions = new ArrayList<ClassDefinition>();
+        if(definition != null) {
+            classDefinitions.add((ClassDefinition)definition);
+        }
+        else {
+            //we need to check what the current scope is, get the surrounding function/class definition (iterate through scopes)
+            ParseTree foundCtx = ctx;
+            Generic generic = null;
+            Definition definitionWhereGeneric = null;
+            do {
+                Cache.CacheBlockAndObject definition = visitor.cache.findNearestAncestorStructureOrFunction(foundCtx, visitor);
+                if(definition == null) {
+                    foundCtx = null;
+                }
+                else {
+                    foundCtx = definition.block;
+                    for(Generic foundGeneric : ((Definition)definition.object).generics) {
+                        if(foundGeneric.name.equals(genericDefinition)) {
+                            generic = foundGeneric;
+                            definitionWhereGeneric = (Definition)definition.object;
+                            break;
+                        }
+                    }
+                }
+            } while (generic == null && foundCtx != null);
+            //use generic.typeConstraints as a starting point to work out protocols/classes
+            classDefinitions.addAll(generic.typeConstraints);
+            //then go through definition's parents to work out associatedtypeAdditionalTypeConstraints
+            //then iterate through these to find a matching property
+            do {
+                if(definitionWhereGeneric.associatedtypeAdditionalTypeConstraints.containsKey(genericDefinition)) {
+                    classDefinitions.addAll(definitionWhereGeneric.associatedtypeAdditionalTypeConstraints.get(genericDefinition));
+                }
+                if(definitionWhereGeneric instanceof ClassDefinition && ((ClassDefinition) definitionWhereGeneric).superClass != null) {
+                    definitionWhereGeneric = (Definition)((ClassDefinition) definitionWhereGeneric).superClass.object;
+                }
+                else {
+                    definitionWhereGeneric = null;
+                }
+            } while(definitionWhereGeneric != null);
+        }
+
+        for(ClassDefinition classDefinition : classDefinitions) {
+            Instance property;
+            do {
+                property = classDefinition.properties.get(name);
+                classDefinition = classDefinition.superClass != null ? (ClassDefinition)classDefinition.superClass.object : null;
+            } while(property == null && classDefinition != null);
+            if(property != null) return specifyGenerics(property);
+        }
+        return null;
     }
     public Instance result() {
         Instance result = ((FunctionDefinition)definition).result;

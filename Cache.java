@@ -23,6 +23,12 @@ public class Cache {
             node instanceof SwiftParser.Protocol_bodyContext
         );
     }
+    static private boolean isFunctionBlock(ParseTree node) {
+        return (
+            node instanceof SwiftParser.Function_bodyContext ||
+            node instanceof SwiftParser.Initializer_bodyContext
+        );
+    }
 
     static public String structureName(ParseTree ctx) {
         return (
@@ -44,12 +50,9 @@ public class Cache {
         if(node == null || node.getParent() == null || node.getParent() == node) return null;
         return findNearestAncestorBlock(node.getParent());
     }
+
     public ParseTree findNearestAncestorFunctionBlock(ParseTree node) {
-        boolean isBlock =
-                node instanceof SwiftParser.Top_levelContext ||
-                node instanceof SwiftParser.Function_bodyContext ||
-                node instanceof SwiftParser.Initializer_bodyContext;
-        if(isBlock) return node;
+        if(isFunctionBlock(node) || node instanceof SwiftParser.Top_levelContext) return node;
         if(node == null || node.getParent() == null || node.getParent() == node) return null;
         return findNearestAncestorFunctionBlock(node.getParent());
     }
@@ -58,6 +61,13 @@ public class Cache {
         if(isStructureBlock(node)) return getClassDefinition(node);
         if(node == null || node.getParent() == null || node.getParent() == node) return null;
         return findNearestAncestorStructure(node.getParent());
+    }
+
+    public CacheBlockAndObject findNearestAncestorStructureOrFunction(ParseTree node, Visitor visitor) {
+        if(isStructureBlock(node)) return getClassDefinition(node);
+        else if(isFunctionBlock(node)) return getFunctionDefinition(node, visitor);
+        if(node == null || node.getParent() == null || node.getParent() == node) return null;
+        return findNearestAncestorStructureOrFunction(node.getParent(), visitor);
     }
 
     public CacheBlockAndObject getClassDefinition(ParseTree block) {
@@ -72,10 +82,15 @@ public class Cache {
             return find(className, structDeclaration);
         }
         else {
-            SwiftParser.Protocol_declarationContext structDeclaration = (SwiftParser.Protocol_declarationContext)((SwiftParser.Protocol_bodyContext)block).parent;
-            String className = structDeclaration.protocol_name().getText();
-            return find(className, structDeclaration);
+            SwiftParser.Protocol_declarationContext protocolDeclaration = (SwiftParser.Protocol_declarationContext)((SwiftParser.Protocol_bodyContext)block).parent;
+            String className = protocolDeclaration.protocol_name().getText();
+            return find(className, protocolDeclaration);
         }
+    }
+
+    public CacheBlockAndObject getFunctionDefinition(ParseTree block, Visitor visitor) {
+        FunctionDefinition functionDef = new FunctionDefinition(block.getParent(), visitor);
+        return find(functionDef.name, block);
     }
 
     public CacheBlockAndObject find(String varName, ParseTree node) {

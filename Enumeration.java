@@ -106,7 +106,7 @@ public class Enumeration {
         }
         else if(isTuple) {
             assignedType = definition.rawType;//naughty; stored value will be {chosen, tuple}, but declared type actually equal to chosen's type
-            List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, visitor);
+            List<String> functionCallParamsStr = PrefixElem.getFunctionCallParamsStr(functionCallParams, assignedType, null, false, null, rChild, visitor);
             String tupleCode = "";
             for(int i = 0; i < functionCallParamsStr.size(); i++) {
                 tupleCode += (i > 0 ? ", " : "") + i + ": " + functionCallParamsStr.get(i);

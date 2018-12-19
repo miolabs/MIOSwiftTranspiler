@@ -1,4 +1,4 @@
-import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ public class GenericUtil {
         return type;
     }
 
-    public static SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtxFromFunction(ParserRuleContext ctx) {
+    public static SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtxFromFunction(ParseTree ctx) {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).generic_parameter_clause() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).generic_parameter_clause() :
             ctx instanceof SwiftParser.Subscript_declarationContext ? null :

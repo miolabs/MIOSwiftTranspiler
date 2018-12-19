@@ -1,4 +1,5 @@
 import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.util.*;
 
@@ -117,7 +118,7 @@ public class PrefixElem {
                 if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
             }
             else {
-                instanceOrDefinition = lType.getProperty(varName);
+                instanceOrDefinition = lType.getProperty(varName, rChild, visitor);
             }
             if(instanceOrDefinition instanceof EnumerationDefinition && functionCallParams != null) {
                 return Enumeration.getPrefixElemFromRawValue((EnumerationDefinition)instanceOrDefinition, functionCallParams, visitor);
@@ -204,13 +205,13 @@ public class PrefixElem {
         }
 
         if(functionCallParams != null) {
-            functionCallParamsStr = getFunctionCallParamsStr(functionCallParams, type, typeBeforeCall, isInitializer, augment, visitor);
+            functionCallParamsStr = getFunctionCallParamsStr(functionCallParams, type, typeBeforeCall, isInitializer, augment, rChild, visitor);
         }
 
         return new PrefixElem(code, isSubscript, replaceWithSubscript, type, functionCallParamsStr, typeBeforeCall, isInitializer ? augment : null);
     }
 
-    static public List<String> getFunctionCallParamsStr(List<? extends ParserRuleContext> functionCallParams, Instance type, Object typeBeforeCall, boolean isInitializer, String augment, Visitor visitor) {
+    static public List<String> getFunctionCallParamsStr(List<? extends ParserRuleContext> functionCallParams, Instance type, Object typeBeforeCall, boolean isInitializer, String augment, ParseTree ctx, Visitor visitor) {
         List<String> functionCallParamsStr = new ArrayList<String>();
         for(int i = 0; i < functionCallParams.size(); i++) {
             String paramStr;
@@ -219,7 +220,7 @@ public class PrefixElem {
             }
             else {
                 FunctionDefinition functionDefinition =
-                    isInitializer ? (FunctionDefinition)type.getProperty("init" + augment).definition :
+                    isInitializer ? (FunctionDefinition)type.getProperty("init" + augment, ctx, visitor).definition :
                     typeBeforeCall instanceof FunctionDefinition ? (FunctionDefinition)typeBeforeCall :
                     typeBeforeCall instanceof Instance ? (FunctionDefinition)((Instance)typeBeforeCall).definition :
                     null;
@@ -231,12 +232,12 @@ public class PrefixElem {
         return  functionCallParamsStr;
     }
 
-    public Map<String, String> codeReplacement() {
+    public Map<String, String> codeReplacement(ParseTree ctx, Visitor visitor) {
         return (
             type.codeReplacement != null ? type.codeReplacement :
             typeBeforeCall instanceof Instance ? ((Instance) typeBeforeCall).codeReplacement :
             typeBeforeCall instanceof FunctionDefinition ? ((FunctionDefinition)typeBeforeCall).codeReplacement :
-            initializerSignature != null ? type.getProperty("init" + initializerSignature).codeReplacement :
+            initializerSignature != null ? type.getProperty("init" + initializerSignature, ctx, visitor).codeReplacement :
             null
         );
     }
