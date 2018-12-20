@@ -208,7 +208,7 @@ public class CacheVisitor extends Visitor {
         );
 
         if(type == 1) Initializer.addMemberwiseInitializer(classDefinition, ctx, this);
-        Initializer.addDefaultInitializer(classDefinition, ctx, this);
+        if(type != 2) Initializer.addDefaultInitializer(classDefinition, ctx, this);
     }
 
     @Override public String visitFor_in_statement(SwiftParser.For_in_statementContext ctx) {

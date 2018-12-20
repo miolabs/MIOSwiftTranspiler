@@ -150,6 +150,7 @@ public class SwiftSupport {
 			return -1;
 		}
 		i++;
+		if(i >= tokens.size()) return -2;
 		lt = tokens.get(i);
 		while ( i + 1 < tokens.size() && lt.getType()!=Token.EOF && isOperatorChar(lt.getType()) ) {
 			i++;
@@ -227,7 +228,8 @@ public class SwiftSupport {
 
 	public static boolean isOperator(TokenStream tokens, String op) {
 		int stop = getLastOpTokenIndex(tokens);
-		if ( stop==-1 ) return false;
+		if ( stop == -1 ) return false;
+		if ( stop == -2 ) return true;//fix for protocol_subscript_declaration; not sure why, but it was throwing an out of bounds error in getLastOpTokenIndex
 
 		int start = tokens.index();
 		String text = tokens.getText(Interval.of(start, stop));
