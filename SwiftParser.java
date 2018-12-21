@@ -1,4 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.5
+// Generated from /Users/bubulkowanorka/projects/antlr4-visitor/Swift.g4 by ANTLR 4.5.1
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class SwiftParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.5.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -5258,17 +5258,6 @@ public class SwiftParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class Read_only_computed_property_declarationContext extends Property_declaration_bodyContext {
-		public Code_blockContext code_block() {
-			return getRuleContext(Code_blockContext.class,0);
-		}
-		public Read_only_computed_property_declarationContext(Property_declaration_bodyContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitRead_only_computed_property_declaration(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class Computed_keyword_property_declarationContext extends Property_declaration_bodyContext {
 		public Getter_setter_keyword_blockContext getter_setter_keyword_block() {
 			return getRuleContext(Getter_setter_keyword_blockContext.class,0);
@@ -5277,6 +5266,28 @@ public class SwiftParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitComputed_keyword_property_declaration(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Computed_property_declarationContext extends Property_declaration_bodyContext {
+		public Getter_setter_blockContext getter_setter_block() {
+			return getRuleContext(Getter_setter_blockContext.class,0);
+		}
+		public Computed_property_declarationContext(Property_declaration_bodyContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitComputed_property_declaration(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Read_only_computed_property_declarationContext extends Property_declaration_bodyContext {
+		public Code_blockContext code_block() {
+			return getRuleContext(Code_blockContext.class,0);
+		}
+		public Read_only_computed_property_declarationContext(Property_declaration_bodyContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitRead_only_computed_property_declaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -5291,17 +5302,6 @@ public class SwiftParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitWillSet_didSet_property_declaration(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class Computed_property_declarationContext extends Property_declaration_bodyContext {
-		public Getter_setter_blockContext getter_setter_block() {
-			return getRuleContext(Getter_setter_blockContext.class,0);
-		}
-		public Computed_property_declarationContext(Property_declaration_bodyContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitComputed_property_declaration(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -13208,17 +13208,12 @@ public class SwiftParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class Function_call_with_closure_expressionContext extends Chain_postfix_expressionContext {
-		public Trailing_closureContext trailing_closure() {
-			return getRuleContext(Trailing_closureContext.class,0);
-		}
-		public Parenthesized_expressionContext parenthesized_expression() {
-			return getRuleContext(Parenthesized_expressionContext.class,0);
-		}
-		public Function_call_with_closure_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
+	public static class Explicit_member_expression_number_doubleContext extends Chain_postfix_expressionContext {
+		public TerminalNode Floating_point_literal() { return getToken(SwiftParser.Floating_point_literal, 0); }
+		public Explicit_member_expression_number_doubleContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitFunction_call_with_closure_expression(this);
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitExplicit_member_expression_number_double(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -13247,48 +13242,6 @@ public class SwiftParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class Chain_postfix_operatorContext extends Chain_postfix_expressionContext {
-		public Postfix_operatorContext postfix_operator() {
-			return getRuleContext(Postfix_operatorContext.class,0);
-		}
-		public Chain_postfix_operatorContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitChain_postfix_operator(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class Function_call_expressionContext extends Chain_postfix_expressionContext {
-		public Parenthesized_expressionContext parenthesized_expression() {
-			return getRuleContext(Parenthesized_expressionContext.class,0);
-		}
-		public Function_call_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitFunction_call_expression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class Explicit_member_expression_number_doubleContext extends Chain_postfix_expressionContext {
-		public TerminalNode Floating_point_literal() { return getToken(SwiftParser.Floating_point_literal, 0); }
-		public Explicit_member_expression_number_doubleContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitExplicit_member_expression_number_double(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class Subscript_expressionContext extends Chain_postfix_expressionContext {
-		public Expression_listContext expression_list() {
-			return getRuleContext(Expression_listContext.class,0);
-		}
-		public Subscript_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitSubscript_expression(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class Initializer_expressionContext extends Chain_postfix_expressionContext {
 		public Initializer_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
 		@Override
@@ -13305,12 +13258,59 @@ public class SwiftParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class Subscript_expressionContext extends Chain_postfix_expressionContext {
+		public Expression_listContext expression_list() {
+			return getRuleContext(Expression_listContext.class,0);
+		}
+		public Subscript_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitSubscript_expression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class Explicit_member_expression_numberContext extends Chain_postfix_expressionContext {
 		public TerminalNode Decimal_literal() { return getToken(SwiftParser.Decimal_literal, 0); }
 		public Explicit_member_expression_numberContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitExplicit_member_expression_number(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Function_call_expressionContext extends Chain_postfix_expressionContext {
+		public Parenthesized_expressionContext parenthesized_expression() {
+			return getRuleContext(Parenthesized_expressionContext.class,0);
+		}
+		public Function_call_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitFunction_call_expression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Function_call_with_closure_expressionContext extends Chain_postfix_expressionContext {
+		public Trailing_closureContext trailing_closure() {
+			return getRuleContext(Trailing_closureContext.class,0);
+		}
+		public Parenthesized_expressionContext parenthesized_expression() {
+			return getRuleContext(Parenthesized_expressionContext.class,0);
+		}
+		public Function_call_with_closure_expressionContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitFunction_call_with_closure_expression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Chain_postfix_operatorContext extends Chain_postfix_expressionContext {
+		public Postfix_operatorContext postfix_operator() {
+			return getRuleContext(Postfix_operatorContext.class,0);
+		}
+		public Chain_postfix_operatorContext(Chain_postfix_expressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitChain_postfix_operator(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -14076,11 +14076,11 @@ public class SwiftParser extends Parser {
 		public Type_nameContext type_name() {
 			return getRuleContext(Type_nameContext.class,0);
 		}
-		public Generic_argument_clauseContext generic_argument_clause() {
-			return getRuleContext(Generic_argument_clauseContext.class,0);
-		}
 		public Type_identifierContext type_identifier() {
 			return getRuleContext(Type_identifierContext.class,0);
+		}
+		public Generic_argument_clauseContext generic_argument_clause() {
+			return getRuleContext(Generic_argument_clauseContext.class,0);
 		}
 		public Type_identifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -14106,34 +14106,34 @@ public class SwiftParser extends Parser {
 				setState(2218);
 				type_name();
 				setState(2220);
-				switch ( getInterpreter().adaptivePredict(_input,268,_ctx) ) {
-				case 1:
+				_la = _input.LA(1);
+				if (_la==LT) {
 					{
 					setState(2219);
 					generic_argument_clause();
 					}
-					break;
 				}
+
+				setState(2222);
+				match(DOT);
+				setState(2223);
+				type_identifier();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(2222);
+				setState(2225);
 				type_name();
-				setState(2224);
-				_la = _input.LA(1);
-				if (_la==LT) {
+				setState(2227);
+				switch ( getInterpreter().adaptivePredict(_input,269,_ctx) ) {
+				case 1:
 					{
-					setState(2223);
+					setState(2226);
 					generic_argument_clause();
 					}
+					break;
 				}
-
-				setState(2226);
-				match(DOT);
-				setState(2227);
-				type_identifier();
 				}
 				break;
 			}
@@ -14845,12 +14845,14 @@ public class SwiftParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class Escaped_parameterContext extends IdentifierContext {
-		public TerminalNode Regular_identifier() { return getToken(SwiftParser.Regular_identifier, 0); }
-		public Escaped_parameterContext(IdentifierContext ctx) { copyFrom(ctx); }
+	public static class Context_sensitive_keyword_parameterContext extends IdentifierContext {
+		public Context_sensitive_keywordContext context_sensitive_keyword() {
+			return getRuleContext(Context_sensitive_keywordContext.class,0);
+		}
+		public Context_sensitive_keyword_parameterContext(IdentifierContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitEscaped_parameter(this);
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitContext_sensitive_keyword_parameter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -14863,23 +14865,21 @@ public class SwiftParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class Escaped_parameterContext extends IdentifierContext {
+		public TerminalNode Regular_identifier() { return getToken(SwiftParser.Regular_identifier, 0); }
+		public Escaped_parameterContext(IdentifierContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitEscaped_parameter(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 	public static class Regular_parameterContext extends IdentifierContext {
 		public TerminalNode Regular_identifier() { return getToken(SwiftParser.Regular_identifier, 0); }
 		public Regular_parameterContext(IdentifierContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitRegular_parameter(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class Context_sensitive_keyword_parameterContext extends IdentifierContext {
-		public Context_sensitive_keywordContext context_sensitive_keyword() {
-			return getRuleContext(Context_sensitive_keywordContext.class,0);
-		}
-		public Context_sensitive_keyword_parameterContext(IdentifierContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SwiftVisitor ) return ((SwiftVisitor<? extends T>)visitor).visitContext_sensitive_keyword_parameter(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -16445,8 +16445,8 @@ public class SwiftParser extends Parser {
 		"\f\u00e2\16\u00e2\u0894\13\u00e2\3\u00e3\3\u00e3\3\u00e4\3\u00e4\3\u00e4"+
 		"\3\u00e4\3\u00e5\3\u00e5\3\u00e5\3\u00e5\3\u00e5\3\u00e5\3\u00e6\3\u00e6"+
 		"\5\u00e6\u08a4\n\u00e6\3\u00e6\5\u00e6\u08a7\n\u00e6\3\u00e6\3\u00e6\3"+
-		"\u00e7\3\u00e7\3\u00e8\3\u00e8\5\u00e8\u08af\n\u00e8\3\u00e8\3\u00e8\5"+
-		"\u00e8\u08b3\n\u00e8\3\u00e8\3\u00e8\3\u00e8\5\u00e8\u08b8\n\u00e8\3\u00e9"+
+		"\u00e7\3\u00e7\3\u00e8\3\u00e8\5\u00e8\u08af\n\u00e8\3\u00e8\3\u00e8\3"+
+		"\u00e8\3\u00e8\3\u00e8\5\u00e8\u08b6\n\u00e8\5\u00e8\u08b8\n\u00e8\3\u00e9"+
 		"\3\u00e9\3\u00ea\3\u00ea\5\u00ea\u08be\n\u00ea\3\u00ea\3\u00ea\3\u00eb"+
 		"\3\u00eb\5\u00eb\u08c4\n\u00eb\3\u00ec\3\u00ec\3\u00ec\3\u00ec\3\u00ec"+
 		"\5\u00ec\u08cb\n\u00ec\3\u00ed\5\u00ed\u08ce\n\u00ed\3\u00ed\5\u00ed\u08d1"+
@@ -17180,18 +17180,18 @@ public class SwiftParser extends Parser {
 		"\2\2\2\u08a7\u08a8\3\2\2\2\u08a8\u08a9\5\u01c2\u00e2\2\u08a9\u01cb\3\2"+
 		"\2\2\u08aa\u08ab\7`\2\2\u08ab\u01cd\3\2\2\2\u08ac\u08ae\5\u01d0\u00e9"+
 		"\2\u08ad\u08af\5\u0084C\2\u08ae\u08ad\3\2\2\2\u08ae\u08af\3\2\2\2\u08af"+
-		"\u08b8\3\2\2\2\u08b0\u08b2\5\u01d0\u00e9\2\u08b1\u08b3\5\u0084C\2\u08b2"+
-		"\u08b1\3\2\2\2\u08b2\u08b3\3\2\2\2\u08b3\u08b4\3\2\2\2\u08b4\u08b5\7l"+
-		"\2\2\u08b5\u08b6\5\u01ce\u00e8\2\u08b6\u08b8\3\2\2\2\u08b7\u08ac\3\2\2"+
-		"\2\u08b7\u08b0\3\2\2\2\u08b8\u01cf\3\2\2\2\u08b9\u08ba\5\u01ea\u00f6\2"+
-		"\u08ba\u01d1\3\2\2\2\u08bb\u08bd\7n\2\2\u08bc\u08be\5\u01d4\u00eb\2\u08bd"+
-		"\u08bc\3\2\2\2\u08bd\u08be\3\2\2\2\u08be\u08bf\3\2\2\2\u08bf\u08c0\7q"+
-		"\2\2\u08c0\u01d3\3\2\2\2\u08c1\u08c3\5\u01d6\u00ec\2\u08c2\u08c4\5\u01fa"+
-		"\u00fe\2\u08c3\u08c2\3\2\2\2\u08c3\u08c4\3\2\2\2\u08c4\u01d5\3\2\2\2\u08c5"+
-		"\u08cb\5\u01d8\u00ed\2\u08c6\u08c7\5\u01d8\u00ed\2\u08c7\u08c8\7s\2\2"+
-		"\u08c8\u08c9\5\u01d6\u00ec\2\u08c9\u08cb\3\2\2\2\u08ca\u08c5\3\2\2\2\u08ca"+
-		"\u08c6\3\2\2\2\u08cb\u01d7\3\2\2\2\u08cc\u08ce\5\u0174\u00bb\2\u08cd\u08cc"+
-		"\3\2\2\2\u08cd\u08ce\3\2\2\2\u08ce\u08d0\3\2\2\2\u08cf\u08d1\7`\2\2\u08d0"+
+		"\u08b0\3\2\2\2\u08b0\u08b1\7l\2\2\u08b1\u08b2\5\u01ce\u00e8\2\u08b2\u08b8"+
+		"\3\2\2\2\u08b3\u08b5\5\u01d0\u00e9\2\u08b4\u08b6\5\u0084C\2\u08b5\u08b4"+
+		"\3\2\2\2\u08b5\u08b6\3\2\2\2\u08b6\u08b8\3\2\2\2\u08b7\u08ac\3\2\2\2\u08b7"+
+		"\u08b3\3\2\2\2\u08b8\u01cf\3\2\2\2\u08b9\u08ba\5\u01ea\u00f6\2\u08ba\u01d1"+
+		"\3\2\2\2\u08bb\u08bd\7n\2\2\u08bc\u08be\5\u01d4\u00eb\2\u08bd\u08bc\3"+
+		"\2\2\2\u08bd\u08be\3\2\2\2\u08be\u08bf\3\2\2\2\u08bf\u08c0\7q\2\2\u08c0"+
+		"\u01d3\3\2\2\2\u08c1\u08c3\5\u01d6\u00ec\2\u08c2\u08c4\5\u01fa\u00fe\2"+
+		"\u08c3\u08c2\3\2\2\2\u08c3\u08c4\3\2\2\2\u08c4\u01d5\3\2\2\2\u08c5\u08cb"+
+		"\5\u01d8\u00ed\2\u08c6\u08c7\5\u01d8\u00ed\2\u08c7\u08c8\7s\2\2\u08c8"+
+		"\u08c9\5\u01d6\u00ec\2\u08c9\u08cb\3\2\2\2\u08ca\u08c5\3\2\2\2\u08ca\u08c6"+
+		"\3\2\2\2\u08cb\u01d7\3\2\2\2\u08cc\u08ce\5\u0174\u00bb\2\u08cd\u08cc\3"+
+		"\2\2\2\u08cd\u08ce\3\2\2\2\u08ce\u08d0\3\2\2\2\u08cf\u08d1\7`\2\2\u08d0"+
 		"\u08cf\3\2\2\2\u08d0\u08d1\3\2\2\2\u08d1\u08d2\3\2\2\2\u08d2\u08da\5\u01c2"+
 		"\u00e2\2\u08d3\u08d5\7`\2\2\u08d4\u08d3\3\2\2\2\u08d4\u08d5\3\2\2\2\u08d5"+
 		"\u08d6\3\2\2\2\u08d6\u08d7\5\u01da\u00ee\2\u08d7\u08d8\5\u01ca\u00e6\2"+
@@ -17272,7 +17272,7 @@ public class SwiftParser extends Parser {
 		"\u0770\u0774\u0783\u0787\u078f\u079b\u079f\u07a8\u07ac\u07b5\u07bc\u07c0"+
 		"\u07cc\u07d0\u07d3\u07d9\u07df\u07e6\u07ed\u07f4\u07ff\u0803\u080b\u0814"+
 		"\u081c\u082c\u0830\u0833\u0837\u083b\u0840\u0849\u084e\u0851\u0856\u085b"+
-		"\u0860\u0867\u086b\u0878\u087c\u0890\u0892\u08a3\u08a6\u08ae\u08b2\u08b7"+
+		"\u0860\u0867\u086b\u0878\u087c\u0890\u0892\u08a3\u08a6\u08ae\u08b5\u08b7"+
 		"\u08bd\u08c3\u08ca\u08cd\u08d0\u08d4\u08d9\u08e0\u08e9\u08eb\u08fa\u0903"+
 		"\u090d\u0914\u0942\u094a\u094d\u0951\u0955\u095c\u0962\u0965\u0969\u096c";
 	public static final ATN _ATN =

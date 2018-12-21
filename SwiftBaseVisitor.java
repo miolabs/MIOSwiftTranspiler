@@ -1,5 +1,4 @@
-// Generated from Swift.g4 by ANTLR 4.5
-import org.antlr.v4.runtime.misc.NotNull;
+// Generated from /Users/bubulkowanorka/projects/antlr4-visitor/Swift.g4 by ANTLR 4.5.1
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**

@@ -1,15 +1,8 @@
-protocol HasString {
-    var string: String {get set}
+protocol Container {
+    associatedtype Item
+    func returnItem(_ item: Item) -> Item
 }
 
-struct HasStringStruct: HasString {
-    var string: String
+func returnItem<T: Container>(_ container: T, _ item: T.Item) -> T.Item {
+    return container.returnItem(item)
 }
-
-func printString<T: HasString>(_ arg: T) {
-    print(arg.string)
-    print(arg.string.characters.count)
-}
-
-var hasString = HasStringStruct(string: "string")
-printString(hasString)

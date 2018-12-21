@@ -1,16 +1,18 @@
 protocol Container {
     associatedtype Item
-    func returnItem(_ arg: Item) -> Item
+    func returnItem(_ item: Item) -> Item
 }
 
-func returnItem<T: Container>(_ arg: T, _ arg2: T.Item) -> T.Item {
-    return arg.returnItem(arg2)
+//not falling over here (understanding "T.Item" I imagine; we know about T.Item: constraints in protocol + function itself)
+func returnItem<T: Container>(_ container: T, _ item: T.Item) -> T.Item {
+    return container.returnItem(item)
 }
 
+//1. infer that Item is Int; 2. know that returnItem is overridden function and should be using same name
 struct ParticularContainer: Container {
     var items = [Int]()
-    func returnItem(_ arg: Int) -> Int {
-        return items[arg]
+    func returnItem(_ item: Int) -> Int {
+        return items[item]
     }
 }
 

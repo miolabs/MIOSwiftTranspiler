@@ -244,8 +244,12 @@ public class FunctionUtil {
 
     static public List<SwiftParser.Code_blockContext> codeBlockCtxs(ParserRuleContext ctx) {
         List<SwiftParser.Code_blockContext> codeBlockCtxs = new ArrayList<SwiftParser.Code_blockContext>();
-        if(ctx instanceof SwiftParser.Function_declarationContext) codeBlockCtxs.add(((SwiftParser.Function_declarationContext)ctx).function_body().code_block());
-        else if(ctx instanceof SwiftParser.Initializer_declarationContext) codeBlockCtxs.add(((SwiftParser.Initializer_declarationContext)ctx).initializer_body().code_block());
+        if(ctx instanceof SwiftParser.Function_declarationContext) {
+            codeBlockCtxs.add(((SwiftParser.Function_declarationContext)ctx).function_body().code_block());
+        }
+        else if(ctx instanceof SwiftParser.Initializer_declarationContext) {
+            codeBlockCtxs.add(((SwiftParser.Initializer_declarationContext)ctx).initializer_body().code_block());
+        }
         else if(ctx instanceof SwiftParser.Subscript_declarationContext) {
             if(((SwiftParser.Subscript_declarationContext) ctx).code_block() != null) {
                 codeBlockCtxs.add(((SwiftParser.Subscript_declarationContext) ctx).code_block());

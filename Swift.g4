@@ -792,8 +792,8 @@ inout : 'inout';
 // GRAMMAR OF A TYPE IDENTIFIER
 
 type_identifier
- : type_name generic_argument_clause?
- | type_name generic_argument_clause? '.' type_identifier
+ : type_name generic_argument_clause? '.' type_identifier
+ | type_name generic_argument_clause?
  ;
 
 type_name : identifier ;
