@@ -85,7 +85,7 @@ public class TypeUtil {
     }
     public static Instance fromTupleDefinition(SwiftParser.Tuple_type_element_listContext ctx, Visitor visitor) {
         LinkedHashMap<String, Instance> elems = flattenTupleDefinition(ctx, visitor);
-        ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", ctx), elems, new ArrayList<Generic>(), false, new ArrayList<ClassDefinition>());
+        ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", ctx), elems, new Generics(), false, new ArrayList<ClassDefinition>());
         return new Instance(tupleDefinition);
     }
 
@@ -105,7 +105,7 @@ public class TypeUtil {
             parameterExternalNames.add(externalName.matches("^\\d+$") ? "" : externalName);
             parameterTypes.add(iterator.getValue());
         }
-        return new Instance(new FunctionDefinition(null, parameterExternalNames, parameterTypes, 0, fromDefinition(returnType, visitor), new ArrayList<Generic>()));
+        return new Instance(new FunctionDefinition(null, parameterExternalNames, parameterTypes, 0, fromDefinition(returnType, visitor), new Generics()));
     }
 
     public static Instance fromFunction(SwiftParser.Function_resultContext functionResult, SwiftParser.StatementsContext statements, boolean isClosure, ParseTree ctx, Visitor visitor) {
@@ -166,12 +166,12 @@ public class TypeUtil {
 
     public static boolean typesEqual(Definition suppliedDefinition, Map<String, Instance> suppliedGenerics, Instance expectedType) {
         if(suppliedDefinition != expectedType.definition) return false;
-        if(expectedType.generics != null && expectedType.definition.generics != null && expectedType.definition.generics.size() > 0) {
+        if(expectedType.generics != null && expectedType.definition.generics != null && expectedType.definition.generics.names.size() > 0) {
             if(suppliedGenerics == null) return false;
-            for(Generic generic: expectedType.definition.generics) {
+            for(String generic: expectedType.definition.generics.names) {
                 if(
-                    !suppliedGenerics.containsKey(generic.name) ||
-                    !conformsToType(suppliedGenerics.get(generic.name), expectedType.generics.get(generic.name))
+                    !suppliedGenerics.containsKey(generic) ||
+                    !conformsToType(suppliedGenerics.get(generic), expectedType.generics.get(generic))
                 ) return false;
             }
         }

@@ -19,22 +19,27 @@ class Operator {
     public Map<String, String> codeReplacementPostfix;
 }
 
-class Generic {//either generic or associatedtype (associatedtype is essentially a generic for protocol)
-    public String name;
-    //note that for associated we need to compute typeConstraints within the scope of a given Definition
-    //since there can be additional typeConstraints further down the inheritance chain
-    public List<ClassDefinition> typeConstraints;//either a protocol if "<Generic: Protocol>"/"where Ass: Protocol" or a class if "where Ass == Class"
-    public Generic(String name, List<ClassDefinition> typeConstraints){ this.name = name; this.typeConstraints = typeConstraints; }
+class Generics {
+    public List<String> names;
+    public Map<String, TypeConstraint> typeConstraints;//generic/associatedtype name -> list of protocols/classes
+    public Generics() { this.names = new ArrayList<String>(); this.typeConstraints = new HashMap<String, TypeConstraint>(); }
+    public Generics(List<String> names, Map<String, TypeConstraint> typeConstraints) { this.names = names; this.typeConstraints = typeConstraints; }
+}
+class TypeConstraint {
+    //either a protocol if "<Generic: Protocol>"/"where Ass: Protocol" or a class if "where Ass == Class"
+    public List<ClassDefinition> constraints;
+    public Map<String, TypeConstraint> childAssociatedtypeConstraints;
+    public TypeConstraint(List<ClassDefinition> constraints, Map<String, TypeConstraint> childAssociatedtypeConstraints) { this.constraints = constraints; this.childAssociatedtypeConstraints = childAssociatedtypeConstraints; }
 }
 
 abstract class Definition {
     public String name;
-    public List<Generic> generics;
     //in each inheritance, there can be additional typeConstraints for associatedtype
     //we could redeclare the associatedtype, but that might get in the way of extension when we want to amend typeConstraints higher up
-    //TODO can be nested
+    //for associated we need to compute typeConstraints within the scope of a given Definition
+    //since there can be additional typeConstraints further down the inheritance chain
     //TODO can relate only to some functions (extension) - maybe the answer is to define constraints at the point of those functions?
-    public Map<String, List<ClassDefinition>> associatedtypeAdditionalTypeConstraints;//associatedtype name -> list of protocols/classes
+    public Generics generics;//generic/associatedtype name -> list of protocols/classes
     public Map<String, Boolean> cloneOnAssignmentReplacement;//ts->boolean, java->boolean
 }
 
@@ -44,7 +49,7 @@ class ClassDefinition extends Definition {
     public Map<String, Instance> properties;
     boolean isProtocol;
     public List<ClassDefinition> protocols;
-    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, List<Generic> generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>(); }
+    public ClassDefinition(String name, Cache.CacheBlockAndObject superClass, Map<String, Instance> properties, Generics generics, boolean isProtocol, List<ClassDefinition> protocols){ this.name = name; this.superClass = superClass; this.properties = properties; this.generics = generics; this.isProtocol = isProtocol; this.protocols = protocols; }
     public Map<String, Cache.CacheBlockAndObject> getAllProperties() {
         Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
         ClassDefinition classDefinition = this;
@@ -68,11 +73,11 @@ class FunctionDefinition extends Definition {
     public int operator = 0;//1: infix, 2: prefix, 3: postfix
     public Instance result;
     public Map<String, String> codeReplacement;//ts->tsCode, java->javaCode; if you can, rather keep it in Property, but sometimes needed for top-level funcs
-    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, List<Generic> generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>(); }
+    public FunctionDefinition(String name, List<String> parameterExternalNames, List<Instance> parameterTypes, int numParametersWithDefaultValue, Instance result, Generics generics){ this.name = name; this.parameterExternalNames = parameterExternalNames; this.parameterTypes = parameterTypes; this.numParametersWithDefaultValue = numParametersWithDefaultValue; this.result = result; this.generics = generics; }
     public FunctionDefinition(ParseTree ctx, Visitor visitor) {
+        //TODO move to FunctionUtil
 
         this.generics = GenericUtil.fromParameterClause(GenericUtil.genericParameterClauseCtxFromFunction(ctx), visitor);
-        this.associatedtypeAdditionalTypeConstraints = new HashMap<String, List<ClassDefinition>>();
 
         List<SwiftParser.ParameterContext> parameters = FunctionUtil.parameters(ctx);
 
@@ -188,7 +193,6 @@ class Instance {
         else {
             //we need to check what the current scope is, get the surrounding function/class definition (iterate through scopes)
             ParseTree foundCtx = ctx;
-            Generic generic = null;
             Definition definitionWhereGeneric = null;
             do {
                 Cache.CacheBlockAndObject definition = visitor.cache.findNearestAncestorStructureOrFunction(foundCtx, visitor);
@@ -197,22 +201,20 @@ class Instance {
                 }
                 else {
                     foundCtx = definition.block;
-                    for(Generic foundGeneric : ((Definition)definition.object).generics) {
-                        if(foundGeneric.name.equals(genericDefinition)) {
-                            generic = foundGeneric;
+                    for(String generic : ((Definition)definition.object).generics.names) {
+                        if(generic.equals(genericDefinition)) {
                             definitionWhereGeneric = (Definition)definition.object;
                             break;
                         }
                     }
                 }
-            } while (generic == null && foundCtx != null);
-            //use generic.typeConstraints as a starting point to work out protocols/classes
-            classDefinitions.addAll(generic.typeConstraints);
-            //then go through definition's parents to work out associatedtypeAdditionalTypeConstraints
+            } while (definitionWhereGeneric == null && foundCtx != null);
+            //go through definition's parents to work out associatedtypeAdditionalTypeConstraints
             //then iterate through these to find a matching property
             do {
-                if(definitionWhereGeneric.associatedtypeAdditionalTypeConstraints.containsKey(genericDefinition)) {
-                    classDefinitions.addAll(definitionWhereGeneric.associatedtypeAdditionalTypeConstraints.get(genericDefinition));
+                if(definitionWhereGeneric.generics.typeConstraints.containsKey(genericDefinition)) {
+                    //TODO handle childAssociatedtypeConstraints here as well
+                    classDefinitions.addAll(definitionWhereGeneric.generics.typeConstraints.get(genericDefinition).constraints);
                 }
                 if(definitionWhereGeneric instanceof ClassDefinition && ((ClassDefinition) definitionWhereGeneric).superClass != null) {
                     definitionWhereGeneric = (Definition)((ClassDefinition) definitionWhereGeneric).superClass.object;

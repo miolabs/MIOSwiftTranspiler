@@ -30,7 +30,7 @@ public class Literal {
         }
 
         if(type == null) {
-            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new ArrayList<Generic>(), false, new ArrayList<ClassDefinition>());
+            ClassDefinition tupleDefinition = new ClassDefinition(null, visitor.cache.find("Tuple", rChild), types, new Generics(), false, new ArrayList<ClassDefinition>());
             type = new Instance(tupleDefinition);
         }
         String code = getTupleCode(keys, elementList, type, rChild, visitor);

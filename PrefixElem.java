@@ -168,7 +168,7 @@ public class PrefixElem {
                     else {
                         ClassDefinition initClass = (ClassDefinition)instanceOrDefinition;
                         type = new Instance(initClass);
-                        if(!initClass.generics.isEmpty()) {
+                        if(!initClass.generics.names.isEmpty()) {
                             type.generics = new HashMap<String, Instance>();
                             List<Instance> initializerTypes = ((FunctionDefinition)initClass.properties.get("init" + augment).definition).parameterTypes;
                             for(int i = 0; i < initializerTypes.size(); i++) {
@@ -196,7 +196,7 @@ public class PrefixElem {
             List<SwiftParser.Generic_argumentContext> genericCtxs = ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause().generic_argument_list().generic_argument();
             for(int i = 0; i < genericCtxs.size(); i++) {
                 Instance genericInstance = new Instance(genericCtxs.get(i).type().type_identifier().getText(), rChild, visitor.cache);
-                type.generics.put(type.definition.generics.get(i).name, genericInstance);
+                type.generics.put(type.definition.generics.names.get(i), genericInstance);
             }
         }
 

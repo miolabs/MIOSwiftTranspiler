@@ -191,9 +191,10 @@ public class CacheVisitor extends Visitor {
             type == 0 ? ((SwiftParser.Class_declarationContext)ctx).generic_parameter_clause() :
             type == 1 ? ((SwiftParser.Struct_declarationContext)ctx).generic_parameter_clause() :
             null;
-        List<Generic> generics = GenericUtil.fromParameterClause(genericParameterClauseCtx, this);
+        Generics generics = GenericUtil.fromParameterClause(genericParameterClauseCtx, this);
 
         ClassDefinition classDefinition = new ClassDefinition(name, superClass, new LinkedHashMap<String, Instance>(), generics, type == 2, protocols);
+        //TODO genericNamesAndConstraints.genericTypeConstraints
         if(ctx instanceof SwiftParser.Struct_declarationContext) {
             classDefinition.cloneOnAssignmentReplacement = new HashMap<String, Boolean>();
             classDefinition.cloneOnAssignmentReplacement.put("ts", true);
@@ -304,7 +305,8 @@ public class CacheVisitor extends Visitor {
 
     @Override public String visitProtocol_associated_type_declaration(SwiftParser.Protocol_associated_type_declarationContext ctx) {
         ClassDefinition protocolDefinition = (ClassDefinition)cache.getClassDefinition(cache.findNearestAncestorBlock(ctx)).object;
-        protocolDefinition.generics.add(GenericUtil.fromAssociatedtypeDefinition(ctx));
+        protocolDefinition.generics.names.add(ctx.typealias_name().getText());
+        //TODO work out associatedtype constraints
         return null;
     }
 }
