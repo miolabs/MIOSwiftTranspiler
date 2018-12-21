@@ -35,7 +35,23 @@ public class GenericUtil {
     public static SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtxFromFunction(ParseTree ctx) {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).generic_parameter_clause() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).generic_parameter_clause() :
+            ctx instanceof SwiftParser.Protocol_subscript_declarationContext ? null :
             ctx instanceof SwiftParser.Subscript_declarationContext ? null :
             ((SwiftParser.Initializer_declarationContext)ctx).generic_parameter_clause();
+    }
+
+    public static Generic fromAssociatedtypeDefinition(SwiftParser.Protocol_associated_type_declarationContext ctx) {
+        return new Generic(ctx.typealias_name().getText(), new ArrayList<ClassDefinition>());
+    }
+
+    public static String protocolGenericParameterClause(SwiftParser.Protocol_nameContext ctx, Visitor visitor) {
+        List<Generic> generics = ((ClassDefinition)visitor.cache.find(ctx.getText(), ctx).object).generics;
+        if(generics.isEmpty()) return "";
+        String clause = "<";
+        for(int i = 0; i < generics.size(); i++) {
+            clause += (i > 0 ? ", " : "") + generics.get(i).name;
+        }
+        clause += ">";
+        return clause;
     }
 }

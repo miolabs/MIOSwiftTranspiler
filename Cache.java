@@ -129,13 +129,13 @@ public class Cache {
 
         if(isStructureBlock(nearestAncestorBlock)) {
             //save the variable under class definition too
-            CacheBlockAndObject classDefinition = getClassDefinition(nearestAncestorBlock);
+            ClassDefinition classDefinition = (ClassDefinition)getClassDefinition(nearestAncestorBlock).object;
             Instance property = (Instance)object;
             if(identifier.equals("init") || identifier.startsWith("init$")) {
                 property.isInitializer = true;
                 if(((SwiftParser.Initializer_declarationContext)ctx).initializer_head().getText().contains("?")) property.isFailableInitializer = true;
             }
-            ((ClassDefinition) classDefinition.object).properties.put(identifier, property);
+            classDefinition.properties.put(identifier, property);
         }
 
         if(!cache.containsKey(nearestAncestorBlock)) {

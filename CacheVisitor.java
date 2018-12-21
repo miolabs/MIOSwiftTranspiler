@@ -301,4 +301,10 @@ public class CacheVisitor extends Visitor {
         TypeLoader.loadNativeDefinition(ctx, this);
         return null;
     }
+
+    @Override public String visitProtocol_associated_type_declaration(SwiftParser.Protocol_associated_type_declarationContext ctx) {
+        ClassDefinition protocolDefinition = (ClassDefinition)cache.getClassDefinition(cache.findNearestAncestorBlock(ctx)).object;
+        protocolDefinition.generics.add(GenericUtil.fromAssociatedtypeDefinition(ctx));
+        return null;
+    }
 }

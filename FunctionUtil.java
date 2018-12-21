@@ -156,16 +156,18 @@ public class FunctionUtil {
 
     static public String functionDeclaration(ParserRuleContext ctx, SwiftParser.Declaration_modifiersContext modifiers, Visitor visitor) {
         FunctionDefinition functionDefinition = new FunctionDefinition(ctx, visitor);
-        boolean isInClass = ctx.parent != null && (ctx.parent.parent instanceof SwiftParser.DeclarationsContext || ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext);
+        boolean isInProtocol = ctx.parent != null && ctx.parent.parent instanceof SwiftParser.Protocol_member_declarationsContext;
+        boolean isInClass = ctx.parent != null && ctx.parent.parent instanceof SwiftParser.DeclarationsContext;
         SwiftParser.Generic_parameter_clauseContext genericParameterClauseCtx = GenericUtil.genericParameterClauseCtxFromFunction(ctx);
         boolean isSubscript = ctx instanceof SwiftParser.Subscript_declarationContext;
 
         String code = "";
         List<SwiftParser.Code_blockContext> codeBlockCtxs = FunctionUtil.codeBlockCtxs(ctx);
-        for(int j = 0; j < codeBlockCtxs.size(); j++) {
+        int numCodeBlockCtxs = isInProtocol ? 1/*TODO 2 if isSubscript & getter & setter*/ : codeBlockCtxs.size();
+        for(int j = 0; j < numCodeBlockCtxs; j++) {
             code += (
                 (AssignmentUtil.modifiers(modifiers).contains("static") ? "static " : "") +
-                (!isInClass ? "function " : "") +
+                (!isInClass && !isInProtocol ? "function " : "") +
                 functionDefinition.name + (isSubscript ? j == 0 ? "$get" : "$set" : "") +
                 (genericParameterClauseCtx != null ? visitor.visit(genericParameterClauseCtx) : "") +
                 "(" +
@@ -173,7 +175,7 @@ public class FunctionUtil {
                 (isSubscript && j == 1 ? ", " + AssignmentUtil.setterArgumentName((SwiftParser.Setter_clauseContext) codeBlockCtxs.get(1).parent) + ": " + functionDefinition.result.targetType(visitor.targetLanguage) : "") +
                 "):" +
                 functionDefinition.result.targetType(visitor.targetLanguage) +
-                visitor.visit(codeBlockCtxs.get(j))
+                (isInProtocol ? "" : visitor.visit(codeBlockCtxs.get(j)))
             );
         }
 
@@ -259,6 +261,7 @@ public class FunctionUtil {
         return ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_signature().parameter_clauses().parameter_clause().parameter_list() :
                ctx instanceof SwiftParser.Initializer_declarationContext ? ((SwiftParser.Initializer_declarationContext)ctx).parameter_clause().parameter_list() :
                ctx instanceof SwiftParser.Subscript_declarationContext ? ((SwiftParser.Subscript_declarationContext)ctx).subscript_head().parameter_clause().parameter_list() :
+               ctx instanceof SwiftParser.Protocol_subscript_declarationContext ? ((SwiftParser.Protocol_subscript_declarationContext)ctx).subscript_head().parameter_clause().parameter_list() :
                ((SwiftParser.Protocol_method_declarationContext)ctx).function_signature().parameter_clauses().parameter_clause().parameter_list();
     }
 }

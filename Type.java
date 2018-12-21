@@ -32,7 +32,9 @@ abstract class Definition {
     public List<Generic> generics;
     //in each inheritance, there can be additional typeConstraints for associatedtype
     //we could redeclare the associatedtype, but that might get in the way of extension when we want to amend typeConstraints higher up
-    public Map<String, List<ClassDefinition>> associatedtypeAdditionalTypeConstraints;//genericName -> list of protocols/classes
+    //TODO can be nested
+    //TODO can relate only to some functions (extension) - maybe the answer is to define constraints at the point of those functions?
+    public Map<String, List<ClassDefinition>> associatedtypeAdditionalTypeConstraints;//associatedtype name -> list of protocols/classes
     public Map<String, Boolean> cloneOnAssignmentReplacement;//ts->boolean, java->boolean
 }
 
@@ -81,7 +83,7 @@ class FunctionDefinition extends Definition {
         String baseName =
             ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext)ctx).function_name().getText() :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext)ctx).function_name().getText() :
-            ctx instanceof SwiftParser.Subscript_declarationContext ? "OP_subscript" :
+            ctx instanceof SwiftParser.Subscript_declarationContext || ctx instanceof SwiftParser.Protocol_subscript_declarationContext ? "OP_subscript" :
             "init";
 
         Cache.CacheBlockAndObject operator = visitor.cache.find(baseName, ctx);
@@ -89,6 +91,7 @@ class FunctionDefinition extends Definition {
             SwiftParser.Declaration_modifiersContext modifiers =
                 ctx instanceof SwiftParser.Function_declarationContext ? ((SwiftParser.Function_declarationContext) ctx).function_head().declaration_modifiers() :
                 ctx instanceof SwiftParser.Protocol_method_declarationContext ? ((SwiftParser.Protocol_method_declarationContext) ctx).function_head().declaration_modifiers() :
+                ctx instanceof SwiftParser.Protocol_subscript_declarationContext ? ((SwiftParser.Protocol_subscript_declarationContext) ctx).subscript_head().declaration_modifiers() :
                 ctx instanceof SwiftParser.Subscript_declarationContext ? ((SwiftParser.Subscript_declarationContext) ctx).subscript_head().declaration_modifiers() :
                 null;
             if(AssignmentUtil.modifiers(modifiers).contains("prefix")) this.operator = 2;
@@ -104,6 +107,7 @@ class FunctionDefinition extends Definition {
         this.result =
             ctx instanceof SwiftParser.Function_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Function_declarationContext) ctx).function_signature().function_result(), null, false, ctx, visitor) :
             ctx instanceof SwiftParser.Protocol_method_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Protocol_method_declarationContext) ctx).function_signature().function_result(), null, false, ctx, visitor) :
+            ctx instanceof SwiftParser.Protocol_subscript_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Protocol_subscript_declarationContext) ctx).function_result(), null, false, ctx, visitor) :
             ctx instanceof SwiftParser.Subscript_declarationContext ? TypeUtil.fromFunction(((SwiftParser.Subscript_declarationContext) ctx).function_result(), null, false, ctx, visitor) :
             new Instance("Void", ctx, visitor.cache);
     }

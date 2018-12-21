@@ -41,6 +41,9 @@ public class TranspilerVisitor extends Visitor {
     @Override public String visitProtocol_method_declaration(SwiftParser.Protocol_method_declarationContext ctx) {
         return FunctionUtil.functionDeclaration(ctx, ctx.function_head().declaration_modifiers(), this);
     }
+    @Override public String visitProtocol_subscript_declaration(SwiftParser.Protocol_subscript_declarationContext ctx) {
+        return FunctionUtil.functionDeclaration(ctx, ctx.subscript_head().declaration_modifiers(), this);
+    }
 
     @Override public String visitType(SwiftParser.TypeContext ctx) {
         return TypeUtil.fromDefinition(ctx, this).targetType(targetLanguage);
@@ -100,6 +103,12 @@ public class TranspilerVisitor extends Visitor {
     }
     @Override public String visitProtocol_keyword(SwiftParser.Protocol_keywordContext ctx) {
         return "interface ";
+    }
+    @Override public String visitProtocol_name(SwiftParser.Protocol_nameContext ctx) {
+        return visitChildren(ctx) + GenericUtil.protocolGenericParameterClause(ctx, this);
+    }
+    @Override public String visitProtocol_associated_type_declaration(SwiftParser.Protocol_associated_type_declarationContext ctx) {
+        return "";
     }
 
     @Override public String visitParameter(SwiftParser.ParameterContext ctx) {
