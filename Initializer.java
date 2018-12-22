@@ -57,7 +57,7 @@ public class Initializer {
         //theoretically should be added only if all properties are initialized by default, but fuck it
         if(classDefinition.properties.containsKey("init")) return;
 
-        FunctionDefinition function = new FunctionDefinition(null, new ArrayList<String>(), new ArrayList<Instance>(), 0, new Instance("Void", ctx, visitor.cache), null);
+        FunctionDefinition function = new FunctionDefinition("init", new ArrayList<String>(), new ArrayList<Instance>(), 0, new Instance("Void", ctx, visitor.cache), null);
         Instance initializer = new Instance(function);
         initializer.isInitializer = initializer.isDefaultInitializer = true;
         classDefinition.properties.put("init", initializer);
@@ -76,10 +76,11 @@ public class Initializer {
         }
 
         if(!parameterNames.isEmpty()) {
+            String name = "init" + FunctionUtil.nameAugment(parameterNames, parameterTypes);
             FunctionDefinition function = new FunctionDefinition(null, parameterNames, parameterTypes, 0, new Instance("Void", ctx, visitor.cache), null);
             Instance initializer = new Instance(function);
             initializer.isInitializer = initializer.isMemberwiseInitializer = true;
-            classDefinition.properties.put("init" + FunctionUtil.nameAugment(parameterNames, parameterTypes), initializer);
+            classDefinition.properties.put(name, initializer);
         }
     }
 
