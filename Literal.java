@@ -55,7 +55,7 @@ public class Literal {
                 String key = keys != null ? keys.get(i) : elementList.get(i).identifier() != null ? elementList.get(i).identifier().getText() : i + "";
                 String val = visitor.visit(elementList.get(i).expression());
                 if(i > 0) code += ",";
-                code += "new Pair<String, " + type.getProperty(key, ctx, visitor).targetType(visitor.targetLanguage) + ">(\"" + key + "\", " + val + ")";
+                code += "new Pair<String, " + type.getProperty(key).targetType(visitor.targetLanguage) + ">(\"" + key + "\", " + val + ")";
             }
             code += ")";
         }

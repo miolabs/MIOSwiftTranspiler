@@ -97,9 +97,11 @@ public class PrefixElem {
             isInitializer = lType == null && classDefinition != null && classDefinition.object instanceof ClassDefinition;
         }
 
+        //FIXME gathering all properties first is inefficient
         Map<String, Cache.CacheBlockAndObject> allProperties =
             isInitializer ? ((ClassDefinition)classDefinition.object).getAllProperties() :
             lType != null && lType.definition instanceof ClassDefinition ? ((ClassDefinition)lType.definition).getAllProperties() :
+            lType != null && lType.genericDefinition != null ? GenericUtil.getAllProperties(lType.genericDefinition, rChild, visitor) :
             visitor.cache.getAllTypes(rChild);
 
         if(functionCallParams != null) {
@@ -118,7 +120,9 @@ public class PrefixElem {
                 if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
             }
             else {
-                instanceOrDefinition = lType.getProperty(varName, rChild, visitor);
+                if(allProperties.containsKey(varName)) {
+                    instanceOrDefinition = lType.specifyGenerics((Instance)allProperties.get(varName).object);
+                }
             }
             if(instanceOrDefinition instanceof EnumerationDefinition && functionCallParams != null) {
                 return Enumeration.getPrefixElemFromRawValue((EnumerationDefinition)instanceOrDefinition, functionCallParams, visitor);
@@ -220,7 +224,7 @@ public class PrefixElem {
             }
             else {
                 FunctionDefinition functionDefinition =
-                    isInitializer ? (FunctionDefinition)type.getProperty("init" + augment, ctx, visitor).definition :
+                    isInitializer ? (FunctionDefinition)type.getProperty("init" + augment).definition :
                     typeBeforeCall instanceof FunctionDefinition ? (FunctionDefinition)typeBeforeCall :
                     typeBeforeCall instanceof Instance ? (FunctionDefinition)((Instance)typeBeforeCall).definition :
                     null;
@@ -237,7 +241,7 @@ public class PrefixElem {
             type.codeReplacement != null ? type.codeReplacement :
             typeBeforeCall instanceof Instance ? ((Instance) typeBeforeCall).codeReplacement :
             typeBeforeCall instanceof FunctionDefinition ? ((FunctionDefinition)typeBeforeCall).codeReplacement :
-            initializerSignature != null ? type.getProperty("init" + initializerSignature, ctx, visitor).codeReplacement :
+            initializerSignature != null ? type.getProperty("init" + initializerSignature).codeReplacement :
             null
         );
     }

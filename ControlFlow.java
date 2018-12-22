@@ -177,7 +177,7 @@ public class ControlFlow {
                 for(int i = 0; i < tuples.size(); i++) {
                     if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
                     if(result.length() > 1) result += " && ";
-                    result += switchSingleCondition(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + "", ctx, visitor), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                    result += switchSingleCondition(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + ""), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
                 }
             }
             result += ")";
@@ -190,7 +190,7 @@ public class ControlFlow {
             for(int i = 0; i < tuples.size(); i++) {
                 if(visitor.visitChildren(tuples.get(i)).trim().equals("_")) continue;
                 if(result.length() > 1) result += " && ";
-                result += switchSingleCondition(switchedType.getProperty(i + "", ctx, visitor), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                result += switchSingleCondition(switchedType.getProperty(i + ""), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
             result += ")";
             return result;
@@ -213,13 +213,13 @@ public class ControlFlow {
             String caseName = ctx.enum_case_pattern().enum_case_name().identifier().getText();
             List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.enum_case_pattern().tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
             for(int i = 0; i < tuples.size(); i++) {
-                switchValueBinding(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + "", ctx, visitor), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                switchValueBinding(enumerationDefinition.tupleTypes.get(caseName).getProperty(i + ""), enumerationDefinition, varName + ".tuple[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
         }
         else if(WalkerUtil.isDirectDescendant(SwiftParser.Tuple_patternContext.class, ctx)) {
             List<SwiftParser.Tuple_pattern_elementContext> tuples = ctx.tuple_pattern().tuple_pattern_element_list().tuple_pattern_element();
             for(int i = 0; i < tuples.size(); i++) {
-                switchValueBinding(switchedType.getProperty(i + "", ctx, visitor), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
+                switchValueBinding(switchedType.getProperty(i + ""), enumerationDefinition, varName + "[" + i + "]", tuples.get(i).pattern(), valueBindingNames, valueBindingExpressions, valueBindingTypes, visitor);
             }
         }
         else {

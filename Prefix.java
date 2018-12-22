@@ -171,7 +171,7 @@ public class Prefix implements PrefixOrExpression {
         }
 
         if(elem.initializerSignature != null) {
-            Instance initializer = elem.type.getProperty("init" + elem.initializerSignature, ctx, visitor);
+            Instance initializer = elem.type.getProperty("init" + elem.initializerSignature);
             if(initializer != null && initializer.isFailableInitializer) {
                 nextCode = "_.failableInit(" + nextCode + ")";
             }

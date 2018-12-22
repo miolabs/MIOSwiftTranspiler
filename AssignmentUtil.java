@@ -124,7 +124,7 @@ public class AssignmentUtil {
         boolean isOverride = varCtx.variable_declaration_head().attributes() != null && varCtx.variable_declaration_head().attributes().getText().contains("override");
         if(isOverride) {
             ClassDefinition classDefinition = (ClassDefinition)visitor.cache.findNearestAncestorStructure(ctx).object;
-            Instance superPropertyType = new Instance((ClassDefinition)classDefinition.superClass.object).getProperty(propertyName, ctx, visitor);
+            Instance superPropertyType = new Instance((ClassDefinition)classDefinition.superClass.object).getProperty(propertyName);
             if(!superPropertyType.isGetterSetter) {
                 internalGetVar = "this." + propertyName;
                 internalSetVar = "this." + propertyName + " = newValue";

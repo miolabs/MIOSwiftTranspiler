@@ -54,13 +54,12 @@ class ClassDefinition extends Definition {
         Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
         ClassDefinition classDefinition = this;
         while(classDefinition != null) {
-            for(Map.Entry<String, Instance> iterator:properties.entrySet()) {
+            for(Map.Entry<String, Instance> iterator:classDefinition.properties.entrySet()) {
                 if(!allProperties.containsKey(iterator.getKey())) {
                     allProperties.put(iterator.getKey(), new Cache.CacheBlockAndObject(null, iterator.getValue()));
                 }
             }
-            Cache.CacheBlockAndObject superClass = classDefinition.superClass;
-            classDefinition = superClass != null ? (ClassDefinition)superClass.object : null;
+            classDefinition = classDefinition.superClass != null ? (ClassDefinition)classDefinition.superClass.object : null;
         }
         return allProperties;
     }
@@ -184,56 +183,15 @@ class Instance {
         if(!isInout || baseIfInout) return type;
         return "{get: () => " + type + ", set: (val: " + type + ") => void}";
     }
-    public Instance getProperty(String name, ParseTree ctx, Visitor visitor) {
-
-        List<ClassDefinition> classDefinitions = new ArrayList<ClassDefinition>();
-        if(definition != null) {
-            classDefinitions.add((ClassDefinition)definition);
-        }
-        else {
-            //we need to check what the current scope is, get the surrounding function/class definition (iterate through scopes)
-            ParseTree foundCtx = ctx;
-            Definition definitionWhereGeneric = null;
-            do {
-                Cache.CacheBlockAndObject definition = visitor.cache.findNearestAncestorStructureOrFunction(foundCtx, visitor);
-                if(definition == null) {
-                    foundCtx = null;
-                }
-                else {
-                    foundCtx = definition.block;
-                    for(String generic : ((Definition)definition.object).generics.names) {
-                        if(generic.equals(genericDefinition)) {
-                            definitionWhereGeneric = (Definition)definition.object;
-                            break;
-                        }
-                    }
-                }
-            } while (definitionWhereGeneric == null && foundCtx != null);
-            //go through definition's parents to work out associatedtypeAdditionalTypeConstraints
-            //then iterate through these to find a matching property
-            do {
-                if(definitionWhereGeneric.generics.typeConstraints.containsKey(genericDefinition)) {
-                    //TODO handle childAssociatedtypeConstraints here as well
-                    classDefinitions.addAll(definitionWhereGeneric.generics.typeConstraints.get(genericDefinition).constraints);
-                }
-                if(definitionWhereGeneric instanceof ClassDefinition && ((ClassDefinition) definitionWhereGeneric).superClass != null) {
-                    definitionWhereGeneric = (Definition)((ClassDefinition) definitionWhereGeneric).superClass.object;
-                }
-                else {
-                    definitionWhereGeneric = null;
-                }
-            } while(definitionWhereGeneric != null);
-        }
-
-        for(ClassDefinition classDefinition : classDefinitions) {
-            Instance property;
-            do {
-                property = classDefinition.properties.get(name);
-                classDefinition = classDefinition.superClass != null ? (ClassDefinition)classDefinition.superClass.object : null;
-            } while(property == null && classDefinition != null);
-            if(property != null) return specifyGenerics(property);
-        }
-        return null;
+    public Instance getProperty(String name) {
+        ClassDefinition classDefinition = (ClassDefinition)definition;
+        Instance property;
+        do {
+            property = classDefinition.properties.get(name);
+            classDefinition = classDefinition.superClass != null ? (ClassDefinition)classDefinition.superClass.object : null;
+        } while(property == null && classDefinition != null);
+        if(property == null) return null;
+        return specifyGenerics(property);
     }
     public Instance result() {
         Instance result = ((FunctionDefinition)definition).result;

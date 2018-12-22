@@ -55,4 +55,48 @@ public class GenericUtil {
         clause += ">";
         return clause;
     }
+
+    public static Map<String, Cache.CacheBlockAndObject> getAllProperties(String genericDefinition, ParseTree ctx, Visitor visitor) {
+
+        List<ClassDefinition> classDefinitions = new ArrayList<ClassDefinition>();
+
+        //we need to check what the current scope is, get the surrounding function/class definition (iterate through scopes)
+        ParseTree foundCtx = ctx;
+        Definition definitionWhereGeneric = null;
+        do {
+            Cache.CacheBlockAndObject definition = visitor.cache.findNearestAncestorStructureOrFunction(foundCtx, visitor);
+            if(definition == null) {
+                foundCtx = null;
+            }
+            else {
+                foundCtx = definition.block;
+                for(String generic : ((Definition)definition.object).generics.names) {
+                    if(generic.equals(genericDefinition)) {
+                        definitionWhereGeneric = (Definition)definition.object;
+                        break;
+                    }
+                }
+            }
+        } while (definitionWhereGeneric == null && foundCtx != null);
+        //go through definition's parents to work out associatedtypeAdditionalTypeConstraints
+        //then iterate through these to find a matching property
+        do {
+            if(definitionWhereGeneric.generics.typeConstraints.containsKey(genericDefinition)) {
+                //TODO handle childAssociatedtypeConstraints here as well
+                classDefinitions.addAll(definitionWhereGeneric.generics.typeConstraints.get(genericDefinition).constraints);
+            }
+            if(definitionWhereGeneric instanceof ClassDefinition && ((ClassDefinition) definitionWhereGeneric).superClass != null) {
+                definitionWhereGeneric = (Definition)((ClassDefinition) definitionWhereGeneric).superClass.object;
+            }
+            else {
+                definitionWhereGeneric = null;
+            }
+        } while(definitionWhereGeneric != null);
+
+        Map<String, Cache.CacheBlockAndObject> allProperties = new HashMap<String, Cache.CacheBlockAndObject>();
+        for(ClassDefinition classDefinition : classDefinitions) {
+            allProperties.putAll(classDefinition.getAllProperties());
+        }
+        return allProperties;
+    }
 }
