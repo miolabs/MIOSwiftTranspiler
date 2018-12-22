@@ -50,7 +50,7 @@ public class PrefixElem {
         boolean isSubscript = false;
         boolean replaceWithSubscript = false;
         List<String> functionCallParamsStr = null;
-        Instance type = null;
+        Instance type;
         Object typeBeforeCall = null;
         if(rChild instanceof SwiftParser.Explicit_member_expressionContext) {
             code = ((SwiftParser.Explicit_member_expressionContext) rChild).identifier().getText();
@@ -109,90 +109,88 @@ public class PrefixElem {
             if(!isInitializer && augment != null) code += augment;
         }
 
-        if(type == null) {
-            String varName = code.trim();
-            Cache.CacheBlockAndObject cacheBlockAndObject = null;
-            Object/*Instance/Definition*/ instanceOrDefinition = null;
-            if(lType == null) {
-                if(varName.equals("self")) cacheBlockAndObject = visitor.cache.findNearestAncestorStructure(chain.get(0));
-                else if(varName.equals("super")) cacheBlockAndObject = ((ClassDefinition)visitor.cache.findNearestAncestorStructure(chain.get(0)).object).superClass;
-                else cacheBlockAndObject = visitor.cache.find(varName, chain.get(0));
-                if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
+        String varName = code.trim();
+        Cache.CacheBlockAndObject cacheBlockAndObject = null;
+        Object/*Instance/Definition*/ instanceOrDefinition = null;
+        if(lType == null) {
+            if(varName.equals("self")) cacheBlockAndObject = visitor.cache.findNearestAncestorStructure(chain.get(0));
+            else if(varName.equals("super")) cacheBlockAndObject = ((ClassDefinition)visitor.cache.findNearestAncestorStructure(chain.get(0)).object).superClass;
+            else cacheBlockAndObject = visitor.cache.find(varName, chain.get(0));
+            if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
+        }
+        else {
+            if(allProperties.containsKey(varName)) {
+                instanceOrDefinition = lType.specifyGenerics((Instance)allProperties.get(varName).object);
             }
-            else {
-                if(allProperties.containsKey(varName)) {
-                    instanceOrDefinition = lType.specifyGenerics((Instance)allProperties.get(varName).object);
-                }
-            }
-            if(instanceOrDefinition instanceof EnumerationDefinition && functionCallParams != null) {
-                return Enumeration.getPrefixElemFromRawValue((EnumerationDefinition)instanceOrDefinition, functionCallParams, visitor);
-            }
-            if(instanceOrDefinition == null) {
-                cacheBlockAndObject = FunctionUtil.findFirstMatching(varName, isInitializer, allProperties);
-                if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
-                if(lType != null && instanceOrDefinition instanceof Instance) instanceOrDefinition = lType.specifyGenerics((Instance)instanceOrDefinition);
-            }
+        }
+        if(instanceOrDefinition instanceof EnumerationDefinition && functionCallParams != null) {
+            return Enumeration.getPrefixElemFromRawValue((EnumerationDefinition)instanceOrDefinition, functionCallParams, visitor);
+        }
+        if(instanceOrDefinition == null) {
+            cacheBlockAndObject = FunctionUtil.findFirstMatching(varName, isInitializer, allProperties);
+            if(cacheBlockAndObject != null) instanceOrDefinition = cacheBlockAndObject.object;
+            if(lType != null && instanceOrDefinition instanceof Instance) instanceOrDefinition = lType.specifyGenerics((Instance)instanceOrDefinition);
+        }
 
-            if(augment == null && instanceOrDefinition instanceof FunctionDefinition) {
-                code = ((FunctionDefinition)instanceOrDefinition).name;
-            }
-            else if(augment == null && instanceOrDefinition instanceof Instance && ((Instance)instanceOrDefinition).definition instanceof FunctionDefinition) {
-                code = ((FunctionDefinition)((Instance)instanceOrDefinition).definition).name;
-            }
+        if(augment == null && instanceOrDefinition instanceof FunctionDefinition) {
+            code = ((FunctionDefinition)instanceOrDefinition).name;
+        }
+        else if(augment == null && instanceOrDefinition instanceof Instance && ((Instance)instanceOrDefinition).definition instanceof FunctionDefinition) {
+            code = ((FunctionDefinition)((Instance)instanceOrDefinition).definition).name;
+        }
 
-            if(cacheBlockAndObject != null && Cache.isStructureBlock(cacheBlockAndObject.block)) {
-                code = "this." + code;
-            }
-            else if(varName.equals("self")) {
-                code = "this";
-                instanceOrDefinition = new Instance((ClassDefinition)instanceOrDefinition);
-            }
-            else if(varName.equals("super")) {
-                instanceOrDefinition = new Instance((ClassDefinition)instanceOrDefinition);
-            }
-            if(visitor.varNameReplacements != null) {
-                int index = visitor.varNameReplacements.indexOf(varName);
-                if(index >= 0) code = visitor.varNameReplacements.get(index + 1);
-            }
-            if(functionCallParams != null) {
-                typeBeforeCall = instanceOrDefinition;
-                if(instanceOrDefinition instanceof Definition) {
-                    if(instanceOrDefinition instanceof FunctionDefinition) {
-                        FunctionDefinition functionDefinition = (FunctionDefinition)instanceOrDefinition;
-                        type = functionDefinition.result.withoutPropertyInfo();
-                        if(type.definition == null && type.genericDefinition != null) {
-                            for(int i = 0; i < parameterTypes.size() && i < functionDefinition.parameterTypes.size(); i++) {
-                                if(functionDefinition.parameterTypes.get(i).genericDefinition != null && functionDefinition.parameterTypes.get(i).genericDefinition.equals(type.genericDefinition)) {
-                                    type.definition = parameterTypes.get(i).definition;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    else {
-                        ClassDefinition initClass = (ClassDefinition)instanceOrDefinition;
-                        type = new Instance(initClass);
-                        if(!initClass.generics.names.isEmpty()) {
-                            type.generics = new HashMap<String, Instance>();
-                            List<Instance> initializerTypes = ((FunctionDefinition)initClass.properties.get("init" + augment).definition).parameterTypes;
-                            for(int i = 0; i < initializerTypes.size(); i++) {
-                                if(initializerTypes.get(i).definition == null && initializerTypes.get(i).genericDefinition != null && !type.generics.containsKey(initializerTypes.get(i).genericDefinition)) {
-                                    type.generics.put(initializerTypes.get(i).genericDefinition, parameterTypes.get(i));
-                                }
+        if(cacheBlockAndObject != null && Cache.isStructureBlock(cacheBlockAndObject.block)) {
+            code = "this." + code;
+        }
+        else if(varName.equals("self")) {
+            code = "this";
+            instanceOrDefinition = new Instance((ClassDefinition)instanceOrDefinition);
+        }
+        else if(varName.equals("super")) {
+            instanceOrDefinition = new Instance((ClassDefinition)instanceOrDefinition);
+        }
+        if(visitor.varNameReplacements != null) {
+            int index = visitor.varNameReplacements.indexOf(varName);
+            if(index >= 0) code = visitor.varNameReplacements.get(index + 1);
+        }
+        if(functionCallParams != null) {
+            typeBeforeCall = instanceOrDefinition;
+            if(instanceOrDefinition instanceof Definition) {
+                if(instanceOrDefinition instanceof FunctionDefinition) {
+                    FunctionDefinition functionDefinition = (FunctionDefinition)instanceOrDefinition;
+                    type = functionDefinition.result.withoutPropertyInfo();
+                    if(type.definition == null && type.genericDefinition != null) {
+                        for(int i = 0; i < parameterTypes.size() && i < functionDefinition.parameterTypes.size(); i++) {
+                            if(functionDefinition.parameterTypes.get(i).genericDefinition != null && functionDefinition.parameterTypes.get(i).genericDefinition.equals(type.genericDefinition)) {
+                                type.definition = parameterTypes.get(i).definition;
+                                break;
                             }
                         }
                     }
                 }
                 else {
-                    type = ((Instance)instanceOrDefinition).result();
+                    ClassDefinition initClass = (ClassDefinition)instanceOrDefinition;
+                    type = new Instance(initClass);
+                    if(!initClass.generics.names.isEmpty()) {
+                        type.generics = new HashMap<String, Instance>();
+                        List<Instance> initializerTypes = ((FunctionDefinition)initClass.properties.get("init" + augment).definition).parameterTypes;
+                        for(int i = 0; i < initializerTypes.size(); i++) {
+                            if(initializerTypes.get(i).definition == null && initializerTypes.get(i).genericDefinition != null && !type.generics.containsKey(initializerTypes.get(i).genericDefinition)) {
+                                type.generics.put(initializerTypes.get(i).genericDefinition, parameterTypes.get(i));
+                            }
+                        }
+                    }
                 }
             }
             else {
-                if(instanceOrDefinition instanceof Definition) {
-                    type = new Instance((Definition)instanceOrDefinition);
-                }
-                else type = (Instance)instanceOrDefinition;
+                type = ((Instance)instanceOrDefinition).result();
             }
+        }
+        else {
+            if(instanceOrDefinition instanceof Definition) {
+                type = new Instance((Definition)instanceOrDefinition);
+            }
+            else type = (Instance)instanceOrDefinition;
         }
 
         if(rChild instanceof SwiftParser.Primary_expressionContext && ((SwiftParser.Primary_expressionContext) rChild).generic_argument_clause() != null) {
@@ -236,7 +234,7 @@ public class PrefixElem {
         return  functionCallParamsStr;
     }
 
-    public Map<String, String> codeReplacement(ParseTree ctx, Visitor visitor) {
+    public Map<String, String> codeReplacement() {
         return (
             type.codeReplacement != null ? type.codeReplacement :
             typeBeforeCall instanceof Instance ? ((Instance) typeBeforeCall).codeReplacement :

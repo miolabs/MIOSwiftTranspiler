@@ -52,7 +52,7 @@ public class Prefix implements PrefixOrExpression {
             }
 
             PrefixElem elem = PrefixElem.get(ctx, functionCallParams, chain, chainPos, currType, (chainPos + (functionCallParams != null ? 1 : 0) >= chain.size() - 1) ? knownType : null, visitor);
-            Map<String, String> codeReplacement = elem.codeReplacement(prefixCtx, visitor);
+            Map<String, String> codeReplacement = elem.codeReplacement();
             boolean skip = codeReplacement != null && codeReplacement.containsKey(visitor.targetLanguage) && codeReplacement.get(visitor.targetLanguage).equals("");
 
             if(functionCallParams != null) {
@@ -93,7 +93,7 @@ public class Prefix implements PrefixOrExpression {
     }
     static public Map<String, String> replacements(List<PrefixElem> elems, int chainPos, boolean isLast, String assignment, ParseTree ctx, Visitor visitor) {
         PrefixElem elem = elems.get(chainPos);
-        Map<String, String> codeReplacement = elem.codeReplacement(ctx, visitor);
+        Map<String, String> codeReplacement = elem.codeReplacement();
         if(chainPos > 0 && elems.get(chainPos - 1).type.definition instanceof ClassDefinition && ((ClassDefinition) elems.get(chainPos - 1).type.definition).superClass != null && ((ClassDefinition)((ClassDefinition) elems.get(chainPos - 1).type.definition).superClass.object).name.equals("Tuple")) {
             codeReplacement = new HashMap<String, String>();
             codeReplacement.put("java", "((" + elem.type.targetType(visitor.targetLanguage) + ")#L.get(\"#R\"))");
