@@ -1,7 +1,7 @@
 class Product {
     let name: String
     init?(name: String) {
-        if name.characters.count == 0 { return nil }
+        if name.count == 0 { return nil }
         self.name = name
     }
 }
