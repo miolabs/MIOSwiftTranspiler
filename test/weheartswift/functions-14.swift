@@ -1,7 +1,7 @@
 func verifyParentheses(_ expression: String) -> Bool {
     var open = 0
     var closed = 0
-    for char in expression.characters {
+    for char in expression {
         var character = "\(char)"
         if character == "(" {
             open += 1

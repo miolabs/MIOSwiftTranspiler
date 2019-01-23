@@ -29,6 +29,25 @@ var c2 = c
 c2.prop = 1
 print(c.prop)
 print(c2.prop)
-//this will fail - cloning structures is deep (as long as there's only a structure in the chain)
-//we need to set $isStruct=true in struct declarations (also native ones like Map, Set and Array)
-//_.cloneStruct() needs to traverse the tree and break only in case a non-structure is encountered
+
+protocol HasFoo {
+  var foo: String {get set}
+}
+class FooClass: HasFoo {
+  var foo: String = "foo"
+}
+struct FooStruct: HasFoo {
+  var foo: String = "foo"
+}
+func changeFooInAnotherVar(_ hasFoo: HasFoo) {
+  var anotherVar = hasFoo
+  anotherVar.foo = "bar"
+  print(hasFoo.foo)
+  print(anotherVar.foo)
+}
+var fooClass = FooClass()
+var fooStruct = FooStruct()
+changeFooInAnotherVar(fooClass)
+changeFooInAnotherVar(fooStruct)
+print(fooClass.foo)
+print(fooStruct.foo)

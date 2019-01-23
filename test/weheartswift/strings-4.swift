@@ -9,7 +9,7 @@ var length = 0
 var max = 0
 var longestWord = ""
 
-for character in problem.characters {
+for character in problem {
     if character == " " {
         if length > max {
             max = length

@@ -14,12 +14,12 @@ for _ in 1...power {
 }
 print(answer)
 
-let names = ["Anna", "Alex", "Brian", "Jack"]
-for name in names {
-    print("Hello, " + name + "!")
+let users = ["Anna", "Alex", "Brian", "Jack"]
+for user in users {
+    print("Hello, " + user + "!")
 }
 
-let numberOfLegs = ["ant": 6, "cat": 4, "spider": 8]
+let numberOfLegs = ["ant": 6]
 for (animalName, legCount) in numberOfLegs {
     print(animalName)
     print(legCount)

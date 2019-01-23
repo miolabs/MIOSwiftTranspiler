@@ -1,33 +1,22 @@
-class Parent {}
-class Child: Parent {}
 protocol A {
-  associatedtype Elo
-  func elo(a: Elo)
+  associatedtype Printed
+  func justPrint(a: Printed)
 }
 protocol B {
-  func elo(a: Child)
+  func justPrint(a: String)
 }
 class ConformsToAB: A, B {
-  func elo(a: Child) {
-
+  func justPrint(a: String) {
+    print(a)
+    print(a.count)
   }
 }
-print("ok")
-/*
-the solution here should be to duplicate the function elo; one calls the other
-e.g.
-protocol A {
-  associatedtype Elo
-  func elo1(a: Elo)
+func justPrintA<T: A>(_ printer: T, _ printed: T.Printed) {
+  printer.justPrint(a: printed)
 }
-protocol B {
-  func elo2(a: Child)
+func justPrintB(_ printer: B, _ printed: String) {
+  printer.justPrint(a: printed)
 }
-class ConformsToAB: A, B {
-  func elo1(a: Child) {
-    //implementation
-  }
-  func elo2(a: Child) {
-    elo1(a)
-  }
-}
+let conformsToAB = ConformsToAB()
+justPrintA(conformsToAB, "stringA")
+justPrintB(conformsToAB, "stringB!")

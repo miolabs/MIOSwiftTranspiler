@@ -16,3 +16,18 @@ for number in 0...10 {
     }
     print(number)
 }
+
+var str: String? = "elo"
+let b = "ziom"
+if let b = str {
+  print(b)
+}
+print(b)
+
+var dict2 = ["key": (0, (1, 2))]
+if let (x, (y, z)) = dict2["key"] {
+  print("nested tuple exists \(x) \(y) \(z)")
+}
+if let (x, (y, z)) = dict2["nonKey"] {
+  print("nested tuple exists \(x) \(y) \(z)")
+}

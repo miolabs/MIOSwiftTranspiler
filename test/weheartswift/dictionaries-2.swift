@@ -38,8 +38,8 @@ for (key, value) in code {
 
 var decodedMessage = ""
 
-for char in encodedMessage.characters {
-    var character = "\(char)"
+for char in encodedMessage {
+    let character = "\(char)"
 
     if let encodedChar = decoder[character] {
         // letter

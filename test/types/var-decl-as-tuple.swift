@@ -1,0 +1,10 @@
+var (a, (b, c), (d, e)) = ("a", ("b", "c"), ("d", "e"))
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+var x = ("y", "z")
+var (y, z) = x
+print(y)
+print(z)

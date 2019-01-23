@@ -8,7 +8,7 @@ struct HasStringStruct: HasString {
 
 func printString<T: HasString>(_ arg: T) {
     print(arg.string)
-    print(arg.string.characters.count)
+    print(arg.string.count)
 }
 
 var hasString = HasStringStruct(string: "string")

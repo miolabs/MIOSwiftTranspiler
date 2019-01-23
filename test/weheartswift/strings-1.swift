@@ -1,7 +1,7 @@
 var aString = "this string has 29 characters"
 var reverse = ""
 
-for character in aString.characters {
+for character in aString {
     var asString = "\(character)"
     reverse = asString + reverse
 }

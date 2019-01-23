@@ -7,14 +7,14 @@ var assert = require('assert'),
     javaHeader = fs.readFileSync(__dirname + '/java-header.txt'),
     javaFooter = fs.readFileSync(__dirname + '/java-footer.txt'),
     todo = {
-        ts: {dirs: [], files: ['functions-as-vars', 'tuple-enums-1',  'tuple-enums-2', 'strings-5', 'functions-16', 'functions-17', 'associatedtype', 'associatedtype-inheritance', 'associatedtype-nested', 'parameter-overload-generic', 'ambiguous-protocol-requirement']},
+        ts: {dirs: [], files: []},
         java: {dirs: ['functions', 'classes', 'protocols', 'generics', 'weheartswift'], files: ['custom-operators', 'switch', 'enumeration', 'subscript']}
     },
     only = {
         ts: {dir: null, file: null},
         java: {dir: null, file: null}
     },
-    languages = ['ts', 'java'];
+    languages = ['ts'/*, 'java'*/];
 
 languages.forEach(language => {
     describe(language, () => {
@@ -33,8 +33,9 @@ languages.forEach(language => {
                     it(file.replace('.swift', ''), done => {
                         var transpiledLog, expectedLog;
 
-                        exec('cd ' + root + 'out/production/antlr4example; export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"; export CLASSPATH=".:' + root + '/lib/*:$CLASSPATH"; java Main ' + language + ' ' + root + 'test/' + dir + '/' + file, (err, stdout, stderr) => {
-                            if(stderr) console.log(stderr);
+                        //exec(`cd ${root}out/production/antlr4example; export CLASSPATH=".:/usr/local/lib/antlr-4.5-complete.jar:$CLASSPATH"; export CLASSPATH=".:${root}/lib/*:$CLASSPATH"; java Main ${language} ${root}test/${dir}/${file}`, (err, stdout, stderr) => {
+                        exec(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O ${root}test/${dir}/${file}`, (err, stdout, stderr) => {
+                            //if(stderr) console.log(stderr);
                             var transpiledAmmended = language === 'ts' ? underscore + monkeyPatch + stdout : javaHeader + stdout + javaFooter;
                             fs.writeFileSync(root + 'test/test.' + language, transpiledAmmended);
 
@@ -48,8 +49,10 @@ languages.forEach(language => {
 
                                 exec('swift ' + __dirname + '/' + dir + '/' + file, (err, stdout) => {
                                     expectedLog = stdout;
+                                    //console.log('expectedLog');
                                     //console.log(expectedLog);
                                     //console.log('vs');
+                                    //console.log('transpiledLog');
                                     //console.log(transpiledLog);
                                     assert(expectedLog.length > 1);
                                     assert(transpiledLog.length > 1);

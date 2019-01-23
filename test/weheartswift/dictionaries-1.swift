@@ -31,7 +31,7 @@ var message = "hello world"
 
 var encodedMessage = ""
 
-for char in message.characters {
+for char in message {
     var character = "\(char)"
 
     if let encodedChar = code[character] {

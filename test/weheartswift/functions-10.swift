@@ -3,7 +3,7 @@ func parseDigit(_ digit: String) -> Int {
 
     var result = 0
 
-    for character in digits.characters {
+    for character in digits {
         var d = "\(character)"
 
         if d == digit {

@@ -7,7 +7,7 @@ struct Returner<Element> {
 
 var declared = Returner<String>()
 declared.item = "declared"
-print(declared.returnItem().characters.count)
+print(declared.returnItem().count)
 
 var inferred = Returner(item: "inferred")
-print(inferred.returnItem().characters.count)
+print(inferred.returnItem().count)

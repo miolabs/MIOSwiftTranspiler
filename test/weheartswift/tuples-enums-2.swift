@@ -1,5 +1,4 @@
-print("TODO")
-/*enum CoinType: Int {
+enum CoinType: Int {
     case penny = 1
     case nickle = 5
     case dime = 10
@@ -20,4 +19,4 @@ for (amount, coinType) in moneyArray {
     totalMoney += amount * coinType.rawValue
 }
 
-print(totalMoney)*/
+print(totalMoney)
