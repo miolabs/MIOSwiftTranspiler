@@ -15,5 +15,6 @@ var _ = {
         return cloned
     },
     failableInit: function(obj) { return obj.$failed ? null : obj },
-    nilCoalescing: function(a, b) { return a != null ? a : b }
+    nilCoalescing: function(a, b) { return a != null ? a : b },
+    optionalTry: function(expr) { try { return expr() } catch(e) { return null } }
 };

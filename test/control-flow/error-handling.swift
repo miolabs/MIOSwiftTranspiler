@@ -34,19 +34,16 @@ func handleBuy(amount: Int, myFunds: Int, other: Bool, unexpected: Bool) {
     print("Unexpected error.")
   }
 }
-func handleBuyAndSayByeRegardless(amount: Int, myFunds: Int, other: Bool, unexpected: Bool) throws {
+func buyAndBye(amount: Int, myFunds: Int, other: Bool, unexpected: Bool) throws {
   print("Attempting to buy..")
   defer {
     print("Bye bye")
   }
-  defer {
-    print("Bye bye2")
-  }
   try buy(amount: amount, myFunds: myFunds, other: other, unexpected: unexpected)
 }
-func handleBuyAndSayByeRegardlessWrapper(amount: Int, myFunds: Int, other: Bool, unexpected: Bool) {
+func buyAndByeWrapper(amount: Int, myFunds: Int, other: Bool, unexpected: Bool) {
   do {
-    try handleBuyAndSayByeRegardless(amount: amount, myFunds: myFunds, other: other, unexpected: unexpected)
+    try buyAndBye(amount: amount, myFunds: myFunds, other: other, unexpected: unexpected)
   } catch {}
 }
 
@@ -58,5 +55,5 @@ handleBuy(amount: 6, myFunds: 10, other: false, unexpected: false)
 print((try? buy(amount: 100, myFunds: 200, other: false, unexpected: false)) ?? "error")
 print((try? buy(amount: 6, myFunds: 10, other: false, unexpected: false)) ?? "error")
 print(try! buy(amount: 6, myFunds: 10, other: false, unexpected: false))
-handleBuyAndSayByeRegardlessWrapper(amount: 100, myFunds: 200, other: false, unexpected: false)
-handleBuyAndSayByeRegardlessWrapper(amount: 6, myFunds: 10, other: false, unexpected: false)
+buyAndByeWrapper(amount: 100, myFunds: 200, other: false, unexpected: false)
+buyAndByeWrapper(amount: 6, myFunds: 10, other: false, unexpected: false)
