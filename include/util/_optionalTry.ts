@@ -1,0 +1,1 @@
+function _optionalTry(expr) { try { return expr() } catch(e) { return null } }

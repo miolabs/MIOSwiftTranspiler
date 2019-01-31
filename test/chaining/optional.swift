@@ -6,7 +6,7 @@ print((str?.count)!)
 var dict = ["key": "value"]
 print(dict.count)
 print((dict["key"]?.count)!)
-print(dict["non-existant"]?.count)
+print(dict["non-existent"]?.count)
 
 var myThirdDictionary: [String: String]?
 print(myThirdDictionary?["key"])

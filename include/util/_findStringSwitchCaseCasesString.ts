@@ -1,0 +1,1 @@
+function _findStringSwitchCaseCasesString(cases, string) { return cases.indexOf(string) }
