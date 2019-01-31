@@ -19,31 +19,31 @@ const testDirs = testDirNames.map(dirName => ({
 }))
 
 function transpile(dirName, fileName) {
-    return execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O ${root}test/${dirName}/${fileName}`, {encoding: 'utf8'})
+    return execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O ${root}test/${dirName}/${fileName}`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
 }
 
 function executeTranspiled(code) {
     fs.writeFileSync(`${root}test/test.ts`, transpiledCode);
-    return execSync(`ts-node --disableWarnings ${root}test/test.ts`, {encoding: 'utf8'})
+    return execSync(`ts-node --disableWarnings ${root}test/test.ts`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
 }
 
 function executeOriginal(dirName, fileName) {
-    return execSync(`swift ${__dirname}/${dirName}/${fileName}`, {encoding: 'utf8'})
+    return execSync(`swift ${__dirname}/${dirName}/${fileName}`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
 }
 
 let transpiledCode = includes
+console.time('c++')
 testDirs.forEach(({dirName, fileNames}) => {
     fileNames.forEach(fileName => {
-        console.time('c++ 1')
         const transpiled = transpile(dirName, fileName)
-        console.timeEnd('c++ 1')
-        transpiledCode += '\n;(function(){\n' + transpiled + '\n})();\nconsole.log("$$$")'
+        transpiledCode += '\n;try{(function(){\n' + transpiled + '\n})()}catch(e){console.log(e)}\nconsole.log("$$$")'
     })
 })
+console.timeEnd('c++')
 
-console.time('ts all')
+console.time('ts')
 const transpileLog = executeTranspiled(transpiledCode)
-console.timeEnd('ts all')
+console.timeEnd('ts')
 let transpileI = 0
 
 testDirs.forEach(({dirName, fileNames}) => {
@@ -51,9 +51,7 @@ testDirs.forEach(({dirName, fileNames}) => {
         fileNames.forEach(fileName => {
             it(fileName.replace('.swift', ''), () => {
 
-                console.time('swift 1')
                 let expectedLog = executeOriginal(dirName, fileName)
-                console.timeEnd('swift 1')
 
                 let transpileINew = transpileLog.indexOf('$$$', transpileI)
                 let transpileChunk = transpileLog.substring(transpileI, transpileINew)
