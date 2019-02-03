@@ -50,7 +50,7 @@ print(num)
 let earth = Planet(rawValue: 3)
 print(earth!.rawValue)
 let pluto = Planet(rawValue: 9)
-print(pluto?.rawValue ?? "pluto can't into planets")
+print(pluto?.rawValue ?? /*"pluto can't into planets"*/404)
 
 enum ArithmeticExpression {
   case number(Int)

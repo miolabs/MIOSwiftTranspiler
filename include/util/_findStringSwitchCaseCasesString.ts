@@ -1,1 +1,1 @@
-function _findStringSwitchCaseCasesString(cases, string) { return cases.indexOf(string) }
+function _findStringSwitchCaseCasesString($info, cases, string) { return cases.indexOf(string) }
