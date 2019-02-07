@@ -1,4 +1,2 @@
-import Darwin
-import Foundation
-import ObjectiveC
-import XCTest
+let _ = "a"
+var _ = "b"
