@@ -128,7 +128,7 @@ function collectGithubFiles(dirName, fileNames) {
         const isTest0 = isTest(fileName0), isTest1 = isTest(fileName1)
         return isTest0 === isTest1 ? 0 : isTest0 ? 1 : -1
     })
-    console.log('!!!', dirName, fileNames)
+    //console.log(dirName, fileNames)
     let contents = ''
     for(const fileName of fileNames) {
         contents +=
@@ -164,6 +164,7 @@ const assertFile = {
     },
     github: (dirName, fileName, transpileChunk) => {
 
+        transpileChunk = transpileChunk.replace("Hello, Swift 4!", "")
         console.log('!!!!!!', dirName, fileName, transpileChunk)
         assert.equal(transpileChunk.length, 0)
     }
@@ -212,7 +213,7 @@ suites.forEach(({suiteName, dirs}) => {
                     let transpileChunk = getNextTranspileChunk()
                     if(suiteName === 'github' && !isTest(`${__dirname}/${suiteName}/${dirName}/${fileName}`)) return
 
-                    it(fileName.replace('.swift', ''), () => {
+                    it(fileName.replace(/\.swift|\/concat/g, '') || dirName, () => {
 
                         assertFile[suiteName](dirName, fileName, transpileChunk)
                     })
