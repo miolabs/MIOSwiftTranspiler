@@ -1,2 +1,4 @@
-let _ = "a"
-var _ = "b"
+import Foundation
+import Darwin
+import ObjectiveC
+import XCTest
