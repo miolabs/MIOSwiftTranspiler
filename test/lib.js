@@ -32242,7 +32242,7 @@ function XCTAssertFalseFileLine($info, expression, message, file, line) {
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertEqualFileLine($info, expression1, expression2, message, file, line) {
-    if (expression1() != expression2())
+    if (!$info.T.infix_61_61($info, expression1(), expression2()))
         throw message ? message() : 'assert fail :' + expression1;
 }
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
@@ -34597,15 +34597,16 @@ function _create(Class, signature, $info) {
         obj = Class.prototype[signature].apply(null, params);
         if (obj == null)
             throw "unsupported signature " + signature + " for " + Class;
+        obj['$info' + Class.$infoAddress] = $info;
     }
     else {
         obj = new Class();
+        obj['$info' + Class.$infoAddress] = $info;
         obj[signature].apply(obj, params);
     }
     if (obj.$failed)
         return null;
     obj.$initialized = true;
-    obj['$info' + Class.$infoAddress] = $info;
     return obj;
 }
 function _findStringSwitchCaseCasesString($info, cases, string) { return cases.indexOf(string); }

@@ -5,13 +5,14 @@ function _create(Class, signature, $info, ...params) {
         if(!Class.prototype[signature]) throw "unsupported signature " + signature + " for " + Class
         obj = Class.prototype[signature].apply(null, params)
         if(obj == null) throw "unsupported signature " + signature + " for " + Class
+        obj['$info' + Class.$infoAddress] = $info
     }
     else {
         obj = new Class()
+        obj['$info' + Class.$infoAddress] = $info
         obj[signature].apply(obj, params)
     }
     if(obj.$failed) return null
     obj.$initialized = true
-    obj['$info' + Class.$infoAddress] = $info
     return obj
 }
