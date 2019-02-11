@@ -109,7 +109,10 @@ const collectFiles = {
         return flatten(collectGithubFiles(dirName, fileNames)).map(fileName => fileName.substr(dirName.length + 1))
     }
 }
-const onlyDir = 'swift-algorithm-club/Binary Search'
+const fileOrder = {
+    'swift-algorithm-club/All-Pairs Shortest Paths': ['github/swift-algorithm-club/Graph/Graph/Graph.swift']
+}
+const onlyDir = null//'swift-algorithm-club/All-Pairs Shortest Paths'
 function collectGithubFiles(dirName, fileNames) {
     if(hasSubfolders[dirName]) {
         let folders = {}
@@ -127,6 +130,11 @@ function collectGithubFiles(dirName, fileNames) {
     fileNames = fileNames.map(fileName => `${__dirname}/github/${dirName}/${fileName}`)
     if(includeAdditionalFiles[dirName]) fileNames = [...includeAdditionalFiles[dirName], ...fileNames]
     fileNames = fileNames.sort((fileName0, fileName1) => {
+        if(fileOrder[dirName])
+            if(fileOrder[dirName].includes(fileName0))
+                if(fileOrder[dirName].includes(fileName1)) return fileOrder[dirName].indexOf(fileName0) < fileOrder[dirName].indexOf(fileName1) ? -1 : 1
+                else return -1
+            else if(fileOrder[dirName].includes(fileName1)) return 1
         const isTest0 = isTest(fileName0), isTest1 = isTest(fileName1)
         return isTest0 === isTest1 ? 0 : isTest0 ? 1 : -1
     })
