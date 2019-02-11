@@ -109,6 +109,7 @@ const collectFiles = {
         return flatten(collectGithubFiles(dirName, fileNames)).map(fileName => fileName.substr(dirName.length + 1))
     }
 }
+const onlyDir = null//'swift-algorithm-club/AVL Tree'
 function collectGithubFiles(dirName, fileNames) {
     if(hasSubfolders[dirName]) {
         let folders = {}
@@ -121,6 +122,7 @@ function collectGithubFiles(dirName, fileNames) {
         return outputFiles
     }
     if(skipDir[dirName]) return []
+    if(onlyDir && dirName !== onlyDir) return []
     if(!includePlayground[dirName]) fileNames = fileNames.filter(fileName => !fileName.includes('.playground/'))
     fileNames = fileNames.map(fileName => `${__dirname}/github/${dirName}/${fileName}`)
     if(includeAdditionalFiles[dirName]) fileNames = [...includeAdditionalFiles[dirName], ...fileNames]
@@ -164,9 +166,8 @@ const assertFile = {
     },
     github: (dirName, fileName, transpileChunk) => {
 
-        transpileChunk = transpileChunk.replace("Hello, Swift 4!", "")
-        console.log('!!!!!!', dirName, fileName, transpileChunk)
-        assert.equal(transpileChunk.length, 0)
+        transpileChunk = transpileChunk.replace(/Hello, Swift 4!\n/g, "")
+        assert.equal(transpileChunk, "")
     }
 }
 
@@ -213,7 +214,7 @@ suites.forEach(({suiteName, dirs}) => {
                     let transpileChunk = getNextTranspileChunk()
                     if(suiteName === 'github' && !isTest(`${__dirname}/${suiteName}/${dirName}/${fileName}`)) return
 
-                    it(fileName.replace(/\.swift|\/concat/g, '') || dirName, () => {
+                    it(fileName.replace(/\.swift|concat/g, '') || dirName, () => {
 
                         assertFile[suiteName](dirName, fileName, transpileChunk)
                     })
