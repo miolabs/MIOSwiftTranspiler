@@ -22,7 +22,7 @@ const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = ['local', 'github']
+const suiteNames = [/*'local', */'github']
 
 let isTestCache = {}
 function isTest(path) {
@@ -109,7 +109,7 @@ const collectFiles = {
         return flatten(collectGithubFiles(dirName, fileNames)).map(fileName => fileName.substr(dirName.length + 1))
     }
 }
-const onlyDir = null//'swift-algorithm-club/AVL Tree'
+const onlyDir = 'swift-algorithm-club/Binary Search'
 function collectGithubFiles(dirName, fileNames) {
     if(hasSubfolders[dirName]) {
         let folders = {}
@@ -214,7 +214,7 @@ suites.forEach(({suiteName, dirs}) => {
                     let transpileChunk = getNextTranspileChunk()
                     if(suiteName === 'github' && !isTest(`${__dirname}/${suiteName}/${dirName}/${fileName}`)) return
 
-                    it(fileName.replace(/\.swift|concat/g, '') || dirName, () => {
+                    it(fileName.replace(/\/?concat\.swift/g, '') || dirName, () => {
 
                         assertFile[suiteName](dirName, fileName, transpileChunk)
                     })
