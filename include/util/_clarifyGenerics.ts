@@ -4,12 +4,15 @@ function _clarifyGenerics(Class) {
     let result = Class.Self
     for(let genericKey in Class) {
         if(genericKey === 'Self') continue
-        let genericType = _clarifyGenerics(Class[genericKey])
+        //let genericType = _clarifyGenerics(Class[genericKey])
+        let genericType = Class[genericKey]
         for(let key in result) {
-            if(!(result[key] instanceof Object) || result[key].$genericType !== genericKey) continue
+            let prop = Object.getOwnPropertyDescriptor(result, key)
+            prop = (prop || {}).value
+            if(!(prop instanceof Object) || prop.$genericType !== genericKey) continue
             let resultType = genericType
-            if(result[key].$subchain) {
-                let subchain = result[key].$subchain.split('.')
+            if(prop.$subchain) {
+                let subchain = prop.$subchain.split('.')
                 for(let elem of subchain) {
                     resultType = resultType[elem]
                 }

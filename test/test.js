@@ -15,14 +15,14 @@ for(const module in moduleFiles) moduleFilePaths = moduleFilePaths.concat(module
 const includeFilePaths = [...moduleFilePaths, ...fs.readdirSync(`${root}include/util`).map(file => `${root}include/util/${file}`)]
 const includes = includeFilePaths.map(file => fs.readFileSync(file)).join('\n')
 
-//console.log(includes)
-//throw 'logging lib'
+console.log(includes)
+throw 'logging lib'
 
 const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = [/*'local', */'github']
+const suiteNames = ['local', 'github']
 
 let isTestCache = {}
 function isTest(path) {
