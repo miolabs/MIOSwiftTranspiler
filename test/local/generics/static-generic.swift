@@ -1,4 +1,3 @@
-//in static functions, need to grab $info from function, not this
 protocol P {
   static func printSomething()
 }

@@ -15,8 +15,8 @@ for(const module in moduleFiles) moduleFilePaths = moduleFilePaths.concat(module
 const includeFilePaths = [...moduleFilePaths, ...fs.readdirSync(`${root}include/util`).map(file => `${root}include/util/${file}`)]
 const includes = includeFilePaths.map(file => fs.readFileSync(file)).join('\n')
 
-console.log(includes)
-throw 'logging lib'
+//console.log(includes)
+//throw 'logging lib'
 
 const todo = []
 
