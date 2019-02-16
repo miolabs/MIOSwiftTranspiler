@@ -110,7 +110,8 @@ const collectFiles = {
     }
 }
 const fileOrder = {
-    'swift-algorithm-club/All-Pairs Shortest Paths': ['github/swift-algorithm-club/Graph/Graph/Graph.swift']
+    'swift-algorithm-club/All-Pairs Shortest Paths': ['github/swift-algorithm-club/Graph/Graph/Graph.swift'],
+    'swift-algorithm-club/Graph': [`${__dirname}/github/swift-algorithm-club/Graph/Graph/Graph.swift`]
 }
 const onlyDir = null//'swift-algorithm-club/All-Pairs Shortest Paths'
 function collectGithubFiles(dirName, fileNames) {

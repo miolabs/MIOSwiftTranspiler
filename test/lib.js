@@ -14835,7 +14835,10 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     MutableCollection$implementation.prototype.swapAt = function ($info, i, j) {
-        throw 'unsupported method Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index) in ' + this.constructor.name;
+        var pom = this[j]
+        this[j] = this[i]
+        this[i] = pom
+        //throw 'unsupported method Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index) in ' + this.constructor.name;
     };
     /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
@@ -29162,6 +29165,11 @@ var MIO_Mixin_Array = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(MIO_Mixin_Array.prototype, "isEmpty", {
+        get: function () { return !this.length; },
+        enumerable: true,
+        configurable: true
+    });
     MIO_Mixin_Array.$struct = true;
     MIO_Mixin_Array.$mixin = true;
     MIO_Mixin_Array.$infoAddress = '';
@@ -37878,7 +37886,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_:Double)*/
     /*Swift.(file).Int.init(_:Double)*/
     MIO_Mixin_Int.prototype.initDouble = function ($info, source) {
-        return source;
+        return source | 0;
     };
     /*Swift.(file).Int.init(exactly:Double)*/
     /*Swift.(file).Int.init(exactly:Double)*/
