@@ -182,8 +182,8 @@ const files = [
 ]
 
 files.forEach(file => {
+    console.log(file)
     let contents = fs.readFileSync(`${dir}${file}`, 'utf8').split('\n')
-    //console.log(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-parse -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`)
     let output
     try {
         output = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
