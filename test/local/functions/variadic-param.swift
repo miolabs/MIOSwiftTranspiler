@@ -1,5 +1,9 @@
 func arithmeticMean(_ numbers: Int...) -> Int {
-    return 1
+    var sum = 0
+    for i in numbers {
+      sum += i
+    }
+    return sum / numbers.count
 }
 print(arithmeticMean(1, 2, 3, 4, 5))
 
@@ -11,4 +15,7 @@ func printWithSeparator(_ varArgs: String..., separator: String) {
     print(arg)
   }
 }
+printWithSeparator(separator: "|")
+printWithSeparator("a", separator: "|")
+printWithSeparator("a", "b", separator: "|")
 printWithSeparator("a", "b", "c", separator: "|")

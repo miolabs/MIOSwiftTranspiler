@@ -320,7 +320,7 @@ function infix_126_61($info, a, b) {
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
 function printSeparatorTerminator($info, items, separator, terminator) {
-    console.log(items);
+    console.log.apply(null, items);
 }
 /*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)*/
 /*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)*/
@@ -6659,7 +6659,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.sortedBy = function ($info, areInIncreasingOrder) {
-        return _cloneStruct(this).sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1);
+        return _cloneStruct(this).sort(function (a, b) { return areInIncreasingOrder(null, a, b) ? -1 : 1; });
     };
     /*Swift.(file).Sequence.joined(separator:String)*/
     /*Swift.(file).Sequence.joined(separator:String)*/
@@ -12855,14 +12855,15 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     Collection$implementation.prototype.mapSwift = function ($info, transform) {
         var result = this.map(transform.bind(null, null));
-        result.$info = {Element: $info.T};
+        result.$info = { Element: $info.T };
         return result;
     };
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     Collection$implementation.prototype.dropFirst = function ($info, k) {
         var result = [];
-        if(!k) k = 1;
+        if (!k)
+            k = 1;
         for (var i = k; i < this.count; i++)
             result.push(this[i]);
         return result;
@@ -14835,10 +14836,7 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     MutableCollection$implementation.prototype.swapAt = function ($info, i, j) {
-        var pom = this[j]
-        this[j] = this[i]
-        this[i] = pom
-        //throw 'unsupported method Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index) in ' + this.constructor.name;
+        throw 'unsupported method Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index) in ' + this.constructor.name;
     };
     /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
@@ -28980,9 +28978,10 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(repeating:Element,count:Int)*/
     /*Swift.(file).RangeReplaceableCollection.init(repeating:Self.Element,count:Int)*/
     MIO_Mixin_Array.prototype.initRepeatingCountInt = function ($info, repeatedValue, count) {
-        let result = new Array(count)
-        for(let i = 0; i < count; i++) result[i] = _cloneStruct(repeatedValue)
-        return result
+        var result = new Array(count);
+        for (var i = 0; i < count; i++)
+            result[i] = _cloneStruct(repeatedValue);
+        return result;
     };
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
@@ -29105,7 +29104,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             return !rhs;
         if (lhs.count != rhs.count)
             return false;
-        return lhs.every((val, i) => lhs.$info.Element.infix_61_61($info, val, rhs instanceof ClosedRange || rhs instanceof Range ? i + rhs.lowerBound : rhs[i]))
+        return lhs.every(function (val, i) { return lhs.$info.Element.infix_61_61($info, val, rhs instanceof ClosedRange || rhs instanceof Range ? i + rhs.lowerBound : rhs[i]); });
     };
     /*Swift.(file).Array.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -29162,11 +29161,6 @@ var MIO_Mixin_Array = /** @class */ (function () {
     });
     Object.defineProperty(MIO_Mixin_Array.prototype, "last", {
         get: function () { return this[this.length - 1]; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(MIO_Mixin_Array.prototype, "isEmpty", {
-        get: function () { return !this.length; },
         enumerable: true,
         configurable: true
     });
@@ -37886,7 +37880,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_:Double)*/
     /*Swift.(file).Int.init(_:Double)*/
     MIO_Mixin_Int.prototype.initDouble = function ($info, source) {
-        return source | 0;
+        return source;
     };
     /*Swift.(file).Int.init(exactly:Double)*/
     /*Swift.(file).Int.init(exactly:Double)*/
@@ -43393,7 +43387,7 @@ var XCTestCase = /** @class */ (function (_super) {
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestCase.prototype.init = function ($info) {
         for (var testFunction in this) {
-            if (typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction] /*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set'))
+            if (typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction] /*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate'))
                 continue;
             this.init$vars();
             if (this.setUp)
@@ -45203,8 +45197,6 @@ function _create(Class, signature, $info) {
         obj['$info' + Class.$infoAddress] = $info;
         if (obj.init$vars)
             obj.init$vars();
-        if (obj instanceof Object && !obj['$info' + Class.$infoAddress])
-            debugger;
     }
     else {
         obj = new Class();

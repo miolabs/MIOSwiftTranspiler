@@ -1,6 +1,8 @@
 function _create(Class, signature, $info, ...params) {
-    params.unshift($info)
     let obj
+    if(!$info) $info = {}
+    $info.$setThis = $val => obj = $val
+    params.unshift($info)
     if(Class.$mixin) {
         if(!Class.prototype[signature]) throw "unsupported signature " + signature + " for " + Class.name
         obj = Class.prototype[signature].apply(null, params)

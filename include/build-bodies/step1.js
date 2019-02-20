@@ -18,7 +18,7 @@ const files = [
     'ASCII.swift',
     'Assert.swift',
     'AssertCommon.swift',
-    //'AtomicInt.swift.gyb',
+    'AtomicInt.swift.gyb',
     'BidirectionalCollection.swift',
     'Bitset.swift',
     'Bool.swift',
@@ -26,10 +26,10 @@ const files = [
     'BridgeStorage.swift',
     'BridgingBuffer.swift',
     'Builtin.swift',
-    //'BuiltinMath.swift.gyb',
+    'BuiltinMath.swift.gyb',
     'Character.swift',
     'CocoaArray.swift',
-    //'Codable.swift.gyb',
+    'Codable.swift.gyb',
     'Collection.swift',
     'CollectionAlgorithms.swift',
     'Comparable.swift',
@@ -53,12 +53,12 @@ const files = [
     'Equatable.swift',
     'ErrorType.swift',
     'Filter.swift',
-    //'FixedArray.swift.gyb',
+    'FixedArray.swift.gyb',
     'FlatMap.swift',
     'Flatten.swift',
-    //FIXME'FloatingPoint.swift',
-    //'FloatingPointParsing.swift.gyb',
-    //'FloatingPointTypes.swift.gyb',
+    'FloatingPoint.swift',
+    'FloatingPointParsing.swift.gyb',
+    'FloatingPointTypes.swift.gyb',
     'Hashable.swift',
     'AnyHashable.swift',
     'Hasher.swift',
@@ -68,10 +68,10 @@ const files = [
     'Indices.swift',
     'InputStream.swift',
     'IntegerParsing.swift',
-    //FIXME'Integers.swift',
-    //'IntegerTypes.swift.gyb',
+    'Integers.swift',
+    'IntegerTypes.swift.gyb',
     'Join.swift',
-    //FIXME'KeyPath.swift',
+    'KeyPath.swift',
     'KeyValuePairs.swift',
     'LazyCollection.swift',
     'LazySequence.swift',
@@ -80,7 +80,7 @@ const files = [
     'Map.swift',
     'MemoryLayout.swift',
     'UnicodeScalar.swift',
-    //'Mirrors.swift.gyb',
+    'Mirrors.swift.gyb',
     'Misc.swift',
     'MutableCollection.swift',
     'NativeDictionary.swift',
@@ -88,11 +88,11 @@ const files = [
     'NewtypeWrapper.swift',
     'NormalizedCodeUnitIterator.swift',
     'ObjectIdentifier.swift',
-    //FIXME'Optional.swift',
+    'Optional.swift',
     'OptionSet.swift',
     'OutputStream.swift',
     'Pointer.swift',
-    //FIXME'Policy.swift',
+    'Policy.swift',
     'PrefixWhile.swift',
     'Print.swift',
     'Random.swift',
@@ -104,7 +104,7 @@ const files = [
     'REPL.swift',
     'Result.swift',
     'Reverse.swift',
-    //'Runtime.swift.gyb',
+    'Runtime.swift.gyb',
     'RuntimeFunctionCounters.swift',
     'SipHash.swift',
     'Sequence.swift',
@@ -157,7 +157,7 @@ const files = [
     'SwiftNativeNSArray.swift',
     'ThreadLocalStorage.swift',
     'UIntBuffer.swift',
-    //'UnavailableStringAPIs.swift.gyb',
+    'UnavailableStringAPIs.swift.gyb',
     'UnicodeEncoding.swift',
     'UnicodeHelpers.swift',
     'UnicodeParser.swift',
@@ -166,15 +166,15 @@ const files = [
     'Unmanaged.swift',
     'UnmanagedOpaqueString.swift',
     'UnmanagedString.swift',
-    //'UnsafeBufferPointer.swift.gyb',
-    //'UnsafeRawBufferPointer.swift.gyb',
+    'UnsafeBufferPointer.swift.gyb',
+    'UnsafeRawBufferPointer.swift.gyb',
     'UnsafePointer.swift',
     'UnsafeRawPointer.swift',
     'UTFEncoding.swift',
     'UTF8.swift',
     'UTF16.swift',
     'UTF32.swift',
-    //FIXME'Unicode.swift',
+    'Unicode.swift',
     'StringGraphemeBreaking.swift',
     'ValidUTF8Buffer.swift',
     'WriteBackMutableSlice.swift',
@@ -182,6 +182,7 @@ const files = [
 ]
 
 files.forEach(file => {
+    if(!file.endsWith('.swift')) return
     console.log(file)
     let contents = fs.readFileSync(`${dir}${file}`, 'utf8').split('\n')
     let output
@@ -189,7 +190,7 @@ files.forEach(file => {
         output = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
     }
     catch(err) {
-        output = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-parse -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
+        output = err.stdout
     }
     let arr = eval('[' + output + ']')
     let parsedArr = []
@@ -209,5 +210,5 @@ files.forEach(file => {
         }
         parsedArr.push({isType, identifier, body})
     }
-    fs.writeFileSync(`${__dirname}/${file}`, JSON.stringify(parsedArr))
+    fs.writeFileSync(`${__dirname}/bodies/${file}`, JSON.stringify(parsedArr))
 })
