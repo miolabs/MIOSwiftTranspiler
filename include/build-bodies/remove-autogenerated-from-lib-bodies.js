@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-let libBodies = fs.readFileSync(`${__dirname}/manual-definitions/lib-bodies.txt`, 'utf8').split('\n')
+let libBodies = fs.readFileSync(`${__dirname}/manual-definitions/old-lib-bodies.txt`, 'utf8').split('\n')
 let allTranspiled = JSON.parse(fs.readFileSync(`${__dirname}/manual-definitions/transpiled.json`, 'utf8'))
 
 for(let transpiled of allTranspiled) {

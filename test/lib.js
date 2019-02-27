@@ -25,66 +25,118 @@ var __assign = (this && this.__assign) || function () {
 /*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
 /*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
 function min($info, x, y, z, rest) {
-    var min = x;
-    if ($info.T.infix_60($info, y, min))
-        min = y;
-    if (z != null && $info.T.infix_60($info, z, min))
-        min = z;
-    if (rest != null)
-        for (var _i = 0, rest_1 = rest; _i < rest_1.length; _i++) {
-            var i = rest_1[_i];
-            if ($info.T.infix_60($info, i, min))
-                min = i;
+    var minValue = ($info.T.infix_60({ Self: $info.T }, y, x) ? y : x);
+    {
+        if (($info.T.infix_60({ Self: $info.T }, z, minValue))) {
+            minValue = z;
         }
-    return min;
+    }
+    ;
+    {
+        if ((Optional.infix_33_61({ Wrapped: _clarifyGenerics({ Self: Array, Element: $info.T }) }, rest, null))) {
+            {
+                var $value$generator_1 = _cloneStruct(rest.makeIterator({ Self: _clarifyGenerics({ Self: Array, Element: $info.T }) }));
+                while (true) {
+                    var value = $value$generator_1.next({ $setThis: function ($val) { return $value$generator_1 = $val; }, Elements: _clarifyGenerics({ Self: Array, Element: $info.T }) });
+                    if (!((value != null)))
+                        break;
+                    if (!($info.T.infix_60({ Self: $info.T }, value, minValue)))
+                        break;
+                    minValue = value;
+                }
+            }
+            ;
+        }
+    }
+    ;
+    return minValue;
 }
 /*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
 /*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
 function min($info, x, y, z, rest) {
-    var min = x;
-    if ($info.T.infix_60($info, y, min))
-        min = y;
-    if (z != null && $info.T.infix_60($info, z, min))
-        min = z;
-    if (rest != null)
-        for (var _i = 0, rest_2 = rest; _i < rest_2.length; _i++) {
-            var i = rest_2[_i];
-            if ($info.T.infix_60($info, i, min))
-                min = i;
+    var minValue = ($info.T.infix_60({ Self: $info.T }, y, x) ? y : x);
+    {
+        if (($info.T.infix_60({ Self: $info.T }, z, minValue))) {
+            minValue = z;
         }
-    return min;
+    }
+    ;
+    {
+        if ((Optional.infix_33_61({ Wrapped: _clarifyGenerics({ Self: Array, Element: $info.T }) }, rest, null))) {
+            {
+                var $value$generator_2 = _cloneStruct(rest.makeIterator({ Self: _clarifyGenerics({ Self: Array, Element: $info.T }) }));
+                while (true) {
+                    var value = $value$generator_2.next({ $setThis: function ($val) { return $value$generator_2 = $val; }, Elements: _clarifyGenerics({ Self: Array, Element: $info.T }) });
+                    if (!((value != null)))
+                        break;
+                    if (!($info.T.infix_60({ Self: $info.T }, value, minValue)))
+                        break;
+                    minValue = value;
+                }
+            }
+            ;
+        }
+    }
+    ;
+    return minValue;
 }
 /*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
 /*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
 function max($info, x, y, z, rest) {
-    var max = x;
-    if ($info.T.infix_62($info, y, max))
-        max = y;
-    if (z != null && $info.T.infix_62($info, z, max))
-        max = z;
-    if (rest != null)
-        for (var _i = 0, rest_3 = rest; _i < rest_3.length; _i++) {
-            var i = rest_3[_i];
-            if ($info.T.infix_62($info, i, max))
-                max = i;
+    var maxValue = ($info.T.infix_62_61({ Self: $info.T }, y, x) ? y : x);
+    {
+        if (($info.T.infix_62_61({ Self: $info.T }, z, maxValue))) {
+            maxValue = z;
         }
-    return max;
+    }
+    ;
+    {
+        if ((Optional.infix_33_61({ Wrapped: _clarifyGenerics({ Self: Array, Element: $info.T }) }, rest, null))) {
+            {
+                var $value$generator_3 = _cloneStruct(rest.makeIterator({ Self: _clarifyGenerics({ Self: Array, Element: $info.T }) }));
+                while (true) {
+                    var value = $value$generator_3.next({ $setThis: function ($val) { return $value$generator_3 = $val; }, Elements: _clarifyGenerics({ Self: Array, Element: $info.T }) });
+                    if (!((value != null)))
+                        break;
+                    if (!($info.T.infix_62_61({ Self: $info.T }, value, maxValue)))
+                        break;
+                    maxValue = value;
+                }
+            }
+            ;
+        }
+    }
+    ;
+    return maxValue;
 }
 /*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
 /*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
 function max($info, x, y, z, rest) {
-    var max = x;
-    if ($info.T.infix_62($info, y, max))
-        max = y;
-    if (z != null && $info.T.infix_62($info, z, max))
-        max = z;
-    if (rest != null)
-        for (var _i = 0, rest_4 = rest; _i < rest_4.length; _i++) {
-            var i = rest_4[_i];
-            if ($info.T.infix_62($info, i, max))
-                max = i;
+    var maxValue = ($info.T.infix_62_61({ Self: $info.T }, y, x) ? y : x);
+    {
+        if (($info.T.infix_62_61({ Self: $info.T }, z, maxValue))) {
+            maxValue = z;
         }
-    return max;
+    }
+    ;
+    {
+        if ((Optional.infix_33_61({ Wrapped: _clarifyGenerics({ Self: Array, Element: $info.T }) }, rest, null))) {
+            {
+                var $value$generator_4 = _cloneStruct(rest.makeIterator({ Self: _clarifyGenerics({ Self: Array, Element: $info.T }) }));
+                while (true) {
+                    var value = $value$generator_4.next({ $setThis: function ($val) { return $value$generator_4 = $val; }, Elements: _clarifyGenerics({ Self: Array, Element: $info.T }) });
+                    if (!((value != null)))
+                        break;
+                    if (!($info.T.infix_62_61({ Self: $info.T }, value, maxValue)))
+                        break;
+                    maxValue = value;
+                }
+            }
+            ;
+        }
+    }
+    ;
+    return maxValue;
 }
 /*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
@@ -205,12 +257,23 @@ function dumpNameIndentMaxDepthMaxItems($info, value, _name, indent, maxDepth, m
 /*Swift.(file).===infix(_:AnyObject?,_:AnyObject?)*/
 /*Swift.(file).===infix(_:AnyObject?,_:AnyObject?)*/
 function infix_61_61_61($info, lhs, rhs) {
-    return lhs === rhs;
+    var $match = { 0: lhs, 1: rhs };
+    if (((true))) {
+        var l = $match[0];
+        var r = $match[1];
+        return ObjectIdentifier.infix_61_61({}, _create(ObjectIdentifier, 'initAnyObject', {}, l), _create(ObjectIdentifier, 'initAnyObject', {}, r));
+    }
+    else if ((($match.rawValue == Optional.none.rawValue && $match.rawValue == Optional.none.rawValue))) {
+        return true;
+    }
+    else if (((true))) {
+        return false;
+    }
 }
 /*Swift.(file).!==infix(_:AnyObject?,_:AnyObject?)*/
 /*Swift.(file).!==infix(_:AnyObject?,_:AnyObject?)*/
 function infix_33_61_61($info, lhs, rhs) {
-    return lhs !== rhs;
+    return Bool.prefix_33({}, infix_61_61_61({}, lhs, rhs));
 }
 /*Swift.(file).%infix(_:T,_:T)*/
 /*Swift.(file).%infix(_:T,_:T)*/
@@ -240,22 +303,50 @@ function readLineStrippingNewline($info, strippingNewline) {
 /*Swift.(file).abs(_:T)*/
 /*Swift.(file).abs(_:T)*/
 function abs($info, x) {
-    return Math.abs(x);
+    {
+        if ((infix_61_61({}, $info.T, $info.T.Magnitude))) {
+            return unsafeBitCastTo({ T: $info.T.Magnitude, U: $info.T }, x.magnitude, $info.T);
+        }
+    }
+    ;
+    return ($info.T.infix_60({ Self: $info.T }, x, _create($info.T, 'initIntegerLiteral', { Self: $info.T }, 0)) ? $info.T.prefix_45({ Self: $info.T }, x) : x);
 }
 /*Swift.(file).numericCast(_:T)*/
 /*Swift.(file).numericCast(_:T)*/
 function numericCast($info, x) {
-    throw 'unsupported method Swift.(file).numericCast(_:T) in ' + this.constructor.name;
+    return _create($info.U, 'init', { Self: $info.U, T: $info.T }, x);
 }
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
 function withExtendedLifetime($info, x, body) {
-    throw 'unsupported method Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result) in ' + this.constructor.name;
+    var $defer = function () {
+        _fixLifetime({ T: $info.T }, x);
+    };
+    try {
+        ;
+        return body({}, x);
+    }
+    catch ($error) {
+        $defer({ T: $info.T, Result: $info.Result });
+        throw $error;
+    }
+    $defer({ T: $info.T, Result: $info.Result });
 }
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
 function withExtendedLifetime($info, x, body) {
-    throw 'unsupported method Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result) in ' + this.constructor.name;
+    var $defer = function () {
+        _fixLifetime({ T: $info.T }, x);
+    };
+    try {
+        ;
+        return body({}, x);
+    }
+    catch ($error) {
+        $defer({ T: $info.T, Result: $info.Result });
+        throw $error;
+    }
+    $defer({ T: $info.T, Result: $info.Result });
 }
 /*Swift.(file).withUnsafeMutablePointer(to:T,_:(UnsafeMutablePointer<T>) throws -> Result)*/
 /*Swift.(file).withUnsafeMutablePointer(to:T,_:(UnsafeMutablePointer<T>) throws -> Result)*/
@@ -305,17 +396,31 @@ function ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS($info, elementType) 
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 function infix_63_63($info, optional, defaultValue) {
-    return optional != null ? optional : defaultValue();
+    var $match = optional;
+    if ((($match.rawValue == Optional.some().rawValue))) {
+        var value = $match[0];
+        return value;
+    }
+    else if ((($match.rawValue == Optional.none.rawValue))) {
+        return defaultValue({});
+    }
 }
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 function infix_63_63($info, optional, defaultValue) {
-    return optional != null ? optional : defaultValue();
+    var $match = optional;
+    if ((($match.rawValue == Optional.some().rawValue))) {
+        var value = $match[0];
+        return value;
+    }
+    else if ((($match.rawValue == Optional.none.rawValue))) {
+        return defaultValue({});
+    }
 }
 /*Swift.(file).~=infix(_:T,_:T)*/
 /*Swift.(file).~=infix(_:T,_:T)*/
 function infix_126_61($info, a, b) {
-    return $info.T.infix_61_61($info, a, b);
+    return $info.T.infix_61_61({ Self: $info.T }, a, b);
 }
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
@@ -2722,7 +2827,16 @@ var RawRepresentable$implementation = /** @class */ (function () {
     RawRepresentable$implementation.prototype.initFromDecoder = function ($info, decoder) {
         return decoder;
     };
-    /*Swift.(file).RawRepresentable.hashValue*/ ;
+    /*Swift.(file).RawRepresentable.hashValue*/
+    RawRepresentable$implementation.prototype.hashValue$get = function () {
+        throw 'unsupported variable Swift.(file).RawRepresentable.hashValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(RawRepresentable$implementation.prototype, "hashValue", {
+        get: function () { return this.hashValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).RawRepresentable.hash(into:Hasher)*/
     /*Swift.(file).RawRepresentable.hash(into:Hasher)*/
     RawRepresentable$implementation.prototype.hashInto = function ($info, hasher$inout) {
@@ -3097,7 +3211,7 @@ var Equatable$implementation = /** @class */ (function () {
     /*Swift.(file).Equatable.!=infix(_:Self,_:Self)*/
     /*Swift.(file).Equatable.!=infix(_:Self,_:Self)*/
     Equatable$implementation.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        return Bool.prefix_33({}, $info.Self.infix_61_61({ Self: $info.Self }, lhs, rhs));
     };
     return Equatable$implementation;
 }());
@@ -3295,7 +3409,8 @@ var Hasher = /** @class */ (function () {
     /*Swift.(file).Hasher.combine(_:H)*/
     /*Swift.(file).Hasher.combine(_:H)*/
     Hasher.prototype.combine = function ($info, value) {
-        throw 'unsupported method Swift.(file).Hasher.combine(_:H) in ' + this.constructor.name;
+        var _this = this;
+        value.hashInto({ Self: $info.H }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).Hasher.combine(bytes:UnsafeRawBufferPointer)*/
     /*Swift.(file).Hasher.combine(bytes:UnsafeRawBufferPointer)*/
@@ -3584,7 +3699,7 @@ var _UnmanagedAnyObjectArray = /** @class */ (function () {
     }; /*Swift.(file)._UnmanagedAnyObjectArray.subscript(_:Int)*/
     /*Swift.(file)._UnmanagedAnyObjectArray.subscript(_:Int)*/
     _UnmanagedAnyObjectArray.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     _UnmanagedAnyObjectArray.prototype.init$vars = function () {
     };
@@ -3600,11 +3715,20 @@ var _HashTableDelegate$implementation = /** @class */ (function () {
 var AdditiveArithmetic$implementation = /** @class */ (function () {
     function AdditiveArithmetic$implementation() {
     }
-    /*Swift.(file).AdditiveArithmetic.zero*/ ;
+    /*Swift.(file).AdditiveArithmetic.zero*/
+    AdditiveArithmetic$implementation.zero$get = function () {
+        throw 'unsupported variable Swift.(file).AdditiveArithmetic.zero in ' + this.constructor.name;
+    };
+    Object.defineProperty(AdditiveArithmetic$implementation, "zero", {
+        get: function () { return this.zero$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
     AdditiveArithmetic$implementation.prefix_43 = function ($info, x) {
-        return +x;
+        return x;
     };
     return AdditiveArithmetic$implementation;
 }());
@@ -3625,12 +3749,14 @@ var SignedNumeric$implementation = /** @class */ (function () {
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     SignedNumeric$implementation.prefix_45 = function ($info, operand) {
-        return -operand;
+        var result = operand;
+        result.negate({ $setThis: function ($val) { return result = $val; }, Self: $info.Self });
+        return result;
     };
     /*Swift.(file).SignedNumeric.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     SignedNumeric$implementation.prototype.negate = function ($info) {
-        throw 'unsupported method Swift.(file).SignedNumeric.negate() in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(this.$info.Self.infix_45({ Self: this.$info.Self }, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0), this)));
     };
     return SignedNumeric$implementation;
 }());
@@ -5471,12 +5597,12 @@ var ManagedBuffer = /** @class */ (function () {
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)*/
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)*/
     ManagedBuffer.prototype.withUnsafeMutablePointerToHeader = function ($info, body) {
-        throw 'unsupported method Swift.(file).ManagedBuffer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutablePointers({ Header: $info.Header, Element: $info.Element, R: $info.R }, (function ($info, v, _) { return body({}, v); }));
     };
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)*/
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)*/
     ManagedBuffer.prototype.withUnsafeMutablePointerToElements = function ($info, body) {
-        throw 'unsupported method Swift.(file).ManagedBuffer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutablePointers({ Header: $info.Header, Element: $info.Element, R: $info.R }, (function ($info, $0, $1) { return body({}, $1); }));
     };
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)*/
     /*Swift.(file).ManagedBuffer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)*/
@@ -5596,12 +5722,12 @@ var ManagedBufferPointer = /** @class */ (function () {
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)*/
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)*/
     ManagedBufferPointer.prototype.withUnsafeMutablePointerToHeader = function ($info, body) {
-        throw 'unsupported method Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutablePointers({ Header: $info.Header, Element: $info.Element, R: $info.R }, (function ($info, v, _) { return body({}, v); }));
     };
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)*/
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)*/
     ManagedBufferPointer.prototype.withUnsafeMutablePointerToElements = function ($info, body) {
-        throw 'unsupported method Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutablePointers({ Header: $info.Header, Element: $info.Element, R: $info.R }, (function ($info, $0, $1) { return body({}, $1); }));
     };
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)*/
     /*Swift.(file).ManagedBufferPointer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)*/
@@ -5662,17 +5788,17 @@ var MemoryLayout = /** @class */ (function () {
     /*Swift.(file).MemoryLayout.size(ofValue:T)*/
     /*Swift.(file).MemoryLayout.size(ofValue:T)*/
     MemoryLayout.sizeOfValue = function ($info, value) {
-        throw 'unsupported method Swift.(file).MemoryLayout.size(ofValue:T) in ' + this.constructor.name;
+        return MemoryLayout.size;
     };
     /*Swift.(file).MemoryLayout.stride(ofValue:T)*/
     /*Swift.(file).MemoryLayout.stride(ofValue:T)*/
     MemoryLayout.strideOfValue = function ($info, value) {
-        throw 'unsupported method Swift.(file).MemoryLayout.stride(ofValue:T) in ' + this.constructor.name;
+        return MemoryLayout.stride;
     };
     /*Swift.(file).MemoryLayout.alignment(ofValue:T)*/
     /*Swift.(file).MemoryLayout.alignment(ofValue:T)*/
     MemoryLayout.alignmentOfValue = function ($info, value) {
-        throw 'unsupported method Swift.(file).MemoryLayout.alignment(ofValue:T) in ' + this.constructor.name;
+        return MemoryLayout.alignment;
     };
     /*Swift.(file).MemoryLayout.offset(of:PartialKeyPath<T>)*/
     /*Swift.(file).MemoryLayout.offset(of:PartialKeyPath<T>)*/
@@ -5687,7 +5813,16 @@ var MemoryLayout = /** @class */ (function () {
 var _SwiftNewtypeWrapper$implementation = /** @class */ (function () {
     function _SwiftNewtypeWrapper$implementation() {
     }
-    /*Swift.(file)._SwiftNewtypeWrapper.hashValue*/ ;
+    /*Swift.(file)._SwiftNewtypeWrapper.hashValue*/
+    _SwiftNewtypeWrapper$implementation.prototype.hashValue$get = function () {
+        throw 'unsupported variable Swift.(file)._SwiftNewtypeWrapper.hashValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(_SwiftNewtypeWrapper$implementation.prototype, "hashValue", {
+        get: function () { return this.hashValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file)._SwiftNewtypeWrapper.hash(into:Hasher)*/
     /*Swift.(file)._SwiftNewtypeWrapper.hash(into:Hasher)*/
     _SwiftNewtypeWrapper$implementation.prototype.hashInto = function ($info, hasher$inout) {
@@ -5834,12 +5969,20 @@ var RandomNumberGenerator$implementation = /** @class */ (function () {
     /*Swift.(file).RandomNumberGenerator.next()*/
     /*Swift.(file).RandomNumberGenerator.next()*/
     RandomNumberGenerator$implementation.prototype.next = function ($info) {
-        throw 'unsupported method Swift.(file).RandomNumberGenerator.next() in ' + this.constructor.name;
+        var _this = this;
+        return $info.T._randomUsing({ Self: $info.T, R: $info.Self }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).RandomNumberGenerator.next(upperBound:T)*/
     /*Swift.(file).RandomNumberGenerator.next(upperBound:T)*/
     RandomNumberGenerator$implementation.prototype.nextUpperBound = function ($info, upperBound) {
-        throw 'unsupported method Swift.(file).RandomNumberGenerator.next(upperBound:T) in ' + this.constructor.name;
+        preconditionFileLine({}, function () { return $info.T.infix_33_61({ Self: $info.T, Other: Int }, upperBound, 0); }, function () { return "upperBound cannot be zero."; }, '?3', '?3');
+        var tmp = $info.T.infix_43({ Self: $info.T }, $info.T.infix_37({ Self: $info.T }, $info.T.max, upperBound), _create($info.T, 'initIntegerLiteral', { Self: $info.T }, 1));
+        var range = ($info.T.infix_61_61({ Self: $info.T }, tmp, upperBound) ? _create($info.T, 'initIntegerLiteral', { Self: $info.T }, 0) : tmp);
+        var random = _create($info.T, 'initIntegerLiteral', { Self: $info.T }, 0);
+        do {
+            random = this.next({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self, T: $info.T });
+        } while ($info.T.infix_60({ Self: $info.T }, random, range));
+        return $info.T.infix_37({ Self: $info.T }, random, upperBound);
     };
     return RandomNumberGenerator$implementation;
 }());
@@ -5853,7 +5996,8 @@ var SystemRandomNumberGenerator = /** @class */ (function () {
     /*Swift.(file).SystemRandomNumberGenerator.next()*/
     /*Swift.(file).RandomNumberGenerator.next()*/
     SystemRandomNumberGenerator.prototype.next = function ($info) {
-        throw 'unsupported method Swift.(file).SystemRandomNumberGenerator.next() in ' + this.constructor.name;
+        var _this = this;
+        return $info.T._randomUsing({ Self: $info.T, R: $info.Self }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     SystemRandomNumberGenerator.prototype.init$vars = function () {
     };
@@ -5869,7 +6013,7 @@ var RangeExpression$implementation = /** @class */ (function () {
     /*Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)*/
     /*Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)*/
     RangeExpression$implementation.infix_126_61 = function ($info, pattern, value) {
-        return pattern.contains(null, value);
+        return pattern.contains({ Self: $info.Self }, value);
     };
     return RangeExpression$implementation;
 }());
@@ -5894,12 +6038,12 @@ var PartialRangeUpTo = /** @class */ (function () {
     /*Swift.(file).PartialRangeUpTo.relative(to:C)*/
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeUpTo.prototype.relativeTo = function ($info, collection) {
-        throw 'unsupported method Swift.(file).PartialRangeUpTo.relative(to:C) in ' + this.constructor.name;
+        return $info.Bound.infix_46_46_60({ Self: $info.Bound }, collection.startIndex, this.upperBound);
     };
     /*Swift.(file).PartialRangeUpTo.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeUpTo.prototype.contains = function ($info, _element) {
-        throw 'unsupported method Swift.(file).PartialRangeUpTo.contains(_:Bound) in ' + this.constructor.name;
+        return this.$info.Bound.infix_60({ Self: this.$info.Bound }, _element, this.upperBound);
     };
     PartialRangeUpTo.prototype.init$vars = function () {
     };
@@ -5930,12 +6074,12 @@ var PartialRangeThrough = /** @class */ (function () {
     /*Swift.(file).PartialRangeThrough.relative(to:C)*/
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeThrough.prototype.relativeTo = function ($info, collection) {
-        throw 'unsupported method Swift.(file).PartialRangeThrough.relative(to:C) in ' + this.constructor.name;
+        return $info.Bound.infix_46_46_60({ Self: $info.Bound }, collection.startIndex, collection.indexAfter({ Self: $info.C }, this.upperBound));
     };
     /*Swift.(file).PartialRangeThrough.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeThrough.prototype.contains = function ($info, _element) {
-        throw 'unsupported method Swift.(file).PartialRangeThrough.contains(_:Bound) in ' + this.constructor.name;
+        return this.$info.Bound.infix_60_61({ Self: this.$info.Bound }, _element, this.upperBound);
     };
     PartialRangeThrough.prototype.init$vars = function () {
     };
@@ -5966,27 +6110,67 @@ var Result = /** @class */ (function () {
     /*Swift.(file).Result.map(_:(Success) -> NewSuccess)*/
     /*Swift.(file).Result.map(_:(Success) -> NewSuccess)*/
     Result.prototype.mapSwift = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Result.map(_:(Success) -> NewSuccess) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Result.success().rawValue))) {
+            var success = $match[0];
+            return Result.success({ Success: $info.NewSuccess, Failure: $info.Failure }, transform({}, success));
+        }
+        else if ((($match.rawValue == Result.failure().rawValue))) {
+            var failure = $match[0];
+            return Result.failure({ Success: $info.NewSuccess, Failure: $info.Failure }, failure);
+        }
     };
     /*Swift.(file).Result.mapError(_:(Failure) -> NewFailure)*/
     /*Swift.(file).Result.mapError(_:(Failure) -> NewFailure)*/
     Result.prototype.mapError = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Result.mapError(_:(Failure) -> NewFailure) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Result.success().rawValue))) {
+            var success = $match[0];
+            return Result.success({ Success: $info.Success, Failure: $info.NewFailure }, success);
+        }
+        else if ((($match.rawValue == Result.failure().rawValue))) {
+            var failure = $match[0];
+            return Result.failure({ Success: $info.Success, Failure: $info.NewFailure }, transform({}, failure));
+        }
     };
     /*Swift.(file).Result.flatMap(_:(Success) -> Result<NewSuccess, Failure>)*/
     /*Swift.(file).Result.flatMap(_:(Success) -> Result<NewSuccess, Failure>)*/
     Result.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Result.flatMap(_:(Success) -> Result<NewSuccess, Failure>) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Result.success().rawValue))) {
+            var success = $match[0];
+            return transform({}, success);
+        }
+        else if ((($match.rawValue == Result.failure().rawValue))) {
+            var failure = $match[0];
+            return Result.failure({ Success: $info.NewSuccess, Failure: $info.Failure }, failure);
+        }
     };
     /*Swift.(file).Result.flatMapError(_:(Failure) -> Result<Success, NewFailure>)*/
     /*Swift.(file).Result.flatMapError(_:(Failure) -> Result<Success, NewFailure>)*/
     Result.prototype.flatMapError = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Result.flatMapError(_:(Failure) -> Result<Success, NewFailure>) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Result.success().rawValue))) {
+            var success = $match[0];
+            return Result.success({ Success: $info.Success, Failure: $info.NewFailure }, success);
+        }
+        else if ((($match.rawValue == Result.failure().rawValue))) {
+            var failure = $match[0];
+            return transform({}, failure);
+        }
     };
     /*Swift.(file).Result.get()*/
     /*Swift.(file).Result.get()*/
     Result.prototype.get = function ($info) {
-        throw 'unsupported method Swift.(file).Result.get() in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Result.success().rawValue))) {
+            var success = $match[0];
+            return success;
+        }
+        else if ((($match.rawValue == Result.failure().rawValue))) {
+            var failure = $match[0];
+            throw failure;
+        }
     };
     /*Swift.(file).Result.init(catching:() throws -> Success)*/
     /*Swift.(file).Result.init(catching:() throws -> Success)*/
@@ -6272,7 +6456,16 @@ var _RuntimeFunctionCountersStats$implementation = /** @class */ (function () {
     _RuntimeFunctionCountersStats$implementation.prototype.dumpDiffSkipUnchanged = function ($info, after, skipUnchanged) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCountersStats.dumpDiff(_:Self,skipUnchanged:Bool) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCountersStats.debugDescription*/ ;
+    /*Swift.(file)._RuntimeFunctionCountersStats.debugDescription*/
+    _RuntimeFunctionCountersStats$implementation.prototype.debugDescription$get = function () {
+        throw 'unsupported variable Swift.(file)._RuntimeFunctionCountersStats.debugDescription in ' + this.constructor.name;
+    };
+    Object.defineProperty(_RuntimeFunctionCountersStats$implementation.prototype, "debugDescription", {
+        get: function () { return this.debugDescription$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file)._RuntimeFunctionCountersStats.dump(skipUnchanged:Bool,to:T)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.dump(skipUnchanged:Bool,to:T)*/
     _RuntimeFunctionCountersStats$implementation.prototype.dumpSkipUnchangedTo = function ($info, skipUnchanged, to$inout) {
@@ -6312,7 +6505,7 @@ var _RuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._RuntimeFunctionCountersState.subscript(_:String)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:String)*/
     _RuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, counterName) {
-        this[counterName] = newValue;
+        this[counterName] = _cloneStruct(newValue);
     };
     /*Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
@@ -6321,7 +6514,7 @@ var _RuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
     _RuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file)._RuntimeFunctionCountersState.init(counters:_RuntimeFunctionCountersState.Counters)*/
     /*Swift.(file)._RuntimeFunctionCountersState.init(counters:_RuntimeFunctionCountersState.Counters)*/
@@ -6374,7 +6567,7 @@ var _GlobalRuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:String)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:String)*/
     _GlobalRuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
@@ -6383,7 +6576,7 @@ var _GlobalRuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
     _GlobalRuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     _GlobalRuntimeFunctionCountersState.prototype.init$vars = function () {
     };
@@ -6432,7 +6625,7 @@ var _ObjectRuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:String)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:String)*/
     _ObjectRuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
@@ -6441,7 +6634,7 @@ var _ObjectRuntimeFunctionCountersState = /** @class */ (function () {
     }; /*Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
     _ObjectRuntimeFunctionCountersState.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     _ObjectRuntimeFunctionCountersState.prototype.init$vars = function () {
     };
@@ -6462,12 +6655,21 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.shuffled(using:T)*/
     /*Swift.(file).Sequence.shuffled(using:T)*/
     Sequence$implementation.prototype.shuffledUsing = function ($info, generator$inout) {
-        throw 'unsupported method Swift.(file).Sequence.shuffled(using:T) in ' + this.constructor.name;
+        var _this = this;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            var result = _create(ContiguousArray, 'initBuffer', { Element: $info.Self.Element, S: $info.Self }, _this);
+            result.shuffleUsing({ $setThis: function ($val) { return result = $val; }, Self: _clarifyGenerics({ Self: ContiguousArray, Element: $info.Self.Element }), T: $info.T }, { get: function () { return generator; }, set: function ($val) { return generator = $val; } });
+            return _create(Array, 'initBuffer', { Element: $info.Self.Element, S: _clarifyGenerics({ Self: ContiguousArray, Element: $info.Self.Element }) }, result);
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).Sequence.shuffled()*/
     /*Swift.(file).Sequence.shuffled()*/
     Sequence$implementation.prototype.shuffled = function ($info) {
-        throw 'unsupported method Swift.(file).Sequence.shuffled() in ' + this.constructor.name;
+        var g = _create(SystemRandomNumberGenerator, 'init', {});
+        return this.shuffledUsing({ Self: this.$info.Self, T: SystemRandomNumberGenerator }, { get: function () { return g; }, set: function ($val) { return g = $val; } });
     };
     /*Swift.(file).Sequence.joined()*/
     /*Swift.(file).Sequence.joined()*/
@@ -6477,34 +6679,95 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.joined(separator:Separator)*/
     /*Swift.(file).Sequence.joined(separator:Separator)*/
     Sequence$implementation.prototype.joinedSeparator = function ($info, separator) {
-        throw 'unsupported method Swift.(file).Sequence.joined(separator:Separator) in ' + this.constructor.name;
+        return _create(JoinedSequence, 'initBaseSeparator', { Base: $info.Self, Separator: $info.Separator }, this, separator);
     };
-    /*Swift.(file).Sequence.lazy*/ ;
+    /*Swift.(file).Sequence.lazy*/
+    Sequence$implementation.prototype.lazy$get = function () {
+        throw 'unsupported variable Swift.(file).Sequence.lazy in ' + this.constructor.name;
+    };
+    Object.defineProperty(Sequence$implementation.prototype, "lazy", {
+        get: function () { return this.lazy$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     Sequence$implementation.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).Sequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).Sequence.map(_:(Self.Element) throws -> T)*/
     /*Swift.(file).Sequence.map(_:(Self.Element) throws -> T)*/
     Sequence$implementation.prototype.mapSwift = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Sequence.map(_:(Self.Element) throws -> T) in ' + this.constructor.name;
+        var initialCapacity = this.underestimatedCount;
+        var result = _create(ContiguousArray, 'init', { Element: $info.T });
+        result.reserveCapacity({ $setThis: function ($val) { return result = $val; }, Element: $info.T }, initialCapacity);
+        var iterator = this.makeIterator({ Self: $info.Self });
+        {
+            var $generator_1 = _cloneStruct(Int.infix_46_46_60({ Self: Int }, 0, initialCapacity).makeIterator({ Self: _clarifyGenerics({ Self: Range, Bound: Int }) }));
+            while (true) {
+                if ($generator_1.next({ $setThis: function ($val) { return $generator_1 = $val; }, Elements: _clarifyGenerics({ Self: Range, Bound: Int }) }) == null)
+                    break;
+                result.append({ $setThis: function ($val) { return result = $val; }, Element: $info.T }, transform({}, iterator.next({ $setThis: function ($val) { return iterator = $val; }, Self: $info.Self.Iterator })));
+            }
+        }
+        ;
+        while (true) {
+            var _element = iterator.next({ $setThis: function ($val) { return iterator = $val; }, Self: $info.Self.Iterator });
+            if (!((_element != null)))
+                break;
+            result.append({ $setThis: function ($val) { return result = $val; }, Element: $info.T }, transform({}, _element));
+        }
+        ;
+        return _create(Array, 'initBuffer', { Element: $info.T, S: _clarifyGenerics({ Self: ContiguousArray, Element: $info.T }) }, result);
     };
     /*Swift.(file).Sequence.filter(_:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.filter(_:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.filterSwift = function ($info, isIncluded) {
-        throw 'unsupported method Swift.(file).Sequence.filter(_:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        return this._filter({ Self: this.$info.Self }, isIncluded);
     };
-    /*Swift.(file).Sequence.underestimatedCount*/ ;
+    /*Swift.(file).Sequence.underestimatedCount*/
+    Sequence$implementation.prototype.underestimatedCount$get = function () {
+        return this.underestimatedCount$internal;
+    };
+    Object.defineProperty(Sequence$implementation.prototype, "underestimatedCount", {
+        get: function () { return this.underestimatedCount$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).Sequence.forEach(_:(Self.Element) throws -> Void)*/
     /*Swift.(file).Sequence.forEach(_:(Self.Element) throws -> Void)*/
     Sequence$implementation.prototype.forEachSwift = function ($info, body) {
-        throw 'unsupported method Swift.(file).Sequence.forEach(_:(Self.Element) throws -> Void) in ' + this.constructor.name;
+        {
+            var $element$generator_1 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var _element = $element$generator_1.next({ $setThis: function ($val) { return $element$generator_1 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                body({}, _element);
+            }
+        }
     };
     /*Swift.(file).Sequence.first(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.first(where:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.firstWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Sequence.first(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        {
+            var $element$generator_2 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var _element = $element$generator_2.next({ $setThis: function ($val) { return $element$generator_2 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                {
+                    if ((predicate({}, _element))) {
+                        return _element;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return null;
     };
     /*Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
     /*Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
@@ -6514,22 +6777,96 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator = function ($info, maxSplits, omittingEmptySubsequences, isSeparator) {
-        throw 'unsupported method Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxSplits, 0); }, function () { return "Must take zero or more splits"; }, '?3', '?3');
+        var whole = _create(Array, 'initBuffer', { Element: this.$info.Self.Element, S: this.$info.Self }, this);
+        return whole.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({ Self: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }) }, maxSplits, omittingEmptySubsequences, isSeparator);
     };
     /*Swift.(file).Sequence.suffix(_:Int)*/
     /*Swift.(file).Sequence.suffix(_:Int)*/
     Sequence$implementation.prototype.suffix = function ($info, maxLength) {
-        throw 'unsupported method Swift.(file).Sequence.suffix(_:Int) in ' + this.constructor.name;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a suffix of negative length from a sequence"; }, '?3', '?3');
+        {
+            if (!((Int.infix_33_61({ Self: Int }, maxLength, 0)))) {
+                return _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+            }
+        }
+        ;
+        var ringBuffer = _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+        ringBuffer.reserveCapacity({ $setThis: function ($val) { return ringBuffer = $val; }, Element: this.$info.Self.Element }, /*dot_syntax_base_ignored*/ min({}, maxLength, this.underestimatedCount));
+        var i = 0;
+        {
+            var $element$generator_3 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var _element = $element$generator_3.next({ $setThis: function ($val) { return $element$generator_3 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                {
+                    if ((Int.infix_60({}, ringBuffer.count, maxLength))) {
+                        ringBuffer.append({ $setThis: function ($val) { return ringBuffer = $val; }, Element: this.$info.Self.Element }, _element);
+                    }
+                    else {
+                        ringBuffer.subscript$set({ $setThis: function ($val) { return ringBuffer = $val; } }, _element, i);
+                        Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+                        Int.infix_37_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, maxLength);
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        {
+            if ((Int.infix_33_61({ Self: Int }, i, ringBuffer.startIndex))) {
+                var rotated_1 = _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+                rotated_1.reserveCapacity({ $setThis: function ($val) { return rotated_1 = $val; }, Element: this.$info.Self.Element }, ringBuffer.count);
+                Array.infix_43_61({ Self: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }), Other: _clarifyGenerics({ Self: ArraySlice, Element: this.$info.Self.Element }) }, { get: function () { return rotated_1; }, set: function ($val) { return rotated_1 = $val; } }, ringBuffer.subscriptRange$get({}, Int.infix_46_46_60({ Self: Int }, i, ringBuffer.endIndex)));
+                Array.infix_43_61({ Self: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }), Other: _clarifyGenerics({ Self: ArraySlice, Element: this.$info.Self.Element }) }, { get: function () { return rotated_1; }, set: function ($val) { return rotated_1 = $val; } }, ringBuffer.subscriptRange$get({}, Int.infix_46_46_60({ Self: Int }, 0, i)));
+                return rotated_1;
+            }
+            else {
+                return ringBuffer;
+            }
+        }
     };
     /*Swift.(file).Sequence.dropFirst(_:Int)*/
     /*Swift.(file).Sequence.dropFirst(_:Int)*/
     Sequence$implementation.prototype.dropFirst = function ($info, k) {
-        throw 'unsupported method Swift.(file).Sequence.dropFirst(_:Int) in ' + this.constructor.name;
+        return _create(DropFirstSequence, 'initDroppingInt', { Base: this.$info.Self }, this, k);
     };
     /*Swift.(file).Sequence.dropLast(_:Int)*/
     /*Swift.(file).Sequence.dropLast(_:Int)*/
     Sequence$implementation.prototype.dropLast = function ($info, k) {
-        throw 'unsupported method Swift.(file).Sequence.dropLast(_:Int) in ' + this.constructor.name;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a sequence"; }, '?3', '?3');
+        {
+            if (!((Int.infix_33_61({ Self: Int }, k, 0)))) {
+                return _create(Array, 'initBuffer', { Element: this.$info.Self.Element, S: this.$info.Self }, this);
+            }
+        }
+        ;
+        var result = _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+        var ringBuffer = _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+        var i = ringBuffer.startIndex;
+        {
+            var $element$generator_4 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var _element = $element$generator_4.next({ $setThis: function ($val) { return $element$generator_4 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                {
+                    if ((Int.infix_60({}, ringBuffer.count, k))) {
+                        ringBuffer.append({ $setThis: function ($val) { return ringBuffer = $val; }, Element: this.$info.Self.Element }, _element);
+                    }
+                    else {
+                        result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Self.Element }, ringBuffer.subscript$get({}, i));
+                        ringBuffer.subscript$set({ $setThis: function ($val) { return ringBuffer = $val; } }, _element, i);
+                        Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+                        Int.infix_37_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, k);
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.drop(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.drop(while:(Self.Element) throws -> Bool)*/
@@ -6539,17 +6876,34 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.prefix(_:Int)*/
     /*Swift.(file).Sequence.prefix(_:Int)*/
     Sequence$implementation.prototype.prefix = function ($info, maxLength) {
-        throw 'unsupported method Swift.(file).Sequence.prefix(_:Int) in ' + this.constructor.name;
+        return _create(PrefixSequence, 'initMaxLengthInt', { Base: this.$info.Self }, this, maxLength);
     };
     /*Swift.(file).Sequence.prefix(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.prefix(while:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.prefixWhile = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Sequence.prefix(while:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var result = _create(Array, 'initBuffer', { Element: this.$info.Self.Element }, []);
+        {
+            var $element$generator_5 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var _element = $element$generator_5.next({ $setThis: function ($val) { return $element$generator_5 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                {
+                    if (!((predicate({}, _element)))) {
+                        break;
+                    }
+                }
+                ;
+                result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Self.Element }, _element);
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     Sequence$implementation.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R) in ' + this.constructor.name;
+        return null;
     };
     /*Swift.(file).Sequence.enumerated()*/
     /*Swift.(file).Sequence.enumerated()*/
@@ -6559,12 +6913,52 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.min(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.min(by:(Self.Element, Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.minBy = function ($info, areInIncreasingOrder) {
-        throw 'unsupported method Swift.(file).Sequence.min(by:(Self.Element, Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var it = this.makeIterator({ Self: this.$info.Self });
+        {
+            var result = it.next({ $setThis: function ($val) { return it = $val; }, Self: this.$info.Self.Iterator });
+            if (!((result != null))) {
+                return null;
+            }
+        }
+        ;
+        while (true) {
+            var e = it.next({ $setThis: function ($val) { return it = $val; }, Self: this.$info.Self.Iterator });
+            if (!((e != null)))
+                break;
+            {
+                if ((areInIncreasingOrder({}, e, result))) {
+                    result = e;
+                }
+            }
+            ;
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.max(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.max(by:(Self.Element, Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.maxBy = function ($info, areInIncreasingOrder) {
-        throw 'unsupported method Swift.(file).Sequence.max(by:(Self.Element, Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var it = this.makeIterator({ Self: this.$info.Self });
+        {
+            var result = it.next({ $setThis: function ($val) { return it = $val; }, Self: this.$info.Self.Iterator });
+            if (!((result != null))) {
+                return null;
+            }
+        }
+        ;
+        while (true) {
+            var e = it.next({ $setThis: function ($val) { return it = $val; }, Self: this.$info.Self.Iterator });
+            if (!((e != null)))
+                break;
+            {
+                if ((areInIncreasingOrder({}, result, e))) {
+                    result = e;
+                }
+            }
+            ;
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.min()*/
     /*Swift.(file).Sequence.min()*/
@@ -6579,7 +6973,32 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.starts(with:PossiblePrefix,by:(Self.Element, PossiblePrefix.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.starts(with:PossiblePrefix,by:(Self.Element, PossiblePrefix.Element) throws -> Bool)*/
     Sequence$implementation.prototype.startsWithBy = function ($info, possiblePrefix, areEquivalent) {
-        throw 'unsupported method Swift.(file).Sequence.starts(with:PossiblePrefix,by:(Self.Element, PossiblePrefix.Element) throws -> Bool) in ' + this.constructor.name;
+        var possiblePrefixIterator = possiblePrefix.makeIterator({ Self: $info.PossiblePrefix });
+        {
+            var $e0$generator_1 = this.makeIterator({ Self: $info.Self });
+            while (true) {
+                var e0 = $e0$generator_1.next({ $setThis: function ($val) { return $e0$generator_1 = $val; }, Self: $info.Self.Iterator });
+                if (!((e0 != null)))
+                    break;
+                {
+                    var e1 = possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; }, Self: $info.PossiblePrefix.Iterator });
+                    if ((e1 != null)) {
+                        {
+                            if ((Bool.prefix_33({}, areEquivalent({}, e0, e1)))) {
+                                return false;
+                            }
+                        }
+                        ;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return Optional.infix_61_61({ Wrapped: $info.PossiblePrefix.Element }, possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; }, Self: $info.PossiblePrefix.Iterator }), null);
     };
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
@@ -6589,7 +7008,30 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool)*/
     Sequence$implementation.prototype.elementsEqualBy = function ($info, other, areEquivalent) {
-        throw 'unsupported method Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool) in ' + this.constructor.name;
+        var iter1 = this.makeIterator({ Self: $info.Self });
+        var iter2 = other.makeIterator({ Self: $info.OtherSequence });
+        while (true) {
+            if (!((true)))
+                break;
+            var $match = { 0: iter1.next({ $setThis: function ($val) { return iter1 = $val; }, Self: $info.Self.Iterator }), 1: iter2.next({ $setThis: function ($val) { return iter2 = $val; }, Self: $info.OtherSequence.Iterator }) };
+            if (((true))) {
+                var e1 = $match[0];
+                var e2 = $match[1];
+                {
+                    if ((Bool.prefix_33({}, areEquivalent({}, e1, e2)))) {
+                        return false;
+                    }
+                }
+                ;
+            }
+            else if ((($match.rawValue == Optional.none.rawValue) || ($match.rawValue == Optional.none.rawValue))) {
+                return false;
+            }
+            else if ((($match.rawValue == Optional.none.rawValue && $match.rawValue == Optional.none.rawValue))) {
+                return true;
+            }
+            ;
+        }
     };
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence)*/
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence)*/
@@ -6599,7 +7041,39 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence,by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence,by:(Self.Element, Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.lexicographicallyPrecedesBy = function ($info, other, areInIncreasingOrder) {
-        throw 'unsupported method Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence,by:(Self.Element, Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var iter1 = this.makeIterator({ Self: $info.Self });
+        var iter2 = other.makeIterator({ Self: $info.OtherSequence });
+        while (true) {
+            if (!((true)))
+                break;
+            {
+                var e1 = iter1.next({ $setThis: function ($val) { return iter1 = $val; }, Self: $info.Self.Iterator });
+                if ((e1 != null)) {
+                    {
+                        var e2 = iter2.next({ $setThis: function ($val) { return iter2 = $val; }, Self: $info.OtherSequence.Iterator });
+                        if ((e2 != null)) {
+                            {
+                                if ((areInIncreasingOrder({}, e1, e2))) {
+                                    return true;
+                                }
+                            }
+                            ;
+                            {
+                                if ((areInIncreasingOrder({}, e2, e1))) {
+                                    return false;
+                                }
+                            }
+                            ;
+                            continue;
+                        }
+                    }
+                    ;
+                    return false;
+                }
+            }
+            ;
+            return Optional.infix_33_61({ Wrapped: $info.Self.Element }, iter2.next({ $setThis: function ($val) { return iter2 = $val; }, Self: $info.OtherSequence.Iterator }), null);
+        }
     };
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)*/
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)*/
@@ -6609,12 +7083,27 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.contains(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.contains(where:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.containsWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Sequence.contains(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        {
+            var $e$generator_1 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var e = $e$generator_1.next({ $setThis: function ($val) { return $e$generator_1 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((e != null)))
+                    break;
+                {
+                    if ((predicate({}, e))) {
+                        return true;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return false;
     };
     /*Swift.(file).Sequence.allSatisfy(_:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.allSatisfy(_:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.allSatisfy = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Sequence.allSatisfy(_:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        return Bool.prefix_33({}, this.containsWhere({ Self: this.$info.Self }, (function ($info, $0) { return Bool.prefix_33({}, predicate({}, $0)); })));
     };
     /*Swift.(file).Sequence.contains(_:Self.Element)*/
     /*Swift.(file).Sequence.contains(_:Self.Element)*/
@@ -6624,32 +7113,93 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.count(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.count(where:(Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.countWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Sequence.count(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var count = 0;
+        {
+            var $e$generator_2 = this.makeIterator({ Self: this.$info.Self });
+            while (true) {
+                var e = $e$generator_2.next({ $setThis: function ($val) { return $e$generator_2 = $val; }, Self: this.$info.Self.Iterator });
+                if (!((e != null)))
+                    break;
+                {
+                    if ((predicate({}, e))) {
+                        Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Sequence.reduce(_:Result,_:(Result, Self.Element) throws -> Result)*/
     /*Swift.(file).Sequence.reduce(_:Result,_:(Result, Self.Element) throws -> Result)*/
     Sequence$implementation.prototype.reduceSwift = function ($info, initialResult, nextPartialResult) {
-        return this.reduce(nextPartialResult.bind(null, null), initialResult);
+        var accumulator = initialResult;
+        {
+            var $element$generator_6 = this.makeIterator({ Self: $info.Self });
+            while (true) {
+                var _element = $element$generator_6.next({ $setThis: function ($val) { return $element$generator_6 = $val; }, Self: $info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                accumulator = nextPartialResult({}, accumulator, _element);
+            }
+        }
+        ;
+        return accumulator;
     };
     /*Swift.(file).Sequence.reduce(into:Result,_:(inout Result, Self.Element) throws -> ())*/
     /*Swift.(file).Sequence.reduce(into:Result,_:(inout Result, Self.Element) throws -> ())*/
     Sequence$implementation.prototype.reduceInto = function ($info, initialResult, updateAccumulatingResult) {
-        throw 'unsupported method Swift.(file).Sequence.reduce(into:Result,_:(inout Result, Self.Element) throws -> ()) in ' + this.constructor.name;
+        var accumulator = initialResult;
+        {
+            var $element$generator_7 = this.makeIterator({ Self: $info.Self });
+            while (true) {
+                var _element = $element$generator_7.next({ $setThis: function ($val) { return $element$generator_7 = $val; }, Self: $info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                updateAccumulatingResult({}, { get: function () { return accumulator; }, set: function ($val) { return accumulator = $val; } }, _element);
+            }
+        }
+        ;
+        return accumulator;
     };
     /*Swift.(file).Sequence.reversed()*/
     /*Swift.(file).Sequence.reversed()*/
     Sequence$implementation.prototype.reversed = function ($info) {
-        throw 'unsupported method Swift.(file).Sequence.reversed() in ' + this.constructor.name;
+        var result = _create(Array, 'initBuffer', { Element: this.$info.Self.Element, S: this.$info.Self }, this);
+        var count = result.count;
+        {
+            var $i$generator_1 = _cloneStruct(Int.infix_46_46_60({ Self: Int }, 0, Int.infix_47({}, count, 2)).makeIterator({ Self: _clarifyGenerics({ Self: Range, Bound: Int }) }));
+            while (true) {
+                var i = $i$generator_1.next({ $setThis: function ($val) { return $i$generator_1 = $val; }, Elements: _clarifyGenerics({ Self: Range, Bound: Int }) });
+                if (!((i != null)))
+                    break;
+                result.swapAt({ $setThis: function ($val) { return result = $val; }, Self: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }) }, i, Int.infix_45({}, count, Int.infix_43({}, i, 1)));
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> SegmentOfResult)*/
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> SegmentOfResult)*/
     Sequence$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> SegmentOfResult) in ' + this.constructor.name;
+        var result = _create(Array, 'initBuffer', { Element: $info.SegmentOfResult.Element }, []);
+        {
+            var $element$generator_8 = this.makeIterator({ Self: $info.Self });
+            while (true) {
+                var _element = $element$generator_8.next({ $setThis: function ($val) { return $element$generator_8 = $val; }, Self: $info.Self.Iterator });
+                if (!((_element != null)))
+                    break;
+                result.appendContentsOf({ $setThis: function ($val) { return result = $val; }, Element: $info.SegmentOfResult.Element, S: $info.SegmentOfResult }, transform({}, _element));
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.compactMap(_:(Self.Element) throws -> ElementOfResult?)*/
     /*Swift.(file).Sequence.compactMap(_:(Self.Element) throws -> ElementOfResult?)*/
     Sequence$implementation.prototype.compactMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Sequence.compactMap(_:(Self.Element) throws -> ElementOfResult?) in ' + this.constructor.name;
+        return this._compactMap({ Self: $info.Self, ElementOfResult: $info.ElementOfResult }, transform);
     };
     /*Swift.(file).Sequence.sorted()*/
     /*Swift.(file).Sequence.sorted()*/
@@ -6659,7 +7209,9 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
     Sequence$implementation.prototype.sortedBy = function ($info, areInIncreasingOrder) {
-        return _cloneStruct(this).sort(function (a, b) { return areInIncreasingOrder(null, a, b) ? -1 : 1; });
+        var result = _create(ContiguousArray, 'initBuffer', { Element: this.$info.Self.Element, S: this.$info.Self }, this);
+        result.sortBy({ $setThis: function ($val) { return result = $val; }, Self: _clarifyGenerics({ Self: ContiguousArray, Element: this.$info.Self.Element }) }, areInIncreasingOrder);
+        return _create(Array, 'initBuffer', { Element: this.$info.Self.Element, S: _clarifyGenerics({ Self: ContiguousArray, Element: this.$info.Self.Element }) }, result);
     };
     /*Swift.(file).Sequence.joined(separator:String)*/
     /*Swift.(file).Sequence.joined(separator:String)*/
@@ -6669,22 +7221,22 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
     /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
     Sequence$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        fatalErrorFileLine({}, null, '?3', '?3');
     };
     /*Swift.(file).Sequence.+infix(_:String,_:Self)*/
     /*Swift.(file).Sequence.+infix(_:String,_:Self)*/
     Sequence$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        fatalErrorFileLine({}, null, '?3', '?3');
     };
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> ElementOfResult?)*/
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> ElementOfResult?)*/
     Sequence$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> ElementOfResult?) in ' + this.constructor.name;
+        return this._compactMap({ Self: $info.Self, ElementOfResult: $info.ElementOfResult }, transform);
     };
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> String)*/
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> String)*/
     Sequence$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> String) in ' + this.constructor.name;
+        return this.mapSwift({ Self: this.$info.Self, T: String }, transform);
     };
     return Sequence$implementation;
 }());
@@ -6698,7 +7250,7 @@ var DropFirstSequence = /** @class */ (function () {
     /*Swift.(file).DropFirstSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     DropFirstSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).DropFirstSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).DropFirstSequence.dropFirst(_:Int)*/
     /*Swift.(file).DropFirstSequence.dropFirst(_:Int)*/
@@ -6723,7 +7275,7 @@ var PrefixSequence = /** @class */ (function () {
     /*Swift.(file).PrefixSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     PrefixSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).PrefixSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).PrefixSequence.prefix(_:Int)*/
     /*Swift.(file).PrefixSequence.prefix(_:Int)*/
@@ -6774,7 +7326,7 @@ var DropWhileSequence = /** @class */ (function () {
     /*Swift.(file).DropWhileSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     DropWhileSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).DropWhileSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).DropWhileSequence.drop(while:(DropWhileSequence<Base>.Element) throws -> Bool)*/
     /*Swift.(file).DropWhileSequence.drop(while:(DropWhileSequence<Base>.Element) throws -> Bool)*/
@@ -6861,38 +7413,48 @@ var SetAlgebra$implementation = /** @class */ (function () {
     /*Swift.(file).SetAlgebra.subtract(_:Self)*/
     /*Swift.(file).SetAlgebra.subtract(_:Self)*/
     SetAlgebra$implementation.prototype.subtract = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.subtract(_:Self) in ' + this.constructor.name;
+        this.formIntersection({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.symmetricDifference({ Self: this.$info.Self }, other));
     };
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
     SetAlgebra$implementation.prototype.isSubsetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.isSubset(of:Self) in ' + this.constructor.name;
+        return this.$info.Self.infix_61_61({ Self: this.$info.Self }, this.intersection({ Self: this.$info.Self }, other), this);
     };
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
     SetAlgebra$implementation.prototype.isSupersetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.isSuperset(of:Self) in ' + this.constructor.name;
+        return other.isSubsetOf({ Self: this.$info.Self }, this);
     };
     /*Swift.(file).SetAlgebra.isDisjoint(with:Self)*/
     /*Swift.(file).SetAlgebra.isDisjoint(with:Self)*/
     SetAlgebra$implementation.prototype.isDisjointWith = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.isDisjoint(with:Self) in ' + this.constructor.name;
+        return this.intersection({ Self: this.$info.Self }, other).isEmpty;
     };
     /*Swift.(file).SetAlgebra.subtracting(_:Self)*/
     /*Swift.(file).SetAlgebra.subtracting(_:Self)*/
     SetAlgebra$implementation.prototype.subtracting = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.subtracting(_:Self) in ' + this.constructor.name;
+        return this.intersection({ Self: this.$info.Self }, this.symmetricDifference({ Self: this.$info.Self }, other));
     };
-    /*Swift.(file).SetAlgebra.isEmpty*/ ;
+    /*Swift.(file).SetAlgebra.isEmpty*/
+    SetAlgebra$implementation.prototype.isEmpty$get = function () {
+        return this.isEmpty$internal;
+    };
+    Object.defineProperty(SetAlgebra$implementation.prototype, "isEmpty", {
+        get: function () { return this.isEmpty$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SetAlgebra.isStrictSuperset(of:Self)*/
     /*Swift.(file).SetAlgebra.isStrictSuperset(of:Self)*/
     SetAlgebra$implementation.prototype.isStrictSupersetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.isStrictSuperset(of:Self) in ' + this.constructor.name;
+        var _this = this;
+        return Bool.infix_38_38({}, this.isSupersetOf({ Self: this.$info.Self }, other), function () { return _this.$info.Self.infix_33_61({ Self: _this.$info.Self }, _this, other); });
     };
     /*Swift.(file).SetAlgebra.isStrictSubset(of:Self)*/
     /*Swift.(file).SetAlgebra.isStrictSubset(of:Self)*/
     SetAlgebra$implementation.prototype.isStrictSubsetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).SetAlgebra.isStrictSubset(of:Self) in ' + this.constructor.name;
+        return other.isStrictSupersetOf({ Self: this.$info.Self }, this);
     };
     /*Swift.(file).SetAlgebra.init(arrayLiteral:[Self.Element])*/
     /*Swift.(file).SetAlgebra.init(arrayLiteral:[Self.Element])*/
@@ -7069,7 +7631,7 @@ var _SmallBuffer = /** @class */ (function () {
     }; /*Swift.(file)._SmallBuffer.subscript(_:Int)*/
     /*Swift.(file)._SmallBuffer.subscript(_:Int)*/
     _SmallBuffer.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     _SmallBuffer.prototype.init$vars = function () {
     };
@@ -7571,7 +8133,7 @@ var _StringGuts = /** @class */ (function () {
     ;
     /*Swift.(file)._StringGuts.startUTF16*/
     _StringGuts.prototype.startUTF16$get = function () {
-        throw 'unsupported variable Swift.(file)._StringGuts.startUTF16 in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Not contiguous UTF-16"; }, '?3', '?3');
     };
     Object.defineProperty(_StringGuts.prototype, "startUTF16", {
         get: function () { return this.startUTF16$get(); },
@@ -8537,27 +9099,32 @@ var DefaultStringInterpolation = /** @class */ (function () {
     /*Swift.(file).DefaultStringInterpolation.appendLiteral(_:String)*/
     /*Swift.(file).StringInterpolationProtocol.appendLiteral(_:Self.StringLiteralType)*/
     DefaultStringInterpolation.prototype.appendLiteral = function ($info, literal) {
-        throw 'unsupported method Swift.(file).DefaultStringInterpolation.appendLiteral(_:String) in ' + this.constructor.name;
+        var _this = this;
+        literal.writeTo({ Target: DefaultStringInterpolation }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     DefaultStringInterpolation.prototype.appendInterpolation = function ($info, value) {
-        throw 'unsupported method Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T) in ' + this.constructor.name;
+        var _this = this;
+        value.writeTo({ Self: $info.T, Target: DefaultStringInterpolation }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     DefaultStringInterpolation.prototype.appendInterpolation = function ($info, value) {
-        throw 'unsupported method Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T) in ' + this.constructor.name;
+        var _this = this;
+        value.writeTo({ Self: $info.T, Target: DefaultStringInterpolation }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     DefaultStringInterpolation.prototype.appendInterpolation = function ($info, value) {
-        throw 'unsupported method Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T) in ' + this.constructor.name;
+        var _this = this;
+        value.writeTo({ Self: $info.T, Target: DefaultStringInterpolation }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     /*Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T)*/
     DefaultStringInterpolation.prototype.appendInterpolation = function ($info, value) {
-        throw 'unsupported method Swift.(file).DefaultStringInterpolation.appendInterpolation(_:T) in ' + this.constructor.name;
+        var _this = this;
+        value.writeTo({ Self: $info.T, Target: DefaultStringInterpolation }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).DefaultStringInterpolation.make()*/
     /*Swift.(file).DefaultStringInterpolation.make()*/
@@ -9451,7 +10018,21 @@ var UnicodeDecodingResult = /** @class */ (function () {
     /*Swift.(file).UnicodeDecodingResult.==infix(_:UnicodeDecodingResult,_:UnicodeDecodingResult)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     UnicodeDecodingResult.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        var $match = { 0: lhs, 1: rhs };
+        if ((($match.rawValue == UnicodeDecodingResult.scalarValue().rawValue && $match.rawValue == UnicodeDecodingResult.scalarValue().rawValue))) {
+            var lhsScalar = $match[0][0];
+            var rhsScalar = $match[1][0];
+            return Unicode.Scalar.infix_61_61({}, lhsScalar, rhsScalar);
+        }
+        else if ((($match.rawValue == UnicodeDecodingResult.emptyInput.rawValue && $match.rawValue == UnicodeDecodingResult.emptyInput.rawValue))) {
+            return true;
+        }
+        else if ((($match.rawValue == UnicodeDecodingResult.error.rawValue && $match.rawValue == UnicodeDecodingResult.error.rawValue))) {
+            return true;
+        }
+        else if (((true))) {
+            return false;
+        }
     };
     UnicodeDecodingResult.prototype.init$vars = function () {
     };
@@ -9820,7 +10401,7 @@ var _ClosureBasedSequence = /** @class */ (function () {
     /*Swift.(file)._ClosureBasedSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _ClosureBasedSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._ClosureBasedSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     _ClosureBasedSequence.prototype.init$vars = function () {
     };
@@ -9851,7 +10432,7 @@ var AnySequence = /** @class */ (function () {
     /*Swift.(file).AnySequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     AnySequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).AnySequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).AnySequence.dropLast(_:Int)*/
     /*Swift.(file).AnySequence.dropLast(_:Int)*/
@@ -9870,7 +10451,7 @@ var AnySequence = /** @class */ (function () {
     };
     /*Swift.(file).AnySequence.underestimatedCount*/
     AnySequence.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).AnySequence.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(AnySequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -9989,7 +10570,16 @@ var SIMDScalar$implementation = /** @class */ (function () {
 var SIMD$implementation = /** @class */ (function () {
     function SIMD$implementation() {
     }
-    /*Swift.(file).SIMD.indices*/ ;
+    /*Swift.(file).SIMD.indices*/
+    SIMD$implementation.prototype.indices$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.indices in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation.prototype, "indices", {
+        get: function () { return this.indices$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SIMD.init(repeating:Self.Scalar)*/
     /*Swift.(file).SIMD.init(repeating:Self.Scalar)*/
     SIMD$implementation.prototype.initRepeating = function ($info, value) {
@@ -10005,7 +10595,16 @@ var SIMD$implementation = /** @class */ (function () {
     SIMD$implementation.prototype.hashInto = function ($info, hasher$inout) {
         throw 'unsupported method Swift.(file).SIMD.hash(into:Hasher) in ' + this.constructor.name;
     };
-    /*Swift.(file).SIMD.description*/ ;
+    /*Swift.(file).SIMD.description*/
+    SIMD$implementation.prototype.description$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.description in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation.prototype, "description", {
+        get: function () { return this.description$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SIMD..==infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD..==infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_61_61 = function ($info, lhs, rhs) {
@@ -10126,7 +10725,16 @@ var SIMD$implementation = /** @class */ (function () {
     SIMD$implementation.infix_46_62 = function ($info, lhs, rhs) {
         /*return lhs .> rhs*/
     };
-    /*Swift.(file).SIMD.zero*/ ;
+    /*Swift.(file).SIMD.zero*/
+    SIMD$implementation.zero$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.zero in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation, "zero", {
+        get: function () { return this.zero$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     SIMD$implementation.randomInUsing = function ($info, range, generator$inout) {
@@ -10147,7 +10755,11 @@ var SIMD$implementation = /** @class */ (function () {
     SIMD$implementation.randomIn = function ($info, range) {
         throw 'unsupported method Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>) in ' + this.constructor.name;
     };
-    /*Swift.(file).SIMD.zero*/ ;
+    /*Swift.(file).SIMD.zero*/
+    SIMD$implementation.zero$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.zero in ' + this.constructor.name;
+    };
+    ;
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     SIMD$implementation.randomInUsing = function ($info, range, generator$inout) {
@@ -10168,9 +10780,36 @@ var SIMD$implementation = /** @class */ (function () {
     SIMD$implementation.randomIn = function ($info, range) {
         throw 'unsupported method Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>) in ' + this.constructor.name;
     };
-    /*Swift.(file).SIMD.leadingZeroBitCount*/ ;
-    /*Swift.(file).SIMD.trailingZeroBitCount*/ ;
-    /*Swift.(file).SIMD.nonzeroBitCount*/ ;
+    /*Swift.(file).SIMD.leadingZeroBitCount*/
+    SIMD$implementation.prototype.leadingZeroBitCount$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.leadingZeroBitCount in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation.prototype, "leadingZeroBitCount", {
+        get: function () { return this.leadingZeroBitCount$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).SIMD.trailingZeroBitCount*/
+    SIMD$implementation.prototype.trailingZeroBitCount$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.trailingZeroBitCount in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation.prototype, "trailingZeroBitCount", {
+        get: function () { return this.trailingZeroBitCount$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).SIMD.nonzeroBitCount*/
+    SIMD$implementation.prototype.nonzeroBitCount$get = function () {
+        throw 'unsupported variable Swift.(file).SIMD.nonzeroBitCount in ' + this.constructor.name;
+    };
+    Object.defineProperty(SIMD$implementation.prototype, "nonzeroBitCount", {
+        get: function () { return this.nonzeroBitCount$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SIMD.~prefix(_:Self)*/
     /*Swift.(file).SIMD.~prefix(_:Self)*/
     SIMD$implementation.prefix_126 = function ($info, rhs) {
@@ -10695,7 +11334,7 @@ var SIMDMask = /** @class */ (function () {
     }; /*Swift.(file).SIMDMask.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMDMask.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMDMask.hashValue*/
     SIMDMask.prototype.hashValue$get = function () {
@@ -10829,7 +11468,7 @@ var SIMD2 = /** @class */ (function () {
     }; /*Swift.(file).SIMD2.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD2.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD2.init(_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD2.init(_:Scalar,_:Scalar)*/
@@ -10937,7 +11576,7 @@ var SIMD4 = /** @class */ (function () {
     }; /*Swift.(file).SIMD4.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD4.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD4.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD4.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
@@ -11109,7 +11748,7 @@ var SIMD8 = /** @class */ (function () {
     }; /*Swift.(file).SIMD8.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD8.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD8.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD8.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
@@ -11237,7 +11876,7 @@ var SIMD16 = /** @class */ (function () {
     }; /*Swift.(file).SIMD16.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD16.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD16.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD16.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
@@ -11365,7 +12004,7 @@ var SIMD32 = /** @class */ (function () {
     }; /*Swift.(file).SIMD32.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD32.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD32.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD32.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
@@ -11493,7 +12132,7 @@ var SIMD64 = /** @class */ (function () {
     }; /*Swift.(file).SIMD64.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD64.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD64.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD64.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
@@ -11621,7 +12260,7 @@ var SIMD3 = /** @class */ (function () {
     }; /*Swift.(file).SIMD3.subscript(_:Int)*/
     /*Swift.(file).SIMDStorage.subscript(_:Int)*/
     SIMD3.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).SIMD3.init(_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD3.init(_:Scalar,_:Scalar,_:Scalar)*/
@@ -11876,7 +12515,7 @@ var Zip2Sequence = /** @class */ (function () {
     /*Swift.(file).Zip2Sequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     Zip2Sequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).Zip2Sequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     Zip2Sequence.prototype.init$vars = function () {
     };
@@ -11919,7 +12558,7 @@ var EnumeratedSequence = /** @class */ (function () {
     /*Swift.(file).EnumeratedSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     EnumeratedSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).EnumeratedSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     EnumeratedSequence.prototype.init$vars = function () {
     };
@@ -12091,7 +12730,7 @@ var _UnsafeBitset = /** @class */ (function () {
     ;
     /*Swift.(file)._UnsafeBitset.underestimatedCount*/
     _UnsafeBitset.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file)._UnsafeBitset.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(_UnsafeBitset.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -12102,7 +12741,7 @@ var _UnsafeBitset = /** @class */ (function () {
     /*Swift.(file)._UnsafeBitset.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _UnsafeBitset.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._UnsafeBitset.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     _UnsafeBitset.prototype.init$vars = function () {
     };
@@ -12279,7 +12918,7 @@ var _UnsafeBitset = /** @class */ (function () {
             ;
             /*Swift.(file).Word.underestimatedCount*/
             class_18.prototype.underestimatedCount$get = function () {
-                throw 'unsupported variable Swift.(file).Word.underestimatedCount in ' + this.constructor.name;
+                return this.underestimatedCount$internal;
             };
             Object.defineProperty(class_18.prototype, "underestimatedCount", {
                 get: function () { return this.underestimatedCount$get(); },
@@ -12339,12 +12978,18 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.random(using:T)*/
     /*Swift.(file).Bool.random(using:T)*/
     MIO_Mixin_Bool.randomUsing = function ($info, generator$inout) {
-        throw 'unsupported method Swift.(file).Bool.random(using:T) in ' + this.constructor.name;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            return UInt64.infix_61_61({}, UInt64.infix_38({}, UInt64.infix_62_62({ Self: UInt64, Other: Int }, generator.next({ $setThis: function ($val) { return generator = $val; }, Self: $info.T }), 17), 1), 0);
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).Bool.random()*/
     /*Swift.(file).Bool.random()*/
     MIO_Mixin_Bool.random = function ($info) {
-        throw 'unsupported method Swift.(file).Bool.random() in ' + this.constructor.name;
+        var g = _create(SystemRandomNumberGenerator, 'init', {});
+        return Bool.randomUsing({ T: SystemRandomNumberGenerator }, { get: function () { return g; }, set: function ($val) { return g = $val; } });
     };
     /*Swift.(file).Bool.init(_builtinBooleanLiteral:Int1)*/
     /*Swift.(file)._ExpressibleByBuiltinBooleanLiteral.init(_builtinBooleanLiteral:Int1)*/
@@ -12358,7 +13003,7 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     };
     /*Swift.(file).Bool.description*/
     MIO_Mixin_Bool.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).Bool.description in ' + this.constructor.name;
+        return (this ? "true" : "false");
     };
     Object.defineProperty(MIO_Mixin_Bool.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -12374,7 +13019,13 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
     MIO_Mixin_Bool.prototype.hashInto = function ($info, hasher$inout) {
-        throw 'unsupported method Swift.(file).Bool.hash(into:Hasher) in ' + this.constructor.name;
+        var _this = this;
+        var hasher = hasher$inout.get();
+        var $result = (function () {
+            hasher.combine({ $setThis: function ($val) { return hasher = $val; }, H: UInt8 }, (_this ? 1 : 0));
+        })();
+        hasher$inout.set(hasher);
+        return $result;
     };
     /*Swift.(file).Bool.hashValue*/
     MIO_Mixin_Bool.prototype.hashValue$get = function () {
@@ -12399,17 +13050,17 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.&&infix(_:Bool,_:() throws -> Bool)*/
     /*Swift.(file).Bool.&&infix(_:Bool,_:() throws -> Bool)*/
     MIO_Mixin_Bool.infix_38_38 = function ($info, lhs, rhs) {
-        return lhs && rhs();
+        return (lhs ? rhs({}) : false);
     };
     /*Swift.(file).Bool.||infix(_:Bool,_:() throws -> Bool)*/
     /*Swift.(file).Bool.||infix(_:Bool,_:() throws -> Bool)*/
     MIO_Mixin_Bool.infix_124_124 = function ($info, lhs, rhs) {
-        return lhs || rhs();
+        return (lhs ? true : rhs({}));
     };
     /*Swift.(file).Bool.toggle()*/
     /*Swift.(file).Bool.toggle()*/
     MIO_Mixin_Bool.prototype.toggle = function ($info) {
-        throw 'unsupported method Swift.(file).Bool.toggle() in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(Bool.prefix_33({}, this)));
     };
     /*Swift.(file).Bool.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -12495,8 +13146,26 @@ var _BridgingBufferStorage = /** @class */ (function (_super) {
 var CodingKey$implementation = /** @class */ (function () {
     function CodingKey$implementation() {
     }
-    /*Swift.(file).CodingKey.description*/ ;
-    /*Swift.(file).CodingKey.debugDescription*/ ;
+    /*Swift.(file).CodingKey.description*/
+    CodingKey$implementation.prototype.description$get = function () {
+        throw 'unsupported variable Swift.(file).CodingKey.description in ' + this.constructor.name;
+    };
+    Object.defineProperty(CodingKey$implementation.prototype, "description", {
+        get: function () { return this.description$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).CodingKey.debugDescription*/
+    CodingKey$implementation.prototype.debugDescription$get = function () {
+        throw 'unsupported variable Swift.(file).CodingKey.debugDescription in ' + this.constructor.name;
+    };
+    Object.defineProperty(CodingKey$implementation.prototype, "debugDescription", {
+        get: function () { return this.debugDescription$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     return CodingKey$implementation;
 }());
 if (typeof CustomStringConvertible$implementation != 'undefined')
@@ -12791,10 +13460,56 @@ if (typeof Sequence$implementation != 'undefined')
 var Collection$implementation = /** @class */ (function () {
     function Collection$implementation() {
     }
+    /*Swift.(file).Collection.isEmpty*/
+    Collection$implementation.prototype.isEmpty$get = function () {
+        return this.isEmpty$internal;
+    };
+    Object.defineProperty(Collection$implementation.prototype, "isEmpty", {
+        get: function () { return this.isEmpty$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).Collection.first*/
+    Collection$implementation.prototype.first$get = function () {
+        return this.first$internal;
+    };
+    Object.defineProperty(Collection$implementation.prototype, "first", {
+        get: function () { return this.first$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).Collection.underestimatedCount*/
+    Collection$implementation.prototype.underestimatedCount$get = function () {
+        return this.underestimatedCount$internal;
+    };
+    Object.defineProperty(Collection$implementation.prototype, "underestimatedCount", {
+        get: function () { return this.underestimatedCount$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).Collection.count*/
+    Collection$implementation.prototype.count$get = function () {
+        return this.count$internal;
+    };
+    Object.defineProperty(Collection$implementation.prototype, "count", {
+        get: function () { return this.count$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     Collection$implementation.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Collection.formIndex(after:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -12809,109 +13524,225 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int)*/
     Collection$implementation.prototype.formIndexOffsetBy = function ($info, i$inout, distance) {
-        throw 'unsupported method Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexOffsetBy({ Self: _this.$info.Self }, i, distance);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     Collection$implementation.prototype.formIndexOffsetByLimitedBy = function ($info, i$inout, distance, limit) {
-        throw 'unsupported method Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:Int,limitedBy:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            {
+                var advancedIndex = _this.indexOffsetByLimitedBy({ Self: _this.$info.Self }, i, distance, limit);
+                if ((advancedIndex != null)) {
+                    i = advancedIndex;
+                    return true;
+                }
+            }
+            ;
+            i = limit;
+            return false;
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     Collection$implementation.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Collection.distance(from:Self.Index,to:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Collection.randomElement(using:T)*/
     /*Swift.(file).Collection.randomElement(using:T)*/
     Collection$implementation.prototype.randomElementUsing = function ($info, generator$inout) {
-        throw 'unsupported method Swift.(file).Collection.randomElement(using:T) in ' + this.constructor.name;
+        var _this = this;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            {
+                if (!((Bool.prefix_33({}, _this.isEmpty)))) {
+                    return null;
+                }
+            }
+            ;
+            var random = Int.randomInUsing({ Self: Int, T: $info.T }, Int.infix_46_46_60({ Self: Int }, 0, _this.count), { get: function () { return generator; }, set: function ($val) { return generator = $val; } });
+            var idx = _this.indexOffsetBy({ Self: $info.Self }, _this.startIndex, random);
+            return _this.subscript$get({}, idx);
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).Collection.randomElement()*/
     /*Swift.(file).Collection.randomElement()*/
     Collection$implementation.prototype.randomElement = function ($info) {
-        throw 'unsupported method Swift.(file).Collection.randomElement() in ' + this.constructor.name;
+        var g = _create(SystemRandomNumberGenerator, 'init', {});
+        return this.randomElementUsing({ Self: this.$info.Self, T: SystemRandomNumberGenerator }, { get: function () { return g; }, set: function ($val) { return g = $val; } });
     };
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     Collection$implementation.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     Collection$implementation.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).Collection.popFirst()*/
     /*Swift.(file).Collection.popFirst()*/
     Collection$implementation.prototype.popFirst = function ($info) {
         throw 'unsupported method Swift.(file).Collection.popFirst() in ' + this.constructor.name;
     };
-    /*Swift.(file).Collection.isEmpty*/ ;
-    /*Swift.(file).Collection.first*/ ;
-    /*Swift.(file).Collection.underestimatedCount*/ ;
-    /*Swift.(file).Collection.count*/ ;
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     Collection$implementation.prototype.mapSwift = function ($info, transform) {
-        var result = this.map(transform.bind(null, null));
-        result.$info = { Element: $info.T };
-        return result;
+        return _preserveInfo(this.map(transform.bind(null, null)), { Element: $info.T });
     };
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     Collection$implementation.prototype.dropFirst = function ($info, k) {
-        var result = [];
-        if (!k)
-            k = 1;
-        for (var i = k; i < this.count; i++)
-            result.push(this[i]);
-        return result;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
+        var start = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.startIndex, k, this.endIndex), function () { return _this.endIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, start, this.endIndex));
     };
     /*Swift.(file).Collection.dropLast(_:Int)*/
     /*Swift.(file).Collection.dropLast(_:Int)*/
     Collection$implementation.prototype.dropLast = function ($info, k) {
-        throw 'unsupported method Swift.(file).Collection.dropLast(_:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
+        var amount = /*dot_syntax_base_ignored*/ max({}, 0, Int.infix_45({}, this.count, k));
+        var end = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.startIndex, amount, this.endIndex), function () { return _this.endIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool)*/
     Collection$implementation.prototype.dropWhile = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var _this = this;
+        var start = this.startIndex;
+        while (true) {
+            if (!((Bool.infix_38_38({}, this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start, this.endIndex), function () { return predicate({}, _this.subscript$get({}, start)); }))))
+                break;
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start; }, set: function ($val) { return start = $val; } });
+        }
+        ;
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, start, this.endIndex));
     };
     /*Swift.(file).Collection.prefix(_:Int)*/
     /*Swift.(file).Collection.prefix(_:Int)*/
     Collection$implementation.prototype.prefix = function ($info, maxLength) {
-        throw 'unsupported method Swift.(file).Collection.prefix(_:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a prefix of negative length from a collection"; }, '?3', '?3');
+        var end = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.startIndex, maxLength, this.endIndex), function () { return _this.endIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool)*/
     Collection$implementation.prototype.prefixWhile = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var _this = this;
+        var end = this.startIndex;
+        while (true) {
+            if (!((Bool.infix_38_38({}, this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, end, this.endIndex), function () { return predicate({}, _this.subscript$get({}, end)); }))))
+                break;
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return end; }, set: function ($val) { return end = $val; } });
+        }
+        ;
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).Collection.suffix(_:Int)*/
     /*Swift.(file).Collection.suffix(_:Int)*/
     Collection$implementation.prototype.suffix = function ($info, maxLength) {
-        throw 'unsupported method Swift.(file).Collection.suffix(_:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a suffix of negative length from a collection"; }, '?3', '?3');
+        var amount = /*dot_syntax_base_ignored*/ max({}, 0, Int.infix_45({}, this.count, maxLength));
+        var start = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.startIndex, amount, this.endIndex), function () { return _this.endIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, start, this.endIndex));
     };
     /*Swift.(file).Collection.prefix(upTo:Self.Index)*/
     /*Swift.(file).Collection.prefix(upTo:Self.Index)*/
     Collection$implementation.prototype.prefixUpTo = function ($info, end) {
-        throw 'unsupported method Swift.(file).Collection.prefix(upTo:Self.Index) in ' + this.constructor.name;
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).Collection.suffix(from:Self.Index)*/
     /*Swift.(file).Collection.suffix(from:Self.Index)*/
     Collection$implementation.prototype.suffixFrom = function ($info, start) {
-        throw 'unsupported method Swift.(file).Collection.suffix(from:Self.Index) in ' + this.constructor.name;
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, start, this.endIndex));
     };
     /*Swift.(file).Collection.prefix(through:Self.Index)*/
     /*Swift.(file).Collection.prefix(through:Self.Index)*/
     Collection$implementation.prototype.prefixThrough = function ($info, position) {
-        throw 'unsupported method Swift.(file).Collection.prefix(through:Self.Index) in ' + this.constructor.name;
+        return this.prefixUpTo({ Self: this.$info.Self }, this.indexAfter({ Self: this.$info.Self }, position));
     };
     /*Swift.(file).Collection.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
     Collection$implementation.prototype.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator = function ($info, maxSplits, omittingEmptySubsequences, isSeparator) {
-        throw 'unsupported method Swift.(file).Collection.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxSplits, 0); }, function () { return "Must take zero or more splits"; }, '?3', '?3');
+        var result = _create(Array, 'initBuffer', { Element: this.$info.Self.SubSequence }, []);
+        var subSequenceStart = this.startIndex;
+        function appendSubsequenceEnd($info, end) {
+            {
+                if ((Bool.infix_38_38({}, this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index }, subSequenceStart, end), function () { return omittingEmptySubsequences; }))) {
+                    return false;
+                }
+            }
+            ;
+            result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Self.SubSequence }, this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, subSequenceStart, end)));
+            return true;
+        }
+        {
+            if ((Bool.infix_124_124({}, Int.infix_61_61({}, maxSplits, 0), function () { return _this.isEmpty; }))) {
+                _.discardAssignment = appendSubsequenceEnd({ Self: this.$info.Self }, this.endIndex);
+                return result;
+            }
+        }
+        ;
+        var subSequenceEnd = subSequenceStart;
+        var cachedEndIndex = this.endIndex;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, subSequenceEnd, cachedEndIndex))))
+                break;
+            {
+                if ((isSeparator({}, this.subscript$get({}, subSequenceEnd)))) {
+                    var didAppend = appendSubsequenceEnd({ Self: this.$info.Self }, subSequenceEnd);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return subSequenceEnd; }, set: function ($val) { return subSequenceEnd = $val; } });
+                    subSequenceStart = subSequenceEnd;
+                    {
+                        if ((Bool.infix_38_38({}, didAppend, function () { return Int.infix_61_61({}, result.count, maxSplits); }))) {
+                            break;
+                        }
+                    }
+                    ;
+                    continue;
+                }
+            }
+            ;
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return subSequenceEnd; }, set: function ($val) { return subSequenceEnd = $val; } });
+        }
+        ;
+        {
+            if ((Bool.infix_124_124({}, this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, subSequenceStart, cachedEndIndex), function () { return Bool.prefix_33({}, omittingEmptySubsequences); }))) {
+                result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Self.SubSequence }, this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, subSequenceStart, cachedEndIndex)));
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Collection.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
     /*Swift.(file).Collection.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
@@ -12936,9 +13767,31 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.firstIndex(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.firstIndex(where:(Self.Element) throws -> Bool)*/
     Collection$implementation.prototype.firstIndexWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).Collection.firstIndex(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var i = this.startIndex;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, this.endIndex))))
+                break;
+            {
+                if ((predicate({}, this.subscript$get({}, i)))) {
+                    return i;
+                }
+            }
+            ;
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return i; }, set: function ($val) { return i = $val; } });
+        }
+        ;
+        return null;
     };
-    /*Swift.(file).Collection.indices*/ ;
+    /*Swift.(file).Collection.indices*/
+    Collection$implementation.prototype.indices$get = function () {
+        throw 'unsupported variable Swift.(file).Collection.indices in ' + this.constructor.name;
+    };
+    Object.defineProperty(Collection$implementation.prototype, "indices", {
+        get: function () { return this.indices$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).Collection.subscript(_:R)*/
     /*Swift.(file).Collection.subscript(_:R)*/
     Collection$implementation.prototype.subscript$get = function ($info, r) {
@@ -12947,42 +13800,65 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).Collection.subscript(_:(UnboundedRange_) -> ())*/
     Collection$implementation.prototype.subscript$get = function ($info, x) {
-        return this[x];
+        return this.subscript$get({}, this.$info.Self.Index.postfix_46_46_46({ Self: this.$info.Self.Index }, this.startIndex));
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
     Collection$implementation.prototype.indexOffsetBy = function ($info, i, n) {
-        throw 'unsupported method Swift.(file).Collection.index(_:Self.Index,offsetBy:T) in ' + this.constructor.name;
+        return this.indexOffsetBy({ Self: $info.Self }, i, _create(Int, 'init', { Self: Int, T: $info.T }, n));
     };
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T)*/
     Collection$implementation.prototype.formIndexOffsetBy = function ($info, i$inout, n) {
-        throw 'unsupported method Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            return _this.formIndexOffsetBy({ Self: $info.Self }, { get: function () { return i; }, set: function ($val) { return i = $val; } }, _create(Int, 'init', { Self: Int, T: $info.T }, n));
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     Collection$implementation.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index) in ' + this.constructor.name;
+        return this.indexOffsetByLimitedBy({ Self: $info.Self }, i, _create(Int, 'init', { Self: Int, T: $info.T }, n), limit);
     };
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     Collection$implementation.prototype.formIndexOffsetByLimitedBy = function ($info, i$inout, n, limit) {
-        throw 'unsupported method Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T,limitedBy:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            return _this.formIndexOffsetByLimitedBy({ Self: $info.Self }, { get: function () { return i; }, set: function ($val) { return i = $val; } }, _create(Int, 'init', { Self: Int, T: $info.T }, n), limit);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     Collection$implementation.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Collection.distance(from:Self.Index,to:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Collection.flatMap(_:(Self.Element) throws -> String?)*/
     /*Swift.(file).Collection.flatMap(_:(Self.Element) throws -> String?)*/
     Collection$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Collection.flatMap(_:(Self.Element) throws -> String?) in ' + this.constructor.name;
+        return this._compactMap({ Self: this.$info.Self, ElementOfResult: String }, transform);
     };
     /*Swift.(file).Collection.index(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.index(where:(Self.Element) throws -> Bool)*/
     Collection$implementation.prototype.indexWhere = function ($info, _predicate) {
-        throw 'unsupported method Swift.(file).Collection.index(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        return this.firstIndexWhere({ Self: this.$info.Self }, _predicate);
     };
     /*Swift.(file).Collection.index(of:Self.Element)*/
     /*Swift.(file).Collection.index(of:Self.Element)*/
@@ -12999,42 +13875,44 @@ var Comparable$implementation = /** @class */ (function () {
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_46 = function ($info, minimum, maximum) {
-        return _create(ClosedRange, 'initUncheckedBoundstuple_type', { Bound: $info.Self }, [minimum, maximum]);
+        preconditionFileLine({}, function () { return $info.Self.infix_60_61({ Self: $info.Self }, minimum, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
+        return _create(ClosedRange, 'initUncheckedBoundstuple_type', { Bound: $info.Self }, { 0: minimum, 1: maximum });
     };
     /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_60 = function ($info, minimum, maximum) {
-        return _create(Range, 'initUncheckedBoundstuple_type', { Bound: $info.Self }, [minimum, maximum]);
+        preconditionFileLine({}, function () { return $info.Self.infix_60_61({ Self: $info.Self }, minimum, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
+        return _create(Range, 'initUncheckedBoundstuple_type', { Bound: $info.Self }, { 0: minimum, 1: maximum });
     };
     /*Swift.(file).Comparable...<prefix(_:Self)*/
     /*Swift.(file).Comparable...<prefix(_:Self)*/
     Comparable$implementation.prefix_46_46_60 = function ($info, maximum) {
-        /*return ..<maximum*/
+        return _create(PartialRangeUpTo, 'init', { Bound: $info.Self }, maximum);
     };
     /*Swift.(file).Comparable....prefix(_:Self)*/
     /*Swift.(file).Comparable....prefix(_:Self)*/
     Comparable$implementation.prefix_46_46_46 = function ($info, maximum) {
-        /*return ...maximum*/
+        return _create(PartialRangeThrough, 'init', { Bound: $info.Self }, maximum);
     };
     /*Swift.(file).Comparable....postfix(_:Self)*/
     /*Swift.(file).Comparable....postfix(_:Self)*/
     Comparable$implementation.postfix_46_46_46 = function ($info, minimum) {
-        /*return minimum...*/
+        return _create(PartialRangeFrom, 'init', { Bound: $info.Self }, minimum);
     };
     return Comparable$implementation;
 }());
@@ -13554,7 +14432,7 @@ var _CocoaDictionary = /** @class */ (function () {
     /*Swift.(file)._CocoaDictionary.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _CocoaDictionary.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._CocoaDictionary.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     _CocoaDictionary.prototype.init$vars = function () {
     };
@@ -14018,7 +14896,7 @@ var AnyHashable = /** @class */ (function () {
     };
     /*Swift.(file).AnyHashable.description*/
     AnyHashable.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).AnyHashable.description in ' + this.constructor.name;
+        return _create(String, 'initDescribing', { Subject: '?protocol_composition_type' }, this.base);
     };
     Object.defineProperty(AnyHashable.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -14028,7 +14906,7 @@ var AnyHashable = /** @class */ (function () {
     ;
     /*Swift.(file).AnyHashable.debugDescription*/
     AnyHashable.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).AnyHashable.debugDescription in ' + this.constructor.name;
+        return String.infix_43({}, String.infix_43({}, "AnyHashable(", _create(String, 'initReflecting', { Subject: '?protocol_composition_type' }, this.base)), ")");
     };
     Object.defineProperty(AnyHashable.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -14038,7 +14916,7 @@ var AnyHashable = /** @class */ (function () {
     ;
     /*Swift.(file).AnyHashable.customMirror*/
     AnyHashable.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).AnyHashable.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: AnyHashable }, this, new Map([["value", this.base]]), null, null);
     };
     Object.defineProperty(AnyHashable.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -14237,7 +15115,7 @@ var _HashTable = /** @class */ (function () {
     /*Swift.(file)._HashTable.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _HashTable.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._HashTable.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file)._HashTable.isValid(_:_HashTable.Bucket)*/
     /*Swift.(file)._HashTable.isValid(_:_HashTable.Bucket)*/
@@ -14506,7 +15384,7 @@ var JoinedSequence = /** @class */ (function () {
     /*Swift.(file).JoinedSequence.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     JoinedSequence.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).JoinedSequence.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     JoinedSequence.prototype.init$vars = function () {
     };
@@ -14612,7 +15490,7 @@ var AnyKeyPath = /** @class */ (function () {
     ;
     /*Swift.(file).AnyKeyPath.hashValue*/
     AnyKeyPath.prototype.hashValue$get = function () {
-        throw 'unsupported variable Swift.(file).AnyKeyPath.hashValue in ' + this.constructor.name;
+        return _hashValueFor({ H: AnyKeyPath }, this);
     };
     Object.defineProperty(AnyKeyPath.prototype, "hashValue", {
         get: function () { return this.hashValue$get(); },
@@ -14758,25 +15636,38 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).LazySequenceProtocol.filter(_:(Self.Elements.Element) -> Bool)*/
     /*Swift.(file).LazySequenceProtocol.filter(_:(Self.Elements.Element) -> Bool)*/
     LazySequenceProtocol$implementation.prototype.filterSwift = function ($info, isIncluded) {
-        throw 'unsupported method Swift.(file).LazySequenceProtocol.filter(_:(Self.Elements.Element) -> Bool) in ' + this.constructor.name;
+        return _create(LazyFilterSequence, 'init_basefunction_type', { Base: this.$info.Self.Elements }, this._elements, isIncluded);
     };
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> SegmentOfResult)*/
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> SegmentOfResult)*/
     LazySequenceProtocol$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> SegmentOfResult) in ' + this.constructor.name;
+        return this.mapSwift({ Self: $info.Self, U: $info.SegmentOfResult }, transform).joined({ Self: _clarifyGenerics({ Self: LazyMapSequence, Base: $info.Self.Elements, Element: $info.SegmentOfResult }) });
     };
     /*Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     /*Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     LazySequenceProtocol$implementation.prototype.compactMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?) in ' + this.constructor.name;
+        return this.mapSwift({ Self: $info.Self, U: _clarifyGenerics({ Self: Optional, Wrapped: $info.ElementOfResult }) }, transform).filterSwift({ Self: _clarifyGenerics({ Self: LazyMapSequence, Base: $info.Self.Elements, Element: _clarifyGenerics({ Self: Optional, Wrapped: $info.ElementOfResult }) }) }, (function ($info, $0) { return Optional.infix_33_61({ Wrapped: $info.ElementOfResult }, $0, null); })).mapSwift({ Self: _clarifyGenerics({ Self: LazyFilterSequence, Base: _clarifyGenerics({ Self: LazyMapSequence, Base: $info.Self.Elements, Element: _clarifyGenerics({ Self: Optional, Wrapped: $info.ElementOfResult }) }) }), U: $info.ElementOfResult }, (function ($info, $0) { return $0; }));
     };
     /*Swift.(file).LazySequenceProtocol.joined()*/
     /*Swift.(file).LazySequenceProtocol.joined()*/
     LazySequenceProtocol$implementation.prototype.joined = function ($info) {
         throw 'unsupported method Swift.(file).LazySequenceProtocol.joined() in ' + this.constructor.name;
     };
-    /*Swift.(file).LazySequenceProtocol.lazy*/ ;
-    /*Swift.(file).LazySequenceProtocol.lazy*/ ;
+    /*Swift.(file).LazySequenceProtocol.lazy*/
+    LazySequenceProtocol$implementation.prototype.lazy$get = function () {
+        return this.lazy$internal;
+    };
+    Object.defineProperty(LazySequenceProtocol$implementation.prototype, "lazy", {
+        get: function () { return this.lazy$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).LazySequenceProtocol.lazy*/
+    LazySequenceProtocol$implementation.prototype.lazy$get = function () {
+        return this.lazy$internal;
+    };
+    ;
     /*Swift.(file).LazySequenceProtocol.map(_:(Self.Element) -> U)*/
     /*Swift.(file).LazySequenceProtocol.map(_:(Self.Element) -> U)*/
     LazySequenceProtocol$implementation.prototype.mapSwift = function ($info, transform) {
@@ -14790,7 +15681,7 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     LazySequenceProtocol$implementation.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> ElementOfResult?) in ' + this.constructor.name;
+        return this.compactMap({ Self: $info.Self, ElementOfResult: $info.ElementOfResult }, transform);
     };
     return LazySequenceProtocol$implementation;
 }());
@@ -14812,7 +15703,29 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.shuffle(using:T)*/
     /*Swift.(file).MutableCollection.shuffle(using:T)*/
     MutableCollection$implementation.prototype.shuffleUsing = function ($info, generator$inout) {
-        throw 'unsupported method Swift.(file).MutableCollection.shuffle(using:T) in ' + this.constructor.name;
+        var _this = this;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            {
+                if (!((Int.infix_62({}, _this.count, 1)))) {
+                    return;
+                }
+            }
+            ;
+            var amount = _this.count;
+            var currentIndex = _this.startIndex;
+            while (true) {
+                if (!((Int.infix_62({}, amount, 1))))
+                    break;
+                var random = Int.randomInUsing({ Self: Int, T: $info.T }, Int.infix_46_46_60({ Self: Int }, 0, amount), { get: function () { return generator; }, set: function ($val) { return generator = $val; } });
+                Int.infix_45_61({}, { get: function () { return amount; }, set: function ($val) { return amount = $val; } }, 1);
+                _this.swapAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, currentIndex, _this.indexOffsetBy({ Self: $info.Self }, currentIndex, random));
+                _this.formIndexAfter({ Self: $info.Self }, { get: function () { return currentIndex; }, set: function ($val) { return currentIndex = $val; } });
+            }
+            ;
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).MutableCollection.shuffle()*/
     /*Swift.(file).MutableCollection.shuffle()*/
@@ -14822,7 +15735,7 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
     /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
     MutableCollection$implementation.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R) in ' + this.constructor.name;
+        return null;
     };
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -14831,12 +15744,20 @@ var MutableCollection$implementation = /** @class */ (function () {
     }; /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     MutableCollection$implementation.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     MutableCollection$implementation.prototype.swapAt = function ($info, i, j) {
-        throw 'unsupported method Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index) in ' + this.constructor.name;
+        {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, j)))) {
+                return;
+            }
+        }
+        ;
+        var tmp = this.subscript$get({}, i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, this.subscript$get({}, j), i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, tmp, j);
     };
     /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
@@ -14845,16 +15766,16 @@ var MutableCollection$implementation = /** @class */ (function () {
     }; /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
     MutableCollection$implementation.prototype.subscript$set = function ($info, newValue, r) {
-        this[r] = newValue;
+        this[r] = _cloneStruct(newValue);
     };
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     MutableCollection$implementation.prototype.subscript$get = function ($info, x) {
-        return this[x];
+        return this.subscript$get({}, this.$info.Self.Index.postfix_46_46_46({ Self: this.$info.Self.Index }, this.startIndex));
     }; /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     MutableCollection$implementation.prototype.subscript$set = function ($info, newValue, x) {
-        this[x] = newValue;
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, newValue, this.$info.Self.Index.postfix_46_46_46({ Self: this.$info.Self.Index }, this.startIndex));
     };
     /*Swift.(file).MutableCollection.reverse()*/
     /*Swift.(file).MutableCollection.reverse()*/
@@ -14869,7 +15790,23 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)*/
     MutableCollection$implementation.prototype.sortBy = function ($info, areInIncreasingOrder) {
-        return this.sort(function (a, b) { return areInIncreasingOrder(null, a, b) ? -1 : 1; });
+        var _this = this;
+        var didSortUnsafeBuffer = this._withUnsafeMutableBufferPointerIfSupported({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, R: _clarifyGenerics({ Self: Optional, Wrapped: Void }) }, (function ($info, buffer$inout) { return buffer._stableSortImplBy({ $setThis: function ($val) { return buffer = $val; }, Element: _this.$info.Self.Element }, areInIncreasingOrder); }));
+        {
+            if ((Optional.infix_61_61({ Wrapped: _clarifyGenerics({ Self: Optional, Wrapped: Void }) }, didSortUnsafeBuffer, null))) {
+                var sortedElements = _cloneStruct(this.sortedBy({ Self: this.$info.Self }, areInIncreasingOrder));
+                {
+                    var $generator_2 = _cloneStruct(zip({ Sequence1: this.$info.Self.Indices, Sequence2: _clarifyGenerics({ Self: Range, Bound: _clarifyGenerics({ Self: Array, Element: { $genericType: 'Element' } }).Index }) }, this.indices, sortedElements.indices).makeIterator({ Sequence1: this.$info.Self.Indices, Sequence2: _clarifyGenerics({ Self: Range, Bound: _clarifyGenerics({ Self: Array, Element: { $genericType: 'Element' } }).Index }) }));
+                    while (true) {
+                        var $tuple = $generator_2.next({ $setThis: function ($val) { return $generator_2 = $val; }, Sequence1: this.$info.Self.Indices, Sequence2: _clarifyGenerics({ Self: Range, Bound: _clarifyGenerics({ Self: Array, Element: { $genericType: 'Element' } }).Index }) }), i = $tuple && $tuple[0], j = $tuple && $tuple[1];
+                        if (!((i != null) && (j != null)))
+                            break;
+                        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, sortedElements.subscript$get({}, j), i);
+                    }
+                }
+                ;
+            }
+        }
     };
     return MutableCollection$implementation;
 }());
@@ -15166,7 +16103,7 @@ var _NativeDictionary = /** @class */ (function () {
     /*Swift.(file)._NativeDictionary.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _NativeDictionary.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._NativeDictionary.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     _NativeDictionary.prototype.init$vars = function () {
     };
@@ -15452,7 +16389,7 @@ var _NativeSet = /** @class */ (function () {
     /*Swift.(file)._NativeSet.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _NativeSet.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._NativeSet.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file)._NativeSet.bridged()*/
     /*Swift.(file)._NativeSet.bridged()*/
@@ -15986,7 +16923,7 @@ var ObjectIdentifier = /** @class */ (function () {
     /*Swift.(file).ObjectIdentifier.<infix(_:ObjectIdentifier,_:ObjectIdentifier)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     ObjectIdentifier.infix_60 = function ($info, lhs, rhs) {
-        return lhs < rhs;
+        return UInt.infix_60({}, _create(UInt, 'initBitPatternObjectIdentifier', {}, lhs), _create(UInt, 'initBitPatternObjectIdentifier', {}, rhs));
     };
     /*Swift.(file).ObjectIdentifier.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -16034,12 +16971,26 @@ var Optional = /** @class */ (function () {
     /*Swift.(file).Optional.map(_:(Wrapped) throws -> U)*/
     /*Swift.(file).Optional.map(_:(Wrapped) throws -> U)*/
     Optional.prototype.mapSwift = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Optional.map(_:(Wrapped) throws -> U) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            var y = $match[0];
+            return Optional.some({ Wrapped: $info.U }, transform({}, y));
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return null;
+        }
     };
     /*Swift.(file).Optional.flatMap(_:(Wrapped) throws -> U?)*/
     /*Swift.(file).Optional.flatMap(_:(Wrapped) throws -> U?)*/
     Optional.prototype.flatMap = function ($info, transform) {
-        throw 'unsupported method Swift.(file).Optional.flatMap(_:(Wrapped) throws -> U?) in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            var y = $match[0];
+            return transform({}, y);
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return null;
+        }
     };
     /*Swift.(file).Optional.init(nilLiteral:())*/
     /*Swift.(file).ExpressibleByNilLiteral.init(nilLiteral:())*/
@@ -16068,7 +17019,17 @@ var Optional = /** @class */ (function () {
     };
     /*Swift.(file).Optional.debugDescription*/
     Optional.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).Optional.debugDescription in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            var value = $match[0];
+            var result_1 = "Optional(";
+            debugPrintSeparatorTerminatorTo({ Target: String }, [value], null, "", { get: function () { return result_1; }, set: function ($val) { return result_1 = $val; } });
+            String.infix_43_61({}, { get: function () { return result_1; }, set: function ($val) { return result_1 = $val; } }, ")");
+            return result_1;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return "nil";
+        }
     };
     Object.defineProperty(Optional.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -16078,7 +17039,14 @@ var Optional = /** @class */ (function () {
     ;
     /*Swift.(file).Optional.customMirror*/
     Optional.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Optional.customMirror in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            var value = $match[0];
+            return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Optional, Wrapped: this.$info.Wrapped }) }, this, new Map([["some", value]]), Mirror.DisplayStyle.optional, null);
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Optional, Wrapped: this.$info.Wrapped }) }, this, new Map([]), Mirror.DisplayStyle.optional, null);
+        }
     };
     Object.defineProperty(Optional.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -16089,7 +17057,18 @@ var Optional = /** @class */ (function () {
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:Wrapped?)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Optional.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        var $match = { 0: lhs, 1: rhs };
+        if (((true))) {
+            var l = $match[0];
+            var r = $match[1];
+            return Optional.infix_61_61({ Wrapped: $info.Wrapped }, l, r);
+        }
+        else if ((($match.rawValue == Optional.none.rawValue && $match.rawValue == Optional.none.rawValue))) {
+            return true;
+        }
+        else if (((true))) {
+            return false;
+        }
     };
     /*Swift.(file).Optional.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -16109,27 +17088,57 @@ var Optional = /** @class */ (function () {
     /*Swift.(file).Optional.~=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.~=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.infix_126_61 = function ($info, lhs, rhs) {
-        /*return lhs ~= rhs*/
+        var $match = rhs;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            return false;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return true;
+        }
     };
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     Optional.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        var $match = lhs;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            return false;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return true;
+        }
     };
     /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     Optional.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        var $match = lhs;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            return true;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return false;
+        }
     };
     /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        var $match = rhs;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            return false;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return true;
+        }
     };
     /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        var $match = rhs;
+        if ((($match.rawValue == Optional.some().rawValue))) {
+            return true;
+        }
+        else if ((($match.rawValue == Optional.none.rawValue))) {
+            return false;
+        }
     };
     Optional.prototype.init$vars = function () {
     };
@@ -16142,22 +17151,28 @@ var OptionSet$implementation = /** @class */ (function () {
     /*Swift.(file).OptionSet.union(_:Self)*/
     /*Swift.(file).OptionSet.union(_:Self)*/
     OptionSet$implementation.prototype.union = function ($info, other) {
-        throw 'unsupported method Swift.(file).OptionSet.union(_:Self) in ' + this.constructor.name;
+        var r = _create(this.$info.Self, 'initRawValue', { Self: this.$info.Self }, this.rawValue);
+        r.formUnion({ $setThis: function ($val) { return r = $val; }, Self: this.$info.Self }, other);
+        return r;
     };
     /*Swift.(file).OptionSet.intersection(_:Self)*/
     /*Swift.(file).OptionSet.intersection(_:Self)*/
     OptionSet$implementation.prototype.intersection = function ($info, other) {
-        throw 'unsupported method Swift.(file).OptionSet.intersection(_:Self) in ' + this.constructor.name;
+        var r = _create(this.$info.Self, 'initRawValue', { Self: this.$info.Self }, this.rawValue);
+        r.formIntersection({ $setThis: function ($val) { return r = $val; }, Self: this.$info.Self }, other);
+        return r;
     };
     /*Swift.(file).OptionSet.symmetricDifference(_:Self)*/
     /*Swift.(file).OptionSet.symmetricDifference(_:Self)*/
     OptionSet$implementation.prototype.symmetricDifference = function ($info, other) {
-        throw 'unsupported method Swift.(file).OptionSet.symmetricDifference(_:Self) in ' + this.constructor.name;
+        var r = _create(this.$info.Self, 'initRawValue', { Self: this.$info.Self }, this.rawValue);
+        r.formSymmetricDifference({ $setThis: function ($val) { return r = $val; }, Self: this.$info.Self }, other);
+        return r;
     };
     /*Swift.(file).OptionSet.contains(_:Self)*/
     /*Swift.(file).OptionSet.contains(_:Self)*/
     OptionSet$implementation.prototype.contains = function ($info, member) {
-        throw 'unsupported method Swift.(file).OptionSet.contains(_:Self) in ' + this.constructor.name;
+        return this.isSupersetOf({ Self: this.$info.Self }, member);
     };
     /*Swift.(file).OptionSet.insert(_:Self.Element)*/
     /*Swift.(file).OptionSet.insert(_:Self.Element)*/
@@ -16253,17 +17268,17 @@ var PartialRangeFrom = /** @class */ (function () {
     /*Swift.(file).PartialRangeFrom.relative(to:C)*/
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeFrom.prototype.relativeTo = function ($info, collection) {
-        throw 'unsupported method Swift.(file).PartialRangeFrom.relative(to:C) in ' + this.constructor.name;
+        return $info.Bound.infix_46_46_60({ Self: $info.Bound }, this.lowerBound, collection.endIndex);
     };
     /*Swift.(file).PartialRangeFrom.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeFrom.prototype.contains = function ($info, _element) {
-        throw 'unsupported method Swift.(file).PartialRangeFrom.contains(_:Bound) in ' + this.constructor.name;
+        return this.$info.Bound.infix_60_61({ Self: this.$info.Bound }, this.lowerBound, _element);
     };
     /*Swift.(file).PartialRangeFrom.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     PartialRangeFrom.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).PartialRangeFrom.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     PartialRangeFrom.prototype.init$vars = function () {
     };
@@ -16313,48 +17328,82 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     RangeReplaceableCollection$implementation.prototype.append = function ($info, newElement) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.append(_:Self.Element) in ' + this.constructor.name;
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
     };
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     RangeReplaceableCollection$implementation.prototype.appendContentsOf = function ($info, newElements) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.append(contentsOf:S) in ' + this.constructor.name;
+        var approximateCapacity = Int.infix_43({}, this.count, numericCast({ T: Int, U: Int }, newElements.underestimatedCount));
+        this.reserveCapacity({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, approximateCapacity);
+        {
+            var $element$generator_9 = newElements.makeIterator({ Self: $info.S });
+            while (true) {
+                var _element = $element$generator_9.next({ $setThis: function ($val) { return $element$generator_9 = $val; }, Self: $info.S.Iterator });
+                if (!((_element != null)))
+                    break;
+                this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, _element);
+            }
+        }
     };
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     RangeReplaceableCollection$implementation.prototype.insertAt = function ($info, newElement, i) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Self.Element }, newElement));
     };
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
     RangeReplaceableCollection$implementation.prototype.insertContentsOfAt = function ($info, newElements, i) {
-        this.splice.apply(this, [i, 0].concat(newElements));
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self, C: $info.C }, $info.Self.Index.infix_46_46_60({ Self: $info.Self.Index }, i, i), newElements);
     };
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     RangeReplaceableCollection$implementation.prototype.removeAt = function ($info, position) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.remove(at:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
+        var result = this.subscript$get({}, position);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, position, this.indexAfter({ Self: this.$info.Self }, position)), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+        return result;
     };
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
     RangeReplaceableCollection$implementation.prototype.removeSubrange = function ($info, bounds) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, bounds, _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)*/
     RangeReplaceableCollection$implementation.prototype.removeFirstMultiple = function ($info, k) {
-        for (var i = 0; i < k; i++)
-            this.removeFirst();
+        var _this = this;
+        {
+            if ((Int.infix_61_61({}, k, 0))) {
+                return;
+            }
+        }
+        ;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
+        var end = this.indexOffsetBy({ Self: this.$info.Self }, this.startIndex, k);
+        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     RangeReplaceableCollection$implementation.prototype.removeFirst = function ($info) {
-        return this.shift();
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove first element from an empty collection"; }, '?3', '?3');
+        var firstElement = this.first;
+        this.removeFirstMultiple({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, 1);
+        return firstElement;
     };
     /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
     RangeReplaceableCollection$implementation.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool) in ' + this.constructor.name;
+        {
+            if ((Bool.prefix_33({}, keepCapacity))) {
+                $info.$setThis(_cloneStruct(_create(this.$info.Self, 'init', { Self: this.$info.Self })));
+            }
+            else {
+                this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+            }
+        }
     };
     /*Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)*/
     /*Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)*/
@@ -16364,25 +17413,36 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     RangeReplaceableCollection$implementation.prototype.removeFirst = function ($info) {
-        return this.shift();
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove first element from an empty collection"; }, '?3', '?3');
+        var firstElement = this.first;
+        this.removeFirstMultiple({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, 1);
+        return firstElement;
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)*/
     RangeReplaceableCollection$implementation.prototype.removeFirstMultiple = function ($info, k) {
-        for (var i = 0; i < k; i++)
-            this.removeFirst();
+        var _this = this;
+        {
+            if ((Int.infix_61_61({}, k, 0))) {
+                return;
+            }
+        }
+        ;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
+        var end = this.indexOffsetBy({ Self: this.$info.Self }, this.startIndex, k);
+        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
     RangeReplaceableCollection$implementation.prototype.replaceSubrangeWith = function ($info, subrange, newElements) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self, C: $info.C }, subrange.relativeTo({ Self: $info.R, C: $info.Self }, this), newElements);
     };
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:R)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:R)*/
     RangeReplaceableCollection$implementation.prototype.removeSubrange = function ($info, bounds) {
-        for (var i = this.count - 1; i >= 0; i--)
-            if (bounds.contains($info, i))
-                this.splice(i, 1);
+        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, bounds.relativeTo({ Self: $info.R, C: $info.Self }, this));
     };
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
@@ -16392,13 +17452,28 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.removeLast()*/
     /*Swift.(file).RangeReplaceableCollection.removeLast()*/
     RangeReplaceableCollection$implementation.prototype.removeLast = function ($info) {
-        return this.pop();
+        return this.removeAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.indexBefore({ Self: this.$info.Self }, this.endIndex));
     };
     /*Swift.(file).RangeReplaceableCollection.removeLast(_:Int)*/
     /*Swift.(file).RangeReplaceableCollection.removeLast(_:Int)*/
     RangeReplaceableCollection$implementation.prototype.removeLastMultiple = function ($info, k) {
-        for (var i = 0; i < k; i++)
-            this.removeLast();
+        var _this = this;
+        {
+            if ((Int.infix_61_61({}, k, 0))) {
+                return;
+            }
+        }
+        ;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it contains"; }, '?3', '?3');
+        {
+            if ((this._customRemoveLast({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, k))) {
+                return;
+            }
+        }
+        ;
+        var end = this.endIndex;
+        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.indexOffsetBy({ Self: this.$info.Self }, end, Int.prefix_45({ Self: Int }, k)), end));
     };
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
@@ -16408,48 +17483,76 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.removeLast()*/
     /*Swift.(file).RangeReplaceableCollection.removeLast()*/
     RangeReplaceableCollection$implementation.prototype.removeLast = function ($info) {
-        return this.pop();
+        return this.removeAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.indexBefore({ Self: this.$info.Self }, this.endIndex));
     };
     /*Swift.(file).RangeReplaceableCollection.removeLast(_:Int)*/
     /*Swift.(file).RangeReplaceableCollection.removeLast(_:Int)*/
     RangeReplaceableCollection$implementation.prototype.removeLastMultiple = function ($info, k) {
-        for (var i = 0; i < k; i++)
-            this.removeLast();
+        var _this = this;
+        {
+            if ((Int.infix_61_61({}, k, 0))) {
+                return;
+            }
+        }
+        ;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it contains"; }, '?3', '?3');
+        {
+            if ((this._customRemoveLast({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, k))) {
+                return;
+            }
+        }
+        ;
+        var end = this.endIndex;
+        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.indexOffsetBy({ Self: this.$info.Self }, end, Int.prefix_45({ Self: Int }, k)), end));
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        var lhs_dupl = lhs;
+        lhs_dupl.appendContentsOf({ $setThis: function ($val) { return lhs_dupl = $val; }, Self: $info.Self, S: $info.Other }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Other,_:Self)*/
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Other,_:Self)*/
     RangeReplaceableCollection$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        var result = _create($info.Self, 'init', { Self: $info.Self });
+        result.reserveCapacity({ $setThis: function ($val) { return result = $val; }, Self: $info.Self }, Int.infix_43({}, rhs.count, numericCast({ T: Int, U: Int }, lhs.underestimatedCount)));
+        result.appendContentsOf({ $setThis: function ($val) { return result = $val; }, Self: $info.Self, S: $info.Other }, lhs);
+        result.appendContentsOf({ $setThis: function ($val) { return result = $val; }, Self: $info.Self, S: $info.Self }, rhs);
+        return result;
     };
     /*Swift.(file).RangeReplaceableCollection.+=infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+=infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() + rhs);
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs.appendContentsOf({ $setThis: function ($val) { return lhs = $val; }, Self: $info.Self, S: $info.Other }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        var lhs_dupl = lhs;
+        lhs_dupl.appendContentsOf({ $setThis: function ($val) { return lhs_dupl = $val; }, Self: $info.Self, S: $info.Other }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).RangeReplaceableCollection.filter(_:(Self.Element) throws -> Bool)*/
     /*Swift.(file).RangeReplaceableCollection.filter(_:(Self.Element) throws -> Bool)*/
     RangeReplaceableCollection$implementation.prototype.filterSwift = function ($info, isIncluded) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.filter(_:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        return _create(this.$info.Self, 'initBuffer', { Self: this.$info.Self, S: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }) }, this.lazy.filterSwift({ Self: _clarifyGenerics({ Self: LazySequence, Base: this.$info.Self }) }, isIncluded));
     };
     /*Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool)*/
     RangeReplaceableCollection$implementation.prototype.removeAllWhere = function ($info, shouldBeRemoved) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(_create(this.$info.Self, 'initBuffer', { Self: this.$info.Self, S: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }) }, this.lazy.filterSwift({ Self: _clarifyGenerics({ Self: LazySequence, Base: this.$info.Self }) }, (function ($info, $0) { return Bool.prefix_33({}, shouldBeRemoved({}, $0)); })))));
     };
     /*Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool)*/
     RangeReplaceableCollection$implementation.prototype.removeAllWhere = function ($info, shouldBeRemoved) {
-        throw 'unsupported method Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(_create(this.$info.Self, 'initBuffer', { Self: this.$info.Self, S: _clarifyGenerics({ Self: Array, Element: this.$info.Self.Element }) }, this.lazy.filterSwift({ Self: _clarifyGenerics({ Self: LazySequence, Base: this.$info.Self }) }, (function ($info, $0) { return Bool.prefix_33({}, shouldBeRemoved({}, $0)); })))));
     };
     return RangeReplaceableCollection$implementation;
 }());
@@ -16497,8 +17600,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     MIO_Mixin_Set.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).Set.contains(_:Element)*/
     /*Swift.(file).SetAlgebra.contains(_:Self.Element)*/
@@ -16508,7 +17610,23 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.filter(_:(Element) throws -> Bool)*/
     /*Swift.(file).Set.filter(_:(Element) throws -> Bool)*/
     MIO_Mixin_Set.prototype.filterSwift = function ($info, isIncluded) {
-        throw 'unsupported method Swift.(file).Set.filter(_:(Element) throws -> Bool) in ' + this.constructor.name;
+        var result = _create(Set, 'init', { Element: this.$info.Element });
+        {
+            var $element$generator_10 = _cloneStruct(this.makeIterator({ Element: this.$info.Element }));
+            while (true) {
+                var _element = $element$generator_10.next({ $setThis: function ($val) { return $element$generator_10 = $val; }, Element: this.$info.Element });
+                if (!((_element != null)))
+                    break;
+                {
+                    if ((isIncluded({}, _element))) {
+                        result.insert({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Element }, _element);
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Set.startIndex*/
     MIO_Mixin_Set.prototype.startIndex$get = function () {
@@ -16543,7 +17661,13 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.formIndex(after:Set<Element>.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     MIO_Mixin_Set.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Set.formIndex(after:Set<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Set.firstIndex(of:Element)*/
     /*Swift.(file).Set.firstIndex(of:Element)*/
@@ -16562,7 +17686,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     ;
     /*Swift.(file).Set.isEmpty*/
     MIO_Mixin_Set.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).Set.isEmpty in ' + this.constructor.name;
+        return Int.infix_61_61({}, this.count, 0);
     };
     Object.defineProperty(MIO_Mixin_Set.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -16593,7 +17717,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.insert(_:Element)*/
     /*Swift.(file).SetAlgebra.insert(_:Self.Element)*/
     MIO_Mixin_Set.prototype.insert = function ($info, newMember) {
-        this.add(newMember);
+        this.add(_cloneStruct(newMember));
     };
     /*Swift.(file).Set.update(with:Element)*/
     /*Swift.(file).SetAlgebra.update(with:Self.Element)*/
@@ -16618,7 +17742,9 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.removeFirst()*/
     /*Swift.(file).Set.removeFirst()*/
     MIO_Mixin_Set.prototype.removeFirst = function ($info) {
-        throw 'unsupported method Swift.(file).Set.removeFirst() in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't removeFirst from an empty Set"; }, '?3', '?3');
+        return this.removeAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element }, this.startIndex);
     };
     /*Swift.(file).Set.init()*/
     /*Swift.(file).SetAlgebra.init()*/
@@ -16633,22 +17759,46 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.isSubset(of:S)*/
     /*Swift.(file).Set.isSubset(of:S)*/
     MIO_Mixin_Set.prototype.isSubsetOf = function ($info, possibleSuperset) {
-        throw 'unsupported method Swift.(file).Set.isSubset(of:S) in ' + this.constructor.name;
+        {
+            if (!((Bool.prefix_33({}, this.isEmpty)))) {
+                return true;
+            }
+        }
+        ;
+        var other = _create(Set, 'initSource', { Element: $info.Element, Source: $info.S }, possibleSuperset);
+        return this.isSubsetOf({ Element: $info.Element }, other);
     };
     /*Swift.(file).Set.isStrictSubset(of:S)*/
     /*Swift.(file).Set.isStrictSubset(of:S)*/
     MIO_Mixin_Set.prototype.isStrictSubsetOf = function ($info, possibleStrictSuperset) {
-        throw 'unsupported method Swift.(file).Set.isStrictSubset(of:S) in ' + this.constructor.name;
+        var other = _create(Set, 'initSource', { Element: $info.Element, Source: $info.S }, possibleStrictSuperset);
+        return this.isStrictSubsetOf({ Element: $info.Element }, other);
     };
     /*Swift.(file).Set.isSuperset(of:S)*/
     /*Swift.(file).Set.isSuperset(of:S)*/
     MIO_Mixin_Set.prototype.isSupersetOf = function ($info, possibleSubset) {
-        throw 'unsupported method Swift.(file).Set.isSuperset(of:S) in ' + this.constructor.name;
+        {
+            var $member$generator_1 = possibleSubset.makeIterator({ Self: $info.S });
+            while (true) {
+                var member = $member$generator_1.next({ $setThis: function ($val) { return $member$generator_1 = $val; }, Self: $info.S.Iterator });
+                if (!((member != null)))
+                    break;
+                {
+                    if ((Bool.prefix_33({}, this.contains({ Element: $info.Element }, member)))) {
+                        return false;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return true;
     };
     /*Swift.(file).Set.isStrictSuperset(of:S)*/
     /*Swift.(file).Set.isStrictSuperset(of:S)*/
     MIO_Mixin_Set.prototype.isStrictSupersetOf = function ($info, possibleStrictSubset) {
-        throw 'unsupported method Swift.(file).Set.isStrictSuperset(of:S) in ' + this.constructor.name;
+        var other = _create(Set, 'initSource', { Element: $info.Element, Source: $info.S }, possibleStrictSubset);
+        return other.isStrictSubsetOf({ Element: $info.Element }, this);
     };
     /*Swift.(file).Set.isDisjoint(with:S)*/
     /*Swift.(file).Set.isDisjoint(with:S)*/
@@ -16658,12 +17808,22 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.union(_:S)*/
     /*Swift.(file).SetAlgebra.union(_:Self)*/
     MIO_Mixin_Set.prototype.union = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.union(_:S) in ' + this.constructor.name;
+        var newSet = _cloneStruct(this);
+        newSet.formUnion({ $setThis: function ($val) { return newSet = $val; }, Element: $info.Element, S: $info.S }, other);
+        return newSet;
     };
     /*Swift.(file).Set.formUnion(_:S)*/
     /*Swift.(file).SetAlgebra.formUnion(_:Self)*/
     MIO_Mixin_Set.prototype.formUnion = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.formUnion(_:S) in ' + this.constructor.name;
+        {
+            var $item$generator_1 = other.makeIterator({ Self: $info.S });
+            while (true) {
+                var item = $item$generator_1.next({ $setThis: function ($val) { return $item$generator_1 = $val; }, Self: $info.S.Iterator });
+                if (!((item != null)))
+                    break;
+                this.insert({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element }, item);
+            }
+        }
     };
     /*Swift.(file).Set.subtracting(_:S)*/
     /*Swift.(file).Set.subtracting(_:S)*/
@@ -16678,22 +17838,31 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.intersection(_:S)*/
     /*Swift.(file).Set.intersection(_:S)*/
     MIO_Mixin_Set.prototype.intersection = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.intersection(_:S) in ' + this.constructor.name;
+        var otherSet = _create(Set, 'initSource', { Element: $info.Element, Source: $info.S }, other);
+        return this.intersection({ Element: $info.Element }, otherSet);
     };
     /*Swift.(file).Set.formIntersection(_:S)*/
     /*Swift.(file).SetAlgebra.formIntersection(_:Self)*/
     MIO_Mixin_Set.prototype.formIntersection = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.formIntersection(_:S) in ' + this.constructor.name;
+        var result = _cloneStruct(this.intersection({ Element: $info.Element, S: $info.S }, other));
+        {
+            if ((Int.infix_33_61({ Self: Int }, result.count, this.count))) {
+                $info.$setThis(_cloneStruct(_cloneStruct(result)));
+            }
+        }
     };
     /*Swift.(file).Set.symmetricDifference(_:S)*/
     /*Swift.(file).SetAlgebra.symmetricDifference(_:Self)*/
     MIO_Mixin_Set.prototype.symmetricDifference = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.symmetricDifference(_:S) in ' + this.constructor.name;
+        var newSet = _cloneStruct(this);
+        newSet.formSymmetricDifference({ $setThis: function ($val) { return newSet = $val; }, Element: $info.Element, S: $info.S }, other);
+        return newSet;
     };
     /*Swift.(file).Set.formSymmetricDifference(_:S)*/
     /*Swift.(file).Set.formSymmetricDifference(_:S)*/
     MIO_Mixin_Set.prototype.formSymmetricDifference = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.formSymmetricDifference(_:S) in ' + this.constructor.name;
+        var otherSet = _create(Set, 'initSource', { Element: $info.Element, Source: $info.S }, other);
+        this.formSymmetricDifference({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element }, otherSet);
     };
     /*Swift.(file).Set.description*/
     MIO_Mixin_Set.prototype.description$get = function () {
@@ -16718,51 +17887,106 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.subtract(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.subtract(_:Self)*/
     MIO_Mixin_Set.prototype.subtract = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.subtract(_:Set<Element>) in ' + this.constructor.name;
+        this.formIntersection({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, this.symmetricDifference({ Self: this.$info.Self }, other));
     };
     /*Swift.(file).Set.isSubset(of:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
     MIO_Mixin_Set.prototype.isSubsetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.isSubset(of:Set<Element>) in ' + this.constructor.name;
+        {
+            if (!((Int.infix_60_61({}, this.count, other.count)))) {
+                return false;
+            }
+        }
+        ;
+        {
+            var $member$generator_2 = _cloneStruct(this.makeIterator({ Element: this.$info.Element }));
+            while (true) {
+                var member = $member$generator_2.next({ $setThis: function ($val) { return $member$generator_2 = $val; }, Element: this.$info.Element });
+                if (!((member != null)))
+                    break;
+                {
+                    if ((Bool.prefix_33({}, other.contains({ Element: this.$info.Element }, member)))) {
+                        return false;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return true;
     };
     /*Swift.(file).Set.isSuperset(of:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
     MIO_Mixin_Set.prototype.isSupersetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.isSuperset(of:Set<Element>) in ' + this.constructor.name;
+        return other.isSubsetOf({ Element: this.$info.Element }, this);
     };
     /*Swift.(file).Set.isDisjoint(with:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isDisjoint(with:Self)*/
     MIO_Mixin_Set.prototype.isDisjointWith = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.isDisjoint(with:Set<Element>) in ' + this.constructor.name;
+        return this.intersection({ Self: this.$info.Self }, other).isEmpty;
     };
     /*Swift.(file).Set.subtracting(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.subtracting(_:Self)*/
     MIO_Mixin_Set.prototype.subtracting = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.subtracting(_:Set<Element>) in ' + this.constructor.name;
+        return this.intersection({ Self: this.$info.Self }, this.symmetricDifference({ Self: this.$info.Self }, other));
     };
     /*Swift.(file).Set.isStrictSuperset(of:Set<Element>)*/
     /*Swift.(file).Set.isStrictSuperset(of:Set<Element>)*/
     MIO_Mixin_Set.prototype.isStrictSupersetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.isStrictSuperset(of:Set<Element>) in ' + this.constructor.name;
+        var _this = this;
+        return Bool.infix_38_38({}, this.isSupersetOf({ Element: this.$info.Element }, other), function () { return Set.infix_33_61({ Self: _clarifyGenerics({ Self: Set, Element: _this.$info.Element }) }, _this, other); });
     };
     /*Swift.(file).Set.isStrictSubset(of:Set<Element>)*/
     /*Swift.(file).Set.isStrictSubset(of:Set<Element>)*/
     MIO_Mixin_Set.prototype.isStrictSubsetOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.isStrictSubset(of:Set<Element>) in ' + this.constructor.name;
+        return other.isStrictSupersetOf({ Element: this.$info.Element }, this);
     };
     /*Swift.(file).Set.intersection(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.intersection(_:Self)*/
     MIO_Mixin_Set.prototype.intersection = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.intersection(_:Set<Element>) in ' + this.constructor.name;
+        var newSet = _create(Set, 'init', { Element: this.$info.Element });
+        {
+            var $member$generator_3 = _cloneStruct(this.makeIterator({ Element: this.$info.Element }));
+            while (true) {
+                var member = $member$generator_3.next({ $setThis: function ($val) { return $member$generator_3 = $val; }, Element: this.$info.Element });
+                if (!((member != null)))
+                    break;
+                {
+                    if ((other.contains({ Element: this.$info.Element }, member))) {
+                        newSet.insert({ $setThis: function ($val) { return newSet = $val; }, Element: this.$info.Element }, member);
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return newSet;
     };
     /*Swift.(file).Set.formSymmetricDifference(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.formSymmetricDifference(_:Self)*/
     MIO_Mixin_Set.prototype.formSymmetricDifference = function ($info, other) {
-        throw 'unsupported method Swift.(file).Set.formSymmetricDifference(_:Set<Element>) in ' + this.constructor.name;
+        {
+            var $member$generator_4 = _cloneStruct(other.makeIterator({ Element: this.$info.Element }));
+            while (true) {
+                var member = $member$generator_4.next({ $setThis: function ($val) { return $member$generator_4 = $val; }, Element: this.$info.Element });
+                if (!((member != null)))
+                    break;
+                {
+                    if ((this.contains({ Element: this.$info.Element }, member))) {
+                        this.remove({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element }, member);
+                    }
+                    else {
+                        this.insert({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element }, member);
+                    }
+                }
+                ;
+            }
+        }
     };
     /*Swift.(file).Set.customMirror*/
     MIO_Mixin_Set.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Set.customMirror in ' + this.constructor.name;
+        var style = Mirror.DisplayStyle.set;
+        return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Set, Element: this.$info.Element }), C: _clarifyGenerics({ Self: Set, Element: this.$info.Element }) }, this, this, style, null);
     };
     Object.defineProperty(MIO_Mixin_Set.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -16773,7 +17997,13 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.popFirst()*/
     /*Swift.(file).Set.popFirst()*/
     MIO_Mixin_Set.prototype.popFirst = function ($info) {
-        throw 'unsupported method Swift.(file).Set.popFirst() in ' + this.constructor.name;
+        {
+            if (!((Bool.prefix_33({}, this.isEmpty)))) {
+                return null;
+            }
+        }
+        ;
+        return this.removeAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element }, this.startIndex);
     };
     /*Swift.(file).Set.capacity*/
     MIO_Mixin_Set.prototype.capacity$get = function () {
@@ -16793,17 +18023,18 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.insert(_:ConcreteElement)*/
     /*Swift.(file).Set.insert(_:ConcreteElement)*/
     MIO_Mixin_Set.prototype.insertConcreteElement = function ($info, newMember) {
-        throw 'unsupported method Swift.(file).Set.insert(_:ConcreteElement) in ' + this.constructor.name;
+        var $tuple = this.insert({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, ConcreteElement: AnyHashable }, _create(AnyHashable, 'init', { H: $info.ConcreteElement }, newMember)), inserted = $tuple && $tuple[0], memberAfterInsert = $tuple && $tuple[1];
+        return { 0: inserted, 1: memberAfterInsert.base };
     };
     /*Swift.(file).Set.update(with:ConcreteElement)*/
     /*Swift.(file).Set.update(with:ConcreteElement)*/
     MIO_Mixin_Set.prototype.updateWith = function ($info, newMember) {
-        throw 'unsupported method Swift.(file).Set.update(with:ConcreteElement) in ' + this.constructor.name;
+        return this.updateWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, ConcreteElement: AnyHashable }, _create(AnyHashable, 'init', { H: $info.ConcreteElement }, newMember)).mapSwift({ Wrapped: AnyHashable, U: $info.ConcreteElement }, (function ($info, $0) { return $0.base; }));
     };
     /*Swift.(file).Set.remove(_:ConcreteElement)*/
     /*Swift.(file).Set.remove(_:ConcreteElement)*/
     MIO_Mixin_Set.prototype.remove = function ($info, member) {
-        throw 'unsupported method Swift.(file).Set.remove(_:ConcreteElement) in ' + this.constructor.name;
+        return this.remove({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, ConcreteElement: AnyHashable }, _create(AnyHashable, 'init', { H: $info.ConcreteElement }, member)).mapSwift({ Wrapped: AnyHashable, U: $info.ConcreteElement }, (function ($info, $0) { return $0.base; }));
     };
     MIO_Mixin_Set.prototype.init$vars = function () {
     };
@@ -17385,7 +18616,7 @@ var _CocoaSet = /** @class */ (function () {
     /*Swift.(file)._CocoaSet.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     _CocoaSet.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file)._CocoaSet.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     _CocoaSet.prototype.init$vars = function () {
     };
@@ -17796,7 +19027,7 @@ var StaticString = /** @class */ (function () {
     ;
     /*Swift.(file).StaticString.debugDescription*/
     StaticString.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).StaticString.debugDescription in ' + this.constructor.name;
+        return this.description.debugDescription;
     };
     Object.defineProperty(StaticString.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -17806,7 +19037,7 @@ var StaticString = /** @class */ (function () {
     ;
     /*Swift.(file).StaticString.customMirror*/
     StaticString.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).StaticString.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initReflectingprotocol_composition_type', {}, this.description);
     };
     Object.defineProperty(StaticString.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -17844,42 +19075,52 @@ var Strideable$implementation = /** @class */ (function () {
     /*Swift.(file).Strideable.+infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.+infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        return lhs.advancedBy({ Self: $info.Self }, rhs);
     };
     /*Swift.(file).Strideable.+infix(_:Self.Stride,_:Self)*/
     /*Swift.(file).Strideable.+infix(_:Self.Stride,_:Self)*/
     Strideable$implementation.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        return rhs.advancedBy({ Self: $info.Self }, lhs);
     };
     /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_45 = function ($info, lhs, rhs) {
-        return lhs - rhs;
+        return lhs.advancedBy({ Self: $info.Self }, $info.Self.Stride.prefix_45({ Self: $info.Self.Stride }, rhs));
     };
     /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
     Strideable$implementation.infix_45 = function ($info, lhs, rhs) {
-        return lhs - rhs;
+        return rhs.distanceTo({ Self: $info.Self }, lhs);
     };
     /*Swift.(file).Strideable.+=infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.+=infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_43_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() + rhs);
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = lhs.advancedBy({ Self: $info.Self }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).Strideable.-=infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.-=infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_45_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() - rhs);
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = lhs.advancedBy({ Self: $info.Self }, $info.Self.Stride.prefix_45({ Self: $info.Self.Stride }, rhs));
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     Strideable$implementation.infix_60 = function ($info, x, y) {
-        return x < y;
+        return $info.Self.Stride.infix_62({ Self: $info.Self.Stride }, x.distanceTo({ Self: $info.Self }, y), _create($info.Self.Stride, 'initIntegerLiteral', { Self: $info.Self.Stride }, 0));
     };
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     Strideable$implementation.infix_61_61 = function ($info, x, y) {
-        return x == y;
+        return $info.Self.Stride.infix_61_61({ Self: $info.Self.Stride }, x.distanceTo({ Self: $info.Self }, y), _create($info.Self.Stride, 'initIntegerLiteral', { Self: $info.Self.Stride }, 0));
     };
     return Strideable$implementation;
 }());
@@ -17895,11 +19136,19 @@ var StrideTo = /** @class */ (function () {
     /*Swift.(file).StrideTo.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     StrideTo.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).StrideTo.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).StrideTo.underestimatedCount*/
     StrideTo.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).StrideTo.underestimatedCount in ' + this.constructor.name;
+        var it = _cloneStruct(this.makeIterator({ Element: this.$info.Element }));
+        var count = 0;
+        while (true) {
+            if (!((Optional.infix_33_61({ Wrapped: this.$info.Element }, it.next({ $setThis: function ($val) { return it = $val; }, Element: this.$info.Element }), null))))
+                break;
+            Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
+        }
+        ;
+        return count;
     };
     Object.defineProperty(StrideTo.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -17937,11 +19186,19 @@ var StrideThrough = /** @class */ (function () {
     /*Swift.(file).StrideThrough.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     StrideThrough.prototype.makeIterator = function ($info) {
-        throw 'unsupported method Swift.(file).StrideThrough.makeIterator() in ' + this.constructor.name;
+        return this;
     };
     /*Swift.(file).StrideThrough.underestimatedCount*/
     StrideThrough.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).StrideThrough.underestimatedCount in ' + this.constructor.name;
+        var it = _cloneStruct(this.makeIterator({ Element: this.$info.Element }));
+        var count = 0;
+        while (true) {
+            if (!((Optional.infix_33_61({ Wrapped: this.$info.Element }, it.next({ $setThis: function ($val) { return it = $val; }, Element: this.$info.Element }), null))))
+                break;
+            Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
+        }
+        ;
+        return count;
     };
     Object.defineProperty(StrideThrough.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -18019,8 +19276,7 @@ var AnyCollection = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     AnyCollection.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).AnyCollection.dropLast(_:Int)*/
     /*Swift.(file).AnyCollection.dropLast(_:Int)*/
@@ -18039,7 +19295,7 @@ var AnyCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyCollection.underestimatedCount*/
     AnyCollection.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).AnyCollection.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(AnyCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -18135,7 +19391,8 @@ var AnyCollection = /** @class */ (function () {
     /*Swift.(file).AnyCollection.subscript(_:Range<AnyCollection<Element>.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     AnyCollection.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).AnyCollection.index(after:AnyCollection<Element>.Index)*/
     /*Swift.(file).Collection.index(after:Self.Index)*/
@@ -18145,7 +19402,13 @@ var AnyCollection = /** @class */ (function () {
     /*Swift.(file).AnyCollection.formIndex(after:AnyCollection<Element>.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     AnyCollection.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).AnyCollection.formIndex(after:AnyCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).AnyCollection.index(_:AnyCollection<Element>.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -18170,11 +19433,22 @@ var AnyCollection = /** @class */ (function () {
     /*Swift.(file).AnyCollection.distance(from:AnyCollection<Element>.Index,to:AnyCollection<Element>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     AnyCollection.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).AnyCollection.distance(from:AnyCollection<Element>.Index,to:AnyCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).AnyCollection.count*/
     AnyCollection.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).AnyCollection.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(AnyCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -18468,7 +19742,7 @@ var _ArrayProtocol$implementation = /** @class */ (function () {
     /*Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)*/
     /*Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)*/
     _ArrayProtocol$implementation.prototype.filterSwift = function ($info, isIncluded) {
-        return this.filter(isIncluded.bind(null, null));
+        return _preserveGenerics(this.filter(isIncluded.bind(null, null)), this);
     };
     return _ArrayProtocol$implementation;
 }());
@@ -18482,7 +19756,13 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     BidirectionalCollection$implementation.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).BidirectionalCollection.formIndex(before:Self.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -18517,23 +19797,52 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.dropLast(_:Int)*/
     /*Swift.(file).BidirectionalCollection.dropLast(_:Int)*/
     BidirectionalCollection$implementation.prototype.dropLast = function ($info, k) {
-        throw 'unsupported method Swift.(file).BidirectionalCollection.dropLast(_:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
+        var end = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.endIndex, Int.prefix_45({ Self: Int }, k), this.startIndex), function () { return _this.startIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, end));
     };
     /*Swift.(file).BidirectionalCollection.suffix(_:Int)*/
     /*Swift.(file).BidirectionalCollection.suffix(_:Int)*/
     BidirectionalCollection$implementation.prototype.suffix = function ($info, maxLength) {
-        throw 'unsupported method Swift.(file).BidirectionalCollection.suffix(_:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a suffix of negative length from a collection"; }, '?3', '?3');
+        var start = infix_63_63({ T: this.$info.Self.Index }, this.indexOffsetByLimitedBy({ Self: this.$info.Self }, this.endIndex, Int.prefix_45({ Self: Int }, maxLength), this.startIndex), function () { return _this.startIndex; });
+        return this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, start, this.endIndex));
     };
-    /*Swift.(file).BidirectionalCollection.last*/ ;
+    /*Swift.(file).BidirectionalCollection.last*/
+    BidirectionalCollection$implementation.prototype.last$get = function () {
+        return this.last$internal;
+    };
+    Object.defineProperty(BidirectionalCollection$implementation.prototype, "last", {
+        get: function () { return this.last$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).BidirectionalCollection.last(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).BidirectionalCollection.last(where:(Self.Element) throws -> Bool)*/
     BidirectionalCollection$implementation.prototype.lastWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).BidirectionalCollection.last(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var _this = this;
+        return this.lastIndexWhere({ Self: this.$info.Self }, predicate).mapSwift({ Wrapped: this.$info.Self.Index, U: this.$info.Self.Element }, (function ($info, $0) { return _this.subscript$get({}, $0); }));
     };
     /*Swift.(file).BidirectionalCollection.lastIndex(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).BidirectionalCollection.lastIndex(where:(Self.Element) throws -> Bool)*/
     BidirectionalCollection$implementation.prototype.lastIndexWhere = function ($info, predicate) {
-        throw 'unsupported method Swift.(file).BidirectionalCollection.lastIndex(where:(Self.Element) throws -> Bool) in ' + this.constructor.name;
+        var i = this.endIndex;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, this.startIndex))))
+                break;
+            this.formIndexBefore({ Self: this.$info.Self }, { get: function () { return i; }, set: function ($val) { return i = $val; } });
+            {
+                if ((predicate({}, this.subscript$get({}, i)))) {
+                    return i;
+                }
+            }
+            ;
+        }
+        ;
+        return null;
     };
     /*Swift.(file).BidirectionalCollection.lastIndex(of:Self.Element)*/
     /*Swift.(file).BidirectionalCollection.lastIndex(of:Self.Element)*/
@@ -18684,11 +19993,17 @@ var Character = /** @class */ (function () {
     /*Swift.(file).Character.write(to:Target)*/
     /*Swift.(file).TextOutputStreamable.write(to:Target)*/
     Character.prototype.writeTo = function ($info, target$inout) {
-        throw 'unsupported method Swift.(file).Character.write(to:Target) in ' + this.constructor.name;
+        var _this = this;
+        var target = target$inout.get();
+        var $result = (function () {
+            target.write({ $setThis: function ($val) { return target = $val; }, Self: $info.Target }, _create(String, 'initCharacter', {}, _this));
+        })();
+        target$inout.set(target);
+        return $result;
     };
     /*Swift.(file).Character.isASCII*/
     Character.prototype.isASCII$get = function () {
-        throw 'unsupported variable Swift.(file).Character.isASCII in ' + this.constructor.name;
+        return Optional.infix_33_61({ Wrapped: UInt8 }, this.asciiValue, null);
     };
     Object.defineProperty(Character.prototype, "isASCII", {
         get: function () { return this.isASCII$get(); },
@@ -18738,7 +20053,7 @@ var Character = /** @class */ (function () {
     ;
     /*Swift.(file).Character.isWholeNumber*/
     Character.prototype.isWholeNumber$get = function () {
-        throw 'unsupported variable Swift.(file).Character.isWholeNumber in ' + this.constructor.name;
+        return Optional.infix_33_61({ Wrapped: Int }, this.wholeNumberValue, null);
     };
     Object.defineProperty(Character.prototype, "isWholeNumber", {
         get: function () { return this.isWholeNumber$get(); },
@@ -18758,7 +20073,7 @@ var Character = /** @class */ (function () {
     ;
     /*Swift.(file).Character.isHexDigit*/
     Character.prototype.isHexDigit$get = function () {
-        throw 'unsupported variable Swift.(file).Character.isHexDigit in ' + this.constructor.name;
+        return Optional.infix_33_61({ Wrapped: Int }, this.hexDigitValue, null);
     };
     Object.defineProperty(Character.prototype, "isHexDigit", {
         get: function () { return this.isHexDigit$get(); },
@@ -18789,12 +20104,12 @@ var Character = /** @class */ (function () {
     /*Swift.(file).Character.uppercased()*/
     /*Swift.(file).Character.uppercased()*/
     Character.prototype.uppercased = function ($info) {
-        throw 'unsupported method Swift.(file).Character.uppercased() in ' + this.constructor.name;
+        return _create(String, 'initCharacter', {}, this).uppercased({});
     };
     /*Swift.(file).Character.lowercased()*/
     /*Swift.(file).Character.lowercased()*/
     Character.prototype.lowercased = function ($info) {
-        throw 'unsupported method Swift.(file).Character.lowercased() in ' + this.constructor.name;
+        return _create(String, 'initCharacter', {}, this).lowercased({});
     };
     /*Swift.(file).Character.isUppercase*/
     Character.prototype.isUppercase$get = function () {
@@ -18989,7 +20304,13 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.formIndex(after:Dictionary<Key, Value>.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     MIO_Mixin_Dictionary.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Dictionary.formIndex(after:Dictionary<Key, Value>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Dictionary.index(forKey:Key)*/
     /*Swift.(file).Dictionary.index(forKey:Key)*/
@@ -19013,7 +20334,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     ;
     /*Swift.(file).Dictionary.isEmpty*/
     MIO_Mixin_Dictionary.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).Dictionary.isEmpty in ' + this.constructor.name;
+        return Int.infix_61_61({}, this.count, 0);
     };
     Object.defineProperty(MIO_Mixin_Dictionary.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -19031,7 +20352,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
         if (newValue == null)
             this.delete(key);
         else
-            this.set(key, newValue);
+            this.set(key, _cloneStruct(newValue));
     }; /*Swift.(file).Dictionary.subscript(_:Key)*/
     /*Swift.(file).Dictionary.subscript(_:Key)*/
     MIO_Mixin_Dictionary.prototype.subscript$_modify = function ($info, key) {
@@ -19084,7 +20405,9 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
     /*Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
     MIO_Mixin_Dictionary.prototype.mergingUniquingKeysWith = function ($info, other, combine) {
-        throw 'unsupported method Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value) in ' + this.constructor.name;
+        var result = _cloneStruct(this);
+        result.mergeUniquingKeysWith({ $setThis: function ($val) { return result = $val; }, Key: this.$info.Key, Value: this.$info.Value }, other, combine);
+        return result;
     };
     /*Swift.(file).Dictionary.remove(at:Dictionary<Key, Value>.Index)*/
     /*Swift.(file).Dictionary.remove(at:Dictionary<Key, Value>.Index)*/
@@ -19163,7 +20486,8 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     ;
     /*Swift.(file).Dictionary.customMirror*/
     MIO_Mixin_Dictionary.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Dictionary.customMirror in ' + this.constructor.name;
+        var style = Mirror.DisplayStyle.dictionary;
+        return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Dictionary, Key: this.$info.Key, Value: this.$info.Value }), C: _clarifyGenerics({ Self: Dictionary, Key: this.$info.Key, Value: this.$info.Value }) }, this, this, style, null);
     };
     Object.defineProperty(MIO_Mixin_Dictionary.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -19174,7 +20498,13 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.popFirst()*/
     /*Swift.(file).Dictionary.popFirst()*/
     MIO_Mixin_Dictionary.prototype.popFirst = function ($info) {
-        throw 'unsupported method Swift.(file).Dictionary.popFirst() in ' + this.constructor.name;
+        {
+            if (!((Bool.prefix_33({}, this.isEmpty)))) {
+                return null;
+            }
+        }
+        ;
+        return this.removeAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Key: this.$info.Key, Value: this.$info.Value }, this.startIndex);
     };
     /*Swift.(file).Dictionary.capacity*/
     MIO_Mixin_Dictionary.prototype.capacity$get = function () {
@@ -19237,7 +20567,13 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Dictionary.Keys.formIndex(after:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).Collection.formIndex(after:Self.Index)*/
             class_47.prototype.formIndexAfter = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).Dictionary.Keys.formIndex(after:Dictionary<Key, Value>.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexAfter({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).Dictionary.Keys.subscript(_:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).Collection.subscript(_:Self.Index)*/
@@ -19246,7 +20582,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             };
             /*Swift.(file).Dictionary.Keys.count*/
             class_47.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Dictionary.Keys.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_47.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -19256,7 +20592,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             ;
             /*Swift.(file).Dictionary.Keys.isEmpty*/
             class_47.prototype.isEmpty$get = function () {
-                throw 'unsupported variable Swift.(file).Dictionary.Keys.isEmpty in ' + this.constructor.name;
+                return this.isEmpty$internal;
             };
             Object.defineProperty(class_47.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -19293,8 +20629,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Collection.makeIterator()*/
             /*Swift.(file).Sequence.makeIterator()*/
             class_47.prototype.makeIterator = function ($info) {
-                var _this = this;
-                return new SwiftIterator(function (current) { return _this[current]; });
+                return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
             };
             class_47.prototype.init$vars = function () {
             };
@@ -19364,7 +20699,13 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Dictionary.Values.formIndex(after:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).Collection.formIndex(after:Self.Index)*/
             class_49.prototype.formIndexAfter = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).Dictionary.Values.formIndex(after:Dictionary<Key, Value>.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexAfter({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).Dictionary.Values.subscript(_:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
@@ -19379,7 +20720,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             };
             /*Swift.(file).Dictionary.Values.count*/
             class_49.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Dictionary.Values.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_49.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -19389,7 +20730,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             ;
             /*Swift.(file).Dictionary.Values.isEmpty*/
             class_49.prototype.isEmpty$get = function () {
-                throw 'unsupported variable Swift.(file).Dictionary.Values.isEmpty in ' + this.constructor.name;
+                return this.isEmpty$internal;
             };
             Object.defineProperty(class_49.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -19420,14 +20761,21 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Dictionary.Values.swapAt(_:Dictionary<Key, Value>.Index,_:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
             class_49.prototype.swapAt = function ($info, i, j) {
-                throw 'unsupported method Swift.(file).Dictionary.Values.swapAt(_:Dictionary<Key, Value>.Index,_:Dictionary<Key, Value>.Index) in ' + this.constructor.name;
+                {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, j)))) {
+                        return;
+                    }
+                }
+                ;
+                var tmp = this.subscript$get({}, i);
+                this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, this.subscript$get({}, j), i);
+                this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, tmp, j);
             };
             /*Swift.(file).Values.makeIterator()*/
             /*Swift.(file).Collection.makeIterator()*/
             /*Swift.(file).Sequence.makeIterator()*/
             class_49.prototype.makeIterator = function ($info) {
-                var _this = this;
-                return new SwiftIterator(function (current) { return _this[current]; });
+                return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
             };
             class_49.prototype.init$vars = function () {
             };
@@ -19865,8 +21213,7 @@ var FlattenSequence = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     FlattenSequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).FlattenSequence.startIndex*/
     FlattenSequence.prototype.startIndex$get = function () {
@@ -19898,13 +21245,30 @@ var FlattenSequence = /** @class */ (function () {
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     FlattenSequence.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).FlattenSequence.formIndex(after:FlattenSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).FlattenSequence.distance(from:FlattenSequence<Base>.Index,to:FlattenSequence<Base>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     FlattenSequence.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).FlattenSequence.distance(from:FlattenSequence<Base>.Index,to:FlattenSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).FlattenSequence.index(_:FlattenSequence<Base>.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -19938,7 +21302,8 @@ var FlattenSequence = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     FlattenSequence.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).FlattenSequence.index(before:FlattenSequence<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -19948,7 +21313,13 @@ var FlattenSequence = /** @class */ (function () {
     /*Swift.(file).FlattenSequence.formIndex(before:FlattenSequence<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     FlattenSequence.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).FlattenSequence.formIndex(before:FlattenSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     FlattenSequence.prototype.init$vars = function () {
     };
@@ -20038,86 +21409,178 @@ var FloatingPoint$implementation = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.==infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.==infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        return lhs.isEqualTo({ Self: $info.Self }, rhs);
     };
     /*Swift.(file).FloatingPoint.<infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.<infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_60 = function ($info, lhs, rhs) {
-        return lhs < rhs;
+        return lhs.isLessThan({ Self: $info.Self }, rhs);
     };
     /*Swift.(file).FloatingPoint.<=infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.<=infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return lhs.isLessThanOrEqualTo({ Self: $info.Self }, rhs);
     };
     /*Swift.(file).FloatingPoint.>infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.>infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return rhs.isLessThan({ Self: $info.Self }, lhs);
     };
     /*Swift.(file).FloatingPoint.>=infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.>=infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return rhs.isLessThanOrEqualTo({ Self: $info.Self }, lhs);
     };
-    /*Swift.(file).FloatingPoint.ulpOfOne*/ ;
+    /*Swift.(file).FloatingPoint.ulpOfOne*/
+    FloatingPoint$implementation.ulpOfOne$get = function () {
+        return this.ulpOfOne$internal;
+    };
+    Object.defineProperty(FloatingPoint$implementation, "ulpOfOne", {
+        get: function () { return this.ulpOfOne$get(); },
+        set: function ($newValue) {
+            this.ulpOfOne$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    FloatingPoint$implementation.ulpOfOne$set = function ($newValue) {
+        var $oldValue = this.ulpOfOne$internal;
+        this.ulpOfOne$internal = $newValue;
+    };
+    ;
     /*Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule)*/
     /*Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule)*/
     FloatingPoint$implementation.prototype.rounded = function ($info, rule) {
-        throw 'unsupported method Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule) in ' + this.constructor.name;
+        var lhs = this;
+        lhs.round({ $setThis: function ($val) { return lhs = $val; }, Self: this.$info.Self }, rule);
+        return lhs;
     };
     /*Swift.(file).FloatingPoint.rounded()*/
     /*Swift.(file).FloatingPoint.rounded()*/
     FloatingPoint$implementation.prototype.rounded = function ($info) {
-        throw 'unsupported method Swift.(file).FloatingPoint.rounded() in ' + this.constructor.name;
+        return this.rounded({ Self: this.$info.Self }, FloatingPointRoundingRule.toNearestOrAwayFromZero);
     };
     /*Swift.(file).FloatingPoint.round()*/
     /*Swift.(file).FloatingPoint.round()*/
     FloatingPoint$implementation.prototype.round = function ($info) {
-        throw 'unsupported method Swift.(file).FloatingPoint.round() in ' + this.constructor.name;
+        this.round({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, FloatingPointRoundingRule.toNearestOrAwayFromZero);
     };
-    /*Swift.(file).FloatingPoint.nextDown*/ ;
+    /*Swift.(file).FloatingPoint.nextDown*/
+    FloatingPoint$implementation.prototype.nextDown$get = function () {
+        return this.nextDown$internal;
+    };
+    Object.defineProperty(FloatingPoint$implementation.prototype, "nextDown", {
+        get: function () { return this.nextDown$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).FloatingPoint.truncatingRemainder(dividingBy:Self)*/
     /*Swift.(file).FloatingPoint.truncatingRemainder(dividingBy:Self)*/
     FloatingPoint$implementation.prototype.truncatingRemainderDividingBy = function ($info, other) {
-        throw 'unsupported method Swift.(file).FloatingPoint.truncatingRemainder(dividingBy:Self) in ' + this.constructor.name;
+        var lhs = this;
+        lhs.formTruncatingRemainderDividingBy({ $setThis: function ($val) { return lhs = $val; }, Self: this.$info.Self }, other);
+        return lhs;
     };
     /*Swift.(file).FloatingPoint.remainder(dividingBy:Self)*/
     /*Swift.(file).FloatingPoint.remainder(dividingBy:Self)*/
     FloatingPoint$implementation.prototype.remainderDividingBy = function ($info, other) {
-        throw 'unsupported method Swift.(file).FloatingPoint.remainder(dividingBy:Self) in ' + this.constructor.name;
+        var lhs = this;
+        lhs.formRemainderDividingBy({ $setThis: function ($val) { return lhs = $val; }, Self: this.$info.Self }, other);
+        return lhs;
     };
     /*Swift.(file).FloatingPoint.squareRoot()*/
     /*Swift.(file).FloatingPoint.squareRoot()*/
     FloatingPoint$implementation.prototype.squareRoot = function ($info) {
-        throw 'unsupported method Swift.(file).FloatingPoint.squareRoot() in ' + this.constructor.name;
+        var lhs = this;
+        lhs.formSquareRoot({ $setThis: function ($val) { return lhs = $val; }, Self: this.$info.Self });
+        return lhs;
     };
     /*Swift.(file).FloatingPoint.addingProduct(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.addingProduct(_:Self,_:Self)*/
     FloatingPoint$implementation.prototype.addingProduct = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FloatingPoint.addingProduct(_:Self,_:Self) in ' + this.constructor.name;
+        var addend = this;
+        addend.addProduct({ $setThis: function ($val) { return addend = $val; }, Self: this.$info.Self }, lhs, rhs);
+        return addend;
     };
     /*Swift.(file).FloatingPoint.minimum(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.minimum(_:Self,_:Self)*/
     FloatingPoint$implementation.minimum = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).FloatingPoint.minimum(_:Self,_:Self) in ' + this.constructor.name;
+        {
+            if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
+                return $info.Self.infix_43({ Self: $info.Self }, x, y);
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_124_124({}, $info.Self.infix_60_61({ Self: $info.Self }, x, y), function () { return y._isNaN; }))) {
+                return x;
+            }
+        }
+        ;
+        return y;
     };
     /*Swift.(file).FloatingPoint.maximum(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.maximum(_:Self,_:Self)*/
     FloatingPoint$implementation.maximum = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).FloatingPoint.maximum(_:Self,_:Self) in ' + this.constructor.name;
+        {
+            if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
+                return $info.Self.infix_43({ Self: $info.Self }, x, y);
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_124_124({}, $info.Self.infix_62({ Self: $info.Self }, x, y), function () { return y._isNaN; }))) {
+                return x;
+            }
+        }
+        ;
+        return y;
     };
     /*Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self)*/
     FloatingPoint$implementation.minimumMagnitude = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self) in ' + this.constructor.name;
+        {
+            if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
+                return $info.Self.infix_43({ Self: $info.Self }, x, y);
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_124_124({}, $info.Self.infix_60_61({ Self: $info.Self }, x.magnitude, y.magnitude), function () { return y._isNaN; }))) {
+                return x;
+            }
+        }
+        ;
+        return y;
     };
     /*Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self)*/
     FloatingPoint$implementation.maximumMagnitude = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self) in ' + this.constructor.name;
+        {
+            if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
+                return $info.Self.infix_43({ Self: $info.Self }, x, y);
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_124_124({}, $info.Self.infix_62({ Self: $info.Self }, x.magnitude, y.magnitude), function () { return y._isNaN; }))) {
+                return x;
+            }
+        }
+        ;
+        return y;
     };
-    /*Swift.(file).FloatingPoint.floatingPointClass*/ ;
+    /*Swift.(file).FloatingPoint.floatingPointClass*/
+    FloatingPoint$implementation.prototype.floatingPointClass$get = function () {
+        return this.floatingPointClass$internal;
+    };
+    Object.defineProperty(FloatingPoint$implementation.prototype, "floatingPointClass", {
+        get: function () { return this.floatingPointClass$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     return FloatingPoint$implementation;
 }());
 if (typeof SignedNumeric$implementation != 'undefined')
@@ -20129,7 +21592,23 @@ if (typeof Hashable$implementation != 'undefined')
 var BinaryFloatingPoint$implementation = /** @class */ (function () {
     function BinaryFloatingPoint$implementation() {
     }
-    /*Swift.(file).BinaryFloatingPoint.radix*/ ;
+    /*Swift.(file).BinaryFloatingPoint.radix*/
+    BinaryFloatingPoint$implementation.radix$get = function () {
+        return this.radix$internal;
+    };
+    Object.defineProperty(BinaryFloatingPoint$implementation, "radix", {
+        get: function () { return this.radix$get(); },
+        set: function ($newValue) {
+            this.radix$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    BinaryFloatingPoint$implementation.radix$set = function ($newValue) {
+        var $oldValue = this.radix$internal;
+        this.radix$internal = $newValue;
+    };
+    ;
     /*Swift.(file).BinaryFloatingPoint.init(signOf:Self,magnitudeOf:Self)*/
     /*Swift.(file).BinaryFloatingPoint.init(signOf:Self,magnitudeOf:Self)*/
     BinaryFloatingPoint$implementation.prototype.initSignOfMagnitudeOf = function ($info, signOf, magnitudeOf) {
@@ -20147,7 +21626,49 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)*/
     /*Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)*/
     BinaryFloatingPoint$implementation.prototype.isTotallyOrderedBelowOrEqualTo = function ($info, other) {
-        throw 'unsupported method Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self) in ' + this.constructor.name;
+        {
+            if ((this.$info.Self.infix_60({ Self: this.$info.Self }, this, other))) {
+                return true;
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.infix_62({ Self: this.$info.Self }, other, this))) {
+                return false;
+            }
+        }
+        ;
+        {
+            if ((FloatingPointSign.infix_33_61({ Self: FloatingPointSign }, this.sign, other.sign))) {
+                return FloatingPointSign.infix_61_61({}, this.sign, FloatingPointSign.minus);
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.RawExponent.infix_62({ Self: this.$info.Self.RawExponent }, this.exponentBitPattern, other.exponentBitPattern))) {
+                return FloatingPointSign.infix_61_61({}, this.sign, FloatingPointSign.minus);
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.RawExponent.infix_60({ Self: this.$info.Self.RawExponent }, this.exponentBitPattern, other.exponentBitPattern))) {
+                return FloatingPointSign.infix_61_61({}, this.sign, FloatingPointSign.plus);
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.RawSignificand.infix_62({ Self: this.$info.Self.RawSignificand }, this.significandBitPattern, other.significandBitPattern))) {
+                return FloatingPointSign.infix_61_61({}, this.sign, FloatingPointSign.minus);
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.RawSignificand.infix_60({ Self: this.$info.Self.RawSignificand }, this.significandBitPattern, other.significandBitPattern))) {
+                return FloatingPointSign.infix_61_61({}, this.sign, FloatingPointSign.plus);
+            }
+        }
+        ;
+        return true;
     };
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
@@ -20418,13 +21939,20 @@ var MIO_Mixin_Float = /** @class */ (function () {
     ;
     /*Swift.(file).Float.ulpOfOne*/
     MIO_Mixin_Float.ulpOfOne$get = function () {
-        throw 'unsupported variable Swift.(file).Float.ulpOfOne in ' + this.constructor.name;
+        return this.ulpOfOne$internal;
     };
     Object.defineProperty(MIO_Mixin_Float, "ulpOfOne", {
         get: function () { return this.ulpOfOne$get(); },
+        set: function ($newValue) {
+            this.ulpOfOne$set($newValue);
+        },
         enumerable: true,
         configurable: true
     });
+    MIO_Mixin_Float.ulpOfOne$set = function ($newValue) {
+        var $oldValue = this.ulpOfOne$internal;
+        this.ulpOfOne$internal = $newValue;
+    };
     ;
     /*Swift.(file).Float.exponent*/
     MIO_Mixin_Float.prototype.exponent$get = function () {
@@ -20473,7 +22001,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Float.prototype.negate = function ($info) {
-        throw 'unsupported method Swift.(file).Float.negate() in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(this.$info.Self.infix_45({ Self: this.$info.Self }, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0), this)));
     };
     /*Swift.(file).Float.+=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -20652,7 +22180,9 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Float.prefix_45 = function ($info, x) {
-        return -x;
+        var result = operand;
+        result.negate({ $setThis: function ($val) { return result = $val; }, Self: $info.Self });
+        return result;
     };
     /*Swift.(file).Float.init(_:Int)*/
     /*Swift.(file).FloatingPoint.init(_:Int)*/
@@ -20777,7 +22307,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_58.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_58.prototype.init$vars = function () {
             };
@@ -20810,7 +22340,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_59.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_59.prototype.init$vars = function () {
             };
@@ -20843,7 +22373,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_60.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_60.prototype.init$vars = function () {
             };
@@ -20876,7 +22406,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_61.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_61.prototype.init$vars = function () {
             };
@@ -20909,7 +22439,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_62.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_62.prototype.init$vars = function () {
             };
@@ -20942,7 +22472,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
             }; /*Swift.(file).Float.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_63.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_63.prototype.init$vars = function () {
             };
@@ -21239,13 +22769,20 @@ var MIO_Mixin_Double = /** @class */ (function () {
     ;
     /*Swift.(file).Double.ulpOfOne*/
     MIO_Mixin_Double.ulpOfOne$get = function () {
-        throw 'unsupported variable Swift.(file).Double.ulpOfOne in ' + this.constructor.name;
+        return this.ulpOfOne$internal;
     };
     Object.defineProperty(MIO_Mixin_Double, "ulpOfOne", {
         get: function () { return this.ulpOfOne$get(); },
+        set: function ($newValue) {
+            this.ulpOfOne$set($newValue);
+        },
         enumerable: true,
         configurable: true
     });
+    MIO_Mixin_Double.ulpOfOne$set = function ($newValue) {
+        var $oldValue = this.ulpOfOne$internal;
+        this.ulpOfOne$internal = $newValue;
+    };
     ;
     /*Swift.(file).Double.exponent*/
     MIO_Mixin_Double.prototype.exponent$get = function () {
@@ -21294,7 +22831,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Double.prototype.negate = function ($info) {
-        throw 'unsupported method Swift.(file).Double.negate() in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(this.$info.Self.infix_45({ Self: this.$info.Self }, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0), this)));
     };
     /*Swift.(file).Double.+=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -21473,7 +23010,9 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Double.prefix_45 = function ($info, x) {
-        return -x;
+        var result = operand;
+        result.negate({ $setThis: function ($val) { return result = $val; }, Self: $info.Self });
+        return result;
     };
     /*Swift.(file).Double.init(_:Int)*/
     /*Swift.(file).FloatingPoint.init(_:Int)*/
@@ -21598,7 +23137,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_64.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_64.prototype.init$vars = function () {
             };
@@ -21631,7 +23170,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_65.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_65.prototype.init$vars = function () {
             };
@@ -21664,7 +23203,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_66.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_66.prototype.init$vars = function () {
             };
@@ -21697,7 +23236,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_67.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_67.prototype.init$vars = function () {
             };
@@ -21730,7 +23269,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_68.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_68.prototype.init$vars = function () {
             };
@@ -21763,7 +23302,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
             }; /*Swift.(file).Double.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_69.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_69.prototype.init$vars = function () {
             };
@@ -22025,13 +23564,20 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     ;
     /*Swift.(file).Float80.ulpOfOne*/
     MIO_Mixin_Float80.ulpOfOne$get = function () {
-        throw 'unsupported variable Swift.(file).Float80.ulpOfOne in ' + this.constructor.name;
+        return this.ulpOfOne$internal;
     };
     Object.defineProperty(MIO_Mixin_Float80, "ulpOfOne", {
         get: function () { return this.ulpOfOne$get(); },
+        set: function ($newValue) {
+            this.ulpOfOne$set($newValue);
+        },
         enumerable: true,
         configurable: true
     });
+    MIO_Mixin_Float80.ulpOfOne$set = function ($newValue) {
+        var $oldValue = this.ulpOfOne$internal;
+        this.ulpOfOne$internal = $newValue;
+    };
     ;
     /*Swift.(file).Float80.exponent*/
     MIO_Mixin_Float80.prototype.exponent$get = function () {
@@ -22080,7 +23626,7 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Float80.prototype.negate = function ($info) {
-        throw 'unsupported method Swift.(file).Float80.negate() in ' + this.constructor.name;
+        $info.$setThis(_cloneStruct(this.$info.Self.infix_45({ Self: this.$info.Self }, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0), this)));
     };
     /*Swift.(file).Float80.+=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -22259,7 +23805,9 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Float80.prefix_45 = function ($info, x) {
-        return -x;
+        var result = operand;
+        result.negate({ $setThis: function ($val) { return result = $val; }, Self: $info.Self });
+        return result;
     };
     /*Swift.(file).Float80.init(_:Int)*/
     /*Swift.(file).FloatingPoint.init(_:Int)*/
@@ -22451,44 +23999,69 @@ var BinaryInteger$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     BinaryInteger$implementation.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).BinaryInteger.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self)*/
     /*Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self)*/
     BinaryInteger$implementation.prototype.quotientAndRemainderDividingBy = function ($info, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self) in ' + this.constructor.name;
+        return { 0: this.$info.Self.infix_47({ Self: this.$info.Self }, this, rhs), 1: this.$info.Self.infix_37({ Self: this.$info.Self }, this, rhs) };
     };
     /*Swift.(file).BinaryInteger.isMultiple(of:Self)*/
     /*Swift.(file).BinaryInteger.isMultiple(of:Self)*/
     BinaryInteger$implementation.prototype.isMultipleOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).BinaryInteger.isMultiple(of:Self) in ' + this.constructor.name;
+        {
+            if ((this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, other, 0))) {
+                return this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, this, 0);
+            }
+        }
+        ;
+        return this.$info.Self.Magnitude.infix_61_61({ Self: this.$info.Self.Magnitude, Other: Int }, this.$info.Self.Magnitude.infix_37({ Self: this.$info.Self.Magnitude }, this.magnitude, other.magnitude), 0);
     };
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).BinaryInteger.>>infix(_:Self,_:RHS)*/
     /*Swift.(file).BinaryInteger.>>infix(_:Self,_:RHS)*/
     BinaryInteger$implementation.infix_62_62 = function ($info, lhs, rhs) {
-        return lhs >> rhs;
+        var r = lhs;
+        $info.Self.infix_62_62_61({ Self: $info.Self, RHS: $info.RHS }, { get: function () { return r; }, set: function ($val) { return r = $val; } }, rhs);
+        return r;
     };
     /*Swift.(file).BinaryInteger.<<infix(_:Self,_:RHS)*/
     /*Swift.(file).BinaryInteger.<<infix(_:Self,_:RHS)*/
     BinaryInteger$implementation.infix_60_60 = function ($info, lhs, rhs) {
-        return lhs << rhs;
+        var r = lhs;
+        $info.Self.infix_60_60_61({ Self: $info.Self, RHS: $info.RHS }, { get: function () { return r; }, set: function ($val) { return r = $val; } }, rhs);
+        return r;
     };
-    /*Swift.(file).BinaryInteger.description*/ ;
+    /*Swift.(file).BinaryInteger.description*/
+    BinaryInteger$implementation.prototype.description$get = function () {
+        throw 'unsupported variable Swift.(file).BinaryInteger.description in ' + this.constructor.name;
+    };
+    Object.defineProperty(BinaryInteger$implementation.prototype, "description", {
+        get: function () { return this.description$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).BinaryInteger.distance(to:Self)*/
     /*Swift.(file).BinaryInteger.distance(to:Self)*/
     BinaryInteger$implementation.prototype.distanceTo = function ($info, other) {
@@ -22497,82 +24070,142 @@ var BinaryInteger$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.advanced(by:Int)*/
     /*Swift.(file).BinaryInteger.advanced(by:Int)*/
     BinaryInteger$implementation.prototype.advancedBy = function ($info, n) {
-        throw 'unsupported method Swift.(file).BinaryInteger.advanced(by:Int) in ' + this.constructor.name;
+        {
+            if ((Bool.prefix_33({}, this.$info.Self.isSigned))) {
+                return (Int.infix_60({}, n, 0) ? this.$info.Self.infix_45({ Self: this.$info.Self }, this, _create(this.$info.Self, 'init', { Self: this.$info.Self, T: Int }, Int.prefix_45({ Self: Int }, n))) : this.$info.Self.infix_43({ Self: this.$info.Self }, this, _create(this.$info.Self, 'init', { Self: this.$info.Self, T: Int }, n)));
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_61_61({}, this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), Int.infix_60({ Self: Int, Other: this.$info.Self }, n, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0))))) {
+                return this.$info.Self.infix_43({ Self: this.$info.Self }, this, _create(this.$info.Self, 'init', { Self: this.$info.Self, T: Int }, n));
+            }
+        }
+        ;
+        return (this.$info.Self.Magnitude.infix_60({ Self: this.$info.Self.Magnitude, Other: UInt }, this.magnitude, n.magnitude) ? _create(this.$info.Self, 'init', { Self: this.$info.Self, T: Int }, Int.infix_43({}, _create(Int, 'init', { Self: Int, T: this.$info.Self }, this), n)) : this.$info.Self.infix_43({ Self: this.$info.Self }, this, _create(this.$info.Self, 'init', { Self: this.$info.Self, T: Int }, n)));
     };
     /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        var lhsNegative = Bool.infix_38_38({}, $info.Self.isSigned, function () { return $info.Self.infix_60({ Self: $info.Self }, lhs, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0)); });
+        var rhsNegative = Bool.infix_38_38({}, $info.Other.isSigned, function () { return $info.Other.infix_60({ Self: $info.Other }, rhs, _create($info.Other, 'initIntegerLiteral', { Self: $info.Other }, 0)); });
+        {
+            if ((Bool.infix_33_61({ Self: Bool }, lhsNegative, rhsNegative))) {
+                return false;
+            }
+        }
+        ;
+        {
+            if ((Int.infix_60({}, lhs.bitWidth, rhs.bitWidth))) {
+                return $info.Other.infix_61_61({ Self: $info.Other }, _create($info.Other, 'initTruncatingIfNeeded', { Self: $info.Other, T: $info.Self }, lhs), rhs);
+            }
+        }
+        ;
+        {
+            if ((Int.infix_62({}, lhs.bitWidth, rhs.bitWidth))) {
+                return $info.Self.infix_61_61({ Self: $info.Self }, lhs, _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Other }, rhs));
+            }
+        }
+        ;
+        {
+            if (($info.Self.isSigned)) {
+                return $info.Other.infix_61_61({ Self: $info.Other }, _create($info.Other, 'initTruncatingIfNeeded', { Self: $info.Other, T: $info.Self }, lhs), rhs);
+            }
+        }
+        ;
+        return $info.Self.infix_61_61({ Self: $info.Self }, lhs, _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Other }, rhs));
     };
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        return Bool.prefix_33({}, $info.Self.infix_61_61({ Self: $info.Self, Other: $info.Other }, lhs, rhs));
     };
     /*Swift.(file).BinaryInteger.<infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.<infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_60 = function ($info, lhs, rhs) {
-        return lhs < rhs;
+        var lhsNegative = Bool.infix_38_38({}, $info.Self.isSigned, function () { return $info.Self.infix_60({ Self: $info.Self }, lhs, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0)); });
+        var rhsNegative = Bool.infix_38_38({}, $info.Other.isSigned, function () { return $info.Other.infix_60({ Self: $info.Other }, rhs, _create($info.Other, 'initIntegerLiteral', { Self: $info.Other }, 0)); });
+        {
+            if ((Bool.infix_33_61({ Self: Bool }, lhsNegative, rhsNegative))) {
+                return lhsNegative;
+            }
+        }
+        ;
+        {
+            if ((Bool.infix_38_38({}, $info.Self.infix_61_61({ Self: $info.Self }, lhs, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0)), function () { return $info.Other.infix_61_61({ Self: $info.Other }, rhs, _create($info.Other, 'initIntegerLiteral', { Self: $info.Other }, 0)); }))) {
+                return false;
+            }
+        }
+        ;
+        var rhsAsSelf = _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Other }, rhs);
+        var rhsAsSelfNegative = $info.Self.infix_60({ Self: $info.Self }, rhsAsSelf, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0));
+        {
+            if ((Bool.infix_38_38({}, $info.Other.infix_61_61({ Self: $info.Other }, _create($info.Other, 'initTruncatingIfNeeded', { Self: $info.Other, T: $info.Self }, rhsAsSelf), rhs), function () { return Bool.infix_61_61({}, rhsNegative, rhsAsSelfNegative); }))) {
+                return $info.Self.infix_60({ Self: $info.Self }, lhs, rhsAsSelf);
+            }
+        }
+        ;
+        return $info.Other.infix_60({ Self: $info.Other }, _create($info.Other, 'initTruncatingIfNeeded', { Self: $info.Other, T: $info.Self }, lhs), rhs);
     };
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Other.infix_60({ Self: $info.Other, Other: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self, Other: $info.Other }, lhs, rhs));
     };
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Other.infix_60({ Self: $info.Other, Other: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        return Bool.prefix_33({}, $info.Self.infix_61_61({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).BinaryInteger.addWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.addWithOverflow(_:Self,_:Self)*/
     BinaryInteger$implementation.addWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.addWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Unavailable"; }, '?3', '?3');
     };
     /*Swift.(file).BinaryInteger.subtractWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.subtractWithOverflow(_:Self,_:Self)*/
     BinaryInteger$implementation.subtractWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.subtractWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Unavailable"; }, '?3', '?3');
     };
     /*Swift.(file).BinaryInteger.multiplyWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.multiplyWithOverflow(_:Self,_:Self)*/
     BinaryInteger$implementation.multiplyWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.multiplyWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Unavailable"; }, '?3', '?3');
     };
     /*Swift.(file).BinaryInteger.divideWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.divideWithOverflow(_:Self,_:Self)*/
     BinaryInteger$implementation.divideWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.divideWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Unavailable"; }, '?3', '?3');
     };
     /*Swift.(file).BinaryInteger.remainderWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.remainderWithOverflow(_:Self,_:Self)*/
     BinaryInteger$implementation.remainderWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).BinaryInteger.remainderWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        fatalErrorFileLine({}, function () { return "Unavailable"; }, '?3', '?3');
     };
     return BinaryInteger$implementation;
 }());
@@ -22596,7 +24229,16 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     FixedWidthInteger$implementation.prototype.initString = function ($info, description) {
         return description;
     };
-    /*Swift.(file).FixedWidthInteger.bitWidth*/ ;
+    /*Swift.(file).FixedWidthInteger.bitWidth*/
+    FixedWidthInteger$implementation.prototype.bitWidth$get = function () {
+        return this.bitWidth$internal;
+    };
+    Object.defineProperty(FixedWidthInteger$implementation.prototype, "bitWidth", {
+        get: function () { return this.bitWidth$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).FixedWidthInteger.init(littleEndian:Self)*/
     /*Swift.(file).FixedWidthInteger.init(littleEndian:Self)*/
     FixedWidthInteger$implementation.prototype.initLittleEndian = function ($info, value) {
@@ -22607,82 +24249,153 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     FixedWidthInteger$implementation.prototype.initBigEndian = function ($info, value) {
         return value;
     };
-    /*Swift.(file).FixedWidthInteger.littleEndian*/ ;
-    /*Swift.(file).FixedWidthInteger.bigEndian*/ ;
+    /*Swift.(file).FixedWidthInteger.littleEndian*/
+    FixedWidthInteger$implementation.prototype.littleEndian$get = function () {
+        return this.littleEndian$internal;
+    };
+    Object.defineProperty(FixedWidthInteger$implementation.prototype, "littleEndian", {
+        get: function () { return this.littleEndian$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).FixedWidthInteger.bigEndian*/
+    FixedWidthInteger$implementation.prototype.bigEndian$get = function () {
+        return this.bigEndian$internal;
+    };
+    Object.defineProperty(FixedWidthInteger$implementation.prototype, "bigEndian", {
+        get: function () { return this.bigEndian$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        return $info.Self.infix_38_62_62({ Self: $info.Self }, lhs, _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Other }, rhs));
     };
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_38_62_62_61 = function ($info, lhs$inout, rhs) {
-        /*lhs$inout.set(lhs$inout.get() &>> rhs)*/
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = $info.Self.infix_38_62_62({ Self: $info.Self, Other: $info.Other }, lhs, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        return $info.Self.infix_38_60_60({ Self: $info.Self }, lhs, _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Other }, rhs));
     };
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_38_60_60_61 = function ($info, lhs$inout, rhs) {
-        /*lhs$inout.set(lhs$inout.get() &<< rhs)*/
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = $info.Self.infix_38_60_60({ Self: $info.Self, Other: $info.Other }, lhs, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>,using:T)*/
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>,using:T)*/
     FixedWidthInteger$implementation.randomInUsing = function ($info, range, generator$inout) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.random(in:Range<Self>,using:T) in ' + this.constructor.name;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
+            var delta = _create($info.Self.Magnitude, 'initTruncatingIfNeeded', { Self: $info.Self.Magnitude, T: $info.Self }, $info.Self.infix_38_45({ Self: $info.Self }, range.upperBound, range.lowerBound));
+            return _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Self.Magnitude }, $info.Self.Magnitude.infix_38_43({ Self: $info.Self.Magnitude }, _create($info.Self.Magnitude, 'initTruncatingIfNeeded', { Self: $info.Self.Magnitude, T: $info.Self }, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; }, Self: $info.T, T: $info.Self.Magnitude }, delta)));
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>)*/
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>)*/
     FixedWidthInteger$implementation.randomIn = function ($info, range) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.random(in:Range<Self>) in ' + this.constructor.name;
+        var g = _create(SystemRandomNumberGenerator, 'init', {});
+        return $info.Self.randomInUsing({ Self: $info.Self, T: SystemRandomNumberGenerator }, range, { get: function () { return g; }, set: function ($val) { return g = $val; } });
     };
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>,using:T)*/
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>,using:T)*/
     FixedWidthInteger$implementation.randomInUsing = function ($info, range, generator$inout) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>,using:T) in ' + this.constructor.name;
+        var generator = generator$inout.get();
+        var $result = (function () {
+            preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
+            var delta = _create($info.Self.Magnitude, 'initTruncatingIfNeeded', { Self: $info.Self.Magnitude, T: $info.Self }, $info.Self.infix_38_45({ Self: $info.Self }, range.upperBound, range.lowerBound));
+            {
+                if (($info.Self.Magnitude.infix_61_61({ Self: $info.Self.Magnitude }, delta, $info.Self.Magnitude.max))) {
+                    return _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Self.Magnitude }, generator.next({ $setThis: function ($val) { return generator = $val; }, Self: $info.T, T: $info.Self.Magnitude }));
+                }
+            }
+            ;
+            $info.Self.Magnitude.infix_43_61({ Self: $info.Self.Magnitude }, { get: function () { return delta; }, set: function ($val) { return delta = $val; } }, _create($info.Self.Magnitude, 'initIntegerLiteral', { Self: $info.Self.Magnitude }, 1));
+            return _create($info.Self, 'initTruncatingIfNeeded', { Self: $info.Self, T: $info.Self.Magnitude }, $info.Self.Magnitude.infix_38_43({ Self: $info.Self.Magnitude }, _create($info.Self.Magnitude, 'initTruncatingIfNeeded', { Self: $info.Self.Magnitude, T: $info.Self }, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; }, Self: $info.T, T: $info.Self.Magnitude }, delta)));
+        })();
+        generator$inout.set(generator);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>)*/
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>)*/
     FixedWidthInteger$implementation.randomIn = function ($info, range) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>) in ' + this.constructor.name;
+        var g = _create(SystemRandomNumberGenerator, 'init', {});
+        return $info.Self.randomInUsing({ Self: $info.Self, T: SystemRandomNumberGenerator }, range, { get: function () { return g; }, set: function ($val) { return g = $val; } });
     };
     /*Swift.(file).FixedWidthInteger.~prefix(_:Self)*/
     /*Swift.(file).FixedWidthInteger.~prefix(_:Self)*/
     FixedWidthInteger$implementation.prefix_126 = function ($info, x) {
-        return ~x;
+        return $info.Self.infix_38_45({ Self: $info.Self }, $info.Self.infix_38_45({ Self: $info.Self }, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0), x), _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 1));
     };
     /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_62_62 = function ($info, lhs, rhs) {
-        return lhs >> rhs;
+        var lhs_dupl = lhs;
+        this._nonMaskingRightShiftGeneric({ Self: $info.Self, Other: $info.Other }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_62_62_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() >> rhs);
+        var _this = this;
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            _this._nonMaskingRightShiftGeneric({ Self: $info.Self, Other: $info.Other }, { get: function () { return lhs; }, set: function ($val) { return lhs = $val; } }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_60_60 = function ($info, lhs, rhs) {
-        return lhs << rhs;
+        var lhs_dupl = lhs;
+        this._nonMaskingLeftShiftGeneric({ Self: $info.Self, Other: $info.Other }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_60_60_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() << rhs);
+        var _this = this;
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            _this._nonMaskingLeftShiftGeneric({ Self: $info.Self, Other: $info.Other }, { get: function () { return lhs; }, set: function ($val) { return lhs = $val; } }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.init(_:T)*/
     /*Swift.(file).FixedWidthInteger.init(_:T)*/
@@ -22702,82 +24415,148 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     /*Swift.(file).FixedWidthInteger.init(truncatingIfNeeded:T)*/
     /*Swift.(file).FixedWidthInteger.init(truncatingIfNeeded:T)*/
     FixedWidthInteger$implementation.prototype.initTruncatingIfNeeded = function ($info, source) {
-        return source;
+        {
+            if ((Int.infix_60_61({}, $info.Self.bitWidth, Int.bitWidth))) {
+                $info.$setThis(_cloneStruct(_create($info.Self, 'init_truncatingBitsUInt', { Self: $info.Self }, source._lowWord)));
+            }
+            else {
+                var neg = $info.T.infix_60({ Self: $info.T }, source, _create($info.T, 'initIntegerLiteral', { Self: $info.T }, 0));
+                var result_2 = (neg ? $info.Self.prefix_126({ Self: $info.Self }, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0)) : _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0));
+                var shift_1 = _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0);
+                var width = _create($info.Self, 'init_truncatingBitsUInt', { Self: $info.Self }, $info.Self.bitWidth._lowWord);
+                {
+                    var $word$generator_1 = source.words.makeIterator({ Self: $info.T.Words });
+                    while (true) {
+                        var word = $word$generator_1.next({ $setThis: function ($val) { return $word$generator_1 = $val; }, Self: $info.T.Words.Iterator });
+                        if (!((word != null)))
+                            break;
+                        {
+                            if (!(($info.Self.infix_60({ Self: $info.Self }, shift_1, width)))) {
+                                break;
+                            }
+                        }
+                        ;
+                        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return result_2; }, set: function ($val) { return result_2 = $val; } }, $info.Self.infix_38_60_60({ Self: $info.Self }, _create($info.Self, 'init_truncatingBitsUInt', { Self: $info.Self }, (neg ? UInt.prefix_126({ Self: UInt }, word) : word)), shift_1));
+                        $info.Self.infix_43_61({ Self: $info.Self }, { get: function () { return shift_1; }, set: function ($val) { return shift_1 = $val; } }, _create($info.Self, 'init_truncatingBitsUInt', { Self: $info.Self }, Int.bitWidth._lowWord));
+                    }
+                }
+                ;
+                $info.$setThis(_cloneStruct(result_2));
+            }
+        }
+        ;
+        return;
     };
     /*Swift.(file).FixedWidthInteger.&+infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&+infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_43 = function ($info, lhs, rhs) {
-        /*return lhs &+ rhs*/
+        return lhs.addingReportingOverflow({ Self: $info.Self }, rhs)["0"];
     };
     /*Swift.(file).FixedWidthInteger.&+=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&+=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_43_61 = function ($info, lhs$inout, rhs) {
-        /*return lhs$inout &+= rhs*/
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = $info.Self.infix_38_43({ Self: $info.Self }, lhs, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.&-infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&-infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_45 = function ($info, lhs, rhs) {
-        /*return lhs &- rhs*/
+        return lhs.subtractingReportingOverflow({ Self: $info.Self }, rhs)["0"];
     };
     /*Swift.(file).FixedWidthInteger.&-=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&-=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_45_61 = function ($info, lhs$inout, rhs) {
-        /*return lhs$inout &-= rhs*/
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = $info.Self.infix_38_45({ Self: $info.Self }, lhs, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.&*infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&*infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_42 = function ($info, lhs, rhs) {
-        /*return lhs &* rhs*/
+        return lhs.multipliedReportingOverflowBy({ Self: $info.Self }, rhs)["0"];
     };
     /*Swift.(file).FixedWidthInteger.&*=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&*=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_42_61 = function ($info, lhs$inout, rhs) {
-        /*return lhs$inout &*= rhs*/
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs = $info.Self.infix_38_42({ Self: $info.Self }, lhs, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_62_62 = function ($info, lhs, rhs) {
-        return lhs >> rhs;
+        var lhs_dupl = lhs;
+        this._nonMaskingRightShiftGeneric({ Self: $info.Self, Other: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_62_62_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() >> rhs);
+        var _this = this;
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            _this._nonMaskingRightShiftGeneric({ Self: $info.Self, Other: $info.Self }, { get: function () { return lhs; }, set: function ($val) { return lhs = $val; } }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_60_60 = function ($info, lhs, rhs) {
-        return lhs << rhs;
+        var lhs_dupl = lhs;
+        this._nonMaskingLeftShiftGeneric({ Self: $info.Self, Other: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_60_60_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() << rhs);
+        var _this = this;
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            _this._nonMaskingLeftShiftGeneric({ Self: $info.Self, Other: $info.Self }, { get: function () { return lhs; }, set: function ($val) { return lhs = $val; } }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.addWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        var $tuple = lhs.addingReportingOverflow({ Self: $info.Self }, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.subtractWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        var $tuple = lhs.subtractingReportingOverflow({ Self: $info.Self }, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.multiplyWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        var $tuple = lhs.multipliedReportingOverflowBy({ Self: $info.Self }, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.divideWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        var $tuple = lhs.dividedReportingOverflowBy({ Self: $info.Self }, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.remainderWithOverflow = function ($info, lhs, rhs) {
-        throw 'unsupported method Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self) in ' + this.constructor.name;
+        var $tuple = lhs.remainderReportingOverflowDividingBy({ Self: $info.Self }, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        return { 0: partialValue, 1: overflow };
     };
     return FixedWidthInteger$implementation;
 }());
@@ -22788,8 +24567,33 @@ if (typeof LosslessStringConvertible$implementation != 'undefined')
 var UnsignedInteger$implementation = /** @class */ (function () {
     function UnsignedInteger$implementation() {
     }
-    /*Swift.(file).UnsignedInteger.magnitude*/ ;
-    /*Swift.(file).UnsignedInteger.isSigned*/ ;
+    /*Swift.(file).UnsignedInteger.magnitude*/
+    UnsignedInteger$implementation.prototype.magnitude$get = function () {
+        return this.magnitude$internal;
+    };
+    Object.defineProperty(UnsignedInteger$implementation.prototype, "magnitude", {
+        get: function () { return this.magnitude$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).UnsignedInteger.isSigned*/
+    UnsignedInteger$implementation.isSigned$get = function () {
+        return this.isSigned$internal;
+    };
+    Object.defineProperty(UnsignedInteger$implementation, "isSigned", {
+        get: function () { return this.isSigned$get(); },
+        set: function ($newValue) {
+            this.isSigned$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    UnsignedInteger$implementation.isSigned$set = function ($newValue) {
+        var $oldValue = this.isSigned$internal;
+        this.isSigned$internal = $newValue;
+    };
+    ;
     /*Swift.(file).UnsignedInteger.init(_:T)*/
     /*Swift.(file).UnsignedInteger.init(_:T)*/
     UnsignedInteger$implementation.prototype.init = function ($info, source) {
@@ -22800,8 +24604,40 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     UnsignedInteger$implementation.prototype.initExactly = function ($info, source) {
         return source;
     };
-    /*Swift.(file).UnsignedInteger.max*/ ;
-    /*Swift.(file).UnsignedInteger.min*/ ;
+    /*Swift.(file).UnsignedInteger.max*/
+    UnsignedInteger$implementation.max$get = function () {
+        return this.max$internal;
+    };
+    Object.defineProperty(UnsignedInteger$implementation, "max", {
+        get: function () { return this.max$get(); },
+        set: function ($newValue) {
+            this.max$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    UnsignedInteger$implementation.max$set = function ($newValue) {
+        var $oldValue = this.max$internal;
+        this.max$internal = $newValue;
+    };
+    ;
+    /*Swift.(file).UnsignedInteger.min*/
+    UnsignedInteger$implementation.min$get = function () {
+        return this.min$internal;
+    };
+    Object.defineProperty(UnsignedInteger$implementation, "min", {
+        get: function () { return this.min$get(); },
+        set: function ($newValue) {
+            this.min$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    UnsignedInteger$implementation.min$set = function ($newValue) {
+        var $oldValue = this.min$internal;
+        this.min$internal = $newValue;
+    };
+    ;
     return UnsignedInteger$implementation;
 }());
 if (typeof BinaryInteger$implementation != 'undefined')
@@ -22809,7 +24645,23 @@ if (typeof BinaryInteger$implementation != 'undefined')
 var SignedInteger$implementation = /** @class */ (function () {
     function SignedInteger$implementation() {
     }
-    /*Swift.(file).SignedInteger.isSigned*/ ;
+    /*Swift.(file).SignedInteger.isSigned*/
+    SignedInteger$implementation.isSigned$get = function () {
+        return this.isSigned$internal;
+    };
+    Object.defineProperty(SignedInteger$implementation, "isSigned", {
+        get: function () { return this.isSigned$get(); },
+        set: function ($newValue) {
+            this.isSigned$set($newValue);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SignedInteger$implementation.isSigned$set = function ($newValue) {
+        var $oldValue = this.isSigned$internal;
+        this.isSigned$internal = $newValue;
+    };
+    ;
     /*Swift.(file).SignedInteger.init(_:T)*/
     /*Swift.(file).SignedInteger.init(_:T)*/
     SignedInteger$implementation.prototype.init = function ($info, source) {
@@ -22820,32 +24672,62 @@ var SignedInteger$implementation = /** @class */ (function () {
     SignedInteger$implementation.prototype.initExactly = function ($info, source) {
         return source;
     };
-    /*Swift.(file).SignedInteger.max*/ ;
-    /*Swift.(file).SignedInteger.min*/ ;
+    /*Swift.(file).SignedInteger.max*/
+    SignedInteger$implementation.max$get = function () {
+        throw 'unsupported variable Swift.(file).SignedInteger.max in ' + this.constructor.name;
+    };
+    Object.defineProperty(SignedInteger$implementation, "max", {
+        get: function () { return this.max$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).SignedInteger.min*/
+    SignedInteger$implementation.min$get = function () {
+        throw 'unsupported variable Swift.(file).SignedInteger.min in ' + this.constructor.name;
+    };
+    Object.defineProperty(SignedInteger$implementation, "min", {
+        get: function () { return this.min$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).SignedInteger.isMultiple(of:Self)*/
     /*Swift.(file).SignedInteger.isMultiple(of:Self)*/
     SignedInteger$implementation.prototype.isMultipleOf = function ($info, other) {
-        throw 'unsupported method Swift.(file).SignedInteger.isMultiple(of:Self) in ' + this.constructor.name;
+        {
+            if ((this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, other, 0))) {
+                return this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, this, 0);
+            }
+        }
+        ;
+        {
+            if ((this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, other, -1))) {
+                return true;
+            }
+        }
+        ;
+        return this.$info.Self.infix_61_61({ Self: this.$info.Self, Other: Int }, this.$info.Self.infix_37({ Self: this.$info.Self }, this, other), 0);
     };
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_43 = function ($info, lhs, rhs) {
-        /*return lhs &+ rhs*/
+        return this._maskingAdd({ Self: $info.Self }, lhs, rhs);
     };
     /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_45 = function ($info, lhs, rhs) {
-        /*return lhs &- rhs*/
+        return this._maskingSubtract({ Self: $info.Self }, lhs, rhs);
     };
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_43 = function ($info, lhs, rhs) {
-        /*return lhs &+ rhs*/
+        return this._maskingAdd({ Self: $info.Self }, lhs, rhs);
     };
     /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_45 = function ($info, lhs, rhs) {
-        /*return lhs &- rhs*/
+        return this._maskingSubtract({ Self: $info.Self }, lhs, rhs);
     };
     return SignedInteger$implementation;
 }());
@@ -22856,8 +24738,21 @@ if (typeof SignedNumeric$implementation != 'undefined')
 var LazyCollectionProtocol$implementation = /** @class */ (function () {
     function LazyCollectionProtocol$implementation() {
     }
-    /*Swift.(file).LazyCollectionProtocol.lazy*/ ;
-    /*Swift.(file).LazyCollectionProtocol.lazy*/ ;
+    /*Swift.(file).LazyCollectionProtocol.lazy*/
+    LazyCollectionProtocol$implementation.prototype.lazy$get = function () {
+        return this.lazy$internal;
+    };
+    Object.defineProperty(LazyCollectionProtocol$implementation.prototype, "lazy", {
+        get: function () { return this.lazy$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file).LazyCollectionProtocol.lazy*/
+    LazyCollectionProtocol$implementation.prototype.lazy$get = function () {
+        return this.lazy$internal;
+    };
+    ;
     return LazyCollectionProtocol$implementation;
 }());
 if (typeof Collection$implementation != 'undefined')
@@ -22920,12 +24815,12 @@ var _Pointer$implementation = /** @class */ (function () {
     /*Swift.(file)._Pointer.successor()*/
     /*Swift.(file)._Pointer.successor()*/
     _Pointer$implementation.prototype.successor = function ($info) {
-        throw 'unsupported method Swift.(file)._Pointer.successor() in ' + this.constructor.name;
+        return this.advancedBy({ Self: this.$info.Self }, 1);
     };
     /*Swift.(file)._Pointer.predecessor()*/
     /*Swift.(file)._Pointer.predecessor()*/
     _Pointer$implementation.prototype.predecessor = function ($info) {
-        throw 'unsupported method Swift.(file)._Pointer.predecessor() in ' + this.constructor.name;
+        return this.advancedBy({ Self: this.$info.Self }, -1);
     };
     /*Swift.(file)._Pointer.distance(to:Self)*/
     /*Swift.(file)._Pointer.distance(to:Self)*/
@@ -22940,10 +24835,34 @@ var _Pointer$implementation = /** @class */ (function () {
     /*Swift.(file)._Pointer.hash(into:Hasher)*/
     /*Swift.(file)._Pointer.hash(into:Hasher)*/
     _Pointer$implementation.prototype.hashInto = function ($info, hasher$inout) {
-        throw 'unsupported method Swift.(file)._Pointer.hash(into:Hasher) in ' + this.constructor.name;
+        var _this = this;
+        var hasher = hasher$inout.get();
+        var $result = (function () {
+            hasher.combine({ $setThis: function ($val) { return hasher = $val; }, H: UInt }, _create(UInt, 'initBitPatternOptional', { P: _this.$info.Self }, _this));
+        })();
+        hasher$inout.set(hasher);
+        return $result;
     };
-    /*Swift.(file)._Pointer.debugDescription*/ ;
-    /*Swift.(file)._Pointer.customMirror*/ ;
+    /*Swift.(file)._Pointer.debugDescription*/
+    _Pointer$implementation.prototype.debugDescription$get = function () {
+        throw 'unsupported variable Swift.(file)._Pointer.debugDescription in ' + this.constructor.name;
+    };
+    Object.defineProperty(_Pointer$implementation.prototype, "debugDescription", {
+        get: function () { return this.debugDescription$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    /*Swift.(file)._Pointer.customMirror*/
+    _Pointer$implementation.prototype.customMirror$get = function () {
+        throw 'unsupported variable Swift.(file)._Pointer.customMirror in ' + this.constructor.name;
+    };
+    Object.defineProperty(_Pointer$implementation.prototype, "customMirror", {
+        get: function () { return this.customMirror$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     return _Pointer$implementation;
 }());
 if (typeof Hashable$implementation != 'undefined')
@@ -22965,8 +24884,7 @@ var LazyPrefixWhileSequence = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     LazyPrefixWhileSequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).LazyPrefixWhileSequence.startIndex*/
     LazyPrefixWhileSequence.prototype.startIndex$get = function () {
@@ -23115,9 +25033,25 @@ var RandomAccessCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     RandomAccessCollection$implementation.prototype.indexOffsetByLimitedBy = function ($info, i, distance, limit) {
-        throw 'unsupported method Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
-    /*Swift.(file).RandomAccessCollection.indices*/ ;
+    /*Swift.(file).RandomAccessCollection.indices*/
+    RandomAccessCollection$implementation.prototype.indices$get = function () {
+        return this.indices$internal;
+    };
+    Object.defineProperty(RandomAccessCollection$implementation.prototype, "indices", {
+        get: function () { return this.indices$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
     RandomAccessCollection$implementation.prototype.indexAfter = function ($info, i) {
@@ -23174,11 +25108,12 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     Range.prototype.contains = function ($info, _element) {
-        return _element >= this.lowerBound && _element < this.upperBound;
+        var _this = this;
+        return Bool.infix_38_38({}, this.$info.Bound.infix_60_61({ Self: this.$info.Bound }, this.lowerBound, _element), function () { return _this.$info.Bound.infix_60({ Self: _this.$info.Bound }, _element, _this.upperBound); });
     };
     /*Swift.(file).Range.isEmpty*/
     Range.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).Range.isEmpty in ' + this.constructor.name;
+        return this.$info.Bound.infix_61_61({ Self: this.$info.Bound }, this.lowerBound, this.upperBound);
     };
     Object.defineProperty(Range.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -23188,7 +25123,7 @@ var Range = /** @class */ (function () {
     ;
     /*Swift.(file).Range.startIndex*/
     Range.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Range.startIndex in ' + this.constructor.name;
+        return this.lowerBound;
     };
     Object.defineProperty(Range.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -23198,7 +25133,7 @@ var Range = /** @class */ (function () {
     ;
     /*Swift.(file).Range.endIndex*/
     Range.prototype.endIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Range.endIndex in ' + this.constructor.name;
+        return this.upperBound;
     };
     Object.defineProperty(Range.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -23231,18 +25166,29 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     Range.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Range.distance(from:Range<Bound>.Index,to:Range<Bound>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Range.subscript(_:Range<Range<Bound>.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     Range.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        return bounds;
     };
     /*Swift.(file).Range.indices*/
     Range.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).Range.indices in ' + this.constructor.name;
+        return this;
     };
     Object.defineProperty(Range.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -23265,16 +25211,18 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.relative(to:C)*/
     /*Swift.(file).RangeExpression.relative(to:C)*/
     Range.prototype.relativeTo = function ($info, collection) {
-        throw 'unsupported method Swift.(file).Range.relative(to:C) in ' + this.constructor.name;
+        return _create(Range, 'initUncheckedBoundstuple_type', { Bound: $info.Bound }, { 0: this.lowerBound, 1: this.upperBound });
     };
     /*Swift.(file).Range.clamped(to:Range<Bound>)*/
     /*Swift.(file).Range.clamped(to:Range<Bound>)*/
     Range.prototype.clampedTo = function ($info, limits) {
-        throw 'unsupported method Swift.(file).Range.clamped(to:Range<Bound>) in ' + this.constructor.name;
+        var lower = (this.$info.Bound.infix_62({ Self: this.$info.Bound }, limits.lowerBound, this.lowerBound) ? limits.lowerBound : (this.$info.Bound.infix_60({ Self: this.$info.Bound }, limits.upperBound, this.lowerBound) ? limits.upperBound : this.lowerBound));
+        var upper = (this.$info.Bound.infix_60({ Self: this.$info.Bound }, limits.upperBound, this.upperBound) ? limits.upperBound : (this.$info.Bound.infix_62({ Self: this.$info.Bound }, limits.lowerBound, this.upperBound) ? limits.lowerBound : this.upperBound));
+        return _create(Range, 'initUncheckedBoundstuple_type', { Bound: this.$info.Bound }, { 0: lower, 1: upper });
     };
     /*Swift.(file).Range.description*/
     Range.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).Range.description in ' + this.constructor.name;
+        return (("") + (this.lowerBound) + ("..<") + (this.upperBound) + (""));
     };
     Object.defineProperty(Range.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -23284,7 +25232,7 @@ var Range = /** @class */ (function () {
     ;
     /*Swift.(file).Range.debugDescription*/
     Range.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).Range.debugDescription in ' + this.constructor.name;
+        return String.infix_43({}, (("Range(") + (_create(String, 'initReflecting', { Subject: this.$info.Bound }, this.lowerBound)) + ("")), (("..<") + (_create(String, 'initReflecting', { Subject: this.$info.Bound }, this.upperBound)) + (")")));
     };
     Object.defineProperty(Range.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -23294,7 +25242,7 @@ var Range = /** @class */ (function () {
     ;
     /*Swift.(file).Range.customMirror*/
     Range.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Range.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Range, Bound: this.$info.Bound }) }, this, new Map([["lowerBound", this.lowerBound], ["upperBound", this.upperBound]]), null, null);
     };
     Object.defineProperty(Range.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -23305,7 +25253,7 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.==infix(_:Range<Bound>,_:Range<Bound>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Range.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        return Bool.infix_38_38({}, $info.Bound.infix_61_61({ Self: $info.Bound }, lhs.lowerBound, rhs.lowerBound), function () { return $info.Bound.infix_61_61({ Self: $info.Bound }, lhs.upperBound, rhs.upperBound); });
     };
     /*Swift.(file).Range.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -23325,12 +25273,14 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.overlaps(_:Range<Bound>)*/
     /*Swift.(file).Range.overlaps(_:Range<Bound>)*/
     Range.prototype.overlaps = function ($info, other) {
-        throw 'unsupported method Swift.(file).Range.overlaps(_:Range<Bound>) in ' + this.constructor.name;
+        var _this = this;
+        return Bool.infix_124_124({}, Bool.infix_38_38({}, Bool.prefix_33({}, other.isEmpty), function () { return _this.contains({ Bound: _this.$info.Bound }, other.lowerBound); }), function () { return Bool.infix_38_38({}, Bool.prefix_33({}, _this.isEmpty), function () { return other.contains({ Bound: _this.$info.Bound }, _this.lowerBound); }); });
     };
     /*Swift.(file).Range.overlaps(_:ClosedRange<Bound>)*/
     /*Swift.(file).Range.overlaps(_:ClosedRange<Bound>)*/
     Range.prototype.overlaps = function ($info, other) {
-        throw 'unsupported method Swift.(file).Range.overlaps(_:ClosedRange<Bound>) in ' + this.constructor.name;
+        var _this = this;
+        return Bool.infix_124_124({}, this.contains({ Bound: this.$info.Bound }, other.lowerBound), function () { return Bool.infix_38_38({}, Bool.prefix_33({}, _this.isEmpty), function () { return other.contains({ Bound: _this.$info.Bound }, _this.lowerBound); }); });
     };
     /*Swift.(file).Range.init(_:Range<Bound>)*/
     /*Swift.(file).Range.init(_:Range<Bound>)*/
@@ -23339,28 +25289,6 @@ var Range = /** @class */ (function () {
     };
     Range.prototype.init$vars = function () {
     };
-    Range.prototype.suffixFrom = function ($info, start) {
-        return _create(Range, 'initUncheckedBoundstuple_type', this.$info, [start, this.upperBound]);
-    };
-    Object.defineProperty(Range.prototype, "first", {
-        get: function () { return this.lowerBound; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Range.prototype, "last", {
-        get: function () { return this.upperBound - 1; },
-        enumerable: true,
-        configurable: true
-    });
-    Range.prototype.makeIterator = function () {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this.contains(null, current + _this.lowerBound) ? current + _this.lowerBound : null; });
-    };
-    Object.defineProperty(Range.prototype, "count", {
-        get: function () { return this.upperBound - this.lowerBound; },
-        enumerable: true,
-        configurable: true
-    });
     Range.$struct = true;
     Range.$infoAddress = '';
     return Range;
@@ -23390,7 +25318,7 @@ var Repeated = /** @class */ (function () {
     }
     /*Swift.(file).Repeated.count*/
     Repeated.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).Repeated.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(Repeated.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -23418,7 +25346,7 @@ var Repeated = /** @class */ (function () {
     };
     /*Swift.(file).Repeated.startIndex*/
     Repeated.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Repeated.startIndex in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(Repeated.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -23428,7 +25356,7 @@ var Repeated = /** @class */ (function () {
     ;
     /*Swift.(file).Repeated.endIndex*/
     Repeated.prototype.endIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Repeated.endIndex in ' + this.constructor.name;
+        return this.count;
     };
     Object.defineProperty(Repeated.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -23441,7 +25369,9 @@ var Repeated = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     Repeated.prototype.subscript$get = function ($info, position) {
-        return this[position];
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.infix_38_38({}, Int.infix_62_61({}, position, 0), function () { return Int.infix_60({}, position, _this.count); }); }, function () { return "Index out of range"; }, '?3', '?3');
+        return this.repeatedValue;
     };
     Repeated.prototype.init$vars = function () {
     };
@@ -23463,12 +25393,11 @@ var ReversedCollection = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     ReversedCollection.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(ReversedCollection.Iterator, 'init_base', { Base: this.$info.Base }, this._base);
     };
     /*Swift.(file).ReversedCollection.startIndex*/
     ReversedCollection.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).ReversedCollection.startIndex in ' + this.constructor.name;
+        return _create(ReversedCollection.Index, 'init', { Base: this.$info.Base }, this._base.endIndex);
     };
     Object.defineProperty(ReversedCollection.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -23478,7 +25407,7 @@ var ReversedCollection = /** @class */ (function () {
     ;
     /*Swift.(file).ReversedCollection.endIndex*/
     ReversedCollection.prototype.endIndex$get = function () {
-        throw 'unsupported variable Swift.(file).ReversedCollection.endIndex in ' + this.constructor.name;
+        return _create(ReversedCollection.Index, 'init', { Base: this.$info.Base }, this._base.startIndex);
     };
     Object.defineProperty(ReversedCollection.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -23491,46 +25420,46 @@ var ReversedCollection = /** @class */ (function () {
     /*Swift.(file).Collection.index(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
     ReversedCollection.prototype.indexAfter = function ($info, i) {
-        throw 'unsupported method Swift.(file).ReversedCollection.index(after:ReversedCollection<Base>.Index) in ' + this.constructor.name;
+        return _create(ReversedCollection.Index, 'init', { Base: this.$info.Base }, this._base.indexBefore({ Self: this.$info.Base }, i.base));
     };
     /*Swift.(file).ReversedCollection.index(before:ReversedCollection<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
     ReversedCollection.prototype.indexBefore = function ($info, i) {
-        throw 'unsupported method Swift.(file).ReversedCollection.index(before:ReversedCollection<Base>.Index) in ' + this.constructor.name;
+        return _create(ReversedCollection.Index, 'init', { Base: this.$info.Base }, this._base.indexAfter({ Self: this.$info.Base }, i.base));
     };
     /*Swift.(file).ReversedCollection.index(_:ReversedCollection<Base>.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
     ReversedCollection.prototype.indexOffsetBy = function ($info, i, n) {
-        throw 'unsupported method Swift.(file).ReversedCollection.index(_:ReversedCollection<Base>.Index,offsetBy:Int) in ' + this.constructor.name;
+        return _create(ReversedCollection.Index, 'init', { Base: this.$info.Base }, this._base.indexOffsetBy({ Self: this.$info.Base }, i.base, Int.prefix_45({ Self: Int }, n)));
     };
     /*Swift.(file).ReversedCollection.index(_:ReversedCollection<Base>.Index,offsetBy:Int,limitedBy:ReversedCollection<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     ReversedCollection.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).ReversedCollection.index(_:ReversedCollection<Base>.Index,offsetBy:Int,limitedBy:ReversedCollection<Base>.Index) in ' + this.constructor.name;
+        return this._base.indexOffsetByLimitedBy({ Self: this.$info.Base }, i.base, Int.prefix_45({ Self: Int }, n), limit.base).mapSwift({ Wrapped: this.$info.Base.Index, U: _clarifyGenerics({ Self: ReversedCollection, Base: this.$info.Base }).Index }, init({ Base: this.$info.Base }, ReversedCollection.Index));
     };
     /*Swift.(file).ReversedCollection.distance(from:ReversedCollection<Base>.Index,to:ReversedCollection<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     ReversedCollection.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).ReversedCollection.distance(from:ReversedCollection<Base>.Index,to:ReversedCollection<Base>.Index) in ' + this.constructor.name;
+        return this._base.distanceFromTo({ Self: this.$info.Base }, end.base, start.base);
     };
     /*Swift.(file).ReversedCollection.subscript(_:ReversedCollection<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     ReversedCollection.prototype.subscript$get = function ($info, position) {
-        return this[position];
+        return this._base.subscript$get({}, this._base.indexBefore({ Self: this.$info.Base }, position.base));
     };
     /*Swift.(file).ReversedCollection.reversed()*/
     /*Swift.(file).ReversedCollection.reversed()*/
     ReversedCollection.prototype.reversed = function ($info) {
-        throw 'unsupported method Swift.(file).ReversedCollection.reversed() in ' + this.constructor.name;
+        return this._base;
     };
     ReversedCollection.prototype.init$vars = function () {
     };
@@ -23644,7 +25573,7 @@ var Slice = /** @class */ (function () {
     ;
     /*Swift.(file).Slice.startIndex*/
     Slice.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Slice.startIndex in ' + this.constructor.name;
+        return this._startIndex;
     };
     Object.defineProperty(Slice.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -23654,7 +25583,7 @@ var Slice = /** @class */ (function () {
     ;
     /*Swift.(file).Slice.endIndex*/
     Slice.prototype.endIndex$get = function () {
-        throw 'unsupported variable Swift.(file).Slice.endIndex in ' + this.constructor.name;
+        return this._endIndex;
     };
     Object.defineProperty(Slice.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -23676,11 +25605,12 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     Slice.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).Slice.indices*/
     Slice.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).Slice.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(Slice.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -23700,7 +25630,13 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     Slice.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Slice.formIndex(after:Slice<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Slice.index(_:Slice<Base>.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -23714,14 +25650,32 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     Slice.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).Slice.index(_:Slice<Base>.Index,offsetBy:Int,limitedBy:Slice<Base>.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).Slice.distance(from:Slice<Base>.Index,to:Slice<Base>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     Slice.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Slice.distance(from:Slice<Base>.Index,to:Slice<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Slice.index(before:Slice<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -23733,7 +25687,13 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     Slice.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Slice.formIndex(before:Slice<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Slice.subscript(_:Slice<Base>.Index)*/
     /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
@@ -23742,7 +25702,7 @@ var Slice = /** @class */ (function () {
     }; /*Swift.(file).Slice.subscript(_:Slice<Base>.Index)*/
     /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
     Slice.prototype.subscript$set = function ($info, newValue, index) {
-        this[index] = newValue;
+        this[index] = _cloneStruct(newValue);
     };
     /*Swift.(file).Slice.subscript(_:Range<Slice<Base>.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -23751,7 +25711,7 @@ var Slice = /** @class */ (function () {
     }; /*Swift.(file).Slice.subscript(_:Range<Slice<Base>.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     Slice.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).Slice.init()*/
     /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -23774,7 +25734,7 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).Slice.insert(_:Base.Element,at:Slice<Base>.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     Slice.prototype.insertAt = function ($info, newElement, i) {
-        throw 'unsupported method Swift.(file).Slice.insert(_:Base.Element,at:Slice<Base>.Index) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Self.Element }, newElement));
     };
     /*Swift.(file).Slice.insert(contentsOf:S,at:Slice<Base>.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:S,at:Self.Index)*/
@@ -23784,12 +25744,16 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).Slice.remove(at:Slice<Base>.Index)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     Slice.prototype.removeAt = function ($info, i) {
-        throw 'unsupported method Swift.(file).Slice.remove(at:Slice<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
+        var result = this.subscript$get({}, position);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, position, this.indexAfter({ Self: this.$info.Self }, position)), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+        return result;
     };
     /*Swift.(file).Slice.removeSubrange(_:Range<Slice<Base>.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
     Slice.prototype.removeSubrange = function ($info, bounds) {
-        throw 'unsupported method Swift.(file).Slice.removeSubrange(_:Range<Slice<Base>.Index>) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, bounds, _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
     };
     /*Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)*/
     /*Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)*/
@@ -23918,7 +25882,7 @@ var _SmallString = /** @class */ (function () {
     ;
     /*Swift.(file)._SmallString.count*/
     _SmallString.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._SmallString.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_SmallString.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -23994,14 +25958,15 @@ var _SmallString = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _SmallString.prototype.subscript$set = function ($info, newValue, idx) {
-        this[idx] = newValue;
+        this[idx] = _cloneStruct(newValue);
     };
     /*Swift.(file)._SmallString.subscript(_:Range<_SmallString.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     _SmallString.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file)._SmallString.withUTF8(_:(UnsafeBufferPointer<UInt8>) throws -> Result)*/
     /*Swift.(file)._SmallString.withUTF8(_:(UnsafeBufferPointer<UInt8>) throws -> Result)*/
@@ -24057,7 +26022,7 @@ var StringProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_33_61 = function ($info, lhs, rhs) {
-        return lhs != rhs;
+        return Bool.prefix_33({}, $info.Self.infix_61_61({ Self: $info.Self, RHS: $info.RHS }, lhs, rhs));
     };
     /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
@@ -24067,27 +26032,27 @@ var StringProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).StringProtocol.>infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.>infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.RHS.infix_60({ Self: $info.RHS, RHS: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.RHS.infix_60({ Self: $info.RHS, RHS: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self, RHS: $info.RHS }, lhs, rhs));
     };
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
     StringProtocol$implementation.prototype.hasPrefix = function ($info, prefix) {
-        throw 'unsupported method Swift.(file).StringProtocol.hasPrefix(_:Prefix) in ' + this.constructor.name;
+        return this.startsWith({ Self: $info.Self, PossiblePrefix: $info.Prefix }, prefix);
     };
     /*Swift.(file).StringProtocol.hasSuffix(_:Suffix)*/
     /*Swift.(file).StringProtocol.hasSuffix(_:Suffix)*/
     StringProtocol$implementation.prototype.hasSuffix = function ($info, suffix) {
-        throw 'unsupported method Swift.(file).StringProtocol.hasSuffix(_:Suffix) in ' + this.constructor.name;
+        return this.reversed({ Self: $info.Self }).startsWith({ Self: _clarifyGenerics({ Self: ReversedCollection, Base: $info.Self }), PossiblePrefix: _clarifyGenerics({ Self: ReversedCollection, Base: $info.Suffix }) }, suffix.reversed({ Self: $info.Suffix }));
     };
     return StringProtocol$implementation;
 }());
@@ -24179,7 +26144,18 @@ var Substring = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     Substring.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Substring.distance(from:Substring.Index,to:Substring.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).Substring.subscript(_:Substring.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
@@ -24214,12 +26190,12 @@ var Substring = /** @class */ (function () {
     /*Swift.(file).Substring.withCString(_:(UnsafePointer<CChar>) throws -> Result)*/
     /*Swift.(file).StringProtocol.withCString(_:(UnsafePointer<CChar>) throws -> Result)*/
     Substring.prototype.withCString = function ($info, body) {
-        throw 'unsupported method Swift.(file).Substring.withCString(_:(UnsafePointer<CChar>) throws -> Result) in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).withCString({ Result: $info.Result }, body);
     };
     /*Swift.(file).Substring.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result)*/
     /*Swift.(file).StringProtocol.withCString(encodedAs:Encoding.Type,_:(UnsafePointer<Encoding.CodeUnit>) throws -> Result)*/
     Substring.prototype.withCStringEncodedAs = function ($info, targetEncoding, body) {
-        throw 'unsupported method Swift.(file).Substring.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result) in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).withCStringEncodedAs({ Result: $info.Result, TargetEncoding: $info.TargetEncoding }, targetEncoding, body);
     };
     /*Swift.(file).Substring.hashValue*/
     Substring.prototype.hashValue$get = function () {
@@ -24233,7 +26209,7 @@ var Substring = /** @class */ (function () {
     ;
     /*Swift.(file).Substring.customMirror*/
     Substring.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Substring.customMirror in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).customMirror;
     };
     Object.defineProperty(Substring.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -24243,7 +26219,7 @@ var Substring = /** @class */ (function () {
     ;
     /*Swift.(file).Substring.description*/
     Substring.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).Substring.description in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this);
     };
     Object.defineProperty(Substring.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -24253,7 +26229,7 @@ var Substring = /** @class */ (function () {
     ;
     /*Swift.(file).Substring.debugDescription*/
     Substring.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).Substring.debugDescription in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).debugDescription;
     };
     Object.defineProperty(Substring.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -24319,32 +26295,41 @@ var Substring = /** @class */ (function () {
     /*Swift.(file).Substring.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     Substring.prototype.appendContentsOf = function ($info, _elements) {
-        throw 'unsupported method Swift.(file).Substring.append(contentsOf:S) in ' + this.constructor.name;
+        var string = _create(String, 'initSubstring', {}, this);
+        $info.$setThis(_cloneStruct(_create(Substring, 'init', {})));
+        string.appendContentsOf({ $setThis: function ($val) { return string = $val; }, S: $info.S }, _elements);
+        $info.$setThis(_cloneStruct(_create(Substring, 'initString', {}, string)));
     };
     /*Swift.(file).Substring.lowercased()*/
     /*Swift.(file).StringProtocol.lowercased()*/
     Substring.prototype.lowercased = function ($info) {
-        throw 'unsupported method Swift.(file).Substring.lowercased() in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).lowercased({});
     };
     /*Swift.(file).Substring.uppercased()*/
     /*Swift.(file).StringProtocol.uppercased()*/
     Substring.prototype.uppercased = function ($info) {
-        throw 'unsupported method Swift.(file).Substring.uppercased() in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).uppercased({});
     };
     /*Swift.(file).Substring.filter(_:(Substring.Element) throws -> Bool)*/
     /*Swift.(file).Substring.filter(_:(Substring.Element) throws -> Bool)*/
     Substring.prototype.filterSwift = function ($info, isIncluded) {
-        throw 'unsupported method Swift.(file).Substring.filter(_:(Substring.Element) throws -> Bool) in ' + this.constructor.name;
+        return _create(String, 'initBuffer', { S: _clarifyGenerics({ Self: Array, Element: Character }) }, this.lazy.filterSwift({ Self: _clarifyGenerics({ Self: LazySequence, Base: Substring }) }, isIncluded));
     };
     /*Swift.(file).Substring.write(_:String)*/
     /*Swift.(file).TextOutputStream.write(_:String)*/
     Substring.prototype.write = function ($info, other) {
-        throw 'unsupported method Swift.(file).Substring.write(_:String) in ' + this.constructor.name;
+        this.appendContentsOf({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, S: String }, other);
     };
     /*Swift.(file).Substring.write(to:Target)*/
     /*Swift.(file).TextOutputStreamable.write(to:Target)*/
     Substring.prototype.writeTo = function ($info, target$inout) {
-        throw 'unsupported method Swift.(file).Substring.write(to:Target) in ' + this.constructor.name;
+        var _this = this;
+        var target = target$inout.get();
+        var $result = (function () {
+            target.write({ $setThis: function ($val) { return target = $val; }, Self: $info.Target }, _create(String, 'initSubstring', {}, _this));
+        })();
+        target$inout.set(target);
+        return $result;
     };
     /*Swift.(file).Substring.init(unicodeScalarLiteral:String)*/
     /*Swift.(file).ExpressibleByUnicodeScalarLiteral.init(unicodeScalarLiteral:Self.UnicodeScalarLiteralType)*/
@@ -24366,11 +26351,12 @@ var Substring = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     Substring.prototype.subscriptRange$get = function ($info, r) {
-        return this[r];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).Substring.characters*/
     Substring.prototype.characters$get = function () {
-        throw 'unsupported variable Swift.(file).Substring.characters in ' + this.constructor.name;
+        return this;
     };
     Object.defineProperty(Substring.prototype, "characters", {
         get: function () { return this.characters$get(); },
@@ -24381,7 +26367,8 @@ var Substring = /** @class */ (function () {
     /*Swift.(file).Substring.withMutableCharacters(_:(inout Substring) -> R)*/
     /*Swift.(file).Substring.withMutableCharacters(_:(inout Substring) -> R)*/
     Substring.prototype.withMutableCharacters = function ($info, body) {
-        throw 'unsupported method Swift.(file).Substring.withMutableCharacters(_:(inout Substring) -> R) in ' + this.constructor.name;
+        var _this = this;
+        return body({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).Substring.subscript(_:ClosedRange<Substring.Index>)*/
     /*Swift.(file).Substring.subscript(_:ClosedRange<Substring.Index>)*/
@@ -24390,7 +26377,7 @@ var Substring = /** @class */ (function () {
     };
     /*Swift.(file).Substring.customPlaygroundQuickLook*/
     Substring.prototype.customPlaygroundQuickLook$get = function () {
-        throw 'unsupported variable Swift.(file).Substring.customPlaygroundQuickLook in ' + this.constructor.name;
+        return _create(String, 'initSubstring', {}, this).customPlaygroundQuickLook;
     };
     Object.defineProperty(Substring.prototype, "customPlaygroundQuickLook", {
         get: function () { return this.customPlaygroundQuickLook$get(); },
@@ -24461,7 +26448,13 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).Collection.formIndex(after:Self.Index)*/
             /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
             class_76.prototype.formIndexAfter = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UTF8View.formIndex(after:Substring.UTF8View.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexAfter({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UTF8View.index(_:Substring.UTF8View.Index,offsetBy:Int)*/
             /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -24479,7 +26472,18 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             class_76.prototype.distanceFromTo = function ($info, start, end) {
-                throw 'unsupported method Swift.(file).UTF8View.distance(from:Substring.UTF8View.Index,to:Substring.UTF8View.Index) in ' + this.constructor.name;
+                var _this = this;
+                preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                var start_dupl = start;
+                var count = 0;
+                while (true) {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                        break;
+                    count = Int.infix_43({}, count, 1);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+                }
+                ;
+                return count;
             };
             /*Swift.(file).UTF8View.index(before:Substring.UTF8View.Index)*/
             /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -24489,13 +26493,20 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).UTF8View.formIndex(before:Substring.UTF8View.Index)*/
             /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
             class_76.prototype.formIndexBefore = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UTF8View.formIndex(before:Substring.UTF8View.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexBefore({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UTF8View.subscript(_:Range<Substring.UTF8View.Index>)*/
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
             class_76.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             class_76.prototype.init$vars = function () {
             };
@@ -24562,7 +26573,13 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
             /*Swift.(file).Collection.formIndex(after:Self.Index)*/
             class_77.prototype.formIndexAfter = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UTF16View.formIndex(after:Substring.UTF16View.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexAfter({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UTF16View.index(_:Substring.UTF16View.Index,offsetBy:Int)*/
             /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -24580,7 +26597,18 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
             class_77.prototype.distanceFromTo = function ($info, start, end) {
-                throw 'unsupported method Swift.(file).UTF16View.distance(from:Substring.UTF16View.Index,to:Substring.UTF16View.Index) in ' + this.constructor.name;
+                var _this = this;
+                preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                var start_dupl = start;
+                var count = 0;
+                while (true) {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                        break;
+                    count = Int.infix_43({}, count, 1);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+                }
+                ;
+                return count;
             };
             /*Swift.(file).UTF16View.index(before:Substring.UTF16View.Index)*/
             /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -24590,13 +26618,20 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).UTF16View.formIndex(before:Substring.UTF16View.Index)*/
             /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
             class_77.prototype.formIndexBefore = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UTF16View.formIndex(before:Substring.UTF16View.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexBefore({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UTF16View.subscript(_:Range<Substring.UTF16View.Index>)*/
             /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             class_77.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             class_77.prototype.init$vars = function () {
             };
@@ -24664,7 +26699,13 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
             /*Swift.(file).Collection.formIndex(after:Self.Index)*/
             class_78.prototype.formIndexAfter = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UnicodeScalarView.formIndex(after:Substring.UnicodeScalarView.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexAfter({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UnicodeScalarView.index(_:Substring.UnicodeScalarView.Index,offsetBy:Int)*/
             /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -24682,7 +26723,18 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
             class_78.prototype.distanceFromTo = function ($info, start, end) {
-                throw 'unsupported method Swift.(file).UnicodeScalarView.distance(from:Substring.UnicodeScalarView.Index,to:Substring.UnicodeScalarView.Index) in ' + this.constructor.name;
+                var _this = this;
+                preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                var start_dupl = start;
+                var count = 0;
+                while (true) {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                        break;
+                    count = Int.infix_43({}, count, 1);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+                }
+                ;
+                return count;
             };
             /*Swift.(file).UnicodeScalarView.index(before:Substring.UnicodeScalarView.Index)*/
             /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -24692,14 +26744,21 @@ var Substring = /** @class */ (function () {
             /*Swift.(file).UnicodeScalarView.formIndex(before:Substring.UnicodeScalarView.Index)*/
             /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
             class_78.prototype.formIndexBefore = function ($info, i$inout) {
-                throw 'unsupported method Swift.(file).UnicodeScalarView.formIndex(before:Substring.UnicodeScalarView.Index) in ' + this.constructor.name;
+                var _this = this;
+                var i = i$inout.get();
+                var $result = (function () {
+                    i = _this.indexBefore({ Self: _this.$info.Self }, i);
+                })();
+                i$inout.set(i);
+                return $result;
             };
             /*Swift.(file).UnicodeScalarView.subscript(_:Range<Substring.UnicodeScalarView.Index>)*/
             /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
             class_78.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             /*Swift.(file).UnicodeScalarView.init()*/
             /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -24771,8 +26830,7 @@ var _UIntBuffer = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     _UIntBuffer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(_UIntBuffer.Iterator, 'init_UIntBuffer', { Element: this.$info.Element }, this);
     };
     /*Swift.(file)._UIntBuffer.startIndex*/
     _UIntBuffer.prototype.startIndex$get = function () {
@@ -24827,7 +26885,18 @@ var _UIntBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     _UIntBuffer.prototype.distanceFromTo = function ($info, i, j) {
-        throw 'unsupported method Swift.(file)._UIntBuffer.distance(from:_UIntBuffer<Element>.Index,to:_UIntBuffer<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file)._UIntBuffer.init()*/
     /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -24835,7 +26904,7 @@ var _UIntBuffer = /** @class */ (function () {
     };
     /*Swift.(file)._UIntBuffer.capacity*/
     _UIntBuffer.prototype.capacity$get = function () {
-        throw 'unsupported variable Swift.(file)._UIntBuffer.capacity in ' + this.constructor.name;
+        return Int.infix_47({}, _UIntBuffer.Storage.bitWidth, this.$info.Element.bitWidth);
     };
     Object.defineProperty(_UIntBuffer.prototype, "capacity", {
         get: function () { return this.capacity$get(); },
@@ -24846,12 +26915,16 @@ var _UIntBuffer = /** @class */ (function () {
     /*Swift.(file)._UIntBuffer.append(_:Element)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     _UIntBuffer.prototype.append = function ($info, newElement) {
-        throw 'unsupported method Swift.(file)._UIntBuffer.append(_:Element) in ' + this.constructor.name;
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
     };
     /*Swift.(file)._UIntBuffer.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     _UIntBuffer.prototype.removeFirst = function ($info) {
-        return this.shift();
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove first element from an empty collection"; }, '?3', '?3');
+        var firstElement = this.first;
+        this.removeFirstMultiple({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, 1);
+        return firstElement;
     };
     /*Swift.(file)._UIntBuffer.replaceSubrange(_:Range<_UIntBuffer<Element>.Index>,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:Range<Self.Index>,with:C)*/
@@ -24941,7 +27014,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     }
     /*Swift.(file).UnsafeMutableBufferPointer.count*/
     UnsafeMutableBufferPointer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeMutableBufferPointer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(UnsafeMutableBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -24985,7 +27058,13 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.formIndex(after:Int) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.index(before:Int)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
@@ -24997,7 +27076,13 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.formIndex(before:Int) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.index(_:Int,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -25011,18 +27096,36 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.index(_:Int,offsetBy:Int,limitedBy:Int) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).UnsafeMutableBufferPointer.distance(from:Int,to:Int)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.distance(from:Int,to:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.indices*/
     UnsafeMutableBufferPointer.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeMutableBufferPointer.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(UnsafeMutableBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -25060,19 +27163,28 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeMutableBufferPointer.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).UnsafeMutableBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeMutableBufferPointer.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).UnsafeMutableBufferPointer.swapAt(_:Int,_:Int)*/
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.swapAt = function ($info, i, j) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.swapAt(_:Int,_:Int) in ' + this.constructor.name;
+        {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, j)))) {
+                return;
+            }
+        }
+        ;
+        var tmp = this.subscript$get({}, i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, this.subscript$get({}, j), i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, tmp, j);
     };
     /*Swift.(file).UnsafeMutableBufferPointer.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     /*Swift.(file)._HasContiguousBytes.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
@@ -25083,8 +27195,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     UnsafeMutableBufferPointer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).UnsafeMutableBufferPointer.init(start:UnsafeMutablePointer<Element>?,count:Int)*/
     /*Swift.(file).UnsafeMutableBufferPointer.init(start:UnsafeMutablePointer<Element>?,count:Int)*/
@@ -25103,12 +27214,12 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutableBufferPointer.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
     UnsafeMutableBufferPointer.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return null;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     UnsafeMutableBufferPointer.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return null;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.init(rebasing:Slice<UnsafeMutableBufferPointer<Element>>)*/
     /*Swift.(file).UnsafeMutableBufferPointer.init(rebasing:Slice<UnsafeMutableBufferPointer<Element>>)*/
@@ -25186,7 +27297,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     }
     /*Swift.(file).UnsafeBufferPointer.count*/
     UnsafeBufferPointer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeBufferPointer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(UnsafeBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -25212,8 +27323,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     UnsafeBufferPointer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).UnsafeBufferPointer.startIndex*/
     UnsafeBufferPointer.prototype.startIndex$get = function () {
@@ -25247,7 +27357,13 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     UnsafeBufferPointer.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).UnsafeBufferPointer.formIndex(after:Int) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).UnsafeBufferPointer.index(before:Int)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
@@ -25259,7 +27375,13 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     UnsafeBufferPointer.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).UnsafeBufferPointer.formIndex(before:Int) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).UnsafeBufferPointer.index(_:Int,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -25273,18 +27395,36 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     UnsafeBufferPointer.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).UnsafeBufferPointer.index(_:Int,offsetBy:Int,limitedBy:Int) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).UnsafeBufferPointer.distance(from:Int,to:Int)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     UnsafeBufferPointer.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).UnsafeBufferPointer.distance(from:Int,to:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).UnsafeBufferPointer.indices*/
     UnsafeBufferPointer.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeBufferPointer.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(UnsafeBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -25309,7 +27449,8 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeBufferPointer.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).UnsafeBufferPointer.init(start:UnsafePointer<Element>?,count:Int)*/
     /*Swift.(file).UnsafeBufferPointer.init(start:UnsafePointer<Element>?,count:Int)*/
@@ -25328,7 +27469,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeBufferPointer.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     UnsafeBufferPointer.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).UnsafeBufferPointer.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return null;
     };
     /*Swift.(file).UnsafeBufferPointer.init(rebasing:Slice<UnsafeBufferPointer<Element>>)*/
     /*Swift.(file).UnsafeBufferPointer.init(rebasing:Slice<UnsafeBufferPointer<Element>>)*/
@@ -25419,8 +27560,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     UnsafeMutableRawBufferPointer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.startIndex*/
     UnsafeMutableRawBufferPointer.prototype.startIndex$get = function () {
@@ -25444,7 +27584,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeMutableRawBufferPointer.indices*/
     UnsafeMutableRawBufferPointer.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeMutableRawBufferPointer.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(UnsafeMutableRawBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -25465,7 +27605,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     UnsafeMutableRawBufferPointer.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -25473,23 +27613,32 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeMutableRawBufferPointer.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeMutableRawBufferPointer.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.swapAt(_:Int,_:Int)*/
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     UnsafeMutableRawBufferPointer.prototype.swapAt = function ($info, i, j) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.swapAt(_:Int,_:Int) in ' + this.constructor.name;
+        {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, i, j)))) {
+                return;
+            }
+        }
+        ;
+        var tmp = this.subscript$get({}, i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, this.subscript$get({}, j), i);
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, tmp, j);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.count*/
     UnsafeMutableRawBufferPointer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeMutableRawBufferPointer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(UnsafeMutableRawBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -25593,7 +27742,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     }; /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     UnsafeMutableRawBufferPointer.prototype.subscript$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
@@ -25602,17 +27751,17 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     }; /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     UnsafeMutableRawBufferPointer.prototype.subscript$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(count:Int)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(count:Int)*/
     UnsafeMutableRawBufferPointer.allocateCount = function ($info, count) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.allocate(count:Int) in ' + this.constructor.name;
+        return UnsafeMutableRawBufferPointer.allocateByteCountAlignment({}, count, MemoryLayout.alignment);
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:UnsafeRawBufferPointer)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:UnsafeRawBufferPointer)*/
     UnsafeMutableRawBufferPointer.prototype.copyBytesFrom = function ($info, source) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:UnsafeRawBufferPointer) in ' + this.constructor.name;
+        this.copyMemoryFrom({}, source);
     };
     UnsafeMutableRawBufferPointer.prototype.init$vars = function () {
     };
@@ -25639,8 +27788,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     UnsafeRawBufferPointer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).UnsafeRawBufferPointer.startIndex*/
     UnsafeRawBufferPointer.prototype.startIndex$get = function () {
@@ -25664,7 +27812,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeRawBufferPointer.indices*/
     UnsafeRawBufferPointer.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeRawBufferPointer.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(UnsafeRawBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -25684,11 +27832,12 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     UnsafeRawBufferPointer.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).UnsafeRawBufferPointer.count*/
     UnsafeRawBufferPointer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeRawBufferPointer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(UnsafeRawBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -25823,7 +27972,7 @@ var UnsafePointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafePointer.pointee*/
     UnsafePointer.prototype.pointee$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafePointer.pointee in ' + this.constructor.name;
+        return this.pointee$internal;
     };
     Object.defineProperty(UnsafePointer.prototype, "pointee", {
         get: function () { return this.pointee$get(); },
@@ -25839,7 +27988,7 @@ var UnsafePointer = /** @class */ (function () {
     /*Swift.(file).UnsafePointer.subscript(_:Int)*/
     /*Swift.(file).UnsafePointer.subscript(_:Int)*/
     UnsafePointer.prototype.subscript$unsafeAddress = function ($info, i) {
-        return this[i];
+        return UnsafePointer.infix_43({ Self: _clarifyGenerics({ Self: UnsafePointer, Pointee: this.$info.Pointee }) }, this, i);
     };
     /*Swift.(file).UnsafePointer.hashValue*/
     UnsafePointer.prototype.hashValue$get = function () {
@@ -25913,7 +28062,7 @@ var UnsafeMutablePointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutablePointer.pointee*/
     UnsafeMutablePointer.prototype.pointee$get = function () {
-        throw 'unsupported variable Swift.(file).UnsafeMutablePointer.pointee in ' + this.constructor.name;
+        return this.pointee$internal;
     };
     Object.defineProperty(UnsafeMutablePointer.prototype, "pointee", {
         get: function () { return this.pointee$get(); },
@@ -25974,11 +28123,17 @@ var UnsafeMutablePointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutablePointer.subscript(_:Int)*/
     /*Swift.(file).UnsafeMutablePointer.subscript(_:Int)*/
     UnsafeMutablePointer.prototype.subscript$unsafeAddress = function ($info, i) {
-        return this[i];
+        return _create(UnsafePointer, 'initUnsafeMutablePointer', { Self: _clarifyGenerics({ Self: UnsafePointer, Pointee: this.$info.Pointee }), T: this.$info.Pointee }, UnsafeMutablePointer.infix_43({ Self: _clarifyGenerics({ Self: UnsafeMutablePointer, Pointee: this.$info.Pointee }) }, this, i));
+    };
+    UnsafeMutablePointer.prototype.subscript$unsafeMutableAddress = function ($info, i) {
+        return UnsafeMutablePointer.infix_43({ Self: _clarifyGenerics({ Self: UnsafeMutablePointer, Pointee: this.$info.Pointee }) }, this, i);
     }; /*Swift.(file).UnsafeMutablePointer.subscript(_:Int)*/
     /*Swift.(file).UnsafeMutablePointer.subscript(_:Int)*/
     UnsafeMutablePointer.prototype.subscript$unsafeMutableAddress = function ($info, i) {
-        return this[i];
+        return _create(UnsafePointer, 'initUnsafeMutablePointer', { Self: _clarifyGenerics({ Self: UnsafePointer, Pointee: this.$info.Pointee }), T: this.$info.Pointee }, UnsafeMutablePointer.infix_43({ Self: _clarifyGenerics({ Self: UnsafeMutablePointer, Pointee: this.$info.Pointee }) }, this, i));
+    };
+    UnsafeMutablePointer.prototype.subscript$unsafeMutableAddress = function ($info, i) {
+        return UnsafeMutablePointer.infix_43({ Self: _clarifyGenerics({ Self: UnsafeMutablePointer, Pointee: this.$info.Pointee }) }, this, i);
     };
     /*Swift.(file).UnsafeMutablePointer.hashValue*/
     UnsafeMutablePointer.prototype.hashValue$get = function () {
@@ -25993,22 +28148,25 @@ var UnsafeMutablePointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutablePointer.initialize(to:Pointee,count:Int)*/
     /*Swift.(file).UnsafeMutablePointer.initialize(to:Pointee,count:Int)*/
     UnsafeMutablePointer.prototype.initializeToCount = function ($info, newValue, count) {
-        throw 'unsupported method Swift.(file).UnsafeMutablePointer.initialize(to:Pointee,count:Int) in ' + this.constructor.name;
+        this.initializeRepeatingCount({ Pointee: this.$info.Pointee }, newValue, count);
     };
     /*Swift.(file).UnsafeMutablePointer.deinitialize()*/
     /*Swift.(file).UnsafeMutablePointer.deinitialize()*/
     UnsafeMutablePointer.prototype.deinitialize = function ($info) {
-        throw 'unsupported method Swift.(file).UnsafeMutablePointer.deinitialize() in ' + this.constructor.name;
+        return this.deinitializeCount({ Pointee: this.$info.Pointee }, 1);
     };
     /*Swift.(file).UnsafeMutablePointer.deallocate(capacity:Int)*/
     /*Swift.(file).UnsafeMutablePointer.deallocate(capacity:Int)*/
     UnsafeMutablePointer.prototype.deallocateCapacity = function ($info, _) {
-        throw 'unsupported method Swift.(file).UnsafeMutablePointer.deallocate(capacity:Int) in ' + this.constructor.name;
+        this.deallocate({ Pointee: this.$info.Pointee });
     };
     /*Swift.(file).UnsafeMutablePointer.initialize(from:C)*/
     /*Swift.(file).UnsafeMutablePointer.initialize(from:C)*/
     UnsafeMutablePointer.prototype.initializeFrom = function ($info, source) {
-        throw 'unsupported method Swift.(file).UnsafeMutablePointer.initialize(from:C) in ' + this.constructor.name;
+        var buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', { Element: $info.Pointee }, this, numericCast({ T: Int, U: Int }, source.count));
+        var $tuple = source._copyContentsInitializing({ Self: $info.C }, buf), remainders = $tuple && $tuple[0], writtenUpTo = $tuple && $tuple[1];
+        preconditionFileLine({}, function () { return Optional.infix_61_61({ Wrapped: $info.Pointee }, remainders.next({ $setThis: function ($val) { return remainders = $val; }, Self: $info.C.Iterator }), null); }, function () { return "rhs underreported its count"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Int.infix_61_61({}, writtenUpTo, buf.endIndex); }, function () { return "rhs overreported its count"; }, '?3', '?3');
     };
     /*Swift.(file).UnsafeMutablePointer.summary*/
     UnsafeMutablePointer.prototype.summary$get = function () {
@@ -26083,7 +28241,7 @@ var UnsafeRawPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeRawPointer.assumingMemoryBound(to:T.Type)*/
     /*Swift.(file).UnsafeRawPointer.assumingMemoryBound(to:T.Type)*/
     UnsafeRawPointer.prototype.assumingMemoryBoundTo = function ($info, to) {
-        throw 'unsupported method Swift.(file).UnsafeRawPointer.assumingMemoryBound(to:T.Type) in ' + this.constructor.name;
+        return _create(UnsafePointer, 'initRawPointer', { Pointee: $info.T }, this._rawValue);
     };
     /*Swift.(file).UnsafeRawPointer.load(fromByteOffset:Int,as:T.Type)*/
     /*Swift.(file).UnsafeRawPointer.load(fromByteOffset:Int,as:T.Type)*/
@@ -26193,7 +28351,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutableRawPointer.assumingMemoryBound(to:T.Type)*/
     /*Swift.(file).UnsafeMutableRawPointer.assumingMemoryBound(to:T.Type)*/
     UnsafeMutableRawPointer.prototype.assumingMemoryBoundTo = function ($info, to) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.assumingMemoryBound(to:T.Type) in ' + this.constructor.name;
+        return _create(UnsafeMutablePointer, 'initRawPointer', { Pointee: $info.T }, this._rawValue);
     };
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:T.Type,repeating:T,count:Int)*/
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:T.Type,repeating:T,count:Int)*/
@@ -26293,27 +28451,39 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int)*/
     /*Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int)*/
     UnsafeMutableRawPointer.allocateBytesAlignedTo = function ($info, size, alignment) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int) in ' + this.constructor.name;
+        return UnsafeMutableRawPointer.allocateByteCountAlignment({}, size, alignment);
     };
     /*Swift.(file).UnsafeMutableRawPointer.deallocate(bytes:Int,alignedTo:Int)*/
     /*Swift.(file).UnsafeMutableRawPointer.deallocate(bytes:Int,alignedTo:Int)*/
     UnsafeMutableRawPointer.prototype.deallocateBytesAlignedTo = function ($info, _, _) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.deallocate(bytes:Int,alignedTo:Int) in ' + this.constructor.name;
+        this.deallocate({});
     };
     /*Swift.(file).UnsafeMutableRawPointer.copyBytes(from:UnsafeRawPointer,count:Int)*/
     /*Swift.(file).UnsafeMutableRawPointer.copyBytes(from:UnsafeRawPointer,count:Int)*/
     UnsafeMutableRawPointer.prototype.copyBytesFromCount = function ($info, source, count) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.copyBytes(from:UnsafeRawPointer,count:Int) in ' + this.constructor.name;
+        this.copyMemoryFromByteCount({}, source, count);
     };
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:T.Type,at:Int,count:Int,to:T)*/
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:T.Type,at:Int,count:Int,to:T)*/
     UnsafeMutableRawPointer.prototype.initializeMemoryAsAtCountTo = function ($info, type, offset, count, repeatedValue) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:T.Type,at:Int,count:Int,to:T) in ' + this.constructor.name;
+        return UnsafeMutableRawPointer.infix_43({ Self: UnsafeMutableRawPointer }, this, Int.infix_42({}, offset, MemoryLayout.stride)).initializeMemoryAsRepeatingCount({ T: $info.T }, type, repeatedValue, count);
     };
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:C.Element.Type,from:C)*/
     /*Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:C.Element.Type,from:C)*/
     UnsafeMutableRawPointer.prototype.initializeMemoryAsFrom = function ($info, type, source) {
-        throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.initializeMemory(as:C.Element.Type,from:C) in ' + this.constructor.name;
+        var ptr = _cloneStruct(this);
+        {
+            var $element$generator_11 = source.makeIterator({ Self: $info.C });
+            while (true) {
+                var _element = $element$generator_11.next({ $setThis: function ($val) { return $element$generator_11 = $val; }, Self: $info.C.Iterator });
+                if (!((_element != null)))
+                    break;
+                ptr.initializeMemoryAsRepeatingCount({ T: $info.C.Element }, $info.C.Element, _element, 1);
+                UnsafeMutableRawPointer.infix_43_61({ Self: UnsafeMutableRawPointer }, { get: function () { return ptr; }, set: function ($val) { return ptr = $val; } }, MemoryLayout.stride);
+            }
+        }
+        ;
+        return _create(UnsafeMutablePointer, 'initRawPointer', { Pointee: $info.C.Element }, this._rawValue);
     };
     UnsafeMutableRawPointer.prototype.init$vars = function () {
     };
@@ -27229,10 +29399,12 @@ var Unicode = /** @class */ (function () {
             class_88._swift3Buffer = function () { return Object.assign(new Unicode.UTF16(), __assign({ rawValue: "_swift3Buffer" }, Array.from(arguments).slice(1))); };
             /*Swift.(file).UTF16.encodedReplacementCharacter*/
             class_88.encodedReplacementCharacter$get = function () {
-                throw 'unsupported variable Swift.(file).UTF16.encodedReplacementCharacter in ' + this.constructor.name;
+                return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', { Element: UInt16 }, 0xFFFD, 16);
             };
             Object.defineProperty(class_88, "encodedReplacementCharacter", {
-                get: function () { return this.encodedReplacementCharacter$get(); },
+                get: function () {
+                    return this.encodedReplacementCharacter$get();
+                },
                 enumerable: true,
                 configurable: true
             });
@@ -27245,7 +29417,18 @@ var Unicode = /** @class */ (function () {
             /*Swift.(file).UTF16.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_88.encode = function ($info, source) {
-                throw 'unsupported method Swift.(file).UTF16.encode(_:Unicode.Scalar) in ' + this.constructor.name;
+                var x = source.value;
+                {
+                    if ((_fastPath({}, UInt32.infix_60({}, x, UInt32.infix_60_60({ Self: UInt32, Other: Int }, 1, 16))))) {
+                        return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', { Element: UInt16 }, x, 16);
+                    }
+                }
+                ;
+                var x1 = UInt32.infix_45({}, x, UInt32.infix_60_60({ Self: UInt32, Other: Int }, 1, 16));
+                var r = UInt32.infix_43({}, 0xdc00, UInt32.infix_38({}, x1, 0x3ff));
+                UInt32.infix_38_60_60_61({}, { get: function () { return r; }, set: function ($val) { return r = $val; } }, 16);
+                UInt32.infix_124_61({}, { get: function () { return r; }, set: function ($val) { return r = $val; } }, UInt32.infix_43({}, 0xd800, UInt32.infix_38({}, UInt32.infix_38_62_62({}, x1, 10), 0x3ff)));
+                return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', { Element: UInt16 }, r, 32);
             };
             /*Swift.(file).UTF16.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
@@ -27284,12 +29467,12 @@ var Unicode = /** @class */ (function () {
             /*Swift.(file).UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit)*/
             /*Swift.(file).UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit)*/
             class_88.isLeadSurrogate = function ($info, x) {
-                throw 'unsupported method Swift.(file).UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit) in ' + this.constructor.name;
+                return UInt16.infix_61_61({}, UInt16.infix_38({}, x, 0xFC00), 0xD800);
             };
             /*Swift.(file).UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit)*/
             /*Swift.(file).UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit)*/
             class_88.isTrailSurrogate = function ($info, x) {
-                throw 'unsupported method Swift.(file).UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit) in ' + this.constructor.name;
+                return UInt16.infix_61_61({}, UInt16.infix_38({}, x, 0xFC00), 0xDC00);
             };
             /*Swift.(file).UTF16.transcodedLength(of:Input,decodedAs:Encoding.Type,repairingIllFormedSequences:Bool)*/
             /*Swift.(file).UTF16.transcodedLength(of:Input,decodedAs:Encoding.Type,repairingIllFormedSequences:Bool)*/
@@ -27336,10 +29519,12 @@ var Unicode = /** @class */ (function () {
             class_91._swift3Buffer = function () { return Object.assign(new Unicode.UTF8(), __assign({ rawValue: "_swift3Buffer" }, Array.from(arguments).slice(1))); };
             /*Swift.(file).UTF8.encodedReplacementCharacter*/
             class_91.encodedReplacementCharacter$get = function () {
-                throw 'unsupported variable Swift.(file).UTF8.encodedReplacementCharacter in ' + this.constructor.name;
+                return Unicode.UTF8.EncodedScalar.encodedReplacementCharacter;
             };
             Object.defineProperty(class_91, "encodedReplacementCharacter", {
-                get: function () { return this.encodedReplacementCharacter$get(); },
+                get: function () {
+                    return this.encodedReplacementCharacter$get();
+                },
                 enumerable: true,
                 configurable: true
             });
@@ -27957,7 +30142,7 @@ var Unicode = /** @class */ (function () {
             /*Swift.(file).UTF32.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_98.encode = function ($info, source) {
-                throw 'unsupported method Swift.(file).UTF32.encode(_:Unicode.Scalar) in ' + this.constructor.name;
+                return _create(Unicode.UTF32.EncodedScalar, 'init', { Element: UInt32 }, source.value);
             };
             /*Swift.(file).UTF32.init()*/
             /*Swift.(file).UnicodeCodec.init()*/
@@ -28067,8 +30252,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     _ValidUTF8Buffer.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(_ValidUTF8Buffer.Iterator, 'init_ValidUTF8Buffer', {}, this);
     };
     /*Swift.(file)._ValidUTF8Buffer.startIndex*/
     _ValidUTF8Buffer.prototype.startIndex$get = function () {
@@ -28092,7 +30276,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ValidUTF8Buffer.count*/
     _ValidUTF8Buffer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._ValidUTF8Buffer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_ValidUTF8Buffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28102,7 +30286,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ValidUTF8Buffer.isEmpty*/
     _ValidUTF8Buffer.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file)._ValidUTF8Buffer.isEmpty in ' + this.constructor.name;
+        return this.isEmpty$internal;
     };
     Object.defineProperty(_ValidUTF8Buffer.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -28136,7 +30320,18 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     _ValidUTF8Buffer.prototype.distanceFromTo = function ($info, i, j) {
-        throw 'unsupported method Swift.(file)._ValidUTF8Buffer.distance(from:_ValidUTF8Buffer.Index,to:_ValidUTF8Buffer.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file)._ValidUTF8Buffer.index(_:_ValidUTF8Buffer.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -28151,8 +30346,15 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     };
     /*Swift.(file)._ValidUTF8Buffer.capacity*/
     _ValidUTF8Buffer.prototype.capacity$get = function () {
-        throw 'unsupported variable Swift.(file)._ValidUTF8Buffer.capacity in ' + this.constructor.name;
+        return Int.infix_47({}, UInt32.bitWidth, _ValidUTF8Buffer.Element.bitWidth);
     };
+    Object.defineProperty(_ValidUTF8Buffer, "capacity", {
+        get: function () {
+            return this.capacity$get();
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(_ValidUTF8Buffer.prototype, "capacity", {
         get: function () { return this.capacity$get(); },
         enumerable: true,
@@ -28161,23 +30363,22 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ValidUTF8Buffer.capacity*/
     _ValidUTF8Buffer.capacity$get = function () {
-        throw 'unsupported variable Swift.(file)._ValidUTF8Buffer.capacity in ' + this.constructor.name;
+        return Int.infix_47({}, UInt32.bitWidth, _ValidUTF8Buffer.Element.bitWidth);
     };
-    Object.defineProperty(_ValidUTF8Buffer, "capacity", {
-        get: function () { return this.capacity$get(); },
-        enumerable: true,
-        configurable: true
-    });
     ;
     /*Swift.(file)._ValidUTF8Buffer.append(_:_ValidUTF8Buffer.Element)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     _ValidUTF8Buffer.prototype.append = function ($info, e) {
-        throw 'unsupported method Swift.(file)._ValidUTF8Buffer.append(_:_ValidUTF8Buffer.Element) in ' + this.constructor.name;
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
     };
     /*Swift.(file)._ValidUTF8Buffer.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     _ValidUTF8Buffer.prototype.removeFirst = function ($info) {
-        return this.shift();
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove first element from an empty collection"; }, '?3', '?3');
+        var firstElement = this.first;
+        this.removeFirstMultiple({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, 1);
+        return firstElement;
     };
     /*Swift.(file)._ValidUTF8Buffer.replaceSubrange(_:Range<_ValidUTF8Buffer.Index>,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:Range<Self.Index>,with:C)*/
@@ -28312,8 +30513,7 @@ var CollectionOfOne = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     CollectionOfOne.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).CollectionOfOne.subscript(_:Int)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
@@ -28336,18 +30536,19 @@ var CollectionOfOne = /** @class */ (function () {
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     CollectionOfOne.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).CollectionOfOne.subscript(_:Range<Int>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     CollectionOfOne.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).CollectionOfOne.count*/
     CollectionOfOne.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).CollectionOfOne.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(CollectionOfOne.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28424,8 +30625,7 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     AnyBidirectionalCollection.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).AnyBidirectionalCollection.dropLast(_:Int)*/
     /*Swift.(file).AnyBidirectionalCollection.dropLast(_:Int)*/
@@ -28444,7 +30644,7 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyBidirectionalCollection.underestimatedCount*/
     AnyBidirectionalCollection.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).AnyBidirectionalCollection.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(AnyBidirectionalCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -28537,7 +30737,8 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     AnyBidirectionalCollection.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).AnyBidirectionalCollection.index(after:AnyBidirectionalCollection<Element>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(after:Self.Index)*/
@@ -28549,7 +30750,13 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     AnyBidirectionalCollection.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).AnyBidirectionalCollection.formIndex(after:AnyBidirectionalCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).AnyBidirectionalCollection.index(_:AnyBidirectionalCollection<Element>.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -28577,11 +30784,22 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     AnyBidirectionalCollection.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).AnyBidirectionalCollection.distance(from:AnyBidirectionalCollection<Element>.Index,to:AnyBidirectionalCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).AnyBidirectionalCollection.count*/
     AnyBidirectionalCollection.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).AnyBidirectionalCollection.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(AnyBidirectionalCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28597,7 +30815,13 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     /*Swift.(file).AnyBidirectionalCollection.formIndex(before:AnyBidirectionalCollection<Element>.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     AnyBidirectionalCollection.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).AnyBidirectionalCollection.formIndex(before:AnyBidirectionalCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     AnyBidirectionalCollection.prototype.init$vars = function () {
     };
@@ -28621,8 +30845,7 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     AnyRandomAccessCollection.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).AnyRandomAccessCollection.dropLast(_:Int)*/
     /*Swift.(file).AnyRandomAccessCollection.dropLast(_:Int)*/
@@ -28641,7 +30864,7 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyRandomAccessCollection.underestimatedCount*/
     AnyRandomAccessCollection.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).AnyRandomAccessCollection.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(AnyRandomAccessCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -28731,7 +30954,8 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     AnyRandomAccessCollection.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).AnyRandomAccessCollection.index(after:AnyRandomAccessCollection<Element>.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
@@ -28745,7 +30969,13 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     AnyRandomAccessCollection.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).AnyRandomAccessCollection.formIndex(after:AnyRandomAccessCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).AnyRandomAccessCollection.index(_:AnyRandomAccessCollection<Element>.Index,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -28759,7 +30989,14 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     AnyRandomAccessCollection.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).AnyRandomAccessCollection.index(_:AnyRandomAccessCollection<Element>.Index,offsetBy:Int,limitedBy:AnyRandomAccessCollection<Element>.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).AnyRandomAccessCollection.formIndex(_:AnyRandomAccessCollection<Element>.Index,offsetBy:Int)*/
     /*Swift.(file).AnyRandomAccessCollection.formIndex(_:AnyRandomAccessCollection<Element>.Index,offsetBy:Int)*/
@@ -28776,11 +31013,22 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     AnyRandomAccessCollection.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).AnyRandomAccessCollection.distance(from:AnyRandomAccessCollection<Element>.Index,to:AnyRandomAccessCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).AnyRandomAccessCollection.count*/
     AnyRandomAccessCollection.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).AnyRandomAccessCollection.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(AnyRandomAccessCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28798,7 +31046,13 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     AnyRandomAccessCollection.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).AnyRandomAccessCollection.formIndex(before:AnyRandomAccessCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     AnyRandomAccessCollection.prototype.init$vars = function () {
     };
@@ -28813,7 +31067,16 @@ if (typeof _AnyCollectionProtocol$implementation != 'undefined')
 var _ArrayBufferProtocol$implementation = /** @class */ (function () {
     function _ArrayBufferProtocol$implementation() {
     }
-    /*Swift.(file)._ArrayBufferProtocol.subscriptBaseAddress*/ ;
+    /*Swift.(file)._ArrayBufferProtocol.subscriptBaseAddress*/
+    _ArrayBufferProtocol$implementation.prototype.subscriptBaseAddress$get = function () {
+        throw 'unsupported variable Swift.(file)._ArrayBufferProtocol.subscriptBaseAddress in ' + this.constructor.name;
+    };
+    Object.defineProperty(_ArrayBufferProtocol$implementation.prototype, "subscriptBaseAddress", {
+        get: function () { return this.subscriptBaseAddress$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*Swift.(file)._ArrayBufferProtocol.init(copying:Self)*/
     /*Swift.(file)._ArrayBufferProtocol.init(copying:Self)*/
     _ArrayBufferProtocol$implementation.prototype.initCopying = function ($info, buffer) {
@@ -28873,47 +31136,64 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(after:Self.Index)*/
     /*Swift.(file).Collection.index(after:Self.Index)*/
     MIO_Mixin_Array.prototype.indexAfter = function ($info, i) {
-        throw 'unsupported method Swift.(file).Array.index(after:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, 1);
     };
     /*Swift.(file).Array.formIndex(after:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     MIO_Mixin_Array.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Array.formIndex(after:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Array.index(before:Int)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
     MIO_Mixin_Array.prototype.indexBefore = function ($info, i) {
-        throw 'unsupported method Swift.(file).Array.index(before:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, i, 1);
     };
     /*Swift.(file).Array.formIndex(before:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     MIO_Mixin_Array.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).Array.formIndex(before:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_45_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).Array.index(_:Int,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
     MIO_Mixin_Array.prototype.indexOffsetBy = function ($info, i, distance) {
-        throw 'unsupported method Swift.(file).Array.index(_:Int,offsetBy:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).Array.index(_:Int,offsetBy:Int,limitedBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     MIO_Mixin_Array.prototype.indexOffsetByLimitedBy = function ($info, i, distance, limit) {
-        throw 'unsupported method Swift.(file).Array.index(_:Int,offsetBy:Int,limitedBy:Int) in ' + this.constructor.name;
+        var l = Int.infix_45({}, limit, i);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).Array.distance(from:Int,to:Int)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     MIO_Mixin_Array.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).Array.distance(from:Int,to:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, end, start);
     };
     /*Swift.(file).Array.subscript(_:Int)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
@@ -28939,7 +31219,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     MIO_Mixin_Array.prototype.subscriptRange$get = function ($info, bounds) {
-        return this.slice(bounds.first, bounds.last + 1);
+        return _preserveGenerics(this.slice(bounds.first, bounds.last + 1), this);
     }; /*Swift.(file).Array.subscript(_:Range<Int>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -28947,7 +31227,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     MIO_Mixin_Array.prototype.subscriptRange$set = function ($info, rhs, bounds) {
-        this[bounds] = rhs;
+        this[bounds] = _cloneStruct(rhs);
     };
     /*Swift.(file).Array.count*/
     MIO_Mixin_Array.prototype.count$get = function () {
@@ -28997,12 +31277,20 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.append(_:Element)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     MIO_Mixin_Array.prototype.append = function ($info, newElement) {
-        this.push(newElement);
+        this.push(_cloneStruct(newElement));
     };
     /*Swift.(file).Array.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     MIO_Mixin_Array.prototype.appendContentsOf = function ($info, newElements) {
-        this.push.apply(this, newElements);
+        {
+            var $el$generator_1 = newElements.makeIterator({ Self: $info.S });
+            while (true) {
+                var el = $el$generator_1.next({ $setThis: function ($val) { return $el$generator_1 = $val; }, Self: $info.S.Iterator });
+                if (!((el != null)))
+                    break;
+                this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element }, el);
+            }
+        }
     };
     /*Swift.(file).Array.reserveCapacityForAppend(newElementsCount:Int)*/
     /*Swift.(file).Array.reserveCapacityForAppend(newElementsCount:Int)*/
@@ -29013,44 +31301,49 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file)._ArrayProtocol.remove(at:Int)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     MIO_Mixin_Array.prototype.removeAt = function ($info, index) {
-        this.splice(index, 1);
+        return this.splice(index, 1)[0];
     };
     /*Swift.(file).Array.insert(_:Element,at:Int)*/
     /*Swift.(file)._ArrayProtocol.insert(_:Self.Element,at:Int)*/
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     MIO_Mixin_Array.prototype.insertAt = function ($info, newElement, i) {
-        this.splice(i, 0, newElement);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Element }) }, Int.infix_46_46_60({ Self: Int }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Element }, newElement));
     };
     /*Swift.(file).Array.removeAll(keepingCapacity:Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
     MIO_Mixin_Array.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
-        throw 'unsupported method Swift.(file).Array.removeAll(keepingCapacity:Bool) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Element }) }, this.indices, _create(EmptyCollection, 'init', { Element: this.$info.Element }));
     };
     /*Swift.(file).Array.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
     MIO_Mixin_Array.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).Array.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, bufferPointer$inout) { return body({}, { get: function () { return bufferPointer; }, set: function ($val) { return bufferPointer = $val; } }); }));
     };
     /*Swift.(file).Array.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     MIO_Mixin_Array.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).Array.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, bufferPointer) { return body({}, bufferPointer); }));
     };
     /*Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)*/
     /*Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)*/
     MIO_Mixin_Array.infix_43 = function ($info, lhs, rhs) {
-        var r = lhs.concat(rhs);
-        r.$info = lhs.$info;
-        return r;
+        var lhs_dupl = _cloneStruct(lhs);
+        lhs_dupl.appendContentsOf({ $setThis: function ($val) { return lhs_dupl = $val; }, Element: $info.Element, S: _clarifyGenerics({ Self: Array, Element: $info.Element }) }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Array.+=infix(_:Array<Element>,_:Array<Element>)*/
     /*Swift.(file).Array.+=infix(_:Array<Element>,_:Array<Element>)*/
     MIO_Mixin_Array.infix_43_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.get().appendContentsOf(null, rhs);
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs.appendContentsOf({ $setThis: function ($val) { return lhs = $val; }, Element: $info.Element, S: _clarifyGenerics({ Self: Array, Element: $info.Element }) }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).Array.customMirror*/
     MIO_Mixin_Array.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).Array.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: Array, Element: this.$info.Element }), C: _clarifyGenerics({ Self: Array, Element: this.$info.Element }) }, this, this, Mirror.DisplayStyle.collection, null);
     };
     Object.defineProperty(MIO_Mixin_Array.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -29100,11 +31393,35 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Array.infix_61_61 = function ($info, lhs, rhs) {
-        if (!lhs)
-            return !rhs;
-        if (lhs.count != rhs.count)
-            return false;
-        return lhs.every(function (val, i) { return lhs.$info.Element.infix_61_61($info, val, rhs instanceof ClosedRange || rhs instanceof Range ? i + rhs.lowerBound : rhs[i]); });
+        var lhsCount = lhs.count;
+        {
+            if ((Int.infix_33_61({ Self: Int }, lhsCount, rhs.count))) {
+                return false;
+            }
+        }
+        ;
+        {
+            if ((Int.infix_61_61({}, lhsCount, 0))) {
+                return true;
+            }
+        }
+        ;
+        {
+            var $idx$generator_1 = _cloneStruct(Int.infix_46_46_60({ Self: Int }, 0, lhsCount).makeIterator({ Self: _clarifyGenerics({ Self: Range, Bound: Int }) }));
+            while (true) {
+                var idx = $idx$generator_1.next({ $setThis: function ($val) { return $idx$generator_1 = $val; }, Elements: _clarifyGenerics({ Self: Range, Bound: Int }) });
+                if (!((idx != null)))
+                    break;
+                {
+                    if (($info.Element.infix_33_61({ Self: $info.Element }, lhs.subscript$get({}, idx), rhs.subscript$get({}, idx)))) {
+                        return false;
+                    }
+                }
+                ;
+            }
+        }
+        ;
+        return true;
     };
     /*Swift.(file).Array.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -29124,12 +31441,12 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     /*Swift.(file).Array.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     MIO_Mixin_Array.prototype.withUnsafeMutableBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).Array.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, $0$inout) { return body({}, _create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', { T: $info.Element }, $0)); }));
     };
     /*Swift.(file).Array.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     /*Swift.(file)._HasContiguousBytes.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     MIO_Mixin_Array.prototype.withUnsafeBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).Array.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, $0) { return body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', { T: $info.Element }, $0)); }));
     };
     /*Swift.(file).Array.init(_immutableCocoaArray:AnyObject)*/
     /*Swift.(file).Array.init(_immutableCocoaArray:AnyObject)*/
@@ -29149,21 +31466,6 @@ var MIO_Mixin_Array = /** @class */ (function () {
     MIO_Mixin_Array.prototype.init$vars = function () {
     };
     MIO_Mixin_Array.prototype.toString = function () { return '[' + this.join(', ') + ']'; };
-    Object.defineProperty(MIO_Mixin_Array.prototype, "indices", {
-        get: function () { return _create(Range, 'initUncheckedBoundstuple_type', { Bound: Int }, [0, this.count]); },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(MIO_Mixin_Array.prototype, "first", {
-        get: function () { return this[0]; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(MIO_Mixin_Array.prototype, "last", {
-        get: function () { return this[this.length - 1]; },
-        enumerable: true,
-        configurable: true
-    });
     MIO_Mixin_Array.$struct = true;
     MIO_Mixin_Array.$mixin = true;
     MIO_Mixin_Array.$infoAddress = '';
@@ -29213,73 +31515,6 @@ var ArraySlice = /** @class */ (function () {
     ArraySlice.prototype.init_buffer_ContiguousArrayBuffer = function ($info, buffer) {
         return buffer;
     };
-    /*Swift.(file).ArraySlice.init()*/
-    /*Swift.(file).RangeReplaceableCollection.init()*/
-    ArraySlice.prototype.init = function ($info) {
-    };
-    /*Swift.(file).ArraySlice.init(_:S)*/
-    /*Swift.(file).RangeReplaceableCollection.init(_:S)*/
-    /*Swift.(file)._ArrayProtocol.init(_:Self._Buffer)*/
-    ArraySlice.prototype.initBuffer = function ($info, s) {
-        return s;
-    };
-    /*Swift.(file).ArraySlice.init(repeating:Element,count:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.init(repeating:Self.Element,count:Int)*/
-    ArraySlice.prototype.initRepeatingCountInt = function ($info, repeatedValue, count) {
-    };
-    /*Swift.(file).ArraySlice.init(_uninitializedCount:Int)*/
-    /*Swift.(file).ArraySlice.init(_uninitializedCount:Int)*/
-    ArraySlice.prototype.init_uninitializedCountInt = function ($info, count) {
-        return count;
-    };
-    /*Swift.(file).ArraySlice.reserveCapacity(_:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)*/
-    /*Swift.(file)._ArrayProtocol.reserveCapacity(_:Int)*/
-    ArraySlice.prototype.reserveCapacity = function ($info, minimumCapacity) {
-        throw 'unsupported method Swift.(file).ArraySlice.reserveCapacity(_:Int) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.append(_:Element)*/
-    /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
-    ArraySlice.prototype.append = function ($info, newElement) {
-        throw 'unsupported method Swift.(file).ArraySlice.append(_:Element) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.append(contentsOf:S)*/
-    /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
-    ArraySlice.prototype.appendContentsOf = function ($info, newElements) {
-        throw 'unsupported method Swift.(file).ArraySlice.append(contentsOf:S) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int)*/
-    /*Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int)*/
-    ArraySlice.prototype.reserveCapacityForAppendNewElementsCount = function ($info, newElementsCount) {
-        throw 'unsupported method Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.remove(at:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
-    /*Swift.(file)._ArrayProtocol.remove(at:Int)*/
-    ArraySlice.prototype.removeAt = function ($info, index) {
-        throw 'unsupported method Swift.(file).ArraySlice.remove(at:Int) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.insert(_:Element,at:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
-    /*Swift.(file)._ArrayProtocol.insert(_:Self.Element,at:Int)*/
-    ArraySlice.prototype.insertAt = function ($info, newElement, i) {
-        throw 'unsupported method Swift.(file).ArraySlice.insert(_:Element,at:Int) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.removeAll(keepingCapacity:Bool)*/
-    /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
-    ArraySlice.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
-        throw 'unsupported method Swift.(file).ArraySlice.removeAll(keepingCapacity:Bool) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
-    /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
-    ArraySlice.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
-    };
-    /*Swift.(file).ArraySlice.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
-    /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
-    ArraySlice.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).ArraySlice.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
-    };
     /*Swift.(file).ArraySlice.capacity*/
     ArraySlice.prototype.capacity$get = function () {
         throw 'unsupported variable Swift.(file).ArraySlice.capacity in ' + this.constructor.name;
@@ -29315,85 +31550,103 @@ var ArraySlice = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(after:Self.Index)*/
     /*Swift.(file).Collection.index(after:Self.Index)*/
     ArraySlice.prototype.indexAfter = function ($info, i) {
-        throw 'unsupported method Swift.(file).ArraySlice.index(after:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, 1);
     };
     /*Swift.(file).ArraySlice.formIndex(after:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     ArraySlice.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).ArraySlice.formIndex(after:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).ArraySlice.index(before:Int)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
     ArraySlice.prototype.indexBefore = function ($info, i) {
-        throw 'unsupported method Swift.(file).ArraySlice.index(before:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, i, 1);
     };
     /*Swift.(file).ArraySlice.formIndex(before:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     ArraySlice.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).ArraySlice.formIndex(before:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_45_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).ArraySlice.index(_:Int,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
     ArraySlice.prototype.indexOffsetBy = function ($info, i, distance) {
-        throw 'unsupported method Swift.(file).ArraySlice.index(_:Int,offsetBy:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).ArraySlice.index(_:Int,offsetBy:Int,limitedBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     ArraySlice.prototype.indexOffsetByLimitedBy = function ($info, i, distance, limit) {
-        throw 'unsupported method Swift.(file).ArraySlice.index(_:Int,offsetBy:Int,limitedBy:Int) in ' + this.constructor.name;
+        var l = Int.infix_45({}, limit, i);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).ArraySlice.distance(from:Int,to:Int)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     ArraySlice.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).ArraySlice.distance(from:Int,to:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, end, start);
     };
     /*Swift.(file).ArraySlice.subscript(_:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.subscript(_:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
+    /*Swift.(file).RangeReplaceableCollection.subscript(_:Self.Index)*/
     ArraySlice.prototype.subscript$get = function ($info, index) {
         return this[index];
     }; /*Swift.(file).ArraySlice.subscript(_:Int)*/
-    /*Swift.(file).RangeReplaceableCollection.subscript(_:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
+    /*Swift.(file).RangeReplaceableCollection.subscript(_:Self.Index)*/
     ArraySlice.prototype.subscript$_modify = function ($info, index) {
         return this[index];
     };
     /*Swift.(file).ArraySlice.subscript(_:Range<Int>)*/
-    /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
+    /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     ArraySlice.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).ArraySlice.subscript(_:Range<Int>)*/
-    /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
+    /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     ArraySlice.prototype.subscriptRange$set = function ($info, rhs, bounds) {
-        this[bounds] = rhs;
+        this[bounds] = _cloneStruct(rhs);
     };
     /*Swift.(file).ArraySlice.count*/
     ArraySlice.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).ArraySlice.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(ArraySlice.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -29406,9 +31659,95 @@ var ArraySlice = /** @class */ (function () {
     ArraySlice.prototype.initArrayLiteralArray = function ($info, _elements) {
         return _elements;
     };
+    /*Swift.(file).ArraySlice.init()*/
+    /*Swift.(file).RangeReplaceableCollection.init()*/
+    ArraySlice.prototype.init = function ($info) {
+    };
+    /*Swift.(file).ArraySlice.init(_:S)*/
+    /*Swift.(file).RangeReplaceableCollection.init(_:S)*/
+    /*Swift.(file)._ArrayProtocol.init(_:Self._Buffer)*/
+    ArraySlice.prototype.initBuffer = function ($info, s) {
+        return s;
+    };
+    /*Swift.(file).ArraySlice.init(repeating:Element,count:Int)*/
+    /*Swift.(file).RangeReplaceableCollection.init(repeating:Self.Element,count:Int)*/
+    ArraySlice.prototype.initRepeatingCountInt = function ($info, repeatedValue, count) {
+    };
+    /*Swift.(file).ArraySlice.init(_uninitializedCount:Int)*/
+    /*Swift.(file).ArraySlice.init(_uninitializedCount:Int)*/
+    ArraySlice.prototype.init_uninitializedCountInt = function ($info, count) {
+        return count;
+    };
+    /*Swift.(file).ArraySlice.reserveCapacity(_:Int)*/
+    /*Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)*/
+    /*Swift.(file)._ArrayProtocol.reserveCapacity(_:Int)*/
+    ArraySlice.prototype.reserveCapacity = function ($info, minimumCapacity) {
+        throw 'unsupported method Swift.(file).ArraySlice.reserveCapacity(_:Int) in ' + this.constructor.name;
+    };
+    /*Swift.(file).ArraySlice.append(_:Element)*/
+    /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
+    ArraySlice.prototype.append = function ($info, newElement) {
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
+    };
+    /*Swift.(file).ArraySlice.append(contentsOf:S)*/
+    /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
+    ArraySlice.prototype.appendContentsOf = function ($info, newElements) {
+        var approximateCapacity = Int.infix_43({}, this.count, numericCast({ T: Int, U: Int }, newElements.underestimatedCount));
+        this.reserveCapacity({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, approximateCapacity);
+        {
+            var $element$generator_12 = newElements.makeIterator({ Self: $info.S });
+            while (true) {
+                var _element = $element$generator_12.next({ $setThis: function ($val) { return $element$generator_12 = $val; }, Self: $info.S.Iterator });
+                if (!((_element != null)))
+                    break;
+                this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, _element);
+            }
+        }
+    };
+    /*Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int)*/
+    /*Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int)*/
+    ArraySlice.prototype.reserveCapacityForAppendNewElementsCount = function ($info, newElementsCount) {
+        throw 'unsupported method Swift.(file).ArraySlice.reserveCapacityForAppend(newElementsCount:Int) in ' + this.constructor.name;
+    };
+    /*Swift.(file).ArraySlice.remove(at:Int)*/
+    /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
+    /*Swift.(file)._ArrayProtocol.remove(at:Int)*/
+    ArraySlice.prototype.removeAt = function ($info, index) {
+        var result = this.subscript$get({}, index);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: this.$info.Element, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Element }) }, Int.infix_46_46_60({ Self: Int }, index, Int.infix_43({}, index, 1)), _create(EmptyCollection, 'init', { Element: this.$info.Element }));
+        return result;
+    };
+    /*Swift.(file).ArraySlice.insert(_:Element,at:Int)*/
+    /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
+    /*Swift.(file)._ArrayProtocol.insert(_:Self.Element,at:Int)*/
+    ArraySlice.prototype.insertAt = function ($info, newElement, i) {
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Self.Element }, newElement));
+    };
+    /*Swift.(file).ArraySlice.removeAll(keepingCapacity:Bool)*/
+    /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
+    ArraySlice.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
+        {
+            if ((Bool.prefix_33({}, keepCapacity))) {
+                $info.$setThis(_cloneStruct(_create(this.$info.Self, 'init', { Self: this.$info.Self })));
+            }
+            else {
+                this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+            }
+        }
+    };
+    /*Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
+    /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
+    ArraySlice.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, bufferPointer$inout) { return body({}, { get: function () { return bufferPointer; }, set: function ($val) { return bufferPointer = $val; } }); }));
+    };
+    /*Swift.(file).ArraySlice.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
+    /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
+    ArraySlice.prototype.withContiguousStorageIfAvailable = function ($info, body) {
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, bufferPointer) { return body({}, bufferPointer); }));
+    };
     /*Swift.(file).ArraySlice.customMirror*/
     ArraySlice.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).ArraySlice.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: ArraySlice, Element: this.$info.Element }), C: _clarifyGenerics({ Self: ArraySlice, Element: this.$info.Element }) }, this, this, Mirror.DisplayStyle.collection, null);
     };
     Object.defineProperty(ArraySlice.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -29474,12 +31813,12 @@ var ArraySlice = /** @class */ (function () {
     /*Swift.(file).ArraySlice.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     /*Swift.(file).ArraySlice.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     ArraySlice.prototype.withUnsafeMutableBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).ArraySlice.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, $0$inout) { return body({}, _create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', { T: $info.Element }, $0)); }));
     };
     /*Swift.(file).ArraySlice.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     /*Swift.(file).ArraySlice.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     ArraySlice.prototype.withUnsafeBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).ArraySlice.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, $0) { return body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', { T: $info.Element }, $0)); }));
     };
     /*Swift.(file).ArraySlice.init(_startIndex:Int)*/
     /*Swift.(file).ArraySlice.init(_startIndex:Int)*/
@@ -29494,8 +31833,6 @@ var ArraySlice = /** @class */ (function () {
 }());
 if (typeof _DestructorSafeContainer$implementation != 'undefined')
     _mixin(ArraySlice, _DestructorSafeContainer$implementation, false);
-if (typeof RangeReplaceableCollection$implementation != 'undefined')
-    _mixin(ArraySlice, RangeReplaceableCollection$implementation, false);
 if (typeof _ArrayProtocol$implementation != 'undefined')
     _mixin(ArraySlice, _ArrayProtocol$implementation, false);
 if (typeof RandomAccessCollection$implementation != 'undefined')
@@ -29504,6 +31841,8 @@ if (typeof MutableCollection$implementation != 'undefined')
     _mixin(ArraySlice, MutableCollection$implementation, false);
 if (typeof ExpressibleByArrayLiteral$implementation != 'undefined')
     _mixin(ArraySlice, ExpressibleByArrayLiteral$implementation, false);
+if (typeof RangeReplaceableCollection$implementation != 'undefined')
+    _mixin(ArraySlice, RangeReplaceableCollection$implementation, false);
 if (typeof CustomReflectable$implementation != 'undefined')
     _mixin(ArraySlice, CustomReflectable$implementation, false);
 if (typeof CustomStringConvertible$implementation != 'undefined')
@@ -29535,7 +31874,7 @@ var AutoreleasingUnsafeMutablePointer = /** @class */ (function () {
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.subscript(_:Int)*/
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.subscript(_:Int)*/
     AutoreleasingUnsafeMutablePointer.prototype.subscript$_read = function ($info, i) {
-        return this[i];
+        /*TODO has yield*/
     };
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>)*/
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>)*/
@@ -29627,7 +31966,8 @@ var _CocoaArrayWrapper = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     _CocoaArrayWrapper.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file)._CocoaArrayWrapper.contiguousStorage(_:Range<Int>)*/
     /*Swift.(file)._CocoaArrayWrapper.contiguousStorage(_:Range<Int>)*/
@@ -29662,7 +32002,7 @@ var ContiguousArray = /** @class */ (function () {
     ;
     /*Swift.(file).ContiguousArray.startIndex*/
     ContiguousArray.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).ContiguousArray.startIndex in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(ContiguousArray.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -29685,47 +32025,64 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(after:Self.Index)*/
     /*Swift.(file).Collection.index(after:Self.Index)*/
     ContiguousArray.prototype.indexAfter = function ($info, i) {
-        throw 'unsupported method Swift.(file).ContiguousArray.index(after:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, 1);
     };
     /*Swift.(file).ContiguousArray.formIndex(after:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     ContiguousArray.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).ContiguousArray.formIndex(after:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).ContiguousArray.index(before:Int)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
     ContiguousArray.prototype.indexBefore = function ($info, i) {
-        throw 'unsupported method Swift.(file).ContiguousArray.index(before:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, i, 1);
     };
     /*Swift.(file).ContiguousArray.formIndex(before:Int)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     ContiguousArray.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).ContiguousArray.formIndex(before:Int) in ' + this.constructor.name;
+        var i = i$inout.get();
+        var $result = (function () {
+            Int.infix_45_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).ContiguousArray.index(_:Int,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
     ContiguousArray.prototype.indexOffsetBy = function ($info, i, distance) {
-        throw 'unsupported method Swift.(file).ContiguousArray.index(_:Int,offsetBy:Int) in ' + this.constructor.name;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).ContiguousArray.index(_:Int,offsetBy:Int,limitedBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     ContiguousArray.prototype.indexOffsetByLimitedBy = function ($info, i, distance, limit) {
-        throw 'unsupported method Swift.(file).ContiguousArray.index(_:Int,offsetBy:Int,limitedBy:Int) in ' + this.constructor.name;
+        var l = Int.infix_45({}, limit, i);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return Int.infix_43({}, i, distance);
     };
     /*Swift.(file).ContiguousArray.distance(from:Int,to:Int)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     ContiguousArray.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).ContiguousArray.distance(from:Int,to:Int) in ' + this.constructor.name;
+        return Int.infix_45({}, end, start);
     };
     /*Swift.(file).ContiguousArray.subscript(_:Int)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
@@ -29751,7 +32108,8 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     ContiguousArray.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).ContiguousArray.subscript(_:Range<Int>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -29759,11 +32117,11 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     ContiguousArray.prototype.subscriptRange$set = function ($info, rhs, bounds) {
-        this[bounds] = rhs;
+        this[bounds] = _cloneStruct(rhs);
     };
     /*Swift.(file).ContiguousArray.count*/
     ContiguousArray.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).ContiguousArray.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(ContiguousArray.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -29804,12 +32162,22 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file).ContiguousArray.append(_:Element)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     ContiguousArray.prototype.append = function ($info, newElement) {
-        throw 'unsupported method Swift.(file).ContiguousArray.append(_:Element) in ' + this.constructor.name;
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
     };
     /*Swift.(file).ContiguousArray.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     ContiguousArray.prototype.appendContentsOf = function ($info, newElements) {
-        throw 'unsupported method Swift.(file).ContiguousArray.append(contentsOf:S) in ' + this.constructor.name;
+        var approximateCapacity = Int.infix_43({}, this.count, numericCast({ T: Int, U: Int }, newElements.underestimatedCount));
+        this.reserveCapacity({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, approximateCapacity);
+        {
+            var $element$generator_13 = newElements.makeIterator({ Self: $info.S });
+            while (true) {
+                var _element = $element$generator_13.next({ $setThis: function ($val) { return $element$generator_13 = $val; }, Self: $info.S.Iterator });
+                if (!((_element != null)))
+                    break;
+                this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, _element);
+            }
+        }
     };
     /*Swift.(file).ContiguousArray.reserveCapacityForAppend(newElementsCount:Int)*/
     /*Swift.(file).ContiguousArray.reserveCapacityForAppend(newElementsCount:Int)*/
@@ -29820,32 +32188,43 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file)._ArrayProtocol.remove(at:Int)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     ContiguousArray.prototype.removeAt = function ($info, index) {
-        throw 'unsupported method Swift.(file).ContiguousArray.remove(at:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
+        var result = this.subscript$get({}, position);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, position, this.indexAfter({ Self: this.$info.Self }, position)), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+        return result;
     };
     /*Swift.(file).ContiguousArray.insert(_:Element,at:Int)*/
     /*Swift.(file)._ArrayProtocol.insert(_:Self.Element,at:Int)*/
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     ContiguousArray.prototype.insertAt = function ($info, newElement, i) {
-        throw 'unsupported method Swift.(file).ContiguousArray.insert(_:Element,at:Int) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Self.Element }, newElement));
     };
     /*Swift.(file).ContiguousArray.removeAll(keepingCapacity:Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
     ContiguousArray.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
-        throw 'unsupported method Swift.(file).ContiguousArray.removeAll(keepingCapacity:Bool) in ' + this.constructor.name;
+        {
+            if ((Bool.prefix_33({}, keepCapacity))) {
+                $info.$setThis(_cloneStruct(_create(this.$info.Self, 'init', { Self: this.$info.Self })));
+            }
+            else {
+                this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+            }
+        }
     };
     /*Swift.(file).ContiguousArray.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)*/
     ContiguousArray.prototype.withContiguousMutableStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).ContiguousArray.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, bufferPointer$inout) { return body({}, { get: function () { return bufferPointer; }, set: function ($val) { return bufferPointer = $val; } }); }));
     };
     /*Swift.(file).ContiguousArray.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)*/
     /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
     ContiguousArray.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-        throw 'unsupported method Swift.(file).ContiguousArray.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, bufferPointer) { return body({}, bufferPointer); }));
     };
     /*Swift.(file).ContiguousArray.customMirror*/
     ContiguousArray.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).ContiguousArray.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: ContiguousArray, Element: this.$info.Element }), C: _clarifyGenerics({ Self: ContiguousArray, Element: this.$info.Element }) }, this, this, Mirror.DisplayStyle.collection, null);
     };
     Object.defineProperty(ContiguousArray.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -29911,12 +32290,12 @@ var ContiguousArray = /** @class */ (function () {
     /*Swift.(file).ContiguousArray.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     /*Swift.(file).ContiguousArray.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)*/
     ContiguousArray.prototype.withUnsafeMutableBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).ContiguousArray.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeMutableBufferPointer({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Element: $info.Element, R: $info.R }, (function ($info, $0$inout) { return body({}, _create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', { T: $info.Element }, $0)); }));
     };
     /*Swift.(file).ContiguousArray.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     /*Swift.(file)._HasContiguousBytes.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)*/
     ContiguousArray.prototype.withUnsafeBytes = function ($info, body) {
-        throw 'unsupported method Swift.(file).ContiguousArray.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R) in ' + this.constructor.name;
+        return this.withUnsafeBufferPointer({ Element: $info.Element, R: $info.R }, (function ($info, $0) { return body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', { T: $info.Element }, $0)); }));
     };
     ContiguousArray.prototype.init$vars = function () {
     };
@@ -29979,7 +32358,7 @@ var ClosedRange = /** @class */ (function () {
     };
     /*Swift.(file).ClosedRange.isEmpty*/
     ClosedRange.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).ClosedRange.isEmpty in ' + this.constructor.name;
+        return false;
     };
     Object.defineProperty(ClosedRange.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -29990,12 +32369,13 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).ClosedRange.relative(to:C)*/
     /*Swift.(file).RangeExpression.relative(to:C)*/
     ClosedRange.prototype.relativeTo = function ($info, collection) {
-        throw 'unsupported method Swift.(file).ClosedRange.relative(to:C) in ' + this.constructor.name;
+        return _create(Range, 'initUncheckedBoundstuple_type', { Bound: $info.Bound }, { 0: this.lowerBound, 1: collection.indexAfter({ Self: $info.C }, this.upperBound) });
     };
     /*Swift.(file).ClosedRange.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     ClosedRange.prototype.contains = function ($info, _element) {
-        return _element >= this.lowerBound && _element <= this.upperBound;
+        var _this = this;
+        return Bool.infix_38_38({}, this.$info.Bound.infix_62_61({ Self: this.$info.Bound }, _element, this.lowerBound), function () { return _this.$info.Bound.infix_60_61({ Self: _this.$info.Bound }, _element, _this.upperBound); });
     };
     /*Swift.(file).ClosedRange.startIndex*/
     ClosedRange.prototype.startIndex$get = function () {
@@ -30042,7 +32422,18 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     ClosedRange.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).ClosedRange.distance(from:ClosedRange<Bound>.Index,to:ClosedRange<Bound>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).ClosedRange.subscript(_:ClosedRange<Bound>.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
@@ -30056,12 +32447,13 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     ClosedRange.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).ClosedRange.==infix(_:ClosedRange<Bound>,_:ClosedRange<Bound>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ClosedRange.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        return Bool.infix_38_38({}, $info.Bound.infix_61_61({ Self: $info.Bound }, lhs.lowerBound, rhs.lowerBound), function () { return $info.Bound.infix_61_61({ Self: $info.Bound }, lhs.upperBound, rhs.upperBound); });
     };
     /*Swift.(file).ClosedRange.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -30080,7 +32472,7 @@ var ClosedRange = /** @class */ (function () {
     ;
     /*Swift.(file).ClosedRange.description*/
     ClosedRange.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).ClosedRange.description in ' + this.constructor.name;
+        return (("") + (this.lowerBound) + ("...") + (this.upperBound) + (""));
     };
     Object.defineProperty(ClosedRange.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -30090,7 +32482,7 @@ var ClosedRange = /** @class */ (function () {
     ;
     /*Swift.(file).ClosedRange.debugDescription*/
     ClosedRange.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).ClosedRange.debugDescription in ' + this.constructor.name;
+        return String.infix_43({}, (("ClosedRange(") + (_create(String, 'initReflecting', { Subject: this.$info.Bound }, this.lowerBound)) + ("")), (("...") + (_create(String, 'initReflecting', { Subject: this.$info.Bound }, this.upperBound)) + (")")));
     };
     Object.defineProperty(ClosedRange.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -30100,7 +32492,7 @@ var ClosedRange = /** @class */ (function () {
     ;
     /*Swift.(file).ClosedRange.customMirror*/
     ClosedRange.prototype.customMirror$get = function () {
-        throw 'unsupported variable Swift.(file).ClosedRange.customMirror in ' + this.constructor.name;
+        return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', { Subject: _clarifyGenerics({ Self: ClosedRange, Bound: this.$info.Bound }) }, this, new Map([["lowerBound", this.lowerBound], ["upperBound", this.upperBound]]), null, null);
     };
     Object.defineProperty(ClosedRange.prototype, "customMirror", {
         get: function () { return this.customMirror$get(); },
@@ -30111,7 +32503,9 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).ClosedRange.clamped(to:ClosedRange<Bound>)*/
     /*Swift.(file).ClosedRange.clamped(to:ClosedRange<Bound>)*/
     ClosedRange.prototype.clampedTo = function ($info, limits) {
-        throw 'unsupported method Swift.(file).ClosedRange.clamped(to:ClosedRange<Bound>) in ' + this.constructor.name;
+        var lower = (this.$info.Bound.infix_62({ Self: this.$info.Bound }, limits.lowerBound, this.lowerBound) ? limits.lowerBound : (this.$info.Bound.infix_60({ Self: this.$info.Bound }, limits.upperBound, this.lowerBound) ? limits.upperBound : this.lowerBound));
+        var upper = (this.$info.Bound.infix_60({ Self: this.$info.Bound }, limits.upperBound, this.upperBound) ? limits.upperBound : (this.$info.Bound.infix_62({ Self: this.$info.Bound }, limits.lowerBound, this.upperBound) ? limits.lowerBound : this.upperBound));
+        return _create(ClosedRange, 'initUncheckedBoundstuple_type', { Bound: this.$info.Bound }, { 0: lower, 1: upper });
     };
     /*Swift.(file).ClosedRange.init(_:Range<Bound>)*/
     /*Swift.(file).ClosedRange.init(_:Range<Bound>)*/
@@ -30121,12 +32515,13 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).ClosedRange.overlaps(_:ClosedRange<Bound>)*/
     /*Swift.(file).ClosedRange.overlaps(_:ClosedRange<Bound>)*/
     ClosedRange.prototype.overlaps = function ($info, other) {
-        throw 'unsupported method Swift.(file).ClosedRange.overlaps(_:ClosedRange<Bound>) in ' + this.constructor.name;
+        var _this = this;
+        return Bool.infix_124_124({}, this.contains({ Bound: this.$info.Bound }, other.lowerBound), function () { return other.contains({ Bound: _this.$info.Bound }, _this.lowerBound); });
     };
     /*Swift.(file).ClosedRange.overlaps(_:Range<Bound>)*/
     /*Swift.(file).ClosedRange.overlaps(_:Range<Bound>)*/
     ClosedRange.prototype.overlaps = function ($info, other) {
-        throw 'unsupported method Swift.(file).ClosedRange.overlaps(_:Range<Bound>) in ' + this.constructor.name;
+        return other.overlaps({ Bound: this.$info.Bound }, this);
     };
     /*Swift.(file).ClosedRange.init(_:ClosedRange<Bound>)*/
     /*Swift.(file).ClosedRange.init(_:ClosedRange<Bound>)*/
@@ -30135,31 +32530,6 @@ var ClosedRange = /** @class */ (function () {
     };
     ClosedRange.prototype.init$vars = function () {
     };
-    Object.defineProperty(ClosedRange.prototype, "first", {
-        get: function () { return this.lowerBound; },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(ClosedRange.prototype, "last", {
-        get: function () { return this.upperBound; },
-        enumerable: true,
-        configurable: true
-    });
-    ClosedRange.prototype.reversed = function () {
-        var result = [];
-        for (var i = this.last; i >= this.first; i--)
-            result.push(i);
-        return result;
-    };
-    ClosedRange.prototype.makeIterator = function () {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this.contains(null, current + _this.lowerBound) ? current + _this.lowerBound : null; });
-    };
-    Object.defineProperty(ClosedRange.prototype, "count", {
-        get: function () { return this.upperBound - this.lowerBound + 1; },
-        enumerable: true,
-        configurable: true
-    });
     var _79;
     ClosedRange.$struct = true;
     ClosedRange.$infoAddress = '';
@@ -30322,11 +32692,11 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _ContiguousArrayBuffer.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._ContiguousArrayBuffer.count*/
     _ContiguousArrayBuffer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._ContiguousArrayBuffer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_ContiguousArrayBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -30351,7 +32721,8 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     _ContiguousArrayBuffer.prototype.subscript$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     _ContiguousArrayBuffer.prototype.subscriptRange$get = function ($info, bounds) {
         this.subscript$get.apply(this, arguments);
@@ -30362,7 +32733,7 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     _ContiguousArrayBuffer.prototype.subscript$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     _ContiguousArrayBuffer.prototype.subscriptRange$set = function ($info, newValue, bounds) {
         this.subscript$set.apply(this, arguments);
@@ -30453,8 +32824,7 @@ var LazyDropWhileSequence = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     LazyDropWhileSequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).LazyDropWhileSequence.startIndex*/
     LazyDropWhileSequence.prototype.startIndex$get = function () {
@@ -30542,12 +32912,11 @@ var EmptyCollection = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     EmptyCollection.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(EmptyCollection.Iterator, 'init', { Element: this.$info.Element });
     };
     /*Swift.(file).EmptyCollection.startIndex*/
     EmptyCollection.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).EmptyCollection.startIndex in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(EmptyCollection.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -30557,7 +32926,7 @@ var EmptyCollection = /** @class */ (function () {
     ;
     /*Swift.(file).EmptyCollection.endIndex*/
     EmptyCollection.prototype.endIndex$get = function () {
-        throw 'unsupported variable Swift.(file).EmptyCollection.endIndex in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(EmptyCollection.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -30591,7 +32960,7 @@ var EmptyCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     EmptyCollection.prototype.subscript$set = function ($info, newValue, position) {
-        this[position] = newValue;
+        this[position] = _cloneStruct(newValue);
     };
     /*Swift.(file).EmptyCollection.subscript(_:Range<EmptyCollection<Element>.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
@@ -30599,18 +32968,19 @@ var EmptyCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     EmptyCollection.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).EmptyCollection.subscript(_:Range<EmptyCollection<Element>.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     EmptyCollection.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     /*Swift.(file).EmptyCollection.count*/
     EmptyCollection.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).EmptyCollection.count in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(EmptyCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -30630,19 +33000,37 @@ var EmptyCollection = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     EmptyCollection.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).EmptyCollection.index(_:EmptyCollection<Element>.Index,offsetBy:Int,limitedBy:EmptyCollection<Element>.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).EmptyCollection.distance(from:EmptyCollection<Element>.Index,to:EmptyCollection<Element>.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     EmptyCollection.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).EmptyCollection.distance(from:EmptyCollection<Element>.Index,to:EmptyCollection<Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).EmptyCollection.==infix(_:EmptyCollection<Element>,_:EmptyCollection<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     EmptyCollection.infix_61_61 = function ($info, lhs, rhs) {
-        return lhs == rhs;
+        return true;
     };
     EmptyCollection.prototype.init$vars = function () {
     };
@@ -30693,12 +33081,11 @@ var LazyFilterSequence = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     LazyFilterSequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).LazyFilterSequence.underestimatedCount*/
     LazyFilterSequence.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).LazyFilterSequence.underestimatedCount in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(LazyFilterSequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -30736,13 +33123,30 @@ var LazyFilterSequence = /** @class */ (function () {
     /*Swift.(file).Collection.formIndex(after:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     LazyFilterSequence.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).LazyFilterSequence.formIndex(after:LazyFilterSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).LazyFilterSequence.distance(from:LazyFilterSequence<Base>.Index,to:LazyFilterSequence<Base>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     LazyFilterSequence.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).LazyFilterSequence.distance(from:LazyFilterSequence<Base>.Index,to:LazyFilterSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).LazyFilterSequence.index(_:LazyFilterSequence<Base>.Index,offsetBy:Int)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:Int)*/
@@ -30776,7 +33180,8 @@ var LazyFilterSequence = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     LazyFilterSequence.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).LazyFilterSequence.index(before:LazyFilterSequence<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -30786,7 +33191,13 @@ var LazyFilterSequence = /** @class */ (function () {
     /*Swift.(file).LazyFilterSequence.formIndex(before:LazyFilterSequence<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     LazyFilterSequence.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).LazyFilterSequence.formIndex(before:LazyFilterSequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).LazyFilterSequence.filter(_:(LazyFilterSequence<Base>.Element) -> Bool)*/
     /*Swift.(file).LazyFilterSequence.filter(_:(LazyFilterSequence<Base>.Element) -> Bool)*/
@@ -30882,7 +33293,7 @@ var _FixedArray2 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray2.count*/
     _FixedArray2.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._FixedArray2.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_FixedArray2.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -30923,7 +33334,7 @@ var _FixedArray2 = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _FixedArray2.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._FixedArray2.index(after:_FixedArray2<T>.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
@@ -31016,7 +33427,7 @@ var _FixedArray4 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray4.count*/
     _FixedArray4.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._FixedArray4.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_FixedArray4.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31057,7 +33468,7 @@ var _FixedArray4 = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _FixedArray4.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._FixedArray4.index(after:_FixedArray4<T>.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
@@ -31150,7 +33561,7 @@ var _FixedArray8 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray8.count*/
     _FixedArray8.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._FixedArray8.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_FixedArray8.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31191,7 +33602,7 @@ var _FixedArray8 = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _FixedArray8.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._FixedArray8.index(after:_FixedArray8<T>.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
@@ -31284,7 +33695,7 @@ var _FixedArray16 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray16.count*/
     _FixedArray16.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._FixedArray16.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_FixedArray16.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31325,7 +33736,7 @@ var _FixedArray16 = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     _FixedArray16.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._FixedArray16.index(after:_FixedArray16<T>.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
@@ -31411,14 +33822,15 @@ var DefaultIndices = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     DefaultIndices.prototype.subscript$get = function ($info, i) {
-        return this[i];
+        return i;
     };
     /*Swift.(file).DefaultIndices.subscript(_:Range<DefaultIndices<Elements>.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     DefaultIndices.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).DefaultIndices.index(after:DefaultIndices<Elements>.Index)*/
     /*Swift.(file).Collection.index(after:Self.Index)*/
@@ -31432,11 +33844,17 @@ var DefaultIndices = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     DefaultIndices.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).DefaultIndices.formIndex(after:DefaultIndices<Elements>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).DefaultIndices.indices*/
     DefaultIndices.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).DefaultIndices.indices in ' + this.constructor.name;
+        return this;
     };
     Object.defineProperty(DefaultIndices.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -31454,7 +33872,13 @@ var DefaultIndices = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     DefaultIndices.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).DefaultIndices.formIndex(before:DefaultIndices<Elements>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     DefaultIndices.prototype.init$vars = function () {
     };
@@ -31606,7 +34030,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     };
     /*Swift.(file).UInt8.bitWidth*/
     MIO_Mixin_UInt8.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).UInt8.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_UInt8, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -31687,7 +34111,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt8.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).UInt8.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).UInt8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -31757,27 +34181,37 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.&infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt8.|infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt8.^infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt8.&>>infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt8.&<<infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt8./infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -31838,17 +34272,17 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.<=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).UInt8.>=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).UInt8.>infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
@@ -31891,7 +34325,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             };
             /*Swift.(file).UInt8.Words.count*/
             class_107.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UInt8.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_107.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -31921,7 +34355,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt8.Words.indices*/
             class_107.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).UInt8.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_107.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -31980,7 +34414,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_108.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_108.prototype.init$vars = function () {
             };
@@ -32013,7 +34447,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_109.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_109.prototype.init$vars = function () {
             };
@@ -32046,7 +34480,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_110.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_110.prototype.init$vars = function () {
             };
@@ -32079,7 +34513,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_111.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_111.prototype.init$vars = function () {
             };
@@ -32112,7 +34546,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_112.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_112.prototype.init$vars = function () {
             };
@@ -32145,7 +34579,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             }; /*Swift.(file).UInt8.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_113.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_113.prototype.init$vars = function () {
             };
@@ -32337,7 +34771,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     };
     /*Swift.(file).Int8.bitWidth*/
     MIO_Mixin_Int8.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).Int8.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_Int8, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -32428,7 +34862,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int8.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).Int8.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).Int8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -32498,27 +34932,37 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.&infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int8.|infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int8.^infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int8.&>>infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int8.&<<infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int8./infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -32579,17 +35023,17 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.<=infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Int8.>=infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Int8.>infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Int8.customMirror*/
     MIO_Mixin_Int8.prototype.customMirror$get = function () {
@@ -32627,7 +35071,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             };
             /*Swift.(file).Int8.Words.count*/
             class_114.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Int8.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_114.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -32657,7 +35101,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             ;
             /*Swift.(file).Int8.Words.indices*/
             class_114.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).Int8.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_114.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -32716,7 +35160,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_115.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_115.prototype.init$vars = function () {
             };
@@ -32749,7 +35193,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_116.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_116.prototype.init$vars = function () {
             };
@@ -32782,7 +35226,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_117.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_117.prototype.init$vars = function () {
             };
@@ -32815,7 +35259,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_118.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_118.prototype.init$vars = function () {
             };
@@ -32848,7 +35292,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_119.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_119.prototype.init$vars = function () {
             };
@@ -32881,7 +35325,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             }; /*Swift.(file).Int8.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_120.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_120.prototype.init$vars = function () {
             };
@@ -33071,7 +35515,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     };
     /*Swift.(file).UInt16.bitWidth*/
     MIO_Mixin_UInt16.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).UInt16.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_UInt16, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -33152,7 +35596,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt16.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).UInt16.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).UInt16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -33212,27 +35656,37 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.&infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt16.|infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt16.^infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt16.&>>infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt16.&<<infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt16./infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -33285,17 +35739,17 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.<=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).UInt16.>=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).UInt16.>infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).UInt16.customMirror*/
     MIO_Mixin_UInt16.prototype.customMirror$get = function () {
@@ -33333,7 +35787,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             };
             /*Swift.(file).UInt16.Words.count*/
             class_121.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UInt16.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_121.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -33363,7 +35817,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt16.Words.indices*/
             class_121.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).UInt16.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_121.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -33422,7 +35876,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_122.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_122.prototype.init$vars = function () {
             };
@@ -33455,7 +35909,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_123.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_123.prototype.init$vars = function () {
             };
@@ -33488,7 +35942,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_124.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_124.prototype.init$vars = function () {
             };
@@ -33521,7 +35975,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_125.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_125.prototype.init$vars = function () {
             };
@@ -33554,7 +36008,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_126.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_126.prototype.init$vars = function () {
             };
@@ -33587,7 +36041,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             }; /*Swift.(file).UInt16.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_127.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_127.prototype.init$vars = function () {
             };
@@ -33779,7 +36233,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     };
     /*Swift.(file).Int16.bitWidth*/
     MIO_Mixin_Int16.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).Int16.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_Int16, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -33870,7 +36324,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int16.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).Int16.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).Int16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -33930,27 +36384,37 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.&infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int16.|infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int16.^infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int16.&>>infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int16.&<<infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int16./infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -34003,17 +36467,17 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.<=infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Int16.>=infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Int16.>infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Int16.customMirror*/
     MIO_Mixin_Int16.prototype.customMirror$get = function () {
@@ -34051,7 +36515,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             };
             /*Swift.(file).Int16.Words.count*/
             class_128.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Int16.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_128.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -34081,7 +36545,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             ;
             /*Swift.(file).Int16.Words.indices*/
             class_128.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).Int16.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_128.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -34140,7 +36604,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_129.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_129.prototype.init$vars = function () {
             };
@@ -34173,7 +36637,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_130.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_130.prototype.init$vars = function () {
             };
@@ -34206,7 +36670,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_131.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_131.prototype.init$vars = function () {
             };
@@ -34239,7 +36703,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_132.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_132.prototype.init$vars = function () {
             };
@@ -34272,7 +36736,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_133.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_133.prototype.init$vars = function () {
             };
@@ -34305,7 +36769,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             }; /*Swift.(file).Int16.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_134.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_134.prototype.init$vars = function () {
             };
@@ -34495,7 +36959,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     };
     /*Swift.(file).UInt32.bitWidth*/
     MIO_Mixin_UInt32.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).UInt32.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_UInt32, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -34576,7 +37040,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt32.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).UInt32.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).UInt32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -34626,27 +37090,37 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.&infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt32.|infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt32.^infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt32.&>>infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt32.&<<infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt32./infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -34699,17 +37173,17 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.<=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).UInt32.>=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).UInt32.>infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
@@ -34752,7 +37226,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             };
             /*Swift.(file).UInt32.Words.count*/
             class_135.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UInt32.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_135.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -34782,7 +37256,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt32.Words.indices*/
             class_135.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).UInt32.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_135.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -34841,7 +37315,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_136.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_136.prototype.init$vars = function () {
             };
@@ -34874,7 +37348,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_137.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_137.prototype.init$vars = function () {
             };
@@ -34907,7 +37381,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_138.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_138.prototype.init$vars = function () {
             };
@@ -34940,7 +37414,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_139.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_139.prototype.init$vars = function () {
             };
@@ -34973,7 +37447,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_140.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_140.prototype.init$vars = function () {
             };
@@ -35006,7 +37480,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             }; /*Swift.(file).UInt32.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_141.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_141.prototype.init$vars = function () {
             };
@@ -35201,7 +37675,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     };
     /*Swift.(file).Int32.bitWidth*/
     MIO_Mixin_Int32.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).Int32.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_Int32, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -35292,7 +37766,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int32.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).Int32.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).Int32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -35342,27 +37816,37 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.&infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int32.|infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int32.^infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int32.&>>infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int32.&<<infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int32./infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -35415,17 +37899,17 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.<=infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Int32.>=infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Int32.>infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Int32.customMirror*/
     MIO_Mixin_Int32.prototype.customMirror$get = function () {
@@ -35463,7 +37947,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             };
             /*Swift.(file).Int32.Words.count*/
             class_142.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Int32.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_142.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -35493,7 +37977,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             ;
             /*Swift.(file).Int32.Words.indices*/
             class_142.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).Int32.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_142.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -35552,7 +38036,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_143.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_143.prototype.init$vars = function () {
             };
@@ -35585,7 +38069,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_144.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_144.prototype.init$vars = function () {
             };
@@ -35618,7 +38102,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_145.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_145.prototype.init$vars = function () {
             };
@@ -35651,7 +38135,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_146.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_146.prototype.init$vars = function () {
             };
@@ -35684,7 +38168,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_147.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_147.prototype.init$vars = function () {
             };
@@ -35717,7 +38201,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             }; /*Swift.(file).Int32.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_148.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_148.prototype.init$vars = function () {
             };
@@ -35907,7 +38391,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     };
     /*Swift.(file).UInt64.bitWidth*/
     MIO_Mixin_UInt64.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).UInt64.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_UInt64, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -35988,7 +38472,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt64.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).UInt64.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).UInt64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -36018,27 +38502,37 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.&infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt64.|infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt64.^infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt64.&>>infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt64.&<<infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt64./infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -36091,17 +38585,17 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.<=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).UInt64.>=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).UInt64.>infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
@@ -36144,7 +38638,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             };
             /*Swift.(file).UInt64.Words.count*/
             class_149.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UInt64.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_149.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -36174,7 +38668,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt64.Words.indices*/
             class_149.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).UInt64.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_149.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -36233,7 +38727,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_150.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_150.prototype.init$vars = function () {
             };
@@ -36266,7 +38760,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_151.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_151.prototype.init$vars = function () {
             };
@@ -36299,7 +38793,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_152.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_152.prototype.init$vars = function () {
             };
@@ -36332,7 +38826,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_153.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_153.prototype.init$vars = function () {
             };
@@ -36365,7 +38859,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_154.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_154.prototype.init$vars = function () {
             };
@@ -36398,7 +38892,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             }; /*Swift.(file).UInt64.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_155.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_155.prototype.init$vars = function () {
             };
@@ -36595,7 +39089,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     };
     /*Swift.(file).Int64.bitWidth*/
     MIO_Mixin_Int64.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).Int64.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_Int64, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -36686,7 +39180,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int64.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).Int64.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).Int64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -36716,27 +39210,37 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.&infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int64.|infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int64.^infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int64.&>>infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int64.&<<infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int64./infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -36789,17 +39293,17 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.<=infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Int64.>=infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Int64.>infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Int64.customMirror*/
     MIO_Mixin_Int64.prototype.customMirror$get = function () {
@@ -36837,7 +39341,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             };
             /*Swift.(file).Int64.Words.count*/
             class_156.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Int64.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_156.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -36867,7 +39371,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             ;
             /*Swift.(file).Int64.Words.indices*/
             class_156.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).Int64.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_156.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -36926,7 +39430,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_157.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_157.prototype.init$vars = function () {
             };
@@ -36959,7 +39463,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_158.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_158.prototype.init$vars = function () {
             };
@@ -36992,7 +39496,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_159.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_159.prototype.init$vars = function () {
             };
@@ -37025,7 +39529,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_160.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_160.prototype.init$vars = function () {
             };
@@ -37058,7 +39562,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_161.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_161.prototype.init$vars = function () {
             };
@@ -37091,7 +39595,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             }; /*Swift.(file).Int64.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_162.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_162.prototype.init$vars = function () {
             };
@@ -37283,7 +39787,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     };
     /*Swift.(file).UInt.bitWidth*/
     MIO_Mixin_UInt.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).UInt.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_UInt, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -37369,7 +39873,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).UInt.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).UInt.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -37414,27 +39918,37 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.&infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt.|infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt.^infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt.&>>infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt.&<<infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).UInt./infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -37487,17 +40001,17 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.<=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).UInt.>=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).UInt.>infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).UInt.customMirror*/
     MIO_Mixin_UInt.prototype.customMirror$get = function () {
@@ -37545,7 +40059,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             };
             /*Swift.(file).UInt.Words.count*/
             class_163.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UInt.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_163.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -37575,7 +40089,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             ;
             /*Swift.(file).UInt.Words.indices*/
             class_163.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).UInt.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_163.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -37637,7 +40151,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_164.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_164.prototype.init$vars = function () {
             };
@@ -37670,7 +40184,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_165.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_165.prototype.init$vars = function () {
             };
@@ -37703,7 +40217,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_166.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_166.prototype.init$vars = function () {
             };
@@ -37736,7 +40250,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_167.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_167.prototype.init$vars = function () {
             };
@@ -37769,7 +40283,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_168.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_168.prototype.init$vars = function () {
             };
@@ -37802,7 +40316,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             }; /*Swift.(file).UInt.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_169.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_169.prototype.init$vars = function () {
             };
@@ -37992,7 +40506,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     };
     /*Swift.(file).Int.bitWidth*/
     MIO_Mixin_Int.bitWidth$get = function () {
-        throw 'unsupported variable Swift.(file).Int.bitWidth in ' + this.constructor.name;
+        return this.bitWidth$internal;
     };
     Object.defineProperty(MIO_Mixin_Int, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -38088,7 +40602,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.signum()*/
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int.prototype.signum = function ($info) {
-        throw 'unsupported method Swift.(file).Int.signum() in ' + this.constructor.name;
+        return this.$info.Self.infix_45({ Self: this.$info.Self }, (this.$info.Self.infix_62({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)), (this.$info.Self.infix_60({ Self: this.$info.Self }, this, _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)) ? _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 1) : _create(this.$info.Self, 'initIntegerLiteral', { Self: this.$info.Self }, 0)));
     };
     /*Swift.(file).Int.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -38133,27 +40647,37 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.&infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38 = function ($info, lhs, rhs) {
-        /*return lhs & rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int.|infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_124 = function ($info, lhs, rhs) {
-        return lhs | rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_124_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int.^infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_94 = function ($info, lhs, rhs) {
-        return lhs ^ rhs;
+        var lhs_dupl = lhs;
+        $info.Self.infix_94_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int.&>>infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_62_62 = function ($info, lhs, rhs) {
-        /*return lhs &>> rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_62_62_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int.&<<infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_60_60 = function ($info, lhs, rhs) {
-        /*return lhs &<< rhs*/
+        var lhs_dupl = lhs;
+        $info.Self.infix_38_60_60_61({ Self: $info.Self }, { get: function () { return lhs_dupl; }, set: function ($val) { return lhs_dupl = $val; } }, rhs);
+        return lhs_dupl;
     };
     /*Swift.(file).Int./infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
@@ -38206,17 +40730,17 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.<=infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_60_61 = function ($info, lhs, rhs) {
-        return lhs <= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, rhs, lhs));
     };
     /*Swift.(file).Int.>=infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62_61 = function ($info, lhs, rhs) {
-        return lhs >= rhs;
+        return Bool.prefix_33({}, $info.Self.infix_60({ Self: $info.Self }, lhs, rhs));
     };
     /*Swift.(file).Int.>infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62 = function ($info, lhs, rhs) {
-        return lhs > rhs;
+        return $info.Self.infix_60({ Self: $info.Self }, rhs, lhs);
     };
     /*Swift.(file).Int.distance(to:Int)*/
     /*Swift.(file).Strideable.distance(to:Self)*/
@@ -38274,7 +40798,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             };
             /*Swift.(file).Int.Words.count*/
             class_170.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).Int.Words.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_170.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -38304,7 +40828,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             ;
             /*Swift.(file).Int.Words.indices*/
             class_170.prototype.indices$get = function () {
-                throw 'unsupported variable Swift.(file).Int.Words.indices in ' + this.constructor.name;
+                return this.indices$internal;
             };
             Object.defineProperty(class_170.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -38366,7 +40890,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD2Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_171.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_171.prototype.init$vars = function () {
             };
@@ -38399,7 +40923,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD4Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_172.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_172.prototype.init$vars = function () {
             };
@@ -38432,7 +40956,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD8Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_173.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_173.prototype.init$vars = function () {
             };
@@ -38465,7 +40989,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD16Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_174.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_174.prototype.init$vars = function () {
             };
@@ -38498,7 +41022,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD32Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_175.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_175.prototype.init$vars = function () {
             };
@@ -38531,7 +41055,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             }; /*Swift.(file).Int.SIMD64Storage.subscript(_:Int)*/
             /*Swift.(file).SIMDStorage.subscript(_:Int)*/
             class_176.prototype.subscript$set = function ($info, newValue, index) {
-                this[index] = newValue;
+                this[index] = _cloneStruct(newValue);
             };
             class_176.prototype.init$vars = function () {
             };
@@ -38595,7 +41119,7 @@ var KeyValuePairs = /** @class */ (function () {
     };
     /*Swift.(file).KeyValuePairs.startIndex*/
     KeyValuePairs.prototype.startIndex$get = function () {
-        throw 'unsupported variable Swift.(file).KeyValuePairs.startIndex in ' + this.constructor.name;
+        return 0;
     };
     Object.defineProperty(KeyValuePairs.prototype, "startIndex", {
         get: function () { return this.startIndex$get(); },
@@ -38684,7 +41208,7 @@ var LazySequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazySequence.indices*/
     LazySequence.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).LazySequence.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(LazySequence.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -38708,7 +41232,7 @@ var LazySequence = /** @class */ (function () {
     };
     /*Swift.(file).LazySequence.isEmpty*/
     LazySequence.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).LazySequence.isEmpty in ' + this.constructor.name;
+        return this.isEmpty$internal;
     };
     Object.defineProperty(LazySequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -38718,7 +41242,7 @@ var LazySequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazySequence.count*/
     LazySequence.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).LazySequence.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(LazySequence.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -38738,14 +41262,32 @@ var LazySequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     LazySequence.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).LazySequence.index(_:LazySequence<Base>.Index,offsetBy:Int,limitedBy:LazySequence<Base>.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).LazySequence.distance(from:LazySequence<Base>.Index,to:LazySequence<Base>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     LazySequence.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).LazySequence.distance(from:LazySequence<Base>.Index,to:LazySequence<Base>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).LazySequence.index(before:LazySequence<Base>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -38757,12 +41299,11 @@ var LazySequence = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     LazySequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).LazySequence.underestimatedCount*/
     LazySequence.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).LazySequence.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(LazySequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -38799,12 +41340,11 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).Sequence.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
     LazyMapSequence.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return this;
     };
     /*Swift.(file).LazyMapSequence.underestimatedCount*/
     LazyMapSequence.prototype.underestimatedCount$get = function () {
-        throw 'unsupported variable Swift.(file).LazyMapSequence.underestimatedCount in ' + this.constructor.name;
+        return this.underestimatedCount$internal;
     };
     Object.defineProperty(LazyMapSequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -38844,7 +41384,13 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(after:Self.Index)*/
     LazyMapSequence.prototype.formIndexAfter = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).LazyMapSequence.formIndex(after:LazyMapSequence<Base, Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexAfter({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).LazyMapSequence.subscript(_:Base.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
@@ -38858,11 +41404,12 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     LazyMapSequence.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).LazyMapSequence.indices*/
     LazyMapSequence.prototype.indices$get = function () {
-        throw 'unsupported variable Swift.(file).LazyMapSequence.indices in ' + this.constructor.name;
+        return this.indices$internal;
     };
     Object.defineProperty(LazyMapSequence.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -38872,7 +41419,7 @@ var LazyMapSequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazyMapSequence.isEmpty*/
     LazyMapSequence.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).LazyMapSequence.isEmpty in ' + this.constructor.name;
+        return this.isEmpty$internal;
     };
     Object.defineProperty(LazyMapSequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -38882,7 +41429,7 @@ var LazyMapSequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazyMapSequence.count*/
     LazyMapSequence.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file).LazyMapSequence.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(LazyMapSequence.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -38902,14 +41449,32 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int,limitedBy:Self.Index)*/
     LazyMapSequence.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
-        throw 'unsupported method Swift.(file).LazyMapSequence.index(_:LazyMapSequence<Base, Element>.Index,offsetBy:Int,limitedBy:LazyMapSequence<Base, Element>.Index) in ' + this.constructor.name;
+        var l = this.distanceFromTo({ Self: this.$info.Self }, i, limit);
+        {
+            if (((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), function () { return Int.infix_60({}, l, distance); }) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), function () { return Int.infix_60({}, distance, l); })))) {
+                return null;
+            }
+        }
+        ;
+        return this.indexOffsetBy({ Self: this.$info.Self }, i, distance);
     };
     /*Swift.(file).LazyMapSequence.distance(from:LazyMapSequence<Base, Element>.Index,to:LazyMapSequence<Base, Element>.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     LazyMapSequence.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).LazyMapSequence.distance(from:LazyMapSequence<Base, Element>.Index,to:LazyMapSequence<Base, Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).LazyMapSequence.index(before:LazyMapSequence<Base, Element>.Index)*/
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
@@ -38921,7 +41486,13 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.formIndex(before:Self.Index)*/
     LazyMapSequence.prototype.formIndexBefore = function ($info, i$inout) {
-        throw 'unsupported method Swift.(file).LazyMapSequence.formIndex(before:LazyMapSequence<Base, Element>.Index) in ' + this.constructor.name;
+        var _this = this;
+        var i = i$inout.get();
+        var $result = (function () {
+            i = _this.indexBefore({ Self: _this.$info.Self }, i);
+        })();
+        i$inout.set(i);
+        return $result;
     };
     /*Swift.(file).LazyMapSequence.map(_:(Element) -> ElementOfResult)*/
     /*Swift.(file).LazyMapSequence.map(_:(Element) -> ElementOfResult)*/
@@ -39067,12 +41638,19 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.write(_:String)*/
     /*Swift.(file).TextOutputStream.write(_:String)*/
     MIO_Mixin_String.prototype.write = function ($info, other) {
-        throw 'unsupported method Swift.(file).String.write(_:String) in ' + this.constructor.name;
+        var _this = this;
+        String.infix_43_61({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, other);
     };
     /*Swift.(file).String.write(to:Target)*/
     /*Swift.(file).TextOutputStreamable.write(to:Target)*/
     MIO_Mixin_String.prototype.writeTo = function ($info, target$inout) {
-        throw 'unsupported method Swift.(file).String.write(to:Target) in ' + this.constructor.name;
+        var _this = this;
+        var target = target$inout.get();
+        var $result = (function () {
+            target.write({ $setThis: function ($val) { return target = $val; }, Self: $info.Target }, _this);
+        })();
+        target$inout.set(target);
+        return $result;
     };
     /*Swift.(file).String.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -39123,7 +41701,19 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.debugDescription*/
     MIO_Mixin_String.prototype.debugDescription$get = function () {
-        throw 'unsupported variable Swift.(file).String.debugDescription in ' + this.constructor.name;
+        var result = "\"";
+        {
+            var $us$generator_1 = _cloneStruct(this.unicodeScalars.makeIterator({}));
+            while (true) {
+                var us = $us$generator_1.next({ $setThis: function ($val) { return $us$generator_1 = $val; } });
+                if (!((us != null)))
+                    break;
+                String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, us.escapedAsASCII({}, false));
+            }
+        }
+        ;
+        String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, "\"");
+        return result;
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "debugDescription", {
         get: function () { return this.debugDescription$get(); },
@@ -39134,12 +41724,19 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.+infix(_:String,_:String)*/
     /*Swift.(file).String.+infix(_:String,_:String)*/
     MIO_Mixin_String.infix_43 = function ($info, lhs, rhs) {
-        return lhs + rhs;
+        var result = lhs;
+        result.append({ $setThis: function ($val) { return result = $val; } }, rhs);
+        return result;
     };
     /*Swift.(file).String.+=infix(_:String,_:String)*/
     /*Swift.(file).String.+=infix(_:String,_:String)*/
     MIO_Mixin_String.infix_43_61 = function ($info, lhs$inout, rhs) {
-        lhs$inout.set(lhs$inout.get() + rhs);
+        var lhs = lhs$inout.get();
+        var $result = (function () {
+            lhs.append({ $setThis: function ($val) { return lhs = $val; } }, rhs);
+        })();
+        lhs$inout.set(lhs);
+        return $result;
     };
     /*Swift.(file).String.lowercased()*/
     /*Swift.(file).StringProtocol.lowercased()*/
@@ -39158,7 +41755,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.description*/
     MIO_Mixin_String.prototype.description$get = function () {
-        throw 'unsupported variable Swift.(file).String.description in ' + this.constructor.name;
+        return this;
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "description", {
         get: function () { return this.description$get(); },
@@ -39193,7 +41790,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     ;
     /*Swift.(file).String.count*/
     MIO_Mixin_String.prototype.count$get = function () {
-        return this.length;
+        return this.distanceFromTo({}, this.startIndex, this.endIndex);
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -39228,7 +41825,18 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     MIO_Mixin_String.prototype.distanceFromTo = function ($info, start, end) {
-        throw 'unsupported method Swift.(file).String.distance(from:String.Index,to:String.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        var start_dupl = start;
+        var count = 0;
+        while (true) {
+            if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                break;
+            count = Int.infix_43({}, count, 1);
+            this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+        }
+        ;
+        return count;
     };
     /*Swift.(file).String.subscript(_:String.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
@@ -39241,8 +41849,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
     MIO_Mixin_String.prototype.makeIterator = function ($info) {
-        var _this = this;
-        return new SwiftIterator(function (current) { return _this[current]; });
+        return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
     };
     /*Swift.(file).String.==infix(_:String,_:String)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -39265,7 +41872,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.isEmpty*/
     MIO_Mixin_String.prototype.isEmpty$get = function () {
-        throw 'unsupported variable Swift.(file).String.isEmpty in ' + this.constructor.name;
+        return this.isEmpty$internal;
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -39314,12 +41921,12 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.append(_:Character)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
     MIO_Mixin_String.prototype.append = function ($info, c) {
-        throw 'unsupported method Swift.(file).String.append(_:Character) in ' + this.constructor.name;
+        this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
     };
     /*Swift.(file).String.append(contentsOf:String)*/
     /*Swift.(file).String.append(contentsOf:String)*/
     MIO_Mixin_String.prototype.appendContentsOf = function ($info, newElements) {
-        throw 'unsupported method Swift.(file).String.append(contentsOf:String) in ' + this.constructor.name;
+        this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, newElements);
     };
     /*Swift.(file).String.append(contentsOf:Substring)*/
     /*Swift.(file).String.append(contentsOf:Substring)*/
@@ -39329,7 +41936,17 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
     MIO_Mixin_String.prototype.appendContentsOf = function ($info, newElements) {
-        throw 'unsupported method Swift.(file).String.append(contentsOf:S) in ' + this.constructor.name;
+        var approximateCapacity = Int.infix_43({}, this.count, numericCast({ T: Int, U: Int }, newElements.underestimatedCount));
+        this.reserveCapacity({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, approximateCapacity);
+        {
+            var $element$generator_14 = newElements.makeIterator({ Self: $info.S });
+            while (true) {
+                var _element = $element$generator_14.next({ $setThis: function ($val) { return $element$generator_14 = $val; }, Self: $info.S.Iterator });
+                if (!((_element != null)))
+                    break;
+                this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, _element);
+            }
+        }
     };
     /*Swift.(file).String.replaceSubrange(_:Range<String.Index>,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:Range<Self.Index>,with:C)*/
@@ -39339,37 +41956,48 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.insert(_:Character,at:String.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     MIO_Mixin_String.prototype.insertAt = function ($info, newElement, i) {
-        throw 'unsupported method Swift.(file).String.insert(_:Character,at:String.Index) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: CollectionOfOne, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, i, i), _create(CollectionOfOne, 'init', { Element: this.$info.Self.Element }, newElement));
     };
     /*Swift.(file).String.insert(contentsOf:S,at:String.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:S,at:Self.Index)*/
     MIO_Mixin_String.prototype.insertContentsOfAt = function ($info, newElements, i) {
-        throw 'unsupported method Swift.(file).String.insert(contentsOf:S,at:String.Index) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, C: $info.S }, String.Index.infix_46_46_60({ Self: String.Index }, i, i), newElements);
     };
     /*Swift.(file).String.remove(at:String.Index)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     MIO_Mixin_String.prototype.removeAt = function ($info, i) {
-        throw 'unsupported method Swift.(file).String.remove(at:String.Index) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
+        var result = this.subscript$get({}, position);
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, position, this.indexAfter({ Self: this.$info.Self }, position)), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+        return result;
     };
     /*Swift.(file).String.removeSubrange(_:Range<String.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
     MIO_Mixin_String.prototype.removeSubrange = function ($info, bounds) {
-        throw 'unsupported method Swift.(file).String.removeSubrange(_:Range<String.Index>) in ' + this.constructor.name;
+        this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, bounds, _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
     };
     /*Swift.(file).String.removeAll(keepingCapacity:Bool)*/
     /*Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)*/
     MIO_Mixin_String.prototype.removeAllKeepingCapacity = function ($info, keepCapacity) {
-        throw 'unsupported method Swift.(file).String.removeAll(keepingCapacity:Bool) in ' + this.constructor.name;
+        {
+            if ((Bool.prefix_33({}, keepCapacity))) {
+                $info.$setThis(_cloneStruct(_create(this.$info.Self, 'init', { Self: this.$info.Self })));
+            }
+            else {
+                this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self, C: _clarifyGenerics({ Self: EmptyCollection, Element: this.$info.Self.Element }) }, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex), _create(EmptyCollection, 'init', { Element: this.$info.Self.Element }));
+            }
+        }
     };
     /*Swift.(file).String.max(_:T,_:T)*/
     /*Swift.(file).String.max(_:T,_:T)*/
     MIO_Mixin_String.prototype.max = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).String.max(_:T,_:T) in ' + this.constructor.name;
+        return /*dot_syntax_base_ignored*/ max({}, x, y);
     };
     /*Swift.(file).String.min(_:T,_:T)*/
     /*Swift.(file).String.min(_:T,_:T)*/
     MIO_Mixin_String.prototype.min = function ($info, x, y) {
-        throw 'unsupported method Swift.(file).String.min(_:T,_:T) in ' + this.constructor.name;
+        return /*dot_syntax_base_ignored*/ min({}, x, y);
     };
     /*Swift.(file).String.init(_:String.UnicodeScalarView)*/
     /*Swift.(file).String.init(_:String.UnicodeScalarView)*/
@@ -39451,7 +42079,8 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     MIO_Mixin_String.prototype.subscriptRange$get = function ($info, r) {
-        return this[r];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     /*Swift.(file).String.subscript(_:Int)*/
     /*Swift.(file).String.subscript(_:Int)*/
@@ -39465,7 +42094,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.characters*/
     MIO_Mixin_String.prototype.characters$get = function () {
-        throw 'unsupported variable Swift.(file).String.characters in ' + this.constructor.name;
+        return this;
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "characters", {
         get: function () { return this.characters$get(); },
@@ -39476,7 +42105,8 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.withMutableCharacters(_:(inout String) -> R)*/
     /*Swift.(file).String.withMutableCharacters(_:(inout String) -> R)*/
     MIO_Mixin_String.prototype.withMutableCharacters = function ($info, body) {
-        throw 'unsupported method Swift.(file).String.withMutableCharacters(_:(inout String) -> R) in ' + this.constructor.name;
+        var _this = this;
+        return body({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).String.init(describing:Subject)*/
     /*Swift.(file).String.init(describing:Subject)*/
@@ -39782,8 +42412,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).Collection.makeIterator()*/
             /*Swift.(file).Sequence.makeIterator()*/
             class_180.prototype.makeIterator = function ($info) {
-                var _this = this;
-                return new SwiftIterator(function (current) { return _this[current]; });
+                return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
             };
             /*Swift.(file).UnicodeScalarView.description*/
             class_180.prototype.description$get = function () {
@@ -39817,12 +42446,22 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).UnicodeScalarView.append(_:Unicode.Scalar)*/
             /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
             class_180.prototype.append = function ($info, c) {
-                throw 'unsupported method Swift.(file).UnicodeScalarView.append(_:Unicode.Scalar) in ' + this.constructor.name;
+                this.insertAt({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: this.$info.Self }, newElement, this.endIndex);
             };
             /*Swift.(file).UnicodeScalarView.append(contentsOf:S)*/
             /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
             class_180.prototype.appendContentsOf = function ($info, newElements) {
-                throw 'unsupported method Swift.(file).UnicodeScalarView.append(contentsOf:S) in ' + this.constructor.name;
+                var approximateCapacity = Int.infix_43({}, this.count, numericCast({ T: Int, U: Int }, newElements.underestimatedCount));
+                this.reserveCapacity({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, approximateCapacity);
+                {
+                    var $element$generator_15 = newElements.makeIterator({ Self: $info.S });
+                    while (true) {
+                        var _element = $element$generator_15.next({ $setThis: function ($val) { return $element$generator_15 = $val; }, Self: $info.S.Iterator });
+                        if (!((_element != null)))
+                            break;
+                        this.append({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); }, Self: $info.Self }, _element);
+                    }
+                }
             };
             /*Swift.(file).UnicodeScalarView.replaceSubrange(_:Range<String.UnicodeScalarView.Index>,with:C)*/
             /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:Range<Self.Index>,with:C)*/
@@ -39844,7 +42483,8 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
             class_180.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             /*Swift.(file).UnicodeScalarView.customPlaygroundQuickLook*/
             class_180.prototype.customPlaygroundQuickLook$get = function () {
@@ -39948,11 +42588,22 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
             class_182.prototype.distanceFromTo = function ($info, start, end) {
-                throw 'unsupported method Swift.(file).UTF16View.distance(from:String.UTF16View.Index,to:String.UTF16View.Index) in ' + this.constructor.name;
+                var _this = this;
+                preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                var start_dupl = start;
+                var count = 0;
+                while (true) {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                        break;
+                    count = Int.infix_43({}, count, 1);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+                }
+                ;
+                return count;
             };
             /*Swift.(file).UTF16View.count*/
             class_182.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UTF16View.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_182.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -39970,8 +42621,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).Collection.makeIterator()*/
             /*Swift.(file).Sequence.makeIterator()*/
             class_182.prototype.makeIterator = function ($info) {
-                var _this = this;
-                return new SwiftIterator(function (current) { return _this[current]; });
+                return _create(IndexingIterator, 'init_elements', { Elements: this.$info.Self }, this);
             };
             /*Swift.(file).UTF16View.description*/
             class_182.prototype.description$get = function () {
@@ -40007,7 +42657,8 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             class_182.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             /*Swift.(file).UTF16View.customPlaygroundQuickLook*/
             class_182.prototype.customPlaygroundQuickLook$get = function () {
@@ -40101,7 +42752,18 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             class_184.prototype.distanceFromTo = function ($info, i, j) {
-                throw 'unsupported method Swift.(file).UTF8View.distance(from:String.UTF8View.Index,to:String.UTF8View.Index) in ' + this.constructor.name;
+                var _this = this;
+                preconditionFileLine({}, function () { return _this.$info.Self.Index.infix_60_61({ Self: _this.$info.Self.Index }, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                var start_dupl = start;
+                var count = 0;
+                while (true) {
+                    if (!((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index }, start_dupl, end))))
+                        break;
+                    count = Int.infix_43({}, count, 1);
+                    this.formIndexAfter({ Self: this.$info.Self }, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
+                }
+                ;
+                return count;
             };
             /*Swift.(file).UTF8View.subscript(_:String.UTF8View.Index)*/
             /*Swift.(file).Collection.subscript(_:Self.Index)*/
@@ -40131,7 +42793,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             ;
             /*Swift.(file).UTF8View.count*/
             class_184.prototype.count$get = function () {
-                throw 'unsupported variable Swift.(file).UTF8View.count in ' + this.constructor.name;
+                return this.count$internal;
             };
             Object.defineProperty(class_184.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -40153,12 +42815,13 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
             /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
             class_184.prototype.subscriptRange$get = function ($info, r) {
-                return this[r];
+                this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+                return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
             };
             /*Swift.(file).UTF8View.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<String.UTF8View.Element>) throws -> R)*/
             /*Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
             class_184.prototype.withContiguousStorageIfAvailable = function ($info, body) {
-                throw 'unsupported method Swift.(file).UTF8View.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<String.UTF8View.Element>) throws -> R) in ' + this.constructor.name;
+                return null;
             };
             /*Swift.(file).UTF8View.customPlaygroundQuickLook*/
             class_184.prototype.customPlaygroundQuickLook$get = function () {
@@ -40403,7 +43066,7 @@ var _SliceBuffer = /** @class */ (function () {
     ;
     /*Swift.(file)._SliceBuffer.count*/
     _SliceBuffer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._SliceBuffer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_SliceBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -40444,7 +43107,7 @@ var _SliceBuffer = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     _SliceBuffer.prototype.subscript$set = function ($info, newValue, position) {
-        this[position] = newValue;
+        this[position] = _cloneStruct(newValue);
     };
     /*Swift.(file)._SliceBuffer.subscript(_:Range<Int>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -40453,7 +43116,8 @@ var _SliceBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file)._ArrayBufferProtocol.subscript(_:Range<Int>)*/
     _SliceBuffer.prototype.subscriptRange$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     _SliceBuffer.prototype.subscript$get = function ($info, bounds) {
         this.subscriptRange$get.apply(this, arguments);
@@ -40464,7 +43128,7 @@ var _SliceBuffer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file)._ArrayBufferProtocol.subscript(_:Range<Int>)*/
     _SliceBuffer.prototype.subscriptRange$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     _SliceBuffer.prototype.subscript$set = function ($info, newValue, bounds) {
         this.subscriptRange$set.apply(this, arguments);
@@ -40582,7 +43246,8 @@ var _ArrayBuffer = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     _ArrayBuffer.prototype.subscript$get = function ($info, bounds) {
-        return this[bounds];
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     };
     _ArrayBuffer.prototype.subscriptRange$get = function ($info, bounds) {
         this.subscript$get.apply(this, arguments);
@@ -40593,7 +43258,7 @@ var _ArrayBuffer = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     _ArrayBuffer.prototype.subscript$set = function ($info, newValue, bounds) {
-        this[bounds] = newValue;
+        this[bounds] = _cloneStruct(newValue);
     };
     _ArrayBuffer.prototype.subscriptRange$set = function ($info, newValue, bounds) {
         this.subscript$set.apply(this, arguments);
@@ -40620,7 +43285,7 @@ var _ArrayBuffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ArrayBuffer.count*/
     _ArrayBuffer.prototype.count$get = function () {
-        throw 'unsupported variable Swift.(file)._ArrayBuffer.count in ' + this.constructor.name;
+        return this.count$internal;
     };
     Object.defineProperty(_ArrayBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -40656,7 +43321,7 @@ var _ArrayBuffer = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
     _ArrayBuffer.prototype.subscript$set = function ($info, newValue, i) {
-        this[i] = newValue;
+        this[i] = _cloneStruct(newValue);
     };
     /*Swift.(file)._ArrayBuffer.withUnsafeBufferPointer(_:(UnsafeBufferPointer<Element>) throws -> R)*/
     /*Swift.(file)._ArrayBufferProtocol.withUnsafeBufferPointer(_:(UnsafeBufferPointer<Self.Element>) throws -> R)*/
@@ -40746,7 +43411,13 @@ var FloatingPointSign = /** @class */ (function () {
     };
     /*Swift.(file).FloatingPointSign.rawValue*/
     FloatingPointSign.prototype.rawValue$get = function () {
-        throw 'unsupported variable Swift.(file).FloatingPointSign.rawValue in ' + this.constructor.name;
+        var $match = this;
+        if ((($match.rawValue == FloatingPointSign.plus.rawValue))) {
+            return 0;
+        }
+        else if ((($match.rawValue == FloatingPointSign.minus.rawValue))) {
+            return 1;
+        }
     };
     Object.defineProperty(FloatingPointSign.prototype, "rawValue", {
         get: function () { return this.rawValue$get(); },
@@ -40757,11 +43428,11 @@ var FloatingPointSign = /** @class */ (function () {
     /*Swift.(file).FloatingPointSign.==infix(_:FloatingPointSign,_:FloatingPointSign)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     FloatingPointSign.infix_61_61 = function ($info, a, b) {
-        return a == b;
+        return Int.infix_61_61({}, a.rawValue, b.rawValue);
     };
     /*Swift.(file).FloatingPointSign.hashValue*/
     FloatingPointSign.prototype.hashValue$get = function () {
-        throw 'unsupported variable Swift.(file).FloatingPointSign.hashValue in ' + this.constructor.name;
+        return this.rawValue.hashValue;
     };
     Object.defineProperty(FloatingPointSign.prototype, "hashValue", {
         get: function () { return this.hashValue$get(); },
@@ -40772,7 +43443,13 @@ var FloatingPointSign = /** @class */ (function () {
     /*Swift.(file).FloatingPointSign.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
     FloatingPointSign.prototype.hashInto = function ($info, hasher$inout) {
-        throw 'unsupported method Swift.(file).FloatingPointSign.hash(into:Hasher) in ' + this.constructor.name;
+        var _this = this;
+        var hasher = hasher$inout.get();
+        var $result = (function () {
+            hasher.combine({ $setThis: function ($val) { return hasher = $val; }, H: Int }, _this.rawValue);
+        })();
+        hasher$inout.set(hasher);
+        return $result;
     };
     FloatingPointSign.prototype.init$vars = function () {
     };
@@ -45186,8 +47863,11 @@ function _create(Class, signature, $info) {
     for (var _i = 3; _i < arguments.length; _i++) {
         params[_i - 3] = arguments[_i];
     }
-    params.unshift($info);
     var obj;
+    if (!$info)
+        $info = {};
+    $info.$setThis = function ($val) { return obj = $val; };
+    params.unshift($info);
     if (Class.$mixin) {
         if (!Class.prototype[signature])
             throw "unsupported signature " + signature + " for " + Class.name;
@@ -45241,5 +47921,11 @@ function _optionalTry(expr) { try {
 catch (e) {
     return null;
 } }
+function _preserveGenerics(obj, obj2) {
+    obj['$info' + obj.constructor.$infoAddress] = obj2['$info' + obj2.constructor.$infoAddress];
+}
+function _preserveInfo(obj, $info) {
+    obj['$info' + obj.constructor.$infoAddress] = $info;
+}
 //legacy for _.tmp = ...
 var _ = {};

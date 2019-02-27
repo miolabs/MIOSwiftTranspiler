@@ -1,5 +1,5 @@
   {"Swift.(file).String.count", "return this.length"},
-  {"Swift.(file).print(_:[Any],separator:String,terminator:String)", "console.log(#A0)"},
+  {"Swift.(file).print(_:[Any],separator:String,terminator:String)", "console.log.apply(null, #A0)"},
   {"Swift.(file).Dictionary.subscript(_:Dictionary<Key, Value>.Index)", "return this.get(#AA)"},
   {"Swift.(file).Dictionary.subscript(_:Key)", "return this.get(#AA)"},
   {"Swift.(file).Dictionary.subscript(_:Key)#ASS", "if(#A0 == null) this.delete(#A1)\nelse this.set(#A1, #A0)"},
@@ -78,5 +78,5 @@
   {"XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)", "if(expression() == undefined) throw message ? message() : 'assert fail :' + expression"},
   {"XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)", "try{expression()}catch(e){return}throw message ? message() : 'assert fail :' + expression"},
   {"XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)", "if(expression() != true) throw message ? message() : 'assert fail :' + expression"},
-  {"XCTest.(file).XCTestCase.init()", "for(const testFunction in this) {\nif(typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction]/*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set')) continue\nthis.init$vars()\nif(this.setUp) this.setUp()\nif(this.tearDown) this.tearDown()\nthis[testFunction]()\n}"},
+  {"XCTest.(file).XCTestCase.init()", "for(const testFunction in this) {\nif(typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction]/*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate')) continue\nthis.init$vars()\nif(this.setUp) this.setUp()\nif(this.tearDown) this.tearDown()\nthis[testFunction]()\n}"},
   {"Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)", "if(!condition()) throw message ? message() : 'assert fail :' + condition"}

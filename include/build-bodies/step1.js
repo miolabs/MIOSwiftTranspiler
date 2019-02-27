@@ -186,14 +186,23 @@ files.forEach(file => {
     console.log(file)
     let contents = fs.readFileSync(`${dir}${file}`, 'utf8').split('\n')
     let output
+    let isUntyped
     try {
         output = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
     }
     catch(err) {
         output = err.stdout
     }
+    try {
+        let untypedOutput = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-parse -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${dir}${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
+        if(untypedOutput.length > output.length) {
+            output = untypedOutput
+            isUntyped = true
+        }
+    }
+    catch(err) {}
     let arr = eval('[' + output + ']')
-    let parsedArr = []
+    let parsedArr = [isUntyped]
     for(let i = 0; i < arr.length - 3; i+= 4) {
         let isType = arr[i]
         let identifier = arr[i + 1]
