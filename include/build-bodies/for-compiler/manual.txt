@@ -36,7 +36,7 @@ return this.map((v, i) => [i, v])
 ----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
 return _preserveGenerics(this.filter(#AA.bind(null, null)), this)
 ----Swift.(file).Collection.map(_:(Self.Element) throws -> T)
-return _preserveInfo(this.map(transform.bind(null, null)), {Element: $info.T})
+return _preserveInfo(this.map(transform.bind(null, null)), this, {Element: $info.T})
 ----Swift.(file).Range.lowerBound
 return this.lowerBound$internal
 ----Swift.(file).Range.upperBound

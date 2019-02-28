@@ -13682,7 +13682,7 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     Collection$implementation.prototype.mapSwift = function ($info, transform) {
-        return _preserveInfo(this.map(transform.bind(null, null)), { Element: $info.T });
+        return _preserveInfo(this.map(transform.bind(null, null)), this, { Element: $info.T });
     };
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     /*Swift.(file).Collection.dropFirst(_:Int)*/
@@ -49707,8 +49707,8 @@ function _preserveGenerics(obj, obj2) {
     obj['$info' + obj.constructor.$infoAddress] = obj2['$info' + obj2.constructor.$infoAddress];
     return obj;
 }
-function _preserveInfo(obj, $info) {
-    obj['$info' + obj.constructor.$infoAddress] = $info;
+function _preserveInfo(obj, obj2, $info) {
+    obj['$info' + obj.constructor.$infoAddress] = __assign({}, obj2['$info' + obj2.constructor.$infoAddress], { $info: $info });
     return obj;
 }
 //legacy for _.tmp = ...
