@@ -159,3 +159,4 @@ this[testFunction]()
 }
 ----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
 if(!condition()) throw message ? message() : 'assert fail :' + condition
+----closing dashes needed for the last definition to be processed
