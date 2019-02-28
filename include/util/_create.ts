@@ -1,6 +1,8 @@
 function _create(Class, signature, $info, ...params) {
     let obj
     if(!$info) $info = {}
+    if(!$info.Self) $info.Self = Class
+    $info = {...$info, ..._clarifyGenerics($info)}
     $info.$setThis = $val => obj = $val
     params.unshift($info)
     if(Class.$mixin) {

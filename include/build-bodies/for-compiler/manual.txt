@@ -1,0 +1,161 @@
+----Swift.(file).String.count
+return this.length
+----Swift.(file).print(_:[Any],separator:String,terminator:String)
+console.log.apply(null, #A0)
+----Swift.(file).Dictionary.subscript(_:Dictionary<Key, Value>.Index)
+return this.get(#AA)
+----Swift.(file).Dictionary.subscript(_:Key)
+return this.get(#AA)
+----Swift.(file).Dictionary.subscript(_:Key)#ASS
+if(#A0 == null) this.delete(#A1)
+else this.set(#A1, _cloneStruct(#A0))
+----Swift.(file).Dictionary.count
+return this.size
+----Swift.(file).Dictionary.makeIterator()
+return new SwiftIterator((current) => Array.from(this)[current])
+----Swift.(file).Array.count
+return this.length
+----Swift.(file).Array.append(_:Element)
+this.push(_cloneStruct(#AA))
+----Swift.(file).Array.remove(at:Int)
+return this.splice(#AA, 1)[0]
+----Swift.(file).Array.init(repeating:Element,count:Int)
+let result = new Array(count)
+for(let i = 0; i < count; i++) result[i] = _cloneStruct(repeatedValue)
+return result
+----Swift.(file).Set.insert(_:Element)
+this.add(_cloneStruct(#AA))
+----Swift.(file).Set.count
+return this.size
+----Swift.(file).BidirectionalCollection.joined(separator:String)
+return this.join(#AA)
+----Swift.(file).Sequence.joined(separator:String)
+return this.join(#AA)
+----Swift.(file).Sequence.enumerated()
+return this.map((v, i) => [i, v])
+----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
+return _preserveGenerics(this.filter(#AA.bind(null, null)), this)
+----Swift.(file).Collection.map(_:(Self.Element) throws -> T)
+return _preserveInfo(this.map(transform.bind(null, null)), {Element: $info.T})
+----Swift.(file).Range.lowerBound
+return this.lowerBound$internal
+----Swift.(file).Range.upperBound
+return this.upperBound$internal
+----Swift.(file).ClosedRange.lowerBound
+return this.lowerBound$internal
+----Swift.(file).ClosedRange.upperBound
+return this.upperBound$internal
+----Swift.(file).Array.init()
+return []
+----Swift.(file).Dictionary.init()
+return new Map()
+----Swift.(file).Set.init()
+return new Set()
+----Swift.(file).Set.init(_:Source)
+return new Set(#AA)
+----Swift.(file).Array.init()
+return []
+----Swift.(file).BinaryInteger./infix(_:Self,_:Self)
+return (#A0 / #A1) | 0
+----Swift.(file).BinaryInteger./=infix(_:Self,_:Self)
+lhs$inout.set((lhs$inout.get() / rhs) | 0)
+----Swift.(file).Int8.<<infix(_:Int8,_:Int8)
+let binaryRepr = lhs.toString(2)
+let result = 0
+for(let i = 0; i < binaryRepr.length; i++) {
+let j = i - rhs
+if(binaryRepr[j] !== '1') continue
+result += j === 0 ? -128 : Math.pow(2, 7 - j)
+}
+return result
+----Swift.(file).UInt8.<<infix(_:UInt8,_:UInt8)
+let binaryRepr = lhs.toString(2)
+let result = 0
+for(let i = 0; i < binaryRepr.length; i++) {
+let j = i - rhs
+if(binaryRepr[j] !== '1') continue
+result += Math.pow(2, 7 - j)
+}
+return result
+----Darwin.(file).arc4random_uniform(_:UInt32)
+return (Math.random() * #AA) | 0
+----Darwin.(file).arc4random()
+return arc4random_uniform(null, 4294967296)
+----Swift.(file).Array.endIndex
+return this.length
+----Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)
+return value
+----Swift.(file).Array.init(_:S)
+return s
+----Swift.(file).Range.init(uncheckedBounds:(lower: Bound, upper: Bound))
+this.lowerBound$internal = #AA[0]
+this.upperBound$internal = #AA[1]
+----Swift.(file).ClosedRange.init(uncheckedBounds:(lower: Bound, upper: Bound))
+this.lowerBound$internal = #AA[0]
+this.upperBound$internal = #AA[1]
+----Swift.(file).Array.subscript(_:Range<Int>)
+return _preserveGenerics(this.slice(bounds.first, bounds.last + 1), this)
+----Swift.(file).IndexingIterator.next()
+{
+if((this.$info.Elements.Index.infix_61_61({Self: this.$info.Elements.Index}, this._position, this._elements.endIndex))) {
+return null
+}
+}
+const _element = this._elements.subscript$get({}, this._position)
+this._elements.formIndexAfter({Self: this.$info.Elements}, {get: () => this._position, set: $val => this._position = $val})
+return _element
+----Swift.(file).IndexingIterator.init(_elements:Elements)
+this._elements = _cloneStruct(_elements)
+this._position = _cloneStruct(_elements.startIndex)
+----Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)
+this._elements = _cloneStruct(_elements)
+this._position = _cloneStruct(_position)
+----Swift.(file).??infix(_:T?,_:() throws -> T?)
+if (optional != null) {
+  return optional
+}
+else return defaultValue({})
+----Swift.(file).Int.advanced(by:Int)
+return this + n
+----Swift.(file).SignedNumeric.negate()
+$info.$setThis(-this)
+----Swift.(file).String.append(_:Character)
+$info.$setThis(this + c)
+----Swift.(file).Double.infinity
+return Infinity
+----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
+if(!expression()) throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
+if(expression()) throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+if(!$info.T.infix_62($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+iif(!$info.T.infix_62_61($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+if(!$info.T.infix_60($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+if(!$info.T.infix_60_61($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
+if(expression() != undefined) throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+if(!$info.T.infix_61_61($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+if(!$info.T.infix_33_61($info, expression1(), expression2())) throw message ? message() : 'assert fail :' + expression1
+----XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
+try{expression()}catch(e){throw message ? message() : 'assert fail :' + expression}
+----XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
+if(expression() == undefined) throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)
+try{expression()}catch(e){return}throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
+if(expression() != true) throw message ? message() : 'assert fail :' + expression
+----XCTest.(file).XCTestCase.init()
+for(const testFunction in this) {
+if(typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction]/*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate')) continue
+this.init$vars()
+if(this.setUp) this.setUp()
+if(this.tearDown) this.tearDown()
+this[testFunction]()
+}
+----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
+if(!condition()) throw message ? message() : 'assert fail :' + condition

@@ -20,5 +20,6 @@ function _clarifyGenerics(Class) {
             result = {...result, [key]: resultType}
         }
     }
+    result = {...result, Self: result}
     return result
 }

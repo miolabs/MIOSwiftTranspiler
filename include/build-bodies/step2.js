@@ -1,5 +1,3 @@
-//run with PRINT_EXTENSION = true
-
 const execSync = require('child_process').execSync
 const fs = require('fs')
 
@@ -39,7 +37,7 @@ const PROPER_IDENTIFIERS = {
 }
 
 function transpile(contents) {
-    fs.writeFileSync(`${__dirname}/body.swift`, contents)
+    fs.writeFileSync(`${__dirname}/body.swift`, '"-print-extension"\n' + contents)
     if(fs.existsSync(`${__dirname}/gowno.txt`)) fs.unlinkSync(`${__dirname}/gowno.txt`)
     let transpiled = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/body.swift'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', fs.openSync(`${__dirname}/gowno.txt`, 'a+')]})
     let errors = fs.readFileSync(`${__dirname}/gowno.txt`, 'utf8')
@@ -83,13 +81,17 @@ function getProperIdentifier(isUntyped, prop, parent, pureName, name) {
     return properIdentifier
 }
 
+let swiftDefinitions = ''
+let transpilations = ''
+
 let success = 0, all = 0
 for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
     if(!file.endsWith('.swift') || file === 'body.swift') continue
+    console.log(file)
     let arr = JSON.parse(fs.readFileSync(`${__dirname}/bodies/${file}`, 'utf8'))
     let isUntyped = arr.shift()
     for(let prop of arr) {
-        if((!prop.body.includes('func ') && !prop.body.includes('subscript(') && !prop.body.includes('var ')) || !prop.body.includes('{') || prop.body.includes('prototype ') || prop.body.includes('class ') || prop.body.includes('struct ') || prop.body.includes('enum ')) continue
+        if((!prop.body.includes('func ') && !prop.body.includes('subscript(') && !prop.body.includes('subscript ') && !prop.body.includes('init(') && !prop.body.includes('init ') && !prop.body.includes('var ')) || !prop.body.includes('{') || prop.body.includes('prototype ') || prop.body.includes('class ') || prop.body.includes('struct ') || prop.body.includes('enum ')) continue
         let identifier = prop.identifier.split('.')
         let name = identifier.slice(prop.isType ? 3 : 2).join('.')
         if(name.includes('@')) name = name.substr(0, name.indexOf('@'))
@@ -101,9 +103,9 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
             continue
         }
         all++
-        prop.body = prop.body.replace(/_precondition\(/g, 'precondition(')
+        prop.body = prop.body.replace(/_precondition/g, 'precondition').replace(/_debugPrecondition/g, 'precondition')
         let contents = ''
-        if(prop.isType) contents += 'extension ' + parent + ' {\n'
+        if(prop.isType) contents += (prop.ext || 'extension ' + parent) + ' {\n'
         contents += prop.body
         if(prop.isType) contents += '\n}'
         if(fs.existsSync(`${__dirname}/manual-definitions/${file}`)) {
@@ -111,9 +113,7 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
             eval('js = ' + fs.readFileSync(`${__dirname}/manual-definitions/${file}`, 'utf8'))
             if(js[properIdentifier]) contents = js[properIdentifier]
         }
-        //console.log('\n')
-        //console.log('-----', file, properIdentifier)
-        //console.log(contents)
+        swiftDefinitions += '\n\n---- ' + file + ' ' + properIdentifier + '\n' + contents
         try {
             let transpiled = transpile(contents)
             transpiled = transpiled.slice(transpiled.indexOf('{') + 1, transpiled.lastIndexOf('}'))
@@ -123,17 +123,16 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
             while(transpiled.match(/\n;?\n/)) transpiled = transpiled.replace(/\n;?\n/g, '\n')
             while(transpiled[0] === '\n' || transpiled[0] === ';' || transpiled[0] === '0') transpiled = transpiled.slice(1)
             while(transpiled[transpiled.length - 1] === '\n' || transpiled[transpiled.length - 1] === ';' || transpiled[transpiled.length - 1] === ' ') transpiled = transpiled.slice(0, transpiled.length - 1)
-            transpiled = transpiled.replace(/\n/g, '\\n').replace(/\\/g, '\\\\').replace(/"/g, '\\"')
             if(properIdentifier.includes('.subscript(')) {
                 let subscriptSetMatch = transpiled.match(/(?:\\n)*\}(?:\\n|\s)*subscript[a-zA-Z0-9_$]*\$set\([^{]+\{(?:\\n)*/)
                 if(subscriptSetMatch) {
                     let index0 = transpiled.indexOf(subscriptSetMatch[0])
                     let index1 = index0 + subscriptSetMatch[0].length
-                    console.log(`  {"${properIdentifier}#ASS", "${transpiled.slice(index1)}"},`)
+                    transpilations += '----' + properIdentifier + '#ASS\n' + transpiled.slice(index1) + '\n'
                     transpiled = transpiled.slice(0, index0)
                 }
             }
-            console.log(`  {"${properIdentifier}", "${transpiled}"},`)
+            transpilations += '----' + properIdentifier + '\n' + transpiled + '\n'
         }
         catch(err) {
             //console.log(err)
@@ -142,4 +141,6 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         success++
     }
 }
+fs.writeFileSync(`${__dirname}/for-compiler/generated-by-step-2.txt`, transpilations)
+fs.writeFileSync(`${__dirname}/manual-definitions/swift-definitions.txt`, swiftDefinitions)
 console.log('succeeded', success, '/', all)
