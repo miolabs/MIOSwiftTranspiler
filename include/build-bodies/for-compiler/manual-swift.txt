@@ -1,258 +1,272 @@
 ----Swift.(file).min(_:T,_:T,_:T,_:[T])
-public func min<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var minValue = y < x ? y : x
-  if z < minValue {
-    minValue = z
-  }
-  if rest != nil {
-    for value in rest where value < minValue {
-      minValue = value
-    }
-  }
-  return minValue
+let minValue = (x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, y, x) ? y : x);
+{
+if((x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, z, minValue))) {
+minValue = z;
 }
+};
+{
+if((Optional.infix_33_61({Self: Optional, Wrapped: _clarifyGenerics({Self:Array, Element: x.constructor})}, rest, null))) {
+{
+let $value$generator = _cloneStruct(rest.makeIterator({Self: _clarifyGenerics({Self:Array, Element: x.constructor})}, ));
+while(true) {
+const value = $value$generator.next({$setThis: $val => $value$generator = $val, Elements: _clarifyGenerics({Self:Array, Element: x.constructor})}, );
+if(!((value != null))) break;
+if(!(x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, value, minValue))) break;
+minValue = value;
+}
+};
+}
+};
+return minValue
 ----Swift.(file).max(_:T,_:T,_:T,_:[T])
-public func max<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var maxValue = y >= x ? y : x
-  if z >= maxValue {
-    maxValue = z
-  }
-  if rest != nil {
-    for value in rest where value >= maxValue {
-      maxValue = value
-    }
-  }
-  return maxValue
+let maxValue = (x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, y, x) ? y : x);
+{
+if((x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, z, maxValue))) {
+maxValue = z;
 }
+};
+{
+if((Optional.infix_33_61({Self: Optional, Wrapped: _clarifyGenerics({Self:Array, Element: x.constructor})}, rest, null))) {
+{
+let $value$generator = _cloneStruct(rest.makeIterator({Self: _clarifyGenerics({Self:Array, Element: x.constructor})}, ));
+while(true) {
+const value = $value$generator.next({$setThis: $val => $value$generator = $val, Elements: _clarifyGenerics({Self:Array, Element: x.constructor})}, );
+if(!((value != null))) break;
+if(!(x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, value, maxValue))) break;
+maxValue = value;
+}
+};
+}
+};
+return maxValue
 ----Swift.(file).Array.append(contentsOf:S)
-extension Array {
-  public mutating func append<S: Sequence>(contentsOf newElements: __owned S)
-    where S.Element == Element {
-
-      for el in newElements {
-        append(el)
-      }
-  }
+{
+let $el$generator = newElements.makeIterator({Self: newElements.constructor}, );
+while(true) {
+const el = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
+if(!((el != null))) break;
+this.append({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, el);
 }
-----Swift.(file).Array.insert(_:Element,at:Int)
-extension Array {
-  public mutating func insert(_ newElement: __owned Element, at i: Int) {
-    self.replaceSubrange(i..<i, with: CollectionOfOne(newElement))
-  }
+}
+----Swift.(file).Array.append(_:Element)
+this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: newElement.constructor, C: _clarifyGenerics({Self:CollectionOfOne, Element: newElement.constructor})}, Int.infix_46_46_60({Self: Int, Self: Int}, this.count, this.count), _create(CollectionOfOne, 'init', {Element: newElement.constructor}, newElement))
+----Swift.(file).Array.replaceSubrange(_:Range<Int>,with:C)
+{
+let $generator = _cloneStruct(subrange.makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+this.removeAt({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, subrange.startIndex);
+}
+};
+let i = subrange.startIndex;
+{
+let $el$generator = newElements.makeIterator({Self: newElements.constructor}, );
+while(true) {
+const el = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
+if(!((el != null))) break;
+this.insertAt({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, el, i);
+Int.infix_43_61({Self: Int}, {get: () => i, set: $val => i = $val}, 1);
+}
 }
 ----Swift.(file).Array.removeAll(keepingCapacity:Bool)
-extension Array {
-  public mutating func removeAll(keepingCapacity keepCapacity: Bool = false) {
-    self.replaceSubrange(indices, with: EmptyCollection())
-  }
-}
+this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?', C: _clarifyGenerics({Self:EmptyCollection, Element: '?'})}, this.indices, _create(EmptyCollection, 'init', {Element: '?'}, ))
 ----Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)
-extension Array where Element: Equatable {
-  public static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool {
-    let lhsCount = lhs.count
-    if lhsCount != rhs.count {
-      return false
-    }
-
-    if lhsCount == 0 {
-      return true
-    }
-
-    for idx in 0..<lhsCount {
-      if lhs[idx] != rhs[idx] {
-        return false
-      }
-    }
-
-    return true
-  }
+const lhsCount = lhs.count;
+{
+if((Int.infix_33_61({Self: Int, Self: Int}, lhsCount, rhs.count))) {
+return false;
 }
+};
+{
+if((Int.infix_61_61({Self: Int}, lhsCount, 0))) {
+return true;
+}
+};
+{
+let $idx$generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, lhsCount).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+const idx = $idx$generator.next({$setThis: $val => $idx$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!((idx != null))) break;
+{
+if(('?'.infix_33_61({Self: '?', Self: '?'}, lhs.subscript$get({}, idx), rhs.subscript$get({}, idx)))) {
+return false;
+}
+};
+}
+};
+return true
 ----Swift.(file).RangeReplaceableCollection.removeLast()
-extension RangeReplaceableCollection where Self : BidirectionalCollection {
-  public mutating func removeLast() -> Element {
-    return remove(at: index(before: endIndex))
-  }
-}
+return this.removeAt({$setThis: $val => $info.$setThis(_cloneStruct($val)), Self: this.constructor}, this.indexBefore({Self: this.constructor}, this.endIndex))
 ----Swift.(file).Array.init(repeating:Element,count:Int)
-extension Array: RangeReplaceableCollection  {
-  public init(repeating repeatedValue: Element, count: Int) {
-    var result = Array<Element>()
-    for _ in 0..<count {
-      result.append(repeatedValue)
-    }
-  }
+let result = _create(Array, 'init', {Element: repeatedValue.constructor}, );
+{
+let $generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, count).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+result.append({$setThis: $val => result = $val, Element: repeatedValue.constructor}, repeatedValue);
 }
-----Swift.(file).Array.init(repeating:Element,count:Int)#SUFFIX
- result
+};
+return result
 ----Swift.(file).BidirectionalCollection.joined(separator:String)
-extension BidirectionalCollection where Element == String  {
-  public func joined(separator: String = "") -> String {
-    var result = ""
-    if separator.isEmpty {
-      for x in self {
-        result.append(String(x._ephemeralString))
-      }
-      return result
-    }
-
-    var iter = makeIterator()
-    if let first = iter.next() {
-      result.append(String(first))
-      while let next = iter.next() {
-        result.append(separator)
-        result.append(String(next))
-      }
-    }
-    return result
-  }
+let result = "";
+{
+if((separator.isEmpty)) {
+{
+let $x$generator = this.makeIterator({Self: this.constructor}, );
+while(true) {
+const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
+if(!((x != null))) break;
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, x));
 }
+};
+return result;
+}
+};
+let iter = this.makeIterator({Self: this.constructor}, );
+{const first = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if((first != null)) {
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, first));
+while(true){
+const next = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if(!((next != null))) break
+result.append({$setThis: $val => result = $val}, separator);
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, next));
+};
+}
+};
+return result
 ----Swift.(file).Sequence.joined(separator:String)
-extension Sequence where Element: StringProtocol  {
-  public func joined(separator: String = "") -> String {
-    var result = ""
-    if separator.isEmpty {
-      for x in self {
-        result.append(String(x._ephemeralString))
-      }
-      return result
-    }
-
-    var iter = makeIterator()
-    if let first = iter.next() {
-      result.append(String(first))
-      while let next = iter.next() {
-        result.append(separator)
-        result.append(String(next))
-      }
-    }
-    return result
-  }
+let result = "";
+{
+if((separator.isEmpty)) {
+{
+let $x$generator = this.makeIterator({Self: this.constructor}, );
+while(true) {
+const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
+if(!((x != null))) break;
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, x));
 }
+};
+return result;
+}
+};
+let iter = this.makeIterator({Self: this.constructor}, );
+{const first = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if((first != null)) {
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, first));
+while(true){
+const next = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if(!((next != null))) break
+result.append({$setThis: $val => result = $val}, separator);
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, next));
+};
+}
+};
+return result
 ----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
-extension Array  {
-  public __consuming func filter(
-    _ isIncluded: (Element) throws -> Bool
-    ) rethrows -> [Element] {
-    var result = Array<Element>()
-
-    var iterator = self.makeIterator()
-
-    while let element = iterator.next() {
-      if try isIncluded(element) {
-        result.append(element)
-      }
-    }
-
-    return Array(result)
-  }
+let result = _create(Array, 'init', {Element: '?'}, );
+let iterator = _cloneStruct(this.makeIterator({Self: _clarifyGenerics({Self:Array, Element: '?'})}, ));
+while(true){
+const _element = iterator.next({$setThis: $val => iterator = $val, Elements: _clarifyGenerics({Self:Array, Element: '?'})}, )
+if(!((_element != null))) break
+{
+if((isIncluded({}, _element))) {
+result.append({$setThis: $val => result = $val, Element: '?'}, _element);
 }
+};
+};
+return _create(Array, 'initBuffer', {Element: '?', S: _clarifyGenerics({Self:Array, Element: '?'})}, result)
 ----Swift.(file).Array.endIndex
-extension Array: RandomAccessCollection, MutableCollection  {
-  public var endIndex: Int {
-    return count
-  }
+return this.count;
 }
+get endIndex() { return this.endIndex$get()
+----Swift.(file).Array.subscript(_:Range<Int>)#ASS
+
+this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?', C: _clarifyGenerics({Self:ArraySlice, Element: '?'})}, bounds, rhs)
 ----Swift.(file).Array.subscript(_:Range<Int>)
-extension Array: RandomAccessCollection, MutableCollection  {
-  public subscript(bounds: Range<Int>) -> ArraySlice<Element> {
-    get {
-      var result = Array<Element>()
-      for index in bounds {
-        result.append(self[index])
-      }
-      return result
-    }
-    set(rhs) {
-      self.replaceSubrange(bounds, with: rhs)
-    }
-  }
+let result = _create(Array, 'init', {Element: '?'}, );
+{
+let $index$generator = _cloneStruct(bounds.makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+const index = $index$generator.next({$setThis: $val => $index$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!((index != null))) break;
+result.append({$setThis: $val => result = $val, Element: '?'}, this.subscript$get({}, index));
 }
+};
+return result;
+
 ----Swift.(file).IndexingIterator.next()
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
+{
+if((this._elements.startIndex.constructor.infix_61_61({Self: this._elements.startIndex.constructor, Self: this._elements.startIndex.constructor}, this._position, this._elements.endIndex))) {
+return null;
 }
-"--ignore-before"
-extension IndexingIterator: IteratorProtocol, Sequence  {
-  public mutating func next() -> Elements.Element? {
-    if _position == _elements.endIndex { return nil }
-    let element = _elements[_position]
-    _elements.formIndex(after: &_position)
-    return element
-  }
-}
+};
+const _element = this._elements.subscript$get({}, this._position);
+this._elements.formIndexAfter({Self: this._elements.constructor}, {get: () => this._position, set: $val => this._position = $val});
+return _element
 ----Swift.(file).IndexingIterator.init(_elements:Elements)
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
-}
-"--ignore-before"
-extension IndexingIterator {
-  init(_elements: Elements) {
-    self._elements = _elements
-    self._position = _elements.startIndex
-  }
-}
+this._elements = _elements;
+this._position = _elements.startIndex;
+return
 ----Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
+this._elements = _elements;
+this._position = _position;
+return
+----Swift.(file).CollectionOfOne.init(_:Element)
+this._element = _element;
+return
+----Swift.(file).CollectionOfOne.subscript(_:Int)#ASS
+
+preconditionFileLine({}, () => Int.infix_61_61({Self: Int}, position, 0), () => "Index out of range", '?3', '?3');
+this._element = _element
+----Swift.(file).CollectionOfOne.subscript(_:Int)
+preconditionFileLine({}, () => Int.infix_61_61({Self: Int}, position, 0), () => "Index out of range", '?3', '?3');
+return this._element;
+
+----Swift.(file).Collection.map(_:(Self.Element) throws -> T)
+const n = this.count;
+{
+if((Int.infix_61_61({Self: Int}, n, 0))) {
+return _create(Array, 'initBuffer', {Element: '?'}, []);
 }
-"--ignore-before"
-extension IndexingIterator {
-  init(_elements: Elements, _position: Elements.Index) {
-    self._elements = _elements
-    self._position = _position
-  }
+};
+let result = _create(Array, 'init', {Element: '?'}, );
+let i = this.startIndex;
+{
+let $generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, n).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+result.append({$setThis: $val => result = $val, Element: '?'}, transform({}, this.subscript$get({}, i)));
+this.formIndexAfter({Self: this.constructor}, {get: () => i, set: $val => i = $val});
 }
-----Swift.(file).SignedNumeric.negate()
-extension SignedNumeric  {
-  public mutating func negate() {
-    self = -self
-  }
-}
+};
+return result
+----Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)
+let result = _create(Array, 'initBuffer', {Element: this.constructor, S: this.constructor}, this);
+result.sortBy({$setThis: $val => result = $val, Self: _clarifyGenerics({Self:Array, Element: this.constructor})}, areInIncreasingOrder);
+return result
+----Swift.(file).Int.advanced(by:Int)
+return Int.infix_43({Self: Int}, this, n)
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertFalse(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression(), message())
-}
+preconditionFileLine({}, () => expression({}, ), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertFalse(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(!expression(), message())
-}
+preconditionFileLine({}, () => Bool.prefix_33({Self: Bool}, expression({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertGreaterThan(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() > expression2(), message())
-}
+preconditionFileLine({}, () => '?'.infix_62({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertGreaterThanOrEqual(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() >= expression2(), message())
-}
+preconditionFileLine({}, () => '?'.infix_62_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertLessThan(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() < expression2(), message())
-}
+preconditionFileLine({}, () => '?'.infix_60({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertLessThanOrEqual(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() <= expression2(), message())
-}
+preconditionFileLine({}, () => '?'.infix_60_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertNil(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression() == nil, message())
-}
+preconditionFileLine({}, () => Optional.infix_61_61({Self: Optional, Wrapped: Bool}, expression({}, ), null), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertNotNil(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression() != nil, message())
-}
+preconditionFileLine({}, () => Optional.infix_33_61({Self: Optional, Wrapped: Bool}, expression({}, ), null), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertTrue(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression() == true, message())
-}
+preconditionFileLine({}, () => Bool.infix_61_61({Self: Bool}, expression({}, ), true), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertEqual(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() == expression2(), message())
-}
+preconditionFileLine({}, () => '?'.infix_61_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
-public func XCTAssertNotEqual(_ expression1: @autoclosure () -> Bool, _ expression2: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
-  precondition(expression1() != expression2(), message())
-}
-----closing dashes needed for the last definition to be processed
+preconditionFileLine({}, () => '?'.infix_33_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')

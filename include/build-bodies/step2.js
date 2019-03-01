@@ -1,5 +1,5 @@
-const execSync = require('child_process').execSync
 const fs = require('fs')
+const transpile = require('./step2-3.js')
 
 let identifierUsage = {}
 
@@ -34,21 +34,6 @@ const PROPER_IDENTIFIERS = {
     'Swift.(file).Dictionary.merging(_,uniquingKeysWith)': 'Swift.(file).Dictionary.merging(_:S,uniquingKeysWith:(Value, Value) throws -> Value)',//S
     'Swift.(file).Dictionary.merging(_,uniquingKeysWith)1': 'Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)',//[Key: Value]
     'Swift.(file).Dictionary.remove(at)': 'Swift.(file).Dictionary.remove(at:Dictionary<Key, Value>.Index)'
-}
-
-const ignoreErrors = {
-    'Swift.(file).Array.init(repeating:Element,count:Int)': true,
-    'Swift.(file).Array.subscript(_:Range<Int>)': true
-}
-
-function transpile(contents, ignoreErrors) {
-    fs.writeFileSync(`${__dirname}/body.swift`, '"-print-extension"\n' + contents)
-    if(fs.existsSync(`${__dirname}/gowno.txt`)) fs.unlinkSync(`${__dirname}/gowno.txt`)
-    let transpiled = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/body.swift'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', fs.openSync(`${__dirname}/gowno.txt`, 'a+')]})
-    let errors = fs.readFileSync(`${__dirname}/gowno.txt`, 'utf8')
-    fs.unlinkSync(`${__dirname}/gowno.txt`)
-    if(!ignoreErrors && errors.includes(': error: ')) throw errors
-    return transpiled
 }
 
 function escapeRegex(s) {
@@ -86,23 +71,6 @@ function getProperIdentifier(isUntyped, prop, parent, pureName, name) {
     return properIdentifier
 }
 
-let manualDefinitions = {}
-let manualDefinitionsFile = fs.readFileSync(`${__dirname}/for-compiler/manual-swift.txt`, 'utf8').split('\n')
-let key = '', val = ''
-for(let line of manualDefinitionsFile) {
-    if(line.startsWith('----')) {
-        if(key) {
-            manualDefinitions[key] = val
-        }
-        key = line.slice(4)
-        val = ""
-    }
-    else {
-        if(val) val += '\n'
-        val += line
-    }
-}
-
 let swiftDefinitions = ''
 let transpilations = ''
 
@@ -130,30 +98,9 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         if(prop.isType) contents += (prop.ext || 'extension ' + parent) + ' {\n'
         contents += prop.body
         if(prop.isType) contents += '\n}'
-        if(manualDefinitions[properIdentifier]) contents = manualDefinitions[properIdentifier]
         swiftDefinitions += '\n\n----' + properIdentifier + '\n' + contents
         try {
-            let transpiled = transpile(contents, ignoreErrors[properIdentifier])
-            if(transpiled.includes('"--ignore-before";')) transpiled = transpiled.slice(transpiled.indexOf('"--ignore-before";') + '"--ignore-before";'.length)
-            transpiled = transpiled.slice(transpiled.indexOf('{') + 1, transpiled.lastIndexOf('}'))
-            if(transpiled.includes('}\nget ' + pureName)) {
-                transpiled = transpiled.slice(0, transpiled.indexOf('}\nget ' + pureName))
-            }
-            while(transpiled.match(/\n;?\n/)) transpiled = transpiled.replace(/\n;?\n/g, '\n')
-            while(transpiled.includes('  ')) transpiled = transpiled.replace('  ', ' ')
-            while(transpiled[0] === '\n' || transpiled[0] === ';' || transpiled[0] === '0') transpiled = transpiled.slice(1)
-            while(transpiled[transpiled.length - 1] === '\n' || transpiled[transpiled.length - 1] === ';' || transpiled[transpiled.length - 1] === ' ') transpiled = transpiled.slice(0, transpiled.length - 1)
-            if(manualDefinitions[properIdentifier + '#SUFFIX']) contents += manualDefinitions[properIdentifier + '#SUFFIX']
-            if(properIdentifier.includes('.subscript(')) {
-                let subscriptSetMatch = transpiled.match(/(?:\\n)*\}(?:\\n|\s)*subscript[a-zA-Z0-9_$]*\$set\([^{]+\{(?:\\n)*/)
-                if(subscriptSetMatch) {
-                    let index0 = transpiled.indexOf(subscriptSetMatch[0])
-                    let index1 = index0 + subscriptSetMatch[0].length
-                    transpilations += '----' + properIdentifier + '#ASS\n' + transpiled.slice(index1) + '\n'
-                    transpiled = transpiled.slice(0, index0)
-                }
-            }
-            transpilations += '----' + properIdentifier + '\n' + transpiled + '\n'
+            transpilations += transpile(contents, properIdentifier, pureName)
         }
         catch(err) {
             //console.log(err)

@@ -72,14 +72,10 @@ public func min<T : Comparable>(_ x: T, _ y: T) -> T {
 
 ----Swift.(file).min(_:T,_:T,_:T,_:[T])
 public func min<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var minValue = y < x ? y : x
-  if z < minValue {
-    minValue = z
-  }
-  if rest != nil {
-    for value in rest where value < minValue {
-      minValue = value
-    }
+  var minValue = min(min(x, y), z)
+  // In case `value == minValue`, we pick `minValue`. See min(_:_:).
+  for value in rest where value < minValue {
+    minValue = value
   }
   return minValue
 }
@@ -92,14 +88,10 @@ public func max<T : Comparable>(_ x: T, _ y: T) -> T {
 
 ----Swift.(file).max(_:T,_:T,_:T,_:[T])
 public func max<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var maxValue = y >= x ? y : x
-  if z >= maxValue {
-    maxValue = z
-  }
-  if rest != nil {
-    for value in rest where value >= maxValue {
-      maxValue = value
-    }
+  var maxValue = max(max(x, y), z)
+  // In case `value == maxValue`, we pick `value`. See min(_:_:).
+  for value in rest where value >= maxValue {
+    maxValue = value
   }
   return maxValue
 }
@@ -205,7 +197,10 @@ extension Array: RandomAccessCollection, MutableCollection  {
 ----Swift.(file).Array.endIndex
 extension Array: RandomAccessCollection, MutableCollection  {
   public var endIndex: Int {
-    return count
+    @inlinable
+    get {
+      return _getCount()
+    }
   }
 }
 
@@ -330,14 +325,19 @@ extension Array: RandomAccessCollection, MutableCollection  {
 extension Array: RandomAccessCollection, MutableCollection  {
   public subscript(bounds: Range<Int>) -> ArraySlice<Element> {
     get {
-      var result = Array<Element>()
-      for index in bounds {
-        result.append(self[index])
-      }
-      return result
+      _checkIndex(bounds.lowerBound)
+      _checkIndex(bounds.upperBound)
+      return ArraySlice(_buffer: _buffer[bounds])
     }
     set(rhs) {
-      self.replaceSubrange(bounds, with: rhs)
+      _checkIndex(bounds.lowerBound)
+      _checkIndex(bounds.upperBound)
+      // If the replacement buffer has same identity, and the ranges match,
+      // then this was a pinned in-place modification, nothing further needed.
+      if self[bounds]._buffer.identity != rhs._buffer.identity
+      || bounds != rhs.startIndex..<rhs.endIndex {
+        self.replaceSubrange(bounds, with: rhs)
+      }
     }
   }
 }
@@ -366,9 +366,11 @@ extension Array: RangeReplaceableCollection  {
 ----Swift.(file).Array.init(repeating:Element,count:Int)
 extension Array: RangeReplaceableCollection  {
   public init(repeating repeatedValue: Element, count: Int) {
-    var result = Array<Element>()
+    var p: UnsafeMutablePointer<Element>
+    (self, p) = Array._allocateUninitialized(count)
     for _ in 0..<count {
-      result.append(repeatedValue)
+      p.initialize(to: repeatedValue)
+      p += 1
     }
   }
 }
@@ -403,13 +405,34 @@ extension Array: RangeReplaceableCollection  {
 }
 
 ----Swift.(file).Array.append(contentsOf:S)
-extension Array {
+extension Array: RangeReplaceableCollection  {
   public mutating func append<S: Sequence>(contentsOf newElements: __owned S)
     where S.Element == Element {
 
-      for el in newElements {
-        append(el)
-      }
+    let newElementsCount = newElements.underestimatedCount
+    reserveCapacityForAppend(newElementsCount: newElementsCount)
+
+    let oldCount = self.count
+    let startNewElements = _buffer.firstElementAddress + oldCount
+    let buf = UnsafeMutableBufferPointer(
+                start: startNewElements, 
+                count: self.capacity - oldCount)
+
+    let (remainder,writtenUpTo) = buf.initialize(from: newElements)
+    
+    // trap on underflow from the sequence's underestimate:
+    let writtenCount = buf.distance(from: buf.startIndex, to: writtenUpTo)
+    precondition(newElementsCount <= writtenCount, 
+      "newElements.underestimatedCount was an overestimate")
+    // can't check for overflow as sequences can underestimate
+
+    _buffer.count += writtenCount
+
+    if writtenUpTo == buf.endIndex {
+      // there may be elements that didn't fit in the existing buffer,
+      // append them in slow sequence-only mode
+      _buffer._arrayAppendSequence(IteratorSequence(remainder))
+    }
   }
 }
 
@@ -429,16 +452,22 @@ extension Array: RangeReplaceableCollection  {
 }
 
 ----Swift.(file).Array.insert(_:Element,at:Int)
-extension Array {
+extension Array: RangeReplaceableCollection  {
   public mutating func insert(_ newElement: __owned Element, at i: Int) {
+    _checkIndex(i)
     self.replaceSubrange(i..<i, with: CollectionOfOne(newElement))
   }
 }
 
 ----Swift.(file).Array.removeAll(keepingCapacity:Bool)
-extension Array {
+extension Array: RangeReplaceableCollection  {
   public mutating func removeAll(keepingCapacity keepCapacity: Bool = false) {
-    self.replaceSubrange(indices, with: EmptyCollection())
+    if !keepCapacity {
+      _buffer = _Buffer()
+    }
+    else {
+      self.replaceSubrange(indices, with: EmptyCollection())
+    }
   }
 }
 
@@ -613,17 +642,23 @@ extension Array  {
 }
 
 ----Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)
-extension Array where Element: Equatable {
+extension Array: Equatable where Element: Equatable  {
   public static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool {
     let lhsCount = lhs.count
     if lhsCount != rhs.count {
       return false
     }
 
-    if lhsCount == 0 {
+    // Test referential equality.
+    if lhsCount == 0 || lhs._buffer.identity == rhs._buffer.identity {
       return true
     }
 
+
+    _internalInvariant(lhs.startIndex == 0 && rhs.startIndex == 0)
+    _internalInvariant(lhs.endIndex == lhsCount && rhs.endIndex == lhsCount)
+
+    // We know that lhs.count == rhs.count, compare element wise.
     for idx in 0..<lhsCount {
       if lhs[idx] != rhs[idx] {
         return false
@@ -1155,21 +1190,11 @@ extension ArraySlice  {
 }
 
 ----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
-extension Array  {
+extension _ArrayProtocol  {
   public __consuming func filter(
     _ isIncluded: (Element) throws -> Bool
-    ) rethrows -> [Element] {
-    var result = Array<Element>()
-
-    var iterator = self.makeIterator()
-
-    while let element = iterator.next() {
-      if try isIncluded(element) {
-        result.append(element)
-      }
-    }
-
-    return Array(result)
+  ) rethrows -> [Element] {
+    return try _filter(isIncluded)
   }
 }
 
@@ -1971,11 +1996,6 @@ extension Character  {
 }
 
 ----Swift.(file).ClosedRange.init(uncheckedBounds:(lower: Bound, upper: Bound))
-public struct ClosedRange<Bound : Comparable> {
-  public let lowerBound: Bound
-  public let upperBound: Bound
-}
-"--ignore-before"
 extension ClosedRange {
   public init(uncheckedBounds bounds: (lower: Bound, upper: Bound)) {
     self.lowerBound = bounds.lower
@@ -2266,11 +2286,6 @@ extension ClosedRange  {
 }
 
 ----Swift.(file).IndexingIterator.init(_elements:Elements)
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
-}
-"--ignore-before"
 extension IndexingIterator {
   init(_elements: Elements) {
     self._elements = _elements
@@ -2279,11 +2294,6 @@ extension IndexingIterator {
 }
 
 ----Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
-}
-"--ignore-before"
 extension IndexingIterator {
   init(_elements: Elements, _position: Elements.Index) {
     self._elements = _elements
@@ -2292,11 +2302,6 @@ extension IndexingIterator {
 }
 
 ----Swift.(file).IndexingIterator.next()
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
-}
-"--ignore-before"
 extension IndexingIterator: IteratorProtocol, Sequence  {
   public mutating func next() -> Elements.Element? {
     if _position == _elements.endIndex { return nil }
@@ -2831,6 +2836,110 @@ extension MutableCollection where Self : RandomAccessCollection  {
   public mutating func shuffle() {
     var g = SystemRandomNumberGenerator()
     shuffle(using: &g)
+  }
+}
+
+----Swift.(file).CollectionOfOne.init(_:Element)
+extension CollectionOfOne {
+  public init(_ element: Element) {
+    self._element = element
+  }
+}
+
+----Swift.(file).Iterator.next()
+extension CollectionOfOne.Iterator: IteratorProtocol  {
+  public mutating func next() -> Element? {
+    let result = _elements
+    _elements = nil
+    return result
+  }
+}
+
+----Swift.(file).CollectionOfOne.startIndex
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public var startIndex: Index {
+    return 0
+  }
+}
+
+----Swift.(file).CollectionOfOne.endIndex
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public var endIndex: Index {
+    return 1
+  }
+}
+
+----Swift.(file).CollectionOfOne.index(after:CollectionOfOne<Element>.Index)
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public func index(after i: Index) -> Index {
+    precondition(i == startIndex)
+    return 1
+  }
+}
+
+----Swift.(file).CollectionOfOne.index(before:CollectionOfOne<Element>.Index)
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public func index(before i: Index) -> Index {
+    precondition(i == endIndex)
+    return 0
+  }
+}
+
+----Swift.(file).CollectionOfOne.makeIterator()
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public __consuming func makeIterator() -> Iterator {
+    return Iterator(_elements: _element)
+  }
+}
+
+----Swift.(file).CollectionOfOne.subscript(_:Int)
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public subscript(position: Int) -> Element {
+    get {
+      precondition(position == 0, "Index out of range")
+      return _element
+    }
+    _modify {
+      precondition(position == 0, "Index out of range")
+      yield &_element
+    }
+  }
+}
+
+----Swift.(file).CollectionOfOne.subscript(_:Range<Int>)
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public subscript(bounds: Range<Int>) -> SubSequence {
+    get {
+      _failEarlyRangeCheck(bounds, bounds: 0..<1)
+      return Slice(base: self, bounds: bounds)
+    }
+    set {
+      _failEarlyRangeCheck(bounds, bounds: 0..<1)
+      let n = newValue.count
+      precondition(bounds.count == n, "CollectionOfOne can't be resized")
+      if n == 1 { self = newValue.base }
+    }
+  }
+}
+
+----Swift.(file).CollectionOfOne.count
+extension CollectionOfOne: RandomAccessCollection, MutableCollection  {
+  public var count: Int {
+    return 1
+  }
+}
+
+----Swift.(file).CollectionOfOne.debugDescription
+extension CollectionOfOne : CustomDebugStringConvertible  {
+  public var debugDescription: String {
+    return "CollectionOfOne(\(String(reflecting: _element)))"
+  }
+}
+
+----Swift.(file).CollectionOfOne.customMirror
+extension CollectionOfOne : CustomReflectable  {
+  public var customMirror: Mirror {
+    return Mirror(self, children: ["element": _element])
   }
 }
 
@@ -5235,7 +5344,7 @@ extension SignedNumeric  {
 ----Swift.(file).SignedNumeric.negate()
 extension SignedNumeric  {
   public mutating func negate() {
-    self = -self
+    self = 0 - self
   }
 }
 
@@ -8341,11 +8450,6 @@ extension RangeExpression  {
 }
 
 ----Swift.(file).Range.init(uncheckedBounds:(lower: Bound, upper: Bound))
-public struct Range<Bound : Comparable> {
-  public let lowerBound: Bound
-  public let upperBound: Bound
-}
-"--ignore-before"
 extension Range {
   public init(uncheckedBounds bounds: (lower: Bound, upper: Bound)) {
     self.lowerBound = bounds.lower
@@ -8844,8 +8948,12 @@ extension RangeReplaceableCollection where Self : BidirectionalCollection  {
 }
 
 ----Swift.(file).RangeReplaceableCollection.removeLast()
-extension RangeReplaceableCollection where Self : BidirectionalCollection {
+extension RangeReplaceableCollection where Self : BidirectionalCollection  {
   public mutating func removeLast() -> Element {
+    precondition(!isEmpty, "Can't remove last element from an empty collection")
+    // NOTE if you change this implementation, change popLast above as well
+    // AND change the tie-breaker implementations in the next extension
+    if let result = _customRemoveLast() { return result }
     return remove(at: index(before: endIndex))
   }
 }
@@ -8877,8 +8985,12 @@ where Self : BidirectionalCollection, SubSequence == Self  {
 }
 
 ----Swift.(file).RangeReplaceableCollection.removeLast()
-extension RangeReplaceableCollection where Self : BidirectionalCollection {
+extension RangeReplaceableCollection
+where Self : BidirectionalCollection, SubSequence == Self  {
   public mutating func removeLast() -> Element {
+    precondition(!isEmpty, "Can't remove last element from an empty collection")
+    // NOTE if you change this implementation, change popLast above as well
+    if let result = _customRemoveLast() { return result }
     return remove(at: index(before: endIndex))
   }
 }
@@ -11187,46 +11299,14 @@ extension String  {
 ----Swift.(file).Sequence.joined(separator:String)
 extension Sequence where Element: StringProtocol  {
   public func joined(separator: String = "") -> String {
-    var result = ""
-    if separator.isEmpty {
-      for x in self {
-        result.append(String(x._ephemeralString))
-      }
-      return result
-    }
-
-    var iter = makeIterator()
-    if let first = iter.next() {
-      result.append(String(first))
-      while let next = iter.next() {
-        result.append(separator)
-        result.append(String(next))
-      }
-    }
-    return result
+    return _joined(separator: separator)
   }
 }
 
 ----Swift.(file).BidirectionalCollection.joined(separator:String)
 extension BidirectionalCollection where Element == String  {
   public func joined(separator: String = "") -> String {
-    var result = ""
-    if separator.isEmpty {
-      for x in self {
-        result.append(String(x._ephemeralString))
-      }
-      return result
-    }
-
-    var iter = makeIterator()
-    if let first = iter.next() {
-      result.append(String(first))
-      while let next = iter.next() {
-        result.append(separator)
-        result.append(String(next))
-      }
-    }
-    return result
+    return _joined(separator: separator)
   }
 }
 
@@ -11797,14 +11877,18 @@ extension String: RangeReplaceableCollection  {
 ----Swift.(file).String.append(_:String)
 extension String: RangeReplaceableCollection  {
   public mutating func append(_ other: String) {
-    self += other
+    if self.isEmpty && !_guts.hasNativeStorage {
+      self = other
+      return
+    }
+    self._guts.append(other._guts)
   }
 }
 
 ----Swift.(file).String.append(_:Character)
 extension String: RangeReplaceableCollection  {
   public mutating func append(_ c: Character) {
-    self.append(String(c))
+    self.append(c._str)
   }
 }
 

@@ -30,6 +30,7 @@ const files = [
     'Codable.swift.gyb',
     'Collection.swift',
     'CollectionAlgorithms.swift',
+    'CollectionOfOne.swift',
     'Comparable.swift',
     'CompilerProtocols.swift',
     'ContiguousArray.swift',

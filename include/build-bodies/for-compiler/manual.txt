@@ -16,8 +16,8 @@ return this.size
 return new SwiftIterator((current) => Array.from(this)[current])
 ----Swift.(file).Array.count
 return this.length
-----Swift.(file).Array.append(_:Element)
-this.push(_cloneStruct(#AA))
+----Swift.(file).Array.insert(_:Element,at:Int)
+this.splice(#A1, 0, _cloneStruct(#A0))
 ----Swift.(file).Array.remove(at:Int)
 return this.splice(#AA, 1)[0]
 ----Swift.(file).Set.insert(_:Element)
@@ -87,8 +87,22 @@ if (optional != null) {
   return optional
 }
 else return defaultValue({})
+----Swift.(file).SignedNumeric.negate()
+$info.$setThis(-this)
 ----Swift.(file).String.append(_:Character)
 $info.$setThis(this + c)
+----Swift.(file).String.startIndex
+//TODO change once we know what String.Index is about
+return 0
+----Swift.(file).String.endIndex
+return this.length
+----Swift.(file).String.index(after:String.Index)
+return i + 1
+----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
+//TODO move to swift
+return this.sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1)
+----Swift.(file).String.init(_:S)
+return String(other)
 ----Swift.(file).Double.infinity
 return Infinity
 ----XCTest.(file).XCTestCase.init()
