@@ -1,24 +1,36 @@
-protocol PNA1 {
-  associatedtype A1: Equatable
-  var a1: A1 { get set }
+for index in 1...5 {
+    print(index)
 }
-struct SNA1<T: Equatable>: PNA1 {
-  var a1: T
+
+for index in 1..<5 {
+    print(index)
 }
-var sna1 = SNA1(a1: "string")
-protocol PNA2 {
-  associatedtype A2: PNA1
-  var a2: A2 { get set }
+
+let base = 3
+let power = 10
+var answer = 1
+for _ in 1...power {
+    answer *= base
 }
-struct SNA2<T: PNA1>: PNA2 {
-  var a2: T
-  func printEquality() {
-    print(a2.a1 == a2.a1)
-  }
+print(answer)
+
+let users = ["Anna", "Alex", "Brian", "Jack"]
+for user in users {
+    print("Hello, " + user + "!")
 }
-var sna2 = SNA2(a2: sna1)
-sna2.printEquality()
-func printEquality<T: PNA2>(_ elo: T) {
-  print(elo.a2.a1 == elo.a2.a1)
+
+let numberOfLegs = ["ant": 6]
+for (animalName, legCount) in numberOfLegs {
+    print(animalName)
+    print(legCount)
 }
-printEquality(sna2)
+
+for number in 0...10 {
+    if number >= 6 {
+        break
+    }
+    if number % 2 > 0 {
+        continue
+    }
+    print(number)
+}

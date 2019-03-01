@@ -107,6 +107,8 @@ return String.infix_43({Self: String}, String.infix_43({Self: String}, "AnyHasha
 return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {Subject: AnyHashable}, this, new Map([["value", this.base]]), null, null)
 ----Swift.(file).Array.startIndex
 return 0
+----Swift.(file).Array.endIndex
+return this.count
 ----Swift.(file).Array.index(after:Int)
 return Int.infix_43({Self: Int}, i, 1)
 ----Swift.(file).Array.formIndex(after:Int)
@@ -137,6 +139,16 @@ return Int.infix_43({Self: Int}, i, distance)
 return Int.infix_45({Self: Int}, end, start)
 ----Swift.(file).Array.init(arrayLiteral:[Element])
 $info.$setThis(_cloneStruct(_cloneStruct(_elements)));
+return
+----Swift.(file).Array.init(repeating:Element,count:Int)
+let result = _create(Array, 'init', {Element: this.$info.Element}, );
+{
+let $generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, count).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
+while(true) {
+if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+result.append({$setThis: $val => result = $val, Element: this.$info.Element}, repeatedValue);
+}
+};
 return
 ----Swift.(file).Array.append(contentsOf:S)
 {
@@ -266,6 +278,19 @@ return $result
 return this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: $info.Element, R: $info.R}, (($info, $0$inout) => body({}, _create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', {T: $info.Element}, $0))))
 ----Swift.(file).ArraySlice.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 return this.withUnsafeBufferPointer({Element: $info.Element, R: $info.R}, (($info, $0) => body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', {T: $info.Element}, $0))))
+----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
+let result = _create(Array, 'init', {Element: this.$info.Element}, );
+let iterator = _cloneStruct(this.makeIterator({Self: _clarifyGenerics({Self:Array, Element: this.$info.Element})}, ));
+while(true){
+const _element = iterator.next({$setThis: $val => iterator = $val, Elements: _clarifyGenerics({Self:Array, Element: this.$info.Element})}, )
+if(!((_element != null))) break
+{
+if((isIncluded({}, _element))) {
+result.append({$setThis: $val => result = $val, Element: this.$info.Element}, _element);
+}
+};
+};
+return _create(Array, 'initBuffer', {Element: this.$info.Element, S: _clarifyGenerics({Self:Array, Element: this.$info.Element})}, result)
 ----Swift.(file).BidirectionalCollection.formIndex(before:Self.Index)
 let i = i$inout.get()
 const $result = (() => {
@@ -383,6 +408,10 @@ return Optional.infix_33_61({Self: Optional, Wrapped: Int}, this.hexDigitValue, 
 return _create(String, 'initCharacter', {}, this).uppercased({}, )
 ----Swift.(file).Character.lowercased()
 return _create(String, 'initCharacter', {}, this).lowercased({}, )
+----Swift.(file).ClosedRange.init(uncheckedBounds:(lower: Bound, upper: Bound))
+this.lowerBound = bounds["0"];
+this.upperBound = bounds["1"];
+return
 ----Swift.(file).ClosedRange.isEmpty
 return false
 ----Swift.(file).ClosedRange.relative(to:C)
@@ -545,6 +574,19 @@ return
 return Bool.infix_124_124({Self: Bool}, this.contains({Bound: this.$info.Bound}, other.lowerBound), () => other.contains({Bound: this.$info.Bound}, this.lowerBound))
 ----Swift.(file).ClosedRange.overlaps(_:Range<Bound>)
 return other.overlaps({Bound: this.$info.Bound}, this)
+----Swift.(file).IndexingIterator.init(_elements:Elements)
+this._elements = _elements;
+this._position = _elements.startIndex;
+return
+----Swift.(file).IndexingIterator.next()
+{
+if((this.$info.Elements.Index.infix_61_61({Self: this.$info.Elements.Index, Self: this.$info.Elements.Index}, this._position, this._elements.endIndex))) {
+return null;
+}
+};
+const _element = this._elements.subscript$get({}, this._position);
+this._elements.formIndexAfter({Self: this.$info.Elements}, {get: () => this._position, set: $val => this._position = $val});
+return _element
 ----Swift.(file).Collection.formIndex(after:Self.Index)
 let i = i$inout.get()
 const $result = (() => {
@@ -611,13 +653,21 @@ const _element = this.first;
 $info.$setThis(_cloneStruct(this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({Self: this.$info.Self.Index, Self: this.$info.Self.Index}, this.indexAfter({Self: this.$info.Self}, this.startIndex), this.endIndex))));
 return _element
 ----Swift.(file).Collection.isEmpty
- return this.isEmpty$internal
+return this.$info.Self.Index.infix_61_61({Self: this.$info.Self.Index, Self: this.$info.Self.Index}, this.startIndex, this.endIndex)
 ----Swift.(file).Collection.first
- return this.first$internal
+const start = this.startIndex;
+{
+if((this.$info.Self.Index.infix_33_61({Self: this.$info.Self.Index, Self: this.$info.Self.Index}, start, this.endIndex))) {
+return this.subscript$get({}, start);
+}
+else {
+return null;
+}
+}
 ----Swift.(file).Collection.underestimatedCount
- return this.underestimatedCount$internal
+return this.count
 ----Swift.(file).Collection.count
- return this.count$internal
+return this.distanceFromTo({Self: this.$info.Self}, this.startIndex, this.endIndex)
 ----Swift.(file).Collection.dropFirst(_:Int)
 preconditionFileLine({}, () => Int.infix_62_61({Self: Int}, k, 0), () => "Can't drop a negative number of elements from a collection", '?3', '?3');
 const start = infix_63_63({T: this.$info.Self.Index}, this.indexOffsetByLimitedBy({Self: this.$info.Self}, this.startIndex, k, this.endIndex), () => this.endIndex);
@@ -717,7 +767,7 @@ preconditionFileLine({}, () => Int.infix_62_61({Self: Int}, k, 0), () => "Number
 preconditionFileLine({}, () => Int.infix_62_61({Self: Int}, this.count, k), () => "Can't remove more items from a collection than it contains", '?3', '?3');
 $info.$setThis(_cloneStruct(this.subscriptRange$get({}, this.$info.Self.Index.infix_46_46_60({Self: this.$info.Self.Index, Self: this.$info.Self.Index}, this.indexOffsetBy({Self: this.$info.Self}, this.startIndex, k), this.endIndex))))
 ----Swift.(file).BidirectionalCollection.last
- return this.last$internal
+return (this.isEmpty ? null : this.subscript$get({}, this.indexBefore({Self: this.$info.Self}, this.endIndex)))
 ----Swift.(file).Collection.firstIndex(of:Self.Element)
 {const result = this._customIndexOfEquatableElement({Self: this.$info.Self}, _element)
 if((result != null)) {
@@ -814,7 +864,7 @@ return $info.T.RawValue.infix_33_61({Self: $info.T.RawValue, Self: $info.T.RawVa
 ----Swift.(file).!=infix(_:T,_:T)
 return $info.T.RawValue.infix_33_61({Self: $info.T.RawValue, Self: $info.T.RawValue}, lhs.rawValue, rhs.rawValue)
 ----Swift.(file).RawRepresentable.hashValue
- return this.hashValue$internal
+return this.rawValue.hashValue
 ----Swift.(file).RawRepresentable.hash(into:Hasher)
 let hasher = hasher$inout.get()
 const $result = (() => {
@@ -1052,13 +1102,9 @@ return rhs.isLessThan({Self: $info.Self}, lhs)
 ----Swift.(file).FloatingPoint.>=infix(_:Self,_:Self)
 return rhs.isLessThanOrEqualTo({Self: $info.Self}, lhs)
 ----Swift.(file).FloatingPoint.ulpOfOne
- return this.ulpOfOne$internal }
-static get ulpOfOne() { return this.ulpOfOne$get() }
-static ulpOfOne$set($newValue) {
-let $oldValue = this.ulpOfOne$internal
-this.ulpOfOne$internal = $newValue
+return _create($info.Self, 'initIntegerLiteral', {Self: $info.Self}, 1).ulp;
 }
-static set ulpOfOne($newValue) { this.ulpOfOne$set($newValue)
+static get ulpOfOne() { return this.ulpOfOne$get()
 ----Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule)
 let lhs = this;
 lhs.round({$setThis: $val => lhs = $val, Self: this.$info.Self}, rule);
@@ -1068,7 +1114,7 @@ return this.rounded({Self: this.$info.Self}, FloatingPointRoundingRule.toNearest
 ----Swift.(file).FloatingPoint.round()
 this.round({$setThis: $val => $info.$setThis(_cloneStruct($val)), Self: this.$info.Self}, FloatingPointRoundingRule.toNearestOrAwayFromZero)
 ----Swift.(file).FloatingPoint.nextDown
- return this.nextDown$internal
+return this.$info.Self.prefix_45({Self: this.$info.Self, Self: this.$info.Self}, this.$info.Self.prefix_45({Self: this.$info.Self, Self: this.$info.Self}, this).nextUp)
 ----Swift.(file).FloatingPoint.truncatingRemainder(dividingBy:Self)
 let lhs = this;
 lhs.formTruncatingRemainderDividingBy({$setThis: $val => lhs = $val, Self: this.$info.Self}, other);
@@ -1134,15 +1180,36 @@ return x;
 };
 return y
 ----Swift.(file).FloatingPoint.floatingPointClass
- return this.floatingPointClass$internal
-----Swift.(file).BinaryFloatingPoint.radix
- return this.radix$internal }
-static get radix() { return this.radix$get() }
-static radix$set($newValue) {
-let $oldValue = this.radix$internal
-this.radix$internal = $newValue
+{
+if((this.isSignalingNaN)) {
+return FloatingPointClassification.signalingNaN;
 }
-static set radix($newValue) { this.radix$set($newValue)
+};
+{
+if((this._isNaN)) {
+return FloatingPointClassification.quietNaN;
+}
+};
+{
+if((this.isInfinite)) {
+return (FloatingPointSign.infix_61_61({Self: FloatingPointSign}, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeInfinity : FloatingPointClassification.positiveInfinity);
+}
+};
+{
+if((this.isNormal)) {
+return (FloatingPointSign.infix_61_61({Self: FloatingPointSign}, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeNormal : FloatingPointClassification.positiveNormal);
+}
+};
+{
+if((this.isSubnormal)) {
+return (FloatingPointSign.infix_61_61({Self: FloatingPointSign}, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeSubnormal : FloatingPointClassification.positiveSubnormal);
+}
+};
+return (FloatingPointSign.infix_61_61({Self: FloatingPointSign}, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeZero : FloatingPointClassification.positiveZero)
+----Swift.(file).BinaryFloatingPoint.radix
+return 2;
+}
+static get radix() { return this.radix$get()
 ----Swift.(file).BinaryFloatingPoint.init(signOf:Self,magnitudeOf:Self)
 this.initSignFloatingPointSignExponentBitPatternSignificandBitPattern({}, signOf.sign, magnitudeOf.exponentBitPattern, magnitudeOf.significandBitPattern);
 return
@@ -1262,19 +1329,15 @@ return
 $info.$setThis(_cloneStruct(value));
 return
 ----Swift.(file).AdditiveArithmetic.zero
- return this.zero$internal }
-static get zero() { return this.zero$get() }
-static zero$set($newValue) {
-let $oldValue = this.zero$internal
-this.zero$internal = $newValue
+return _create($info.Self, 'initIntegerLiteral', {Self: $info.Self}, 0);
 }
-static set zero($newValue) { this.zero$set($newValue)
+static get zero() { return this.zero$get()
 ----Swift.(file).SignedNumeric.-prefix(_:Self)
 let result = operand;
 result.negate({$setThis: $val => result = $val, Self: $info.Self}, );
 return result
 ----Swift.(file).SignedNumeric.negate()
-$info.$setThis(_cloneStruct(this.$info.Self.infix_45({Self: this.$info.Self, Self: this.$info.Self}, _create(this.$info.Self, 'initIntegerLiteral', {Self: this.$info.Self}, 0), this)))
+$info.$setThis(_cloneStruct(this.$info.Self.prefix_45({Self: this.$info.Self, Self: this.$info.Self}, this)))
 ----Swift.(file).abs(_:T)
 {
 if((infix_61_61({}, $info.T, $info.T.Magnitude))) {
@@ -1433,7 +1496,7 @@ return Bool.prefix_33({Self: Bool}, $info.Self.infix_60({Self: $info.Self, Self:
 ----Swift.(file).BinaryInteger.>infix(_:Self,_:Self)
 return $info.Self.infix_60({Self: $info.Self, Self: $info.Self}, rhs, lhs)
 ----Swift.(file).FixedWidthInteger.bitWidth
- return this.bitWidth$internal
+return this.$info.Self.bitWidth
 ----Swift.(file).FixedWidthInteger.init(littleEndian:Self)
 $info.$setThis(_cloneStruct(value));
 return
@@ -1441,9 +1504,9 @@ return
 $info.$setThis(_cloneStruct(value.byteSwapped));
 return
 ----Swift.(file).FixedWidthInteger.littleEndian
- return this.littleEndian$internal
+return this
 ----Swift.(file).FixedWidthInteger.bigEndian
- return this.bigEndian$internal
+return this.byteSwapped
 ----Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)
 let lhs_dupl = lhs;
 $info.Self.infix_38_62_62_61({Self: $info.Self, Self: $info.Self}, {get: () => lhs_dupl, set: $val => lhs_dupl = $val}, rhs);
@@ -1571,15 +1634,11 @@ lhs = $info.Self.infix_38_42({Self: $info.Self, Self: $info.Self}, lhs, rhs);})(
 lhs$inout.set(lhs)
 return $result
 ----Swift.(file).UnsignedInteger.magnitude
- return this.magnitude$internal
+return this
 ----Swift.(file).UnsignedInteger.isSigned
- return this.isSigned$internal }
-static get isSigned() { return this.isSigned$get() }
-static isSigned$set($newValue) {
-let $oldValue = this.isSigned$internal
-this.isSigned$internal = $newValue
+return false;
 }
-static set isSigned($newValue) { this.isSigned$set($newValue)
+static get isSigned() { return this.isSigned$get()
 ----Swift.(file).UnsignedInteger.init(_:T)
 {
 if(($info.T.isSigned)) {
@@ -1607,29 +1666,17 @@ return (this.$failed = true);
 this.initTruncatingIfNeeded({}, source);
 return
 ----Swift.(file).UnsignedInteger.max
- return this.max$internal }
-static get max() { return this.max$get() }
-static max$set($newValue) {
-let $oldValue = this.max$internal
-this.max$internal = $newValue
+return $info.Self.prefix_126({Self: $info.Self, Self: $info.Self}, _create($info.Self, 'initIntegerLiteral', {Self: $info.Self}, 0));
 }
-static set max($newValue) { this.max$set($newValue)
+static get max() { return this.max$get()
 ----Swift.(file).UnsignedInteger.min
- return this.min$internal }
-static get min() { return this.min$get() }
-static min$set($newValue) {
-let $oldValue = this.min$internal
-this.min$internal = $newValue
+return _create($info.Self, 'initIntegerLiteral', {Self: $info.Self}, 0);
 }
-static set min($newValue) { this.min$set($newValue)
+static get min() { return this.min$get()
 ----Swift.(file).SignedInteger.isSigned
- return this.isSigned$internal }
-static get isSigned() { return this.isSigned$get() }
-static isSigned$set($newValue) {
-let $oldValue = this.isSigned$internal
-this.isSigned$internal = $newValue
+return true;
 }
-static set isSigned($newValue) { this.isSigned$set($newValue)
+static get isSigned() { return this.isSigned$get()
 ----Swift.(file).SignedInteger.init(_:T)
 {
 if((Bool.infix_38_38({Self: Bool}, $info.T.isSigned, () => Int.infix_62({Self: Int}, source.bitWidth, $info.Self.bitWidth)))) {
@@ -1657,21 +1704,13 @@ return (this.$failed = true);
 this.initTruncatingIfNeeded({}, source);
 return
 ----Swift.(file).SignedInteger.max
- return this.max$internal }
-static get max() { return this.max$get() }
-static max$set($newValue) {
-let $oldValue = this.max$internal
-this.max$internal = $newValue
+return $info.Self.prefix_126({Self: $info.Self, Self: $info.Self}, this.min);
 }
-static set max($newValue) { this.max$set($newValue)
+static get max() { return this.max$get()
 ----Swift.(file).SignedInteger.min
- return this.min$internal }
-static get min() { return this.min$get() }
-static min$set($newValue) {
-let $oldValue = this.min$internal
-this.min$internal = $newValue
+return $info.Self.infix_38_60_60({Self: $info.Self, Self: $info.Self}, _create($info.Self, 'initIntegerLiteral', {Self: $info.Self}, -1), $info.Self._highBitIndex);
 }
-static set min($newValue) { this.min$set($newValue)
+static get min() { return this.min$get()
 ----Swift.(file).SignedInteger.isMultiple(of:Self)
 {
 if((this.$info.Self.infix_61_61({Self: this.$info.Self, Self: this.$info.Self, Other: Int}, other, 0))) {
@@ -1746,13 +1785,13 @@ return _hashValueFor({H: AnyKeyPath}, this)
 ----Swift.(file).KeyValuePairs.startIndex
 return 0
 ----Swift.(file).LazyCollectionProtocol.lazy
- return this.lazy$internal
+return this._elements.lazy
 ----Swift.(file).LazyCollectionProtocol.lazy
- return this.lazy$internal
+return this._elements
 ----Swift.(file).LazySequenceProtocol.lazy
- return this.lazy$internal
+return this._elements.lazy
 ----Swift.(file).LazySequenceProtocol.lazy
- return this.lazy$internal
+return this._elements
 ----Swift.(file).withExtendedLifetime(_:T,_:() throws -> Result)
 let $defer = () => {
 _fixLifetime({T: $info.T}, x);
@@ -1878,7 +1917,7 @@ const tmp = this.subscript$get({}, i);
 this.subscript$set({$setThis: $val => $info.$setThis(_cloneStruct($val))}, this.subscript$get({}, j), i);
 this.subscript$set({$setThis: $val => $info.$setThis(_cloneStruct($val))}, tmp, j)
 ----Swift.(file)._SwiftNewtypeWrapper.hashValue
- return this.hashValue$internal
+return this.rawValue.hashValue
 ----Swift.(file)._SwiftNewtypeWrapper.hash(into:Hasher)
 let hasher = hasher$inout.get()
 const $result = (() => {
@@ -1967,7 +2006,7 @@ const $match = this
 if((($match.rawValue == Optional.some().rawValue))) {
 const value = $match[0]
 let result = "Optional(";
-debugPrintSeparatorTerminatorTo({Target: String}, [value], null, "", {get: () => result, set: $val => result = $val});
+debugPrintSeparatorTerminatorTo({Target: String}, _create(Array, 'initBuffer', {Element: Array}, [value]), null, "", {get: () => result, set: $val => result = $val});
 String.infix_43_61({Self: String}, {get: () => result, set: $val => result = $val}, ")");
 return result;
 }
@@ -2174,7 +2213,7 @@ return null;
 };
 return this.indexOffsetBy({Self: this.$info.Self}, i, distance)
 ----Swift.(file).RandomAccessCollection.indices
- return this.indices$internal
+return this.$info.Self.Index.infix_46_46_60({Self: this.$info.Self.Index, Self: this.$info.Self.Index}, this.startIndex, this.endIndex)
 ----Swift.(file).RandomAccessCollection.index(after:Self.Index)
 this._failEarlyRangeCheckBounds({Self: this.$info.Self}, i, _create(Range, 'initUncheckedBoundstuple_type', {Bound: this.$info.Self.Index}, {0: this.startIndex, 1: this.endIndex}));
 return i.advancedBy({Self: this.$info.Self.Index}, 1)
@@ -2192,6 +2231,10 @@ this._failEarlyRangeCheckBounds({Self: this.$info.Self}, end, _create(ClosedRang
 return start.distanceTo({Self: this.$info.Self.Index}, end)
 ----Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)
 return pattern.contains({Self: $info.Self}, value)
+----Swift.(file).Range.init(uncheckedBounds:(lower: Bound, upper: Bound))
+this.lowerBound = bounds["0"];
+this.upperBound = bounds["1"];
+return
 ----Swift.(file).Range.contains(_:Bound)
 return Bool.infix_38_38({Self: Bool}, this.$info.Bound.infix_60_61({Self: this.$info.Bound, Self: this.$info.Bound}, this.lowerBound, _element), () => this.$info.Bound.infix_60({Self: this.$info.Bound, Self: this.$info.Bound}, _element, this.upperBound))
 ----Swift.(file).Range.isEmpty
@@ -2571,7 +2614,7 @@ return _create(Array, 'initBuffer', {Element: $info.T, S: _clarifyGenerics({Self
 ----Swift.(file).Sequence.filter(_:(Self.Element) throws -> Bool)
 return this._filter({Self: this.$info.Self}, isIncluded)
 ----Swift.(file).Sequence.underestimatedCount
- return this.underestimatedCount$internal
+return 0
 ----Swift.(file).Sequence.forEach(_:(Self.Element) throws -> Void)
 {
 let $element$generator = this.makeIterator({Self: this.$info.Self}, );
@@ -3059,7 +3102,7 @@ return this.intersection({Self: this.$info.Self}, other).isEmpty
 ----Swift.(file).SetAlgebra.subtracting(_:Self)
 return this.intersection({Self: this.$info.Self}, this.symmetricDifference({Self: this.$info.Self}, other))
 ----Swift.(file).SetAlgebra.isEmpty
- return this.isEmpty$internal
+return this.$info.Self.infix_61_61({Self: this.$info.Self, Self: this.$info.Self}, this, _create(this.$info.Self, 'init', {Self: this.$info.Self}, ))
 ----Swift.(file).SetAlgebra.isStrictSuperset(of:Self)
 return Bool.infix_38_38({Self: Bool}, this.isSupersetOf({Self: this.$info.Self}, other), () => this.$info.Self.infix_33_61({Self: this.$info.Self, Self: this.$info.Self}, this, other))
 ----Swift.(file).SetAlgebra.isStrictSubset(of:Self)
@@ -3162,6 +3205,62 @@ const $result = (() => {
 lhs.append({$setThis: $val => lhs = $val}, rhs);})()
 lhs$inout.set(lhs)
 return $result
+----Swift.(file).Sequence.joined(separator:String)
+let result = "";
+{
+if((separator.isEmpty)) {
+{
+let $x$generator = this.makeIterator({Self: this.$info.Self}, );
+while(true) {
+const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.$info.Self.Iterator}, );
+if(!((x != null))) break;
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, x._ephemeralString));
+}
+};
+return result;
+}
+};
+let iter = this.makeIterator({Self: this.$info.Self}, );
+{const first = iter.next({$setThis: $val => iter = $val, Self: this.$info.Self.Iterator}, )
+if((first != null)) {
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.$info.Self.Element}, first));
+while(true){
+const next = iter.next({$setThis: $val => iter = $val, Self: this.$info.Self.Iterator}, )
+if(!((next != null))) break
+result.append({$setThis: $val => result = $val}, separator);
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.$info.Self.Element}, next));
+};
+}
+};
+return result
+----Swift.(file).BidirectionalCollection.joined(separator:String)
+let result = "";
+{
+if((separator.isEmpty)) {
+{
+let $x$generator = this.makeIterator({Self: this.$info.Self}, );
+while(true) {
+const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.$info.Self.Iterator}, );
+if(!((x != null))) break;
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, x._ephemeralString));
+}
+};
+return result;
+}
+};
+let iter = this.makeIterator({Self: this.$info.Self}, );
+{const first = iter.next({$setThis: $val => iter = $val, Self: this.$info.Self.Iterator}, )
+if((first != null)) {
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, first));
+while(true){
+const next = iter.next({$setThis: $val => iter = $val, Self: this.$info.Self.Iterator}, )
+if(!((next != null))) break
+result.append({$setThis: $val => result = $val}, separator);
+result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, next));
+};
+}
+};
+return result
 ----Swift.(file).String.description
 return this
 ----Swift.(file).String.count
@@ -3208,6 +3307,8 @@ return ;
 $info.$setThis(_cloneStruct(""));
 this.appendContentsOf({$setThis: $val => $info.$setThis(_cloneStruct($val)), S: $info.S}, characters);
 return
+----Swift.(file).String.append(_:String)
+String.infix_43_61({Self: String}, {get: () => this, set: $val => $info.$setThis(_cloneStruct($val))}, other)
 ----Swift.(file).String.append(contentsOf:String)
 this.append({$setThis: $val => $info.$setThis(_cloneStruct($val))}, newElements)
 ----Swift.(file).String.insert(contentsOf:S,at:String.Index)

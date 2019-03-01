@@ -396,6 +396,7 @@ function ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS($info, elementType) 
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 function infix_63_63($info, optional, defaultValue) {
+    //TODO we might have to support optional as an enum; when that time comes, remove this and fall back to native swift definition
     if (optional != null) {
         return optional;
     }
@@ -405,6 +406,7 @@ function infix_63_63($info, optional, defaultValue) {
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
 function infix_63_63($info, optional, defaultValue) {
+    //TODO we might have to support optional as an enum; when that time comes, remove this and fall back to native swift definition
     if (optional != null) {
         return optional;
     }
@@ -2823,7 +2825,7 @@ var RawRepresentable$implementation = /** @class */ (function () {
     };
     /*Swift.(file).RawRepresentable.hashValue*/
     RawRepresentable$implementation.prototype.hashValue$get = function () {
-        return this.hashValue$internal;
+        return this.rawValue.hashValue;
     };
     Object.defineProperty(RawRepresentable$implementation.prototype, "hashValue", {
         get: function () { return this.hashValue$get(); },
@@ -3719,20 +3721,15 @@ var AdditiveArithmetic$implementation = /** @class */ (function () {
     }
     /*Swift.(file).AdditiveArithmetic.zero*/
     AdditiveArithmetic$implementation.zero$get = function () {
-        return this.zero$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0);
     };
     Object.defineProperty(AdditiveArithmetic$implementation, "zero", {
-        get: function () { return this.zero$get(); },
-        set: function ($newValue) {
-            this.zero$set($newValue);
+        get: function () {
+            return this.zero$get();
         },
         enumerable: true,
         configurable: true
     });
-    AdditiveArithmetic$implementation.zero$set = function ($newValue) {
-        var $oldValue = this.zero$internal;
-        this.zero$internal = $newValue;
-    };
     ;
     /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
@@ -3765,7 +3762,7 @@ var SignedNumeric$implementation = /** @class */ (function () {
     /*Swift.(file).SignedNumeric.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     SignedNumeric$implementation.prototype.negate = function ($info) {
-        $info.$setThis(-this);
+        $info.$setThis(_cloneStruct(this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this)));
     };
     return SignedNumeric$implementation;
 }());
@@ -5824,7 +5821,7 @@ var _SwiftNewtypeWrapper$implementation = /** @class */ (function () {
     }
     /*Swift.(file)._SwiftNewtypeWrapper.hashValue*/
     _SwiftNewtypeWrapper$implementation.prototype.hashValue$get = function () {
-        return this.hashValue$internal;
+        return this.rawValue.hashValue;
     };
     Object.defineProperty(_SwiftNewtypeWrapper$implementation.prototype, "hashValue", {
         get: function () { return this.hashValue$get(); },
@@ -6755,7 +6752,7 @@ var Sequence$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Sequence.underestimatedCount*/
     Sequence$implementation.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(Sequence$implementation.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -6936,6 +6933,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.enumerated()*/
     /*Swift.(file).Sequence.enumerated()*/
     Sequence$implementation.prototype.enumerated = function ($info) {
+        //TODO use _create for Array; preferably move to Swift
         return this.map(function (v, i) { return [i, v]; });
     };
     /*Swift.(file).Sequence.min(by:(Self.Element, Self.Element) throws -> Bool)*/
@@ -7253,7 +7251,40 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.joined(separator:String)*/
     /*Swift.(file).Sequence.joined(separator:String)*/
     Sequence$implementation.prototype.joinedSeparator = function ($info, separator) {
-        return this.join(separator);
+        var result = "";
+        {
+            if ((separator.isEmpty)) {
+                {
+                    var $x$generator_1 = this.makeIterator({ Self: this.$info.Self });
+                    while (true) {
+                        var x = $x$generator_1.next({ $setThis: function ($val) { return $x$generator_1 = $val; }, Self: this.$info.Self.Iterator });
+                        if (!((x != null)))
+                            break;
+                        result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: String }, x._ephemeralString));
+                    }
+                }
+                ;
+                return result;
+            }
+        }
+        ;
+        var iter = this.makeIterator({ Self: this.$info.Self });
+        {
+            var first = iter.next({ $setThis: function ($val) { return iter = $val; }, Self: this.$info.Self.Iterator });
+            if ((first != null)) {
+                result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: this.$info.Self.Element }, first));
+                while (true) {
+                    var next = iter.next({ $setThis: function ($val) { return iter = $val; }, Self: this.$info.Self.Iterator });
+                    if (!((next != null)))
+                        break;
+                    result.append({ $setThis: function ($val) { return result = $val; } }, separator);
+                    result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: this.$info.Self.Element }, next));
+                }
+                ;
+            }
+        }
+        ;
+        return result;
     };
     /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
     /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
@@ -7485,7 +7516,7 @@ var SetAlgebra$implementation = /** @class */ (function () {
     };
     /*Swift.(file).SetAlgebra.isEmpty*/
     SetAlgebra$implementation.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.infix_61_61({ Self: this.$info.Self, Self: this.$info.Self }, this, _create(this.$info.Self, 'init', { Self: this.$info.Self }));
     };
     Object.defineProperty(SetAlgebra$implementation.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -10500,7 +10531,7 @@ var AnySequence = /** @class */ (function () {
     };
     /*Swift.(file).AnySequence.underestimatedCount*/
     AnySequence.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(AnySequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -12779,7 +12810,7 @@ var _UnsafeBitset = /** @class */ (function () {
     ;
     /*Swift.(file)._UnsafeBitset.underestimatedCount*/
     _UnsafeBitset.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(_UnsafeBitset.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -12967,7 +12998,7 @@ var _UnsafeBitset = /** @class */ (function () {
             ;
             /*Swift.(file).Word.underestimatedCount*/
             class_18.prototype.underestimatedCount$get = function () {
-                return this.underestimatedCount$internal;
+                return 0;
             };
             Object.defineProperty(class_18.prototype, "underestimatedCount", {
                 get: function () { return this.underestimatedCount$get(); },
@@ -13487,24 +13518,24 @@ var IndexingIterator = /** @class */ (function () {
     /*Swift.(file).IndexingIterator.init(_elements:Elements)*/
     /*Swift.(file).IndexingIterator.init(_elements:Elements)*/
     IndexingIterator.prototype.init_elements = function ($info, _elements) {
-        this._elements = _cloneStruct(_elements);
-        this._position = _cloneStruct(_elements.startIndex);
+        this._elements = _elements;
+        this._position = _elements.startIndex;
+        return;
     };
     /*Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)*/
     /*Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)*/
     IndexingIterator.prototype.init_elements_position = function ($info, _elements, _position) {
-        this._elements = _cloneStruct(_elements);
-        this._position = _cloneStruct(_position);
     };
     /*Swift.(file).IndexingIterator.next()*/
     /*Swift.(file).IteratorProtocol.next()*/
     IndexingIterator.prototype.next = function ($info) {
         var _this = this;
         {
-            if ((this.$info.Elements.Index.infix_61_61({ Self: this.$info.Elements.Index }, this._position, this._elements.endIndex))) {
+            if ((this.$info.Elements.Index.infix_61_61({ Self: this.$info.Elements.Index, Self: this.$info.Elements.Index }, this._position, this._elements.endIndex))) {
                 return null;
             }
         }
+        ;
         var _element = this._elements.subscript$get({}, this._position);
         this._elements.formIndexAfter({ Self: this.$info.Elements }, { get: function () { return _this._position; }, set: function ($val) { return _this._position = $val; } });
         return _element;
@@ -13641,7 +13672,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.isEmpty*/
     Collection$implementation.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(Collection$implementation.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -13651,7 +13682,15 @@ var Collection$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).Collection.first*/
     Collection$implementation.prototype.first$get = function () {
-        return this.first$internal;
+        var start = this.startIndex;
+        {
+            if ((this.$info.Self.Index.infix_33_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, start, this.endIndex))) {
+                return this.subscript$get({}, start);
+            }
+            else {
+                return null;
+            }
+        }
     };
     Object.defineProperty(Collection$implementation.prototype, "first", {
         get: function () { return this.first$get(); },
@@ -13661,7 +13700,7 @@ var Collection$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).Collection.underestimatedCount*/
     Collection$implementation.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return this.count;
     };
     Object.defineProperty(Collection$implementation.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -13671,7 +13710,7 @@ var Collection$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).Collection.count*/
     Collection$implementation.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(Collection$implementation.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -13682,7 +13721,7 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     /*Swift.(file).Collection.map(_:(Self.Element) throws -> T)*/
     Collection$implementation.prototype.mapSwift = function ($info, transform) {
-        return _preserveInfo(this.map(transform.bind(null, null)), this, { Element: $info.T });
+        throw 'unsupported method Swift.(file).Collection.map(_:(Self.Element) throws -> T) in ' + this.constructor.name;
     };
     /*Swift.(file).Collection.dropFirst(_:Int)*/
     /*Swift.(file).Collection.dropFirst(_:Int)*/
@@ -13970,6 +14009,7 @@ var Collection$implementation = /** @class */ (function () {
         return this.firstIndexOf({ Self: this.$info.Self }, _element);
     };
     Collection$implementation.prototype._failEarlyRangeCheckBounds = function () { };
+    Collection$implementation.prototype._expectEnd = function () { };
     return Collection$implementation;
 }());
 if (typeof Sequence$implementation != 'undefined')
@@ -15776,7 +15816,7 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     };
     /*Swift.(file).LazySequenceProtocol.lazy*/
     LazySequenceProtocol$implementation.prototype.lazy$get = function () {
-        return this.lazy$internal;
+        return this._elements.lazy;
     };
     Object.defineProperty(LazySequenceProtocol$implementation.prototype, "lazy", {
         get: function () { return this.lazy$get(); },
@@ -15786,7 +15826,7 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).LazySequenceProtocol.lazy*/
     LazySequenceProtocol$implementation.prototype.lazy$get = function () {
-        return this.lazy$internal;
+        return this._elements.lazy;
     };
     ;
     /*Swift.(file).LazySequenceProtocol.map(_:(Self.Element) -> U)*/
@@ -17168,7 +17208,7 @@ var Optional = /** @class */ (function () {
         if ((($match.rawValue == Optional.some().rawValue))) {
             var value = $match[0];
             var result_1 = "Optional(";
-            debugPrintSeparatorTerminatorTo({ Target: String }, [value], null, "", { get: function () { return result_1; }, set: function ($val) { return result_1 = $val; } });
+            debugPrintSeparatorTerminatorTo({ Target: String }, _create(Array, 'initBuffer', { Element: Array }, [value]), null, "", { get: function () { return result_1; }, set: function ($val) { return result_1 = $val; } });
             String.infix_43_61({ Self: String }, { get: function () { return result_1; }, set: function ($val) { return result_1 = $val; } }, ")");
             return result_1;
         }
@@ -19518,7 +19558,7 @@ var AnyCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyCollection.underestimatedCount*/
     AnyCollection.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(AnyCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -19671,7 +19711,7 @@ var AnyCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyCollection.count*/
     AnyCollection.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(AnyCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -19965,7 +20005,21 @@ var _ArrayProtocol$implementation = /** @class */ (function () {
     /*Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)*/
     /*Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)*/
     _ArrayProtocol$implementation.prototype.filterSwift = function ($info, isIncluded) {
-        return _preserveGenerics(this.filter(isIncluded.bind(null, null)), this);
+        var result = _create(Array, 'init', { Element: this.$info.Element });
+        var iterator = _cloneStruct(this.makeIterator({ Self: _clarifyGenerics({ Self: Array, Element: this.$info.Element }) }));
+        while (true) {
+            var _element = iterator.next({ $setThis: function ($val) { return iterator = $val; }, Elements: _clarifyGenerics({ Self: Array, Element: this.$info.Element }) });
+            if (!((_element != null)))
+                break;
+            {
+                if ((isIncluded({}, _element))) {
+                    result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Element }, _element);
+                }
+            }
+            ;
+        }
+        ;
+        return _create(Array, 'initBuffer', { Element: this.$info.Element, S: _clarifyGenerics({ Self: Array, Element: this.$info.Element }) }, result);
     };
     return _ArrayProtocol$implementation;
 }());
@@ -20054,7 +20108,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).BidirectionalCollection.last*/
     BidirectionalCollection$implementation.prototype.last$get = function () {
-        return this.last$internal;
+        return (this.isEmpty ? null : this.subscript$get({}, this.indexBefore({ Self: this.$info.Self }, this.endIndex)));
     };
     Object.defineProperty(BidirectionalCollection$implementation.prototype, "last", {
         get: function () { return this.last$get(); },
@@ -20107,7 +20161,40 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.joined(separator:String)*/
     /*Swift.(file).BidirectionalCollection.joined(separator:String)*/
     BidirectionalCollection$implementation.prototype.joinedSeparator = function ($info, separator) {
-        return this.join(separator);
+        var result = "";
+        {
+            if ((separator.isEmpty)) {
+                {
+                    var $x$generator_2 = this.makeIterator({ Self: this.$info.Self });
+                    while (true) {
+                        var x = $x$generator_2.next({ $setThis: function ($val) { return $x$generator_2 = $val; }, Self: this.$info.Self.Iterator });
+                        if (!((x != null)))
+                            break;
+                        result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: String }, x._ephemeralString));
+                    }
+                }
+                ;
+                return result;
+            }
+        }
+        ;
+        var iter = this.makeIterator({ Self: this.$info.Self });
+        {
+            var first = iter.next({ $setThis: function ($val) { return iter = $val; }, Self: this.$info.Self.Iterator });
+            if ((first != null)) {
+                result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: String }, first));
+                while (true) {
+                    var next = iter.next({ $setThis: function ($val) { return iter = $val; }, Self: this.$info.Self.Iterator });
+                    if (!((next != null)))
+                        break;
+                    result.append({ $setThis: function ($val) { return result = $val; } }, separator);
+                    result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', { S: String }, next));
+                }
+                ;
+            }
+        }
+        ;
+        return result;
     };
     return BidirectionalCollection$implementation;
 }());
@@ -20519,6 +20606,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Collection.makeIterator()*/
     MIO_Mixin_Dictionary.prototype.makeIterator = function ($info) {
         var _this = this;
+        //TODO use _create for Array; preferably move to Swift and use the proper Iterator (then remove SwiftIterator.js too)
         return new SwiftIterator(function (current) { return Array.from(_this)[current]; });
     };
     /*Swift.(file).Dictionary.filter(_:(Dictionary<Key, Value>.Element) throws -> Bool)*/
@@ -20832,7 +20920,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             };
             /*Swift.(file).Dictionary.Keys.count*/
             class_47.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_47.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -20842,7 +20930,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             ;
             /*Swift.(file).Dictionary.Keys.isEmpty*/
             class_47.prototype.isEmpty$get = function () {
-                return this.isEmpty$internal;
+                return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_47.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -20970,7 +21058,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             };
             /*Swift.(file).Dictionary.Values.count*/
             class_49.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_49.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -20980,7 +21068,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             ;
             /*Swift.(file).Dictionary.Values.isEmpty*/
             class_49.prototype.isEmpty$get = function () {
-                return this.isEmpty$internal;
+                return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_49.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -21733,20 +21821,15 @@ var FloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FloatingPoint.ulpOfOne*/
     FloatingPoint$implementation.ulpOfOne$get = function () {
-        return this.ulpOfOne$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 1).ulp;
     };
     Object.defineProperty(FloatingPoint$implementation, "ulpOfOne", {
-        get: function () { return this.ulpOfOne$get(); },
-        set: function ($newValue) {
-            this.ulpOfOne$set($newValue);
+        get: function () {
+            return this.ulpOfOne$get();
         },
         enumerable: true,
         configurable: true
     });
-    FloatingPoint$implementation.ulpOfOne$set = function ($newValue) {
-        var $oldValue = this.ulpOfOne$internal;
-        this.ulpOfOne$internal = $newValue;
-    };
     ;
     /*Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule)*/
     /*Swift.(file).FloatingPoint.rounded(_:FloatingPointRoundingRule)*/
@@ -21767,7 +21850,7 @@ var FloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FloatingPoint.nextDown*/
     FloatingPoint$implementation.prototype.nextDown$get = function () {
-        return this.nextDown$internal;
+        return this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this).nextUp);
     };
     Object.defineProperty(FloatingPoint$implementation.prototype, "nextDown", {
         get: function () { return this.nextDown$get(); },
@@ -21873,7 +21956,37 @@ var FloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FloatingPoint.floatingPointClass*/
     FloatingPoint$implementation.prototype.floatingPointClass$get = function () {
-        return this.floatingPointClass$internal;
+        {
+            if ((this.isSignalingNaN)) {
+                return FloatingPointClassification.signalingNaN;
+            }
+        }
+        ;
+        {
+            if ((this._isNaN)) {
+                return FloatingPointClassification.quietNaN;
+            }
+        }
+        ;
+        {
+            if ((this.isInfinite)) {
+                return (FloatingPointSign.infix_61_61({ Self: FloatingPointSign }, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeInfinity : FloatingPointClassification.positiveInfinity);
+            }
+        }
+        ;
+        {
+            if ((this.isNormal)) {
+                return (FloatingPointSign.infix_61_61({ Self: FloatingPointSign }, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeNormal : FloatingPointClassification.positiveNormal);
+            }
+        }
+        ;
+        {
+            if ((this.isSubnormal)) {
+                return (FloatingPointSign.infix_61_61({ Self: FloatingPointSign }, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeSubnormal : FloatingPointClassification.positiveSubnormal);
+            }
+        }
+        ;
+        return (FloatingPointSign.infix_61_61({ Self: FloatingPointSign }, this.sign, FloatingPointSign.minus) ? FloatingPointClassification.negativeZero : FloatingPointClassification.positiveZero);
     };
     Object.defineProperty(FloatingPoint$implementation.prototype, "floatingPointClass", {
         get: function () { return this.floatingPointClass$get(); },
@@ -21894,20 +22007,15 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
     }
     /*Swift.(file).BinaryFloatingPoint.radix*/
     BinaryFloatingPoint$implementation.radix$get = function () {
-        return this.radix$internal;
+        return 2;
     };
     Object.defineProperty(BinaryFloatingPoint$implementation, "radix", {
-        get: function () { return this.radix$get(); },
-        set: function ($newValue) {
-            this.radix$set($newValue);
+        get: function () {
+            return this.radix$get();
         },
         enumerable: true,
         configurable: true
     });
-    BinaryFloatingPoint$implementation.radix$set = function ($newValue) {
-        var $oldValue = this.radix$internal;
-        this.radix$internal = $newValue;
-    };
     ;
     /*Swift.(file).BinaryFloatingPoint.init(signOf:Self,magnitudeOf:Self)*/
     /*Swift.(file).BinaryFloatingPoint.init(signOf:Self,magnitudeOf:Self)*/
@@ -22306,20 +22414,15 @@ var MIO_Mixin_Float = /** @class */ (function () {
     ;
     /*Swift.(file).Float.ulpOfOne*/
     MIO_Mixin_Float.ulpOfOne$get = function () {
-        return this.ulpOfOne$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 1).ulp;
     };
     Object.defineProperty(MIO_Mixin_Float, "ulpOfOne", {
-        get: function () { return this.ulpOfOne$get(); },
-        set: function ($newValue) {
-            this.ulpOfOne$set($newValue);
+        get: function () {
+            return this.ulpOfOne$get();
         },
         enumerable: true,
         configurable: true
     });
-    MIO_Mixin_Float.ulpOfOne$set = function ($newValue) {
-        var $oldValue = this.ulpOfOne$internal;
-        this.ulpOfOne$internal = $newValue;
-    };
     ;
     /*Swift.(file).Float.exponent*/
     MIO_Mixin_Float.prototype.exponent$get = function () {
@@ -22368,7 +22471,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Float.prototype.negate = function ($info) {
-        $info.$setThis(-this);
+        $info.$setThis(_cloneStruct(this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this)));
     };
     /*Swift.(file).Float.+=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -23136,20 +23239,15 @@ var MIO_Mixin_Double = /** @class */ (function () {
     ;
     /*Swift.(file).Double.ulpOfOne*/
     MIO_Mixin_Double.ulpOfOne$get = function () {
-        return this.ulpOfOne$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 1).ulp;
     };
     Object.defineProperty(MIO_Mixin_Double, "ulpOfOne", {
-        get: function () { return this.ulpOfOne$get(); },
-        set: function ($newValue) {
-            this.ulpOfOne$set($newValue);
+        get: function () {
+            return this.ulpOfOne$get();
         },
         enumerable: true,
         configurable: true
     });
-    MIO_Mixin_Double.ulpOfOne$set = function ($newValue) {
-        var $oldValue = this.ulpOfOne$internal;
-        this.ulpOfOne$internal = $newValue;
-    };
     ;
     /*Swift.(file).Double.exponent*/
     MIO_Mixin_Double.prototype.exponent$get = function () {
@@ -23198,7 +23296,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Double.prototype.negate = function ($info) {
-        $info.$setThis(-this);
+        $info.$setThis(_cloneStruct(this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this)));
     };
     /*Swift.(file).Double.+=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -23931,20 +24029,15 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     ;
     /*Swift.(file).Float80.ulpOfOne*/
     MIO_Mixin_Float80.ulpOfOne$get = function () {
-        return this.ulpOfOne$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 1).ulp;
     };
     Object.defineProperty(MIO_Mixin_Float80, "ulpOfOne", {
-        get: function () { return this.ulpOfOne$get(); },
-        set: function ($newValue) {
-            this.ulpOfOne$set($newValue);
+        get: function () {
+            return this.ulpOfOne$get();
         },
         enumerable: true,
         configurable: true
     });
-    MIO_Mixin_Float80.ulpOfOne$set = function ($newValue) {
-        var $oldValue = this.ulpOfOne$internal;
-        this.ulpOfOne$internal = $newValue;
-    };
     ;
     /*Swift.(file).Float80.exponent*/
     MIO_Mixin_Float80.prototype.exponent$get = function () {
@@ -23993,7 +24086,7 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.negate()*/
     /*Swift.(file).SignedNumeric.negate()*/
     MIO_Mixin_Float80.prototype.negate = function ($info) {
-        $info.$setThis(-this);
+        $info.$setThis(_cloneStruct(this.$info.Self.prefix_45({ Self: this.$info.Self, Self: this.$info.Self }, this)));
     };
     /*Swift.(file).Float80.+=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
@@ -24651,7 +24744,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FixedWidthInteger.bitWidth*/
     FixedWidthInteger$implementation.prototype.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(FixedWidthInteger$implementation.prototype, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -24673,7 +24766,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FixedWidthInteger.littleEndian*/
     FixedWidthInteger$implementation.prototype.littleEndian$get = function () {
-        return this.littleEndian$internal;
+        return this;
     };
     Object.defineProperty(FixedWidthInteger$implementation.prototype, "littleEndian", {
         get: function () { return this.littleEndian$get(); },
@@ -24683,7 +24776,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).FixedWidthInteger.bigEndian*/
     FixedWidthInteger$implementation.prototype.bigEndian$get = function () {
-        return this.bigEndian$internal;
+        return this.byteSwapped;
     };
     Object.defineProperty(FixedWidthInteger$implementation.prototype, "bigEndian", {
         get: function () { return this.bigEndian$get(); },
@@ -24991,7 +25084,7 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     }
     /*Swift.(file).UnsignedInteger.magnitude*/
     UnsignedInteger$implementation.prototype.magnitude$get = function () {
-        return this.magnitude$internal;
+        return this;
     };
     Object.defineProperty(UnsignedInteger$implementation.prototype, "magnitude", {
         get: function () { return this.magnitude$get(); },
@@ -25001,20 +25094,15 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).UnsignedInteger.isSigned*/
     UnsignedInteger$implementation.isSigned$get = function () {
-        return this.isSigned$internal;
+        return false;
     };
     Object.defineProperty(UnsignedInteger$implementation, "isSigned", {
-        get: function () { return this.isSigned$get(); },
-        set: function ($newValue) {
-            this.isSigned$set($newValue);
+        get: function () {
+            return this.isSigned$get();
         },
         enumerable: true,
         configurable: true
     });
-    UnsignedInteger$implementation.isSigned$set = function ($newValue) {
-        var $oldValue = this.isSigned$internal;
-        this.isSigned$internal = $newValue;
-    };
     ;
     /*Swift.(file).UnsignedInteger.init(_:T)*/
     /*Swift.(file).UnsignedInteger.init(_:T)*/
@@ -25054,37 +25142,27 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     };
     /*Swift.(file).UnsignedInteger.max*/
     UnsignedInteger$implementation.max$get = function () {
-        return this.max$internal;
+        return $info.Self.prefix_126({ Self: $info.Self, Self: $info.Self }, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0));
     };
     Object.defineProperty(UnsignedInteger$implementation, "max", {
-        get: function () { return this.max$get(); },
-        set: function ($newValue) {
-            this.max$set($newValue);
+        get: function () {
+            return this.max$get();
         },
         enumerable: true,
         configurable: true
     });
-    UnsignedInteger$implementation.max$set = function ($newValue) {
-        var $oldValue = this.max$internal;
-        this.max$internal = $newValue;
-    };
     ;
     /*Swift.(file).UnsignedInteger.min*/
     UnsignedInteger$implementation.min$get = function () {
-        return this.min$internal;
+        return _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, 0);
     };
     Object.defineProperty(UnsignedInteger$implementation, "min", {
-        get: function () { return this.min$get(); },
-        set: function ($newValue) {
-            this.min$set($newValue);
+        get: function () {
+            return this.min$get();
         },
         enumerable: true,
         configurable: true
     });
-    UnsignedInteger$implementation.min$set = function ($newValue) {
-        var $oldValue = this.min$internal;
-        this.min$internal = $newValue;
-    };
     ;
     return UnsignedInteger$implementation;
 }());
@@ -25095,20 +25173,15 @@ var SignedInteger$implementation = /** @class */ (function () {
     }
     /*Swift.(file).SignedInteger.isSigned*/
     SignedInteger$implementation.isSigned$get = function () {
-        return this.isSigned$internal;
+        return true;
     };
     Object.defineProperty(SignedInteger$implementation, "isSigned", {
-        get: function () { return this.isSigned$get(); },
-        set: function ($newValue) {
-            this.isSigned$set($newValue);
+        get: function () {
+            return this.isSigned$get();
         },
         enumerable: true,
         configurable: true
     });
-    SignedInteger$implementation.isSigned$set = function ($newValue) {
-        var $oldValue = this.isSigned$internal;
-        this.isSigned$internal = $newValue;
-    };
     ;
     /*Swift.(file).SignedInteger.init(_:T)*/
     /*Swift.(file).SignedInteger.init(_:T)*/
@@ -25148,37 +25221,27 @@ var SignedInteger$implementation = /** @class */ (function () {
     };
     /*Swift.(file).SignedInteger.max*/
     SignedInteger$implementation.max$get = function () {
-        return this.max$internal;
+        return $info.Self.prefix_126({ Self: $info.Self, Self: $info.Self }, this.min);
     };
     Object.defineProperty(SignedInteger$implementation, "max", {
-        get: function () { return this.max$get(); },
-        set: function ($newValue) {
-            this.max$set($newValue);
+        get: function () {
+            return this.max$get();
         },
         enumerable: true,
         configurable: true
     });
-    SignedInteger$implementation.max$set = function ($newValue) {
-        var $oldValue = this.max$internal;
-        this.max$internal = $newValue;
-    };
     ;
     /*Swift.(file).SignedInteger.min*/
     SignedInteger$implementation.min$get = function () {
-        return this.min$internal;
+        return $info.Self.infix_38_60_60({ Self: $info.Self, Self: $info.Self }, _create($info.Self, 'initIntegerLiteral', { Self: $info.Self }, -1), $info.Self._highBitIndex);
     };
     Object.defineProperty(SignedInteger$implementation, "min", {
-        get: function () { return this.min$get(); },
-        set: function ($newValue) {
-            this.min$set($newValue);
+        get: function () {
+            return this.min$get();
         },
         enumerable: true,
         configurable: true
     });
-    SignedInteger$implementation.min$set = function ($newValue) {
-        var $oldValue = this.min$internal;
-        this.min$internal = $newValue;
-    };
     ;
     /*Swift.(file).SignedInteger.isMultiple(of:Self)*/
     /*Swift.(file).SignedInteger.isMultiple(of:Self)*/
@@ -25228,7 +25291,7 @@ var LazyCollectionProtocol$implementation = /** @class */ (function () {
     }
     /*Swift.(file).LazyCollectionProtocol.lazy*/
     LazyCollectionProtocol$implementation.prototype.lazy$get = function () {
-        return this.lazy$internal;
+        return this._elements.lazy;
     };
     Object.defineProperty(LazyCollectionProtocol$implementation.prototype, "lazy", {
         get: function () { return this.lazy$get(); },
@@ -25238,7 +25301,7 @@ var LazyCollectionProtocol$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).LazyCollectionProtocol.lazy*/
     LazyCollectionProtocol$implementation.prototype.lazy$get = function () {
-        return this.lazy$internal;
+        return this._elements.lazy;
     };
     ;
     return LazyCollectionProtocol$implementation;
@@ -25573,7 +25636,7 @@ var RandomAccessCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).RandomAccessCollection.indices*/
     RandomAccessCollection$implementation.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(RandomAccessCollection$implementation.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -25863,7 +25926,7 @@ var Repeated = /** @class */ (function () {
     }
     /*Swift.(file).Repeated.count*/
     Repeated.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(Repeated.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -26170,7 +26233,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.indices*/
     Slice.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(Slice.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -26447,7 +26510,7 @@ var _SmallString = /** @class */ (function () {
     ;
     /*Swift.(file)._SmallString.count*/
     _SmallString.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_SmallString.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -27596,7 +27659,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     }
     /*Swift.(file).UnsafeMutableBufferPointer.count*/
     UnsafeMutableBufferPointer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeMutableBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -27712,7 +27775,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableBufferPointer.indices*/
     UnsafeMutableBufferPointer.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeMutableBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -27873,7 +27936,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     }
     /*Swift.(file).UnsafeBufferPointer.count*/
     UnsafeBufferPointer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28003,7 +28066,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeBufferPointer.indices*/
     UnsafeBufferPointer.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -28163,7 +28226,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeMutableRawBufferPointer.indices*/
     UnsafeMutableRawBufferPointer.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeMutableRawBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -28217,7 +28280,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.count*/
     UnsafeMutableRawBufferPointer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeMutableRawBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -28391,7 +28454,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeRawBufferPointer.indices*/
     UnsafeRawBufferPointer.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeRawBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -28416,7 +28479,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeRawBufferPointer.count*/
     UnsafeRawBufferPointer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(UnsafeRawBufferPointer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -30975,7 +31038,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ValidUTF8Buffer.count*/
     _ValidUTF8Buffer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_ValidUTF8Buffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -30985,7 +31048,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ValidUTF8Buffer.isEmpty*/
     _ValidUTF8Buffer.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_ValidUTF8Buffer.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -31251,7 +31314,7 @@ var CollectionOfOne = /** @class */ (function () {
     };
     /*Swift.(file).CollectionOfOne.count*/
     CollectionOfOne.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(CollectionOfOne.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31347,7 +31410,7 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyBidirectionalCollection.underestimatedCount*/
     AnyBidirectionalCollection.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(AnyBidirectionalCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -31502,7 +31565,7 @@ var AnyBidirectionalCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyBidirectionalCollection.count*/
     AnyBidirectionalCollection.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(AnyBidirectionalCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31567,7 +31630,7 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyRandomAccessCollection.underestimatedCount*/
     AnyRandomAccessCollection.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(AnyRandomAccessCollection.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -31723,7 +31786,7 @@ var AnyRandomAccessCollection = /** @class */ (function () {
     };
     /*Swift.(file).AnyRandomAccessCollection.count*/
     AnyRandomAccessCollection.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(AnyRandomAccessCollection.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -31820,7 +31883,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     ;
     /*Swift.(file).Array.endIndex*/
     MIO_Mixin_Array.prototype.endIndex$get = function () {
-        return this.length;
+        return this.count;
     };
     Object.defineProperty(MIO_Mixin_Array.prototype, "endIndex", {
         get: function () { return this.endIndex$get(); },
@@ -31916,7 +31979,8 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)*/
     MIO_Mixin_Array.prototype.subscriptRange$get = function ($info, bounds) {
-        return _preserveGenerics(this.slice(bounds.first, bounds.last + 1), this);
+        this._failEarlyRangeCheckBounds({ Self: this.$info.Self }, bounds, this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex));
+        return _create(Slice, 'initBaseBoundsRange', { Base: this.$info.Self }, this, bounds);
     }; /*Swift.(file).Array.subscript(_:Range<Int>)*/
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
@@ -31956,10 +32020,17 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(repeating:Element,count:Int)*/
     /*Swift.(file).RangeReplaceableCollection.init(repeating:Self.Element,count:Int)*/
     MIO_Mixin_Array.prototype.initRepeatingCountInt = function ($info, repeatedValue, count) {
-        var result = new Array(count);
-        for (var i = 0; i < count; i++)
-            result[i] = _cloneStruct(repeatedValue);
-        return result;
+        var result = _create(Array, 'init', { Element: this.$info.Element });
+        {
+            var $generator_3 = _cloneStruct(Int.infix_46_46_60({ Self: Int, Self: Int }, 0, count).makeIterator({ Self: _clarifyGenerics({ Self: Range, Bound: Int }) }));
+            while (true) {
+                if ($generator_3.next({ $setThis: function ($val) { return $generator_3 = $val; }, Elements: _clarifyGenerics({ Self: Range, Bound: Int }) }) == null)
+                    break;
+                result.append({ $setThis: function ($val) { return result = $val; }, Element: this.$info.Element }, repeatedValue);
+            }
+        }
+        ;
+        return;
     };
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
@@ -32360,7 +32431,7 @@ var ArraySlice = /** @class */ (function () {
     };
     /*Swift.(file).ArraySlice.count*/
     ArraySlice.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(ArraySlice.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -32853,7 +32924,7 @@ var ContiguousArray = /** @class */ (function () {
     };
     /*Swift.(file).ContiguousArray.count*/
     ContiguousArray.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(ContiguousArray.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -33557,7 +33628,7 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     };
     /*Swift.(file)._ContiguousArrayBuffer.count*/
     _ContiguousArrayBuffer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_ContiguousArrayBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -34168,7 +34239,7 @@ var _FixedArray2 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray2.count*/
     _FixedArray2.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_FixedArray2.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -34305,7 +34376,7 @@ var _FixedArray4 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray4.count*/
     _FixedArray4.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_FixedArray4.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -34442,7 +34513,7 @@ var _FixedArray8 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray8.count*/
     _FixedArray8.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_FixedArray8.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -34579,7 +34650,7 @@ var _FixedArray16 = /** @class */ (function () {
     ;
     /*Swift.(file)._FixedArray16.count*/
     _FixedArray16.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_FixedArray16.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -34920,7 +34991,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     };
     /*Swift.(file).UInt8.bitWidth*/
     MIO_Mixin_UInt8.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_UInt8, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -35215,7 +35286,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             };
             /*Swift.(file).UInt8.Words.count*/
             class_107.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_107.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -35245,7 +35316,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt8.Words.indices*/
             class_107.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_107.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -35664,7 +35735,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     };
     /*Swift.(file).Int8.bitWidth*/
     MIO_Mixin_Int8.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_Int8, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -35964,7 +36035,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             };
             /*Swift.(file).Int8.Words.count*/
             class_114.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_114.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -35994,7 +36065,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             ;
             /*Swift.(file).Int8.Words.indices*/
             class_114.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_114.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -36411,7 +36482,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     };
     /*Swift.(file).UInt16.bitWidth*/
     MIO_Mixin_UInt16.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_UInt16, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -36683,7 +36754,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             };
             /*Swift.(file).UInt16.Words.count*/
             class_121.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_121.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -36713,7 +36784,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt16.Words.indices*/
             class_121.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_121.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -37132,7 +37203,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     };
     /*Swift.(file).Int16.bitWidth*/
     MIO_Mixin_Int16.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_Int16, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -37414,7 +37485,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             };
             /*Swift.(file).Int16.Words.count*/
             class_128.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_128.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -37444,7 +37515,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             ;
             /*Swift.(file).Int16.Words.indices*/
             class_128.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_128.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -37861,7 +37932,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     };
     /*Swift.(file).UInt32.bitWidth*/
     MIO_Mixin_UInt32.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_UInt32, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -38128,7 +38199,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             };
             /*Swift.(file).UInt32.Words.count*/
             class_135.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_135.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -38158,7 +38229,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt32.Words.indices*/
             class_135.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_135.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -38580,7 +38651,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     };
     /*Swift.(file).Int32.bitWidth*/
     MIO_Mixin_Int32.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_Int32, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -38852,7 +38923,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             };
             /*Swift.(file).Int32.Words.count*/
             class_142.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_142.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -38882,7 +38953,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             ;
             /*Swift.(file).Int32.Words.indices*/
             class_142.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_142.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -39299,7 +39370,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     };
     /*Swift.(file).UInt64.bitWidth*/
     MIO_Mixin_UInt64.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_UInt64, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -39546,7 +39617,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             };
             /*Swift.(file).UInt64.Words.count*/
             class_149.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_149.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -39576,7 +39647,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             ;
             /*Swift.(file).UInt64.Words.indices*/
             class_149.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_149.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -40000,7 +40071,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     };
     /*Swift.(file).Int64.bitWidth*/
     MIO_Mixin_Int64.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_Int64, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -40252,7 +40323,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             };
             /*Swift.(file).Int64.Words.count*/
             class_156.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_156.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -40282,7 +40353,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             ;
             /*Swift.(file).Int64.Words.indices*/
             class_156.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_156.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -40701,7 +40772,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     };
     /*Swift.(file).UInt.bitWidth*/
     MIO_Mixin_UInt.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_UInt, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -40974,7 +41045,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             };
             /*Swift.(file).UInt.Words.count*/
             class_163.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_163.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -41004,7 +41075,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             ;
             /*Swift.(file).UInt.Words.indices*/
             class_163.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_163.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -41424,7 +41495,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     };
     /*Swift.(file).Int.bitWidth*/
     MIO_Mixin_Int.bitWidth$get = function () {
-        return this.bitWidth$internal;
+        return this.$info.Self.bitWidth;
     };
     Object.defineProperty(MIO_Mixin_Int, "bitWidth", {
         get: function () { return this.bitWidth$get(); },
@@ -41669,7 +41740,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.advanced(by:Int)*/
     /*Swift.(file).Strideable.advanced(by:Self.Stride)*/
     MIO_Mixin_Int.prototype.advancedBy = function ($info, n) {
-        return this + n;
+        throw 'unsupported method Swift.(file).Int.advanced(by:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.customMirror*/
     MIO_Mixin_Int.prototype.customMirror$get = function () {
@@ -41718,7 +41789,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             };
             /*Swift.(file).Int.Words.count*/
             class_170.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_170.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -41748,7 +41819,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             ;
             /*Swift.(file).Int.Words.indices*/
             class_170.prototype.indices$get = function () {
-                return this.indices$internal;
+                return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_170.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -42131,7 +42202,7 @@ var LazySequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazySequence.indices*/
     LazySequence.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazySequence.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -42156,7 +42227,7 @@ var LazySequence = /** @class */ (function () {
     };
     /*Swift.(file).LazySequence.isEmpty*/
     LazySequence.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazySequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -42166,7 +42237,7 @@ var LazySequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazySequence.count*/
     LazySequence.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazySequence.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -42229,7 +42300,7 @@ var LazySequence = /** @class */ (function () {
     };
     /*Swift.(file).LazySequence.underestimatedCount*/
     LazySequence.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(LazySequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -42270,7 +42341,7 @@ var LazyMapSequence = /** @class */ (function () {
     };
     /*Swift.(file).LazyMapSequence.underestimatedCount*/
     LazyMapSequence.prototype.underestimatedCount$get = function () {
-        return this.underestimatedCount$internal;
+        return 0;
     };
     Object.defineProperty(LazyMapSequence.prototype, "underestimatedCount", {
         get: function () { return this.underestimatedCount$get(); },
@@ -42336,7 +42407,7 @@ var LazyMapSequence = /** @class */ (function () {
     };
     /*Swift.(file).LazyMapSequence.indices*/
     LazyMapSequence.prototype.indices$get = function () {
-        return this.indices$internal;
+        return this.$info.Self.Index.infix_46_46_60({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazyMapSequence.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -42346,7 +42417,7 @@ var LazyMapSequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazyMapSequence.isEmpty*/
     LazyMapSequence.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazyMapSequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -42356,7 +42427,7 @@ var LazyMapSequence = /** @class */ (function () {
     ;
     /*Swift.(file).LazyMapSequence.count*/
     LazyMapSequence.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(LazyMapSequence.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -42802,7 +42873,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.isEmpty*/
     MIO_Mixin_String.prototype.isEmpty$get = function () {
-        return this.isEmpty$internal;
+        return this.$info.Self.Index.infix_61_61({ Self: this.$info.Self.Index, Self: this.$info.Self.Index }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -42882,7 +42953,8 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.append(_:String)*/
     /*Swift.(file).String.append(_:String)*/
     MIO_Mixin_String.prototype.append = function ($info, other) {
-        throw 'unsupported method Swift.(file).String.append(_:String) in ' + this.constructor.name;
+        var _this = this;
+        String.infix_43_61({ Self: String }, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, other);
     };
     /*Swift.(file).String.append(_:Character)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
@@ -43585,7 +43657,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             };
             /*Swift.(file).UTF16View.count*/
             class_182.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_182.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -43775,7 +43847,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             ;
             /*Swift.(file).UTF8View.count*/
             class_184.prototype.count$get = function () {
-                return this.count$internal;
+                return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
             };
             Object.defineProperty(class_184.prototype, "count", {
                 get: function () { return this.count$get(); },
@@ -44048,7 +44120,7 @@ var _SliceBuffer = /** @class */ (function () {
     ;
     /*Swift.(file)._SliceBuffer.count*/
     _SliceBuffer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_SliceBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -44267,7 +44339,7 @@ var _ArrayBuffer = /** @class */ (function () {
     ;
     /*Swift.(file)._ArrayBuffer.count*/
     _ArrayBuffer.prototype.count$get = function () {
-        return this.count$internal;
+        return this.distanceFromTo({ Self: this.$info.Self }, this.startIndex, this.endIndex);
     };
     Object.defineProperty(_ArrayBuffer.prototype, "count", {
         get: function () { return this.count$get(); },
@@ -45240,10 +45312,12 @@ var NSObject = /** @class */ (function () {
     /*ObjectiveC.(file).NSObject.load()*/
     /*ObjectiveC.(file).NSObject.load()*/
     NSObject.load = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.load() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.initialize()*/
     /*ObjectiveC.(file).NSObject.initialize()*/
     NSObject.initialize = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.initialize() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
@@ -45252,1942 +45326,2427 @@ var NSObject = /** @class */ (function () {
     /*ObjectiveC.(file).NSObject.alloc(with:NSZone?)*/
     /*ObjectiveC.(file).NSObject.alloc(with:NSZone?)*/
     NSObject.allocWith = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.alloc(with:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?)*/
     NSObject.allocWithZone = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.alloc()*/
     /*ObjectiveC.(file).NSObject.alloc()*/
     NSObject.alloc = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.alloc() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.finalize()*/
     /*ObjectiveC.(file).NSObject.finalize()*/
     NSObject.finalize = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.finalize() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.finalize()*/
     /*ObjectiveC.(file).NSObject.finalize()*/
     NSObject.prototype.finalize = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.finalize() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copy()*/
     /*ObjectiveC.(file).NSObject.copy()*/
     NSObject.copy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.copy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copy()*/
     /*ObjectiveC.(file).NSObject.copy()*/
     NSObject.prototype.copy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.copy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.mutableCopy()*/
     /*ObjectiveC.(file).NSObject.mutableCopy()*/
     NSObject.mutableCopy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.mutableCopy()*/
     /*ObjectiveC.(file).NSObject.mutableCopy()*/
     NSObject.prototype.mutableCopy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copy(with:NSZone?)*/
     /*ObjectiveC.(file).NSObject.copy(with:NSZone?)*/
     NSObject.copyWith = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.copy(with:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?)*/
     NSObject.copyWithZone = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?)*/
     /*ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?)*/
     NSObject.mutableCopyWith = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?)*/
     NSObject.mutableCopyWithZone = function ($info, zone) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instancesRespond(to:Selector?)*/
     /*ObjectiveC.(file).NSObject.instancesRespond(to:Selector?)*/
     NSObject.instancesRespondTo = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instancesRespond(to:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?)*/
     NSObject.instancesRespondToSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
     /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
     NSObject.conformsTo = function ($info, protocol) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.conforms(to:Protocol) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol)*/
     /*ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol)*/
     NSObject.conformsToProtocol = function ($info, protocol) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     NSObject.methodFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.method(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     NSObject.prototype.methodFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.method(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
     NSObject.methodForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
     NSObject.prototype.methodForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethod(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.instanceMethod(for:Selector?)*/
     NSObject.instanceMethodFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethod(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?)*/
     NSObject.instanceMethodForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     NSObject.doesNotRecognizeSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     NSObject.prototype.doesNotRecognizeSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
     NSObject.forwardingTargetFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
     NSObject.prototype.forwardingTargetFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     NSObject.forwardingTargetForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     NSObject.prototype.forwardingTargetForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
     /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
     NSObject.forwardInvocation = function ($info, anInvocation) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
     /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
     NSObject.prototype.forwardInvocation = function ($info, anInvocation) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     NSObject.methodSignatureFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodSignature(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     NSObject.prototype.methodSignatureFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodSignature(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
     NSObject.methodSignatureForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
     NSObject.prototype.methodSignatureForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?)*/
     NSObject.instanceMethodSignatureFor = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?)*/
     NSObject.instanceMethodSignatureForSelector = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     NSObject.allowsWeakReference = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.allowsWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     NSObject.prototype.allowsWeakReference = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.allowsWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainWeakReference()*/
     /*ObjectiveC.(file).NSObject.retainWeakReference()*/
     NSObject.retainWeakReference = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.retainWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainWeakReference()*/
     /*ObjectiveC.(file).NSObject.retainWeakReference()*/
     NSObject.prototype.retainWeakReference = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.retainWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isSubclass(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isSubclass(of:AnyClass)*/
     NSObject.isSubclassOf = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isSubclass(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass)*/
     NSObject.isSubclassOfClass = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?)*/
     NSObject.resolveClassMethod = function ($info, sel) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?)*/
     NSObject.resolveInstanceMethod = function ($info, sel) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.hash()*/
     /*ObjectiveC.(file).NSObject.hash()*/
     NSObject.hash = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.hash() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.superclass()*/
     /*ObjectiveC.(file).NSObject.superclass()*/
     NSObject.superclass = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.superclass() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.description()*/
     /*ObjectiveC.(file).NSObject.description()*/
     NSObject.description = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.description() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.debugDescription()*/
     /*ObjectiveC.(file).NSObject.debugDescription()*/
     NSObject.debugDescription = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.debugDescription() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
     /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
     NSObject.prototype.isEqual = function ($info, object) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isEqual(_:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
     /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
     NSObject.isEqual = function ($info, object) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isEqual(_:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     NSObject.prototype.perform = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     NSObject.perform = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
     NSObject.prototype.performWith = function ($info, aSelector, object) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
     NSObject.performWith = function ($info, aSelector, object) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     NSObject.prototype.performWithWith = function ($info, aSelector, object1, object2) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     NSObject.performWithWith = function ($info, aSelector, object1, object2) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isProxy()*/
     /*ObjectiveC.(file).NSObject.isProxy()*/
     NSObject.prototype.isProxy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isProxy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isProxy()*/
     /*ObjectiveC.(file).NSObject.isProxy()*/
     NSObject.isProxy = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isProxy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
     NSObject.prototype.isKindOf = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isKind(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
     NSObject.isKindOf = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isKind(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     NSObject.prototype.isMemberOf = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isMember(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     NSObject.isMemberOf = function ($info, aClass) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.isMember(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
     /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
     NSObject.prototype.conformsTo = function ($info, aProtocol) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.conforms(to:Protocol) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
     /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
     NSObject.prototype.respondsTo = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.responds(to:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
     /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
     NSObject.respondsTo = function ($info, aSelector) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.responds(to:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retain()*/
     /*ObjectiveC.(file).NSObject.retain()*/
     NSObject.prototype.retain = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.retain() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.release()*/
     /*ObjectiveC.(file).NSObject.release()*/
     NSObject.prototype.release = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.release() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.release()*/
     /*ObjectiveC.(file).NSObject.release()*/
     NSObject.release = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.release() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.autorelease()*/
     /*ObjectiveC.(file).NSObject.autorelease()*/
     NSObject.prototype.autorelease = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.autorelease() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainCount()*/
     /*ObjectiveC.(file).NSObject.retainCount()*/
     NSObject.prototype.retainCount = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.retainCount() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainCount()*/
     /*ObjectiveC.(file).NSObject.retainCount()*/
     NSObject.retainCount = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.retainCount() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.zone()*/
     /*ObjectiveC.(file).NSObject.zone()*/
     NSObject.prototype.zone = function ($info) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.zone() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.zone()*/
     /*ObjectiveC.(file).NSObject.zone()*/
     NSObject.zone = function ($info) {
-    };
-    /*Foundation.(file).NSObject.version()*/
-    /*Foundation.(file).NSObject.version()*/
-    NSObject.version = function ($info) {
-    };
-    /*Foundation.(file).NSObject.setVersion(_:Int)*/
-    /*Foundation.(file).NSObject.setVersion(_:Int)*/
-    NSObject.setVersion = function ($info, aVersion) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
-    NSObject.replacementObjectFor = function ($info, aCoder) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
-    NSObject.prototype.replacementObjectFor = function ($info, aCoder) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
-    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
-    NSObject.replacementObjectForCoder = function ($info, aCoder) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
-    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
-    NSObject.prototype.replacementObjectForCoder = function ($info, aCoder) {
-    };
-    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
-    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
-    NSObject.awakeAfterUsing = function ($info, aDecoder) {
-    };
-    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
-    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
-    NSObject.prototype.awakeAfterUsing = function ($info, aDecoder) {
-    };
-    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
-    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
-    NSObject.awakeAfterUsingCoder = function ($info, aDecoder) {
-    };
-    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
-    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
-    NSObject.prototype.awakeAfterUsingCoder = function ($info, aDecoder) {
-    };
-    /*Foundation.(file).NSObject.classForCoder()*/
-    /*Foundation.(file).NSObject.classForCoder()*/
-    NSObject.classForCoder = function ($info) {
-    };
-    /*Foundation.(file).NSObject.pose(as:AnyClass)*/
-    /*Foundation.(file).NSObject.pose(as:AnyClass)*/
-    NSObject.poseAs = function ($info, aClass) {
-    };
-    /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
-    /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
-    NSObject.poseAsClass = function ($info, aClass) {
-    };
-    /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
-    /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
-    NSObject.autoContentAccessingProxy = function ($info) {
-    };
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
-    };
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
-    };
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
-    };
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
-    };
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
-    NSObject.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
-    };
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
-    NSObject.prototype.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
-    };
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
-    NSObject.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
-    };
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
-    NSObject.prototype.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    NSObject.performWithAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    NSObject.prototype.performWithAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    NSObject.performSelectorWithObjectAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    NSObject.prototype.performSelectorWithObjectAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
-    NSObject.performWithAfterDelay = function ($info, aSelector, anArgument, delay) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
-    NSObject.prototype.performWithAfterDelay = function ($info, aSelector, anArgument, delay) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
-    NSObject.performSelectorWithObjectAfterDelay = function ($info, aSelector, anArgument, delay) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
-    NSObject.prototype.performSelectorWithObjectAfterDelay = function ($info, aSelector, anArgument, delay) {
-    };
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
-    NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function ($info, aTarget, aSelector, anArgument) {
-    };
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
-    NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function ($info, aTarget, aSelector, anArgument) {
-    };
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
-    NSObject.cancelPreviousPerformRequestsWithTarget = function ($info, aTarget) {
-    };
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
-    NSObject.cancelPreviousPerformRequestsWithTarget = function ($info, aTarget) {
-    };
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
-    NSObject.fileManagerShouldProceedAfterError = function ($info, fm, errorInfo) {
-    };
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
-    NSObject.prototype.fileManagerShouldProceedAfterError = function ($info, fm, errorInfo) {
-    };
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
-    NSObject.fileManagerWillProcessPath = function ($info, fm, path) {
-    };
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
-    NSObject.prototype.fileManagerWillProcessPath = function ($info, fm, path) {
-    };
-    /*Foundation.(file).NSObject.value(forKey:String)*/
-    /*Foundation.(file).NSObject.value(forKey:String)*/
-    NSObject.valueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.value(forKey:String)*/
-    /*Foundation.(file).NSObject.value(forKey:String)*/
-    NSObject.prototype.valueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.valueForKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForKey(_:String)*/
-    NSObject.valueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.valueForKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForKey(_:String)*/
-    NSObject.prototype.valueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
-    NSObject.setValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
-    NSObject.prototype.setValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
-    NSObject.validateValueForKey = function ($info, ioValue, inKey) {
-    };
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
-    NSObject.prototype.validateValueForKey = function ($info, ioValue, inKey) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
-    NSObject.mutableArrayValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
-    NSObject.prototype.mutableArrayValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
-    NSObject.mutableArrayValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
-    NSObject.prototype.mutableArrayValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
-    NSObject.mutableOrderedSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
-    NSObject.prototype.mutableOrderedSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
-    NSObject.mutableOrderedSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
-    NSObject.prototype.mutableOrderedSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
-    NSObject.mutableSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
-    NSObject.prototype.mutableSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
-    NSObject.mutableSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
-    NSObject.prototype.mutableSetValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
-    NSObject.valueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
-    NSObject.prototype.valueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
-    NSObject.valueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
-    NSObject.prototype.valueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
-    NSObject.setValueForKeyPath = function ($info, value, keyPath) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
-    NSObject.prototype.setValueForKeyPath = function ($info, value, keyPath) {
-    };
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
-    NSObject.validateValueForKeyPath = function ($info, ioValue, inKeyPath) {
-    };
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
-    NSObject.prototype.validateValueForKeyPath = function ($info, ioValue, inKeyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
-    NSObject.mutableArrayValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
-    NSObject.prototype.mutableArrayValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
-    NSObject.mutableArrayValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
-    NSObject.prototype.mutableArrayValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
-    NSObject.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
-    NSObject.prototype.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
-    NSObject.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
-    NSObject.prototype.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
-    NSObject.mutableSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
-    NSObject.prototype.mutableSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
-    NSObject.mutableSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
-    NSObject.prototype.mutableSetValueForKeyPath = function ($info, keyPath) {
-    };
-    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
-    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
-    NSObject.valueForUndefinedKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
-    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
-    NSObject.prototype.valueForUndefinedKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
-    NSObject.valueForUndefinedKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
-    NSObject.prototype.valueForUndefinedKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
-    NSObject.setValueForUndefinedKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
-    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
-    NSObject.prototype.setValueForUndefinedKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
-    NSObject.setNilValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
-    NSObject.prototype.setNilValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
-    NSObject.dictionaryWithValuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
-    NSObject.prototype.dictionaryWithValuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
-    NSObject.dictionaryWithValuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
-    NSObject.prototype.dictionaryWithValuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
-    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
-    NSObject.setValuesForKeys = function ($info, keyedValues) {
-    };
-    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
-    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
-    NSObject.prototype.setValuesForKeys = function ($info, keyedValues) {
-    };
-    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
-    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
-    NSObject.setValuesForKeysWithDictionary = function ($info, keyedValues) {
-    };
-    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
-    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
-    NSObject.prototype.setValuesForKeysWithDictionary = function ($info, keyedValues) {
-    };
-    /*Foundation.(file).NSObject.useStoredAccessor()*/
-    /*Foundation.(file).NSObject.useStoredAccessor()*/
-    NSObject.useStoredAccessor = function ($info) {
-    };
-    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
-    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
-    NSObject.storedValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
-    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
-    NSObject.prototype.storedValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
-    NSObject.storedValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
-    NSObject.prototype.storedValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
-    NSObject.takeStoredValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
-    NSObject.prototype.takeStoredValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
-    NSObject.takeValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
-    NSObject.prototype.takeValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
-    NSObject.takeValueForKeyPath = function ($info, value, keyPath) {
-    };
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
-    NSObject.prototype.takeValueForKeyPath = function ($info, value, keyPath) {
-    };
-    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
-    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
-    NSObject.handleQueryWithUnboundKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
-    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
-    NSObject.prototype.handleQueryWithUnboundKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
-    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
-    NSObject.handleQueryWithUnboundKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
-    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
-    NSObject.prototype.handleQueryWithUnboundKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
-    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
-    NSObject.handleTakeValueForUnboundKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
-    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
-    NSObject.prototype.handleTakeValueForUnboundKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
-    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
-    NSObject.unableToSetNilForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
-    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
-    NSObject.prototype.unableToSetNilForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
-    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
-    NSObject.unableToSetNilForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
-    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
-    NSObject.prototype.unableToSetNilForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
-    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
-    NSObject.valuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
-    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
-    NSObject.prototype.valuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
-    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
-    NSObject.valuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
-    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
-    NSObject.prototype.valuesForKeys = function ($info, keys) {
-    };
-    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
-    NSObject.takeValuesFrom = function ($info, properties) {
-    };
-    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
-    NSObject.prototype.takeValuesFrom = function ($info, properties) {
-    };
-    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
-    NSObject.takeValuesFromDictionary = function ($info, properties) {
-    };
-    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
-    NSObject.prototype.takeValuesFromDictionary = function ($info, properties) {
-    };
-    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    NSObject.observeValueForKeyPathOfChangeContext = function ($info, keyPath, object, change, context) {
-    };
-    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.observeValueForKeyPathOfChangeContext = function ($info, keyPath, object, change, context) {
-    };
-    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    NSObject.observeValueForKeyPathOfObjectChangeContext = function ($info, keyPath, object, change, context) {
-    };
-    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.observeValueForKeyPathOfObjectChangeContext = function ($info, keyPath, object, change, context) {
-    };
-    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
-    NSObject.addObserverForKeyPathOptionsContext = function ($info, observer, keyPath, options, context) {
-    };
-    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.addObserverForKeyPathOptionsContext = function ($info, observer, keyPath, options, context) {
-    };
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
-    NSObject.removeObserverForKeyPathContext = function ($info, observer, keyPath, context) {
-    };
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
-    NSObject.prototype.removeObserverForKeyPathContext = function ($info, observer, keyPath, context) {
-    };
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
-    NSObject.removeObserverForKeyPath = function ($info, observer, keyPath) {
-    };
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
-    NSObject.prototype.removeObserverForKeyPath = function ($info, observer, keyPath) {
-    };
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
-    NSObject.willChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
-    NSObject.prototype.willChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
-    NSObject.willChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
-    NSObject.prototype.willChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
-    NSObject.didChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
-    NSObject.prototype.didChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
-    NSObject.didChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
-    NSObject.prototype.didChangeValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    NSObject.willChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    NSObject.prototype.willChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    NSObject.willChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    NSObject.prototype.willChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    NSObject.didChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
-    NSObject.prototype.didChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    NSObject.didChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    NSObject.prototype.didChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
-    };
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    NSObject.willChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    NSObject.prototype.willChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    NSObject.willChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    NSObject.prototype.willChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    NSObject.didChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
-    NSObject.prototype.didChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    NSObject.didChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    NSObject.prototype.didChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
-    };
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
-    NSObject.keyPathsForValuesAffectingValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
-    NSObject.keyPathsForValuesAffectingValueForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
-    /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
-    NSObject.automaticallyNotifiesObserversForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
-    /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
-    NSObject.automaticallyNotifiesObserversForKey = function ($info, key) {
-    };
-    /*Foundation.(file).NSObject.observationInfo()*/
-    /*Foundation.(file).NSObject.observationInfo()*/
-    NSObject.observationInfo = function ($info) {
-    };
-    /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
-    NSObject.setObservationInfo = function ($info, observationInfo) {
-    };
-    /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
-    /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
-    NSObject.setKeysTriggerChangeNotificationsForDependentKey = function ($info, keys, dependentKey) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
-    NSObject.replacementObjectFor = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
-    NSObject.prototype.replacementObjectFor = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
-    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
-    NSObject.replacementObjectForKeyedArchiver = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
-    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
-    NSObject.prototype.replacementObjectForKeyedArchiver = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
-    /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
-    NSObject.classFallbacksForKeyedArchiver = function ($info) {
-    };
-    /*Foundation.(file).NSObject.classForKeyedArchiver()*/
-    /*Foundation.(file).NSObject.classForKeyedArchiver()*/
-    NSObject.classForKeyedArchiver = function ($info) {
-    };
-    /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
-    /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
-    NSObject.classForKeyedUnarchiver = function ($info) {
-    };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.performSelectorOnMainThreadWithWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.prototype.performSelectorOnMainThreadWithWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
-    NSObject.performSelectorOnMainThreadWithWaitUntilDone = function ($info, aSelector, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
-    NSObject.prototype.performSelectorOnMainThreadWithWaitUntilDone = function ($info, aSelector, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
-    NSObject.performSelectorOnMainThreadWithObjectWaitUntilDone = function ($info, aSelector, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
-    NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDone = function ($info, aSelector, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.performOnWithWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.prototype.performOnWithWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.performSelectorOnThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
-    NSObject.performOnWithWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
-    NSObject.prototype.performOnWithWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
-    NSObject.performSelectorOnThreadWithObjectWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
-    NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
-    };
-    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
-    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
-    NSObject.performSelectorInBackgroundWith = function ($info, aSelector, arg) {
-    };
-    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
-    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
-    NSObject.prototype.performSelectorInBackgroundWith = function ($info, aSelector, arg) {
-    };
-    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
-    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
-    NSObject.performSelectorInBackgroundWithObject = function ($info, aSelector, arg) {
-    };
-    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
-    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
-    NSObject.prototype.performSelectorInBackgroundWithObject = function ($info, aSelector, arg) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
-    NSObject.replacementObjectFor = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
-    NSObject.prototype.replacementObjectFor = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
-    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
-    NSObject.replacementObjectForArchiver = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
-    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
-    NSObject.prototype.replacementObjectForArchiver = function ($info, archiver) {
-    };
-    /*Foundation.(file).NSObject.classForArchiver()*/
-    /*Foundation.(file).NSObject.classForArchiver()*/
-    NSObject.classForArchiver = function ($info) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
-    NSObject.replacementObjectFor = function ($info, coder) {
-    };
-    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
-    NSObject.prototype.replacementObjectFor = function ($info, coder) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
-    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
-    NSObject.replacementObjectForPortCoder = function ($info, coder) {
-    };
-    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
-    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
-    NSObject.prototype.replacementObjectForPortCoder = function ($info, coder) {
-    };
-    /*Foundation.(file).NSObject.classForPortCoder()*/
-    /*Foundation.(file).NSObject.classForPortCoder()*/
-    NSObject.classForPortCoder = function ($info) {
-    };
-    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
-    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
-    NSObject.inverseForRelationshipKey = function ($info, relationshipKey) {
-    };
-    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
-    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
-    NSObject.prototype.inverseForRelationshipKey = function ($info, relationshipKey) {
-    };
-    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
-    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
-    NSObject.inverseForRelationshipKey = function ($info, relationshipKey) {
-    };
-    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
-    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
-    NSObject.prototype.inverseForRelationshipKey = function ($info, relationshipKey) {
-    };
-    /*Foundation.(file).NSObject.classDescription()*/
-    /*Foundation.(file).NSObject.classDescription()*/
-    NSObject.classDescription = function ($info) {
-    };
-    /*Foundation.(file).NSObject.attributeKeys()*/
-    /*Foundation.(file).NSObject.attributeKeys()*/
-    NSObject.attributeKeys = function ($info) {
-    };
-    /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
-    /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
-    NSObject.toOneRelationshipKeys = function ($info) {
-    };
-    /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
-    /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
-    NSObject.toManyRelationshipKeys = function ($info) {
-    };
-    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
-    NSObject.scriptingValueFor = function ($info, objectSpecifier) {
-    };
-    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
-    NSObject.prototype.scriptingValueFor = function ($info, objectSpecifier) {
-    };
-    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
-    NSObject.scriptingValueForSpecifier = function ($info, objectSpecifier) {
-    };
-    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
-    NSObject.prototype.scriptingValueForSpecifier = function ($info, objectSpecifier) {
-    };
-    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
-    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
-    NSObject.copyScriptingValueForKeyWithProperties = function ($info, value, key, properties) {
-    };
-    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
-    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
-    NSObject.prototype.copyScriptingValueForKeyWithProperties = function ($info, value, key, properties) {
-    };
-    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    NSObject.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
-    };
-    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    NSObject.prototype.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
-    };
-    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    NSObject.newScriptingObjectOfClassForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
-    };
-    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    NSObject.prototype.newScriptingObjectOfClassForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
-    };
-    /*Foundation.(file).NSObject.scriptingProperties()*/
-    /*Foundation.(file).NSObject.scriptingProperties()*/
-    NSObject.scriptingProperties = function ($info) {
-    };
-    /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
-    /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
-    NSObject.setScriptingProperties = function ($info, scriptingProperties) {
-    };
-    /*Foundation.(file).NSObject.classCode()*/
-    /*Foundation.(file).NSObject.classCode()*/
-    NSObject.classCode = function ($info) {
-    };
-    /*Foundation.(file).NSObject.className()*/
-    /*Foundation.(file).NSObject.className()*/
-    NSObject.className = function ($info) {
-    };
-    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
-    NSObject.valueAtInPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
-    NSObject.prototype.valueAtInPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
-    NSObject.valueAtIndexInPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
-    NSObject.prototype.valueAtIndexInPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
-    NSObject.valueWithNameInPropertyWithKey = function ($info, _name, key) {
-    };
-    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
-    NSObject.prototype.valueWithNameInPropertyWithKey = function ($info, _name, key) {
-    };
-    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
-    NSObject.valueWithNameInPropertyWithKey = function ($info, _name, key) {
-    };
-    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
-    NSObject.prototype.valueWithNameInPropertyWithKey = function ($info, _name, key) {
-    };
-    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
-    NSObject.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
-    };
-    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
-    NSObject.prototype.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
-    };
-    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
-    NSObject.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
-    };
-    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
-    NSObject.prototype.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
-    NSObject.insertValueAtInPropertyWithKey = function ($info, value, index, key) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
-    NSObject.prototype.insertValueAtInPropertyWithKey = function ($info, value, index, key) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
-    NSObject.insertValueAtIndexInPropertyWithKey = function ($info, value, index, key) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
-    NSObject.prototype.insertValueAtIndexInPropertyWithKey = function ($info, value, index, key) {
-    };
-    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
-    NSObject.removeValueAtFromPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
-    NSObject.prototype.removeValueAtFromPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
-    NSObject.removeValueAtIndexFromPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
-    NSObject.prototype.removeValueAtIndexFromPropertyWithKey = function ($info, index, key) {
-    };
-    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
-    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
-    NSObject.replaceValueAtInPropertyWithKeyWithValue = function ($info, index, key, value) {
-    };
-    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
-    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
-    NSObject.prototype.replaceValueAtInPropertyWithKeyWithValue = function ($info, index, key, value) {
-    };
-    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
-    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
-    NSObject.replaceValueAtIndexInPropertyWithKeyWithValue = function ($info, index, key, value) {
-    };
-    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
-    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
-    NSObject.prototype.replaceValueAtIndexInPropertyWithKeyWithValue = function ($info, index, key, value) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
-    NSObject.insertValueInPropertyWithKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
-    NSObject.prototype.insertValueInPropertyWithKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
-    NSObject.coerceValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
-    NSObject.prototype.coerceValueForKey = function ($info, value, key) {
-    };
-    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
-    NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
-    };
-    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
-    NSObject.prototype.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
-    };
-    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
-    NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
-    };
-    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
-    NSObject.prototype.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
-    };
-    /*Foundation.(file).NSObject.objectSpecifier()*/
-    /*Foundation.(file).NSObject.objectSpecifier()*/
-    NSObject.objectSpecifier = function ($info) {
-    };
-    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
-    NSObject.isEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
-    NSObject.prototype.isEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
-    NSObject.isEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
-    NSObject.prototype.isEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
-    NSObject.isLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
-    NSObject.prototype.isLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
-    NSObject.isLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
-    NSObject.prototype.isLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
-    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
-    NSObject.isLessThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
-    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
-    NSObject.prototype.isLessThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
-    NSObject.isGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
-    NSObject.prototype.isGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
-    NSObject.isGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
-    NSObject.prototype.isGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
-    NSObject.isGreaterThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
-    NSObject.prototype.isGreaterThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
-    NSObject.isNotEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
-    NSObject.prototype.isNotEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
-    NSObject.isNotEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
-    NSObject.prototype.isNotEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.doesContain(_:Any)*/
-    /*Foundation.(file).NSObject.doesContain(_:Any)*/
-    NSObject.doesContain = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.doesContain(_:Any)*/
-    /*Foundation.(file).NSObject.doesContain(_:Any)*/
-    NSObject.prototype.doesContain = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLike(_:String)*/
-    /*Foundation.(file).NSObject.isLike(_:String)*/
-    NSObject.isLike = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isLike(_:String)*/
-    /*Foundation.(file).NSObject.isLike(_:String)*/
-    NSObject.prototype.isLike = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
-    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
-    NSObject.isCaseInsensitiveLike = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
-    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
-    NSObject.prototype.isCaseInsensitiveLike = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
-    NSObject.scriptingIsEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
-    NSObject.prototype.scriptingIsEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
-    NSObject.scriptingIsEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
-    NSObject.prototype.scriptingIsEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
-    NSObject.scriptingIsLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
-    NSObject.prototype.scriptingIsLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
-    NSObject.scriptingIsLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
-    NSObject.prototype.scriptingIsLessThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
-    NSObject.scriptingIsLessThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
-    NSObject.prototype.scriptingIsLessThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
-    NSObject.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
-    NSObject.prototype.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
-    NSObject.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
-    NSObject.prototype.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
-    NSObject.scriptingIsGreaterThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
-    NSObject.prototype.scriptingIsGreaterThan = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
-    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
-    NSObject.scriptingBeginsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
-    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
-    NSObject.prototype.scriptingBeginsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
-    NSObject.scriptingBeginsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
-    NSObject.prototype.scriptingBeginsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
-    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
-    NSObject.scriptingEndsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
-    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
-    NSObject.prototype.scriptingEndsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
-    NSObject.scriptingEndsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
-    NSObject.prototype.scriptingEndsWith = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
-    NSObject.scriptingContains = function ($info, object) {
-    };
-    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
-    NSObject.prototype.scriptingContains = function ($info, object) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.zone() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.==infix(_:NSObject,_:NSObject)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     NSObject.infix_61_61 = function ($info, lhs, rhs) {
         return lhs == rhs;
     };
-    /*ObjectiveC.(file).NSObject.hashValue*/ /*
-    hashValue$get() {
-    return this.hashValue
-    }
-    get hashValue() { return this.hashValue$get() }*/ ;
+    /*ObjectiveC.(file).NSObject.hashValue*/
+    NSObject.prototype.hashValue$get = function () {
+        throw 'unsupported variable ObjectiveC.(file).NSObject.hashValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(NSObject.prototype, "hashValue", {
+        get: function () { return this.hashValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     /*ObjectiveC.(file).NSObject.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
     NSObject.prototype.hashInto = function ($info, hasher$inout) {
+        throw 'unsupported method ObjectiveC.(file).NSObject.hash(into:Hasher) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
     NSObject.tableView = function ($info, tableView, rows, pboard) {
+        throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
     NSObject.prototype.tableView = function ($info, tableView, rows, pboard) {
+        throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     NSObject.tableView1 = function ($info, tableView, rows, pboard) {
+        throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     NSObject.prototype.tableView1 = function ($info, tableView, rows, pboard) {
+        throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
     /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
     NSObject.textStorageWillProcessEditing = function ($info, notification) {
+        throw 'unsupported method AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
     /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
     NSObject.prototype.textStorageWillProcessEditing = function ($info, notification) {
+        throw 'unsupported method AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     NSObject.textStorageDidProcessEditing = function ($info, notification) {
+        throw 'unsupported method AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     NSObject.prototype.textStorageDidProcessEditing = function ($info, notification) {
+        throw 'unsupported method AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
     NSObject.panel = function ($info, sender, filename) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,isValidFilename:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
     NSObject.prototype.panel = function ($info, sender, filename) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,isValidFilename:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     NSObject.panel1 = function ($info, sender, path) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     NSObject.prototype.panel1 = function ($info, sender, path) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
     /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
     NSObject.panel2 = function ($info, sender, name1, name2, caseSensitive) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
     /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
     NSObject.prototype.panel2 = function ($info, sender, name1, name2, caseSensitive) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     NSObject.panel3 = function ($info, sender, filename) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     NSObject.prototype.panel3 = function ($info, sender, filename) {
+        throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.awakeFromNib()*/
     /*AppKit.(file).NSObject.awakeFromNib()*/
     NSObject.awakeFromNib = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.awakeFromNib() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.awakeFromNib()*/
     /*AppKit.(file).NSObject.awakeFromNib()*/
     NSObject.prototype.awakeFromNib = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.awakeFromNib() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     NSObject.prepareForInterfaceBuilder = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.prepareForInterfaceBuilder() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     NSObject.prototype.prepareForInterfaceBuilder = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.prepareForInterfaceBuilder() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
     /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
     NSObject.fontManager = function ($info, sender, fontName) {
+        throw 'unsupported method AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
     /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
     NSObject.prototype.fontManager = function ($info, sender, fontName) {
+        throw 'unsupported method AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:NSBindingSelectionMarker?,with:NSBindingName)*/
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:NSBindingSelectionMarker?,with:NSBindingName)*/
     NSObject.setDefaultPlaceholder = function ($info, placeholder, marker, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:NSBindingSelectionMarker?,with:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     NSObject.setDefaultPlaceholder1 = function ($info, placeholder, marker, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.defaultPlaceholder(for:NSBindingSelectionMarker?,with:NSBindingName)*/
     /*AppKit.(file).NSObject.defaultPlaceholder(for:NSBindingSelectionMarker?,with:NSBindingName)*/
     NSObject.defaultPlaceholder = function ($info, marker, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholder(for:NSBindingSelectionMarker?,with:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.defaultPlaceholder(forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     /*AppKit.(file).NSObject.defaultPlaceholder(forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     NSObject.defaultPlaceholder1 = function ($info, marker, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholder(forMarker:NSBindingSelectionMarker?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.defaultPlaceholderForMarker(_:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     /*AppKit.(file).NSObject.defaultPlaceholderForMarker(_:NSBindingSelectionMarker?,withBinding:NSBindingName)*/
     NSObject.defaultPlaceholderForMarker = function ($info, marker, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholderForMarker(_:NSBindingSelectionMarker?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.exposeBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.exposeBinding(_:NSBindingName)*/
     NSObject.exposeBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.exposeBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     NSObject.valueClassForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     NSObject.prototype.valueClassForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.bind = function ($info, binding, observable, keyPath, options) {
+        throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.prototype.bind = function ($info, binding, observable, keyPath, options) {
+        throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.bind1 = function ($info, binding, observable, keyPath, options) {
+        throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.prototype.bind1 = function ($info, binding, observable, keyPath, options) {
+        throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
     /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
     NSObject.unbind = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.unbind(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
     /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
     NSObject.prototype.unbind = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.unbind(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     NSObject.infoForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.infoForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     NSObject.prototype.infoForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.infoForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
     NSObject.optionDescriptionsForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
     NSObject.prototype.optionDescriptionsForBinding = function ($info, binding) {
+        throw 'unsupported method AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.exposedBindings()*/
     /*AppKit.(file).NSObject.exposedBindings()*/
     NSObject.exposedBindings = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.exposedBindings() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     NSObject.namesOfPromisedFilesDropped = function ($info, dropDestination) {
+        throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     NSObject.prototype.namesOfPromisedFilesDropped = function ($info, dropDestination) {
+        throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
     /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
     NSObject.namesOfPromisedFilesDroppedAtDestination = function ($info, dropDestination) {
+        throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
     /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
     NSObject.prototype.namesOfPromisedFilesDroppedAtDestination = function ($info, dropDestination) {
+        throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     NSObject.draggingSourceOperationMask = function ($info, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     NSObject.prototype.draggingSourceOperationMask = function ($info, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
     /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
     NSObject.draggingSourceOperationMaskForLocal = function ($info, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
     /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
     NSObject.prototype.draggingSourceOperationMaskForLocal = function ($info, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     NSObject.draggedImage = function ($info, _image, screenPoint) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     NSObject.prototype.draggedImage = function ($info, _image, screenPoint) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
     NSObject.draggedImage1 = function ($info, _image, screenPoint, operation) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
     NSObject.prototype.draggedImage1 = function ($info, _image, screenPoint, operation) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     NSObject.draggedImage2 = function ($info, _image, screenPoint) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     NSObject.prototype.draggedImage2 = function ($info, _image, screenPoint) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
     /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
     NSObject.ignoreModifierKeysWhileDragging = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.ignoreModifierKeysWhileDragging() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
     /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
     NSObject.prototype.ignoreModifierKeysWhileDragging = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.ignoreModifierKeysWhileDragging() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     NSObject.draggedImage3 = function ($info, _image, screenPoint, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     NSObject.prototype.draggedImage3 = function ($info, _image, screenPoint, flag) {
+        throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.accessibilitySetOverrideValue = function ($info, value, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.prototype.accessibilitySetOverrideValue = function ($info, value, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     NSObject.accessibilityAttributeNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     NSObject.prototype.accessibilityAttributeNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityAttributeValue = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
     NSObject.prototype.accessibilityAttributeValue = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityIsAttributeSettable = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     NSObject.prototype.accessibilityIsAttributeSettable = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.accessibilitySetValue = function ($info, value, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.prototype.accessibilitySetValue = function ($info, value, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     NSObject.accessibilityParameterizedAttributeNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityParameterizedAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     NSObject.prototype.accessibilityParameterizedAttributeNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityParameterizedAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
     NSObject.accessibilityAttributeValue1 = function ($info, attribute, parameter) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
     NSObject.prototype.accessibilityAttributeValue1 = function ($info, attribute, parameter) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityActionNames()*/
     /*AppKit.(file).NSObject.accessibilityActionNames()*/
     NSObject.accessibilityActionNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityActionNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityActionNames()*/
     /*AppKit.(file).NSObject.accessibilityActionNames()*/
     NSObject.prototype.accessibilityActionNames = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityActionNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
     /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
     NSObject.accessibilityActionDescription = function ($info, action) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
     /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
     NSObject.prototype.accessibilityActionDescription = function ($info, action) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     NSObject.accessibilityPerformAction = function ($info, action) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     NSObject.prototype.accessibilityPerformAction = function ($info, action) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
     /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
     NSObject.accessibilityIsIgnored = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIsIgnored() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
     /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
     NSObject.prototype.accessibilityIsIgnored = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIsIgnored() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     NSObject.accessibilityHitTest = function ($info, point) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     NSObject.prototype.accessibilityHitTest = function ($info, point) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
     /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
     NSObject.accessibilityIndex = function ($info, child) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIndex(ofChild:Any) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
     /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
     NSObject.prototype.accessibilityIndex = function ($info, child) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIndex(ofChild:Any) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     NSObject.accessibilityIndexOfChild = function ($info, child) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     NSObject.prototype.accessibilityIndexOfChild = function ($info, child) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityArrayAttributeCount = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
     NSObject.prototype.accessibilityArrayAttributeCount = function ($info, attribute) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     NSObject.accessibilityArrayAttributeValues = function ($info, attribute, index, maxCount) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     NSObject.prototype.accessibilityArrayAttributeValues = function ($info, attribute, index, maxCount) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityFocusedUIElement()*/
     /*AppKit.(file).NSObject.accessibilityFocusedUIElement()*/
     NSObject.accessibilityFocusedUIElement = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityFocusedUIElement() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed()*/
     /*AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed()*/
     NSObject.accessibilityNotifiesWhenDestroyed = function ($info) {
+        throw 'unsupported method AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
+    NSObject.scriptingIsEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
+    NSObject.prototype.scriptingIsEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    NSObject.scriptingIsEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    NSObject.prototype.scriptingIsEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
+    NSObject.scriptingIsLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
+    NSObject.prototype.scriptingIsLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    NSObject.scriptingIsLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    NSObject.prototype.scriptingIsLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
+    NSObject.scriptingIsLessThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThan(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
+    NSObject.prototype.scriptingIsLessThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThan(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
+    NSObject.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
+    NSObject.prototype.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    NSObject.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    NSObject.prototype.scriptingIsGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
+    NSObject.scriptingIsGreaterThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
+    NSObject.prototype.scriptingIsGreaterThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
+    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
+    NSObject.scriptingBeginsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingBegins(with:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
+    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
+    NSObject.prototype.scriptingBeginsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingBegins(with:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    NSObject.scriptingBeginsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingBeginsWith(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    NSObject.prototype.scriptingBeginsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingBeginsWith(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
+    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
+    NSObject.scriptingEndsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingEnds(with:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
+    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
+    NSObject.prototype.scriptingEndsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingEnds(with:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    NSObject.scriptingEndsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingEndsWith(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    NSObject.prototype.scriptingEndsWith = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingEndsWith(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
+    NSObject.scriptingContains = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingContains(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
+    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
+    NSObject.prototype.scriptingContains = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingContains(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
+    NSObject.isEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
+    NSObject.prototype.isEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    NSObject.isEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    NSObject.prototype.isEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
+    NSObject.isLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
+    NSObject.prototype.isLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    NSObject.isLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    NSObject.prototype.isLessThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
+    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
+    NSObject.isLessThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThan(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
+    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
+    NSObject.prototype.isLessThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLessThan(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
+    NSObject.isGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
+    NSObject.prototype.isGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    NSObject.isGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    NSObject.prototype.isGreaterThanOrEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
+    NSObject.isGreaterThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThan(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
+    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
+    NSObject.prototype.isGreaterThan = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isGreaterThan(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
+    NSObject.isNotEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isNotEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
+    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
+    NSObject.prototype.isNotEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isNotEqual(to:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    NSObject.isNotEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isNotEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    NSObject.prototype.isNotEqualTo = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isNotEqualTo(_:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.doesContain(_:Any)*/
+    /*Foundation.(file).NSObject.doesContain(_:Any)*/
+    NSObject.doesContain = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.doesContain(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.doesContain(_:Any)*/
+    /*Foundation.(file).NSObject.doesContain(_:Any)*/
+    NSObject.prototype.doesContain = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.doesContain(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLike(_:String)*/
+    /*Foundation.(file).NSObject.isLike(_:String)*/
+    NSObject.isLike = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLike(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isLike(_:String)*/
+    /*Foundation.(file).NSObject.isLike(_:String)*/
+    NSObject.prototype.isLike = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isLike(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
+    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
+    NSObject.isCaseInsensitiveLike = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isCaseInsensitiveLike(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
+    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
+    NSObject.prototype.isCaseInsensitiveLike = function ($info, object) {
+        throw 'unsupported method Foundation.(file).NSObject.isCaseInsensitiveLike(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
+    NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
+        throw 'unsupported method Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
+    NSObject.prototype.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
+        throw 'unsupported method Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
+        throw 'unsupported method Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    NSObject.prototype.indicesOfObjectsByEvaluatingObjectSpecifier = function ($info, specifier) {
+        throw 'unsupported method Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.objectSpecifier()*/
+    /*Foundation.(file).NSObject.objectSpecifier()*/
+    NSObject.objectSpecifier = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.objectSpecifier() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
+    NSObject.valueAtInPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
+    NSObject.prototype.valueAtInPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
+    NSObject.valueAtIndexInPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
+    NSObject.prototype.valueAtIndexInPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
+    NSObject.valueWithNameInPropertyWithKey = function ($info, _name, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
+    NSObject.prototype.valueWithNameInPropertyWithKey = function ($info, _name, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    NSObject.valueWithNameInPropertyWithKey = function ($info, _name, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    NSObject.prototype.valueWithNameInPropertyWithKey = function ($info, _name, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
+    NSObject.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
+    NSObject.prototype.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    NSObject.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    NSObject.prototype.valueWithUniqueIDInPropertyWithKey = function ($info, uniqueID, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
+    NSObject.insertValueAtInPropertyWithKey = function ($info, value, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
+    NSObject.prototype.insertValueAtInPropertyWithKey = function ($info, value, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
+    NSObject.insertValueAtIndexInPropertyWithKey = function ($info, value, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
+    NSObject.prototype.insertValueAtIndexInPropertyWithKey = function ($info, value, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
+    NSObject.removeValueAtFromPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
+    NSObject.prototype.removeValueAtFromPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
+    NSObject.removeValueAtIndexFromPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
+    NSObject.prototype.removeValueAtIndexFromPropertyWithKey = function ($info, index, key) {
+        throw 'unsupported method Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
+    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
+    NSObject.replaceValueAtInPropertyWithKeyWithValue = function ($info, index, key, value) {
+        throw 'unsupported method Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
+    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
+    NSObject.prototype.replaceValueAtInPropertyWithKeyWithValue = function ($info, index, key, value) {
+        throw 'unsupported method Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
+    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
+    NSObject.replaceValueAtIndexInPropertyWithKeyWithValue = function ($info, index, key, value) {
+        throw 'unsupported method Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
+    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
+    NSObject.prototype.replaceValueAtIndexInPropertyWithKeyWithValue = function ($info, index, key, value) {
+        throw 'unsupported method Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
+    NSObject.insertValueInPropertyWithKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
+    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
+    NSObject.prototype.insertValueInPropertyWithKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
+    NSObject.coerceValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
+    NSObject.prototype.coerceValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classCode()*/
+    /*Foundation.(file).NSObject.classCode()*/
+    NSObject.classCode = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classCode() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.className()*/
+    /*Foundation.(file).NSObject.className()*/
+    NSObject.className = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.className() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
+    NSObject.scriptingValueFor = function ($info, objectSpecifier) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
+    NSObject.prototype.scriptingValueFor = function ($info, objectSpecifier) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
+    NSObject.scriptingValueForSpecifier = function ($info, objectSpecifier) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
+    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
+    NSObject.prototype.scriptingValueForSpecifier = function ($info, objectSpecifier) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
+    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
+    NSObject.copyScriptingValueForKeyWithProperties = function ($info, value, key, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
+    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
+    NSObject.prototype.copyScriptingValueForKeyWithProperties = function ($info, value, key, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    NSObject.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    NSObject.prototype.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    NSObject.newScriptingObjectOfClassForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
+    NSObject.prototype.newScriptingObjectOfClassForValueForKeyWithContentsValueProperties = function ($info, objectClass, key, contentsValue, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.scriptingProperties()*/
+    /*Foundation.(file).NSObject.scriptingProperties()*/
+    NSObject.scriptingProperties = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.scriptingProperties() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
+    /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
+    NSObject.setScriptingProperties = function ($info, scriptingProperties) {
+        throw 'unsupported method Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
+    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
+    NSObject.inverseForRelationshipKey = function ($info, relationshipKey) {
+        throw 'unsupported method Foundation.(file).NSObject.inverse(forRelationshipKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
+    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
+    NSObject.prototype.inverseForRelationshipKey = function ($info, relationshipKey) {
+        throw 'unsupported method Foundation.(file).NSObject.inverse(forRelationshipKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    NSObject.inverseForRelationshipKey = function ($info, relationshipKey) {
+        throw 'unsupported method Foundation.(file).NSObject.inverseForRelationshipKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    NSObject.prototype.inverseForRelationshipKey = function ($info, relationshipKey) {
+        throw 'unsupported method Foundation.(file).NSObject.inverseForRelationshipKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classDescription()*/
+    /*Foundation.(file).NSObject.classDescription()*/
+    NSObject.classDescription = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classDescription() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attributeKeys()*/
+    /*Foundation.(file).NSObject.attributeKeys()*/
+    NSObject.attributeKeys = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.attributeKeys() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
+    /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
+    NSObject.toOneRelationshipKeys = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.toOneRelationshipKeys() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
+    /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
+    NSObject.toManyRelationshipKeys = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.toManyRelationshipKeys() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
+    NSObject.replacementObjectFor = function ($info, coder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSPortCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
+    NSObject.prototype.replacementObjectFor = function ($info, coder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSPortCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
+    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
+    NSObject.replacementObjectForPortCoder = function ($info, coder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
+    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
+    NSObject.prototype.replacementObjectForPortCoder = function ($info, coder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classForPortCoder()*/
+    /*Foundation.(file).NSObject.classForPortCoder()*/
+    NSObject.classForPortCoder = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classForPortCoder() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    NSObject.replacementObjectFor = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    NSObject.prototype.replacementObjectFor = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
+    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
+    NSObject.replacementObjectForArchiver = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
+    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
+    NSObject.prototype.replacementObjectForArchiver = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classForArchiver()*/
+    /*Foundation.(file).NSObject.classForArchiver()*/
+    NSObject.classForArchiver = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classForArchiver() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.performSelectorOnMainThreadWithWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.prototype.performSelectorOnMainThreadWithWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
+    NSObject.performSelectorOnMainThreadWithWaitUntilDone = function ($info, aSelector, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
+    NSObject.prototype.performSelectorOnMainThreadWithWaitUntilDone = function ($info, aSelector, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
+    NSObject.performSelectorOnMainThreadWithObjectWaitUntilDone = function ($info, aSelector, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
+    NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDone = function ($info, aSelector, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.performOnWithWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.prototype.performOnWithWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.performSelectorOnThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
+    NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDoneModes = function ($info, aSelector, thr, arg, wait, array) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
+    NSObject.performOnWithWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
+    NSObject.prototype.performOnWithWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
+    NSObject.performSelectorOnThreadWithObjectWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
+    NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDone = function ($info, aSelector, thr, arg, wait) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
+    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
+    NSObject.performSelectorInBackgroundWith = function ($info, aSelector, arg) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
+    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
+    NSObject.prototype.performSelectorInBackgroundWith = function ($info, aSelector, arg) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
+    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
+    NSObject.performSelectorInBackgroundWithObject = function ($info, aSelector, arg) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
+    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
+    NSObject.prototype.performSelectorInBackgroundWithObject = function ($info, aSelector, arg) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
+    /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
+    NSObject.classForKeyedUnarchiver = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classForKeyedUnarchiver() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    NSObject.replacementObjectFor = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    NSObject.prototype.replacementObjectFor = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
+    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
+    NSObject.replacementObjectForKeyedArchiver = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
+    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
+    NSObject.prototype.replacementObjectForKeyedArchiver = function ($info, archiver) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
+    /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
+    NSObject.classFallbacksForKeyedArchiver = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classFallbacksForKeyedArchiver() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classForKeyedArchiver()*/
+    /*Foundation.(file).NSObject.classForKeyedArchiver()*/
+    NSObject.classForKeyedArchiver = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classForKeyedArchiver() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
+    /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
+    NSObject.setKeysTriggerChangeNotificationsForDependentKey = function ($info, keys, dependentKey) {
+        throw 'unsupported method Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
+    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
+    NSObject.keyPathsForValuesAffectingValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
+    NSObject.keyPathsForValuesAffectingValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
+    /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
+    NSObject.automaticallyNotifiesObserversForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
+    /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
+    NSObject.automaticallyNotifiesObserversForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.observationInfo()*/
+    /*Foundation.(file).NSObject.observationInfo()*/
+    NSObject.observationInfo = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.observationInfo() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
+    NSObject.setObservationInfo = function ($info, observationInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
+    NSObject.willChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
+    NSObject.prototype.willChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    NSObject.willChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    NSObject.prototype.willChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
+    NSObject.didChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
+    NSObject.prototype.didChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    NSObject.didChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    NSObject.prototype.didChangeValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    NSObject.willChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    NSObject.prototype.willChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    NSObject.willChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    NSObject.prototype.willChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    NSObject.didChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
+    NSObject.prototype.didChangeValuesAtForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    NSObject.didChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
+    NSObject.prototype.didChangeValuesAtIndexesForKey = function ($info, changeKind, indexes, key) {
+        throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    NSObject.willChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    NSObject.prototype.willChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    NSObject.willChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    NSObject.prototype.willChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    NSObject.didChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
+    NSObject.prototype.didChangeValueForKeyWithSetMutationUsing = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    NSObject.didChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
+    NSObject.prototype.didChangeValueForKeyWithSetMutationUsingObjects = function ($info, key, mutationKind, objects) {
+        throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
+    NSObject.addObserverForKeyPathOptionsContext = function ($info, observer, keyPath, options, context) {
+        throw 'unsupported method Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.addObserverForKeyPathOptionsContext = function ($info, observer, keyPath, options, context) {
+        throw 'unsupported method Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
+    NSObject.removeObserverForKeyPathContext = function ($info, observer, keyPath, context) {
+        throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.removeObserverForKeyPathContext = function ($info, observer, keyPath, context) {
+        throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
+    NSObject.removeObserverForKeyPath = function ($info, observer, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
+    NSObject.prototype.removeObserverForKeyPath = function ($info, observer, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    NSObject.observeValueForKeyPathOfChangeContext = function ($info, keyPath, object, change, context) {
+        throw 'unsupported method Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.observeValueForKeyPathOfChangeContext = function ($info, keyPath, object, change, context) {
+        throw 'unsupported method Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    NSObject.observeValueForKeyPathOfObjectChangeContext = function ($info, keyPath, object, change, context) {
+        throw 'unsupported method Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.observeValueForKeyPathOfObjectChangeContext = function ($info, keyPath, object, change, context) {
+        throw 'unsupported method Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.useStoredAccessor()*/
+    /*Foundation.(file).NSObject.useStoredAccessor()*/
+    NSObject.useStoredAccessor = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.useStoredAccessor() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
+    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
+    NSObject.storedValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.storedValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
+    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
+    NSObject.prototype.storedValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.storedValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    NSObject.storedValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.storedValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    NSObject.prototype.storedValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.storedValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
+    NSObject.takeStoredValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
+    NSObject.prototype.takeStoredValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
+    NSObject.takeValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
+    NSObject.prototype.takeValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
+    NSObject.takeValueForKeyPath = function ($info, value, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
+    NSObject.prototype.takeValueForKeyPath = function ($info, value, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
+    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
+    NSObject.handleQueryWithUnboundKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleQuery(withUnboundKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
+    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
+    NSObject.prototype.handleQueryWithUnboundKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleQuery(withUnboundKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    NSObject.handleQueryWithUnboundKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    NSObject.prototype.handleQueryWithUnboundKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
+    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
+    NSObject.handleTakeValueForUnboundKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
+    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
+    NSObject.prototype.handleTakeValueForUnboundKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
+    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
+    NSObject.unableToSetNilForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.unableToSetNil(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
+    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
+    NSObject.prototype.unableToSetNilForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.unableToSetNil(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    NSObject.unableToSetNilForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.unableToSetNilForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    NSObject.prototype.unableToSetNilForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.unableToSetNilForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
+    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
+    NSObject.valuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.values(forKeys:[Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
+    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
+    NSObject.prototype.valuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.values(forKeys:[Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    NSObject.valuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.valuesForKeys(_:[Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    NSObject.prototype.valuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.valuesForKeys(_:[Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
+    NSObject.takeValuesFrom = function ($info, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
+    NSObject.prototype.takeValuesFrom = function ($info, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
+    NSObject.takeValuesFromDictionary = function ($info, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
+    NSObject.prototype.takeValuesFromDictionary = function ($info, properties) {
+        throw 'unsupported method Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forKey:String)*/
+    /*Foundation.(file).NSObject.value(forKey:String)*/
+    NSObject.valueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forKey:String)*/
+    /*Foundation.(file).NSObject.value(forKey:String)*/
+    NSObject.prototype.valueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    NSObject.valueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    NSObject.prototype.valueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
+    NSObject.setValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
+    NSObject.prototype.setValueForKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
+    NSObject.validateValueForKey = function ($info, ioValue, inKey) {
+        throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
+    NSObject.prototype.validateValueForKey = function ($info, ioValue, inKey) {
+        throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
+    NSObject.mutableArrayValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
+    NSObject.prototype.mutableArrayValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    NSObject.mutableArrayValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    NSObject.prototype.mutableArrayValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
+    NSObject.mutableOrderedSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
+    NSObject.prototype.mutableOrderedSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    NSObject.mutableOrderedSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    NSObject.prototype.mutableOrderedSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
+    NSObject.mutableSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
+    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
+    NSObject.prototype.mutableSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    NSObject.mutableSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    NSObject.prototype.mutableSetValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
+    NSObject.valueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
+    NSObject.prototype.valueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    NSObject.valueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    NSObject.prototype.valueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
+    NSObject.setValueForKeyPath = function ($info, value, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
+    NSObject.prototype.setValueForKeyPath = function ($info, value, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
+    NSObject.validateValueForKeyPath = function ($info, ioValue, inKeyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
+    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
+    NSObject.prototype.validateValueForKeyPath = function ($info, ioValue, inKeyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
+    NSObject.mutableArrayValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
+    NSObject.prototype.mutableArrayValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    NSObject.mutableArrayValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    NSObject.prototype.mutableArrayValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
+    NSObject.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
+    NSObject.prototype.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    NSObject.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    NSObject.prototype.mutableOrderedSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
+    NSObject.mutableSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
+    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
+    NSObject.prototype.mutableSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKeyPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    NSObject.mutableSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    NSObject.prototype.mutableSetValueForKeyPath = function ($info, keyPath) {
+        throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
+    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
+    NSObject.valueForUndefinedKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forUndefinedKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
+    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
+    NSObject.prototype.valueForUndefinedKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.value(forUndefinedKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    NSObject.valueForUndefinedKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForUndefinedKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    NSObject.prototype.valueForUndefinedKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.valueForUndefinedKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
+    NSObject.setValueForUndefinedKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
+    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
+    NSObject.prototype.setValueForUndefinedKey = function ($info, value, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
+    NSObject.setNilValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setNilValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
+    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
+    NSObject.prototype.setNilValueForKey = function ($info, key) {
+        throw 'unsupported method Foundation.(file).NSObject.setNilValueForKey(_:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
+    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
+    NSObject.dictionaryWithValuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
+    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
+    NSObject.prototype.dictionaryWithValuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    NSObject.dictionaryWithValuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    NSObject.prototype.dictionaryWithValuesForKeys = function ($info, keys) {
+        throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
+    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
+    NSObject.setValuesForKeys = function ($info, keyedValues) {
+        throw 'unsupported method Foundation.(file).NSObject.setValuesForKeys(_:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
+    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
+    NSObject.prototype.setValuesForKeys = function ($info, keyedValues) {
+        throw 'unsupported method Foundation.(file).NSObject.setValuesForKeys(_:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
+    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
+    NSObject.setValuesForKeysWithDictionary = function ($info, keyedValues) {
+        throw 'unsupported method Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
+    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
+    NSObject.prototype.setValuesForKeysWithDictionary = function ($info, keyedValues) {
+        throw 'unsupported method Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
+    NSObject.fileManagerShouldProceedAfterError = function ($info, fm, errorInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
+    NSObject.prototype.fileManagerShouldProceedAfterError = function ($info, fm, errorInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
+    NSObject.fileManagerWillProcessPath = function ($info, fm, path) {
+        throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
+    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
+    NSObject.prototype.fileManagerWillProcessPath = function ($info, fm, path) {
+        throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    NSObject.performWithAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    NSObject.prototype.performWithAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    NSObject.performSelectorWithObjectAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
+    NSObject.prototype.performSelectorWithObjectAfterDelayInModes = function ($info, aSelector, anArgument, delay, modes) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
+    NSObject.performWithAfterDelay = function ($info, aSelector, anArgument, delay) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
+    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
+    NSObject.prototype.performWithAfterDelay = function ($info, aSelector, anArgument, delay) {
+        throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
+    NSObject.performSelectorWithObjectAfterDelay = function ($info, aSelector, anArgument, delay) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
+    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
+    NSObject.prototype.performSelectorWithObjectAfterDelay = function ($info, aSelector, anArgument, delay) {
+        throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
+    NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function ($info, aTarget, aSelector, anArgument) {
+        throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
+    NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function ($info, aTarget, aSelector, anArgument) {
+        throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
+    NSObject.cancelPreviousPerformRequestsWithTarget = function ($info, aTarget) {
+        throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
+    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
+    NSObject.cancelPreviousPerformRequestsWithTarget = function ($info, aTarget) {
+        throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    NSObject.prototype.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function ($info, error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
+    NSObject.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
+    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
+    NSObject.prototype.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    NSObject.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    NSObject.prototype.attemptRecoveryFromErrorOptionIndex = function ($info, error, recoveryOptionIndex) {
+        throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
+    /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
+    NSObject.autoContentAccessingProxy = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.autoContentAccessingProxy() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.pose(as:AnyClass)*/
+    /*Foundation.(file).NSObject.pose(as:AnyClass)*/
+    NSObject.poseAs = function ($info, aClass) {
+        throw 'unsupported method Foundation.(file).NSObject.pose(as:AnyClass) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
+    /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
+    NSObject.poseAsClass = function ($info, aClass) {
+        throw 'unsupported method Foundation.(file).NSObject.poseAsClass(_:AnyClass) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.version()*/
+    /*Foundation.(file).NSObject.version()*/
+    NSObject.version = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.version() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.setVersion(_:Int)*/
+    /*Foundation.(file).NSObject.setVersion(_:Int)*/
+    NSObject.setVersion = function ($info, aVersion) {
+        throw 'unsupported method Foundation.(file).NSObject.setVersion(_:Int) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    NSObject.replacementObjectFor = function ($info, aCoder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    NSObject.prototype.replacementObjectFor = function ($info, aCoder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
+    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
+    NSObject.replacementObjectForCoder = function ($info, aCoder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
+    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
+    NSObject.prototype.replacementObjectForCoder = function ($info, aCoder) {
+        throw 'unsupported method Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
+    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
+    NSObject.awakeAfterUsing = function ($info, aDecoder) {
+        throw 'unsupported method Foundation.(file).NSObject.awakeAfter(using:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
+    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
+    NSObject.prototype.awakeAfterUsing = function ($info, aDecoder) {
+        throw 'unsupported method Foundation.(file).NSObject.awakeAfter(using:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
+    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
+    NSObject.awakeAfterUsingCoder = function ($info, aDecoder) {
+        throw 'unsupported method Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
+    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
+    NSObject.prototype.awakeAfterUsingCoder = function ($info, aDecoder) {
+        throw 'unsupported method Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).NSObject.classForCoder()*/
+    /*Foundation.(file).NSObject.classForCoder()*/
+    NSObject.classForCoder = function ($info) {
+        throw 'unsupported method Foundation.(file).NSObject.classForCoder() in ' + this.constructor.name;
     };
     /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     NSObject.provideImageData = function ($info, data, rowbytes, x, y, width, height, info) {
+        throw 'unsupported method CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?) in ' + this.constructor.name;
     };
     /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     NSObject.prototype.provideImageData = function ($info, data, rowbytes, x, y, width, height, info) {
+        throw 'unsupported method CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?) in ' + this.constructor.name;
     };
-    NSObject.$infoAddress = '0x7fca2aa86f60';
+    NSObject.prototype.init$vars = function () {
+    };
+    NSObject.$infoAddress = '';
     return NSObject;
 }());
 if (typeof NSObjectProtocol$implementation != 'undefined')
     _mixin(NSObject, NSObjectProtocol$implementation, false);
-if (typeof CustomStringConvertible$implementation != 'undefined')
-    _mixin(NSObject, CustomStringConvertible$implementation, false);
-if (typeof CustomDebugStringConvertible$implementation != 'undefined')
-    _mixin(NSObject, CustomDebugStringConvertible$implementation, false);
-if (typeof _KeyValueCodingAndObserving$implementation != 'undefined')
-    _mixin(NSObject, _KeyValueCodingAndObserving$implementation, false);
 if (typeof Equatable$implementation != 'undefined')
     _mixin(NSObject, Equatable$implementation, false);
 if (typeof Hashable$implementation != 'undefined')
     _mixin(NSObject, Hashable$implementation, false);
 if (typeof CVarArg$implementation != 'undefined')
     _mixin(NSObject, CVarArg$implementation, false);
+if (typeof CustomStringConvertible$implementation != 'undefined')
+    _mixin(NSObject, CustomStringConvertible$implementation, false);
+if (typeof CustomDebugStringConvertible$implementation != 'undefined')
+    _mixin(NSObject, CustomDebugStringConvertible$implementation, false);
+if (typeof _KeyValueCodingAndObserving$implementation != 'undefined')
+    _mixin(NSObject, _KeyValueCodingAndObserving$implementation, false);
 /*Darwin.(file).arc4random()*/
 /*Darwin.(file).arc4random()*/
 function arc4random($info) {
@@ -47210,6 +47769,7 @@ var NSException = /** @class */ (function (_super) {
     /*Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
     /*Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
     NSException.exceptionWithNameReasonUserInfo = function ($info, _name, reason, userInfo) {
+        throw 'unsupported method Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSException.init(name:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
     /*Foundation.(file).NSException.init(name:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
@@ -47218,6 +47778,7 @@ var NSException = /** @class */ (function (_super) {
     /*Foundation.(file).NSException.raise()*/
     /*Foundation.(file).NSException.raise()*/
     NSException.prototype.raise = function ($info) {
+        throw 'unsupported method Foundation.(file).NSException.raise() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSException.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
@@ -47226,10 +47787,12 @@ var NSException = /** @class */ (function (_super) {
     /*Foundation.(file).NSException.copy(with:NSZone?)*/
     /*Foundation.(file).NSException.copy(with:NSZone?)*/
     NSException.prototype.copyWith = function ($info, zone) {
+        throw 'unsupported method Foundation.(file).NSException.copy(with:NSZone?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSException.encode(with:NSCoder)*/
     /*Foundation.(file).NSException.encode(with:NSCoder)*/
     NSException.prototype.encodeWith = function ($info, aCoder) {
+        throw 'unsupported method Foundation.(file).NSException.encode(with:NSCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSException.init(coder:NSCoder)*/
     /*Foundation.(file).NSException.init(coder:NSCoder)*/
@@ -47239,8 +47802,13 @@ var NSException = /** @class */ (function (_super) {
     /*Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer)*/
     /*Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer)*/
     NSException.raiseFormatArguments = function ($info, _name, format, argList) {
+        throw 'unsupported method Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer) in ' + this.constructor.name;
     };
-    NSException.$infoAddress = '0x7fca299d2d80';
+    NSException.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    NSException.$infoAddress = '';
     return NSException;
 }(NSObject));
 if (typeof NSCopying$implementation != 'undefined')
@@ -47250,111 +47818,97 @@ if (typeof NSCoding$implementation != 'undefined')
 /*XCTest.(file).XCTSelfTestMain()*/
 /*XCTest.(file).XCTSelfTestMain()*/
 function XCTSelfTestMain($info) {
+    throw 'unsupported method XCTest.(file).XCTSelfTestMain() in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
 function XCTFailFileLine($info, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNilFileLine($info, expression, message, file, line) {
-    if (expression() != undefined)
-        throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotNilFileLine($info, expression, message, file, line) {
-    if (expression() == undefined)
-        throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertFileLine($info, expression, message, file, line) {
-    if (!expression())
-        throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertTrueFileLine($info, expression, message, file, line) {
-    if (expression() != true)
-        throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertFalseFileLine($info, expression, message, file, line) {
-    if (expression())
-        throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertEqualFileLine($info, expression1, expression2, message, file, line) {
-    if (!$info.T.infix_61_61($info, expression1(), expression2()))
-        throw message ? message() : 'assert fail :' + expression1;
+    throw 'unsupported method XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotEqualFileLine($info, expression1, expression2, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertEqualAccuracyFileLine($info, expression1, expression2, accuracy, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertEqualWithAccuracyAccuracyFileLine($info, expression1, expression2, accuracy, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotEqualAccuracyFileLine($info, expression1, expression2, accuracy, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotEqualWithAccuracyFileLine($info, expression1, expression2, accuracy, message, file, line) {
+    throw 'unsupported method XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertGreaterThanFileLine($info, expression1, expression2, message, file, line) {
-    if (!(expression1() > expression2()))
-        throw message ? message() : 'assert fail :' + expression1;
+    throw 'unsupported method XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertGreaterThanOrEqualFileLine($info, expression1, expression2, message, file, line) {
-    if (!(expression1() >= expression2()))
-        throw message ? message() : 'assert fail :' + expression1;
+    throw 'unsupported method XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertLessThanFileLine($info, expression1, expression2, message, file, line) {
-    if (!(expression1() < expression2()))
-        throw message ? message() : 'assert fail :' + expression1;
+    throw 'unsupported method XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertLessThanOrEqualFileLine($info, expression1, expression2, message, file, line) {
-    if (!(expression1() <= expression2()))
-        throw message ? message() : 'assert fail :' + expression1;
+    throw 'unsupported method XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
 /*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
 function XCTAssertThrowsErrorFileLine($info, expression, message, file, line, errorHandler) {
-    try {
-        expression();
-    }
-    catch (e) {
-        return;
-    }
-    throw message ? message() : 'assert fail :' + expression;
+    throw 'unsupported method XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void) in ' + this.constructor.name;
 }
 /*XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNoThrowFileLine($info, expression, message, file, line) {
-    try {
-        expression();
-    }
-    catch (e) {
-        throw message ? message() : 'assert fail :' + expression;
-    }
+    throw 'unsupported method XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 var XCTActivity$implementation = /** @class */ (function () {
     function XCTActivity$implementation() {
@@ -47379,10 +47933,12 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?)*/
     /*XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?)*/
     XCTAttachment.attachmentWithUniformTypeIdentifierNamePayloadUserInfo = function ($info, identifier, _name, payload, userInfo) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.encode(with:NSCoder)*/
     /*XCTest.(file).XCTAttachment.encode(with:NSCoder)*/
     XCTAttachment.prototype.encodeWith = function ($info, aCoder) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.encode(with:NSCoder) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(coder:NSCoder)*/
     /*XCTest.(file).XCTAttachment.init(coder:NSCoder)*/
@@ -47397,6 +47953,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data)*/
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data)*/
     XCTAttachment.attachmentWithData = function ($info, payload) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithData(_:Data) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(data:Data,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.init(data:Data,uniformTypeIdentifier:String)*/
@@ -47405,6 +47962,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithDataUniformTypeIdentifier = function ($info, payload, identifier) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(string:String)*/
     /*XCTest.(file).XCTAttachment.init(string:String)*/
@@ -47414,6 +47972,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithString(_:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithString(_:String)*/
     XCTAttachment.attachmentWithString = function ($info, string) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithString(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding)*/
     /*XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding)*/
@@ -47423,6 +47982,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding)*/
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding)*/
     XCTAttachment.attachmentWithArchivableObject = function ($info, object) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding,uniformTypeIdentifier:String)*/
@@ -47431,6 +47991,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithArchivableObjectUniformTypeIdentifier = function ($info, object, identifier) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(plistObject:Any)*/
     /*XCTest.(file).XCTAttachment.init(plistObject:Any)*/
@@ -47440,6 +48001,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any)*/
     /*XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any)*/
     XCTAttachment.attachmentWithPlistObject = function ($info, object) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(contentsOfFile:URL)*/
     /*XCTest.(file).XCTAttachment.init(contentsOfFile:URL)*/
@@ -47454,6 +48016,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL)*/
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL)*/
     XCTAttachment.attachmentWithContentsOfFileAtURL = function ($info, url) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(contentsOfFile:URL,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.init(contentsOfFile:URL,uniformTypeIdentifier:String)*/
@@ -47466,6 +48029,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithContentsOfFileAtURLUniformTypeIdentifier = function ($info, url, identifier) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(compressedContentsOfDirectory:URL)*/
     /*XCTest.(file).XCTAttachment.init(compressedContentsOfDirectory:URL)*/
@@ -47480,6 +48044,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL)*/
     /*XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL)*/
     XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL = function ($info, url) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(image:NSImage)*/
     /*XCTest.(file).XCTAttachment.init(image:NSImage)*/
@@ -47489,6 +48054,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage)*/
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage)*/
     XCTAttachment.attachmentWithImage = function ($info, _image) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(image:NSImage,quality:XCTAttachment.ImageQuality)*/
     /*XCTest.(file).XCTAttachment.init(image:NSImage,quality:XCTAttachment.ImageQuality)*/
@@ -47497,6 +48063,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality)*/
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality)*/
     XCTAttachment.attachmentWithImageQuality = function ($info, _image, quality) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot)*/
     /*XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot)*/
@@ -47506,6 +48073,7 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot)*/
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot)*/
     XCTAttachment.attachmentWithScreenshot = function ($info, screenshot) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
     /*XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
@@ -47514,9 +48082,14 @@ var XCTAttachment = /** @class */ (function (_super) {
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
     XCTAttachment.attachmentWithScreenshotQuality = function ($info, screenshot, quality) {
+        throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
+    };
+    XCTAttachment.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
     };
     var _161, _162;
-    XCTAttachment.$infoAddress = '0x1184aadd8';
+    XCTAttachment.$infoAddress = '';
     XCTAttachment.ImageQuality = (_161 = /** @class */ (function () {
             function class_185() {
             }
@@ -47525,11 +48098,16 @@ var XCTAttachment = /** @class */ (function (_super) {
             class_185.prototype.initRawValueInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCTAttachment.ImageQuality.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCTAttachment.ImageQuality.rawValue*/
+            class_185.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCTAttachment.ImageQuality.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_185.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_185, "original", {
                 get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -47545,9 +48123,11 @@ var XCTAttachment = /** @class */ (function (_super) {
                 enumerable: true,
                 configurable: true
             });
+            class_185.prototype.init$vars = function () {
+            };
             return class_185;
         }()),
-        _161.$infoAddress = '0x1184adf78',
+        _161.$infoAddress = '',
         _161);
     XCTAttachment.Lifetime = (_162 = /** @class */ (function () {
             function class_186() {
@@ -47557,11 +48137,16 @@ var XCTAttachment = /** @class */ (function (_super) {
             class_186.prototype.initRawValueInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCTAttachment.Lifetime.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCTAttachment.Lifetime.rawValue*/
+            class_186.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCTAttachment.Lifetime.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_186.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_186, "keepAlways", {
                 get: function () { return Object.assign(new XCTAttachment.Lifetime(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -47572,9 +48157,11 @@ var XCTAttachment = /** @class */ (function (_super) {
                 enumerable: true,
                 configurable: true
             });
+            class_186.prototype.init$vars = function () {
+            };
             return class_186;
         }()),
-        _162.$infoAddress = '0x1184ab460',
+        _162.$infoAddress = '',
         _162);
     return XCTAttachment;
 }(NSObject));
@@ -47592,8 +48179,13 @@ var XCTContext = /** @class */ (function (_super) {
     /*XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result)*/
     /*XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result)*/
     XCTContext.runActivityNamedBlock = function ($info, _name, block) {
+        throw 'unsupported method XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result) in ' + this.constructor.name;
     };
-    XCTContext.$infoAddress = '0x1184ad318';
+    XCTContext.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTContext.$infoAddress = '';
     return XCTContext;
 }(NSObject));
 var XCTPerformanceMetric = /** @class */ (function () {
@@ -47609,13 +48201,20 @@ var XCTPerformanceMetric = /** @class */ (function () {
     XCTPerformanceMetric.prototype.initRawValueString = function ($info, rawValue) {
         return rawValue;
     };
-    /*XCTest.(file).XCTPerformanceMetric.rawValue*/ /*
-    rawValue$get() {
-    return this.rawValue
-    }
-    get rawValue() { return this.rawValue$get() }*/ ;
+    /*XCTest.(file).XCTPerformanceMetric.rawValue*/
+    XCTPerformanceMetric.prototype.rawValue$get = function () {
+        throw 'unsupported variable XCTest.(file).XCTPerformanceMetric.rawValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(XCTPerformanceMetric.prototype, "rawValue", {
+        get: function () { return this.rawValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    XCTPerformanceMetric.prototype.init$vars = function () {
+    };
     XCTPerformanceMetric.$struct = true;
-    XCTPerformanceMetric.$infoAddress = '0x1184b0230';
+    XCTPerformanceMetric.$infoAddress = '';
     return XCTPerformanceMetric;
 }());
 var XCTWaiter = /** @class */ (function (_super) {
@@ -47631,41 +48230,53 @@ var XCTWaiter = /** @class */ (function (_super) {
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.prototype.waitForTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.prototype.waitForExpectationsTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.prototype.waitForTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.prototype.waitForExpectationsTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.waitForTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.waitForExpectationsTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.waitForTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.waitForExpectationsTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTWaiter.prototype.init = function ($info) {
     };
+    XCTWaiter.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
     var _163;
-    XCTWaiter.$infoAddress = '0x1184b1958';
+    XCTWaiter.$infoAddress = '';
     XCTWaiter.Result = (_163 = /** @class */ (function () {
             function class_187() {
             }
@@ -47674,11 +48285,16 @@ var XCTWaiter = /** @class */ (function (_super) {
             class_187.prototype.initRawValueInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCTWaiter.Result.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCTWaiter.Result.rawValue*/
+            class_187.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCTWaiter.Result.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_187.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_187, "completed", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 1 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -47704,9 +48320,11 @@ var XCTWaiter = /** @class */ (function (_super) {
                 enumerable: true,
                 configurable: true
             });
+            class_187.prototype.init$vars = function () {
+            };
             return class_187;
         }()),
-        _163.$infoAddress = '0x1184b2368',
+        _163.$infoAddress = '',
         _163);
     return XCTWaiter;
 }(NSObject));
@@ -47725,32 +48343,42 @@ var XCTest = /** @class */ (function (_super) {
     /*XCTest.(file).XCTest.perform(_:XCTestRun)*/
     /*XCTest.(file).XCTest.perform(_:XCTestRun)*/
     XCTest.prototype.perform = function ($info, run) {
+        throw 'unsupported method XCTest.(file).XCTest.perform(_:XCTestRun) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.performTest(_:XCTestRun)*/
     /*XCTest.(file).XCTest.performTest(_:XCTestRun)*/
     XCTest.prototype.performTest = function ($info, run) {
+        throw 'unsupported method XCTest.(file).XCTest.performTest(_:XCTestRun) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.run()*/
     /*XCTest.(file).XCTest.run()*/
     XCTest.prototype.run = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTest.run() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.runTest()*/
     /*XCTest.(file).XCTest.runTest()*/
     XCTest.prototype.runTest = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTest.runTest() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.setUp()*/
     /*XCTest.(file).XCTest.setUp()*/
     XCTest.prototype.setUp = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTest.setUp() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.tearDown()*/
     /*XCTest.(file).XCTest.tearDown()*/
     XCTest.prototype.tearDown = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTest.tearDown() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTest.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTest.prototype.init = function ($info) {
     };
-    XCTest.$infoAddress = '0x1184db230';
+    XCTest.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTest.$infoAddress = '';
     return XCTest;
 }(NSObject));
 var XCTestCase = /** @class */ (function (_super) {
@@ -47766,6 +48394,7 @@ var XCTestCase = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?)*/
     /*XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?)*/
     XCTestCase.testCaseWithInvocation = function ($info, invocation) {
+        throw 'unsupported method XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.init(invocation:NSInvocation?)*/
     /*XCTest.(file).XCTestCase.init(invocation:NSInvocation?)*/
@@ -47780,6 +48409,7 @@ var XCTestCase = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector)*/
     /*XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector)*/
     XCTestCase.testCaseWithSelector = function ($info, selector) {
+        throw 'unsupported method XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.init(selector:Selector)*/
     /*XCTest.(file).XCTestCase.init(selector:Selector)*/
@@ -47789,54 +48419,67 @@ var XCTestCase = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestCase.invokeTest()*/
     /*XCTest.(file).XCTestCase.invokeTest()*/
     XCTestCase.prototype.invokeTest = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestCase.invokeTest() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.recordFailure(withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCase.recordFailure(withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     XCTestCase.prototype.recordFailureWithDescriptionInFileAtLineExpected = function ($info, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestCase.recordFailure(withDescription:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool)*/
     XCTestCase.prototype.recordFailureWithDescriptionInFileAtLineExpected = function ($info, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.addTeardownBlock(_:() -> Void)*/
     /*XCTest.(file).XCTestCase.addTeardownBlock(_:() -> Void)*/
     XCTestCase.prototype.addTeardownBlock = function ($info, block) {
+        throw 'unsupported method XCTest.(file).XCTestCase.addTeardownBlock(_:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.measure(_:() -> Void)*/
     /*XCTest.(file).XCTestCase.measure(_:() -> Void)*/
     XCTestCase.prototype.measure = function ($info, block) {
+        throw 'unsupported method XCTest.(file).XCTestCase.measure(_:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.measureBlock(_:() -> Void)*/
     /*XCTest.(file).XCTestCase.measureBlock(_:() -> Void)*/
     XCTestCase.prototype.measureBlock = function ($info, block) {
+        throw 'unsupported method XCTest.(file).XCTestCase.measureBlock(_:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,for:() -> Void)*/
     /*XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,for:() -> Void)*/
     XCTestCase.prototype.measureMetricsAutomaticallyStartMeasuringFor = function ($info, metrics, automaticallyStartMeasuring, block) {
+        throw 'unsupported method XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,for:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,forBlock:() -> Void)*/
     /*XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,forBlock:() -> Void)*/
     XCTestCase.prototype.measureMetricsAutomaticallyStartMeasuringForBlock = function ($info, metrics, automaticallyStartMeasuring, block) {
+        throw 'unsupported method XCTest.(file).XCTestCase.measureMetrics(_:[XCTPerformanceMetric],automaticallyStartMeasuring:Bool,forBlock:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.startMeasuring()*/
     /*XCTest.(file).XCTestCase.startMeasuring()*/
     XCTestCase.prototype.startMeasuring = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestCase.startMeasuring() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.stopMeasuring()*/
     /*XCTest.(file).XCTestCase.stopMeasuring()*/
     XCTestCase.prototype.stopMeasuring = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestCase.stopMeasuring() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitor(withDescription:String,handler:(XCUIElement) -> Bool)*/
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitor(withDescription:String,handler:(XCUIElement) -> Bool)*/
     XCTestCase.prototype.addUIInterruptionMonitorWithDescriptionHandler = function ($info, handlerDescription, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.addUIInterruptionMonitor(withDescription:String,handler:(XCUIElement) -> Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool)*/
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool)*/
     XCTestCase.prototype.addUIInterruptionMonitorWithDescriptionHandler = function ($info, handlerDescription, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.removeUIInterruptionMonitor(_:NSObjectProtocol)*/
     /*XCTest.(file).XCTestCase.removeUIInterruptionMonitor(_:NSObjectProtocol)*/
     XCTestCase.prototype.removeUIInterruptionMonitor = function ($info, monitor) {
+        throw 'unsupported method XCTest.(file).XCTestCase.removeUIInterruptionMonitor(_:NSObjectProtocol) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
@@ -47847,104 +48490,131 @@ var XCTestCase = /** @class */ (function (_super) {
             this.init$vars();
             if (this.setUp)
                 this.setUp();
-            this[testFunction]();
             if (this.tearDown)
                 this.tearDown();
+            this[testFunction]();
         }
     };
     /*XCTest.(file).XCTestCase.setUp()*/
     /*XCTest.(file).XCTestCase.setUp()*/
     XCTestCase.setUp = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestCase.setUp() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.tearDown()*/
     /*XCTest.(file).XCTestCase.tearDown()*/
     XCTestCase.tearDown = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestCase.tearDown() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.add(_:XCTAttachment)*/
     /*XCTest.(file).XCTestCase.add(_:XCTAttachment)*/
     XCTestCase.prototype.add = function ($info, attachment) {
+        throw 'unsupported method XCTest.(file).XCTestCase.add(_:XCTAttachment) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectation(description:String)*/
     /*XCTest.(file).XCTestCase.expectation(description:String)*/
     XCTestCase.prototype.expectationDescription = function ($info, description) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectation(description:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectationWithDescription(_:String)*/
     /*XCTest.(file).XCTestCase.expectationWithDescription(_:String)*/
     XCTestCase.prototype.expectationWithDescription = function ($info, description) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectationWithDescription(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waitForExpectations(timeout:TimeInterval,handler:XCWaitCompletionHandler?)*/
     /*XCTest.(file).XCTestCase.waitForExpectations(timeout:TimeInterval,handler:XCWaitCompletionHandler?)*/
     XCTestCase.prototype.waitForExpectationsTimeoutHandler = function ($info, timeout, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waitForExpectations(timeout:TimeInterval,handler:XCWaitCompletionHandler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waitForExpectationsWithTimeout(_:TimeInterval,handler:XCWaitCompletionHandler?)*/
     /*XCTest.(file).XCTestCase.waitForExpectationsWithTimeout(_:TimeInterval,handler:XCWaitCompletionHandler?)*/
     XCTestCase.prototype.waitForExpectationsWithTimeoutHandler = function ($info, timeout, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waitForExpectationsWithTimeout(_:TimeInterval,handler:XCWaitCompletionHandler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     XCTestCase.prototype.waitForTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     XCTestCase.prototype.waitForExpectationsTimeout = function ($info, expectations, seconds) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTestCase.prototype.waitForTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTestCase.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTestCase.prototype.waitForExpectationsTimeoutEnforceOrder = function ($info, expectations, seconds, enforceOrderOfFulfillment) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,expectedValue:Any?)*/
     /*XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,expectedValue:Any?)*/
     XCTestCase.prototype.keyValueObservingExpectationForKeyPathExpectedValue = function ($info, objectToObserve, keyPath, expectedValue) {
+        throw 'unsupported method XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,expectedValue:Any?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,expectedValue:Any?)*/
     /*XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,expectedValue:Any?)*/
     XCTestCase.prototype.keyValueObservingExpectationForObjectKeyPathExpectedValue = function ($info, objectToObserve, keyPath, expectedValue) {
+        throw 'unsupported method XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,expectedValue:Any?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,handler:XCTKVOExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,handler:XCTKVOExpectation.Handler?)*/
     XCTestCase.prototype.keyValueObservingExpectationForKeyPathHandler = function ($info, objectToObserve, keyPath, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.keyValueObservingExpectation(for:Any,keyPath:String,handler:XCTKVOExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,handler:XCTKVOExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,handler:XCTKVOExpectation.Handler?)*/
     XCTestCase.prototype.keyValueObservingExpectationForObjectKeyPathHandler = function ($info, objectToObserve, keyPath, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.keyValueObservingExpectationForObject(_:Any,keyPath:String,handler:XCTKVOExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectation(forNotification:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectation(forNotification:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
     XCTestCase.prototype.expectationForNotificationObjectHandler = function ($info, notificationName, objectToObserve, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectation(forNotification:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
     XCTestCase.prototype.expectationForNotificationObjectHandler = function ($info, notificationName, objectToObserve, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectation(for:NSPredicate,evaluatedWith:Any,handler:XCTNSPredicateExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectation(for:NSPredicate,evaluatedWith:Any,handler:XCTNSPredicateExpectation.Handler?)*/
     XCTestCase.prototype.expectationForEvaluatedWithHandler = function ($info, predicate, object, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectation(for:NSPredicate,evaluatedWith:Any,handler:XCTNSPredicateExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.expectationForPredicate(_:NSPredicate,evaluatedWithObject:Any,handler:XCTNSPredicateExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectationForPredicate(_:NSPredicate,evaluatedWithObject:Any,handler:XCTNSPredicateExpectation.Handler?)*/
     XCTestCase.prototype.expectationForPredicateEvaluatedWithObjectHandler = function ($info, predicate, object, handler) {
+        throw 'unsupported method XCTest.(file).XCTestCase.expectationForPredicate(_:NSPredicate,evaluatedWithObject:Any,handler:XCTNSPredicateExpectation.Handler?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didTimeoutWithUnfulfilledExpectations:[XCTestExpectation])*/
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didTimeoutWithUnfulfilledExpectations:[XCTestExpectation])*/
     XCTestCase.prototype.waiterDidTimeoutWithUnfulfilledExpectations = function ($info, waiter, unfulfilledExpectations) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didTimeoutWithUnfulfilledExpectations:[XCTestExpectation]) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,fulfillmentDidViolateOrderingConstraintsFor:XCTestExpectation,requiredExpectation:XCTestExpectation)*/
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,fulfillmentDidViolateOrderingConstraintsFor:XCTestExpectation,requiredExpectation:XCTestExpectation)*/
     XCTestCase.prototype.waiterFulfillmentDidViolateOrderingConstraintsForRequiredExpectation = function ($info, waiter, expectation, requiredExpectation) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waiter(_:XCTWaiter,fulfillmentDidViolateOrderingConstraintsFor:XCTestExpectation,requiredExpectation:XCTestExpectation) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didFulfillInvertedExpectation:XCTestExpectation)*/
     /*XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didFulfillInvertedExpectation:XCTestExpectation)*/
     XCTestCase.prototype.waiterDidFulfillInvertedExpectation = function ($info, waiter, expectation) {
+        throw 'unsupported method XCTest.(file).XCTestCase.waiter(_:XCTWaiter,didFulfillInvertedExpectation:XCTestExpectation) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.nestedWaiter(_:XCTWaiter,wasInterruptedByTimedOutWaiter:XCTWaiter)*/
     /*XCTest.(file).XCTestCase.nestedWaiter(_:XCTWaiter,wasInterruptedByTimedOutWaiter:XCTWaiter)*/
     XCTestCase.prototype.nestedWaiterWasInterruptedByTimedOutWaiter = function ($info, waiter, outerWaiter) {
+        throw 'unsupported method XCTest.(file).XCTestCase.nestedWaiter(_:XCTWaiter,wasInterruptedByTimedOutWaiter:XCTWaiter) in ' + this.constructor.name;
     };
-    XCTestCase.$infoAddress = '0x1184db678';
+    XCTestCase.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestCase.$infoAddress = '';
     return XCTestCase;
 }(XCTest));
 if (typeof XCTActivity$implementation != 'undefined')
@@ -47959,9 +48629,11 @@ var XCTestError = /** @class */ (function () {
     XCTestError.prototype.init_nsErrorNSError = function ($info, _nsError) {
         return _nsError;
     };
+    XCTestError.prototype.init$vars = function () {
+    };
     var _164;
     XCTestError.$struct = true;
-    XCTestError.$infoAddress = '0x1184dc370';
+    XCTestError.$infoAddress = '';
     XCTestError.Code = (_164 = /** @class */ (function () {
             function class_188() {
             }
@@ -47970,11 +48642,16 @@ var XCTestError = /** @class */ (function () {
             class_188.prototype.initRawValueInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCTestError.Code.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCTestError.Code.rawValue*/
+            class_188.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCTestError.Code.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_188.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_188, "timeoutWhileWaiting", {
                 get: function () { return Object.assign(new XCTestError.Code(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -47985,9 +48662,11 @@ var XCTestError = /** @class */ (function () {
                 enumerable: true,
                 configurable: true
             });
+            class_188.prototype.init$vars = function () {
+            };
             return class_188;
         }()),
-        _164.$infoAddress = '0x1184dcd78',
+        _164.$infoAddress = '',
         _164);
     return XCTestError;
 }());
@@ -48004,12 +48683,17 @@ var XCTestExpectation = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestExpectation.fulfill()*/
     /*XCTest.(file).XCTestExpectation.fulfill()*/
     XCTestExpectation.prototype.fulfill = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestExpectation.fulfill() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestExpectation.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestExpectation.prototype.init = function ($info) {
     };
-    XCTestExpectation.$infoAddress = '0x1184a8c88';
+    XCTestExpectation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestExpectation.$infoAddress = '';
     return XCTestExpectation;
 }(NSObject));
 var XCTestObservation$implementation = /** @class */ (function () {
@@ -48027,16 +48711,22 @@ var XCTestObservationCenter = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestObservationCenter.addTestObserver(_:XCTestObservation)*/
     /*XCTest.(file).XCTestObservationCenter.addTestObserver(_:XCTestObservation)*/
     XCTestObservationCenter.prototype.addTestObserver = function ($info, testObserver) {
+        throw 'unsupported method XCTest.(file).XCTestObservationCenter.addTestObserver(_:XCTestObservation) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObservationCenter.removeTestObserver(_:XCTestObservation)*/
     /*XCTest.(file).XCTestObservationCenter.removeTestObserver(_:XCTestObservation)*/
     XCTestObservationCenter.prototype.removeTestObserver = function ($info, testObserver) {
+        throw 'unsupported method XCTest.(file).XCTestObservationCenter.removeTestObserver(_:XCTestObservation) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObservationCenter.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestObservationCenter.prototype.init = function ($info) {
     };
-    XCTestObservationCenter.$infoAddress = '0x1184e0088';
+    XCTestObservationCenter.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestObservationCenter.$infoAddress = '';
     return XCTestObservationCenter;
 }(NSObject));
 var XCTestObserver = /** @class */ (function (_super) {
@@ -48047,36 +48737,47 @@ var XCTestObserver = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestObserver.startObserving()*/
     /*XCTest.(file).XCTestObserver.startObserving()*/
     XCTestObserver.prototype.startObserving = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.startObserving() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.stopObserving()*/
     /*XCTest.(file).XCTestObserver.stopObserving()*/
     XCTestObserver.prototype.stopObserving = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.stopObserving() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.testSuiteDidStart(_:XCTestRun?)*/
     /*XCTest.(file).XCTestObserver.testSuiteDidStart(_:XCTestRun?)*/
     XCTestObserver.prototype.testSuiteDidStart = function ($info, testRun) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.testSuiteDidStart(_:XCTestRun?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.testSuiteDidStop(_:XCTestRun?)*/
     /*XCTest.(file).XCTestObserver.testSuiteDidStop(_:XCTestRun?)*/
     XCTestObserver.prototype.testSuiteDidStop = function ($info, testRun) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.testSuiteDidStop(_:XCTestRun?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.testCaseDidStart(_:XCTestRun?)*/
     /*XCTest.(file).XCTestObserver.testCaseDidStart(_:XCTestRun?)*/
     XCTestObserver.prototype.testCaseDidStart = function ($info, testRun) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.testCaseDidStart(_:XCTestRun?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.testCaseDidStop(_:XCTestRun?)*/
     /*XCTest.(file).XCTestObserver.testCaseDidStop(_:XCTestRun?)*/
     XCTestObserver.prototype.testCaseDidStop = function ($info, testRun) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.testCaseDidStop(_:XCTestRun?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.testCaseDidFail(_:XCTestRun?,withDescription:String?,inFile:String?,atLine:Int)*/
     /*XCTest.(file).XCTestObserver.testCaseDidFail(_:XCTestRun?,withDescription:String?,inFile:String?,atLine:Int)*/
     XCTestObserver.prototype.testCaseDidFailWithDescriptionInFileAtLine = function ($info, testRun, description, filePath, lineNumber) {
+        throw 'unsupported method XCTest.(file).XCTestObserver.testCaseDidFail(_:XCTestRun?,withDescription:String?,inFile:String?,atLine:Int) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestObserver.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestObserver.prototype.init = function ($info) {
     };
-    XCTestObserver.$infoAddress = '0x1184df2f0';
+    XCTestObserver.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestObserver.$infoAddress = '';
     return XCTestObserver;
 }(NSObject));
 var XCTestProbe = /** @class */ (function (_super) {
@@ -48087,12 +48788,17 @@ var XCTestProbe = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestProbe.isTesting()*/
     /*XCTest.(file).XCTestProbe.isTesting()*/
     XCTestProbe.isTesting = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestProbe.isTesting() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestProbe.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestProbe.prototype.init = function ($info) {
     };
-    XCTestProbe.$infoAddress = '0x1184e0638';
+    XCTestProbe.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestProbe.$infoAddress = '';
     return XCTestProbe;
 }(NSObject));
 var XCTestRun = /** @class */ (function (_super) {
@@ -48112,6 +48818,7 @@ var XCTestRun = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestRun.testRunWithTest(_:XCTest)*/
     /*XCTest.(file).XCTestRun.testRunWithTest(_:XCTest)*/
     XCTestRun.testRunWithTest = function ($info, test) {
+        throw 'unsupported method XCTest.(file).XCTestRun.testRunWithTest(_:XCTest) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestRun.init(test:XCTest)*/
     /*XCTest.(file).XCTestRun.init(test:XCTest)*/
@@ -48121,20 +48828,28 @@ var XCTestRun = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestRun.start()*/
     /*XCTest.(file).XCTestRun.start()*/
     XCTestRun.prototype.start = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestRun.start() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestRun.stop()*/
     /*XCTest.(file).XCTestRun.stop()*/
     XCTestRun.prototype.stop = function ($info) {
+        throw 'unsupported method XCTest.(file).XCTestRun.stop() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestRun.recordFailure(withDescription:String,inFile:String?,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestRun.recordFailure(withDescription:String,inFile:String?,atLine:Int,expected:Bool)*/
     XCTestRun.prototype.recordFailureWithDescriptionInFileAtLineExpected = function ($info, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestRun.recordFailure(withDescription:String,inFile:String?,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool)*/
     XCTestRun.prototype.recordFailureWithDescriptionInFileAtLineExpected = function ($info, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
-    XCTestRun.$infoAddress = '0x1184dbc78';
+    XCTestRun.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestRun.$infoAddress = '';
     return XCTestRun;
 }(NSObject));
 var XCTestSuite = /** @class */ (function (_super) {
@@ -48150,6 +48865,7 @@ var XCTestSuite = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String)*/
     /*XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String)*/
     XCTestSuite.testSuiteForBundlePath = function ($info, bundlePath) {
+        throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.init(forTestCaseWithName:String)*/
     /*XCTest.(file).XCTestSuite.init(forTestCaseWithName:String)*/
@@ -48159,6 +48875,7 @@ var XCTestSuite = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String)*/
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String)*/
     XCTestSuite.testSuiteForTestCaseWithName = function ($info, _name) {
+        throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.init(forTestCaseClass:AnyClass)*/
     /*XCTest.(file).XCTestSuite.init(forTestCaseClass:AnyClass)*/
@@ -48168,6 +48885,7 @@ var XCTestSuite = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass)*/
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass)*/
     XCTestSuite.testSuiteForTestCaseClass = function ($info, testCaseClass) {
+        throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.init(name:String)*/
     /*XCTest.(file).XCTestSuite.init(name:String)*/
@@ -48177,6 +48895,7 @@ var XCTestSuite = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuite.testSuiteWithName(_:String)*/
     /*XCTest.(file).XCTestSuite.testSuiteWithName(_:String)*/
     XCTestSuite.testSuiteWithName = function ($info, _name) {
+        throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteWithName(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.init(name:String)*/
     /*XCTest.(file).XCTestSuite.init(name:String)*/
@@ -48190,8 +48909,13 @@ var XCTestSuite = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuite.addTest(_:XCTest)*/
     /*XCTest.(file).XCTestSuite.addTest(_:XCTest)*/
     XCTestSuite.prototype.addTest = function ($info, test) {
+        throw 'unsupported method XCTest.(file).XCTestSuite.addTest(_:XCTest) in ' + this.constructor.name;
     };
-    XCTestSuite.$infoAddress = '0x1184e10c8';
+    XCTestSuite.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestSuite.$infoAddress = '';
     return XCTestSuite;
 }(XCTest));
 var XCTestSuiteRun = /** @class */ (function (_super) {
@@ -48202,6 +48926,7 @@ var XCTestSuiteRun = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestSuiteRun.addTestRun(_:XCTestRun)*/
     /*XCTest.(file).XCTestSuiteRun.addTestRun(_:XCTestRun)*/
     XCTestSuiteRun.prototype.addTestRun = function ($info, testRun) {
+        throw 'unsupported method XCTest.(file).XCTestSuiteRun.addTestRun(_:XCTestRun) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuiteRun.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
@@ -48217,7 +48942,11 @@ var XCTestSuiteRun = /** @class */ (function (_super) {
     XCTestSuiteRun.prototype.initTestXCTest = function ($info, test) {
         return test;
     };
-    XCTestSuiteRun.$infoAddress = '0x1184e1510';
+    XCTestSuiteRun.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestSuiteRun.$infoAddress = '';
     return XCTestSuiteRun;
 }(XCTestRun));
 var XCUICoordinate = /** @class */ (function (_super) {
@@ -48232,72 +48961,93 @@ var XCUICoordinate = /** @class */ (function (_super) {
     /*XCTest.(file).XCUICoordinate.withOffset(_:CGVector)*/
     /*XCTest.(file).XCUICoordinate.withOffset(_:CGVector)*/
     XCUICoordinate.prototype.withOffset = function ($info, offsetVector) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.withOffset(_:CGVector) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.coordinateWithOffset(_:CGVector)*/
     /*XCTest.(file).XCUICoordinate.coordinateWithOffset(_:CGVector)*/
     XCUICoordinate.prototype.coordinateWithOffset = function ($info, offsetVector) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.coordinateWithOffset(_:CGVector) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.copy(with:NSZone?)*/
     /*XCTest.(file).XCUICoordinate.copy(with:NSZone?)*/
     XCUICoordinate.prototype.copyWith = function ($info, zone) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.copy(with:NSZone?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.hover()*/
     /*XCTest.(file).XCUICoordinate.hover()*/
     XCUICoordinate.prototype.hover = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.hover() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.click()*/
     /*XCTest.(file).XCUICoordinate.click()*/
     XCUICoordinate.prototype.click = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.click() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.doubleClick()*/
     /*XCTest.(file).XCUICoordinate.doubleClick()*/
     XCUICoordinate.prototype.doubleClick = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.doubleClick() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.rightClick()*/
     /*XCTest.(file).XCUICoordinate.rightClick()*/
     XCUICoordinate.prototype.rightClick = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.rightClick() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.click(forDuration:TimeInterval,thenDragTo:XCUICoordinate)*/
     /*XCTest.(file).XCUICoordinate.click(forDuration:TimeInterval,thenDragTo:XCUICoordinate)*/
     XCUICoordinate.prototype.clickForDurationThenDragTo = function ($info, duration, otherCoordinate) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.click(forDuration:TimeInterval,thenDragTo:XCUICoordinate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.clickForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate)*/
     /*XCTest.(file).XCUICoordinate.clickForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate)*/
     XCUICoordinate.prototype.clickForDurationThenDragToCoordinate = function ($info, duration, otherCoordinate) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.clickForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.scroll(byDeltaX:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUICoordinate.scroll(byDeltaX:CGFloat,deltaY:CGFloat)*/
     XCUICoordinate.prototype.scrollByDeltaXDeltaY = function ($info, deltaX, deltaY) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.scroll(byDeltaX:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     XCUICoordinate.prototype.scrollByDeltaXDeltaY = function ($info, deltaX, deltaY) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.tap()*/
     /*XCTest.(file).XCUICoordinate.tap()*/
     XCUICoordinate.prototype.tap = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.tap() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.doubleTap()*/
     /*XCTest.(file).XCUICoordinate.doubleTap()*/
     XCUICoordinate.prototype.doubleTap = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.doubleTap() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval)*/
     /*XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval)*/
     XCUICoordinate.prototype.pressForDuration = function ($info, duration) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval)*/
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval)*/
     XCUICoordinate.prototype.pressForDuration = function ($info, duration) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval,thenDragTo:XCUICoordinate)*/
     /*XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval,thenDragTo:XCUICoordinate)*/
     XCUICoordinate.prototype.pressForDurationThenDragTo = function ($info, duration, otherCoordinate) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.press(forDuration:TimeInterval,thenDragTo:XCUICoordinate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate)*/
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate)*/
     XCUICoordinate.prototype.pressForDurationThenDragToCoordinate = function ($info, duration, otherCoordinate) {
+        throw 'unsupported method XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval,thenDragToCoordinate:XCUICoordinate) in ' + this.constructor.name;
     };
-    XCUICoordinate.$infoAddress = '0x1184e5a88';
+    XCUICoordinate.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCUICoordinate.$infoAddress = '';
     return XCUICoordinate;
 }(NSObject));
 if (typeof NSCopying$implementation != 'undefined')
@@ -48310,13 +49060,20 @@ var XCUIElementAttributeName = /** @class */ (function () {
     XCUIElementAttributeName.prototype.initRawValueString = function ($info, rawValue) {
         return rawValue;
     };
-    /*XCTest.(file).XCUIElementAttributeName.rawValue*/ /*
-    rawValue$get() {
-    return this.rawValue
-    }
-    get rawValue() { return this.rawValue$get() }*/ ;
+    /*XCTest.(file).XCUIElementAttributeName.rawValue*/
+    XCUIElementAttributeName.prototype.rawValue$get = function () {
+        throw 'unsupported variable XCTest.(file).XCUIElementAttributeName.rawValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(XCUIElementAttributeName.prototype, "rawValue", {
+        get: function () { return this.rawValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    XCUIElementAttributeName.prototype.init$vars = function () {
+    };
     XCUIElementAttributeName.$struct = true;
-    XCUIElementAttributeName.$infoAddress = '0x1184e6068';
+    XCUIElementAttributeName.$infoAddress = '';
     return XCUIElementAttributeName;
 }());
 var XCUIElementAttributes$implementation = /** @class */ (function () {
@@ -48356,13 +49113,20 @@ var XCUIKeyboardKey = /** @class */ (function () {
     XCUIKeyboardKey.prototype.initRawValueString = function ($info, rawValue) {
         return rawValue;
     };
-    /*XCTest.(file).XCUIKeyboardKey.rawValue*/ /*
-    rawValue$get() {
-    return this.rawValue
-    }
-    get rawValue() { return this.rawValue$get() }*/ ;
+    /*XCTest.(file).XCUIKeyboardKey.rawValue*/
+    XCUIKeyboardKey.prototype.rawValue$get = function () {
+        throw 'unsupported variable XCTest.(file).XCUIKeyboardKey.rawValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(XCUIKeyboardKey.prototype, "rawValue", {
+        get: function () { return this.rawValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    XCUIKeyboardKey.prototype.init$vars = function () {
+    };
     XCUIKeyboardKey.$struct = true;
-    XCUIKeyboardKey.$infoAddress = '0x118506e28';
+    XCUIKeyboardKey.$infoAddress = '';
     return XCUIKeyboardKey;
 }());
 var XCUIRemoteButton = /** @class */ (function () {
@@ -48373,11 +49137,16 @@ var XCUIRemoteButton = /** @class */ (function () {
     XCUIRemoteButton.prototype.initRawValueUInt = function ($info, rawValue) {
         return rawValue;
     };
-    /*XCTest.(file).XCUIRemoteButton.rawValue*/ /*
-    rawValue$get() {
-    return this.rawValue
-    }
-    get rawValue() { return this.rawValue$get() }*/ ;
+    /*XCTest.(file).XCUIRemoteButton.rawValue*/
+    XCUIRemoteButton.prototype.rawValue$get = function () {
+        throw 'unsupported variable XCTest.(file).XCUIRemoteButton.rawValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(XCUIRemoteButton.prototype, "rawValue", {
+        get: function () { return this.rawValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     Object.defineProperty(XCUIRemoteButton, "up", {
         get: function () { return Object.assign(new XCUIRemoteButton(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
         enumerable: true,
@@ -48418,7 +49187,9 @@ var XCUIRemoteButton = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    XCUIRemoteButton.$infoAddress = '0x11850de30';
+    XCUIRemoteButton.prototype.init$vars = function () {
+    };
+    XCUIRemoteButton.$infoAddress = '';
     return XCUIRemoteButton;
 }());
 var XCUIScreenshot = /** @class */ (function (_super) {
@@ -48430,7 +49201,11 @@ var XCUIScreenshot = /** @class */ (function (_super) {
     /*ObjectiveC.(file).NSObject.init()*/
     XCUIScreenshot.prototype.init = function ($info) {
     };
-    XCUIScreenshot.$infoAddress = '0x118512050';
+    XCUIScreenshot.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCUIScreenshot.$infoAddress = '';
     return XCUIScreenshot;
 }(NSObject));
 var XCUIScreenshotProviding$implementation = /** @class */ (function () {
@@ -48448,11 +49223,16 @@ var _XCTAssertionType = /** @class */ (function () {
     _XCTAssertionType.prototype.initRawValueUInt = function ($info, rawValue) {
         return rawValue;
     };
-    /*XCTest.(file)._XCTAssertionType.rawValue*/ /*
-    rawValue$get() {
-    return this.rawValue
-    }
-    get rawValue() { return this.rawValue$get() }*/ ;
+    /*XCTest.(file)._XCTAssertionType.rawValue*/
+    _XCTAssertionType.prototype.rawValue$get = function () {
+        throw 'unsupported variable XCTest.(file)._XCTAssertionType.rawValue in ' + this.constructor.name;
+    };
+    Object.defineProperty(_XCTAssertionType.prototype, "rawValue", {
+        get: function () { return this.rawValue$get(); },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     Object.defineProperty(_XCTAssertionType, "fail", {
         get: function () { return Object.assign(new _XCTAssertionType(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
         enumerable: true,
@@ -48558,7 +49338,9 @@ var _XCTAssertionType = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    _XCTAssertionType.$infoAddress = '0x118513fe8';
+    _XCTAssertionType.prototype.init$vars = function () {
+    };
+    _XCTAssertionType.$infoAddress = '';
     return _XCTAssertionType;
 }());
 var _XCTestCaseInterruptionException = /** @class */ (function (_super) {
@@ -48579,7 +49361,11 @@ var _XCTestCaseInterruptionException = /** @class */ (function (_super) {
     _XCTestCaseInterruptionException.prototype.initCoderNSCoder = function ($info, aDecoder) {
         return aDecoder;
     };
-    _XCTestCaseInterruptionException.$infoAddress = '0x118542430';
+    _XCTestCaseInterruptionException.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    _XCTestCaseInterruptionException.$infoAddress = '';
     return _XCTestCaseInterruptionException;
 }(NSException));
 var _XCTThrowableBlockResult = /** @class */ (function () {
@@ -48597,7 +49383,9 @@ var _XCTThrowableBlockResult = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    _XCTThrowableBlockResult.$infoAddress = '0x118546378';
+    _XCTThrowableBlockResult.prototype.init$vars = function () {
+    };
+    _XCTThrowableBlockResult.$infoAddress = '';
     return _XCTThrowableBlockResult;
 }());
 var XCTDarwinNotificationExpectation = /** @class */ (function (_super) {
@@ -48619,7 +49407,11 @@ var XCTDarwinNotificationExpectation = /** @class */ (function (_super) {
     XCTDarwinNotificationExpectation.prototype.initNotificationNameString = function ($info, notificationName) {
         return notificationName;
     };
-    XCTDarwinNotificationExpectation.$infoAddress = '0x1184ad778';
+    XCTDarwinNotificationExpectation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTDarwinNotificationExpectation.$infoAddress = '';
     return XCTDarwinNotificationExpectation;
 }(XCTestExpectation));
 var XCTKVOExpectation = /** @class */ (function (_super) {
@@ -48648,7 +49440,11 @@ var XCTKVOExpectation = /** @class */ (function (_super) {
     /*XCTest.(file).XCTKVOExpectation.init(keyPath:String,object:Any)*/
     XCTKVOExpectation.prototype.initKeyPathStringObjectprotocol_composition_type = function ($info, keyPath, object) {
     };
-    XCTKVOExpectation.$infoAddress = '0x1184a8af0';
+    XCTKVOExpectation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTKVOExpectation.$infoAddress = '';
     return XCTKVOExpectation;
 }(XCTestExpectation));
 var XCTNSNotificationExpectation = /** @class */ (function (_super) {
@@ -48678,7 +49474,11 @@ var XCTNSNotificationExpectation = /** @class */ (function (_super) {
     XCTNSNotificationExpectation.prototype.initNameNSNotificationName = function ($info, notificationName) {
         return notificationName;
     };
-    XCTNSNotificationExpectation.$infoAddress = '0x1184a9850';
+    XCTNSNotificationExpectation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTNSNotificationExpectation.$infoAddress = '';
     return XCTNSNotificationExpectation;
 }(XCTestExpectation));
 var XCTNSPredicateExpectation = /** @class */ (function (_super) {
@@ -48699,7 +49499,11 @@ var XCTNSPredicateExpectation = /** @class */ (function (_super) {
     /*XCTest.(file).XCTNSPredicateExpectation.init(predicate:NSPredicate,object:Any?)*/
     XCTNSPredicateExpectation.prototype.initPredicateNSPredicateObjectOptional = function ($info, predicate, object) {
     };
-    XCTNSPredicateExpectation.$infoAddress = '0x1184aa0e0';
+    XCTNSPredicateExpectation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTNSPredicateExpectation.$infoAddress = '';
     return XCTNSPredicateExpectation;
 }(XCTestExpectation));
 var XCTestCaseRun = /** @class */ (function (_super) {
@@ -48710,10 +49514,12 @@ var XCTestCaseRun = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestCaseRun.recordFailure(inTest:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCaseRun.recordFailure(inTest:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     XCTestCaseRun.prototype.recordFailureInTestWithDescriptionInFileAtLineExpected = function ($info, testCase, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestCaseRun.recordFailure(inTest:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     XCTestCaseRun.prototype.recordFailureInTestWithDescriptionInFileAtLineExpected = function ($info, testCase, description, filePath, lineNumber, expected) {
+        throw 'unsupported method XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCaseRun.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
@@ -48729,7 +49535,11 @@ var XCTestCaseRun = /** @class */ (function (_super) {
     XCTestCaseRun.prototype.initTestXCTest = function ($info, test) {
         return test;
     };
-    XCTestCaseRun.$infoAddress = '0x1184dbae8';
+    XCTestCaseRun.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestCaseRun.$infoAddress = '';
     return XCTestCaseRun;
 }(XCTestRun));
 var XCTestLog = /** @class */ (function (_super) {
@@ -48739,17 +49549,23 @@ var XCTestLog = /** @class */ (function (_super) {
     }
     /*XCTest.(file).XCTestLog.testLog(withFormat:String?,arguments:CVaListPointer)*/
     /*XCTest.(file).XCTestLog.testLog(withFormat:String?,arguments:CVaListPointer)*/
-    XCTestLog.prototype.testLogWithFormatArguments = function ($info, format, arguments) {
+    XCTestLog.prototype.testLogWithFormatArguments = function ($info, format, _arguments) {
+        throw 'unsupported method XCTest.(file).XCTestLog.testLog(withFormat:String?,arguments:CVaListPointer) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer)*/
     /*XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer)*/
-    XCTestLog.prototype.testLogWithFormatArguments = function ($info, format, arguments) {
+    XCTestLog.prototype.testLogWithFormatArguments = function ($info, format, _arguments) {
+        throw 'unsupported method XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestLog.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestLog.prototype.init = function ($info) {
     };
-    XCTestLog.$infoAddress = '0x1184df160';
+    XCTestLog.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCTestLog.$infoAddress = '';
     return XCTestLog;
 }(XCTestObserver));
 var XCUIElement = /** @class */ (function (_super) {
@@ -48764,129 +49580,164 @@ var XCUIElement = /** @class */ (function (_super) {
     /*XCTest.(file).XCUIElement.waitForExistence(timeout:TimeInterval)*/
     /*XCTest.(file).XCUIElement.waitForExistence(timeout:TimeInterval)*/
     XCUIElement.prototype.waitForExistenceTimeout = function ($info, timeout) {
+        throw 'unsupported method XCTest.(file).XCUIElement.waitForExistence(timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.waitForExistenceWithTimeout(_:TimeInterval)*/
     /*XCTest.(file).XCUIElement.waitForExistenceWithTimeout(_:TimeInterval)*/
     XCUIElement.prototype.waitForExistenceWithTimeout = function ($info, timeout) {
+        throw 'unsupported method XCTest.(file).XCUIElement.waitForExistenceWithTimeout(_:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.descendants(matching:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElement.descendants(matching:XCUIElement.ElementType)*/
     XCUIElement.prototype.descendantsMatching = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElement.descendants(matching:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.descendantsMatchingType(_:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElement.descendantsMatchingType(_:XCUIElement.ElementType)*/
     XCUIElement.prototype.descendantsMatchingType = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElement.descendantsMatchingType(_:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.children(matching:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElement.children(matching:XCUIElement.ElementType)*/
     XCUIElement.prototype.childrenMatching = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElement.children(matching:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.childrenMatchingType(_:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElement.childrenMatchingType(_:XCUIElement.ElementType)*/
     XCUIElement.prototype.childrenMatchingType = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElement.childrenMatchingType(_:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.coordinate(withNormalizedOffset:CGVector)*/
     /*XCTest.(file).XCUIElement.coordinate(withNormalizedOffset:CGVector)*/
     XCUIElement.prototype.coordinateWithNormalizedOffset = function ($info, normalizedOffset) {
+        throw 'unsupported method XCTest.(file).XCUIElement.coordinate(withNormalizedOffset:CGVector) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector)*/
     /*XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector)*/
     XCUIElement.prototype.coordinateWithNormalizedOffset = function ($info, normalizedOffset) {
+        throw 'unsupported method XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.screenshot()*/
     /*XCTest.(file).XCUIElement.screenshot()*/
     XCUIElement.prototype.screenshot = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.screenshot() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.typeText(_:String)*/
     /*XCTest.(file).XCUIElement.typeText(_:String)*/
     XCUIElement.prototype.typeText = function ($info, _text) {
+        throw 'unsupported method XCTest.(file).XCUIElement.typeText(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void)*/
     /*XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void)*/
     XCUIElement.performWithKeyModifiersBlock = function ($info, flags, block) {
+        throw 'unsupported method XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void)*/
     /*XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void)*/
     XCUIElement.performWithKeyModifiersBlock = function ($info, flags, block) {
+        throw 'unsupported method XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.typeKey(_:String,modifierFlags:XCUIElement.KeyModifierFlags)*/
     /*XCTest.(file).XCUIElement.typeKey(_:String,modifierFlags:XCUIElement.KeyModifierFlags)*/
     XCUIElement.prototype.typeKeyModifierFlags = function ($info, key, flags) {
+        throw 'unsupported method XCTest.(file).XCUIElement.typeKey(_:String,modifierFlags:XCUIElement.KeyModifierFlags) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.hover()*/
     /*XCTest.(file).XCUIElement.hover()*/
     XCUIElement.prototype.hover = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.hover() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.click()*/
     /*XCTest.(file).XCUIElement.click()*/
     XCUIElement.prototype.click = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.click() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.doubleClick()*/
     /*XCTest.(file).XCUIElement.doubleClick()*/
     XCUIElement.prototype.doubleClick = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.doubleClick() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.rightClick()*/
     /*XCTest.(file).XCUIElement.rightClick()*/
     XCUIElement.prototype.rightClick = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.rightClick() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.click(forDuration:TimeInterval,thenDragTo:XCUIElement)*/
     /*XCTest.(file).XCUIElement.click(forDuration:TimeInterval,thenDragTo:XCUIElement)*/
     XCUIElement.prototype.clickForDurationThenDragTo = function ($info, duration, otherElement) {
+        throw 'unsupported method XCTest.(file).XCUIElement.click(forDuration:TimeInterval,thenDragTo:XCUIElement) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.clickForDuration(_:TimeInterval,thenDragToElement:XCUIElement)*/
     /*XCTest.(file).XCUIElement.clickForDuration(_:TimeInterval,thenDragToElement:XCUIElement)*/
     XCUIElement.prototype.clickForDurationThenDragToElement = function ($info, duration, otherElement) {
+        throw 'unsupported method XCTest.(file).XCUIElement.clickForDuration(_:TimeInterval,thenDragToElement:XCUIElement) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.scroll(byDeltaX:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUIElement.scroll(byDeltaX:CGFloat,deltaY:CGFloat)*/
     XCUIElement.prototype.scrollByDeltaXDeltaY = function ($info, deltaX, deltaY) {
+        throw 'unsupported method XCTest.(file).XCUIElement.scroll(byDeltaX:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     XCUIElement.prototype.scrollByDeltaXDeltaY = function ($info, deltaX, deltaY) {
+        throw 'unsupported method XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.tap()*/
     /*XCTest.(file).XCUIElement.tap()*/
     XCUIElement.prototype.tap = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.tap() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.doubleTap()*/
     /*XCTest.(file).XCUIElement.doubleTap()*/
     XCUIElement.prototype.doubleTap = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.doubleTap() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.press(forDuration:TimeInterval)*/
     /*XCTest.(file).XCUIElement.press(forDuration:TimeInterval)*/
     XCUIElement.prototype.pressForDuration = function ($info, duration) {
+        throw 'unsupported method XCTest.(file).XCUIElement.press(forDuration:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval)*/
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval)*/
     XCUIElement.prototype.pressForDuration = function ($info, duration) {
+        throw 'unsupported method XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.press(forDuration:TimeInterval,thenDragTo:XCUIElement)*/
     /*XCTest.(file).XCUIElement.press(forDuration:TimeInterval,thenDragTo:XCUIElement)*/
     XCUIElement.prototype.pressForDurationThenDragTo = function ($info, duration, otherElement) {
+        throw 'unsupported method XCTest.(file).XCUIElement.press(forDuration:TimeInterval,thenDragTo:XCUIElement) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval,thenDragToElement:XCUIElement)*/
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval,thenDragToElement:XCUIElement)*/
     XCUIElement.prototype.pressForDurationThenDragToElement = function ($info, duration, otherElement) {
+        throw 'unsupported method XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval,thenDragToElement:XCUIElement) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.adjust(toNormalizedSliderPosition:CGFloat)*/
     /*XCTest.(file).XCUIElement.adjust(toNormalizedSliderPosition:CGFloat)*/
     XCUIElement.prototype.adjustToNormalizedSliderPosition = function ($info, normalizedSliderPosition) {
+        throw 'unsupported method XCTest.(file).XCUIElement.adjust(toNormalizedSliderPosition:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat)*/
     /*XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat)*/
     XCUIElement.prototype.adjustToNormalizedSliderPosition = function ($info, normalizedSliderPosition) {
+        throw 'unsupported method XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.snapshot()*/
     /*XCTest.(file).XCUIElement.snapshot()*/
     XCUIElement.prototype.snapshot = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIElement.snapshot() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags)*/
     /*XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags)*/
     XCUIElement.prototype.typeKeyModifierFlags = function ($info, key, modifierFlags) {
+        throw 'unsupported method XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags) in ' + this.constructor.name;
+    };
+    XCUIElement.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
     };
     var _165, _166, _167;
-    XCUIElement.$infoAddress = '0x1184e1db0';
+    XCUIElement.$infoAddress = '';
     XCUIElement.ElementType = (_165 = /** @class */ (function () {
             function class_189() {
             }
@@ -48895,11 +49746,16 @@ var XCUIElement = /** @class */ (function (_super) {
             class_189.prototype.initRawValueUInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCUIElement.ElementType.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCUIElement.ElementType.rawValue*/
+            class_189.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCUIElement.ElementType.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_189.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_189, "any", {
                 get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -49315,9 +50171,11 @@ var XCUIElement = /** @class */ (function (_super) {
                 enumerable: true,
                 configurable: true
             });
+            class_189.prototype.init$vars = function () {
+            };
             return class_189;
         }()),
-        _165.$infoAddress = '0x1184e9bb0',
+        _165.$infoAddress = '',
         _165);
     XCUIElement.SizeClass = (_166 = /** @class */ (function () {
             function class_190() {
@@ -49327,19 +50185,26 @@ var XCUIElement = /** @class */ (function (_super) {
             class_190.prototype.initRawValueInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCUIElement.SizeClass.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCUIElement.SizeClass.rawValue*/
+            class_190.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCUIElement.SizeClass.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_190.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_190, "unspecified", {
                 get: function () { return Object.assign(new XCUIElement.SizeClass(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
                 configurable: true
             });
+            class_190.prototype.init$vars = function () {
+            };
             return class_190;
         }()),
-        _166.$infoAddress = '0x1185124a8',
+        _166.$infoAddress = '',
         _166);
     XCUIElement.KeyModifierFlags = (_167 = /** @class */ (function () {
             function class_191() {
@@ -49349,15 +50214,22 @@ var XCUIElement = /** @class */ (function (_super) {
             class_191.prototype.initRawValueUInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCUIElement.KeyModifierFlags.rawValue*/ /*
-            readonly rawValue$get() {
-            return this.rawValue
-            }
-            readonly get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCUIElement.KeyModifierFlags.rawValue*/
+            class_191.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCUIElement.KeyModifierFlags.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_191.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
+            class_191.prototype.init$vars = function () {
+            };
             return class_191;
         }()),
         _167.$struct = true,
-        _167.$infoAddress = '0x1185027a8',
+        _167.$infoAddress = '',
         _167);
     return XCUIElement;
 }(NSObject));
@@ -49381,34 +50253,42 @@ var XCUIElementQuery = /** @class */ (function (_super) {
     /*XCTest.(file).XCUIElementQuery.element(at:Int)*/
     /*XCTest.(file).XCUIElementQuery.element(at:Int)*/
     XCUIElementQuery.prototype.elementAt = function ($info, index) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.element(at:Int) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.elementAtIndex(_:Int)*/
     /*XCTest.(file).XCUIElementQuery.elementAtIndex(_:Int)*/
     XCUIElementQuery.prototype.elementAtIndex = function ($info, index) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.elementAtIndex(_:Int) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.element(boundBy:Int)*/
     /*XCTest.(file).XCUIElementQuery.element(boundBy:Int)*/
     XCUIElementQuery.prototype.elementBoundBy = function ($info, index) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.element(boundBy:Int) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.elementBoundByIndex(_:Int)*/
     /*XCTest.(file).XCUIElementQuery.elementBoundByIndex(_:Int)*/
     XCUIElementQuery.prototype.elementBoundByIndex = function ($info, index) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.elementBoundByIndex(_:Int) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.element(matching:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.element(matching:NSPredicate)*/
     XCUIElementQuery.prototype.elementMatching = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.element(matching:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.elementMatchingPredicate(_:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.elementMatchingPredicate(_:NSPredicate)*/
     XCUIElementQuery.prototype.elementMatchingPredicate = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.elementMatchingPredicate(_:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.element(matching:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.element(matching:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.elementMatchingIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.element(matching:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.elementMatchingType(_:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.elementMatchingType(_:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.elementMatchingTypeIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.elementMatchingType(_:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.subscript(_:String)*/
     /*XCTest.(file).XCUIElementQuery.subscript(_:String)*/
@@ -49418,64 +50298,83 @@ var XCUIElementQuery = /** @class */ (function (_super) {
     /*XCTest.(file).XCUIElementQuery.objectForKeyedSubscript(_:String)*/
     /*XCTest.(file).XCUIElementQuery.objectForKeyedSubscript(_:String)*/
     XCUIElementQuery.prototype.objectForKeyedSubscript = function ($info, key) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.objectForKeyedSubscript(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.descendants(matching:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElementQuery.descendants(matching:XCUIElement.ElementType)*/
     XCUIElementQuery.prototype.descendantsMatching = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.descendants(matching:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.descendantsMatchingType(_:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElementQuery.descendantsMatchingType(_:XCUIElement.ElementType)*/
     XCUIElementQuery.prototype.descendantsMatchingType = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.descendantsMatchingType(_:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.children(matching:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElementQuery.children(matching:XCUIElement.ElementType)*/
     XCUIElementQuery.prototype.childrenMatching = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.children(matching:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.childrenMatchingType(_:XCUIElement.ElementType)*/
     /*XCTest.(file).XCUIElementQuery.childrenMatchingType(_:XCUIElement.ElementType)*/
     XCUIElementQuery.prototype.childrenMatchingType = function ($info, type) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.childrenMatchingType(_:XCUIElement.ElementType) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matching(_:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.matching(_:NSPredicate)*/
     XCUIElementQuery.prototype.matching = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matching(_:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matchingPredicate(_:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.matchingPredicate(_:NSPredicate)*/
     XCUIElementQuery.prototype.matchingPredicate = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matchingPredicate(_:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matching(_:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.matching(_:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.matchingIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matching(_:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matchingType(_:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.matchingType(_:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.matchingTypeIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matchingType(_:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matching(identifier:String)*/
     /*XCTest.(file).XCUIElementQuery.matching(identifier:String)*/
     XCUIElementQuery.prototype.matchingIdentifier = function ($info, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matching(identifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String)*/
     /*XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String)*/
     XCUIElementQuery.prototype.matchingIdentifier = function ($info, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.containing(_:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.containing(_:NSPredicate)*/
     XCUIElementQuery.prototype.containing = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.containing(_:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.containingPredicate(_:NSPredicate)*/
     /*XCTest.(file).XCUIElementQuery.containingPredicate(_:NSPredicate)*/
     XCUIElementQuery.prototype.containingPredicate = function ($info, predicate) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.containingPredicate(_:NSPredicate) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.containing(_:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.containing(_:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.containingIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.containing(_:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.containingType(_:XCUIElement.ElementType,identifier:String?)*/
     /*XCTest.(file).XCUIElementQuery.containingType(_:XCUIElement.ElementType,identifier:String?)*/
     XCUIElementQuery.prototype.containingTypeIdentifier = function ($info, elementType, identifier) {
+        throw 'unsupported method XCTest.(file).XCUIElementQuery.containingType(_:XCUIElement.ElementType,identifier:String?) in ' + this.constructor.name;
     };
-    XCUIElementQuery.$infoAddress = '0x1184e8b10';
+    XCUIElementQuery.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCUIElementQuery.$infoAddress = '';
     return XCUIElementQuery;
 }(NSObject));
 if (typeof XCUIElementTypeQueryProvider$implementation != 'undefined')
@@ -49492,8 +50391,13 @@ var XCUIScreen = /** @class */ (function (_super) {
     /*XCTest.(file).XCUIScreen.screenshot()*/
     /*XCTest.(file).XCUIScreen.screenshot()*/
     XCUIScreen.prototype.screenshot = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIScreen.screenshot() in ' + this.constructor.name;
     };
-    XCUIScreen.$infoAddress = '0x1185114d0';
+    XCUIScreen.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    XCUIScreen.$infoAddress = '';
     return XCUIScreen;
 }(NSObject));
 if (typeof XCUIScreenshotProviding$implementation != 'undefined')
@@ -49525,25 +50429,34 @@ var XCUIApplication = /** @class */ (function (_super) {
     /*XCTest.(file).XCUIApplication.launch()*/
     /*XCTest.(file).XCUIApplication.launch()*/
     XCUIApplication.prototype.launch = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIApplication.launch() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIApplication.activate()*/
     /*XCTest.(file).XCUIApplication.activate()*/
     XCUIApplication.prototype.activate = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIApplication.activate() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIApplication.terminate()*/
     /*XCTest.(file).XCUIApplication.terminate()*/
     XCUIApplication.prototype.terminate = function ($info) {
+        throw 'unsupported method XCTest.(file).XCUIApplication.terminate() in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIApplication.wait(for:XCUIApplication.State,timeout:TimeInterval)*/
     /*XCTest.(file).XCUIApplication.wait(for:XCUIApplication.State,timeout:TimeInterval)*/
     XCUIApplication.prototype.waitForTimeout = function ($info, state, timeout) {
+        throw 'unsupported method XCTest.(file).XCUIApplication.wait(for:XCUIApplication.State,timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIApplication.waitForState(_:XCUIApplication.State,timeout:TimeInterval)*/
     /*XCTest.(file).XCUIApplication.waitForState(_:XCUIApplication.State,timeout:TimeInterval)*/
     XCUIApplication.prototype.waitForStateTimeout = function ($info, state, timeout) {
+        throw 'unsupported method XCTest.(file).XCUIApplication.waitForState(_:XCUIApplication.State,timeout:TimeInterval) in ' + this.constructor.name;
+    };
+    XCUIApplication.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
     };
     var _168;
-    XCUIApplication.$infoAddress = '0x1184e1c20';
+    XCUIApplication.$infoAddress = '';
     XCUIApplication.State = (_168 = /** @class */ (function () {
             function class_192() {
             }
@@ -49552,11 +50465,16 @@ var XCUIApplication = /** @class */ (function (_super) {
             class_192.prototype.initRawValueUInt = function ($info, rawValue) {
                 return rawValue;
             };
-            /*XCTest.(file).XCUIApplication.State.rawValue*/ /*
-            rawValue$get() {
-            return this.rawValue
-            }
-            get rawValue() { return this.rawValue$get() }*/ ;
+            /*XCTest.(file).XCUIApplication.State.rawValue*/
+            class_192.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCUIApplication.State.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_192.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
             Object.defineProperty(class_192, "unknown", {
                 get: function () { return Object.assign(new XCUIApplication.State(), __assign({ rawValue: 0 }, Array.from(arguments).slice(1))); },
                 enumerable: true,
@@ -49577,12 +50495,26 @@ var XCUIApplication = /** @class */ (function (_super) {
                 enumerable: true,
                 configurable: true
             });
+            class_192.prototype.init$vars = function () {
+            };
             return class_192;
         }()),
-        _168.$infoAddress = '0x1184e32d0',
+        _168.$infoAddress = '',
         _168);
     return XCUIApplication;
 }(XCUIElement));
+var XCKeyValueObservingExpectationHandler = XCTKVOExpectation.Handler;
+var XCNotificationExpectationHandler = XCTNSNotificationExpectation.Handler;
+var XCPredicateExpectationHandler = XCTNSPredicateExpectation.Handler;
+var XCTAttachmentLifetime = XCTAttachment.Lifetime;
+var XCTDarwinNotificationExpectationHandler = XCTDarwinNotificationExpectation.Handler;
+var XCTImageQuality = XCTAttachment.ImageQuality;
+var XCTWaiterResult = XCTWaiter.Result;
+var XCUIApplicationState = XCUIApplication.State;
+var XCUIElementType = XCUIElement.ElementType;
+var XCUIKeyModifierFlags = XCUIElement.KeyModifierFlags;
+var XCUIUserInterfaceSizeClass = XCUIElement.SizeClass;
+var XCWaitCompletionHandler = '?function_type';
 var SwiftIterator = /** @class */ (function () {
     function SwiftIterator(_currentToNext) {
         this._current = 0;
@@ -49622,7 +50554,7 @@ function _clarifyGenerics(Class) {
     return result;
 }
 function _cloneStruct(obj) {
-    if (!(obj instanceof Object) || !obj.constructor.$struct)
+    if (!(obj instanceof Object) || obj instanceof String || obj instanceof Number || obj instanceof Bool || !obj.constructor.$struct)
         return obj;
     var cloned = new obj.constructor();
     if (obj.cloneStructFill) {
@@ -49703,13 +50635,5 @@ function _optionalTry(expr) { try {
 catch (e) {
     return null;
 } }
-function _preserveGenerics(obj, obj2) {
-    obj['$info' + obj.constructor.$infoAddress] = obj2['$info' + obj2.constructor.$infoAddress];
-    return obj;
-}
-function _preserveInfo(obj, obj2, $info) {
-    obj['$info' + obj.constructor.$infoAddress] = __assign({}, obj2['$info' + obj2.constructor.$infoAddress], { $info: $info });
-    return obj;
-}
 //legacy for _.tmp = ...
 var _ = {};
