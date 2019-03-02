@@ -270,3 +270,8 @@ preconditionFileLine({}, () => Bool.infix_61_61({Self: Bool}, expression({}, ), 
 preconditionFileLine({}, () => '?'.infix_61_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => '?'.infix_33_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
+----XCTest.(file).XCTest.setUp()
+
+----XCTest.(file).XCTest.tearDown()
+
+----closing dashes needed for the last definition to be processed

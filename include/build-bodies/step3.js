@@ -29,4 +29,4 @@ for(let key in manualDefinitions) {
     transpilations += transpile(val, key, false, true, manualDefinitions[key + '#SUFFIX'])
 }
 
-fs.writeFileSync(`${__dirname}/for-compiler/manual-swift.txt`, transpilations)
+fs.writeFileSync(`${__dirname}/for-compiler/manual-swift.txt`, transpilations + '----closing dashes needed for the last definition to be processed')

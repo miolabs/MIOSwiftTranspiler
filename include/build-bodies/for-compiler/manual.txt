@@ -106,13 +106,12 @@ return String(other)
 ----Swift.(file).Double.infinity
 return Infinity
 ----XCTest.(file).XCTestCase.init()
-for(const testFunction in this) {
+var proto = Object.keys(Object.getPrototypeOf(this))
+for(const testFunction of proto) {
 if(typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction]/*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate')) continue
 this.init$vars()
 if(this.setUp) this.setUp()
-if(this.tearDown) this.tearDown()
 this[testFunction]()
+if(this.tearDown) this.tearDown()
 }
-----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
-if(!condition()) throw message ? message() : 'assert fail :' + condition
 ----closing dashes needed for the last definition to be processed

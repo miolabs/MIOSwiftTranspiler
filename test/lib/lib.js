@@ -47884,7 +47884,7 @@ function XCTAssertEqualFileLine($info, expression1, expression2, message, file, 
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotEqualFileLine($info, expression1, expression2, message, file, line) {
-    throw 'unsupported method XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
+    preconditionFileLine({}, function () { return '?'.infix_33_61({ Self: '?', Self: '?' }, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
@@ -48510,15 +48510,17 @@ var XCTestCase = /** @class */ (function (_super) {
     /*XCTest.(file).XCTestCase.init()*/
     /*ObjectiveC.(file).NSObject.init()*/
     XCTestCase.prototype.init = function ($info) {
-        for (var testFunction in this) {
+        var proto = Object.keys(Object.getPrototypeOf(this));
+        for (var _i = 0, proto_1 = proto; _i < proto_1.length; _i++) {
+            var testFunction = proto_1[_i];
             if (typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction] /*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate'))
                 continue;
             this.init$vars();
             if (this.setUp)
                 this.setUp();
+            this[testFunction]();
             if (this.tearDown)
                 this.tearDown();
-            this[testFunction]();
         }
     };
     /*XCTest.(file).XCTestCase.setUp()*/

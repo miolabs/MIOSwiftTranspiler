@@ -2512,6 +2512,7 @@ extension Collection  {
 ----Swift.(file).Collection.dropFirst(_:Int)
 extension Collection  {
   public __consuming func dropFirst(_ k: Int = 1) -> SubSequence {
+    if(k == nil) k = 1
     precondition(k >= 0, "Can't drop a negative number of elements from a collection")
     let start = index(startIndex, offsetBy: k, limitedBy: endIndex) ?? endIndex
     return self[start..<endIndex]

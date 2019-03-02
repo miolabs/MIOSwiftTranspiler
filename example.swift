@@ -1,11 +1,11 @@
 "-print-extension"
-extension Sequence  {
-  public func sorted(
-    by areInIncreasingOrder:
-      (Element, Element) throws -> Bool
-  ) rethrows -> [Element] {
-    var result = Array(self)
-    try result.sort(by: areInIncreasingOrder)
-    return result
+extension String: Error {}
+public func precondition(
+  _ condition: @autoclosure () -> Bool,
+  _ message: @autoclosure () -> String = String(),
+  file: StaticString = #file, line: UInt = #line
+) throws {
+  if !condition() {
+    throw message()
   }
 }

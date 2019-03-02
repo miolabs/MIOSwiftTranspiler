@@ -336,4 +336,19 @@ public func XCTAssertEqual<T : Equatable>(_ expression1: @autoclosure () throws 
 public func XCTAssertNotEqual<T : Equatable>(_ expression1: @autoclosure () throws -> T, _ expression2: @autoclosure () throws -> T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
   precondition(expression1() != expression2(), message())
 }
+----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
+extension String: Error {}
+public func precondition(
+  _ condition: @autoclosure () -> Bool,
+  _ message: @autoclosure () -> String = String(),
+  file: StaticString = #file, line: UInt = #line
+) throws {
+  if !condition() {
+    throw message()
+  }
+}
+----XCTest.(file).XCTest.setUp()
+
+----XCTest.(file).XCTest.tearDown()
+
 ----closing dashes needed for the last definition to be processed
