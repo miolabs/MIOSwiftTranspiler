@@ -1,0 +1,36 @@
+Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)
+subscriptRange
+Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)
+subscriptRange
+Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)
+subscriptRange
+Swift.(file).Collection.subscript(_:Range<Self.Index>)
+subscriptRange
+Swift.(file).RangeReplaceableCollection.subscript(_:Range<Self.Index>)
+subscriptRange
+Swift.(file).RangeReplaceableCollection.init(_:S)
+initBuffer
+Swift.(file)._ArrayProtocol.init(_:Self._Buffer)
+initBuffer
+Swift.(file).SetAlgebra.init(_:S)
+initSource
+Swift.(file).Set.insert(_:ConcreteElement)
+insertConcreteElement
+Swift.(file).RangeReplaceableCollection.removeLast(_:Int)
+removeLastMultiple
+Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)
+removeFirstMultiple
+Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())
+subscriptUnboundedRange
+Swift.(file).Collection.subscript(_:(UnboundedRange_) -> ())
+subscriptUnboundedRange
+Swift.(file).min(_:T,_:T,_:T,_:[T])
+minMany
+Swift.(file).max(_:T,_:T,_:T,_:[T])
+maxMany
+Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)
+wrappedEqualsOptionalNilComparisonType
+Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)
+optionalNilComparisonTypeEqualsWrapped
+Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)
+removeSubrangeRange

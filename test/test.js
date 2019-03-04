@@ -26,7 +26,7 @@ const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = ['local'/*, 'github'*/]
+const suiteNames = ['local', 'github']
 
 let isTestCache = {}
 function isTest(path) {
@@ -115,6 +115,7 @@ const collectFiles = {
 }
 const fileOrder = {
     'swift-algorithm-club/All-Pairs Shortest Paths': ['github/swift-algorithm-club/Graph/Graph/Graph.swift'],
+    'swift-algorithm-club/Boyer-Moore-Horspool': [`${__dirname}/github/swift-algorithm-club/Boyer-Moore-Horspool/BoyerMooreHorspool.swift`, `${__dirname}/github/swift-algorithm-club/Boyer-Moore-Horspool/Tests/BoyerMooreTests.swift`],
     'swift-algorithm-club/Graph': [`${__dirname}/github/swift-algorithm-club/Graph/Graph/Graph.swift`]
 }
 const onlyDir = null//'swift-algorithm-club/All-Pairs Shortest Paths'

@@ -249,7 +249,6 @@ extension Collection  {
   }
 }
 ----Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)
-"-print-extension"
 extension Sequence  {
   public func sorted(
     by areInIncreasingOrder:
@@ -347,6 +346,11 @@ public func XCTAssertEqual<T : Equatable>(_ expression1: @autoclosure () throws 
 ----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 public func XCTAssertNotEqual<T : Equatable>(_ expression1: @autoclosure () throws -> T, _ expression2: @autoclosure () throws -> T, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
   precondition(expression1() != expression2(), message())
+}
+----XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)
+extension String: Error {}
+public func XCTFail(_ message: String = "", file: StaticString = #file, line: UInt = #line) throws {
+  throw message
 }
 ----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
 extension String: Error {}

@@ -7091,7 +7091,7 @@ var Sequence$implementation = /** @class */ (function () {
             }
         }
         ;
-        return Optional.infix_61_61({}, possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+        return Optional.wrappedEqualsOptionalNilComparisonType({}, possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
     };
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
@@ -17399,7 +17399,7 @@ var Optional = /** @class */ (function () {
     };
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
-    Optional.infix_61_61 = function ($info, lhs, rhs) {
+    Optional.wrappedEqualsOptionalNilComparisonType = function ($info, lhs, rhs) {
         var $match = lhs;
         if ((($match.rawValue == Optional.some().rawValue))) {
             return false;
@@ -17421,7 +17421,7 @@ var Optional = /** @class */ (function () {
     };
     /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
-    Optional.infix_61_61 = function ($info, lhs, rhs) {
+    Optional.optionalNilComparisonTypeEqualsWrapped = function ($info, lhs, rhs) {
         var $match = rhs;
         if ((($match.rawValue == Optional.some().rawValue))) {
             return false;
@@ -17684,7 +17684,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
-    RangeReplaceableCollection$implementation.prototype.removeSubrange = function ($info, bounds) {
+    RangeReplaceableCollection$implementation.prototype.removeSubrangeRange = function ($info, bounds) {
         this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, bounds, _create(EmptyCollection, 'init', {}));
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)*/
@@ -17700,7 +17700,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
         var end = this.indexOffsetBy({}, this.startIndex, k);
-        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end));
+        this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end));
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
@@ -17749,7 +17749,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
         var end = this.indexOffsetBy({}, this.startIndex, k);
-        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end));
+        this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end));
     };
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
@@ -17759,7 +17759,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:R)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:R)*/
     RangeReplaceableCollection$implementation.prototype.removeSubrange = function ($info, bounds) {
-        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, bounds.relativeTo({}, this));
+        this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, bounds.relativeTo({}, this));
     };
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
@@ -17804,7 +17804,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         }
         ;
         var end = this.endIndex;
-        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end));
+        this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end));
     };
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
     /*Swift.(file).RangeReplaceableCollection.popLast()*/
@@ -17849,7 +17849,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         }
         ;
         var end = this.endIndex;
-        this.removeSubrange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end));
+        this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end));
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
@@ -26540,7 +26540,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.removeSubrange(_:Range<Slice<Base>.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
-    Slice.prototype.removeSubrange = function ($info, bounds) {
+    Slice.prototype.removeSubrangeRange = function ($info, bounds) {
         this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, bounds, _create(EmptyCollection, 'init', {}));
     };
     /*Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)*/
@@ -28982,7 +28982,7 @@ var UnsafeMutablePointer = /** @class */ (function () {
     UnsafeMutablePointer.prototype.initializeFrom = function ($info, source) {
         var buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ this), numericCast({}, source.count));
         var $tuple = source._copyContentsInitializing({}, buf), remainders = $tuple && $tuple[0], writtenUpTo = $tuple && $tuple[1];
-        preconditionFileLine({}, function () { return Optional.infix_61_61({}, remainders.next({ $setThis: function ($val) { return remainders = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return "rhs underreported its count"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({ $setThis: function ($val) { return remainders = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return "rhs underreported its count"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_61_61({}, writtenUpTo, buf.endIndex); }, function () { return "rhs overreported its count"; }, '?3', '?3');
     };
     /*Swift.(file).UnsafeMutablePointer.summary*/
@@ -43233,7 +43233,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.removeSubrange(_:Range<String.Index>)*/
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
-    MIO_Mixin_String.prototype.removeSubrange = function ($info, bounds) {
+    MIO_Mixin_String.prototype.removeSubrangeRange = function ($info, bounds) {
         this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, bounds, _create(EmptyCollection, 'init', {}));
     };
     /*Swift.(file).String.removeAll(keepingCapacity:Bool)*/
@@ -48051,12 +48051,12 @@ function XCTSelfTestMain($info) {
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
 function XCTFailFileLine($info, message, file, line) {
-    throw 'unsupported method XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt) in ' + this.constructor.name;
+    throw message;
 }
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNilFileLine($info, expression, message, file, line) {
-    preconditionFileLine({}, function () { return Optional.infix_61_61({}, _injectIntoOptional(expression({})), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return Optional.wrappedEqualsOptionalNilComparisonType({}, _injectIntoOptional(expression({})), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/

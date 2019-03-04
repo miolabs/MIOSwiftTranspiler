@@ -1813,7 +1813,7 @@ this.deallocate({}, )
 ----Swift.(file).UnsafeMutablePointer.initialize(from:C)
 const buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/this), numericCast({}, source.count));
 let $tuple = source._copyContentsInitializing({}, buf), remainders = $tuple && $tuple[0], writtenUpTo = $tuple && $tuple[1];
-preconditionFileLine({}, () => Optional.infix_61_61({}, remainders.next({$setThis: $val => remainders = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => "rhs underreported its count", '?3', '?3');
+preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({$setThis: $val => remainders = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => "rhs underreported its count", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_61_61({}, writtenUpTo, buf.endIndex), () => "rhs overreported its count", '?3', '?3')
 ----Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int)
 return UnsafeMutableRawPointer.allocateByteCountAlignment({}, size, alignment)
@@ -2306,7 +2306,7 @@ return ;
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Number of elements to remove should be non-negative", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_62_61({}, this.count, k), () => "Can't remove more items from a collection than it has", '?3', '?3');
 const end = this.indexOffsetBy({}, this.startIndex, k);
-this.removeSubrange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end))
+this.removeSubrangeRange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, end))
 ----Swift.(file).RangeReplaceableCollection.removeFirst()
 preconditionFileLine({}, () => Bool.prefix_33({}, this.isEmpty), () => "Can't remove first element from an empty collection", '?3', '?3');
 const firstElement = this.first[0];
@@ -2340,7 +2340,7 @@ $info.$setThis(_cloneStruct(this.subscriptRange$get({}, (this.indexOffsetBy({}, 
 ----Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)
 this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val))}, subrange.relativeTo({}, this), newElements)
 ----Swift.(file).RangeReplaceableCollection.removeSubrange(_:R)
-this.removeSubrange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, bounds.relativeTo({}, this))
+this.removeSubrangeRange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, bounds.relativeTo({}, this))
 ----Swift.(file).RangeReplaceableCollection.popLast()
 {
 if((this.isEmpty)) {
@@ -2377,7 +2377,7 @@ return ;
 }
 };
 const end = this.endIndex;
-this.removeSubrange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end))
+this.removeSubrangeRange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end))
 ----Swift.(file).RangeReplaceableCollection.popLast()
 {
 if((this.isEmpty)) {
@@ -2414,7 +2414,7 @@ return ;
 }
 };
 const end = this.endIndex;
-this.removeSubrange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end))
+this.removeSubrangeRange({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (this.indexOffsetBy({}, end, Int.prefix_45({}, k))).constructor.infix_46_46_60({}, this.indexOffsetBy({}, end, Int.prefix_45({}, k)), end))
 ----Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)
 let lhs_dupl = lhs;
 lhs_dupl.appendContentsOf({$setThis: $val => lhs_dupl = $val}, rhs);
@@ -2763,7 +2763,7 @@ return true;
 };
 }
 };
-return Optional.infix_61_61({}, possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedEqualsOptionalNilComparisonType({}, possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
 ----Swift.(file).Sequence.starts(with:PossiblePrefix)
 return this.startsWithBy({}, possiblePrefix, '!unclarifiedGeneric:Self.Element'.infix_61_61)
 ----Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool)
@@ -3118,7 +3118,7 @@ this.sortBy({$setThis: $val => $info.$setThis(_cloneStruct($val))}, '!unclarifie
 ----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
 const didSortUnsafeBuffer = this._withUnsafeMutableBufferPointerIfSupported({$setThis: $val => $info.$setThis(_cloneStruct($val))}, (($info, buffer$inout) => _injectIntoOptional(buffer._stableSortImplBy({$setThis: $val => buffer = $val}, areInIncreasingOrder))));
 {
-if((Optional.infix_61_61({}, didSortUnsafeBuffer, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) {
+if((Optional.wrappedEqualsOptionalNilComparisonType({}, didSortUnsafeBuffer, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) {
 const sortedElements = _cloneStruct(this.sortedBy({}, areInIncreasingOrder));
 {
 let $generator = _cloneStruct(zip({}, this.indices, sortedElements.indices).makeIterator({}, ));

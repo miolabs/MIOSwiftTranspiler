@@ -254,7 +254,7 @@ preconditionFileLine({}, () => (expression1({}, )).constructor.infix_60({}, expr
 ----XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => (expression1({}, )).constructor.infix_60_61({}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-preconditionFileLine({}, () => Optional.infix_61_61({}, _injectIntoOptional(expression({}, )), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
+preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, _injectIntoOptional(expression({}, )), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => Optional.infix_33_61({}, _injectIntoOptional(expression({}, )), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
@@ -263,6 +263,8 @@ preconditionFileLine({}, () => Bool.infix_61_61({}, expression({}, ), true), () 
 preconditionFileLine({}, () => (expression1({}, )).constructor.infix_61_61({}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => (expression1({}, )).constructor.infix_33_61({}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
+----XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)
+throw message
 ----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
 {
 if((Bool.prefix_33({}, condition({}, )))) {
