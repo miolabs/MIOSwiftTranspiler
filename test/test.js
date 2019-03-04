@@ -202,6 +202,7 @@ suites.forEach(({suiteName, dirs}) => {
     dirs.forEach(({dirName, fileNames}) => {
         fileNames.forEach(fileName => {
             const transpiled = transpile(suiteName, dirName, fileName)
+            //if(transpiled.includes('.infix_47')) console.log('division!', suiteName, dirName, fileName)
             transpiledCode += '\n;try{(function(){\n' + transpiled + '\n})()}catch(e){console.log(e)}\nconsole.log("$$$")'
         })
     })

@@ -309,9 +309,9 @@ function dumpNameIndentMaxDepthMaxItems($info, value, _name, indent, maxDepth, m
 /*Swift.(file).===infix(_:AnyObject?,_:AnyObject?)*/
 function infix_61_61_61($info, lhs, rhs) {
     var $match = { 0: lhs, 1: rhs };
-    if (((true))) {
-        var l = $match[0];
-        var r = $match[1];
+    if ((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
+        var l = $match[0][0];
+        var r = $match[1][0];
         return ObjectIdentifier.infix_61_61({}, _create(ObjectIdentifier, 'initAnyObject', {}, l), _create(ObjectIdentifier, 'initAnyObject', {}, r));
     }
     else if ((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
@@ -355,17 +355,17 @@ function readLineStrippingNewline($info, strippingNewline) {
 /*Swift.(file).abs(_:T)*/
 function abs($info, x) {
     {
-        if ((infix_61_61({}, _injectIntoOptional('!unclarifiedGeneric:T'), _injectIntoOptional('!unclarifiedGeneric:T.Magnitude')))) {
-            return unsafeBitCastTo({}, x.magnitude, '!unclarifiedGeneric:T');
+        if ((infix_61_61({}, _injectIntoOptional(((function () { throw '!unclarifiedGeneric:T'; })())), _injectIntoOptional(((function () { throw '!unclarifiedGeneric:T.Magnitude'; })()))))) {
+            return unsafeBitCastTo({}, x.magnitude, ((function () { throw '!unclarifiedGeneric:T'; })()));
         }
     }
     ;
-    return ((x).constructor.infix_60({}, x, _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0)) ? '!unclarifiedGeneric:T'.prefix_45({}, x) : x);
+    return ((x).constructor.infix_60({}, x, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)) ? ((function () { throw '!unclarifiedGeneric:T'; })()).prefix_45({}, x) : x);
 }
 /*Swift.(file).numericCast(_:T)*/
 /*Swift.(file).numericCast(_:T)*/
 function numericCast($info, x) {
-    return _create('!unclarifiedGeneric:U', 'init', {}, x);
+    return _create(((function () { throw '!unclarifiedGeneric:U'; })()), 'init', {}, x);
 }
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
@@ -6038,15 +6038,15 @@ var RandomNumberGenerator$implementation = /** @class */ (function () {
     /*Swift.(file).RandomNumberGenerator.next()*/
     RandomNumberGenerator$implementation.prototype.next = function ($info) {
         var _this = this;
-        return '!unclarifiedGeneric:T'._randomUsing({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
+        return ((function () { throw '!unclarifiedGeneric:T'; })())._randomUsing({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     /*Swift.(file).RandomNumberGenerator.next(upperBound:T)*/
     /*Swift.(file).RandomNumberGenerator.next(upperBound:T)*/
     RandomNumberGenerator$implementation.prototype.nextUpperBound = function ($info, upperBound) {
         preconditionFileLine({}, function () { return (upperBound).constructor.infix_33_61({}, upperBound, 0); }, function () { return "upperBound cannot be zero."; }, '?3', '?3');
-        var tmp = (_create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, ('!unclarifiedGeneric:T'.max).constructor.infix_37({}, '!unclarifiedGeneric:T'.max, upperBound), _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 1));
-        var range = ((tmp).constructor.infix_61_61({}, tmp, upperBound) ? _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0) : tmp);
-        var random = _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0);
+        var tmp = (_create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, (((function () { throw '!unclarifiedGeneric:T'; })()).max).constructor.infix_37({}, ((function () { throw '!unclarifiedGeneric:T'; })()).max, upperBound), _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 1));
+        var range = ((tmp).constructor.infix_61_61({}, tmp, upperBound) ? _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0) : tmp);
+        var random = _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0);
         do {
             random = this.next({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
         } while ((random).constructor.infix_60({}, random, range));
@@ -6066,7 +6066,7 @@ var SystemRandomNumberGenerator = /** @class */ (function () {
     /*Swift.(file).RandomNumberGenerator.next()*/
     SystemRandomNumberGenerator.prototype.next = function ($info) {
         var _this = this;
-        return '!unclarifiedGeneric:T'._randomUsing({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
+        return ((function () { throw '!unclarifiedGeneric:T'; })())._randomUsing({}, { get: function () { return _this; }, set: function ($val) { return $info.$setThis(_cloneStruct($val)); } });
     };
     SystemRandomNumberGenerator.prototype.init$vars = function () {
     };
@@ -7054,12 +7054,12 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.min()*/
     /*Swift.(file).Sequence.min()*/
     Sequence$implementation.prototype.min = function ($info) {
-        return this.minBy({}, '!unclarifiedGeneric:Self.Element'.infix_60);
+        return this.minBy({}, this.first[0].constructor.infix_60);
     };
     /*Swift.(file).Sequence.max()*/
     /*Swift.(file).Sequence.max()*/
     Sequence$implementation.prototype.max = function ($info) {
-        return this.maxBy({}, '!unclarifiedGeneric:Self.Element'.infix_60);
+        return this.maxBy({}, this.first[0].constructor.infix_60);
     };
     /*Swift.(file).Sequence.starts(with:PossiblePrefix,by:(Self.Element, PossiblePrefix.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.starts(with:PossiblePrefix,by:(Self.Element, PossiblePrefix.Element) throws -> Bool)*/
@@ -7096,7 +7096,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
     /*Swift.(file).Sequence.starts(with:PossiblePrefix)*/
     Sequence$implementation.prototype.startsWith = function ($info, possiblePrefix) {
-        return this.startsWithBy({}, possiblePrefix, '!unclarifiedGeneric:Self.Element'.infix_61_61);
+        return this.startsWithBy({}, possiblePrefix, this.first[0].constructor.infix_61_61);
     };
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence,by:(Self.Element, OtherSequence.Element) throws -> Bool)*/
@@ -7107,9 +7107,9 @@ var Sequence$implementation = /** @class */ (function () {
             if (!((true)))
                 break;
             var $match = { 0: iter1.next({ $setThis: function ($val) { return iter1 = $val; } }), 1: iter2.next({ $setThis: function ($val) { return iter2 = $val; } }) };
-            if (((true))) {
-                var e1 = $match[0];
-                var e2 = $match[1];
+            if ((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
+                var e1 = $match[0][0];
+                var e2 = $match[1][0];
                 {
                     if ((Bool.prefix_33({}, areEquivalent({}, e1, e2)))) {
                         return false;
@@ -7117,7 +7117,7 @@ var Sequence$implementation = /** @class */ (function () {
                 }
                 ;
             }
-            else if ((($match[1].rawValue == Optional.none.rawValue) || ($match[0].rawValue == Optional.none.rawValue))) {
+            else if ((($match[0].rawValue == 'some' && $match[1].rawValue == Optional.none.rawValue) || ($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == 'some'))) {
                 return false;
             }
             else if ((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
@@ -7129,7 +7129,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence)*/
     /*Swift.(file).Sequence.elementsEqual(_:OtherSequence)*/
     Sequence$implementation.prototype.elementsEqual = function ($info, other) {
-        return this.elementsEqualBy({}, other, '!unclarifiedGeneric:Self.Element'.infix_61_61);
+        return this.elementsEqualBy({}, other, this.first[0].constructor.infix_61_61);
     };
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence,by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence,by:(Self.Element, Self.Element) throws -> Bool)*/
@@ -7167,13 +7167,13 @@ var Sequence$implementation = /** @class */ (function () {
                 }
             }
             ;
-            return Optional.infix_33_61({}, iter2.next({ $setThis: function ($val) { return iter2 = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+            return Optional.wrappedNotEqualsOptionalNilComparisonType({}, iter2.next({ $setThis: function ($val) { return iter2 = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
         }
     };
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)*/
     /*Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)*/
     Sequence$implementation.prototype.lexicographicallyPrecedes = function ($info, other) {
-        return this.lexicographicallyPrecedesBy({}, other, '!unclarifiedGeneric:Self.Element'.infix_60);
+        return this.lexicographicallyPrecedesBy({}, other, this.first[0].constructor.infix_60);
     };
     /*Swift.(file).Sequence.contains(where:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.contains(where:(Self.Element) throws -> Bool)*/
@@ -7314,7 +7314,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.sorted()*/
     /*Swift.(file).Sequence.sorted()*/
     Sequence$implementation.prototype.sorted = function ($info) {
-        return this.sortedBy({}, '!unclarifiedGeneric:Self.Element'.infix_60);
+        return this.sortedBy({}, this.first[0].constructor.infix_60);
     };
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)*/
@@ -14051,7 +14051,7 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).Collection.subscript(_:(UnboundedRange_) -> ())*/
     Collection$implementation.prototype.subscriptUnboundedRange$get = function ($info, x) {
-        return this.subscript$get({}, '!unclarifiedGeneric:Self.Index'.postfix_46_46_46({}, this.startIndex));
+        return this.subscript$get({}, ((function () { throw '!unclarifiedGeneric:Self.Index'; })()).postfix_46_46_46({}, this.startIndex));
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
@@ -15922,7 +15922,7 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     /*Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     LazySequenceProtocol$implementation.prototype.compactMap = function ($info, transform) {
-        return this.mapSwift({}, transform).filterSwift({}, (function ($info, $0) { return Optional.infix_33_61({}, $0, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); })).mapSwift({}, (function ($info, $0) { return $0[0]; }));
+        return this.mapSwift({}, transform).filterSwift({}, (function ($info, $0) { return Optional.wrappedNotEqualsOptionalNilComparisonType({}, $0, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); })).mapSwift({}, (function ($info, $0) { return $0[0]; }));
     };
     /*Swift.(file).LazySequenceProtocol.joined()*/
     /*Swift.(file).LazySequenceProtocol.joined()*/
@@ -16048,11 +16048,11 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     MutableCollection$implementation.prototype.subscriptUnboundedRange$get = function ($info, x) {
-        return this.subscript$get({}, '!unclarifiedGeneric:Self.Index'.postfix_46_46_46({}, this.startIndex));
+        return this.subscript$get({}, ((function () { throw '!unclarifiedGeneric:Self.Index'; })()).postfix_46_46_46({}, this.startIndex));
     }; /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     /*Swift.(file).MutableCollection.subscript(_:(UnboundedRange_) -> ())*/
     MutableCollection$implementation.prototype.subscriptUnboundedRange$set = function ($info, newValue, x) {
-        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, newValue, '!unclarifiedGeneric:Self.Index'.postfix_46_46_46({}, this.startIndex));
+        this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, newValue, ((function () { throw '!unclarifiedGeneric:Self.Index'; })()).postfix_46_46_46({}, this.startIndex));
     };
     /*Swift.(file).MutableCollection.reverse()*/
     /*Swift.(file).MutableCollection.reverse()*/
@@ -16076,7 +16076,7 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.sort()*/
     /*Swift.(file).MutableCollection.sort()*/
     MutableCollection$implementation.prototype.sortSwift = function ($info) {
-        this.sortBy({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, '!unclarifiedGeneric:Self.Element'.infix_60);
+        this.sortBy({ $setThis: function ($val) { return $info.$setThis(_cloneStruct($val)); } }, this.first[0].constructor.infix_60);
     };
     /*Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)*/
     /*Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)*/
@@ -17174,7 +17174,7 @@ var ObjectIdentifier = /** @class */ (function () {
     /*Swift.(file).ObjectIdentifier.init(_:AnyObject)*/
     /*Swift.(file).ObjectIdentifier.init(_:AnyObject)*/
     ObjectIdentifier.prototype.initAnyObject = function ($info, x) {
-        return x;
+        this._value = x;
     };
     /*Swift.(file).ObjectIdentifier.init(_:Any.Type)*/
     /*Swift.(file).ObjectIdentifier.init(_:Any.Type)*/
@@ -17194,7 +17194,7 @@ var ObjectIdentifier = /** @class */ (function () {
     /*Swift.(file).ObjectIdentifier.==infix(_:ObjectIdentifier,_:ObjectIdentifier)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ObjectIdentifier.infix_61_61 = function ($info, x, y) {
-        return x == y;
+        return x._value === y._value;
     };
     /*Swift.(file).ObjectIdentifier.<infix(_:ObjectIdentifier,_:ObjectIdentifier)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
@@ -17344,9 +17344,9 @@ var Optional = /** @class */ (function () {
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Optional.infix_61_61 = function ($info, lhs, rhs) {
         var $match = { 0: lhs, 1: rhs };
-        if (((true))) {
-            var l = $match[0];
-            var r = $match[1];
+        if ((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
+            var l = $match[0][0];
+            var r = $match[1][0];
             return (l).constructor.infix_61_61({}, l, r);
         }
         else if ((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
@@ -17410,7 +17410,7 @@ var Optional = /** @class */ (function () {
     };
     /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
-    Optional.infix_33_61 = function ($info, lhs, rhs) {
+    Optional.wrappedNotEqualsOptionalNilComparisonType = function ($info, lhs, rhs) {
         var $match = lhs;
         if ((($match.rawValue == Optional.some().rawValue))) {
             return true;
@@ -17432,7 +17432,7 @@ var Optional = /** @class */ (function () {
     };
     /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
-    Optional.infix_33_61 = function ($info, lhs, rhs) {
+    Optional.optionalNilComparisonTypeNotEqualsWrapped = function ($info, lhs, rhs) {
         var $match = rhs;
         if ((($match.rawValue == Optional.some().rawValue))) {
             return true;
@@ -17506,7 +17506,7 @@ var OptionSet$implementation = /** @class */ (function () {
     /*Swift.(file).OptionSet.init()*/
     /*Swift.(file).OptionSet.init()*/
     OptionSet$implementation.prototype.init = function ($info) {
-        this.initRawValue({}, _create('!unclarifiedGeneric:Self.RawValue', 'initIntegerLiteral', {}, 0));
+        this.initRawValue({}, _create(((function () { throw '!unclarifiedGeneric:Self.RawValue'; })()), 'initIntegerLiteral', {}, 0));
         return;
     };
     /*Swift.(file).OptionSet.formUnion(_:Self)*/
@@ -19456,7 +19456,7 @@ var Strideable$implementation = /** @class */ (function () {
     /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_45 = function ($info, lhs, rhs) {
-        return lhs.advancedBy({}, '!unclarifiedGeneric:Self.Stride'.prefix_45({}, rhs));
+        return lhs.advancedBy({}, ((function () { throw '!unclarifiedGeneric:Self.Stride'; })()).prefix_45({}, rhs));
     };
     /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
@@ -19478,7 +19478,7 @@ var Strideable$implementation = /** @class */ (function () {
     Strideable$implementation.infix_45_61 = function ($info, lhs$inout, rhs) {
         var lhs = lhs$inout.get();
         var $result = (function () {
-            lhs = lhs.advancedBy({}, '!unclarifiedGeneric:Self.Stride'.prefix_45({}, rhs));
+            lhs = lhs.advancedBy({}, ((function () { throw '!unclarifiedGeneric:Self.Stride'; })()).prefix_45({}, rhs));
         })();
         lhs$inout.set(lhs);
         return $result;
@@ -19486,12 +19486,12 @@ var Strideable$implementation = /** @class */ (function () {
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     Strideable$implementation.infix_60 = function ($info, x, y) {
-        return (x.distanceTo({}, y)).constructor.infix_62({}, x.distanceTo({}, y), _create('!unclarifiedGeneric:Self.Stride', 'initIntegerLiteral', {}, 0));
+        return (x.distanceTo({}, y)).constructor.infix_62({}, x.distanceTo({}, y), _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
     };
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     Strideable$implementation.infix_61_61 = function ($info, x, y) {
-        return (x.distanceTo({}, y)).constructor.infix_61_61({}, x.distanceTo({}, y), _create('!unclarifiedGeneric:Self.Stride', 'initIntegerLiteral', {}, 0));
+        return (x.distanceTo({}, y)).constructor.infix_61_61({}, x.distanceTo({}, y), _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
     };
     return Strideable$implementation;
 }());
@@ -19514,7 +19514,7 @@ var StrideTo = /** @class */ (function () {
         var it = _cloneStruct(this.makeIterator({}));
         var count = 0;
         while (true) {
-            if (!((Optional.infix_33_61({}, it.next({ $setThis: function ($val) { return it = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))))
+            if (!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({ $setThis: function ($val) { return it = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))))
                 break;
             Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
         }
@@ -19564,7 +19564,7 @@ var StrideThrough = /** @class */ (function () {
         var it = _cloneStruct(this.makeIterator({}));
         var count = 0;
         while (true) {
-            if (!((Optional.infix_33_61({}, it.next({ $setThis: function ($val) { return it = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))))
+            if (!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({ $setThis: function ($val) { return it = $val; } }), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))))
                 break;
             Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
         }
@@ -20451,7 +20451,7 @@ var Character = /** @class */ (function () {
     };
     /*Swift.(file).Character.isASCII*/
     Character.prototype.isASCII$get = function () {
-        return Optional.infix_33_61({}, this.asciiValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+        return Optional.wrappedNotEqualsOptionalNilComparisonType({}, this.asciiValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
     };
     Object.defineProperty(Character.prototype, "isASCII", {
         get: function () { return this.isASCII$get(); },
@@ -20501,7 +20501,7 @@ var Character = /** @class */ (function () {
     ;
     /*Swift.(file).Character.isWholeNumber*/
     Character.prototype.isWholeNumber$get = function () {
-        return Optional.infix_33_61({}, this.wholeNumberValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+        return Optional.wrappedNotEqualsOptionalNilComparisonType({}, this.wholeNumberValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
     };
     Object.defineProperty(Character.prototype, "isWholeNumber", {
         get: function () { return this.isWholeNumber$get(); },
@@ -20521,7 +20521,7 @@ var Character = /** @class */ (function () {
     ;
     /*Swift.(file).Character.isHexDigit*/
     Character.prototype.isHexDigit$get = function () {
-        return Optional.infix_33_61({}, this.hexDigitValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+        return Optional.wrappedNotEqualsOptionalNilComparisonType({}, this.hexDigitValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
     };
     Object.defineProperty(Character.prototype, "isHexDigit", {
         get: function () { return this.isHexDigit$get(); },
@@ -22220,13 +22220,13 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             preconditionFileLine({}, function () { return delta._isFinite; }, function () { return "There is no uniform distribution on an infinite range"; }, '?3', '?3');
             var rand;
             {
-                if ((Int.infix_61_61({}, '!unclarifiedGeneric:Self.RawSignificand'.bitWidth, Int.infix_43({}, _this.constructor.significandBitCount, 1)))) {
+                if ((Int.infix_61_61({}, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).bitWidth, Int.infix_43({}, _this.constructor.significandBitCount, 1)))) {
                     rand = generator.next({ $setThis: function ($val) { return generator = $val; } });
                 }
                 else {
                     var significandCount = Int.infix_43({}, _this.constructor.significandBitCount, 1);
-                    var maxSignificand = (_create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1), significandCount);
-                    rand = (generator.next({ $setThis: function ($val) { return generator = $val; } })).constructor.infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), (maxSignificand).constructor.infix_45({}, maxSignificand, _create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1)));
+                    var maxSignificand = (_create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1), significandCount);
+                    rand = (generator.next({ $setThis: function ($val) { return generator = $val; } })).constructor.infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), (maxSignificand).constructor.infix_45({}, maxSignificand, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
                 }
             }
             ;
@@ -22260,11 +22260,11 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             preconditionFileLine({}, function () { return delta._isFinite; }, function () { return "There is no uniform distribution on an infinite range"; }, '?3', '?3');
             var rand;
             {
-                if ((Int.infix_61_61({}, '!unclarifiedGeneric:Self.RawSignificand'.bitWidth, Int.infix_43({}, _this.constructor.significandBitCount, 1)))) {
+                if ((Int.infix_61_61({}, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).bitWidth, Int.infix_43({}, _this.constructor.significandBitCount, 1)))) {
                     rand = generator.next({ $setThis: function ($val) { return generator = $val; } });
                     var tmp_1 = UInt8.infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), 1);
                     {
-                        if ((Bool.infix_38_38({}, (rand).constructor.infix_61_61({}, rand, '!unclarifiedGeneric:Self.RawSignificand'.max), function () { return UInt8.infix_61_61({}, tmp_1, 1); }))) {
+                        if ((Bool.infix_38_38({}, (rand).constructor.infix_61_61({}, rand, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).max), function () { return UInt8.infix_61_61({}, tmp_1, 1); }))) {
                             return range.upperBound;
                         }
                     }
@@ -22272,8 +22272,8 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
                 }
                 else {
                     var significandCount = Int.infix_43({}, _this.constructor.significandBitCount, 1);
-                    var maxSignificand = (_create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1), significandCount);
-                    rand = generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, (maxSignificand).constructor.infix_43({}, maxSignificand, _create('!unclarifiedGeneric:Self.RawSignificand', 'initIntegerLiteral', {}, 1)));
+                    var maxSignificand = (_create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1), significandCount);
+                    rand = generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, (maxSignificand).constructor.infix_43({}, maxSignificand, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
                     {
                         if (((rand).constructor.infix_61_61({}, rand, maxSignificand))) {
                             return range.upperBound;
@@ -24740,7 +24740,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
     BinaryInteger$implementation.infix_61_61 = function ($info, lhs, rhs) {
         var _this = this;
         var lhsNegative = Bool.infix_38_38({}, this.constructor.isSigned, function () { return (lhs).constructor.infix_60({}, lhs, _create(_this.constructor, 'initIntegerLiteral', {}, 0)); });
-        var rhsNegative = Bool.infix_38_38({}, '!unclarifiedGeneric:Other'.isSigned, function () { return (rhs).constructor.infix_60({}, rhs, _create('!unclarifiedGeneric:Other', 'initIntegerLiteral', {}, 0)); });
+        var rhsNegative = Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:Other'; })()).isSigned, function () { return (rhs).constructor.infix_60({}, rhs, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initIntegerLiteral', {}, 0)); });
         {
             if ((Bool.infix_33_61({}, lhsNegative, rhsNegative))) {
                 return false;
@@ -24749,7 +24749,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
         ;
         {
             if ((Int.infix_60({}, lhs.bitWidth, rhs.bitWidth))) {
-                return (_create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_61_61({}, _create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs), rhs);
+                return (_create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_61_61({}, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs), rhs);
             }
         }
         ;
@@ -24761,7 +24761,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
         ;
         {
             if ((this.constructor.isSigned)) {
-                return (_create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_61_61({}, _create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs), rhs);
+                return (_create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_61_61({}, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs), rhs);
             }
         }
         ;
@@ -24777,7 +24777,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
     BinaryInteger$implementation.infix_60 = function ($info, lhs, rhs) {
         var _this = this;
         var lhsNegative = Bool.infix_38_38({}, this.constructor.isSigned, function () { return (lhs).constructor.infix_60({}, lhs, _create(_this.constructor, 'initIntegerLiteral', {}, 0)); });
-        var rhsNegative = Bool.infix_38_38({}, '!unclarifiedGeneric:Other'.isSigned, function () { return (rhs).constructor.infix_60({}, rhs, _create('!unclarifiedGeneric:Other', 'initIntegerLiteral', {}, 0)); });
+        var rhsNegative = Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:Other'; })()).isSigned, function () { return (rhs).constructor.infix_60({}, rhs, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initIntegerLiteral', {}, 0)); });
         {
             if ((Bool.infix_33_61({}, lhsNegative, rhsNegative))) {
                 return lhsNegative;
@@ -24785,7 +24785,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
         }
         ;
         {
-            if ((Bool.infix_38_38({}, (lhs).constructor.infix_61_61({}, lhs, _create(this.constructor, 'initIntegerLiteral', {}, 0)), function () { return (rhs).constructor.infix_61_61({}, rhs, _create('!unclarifiedGeneric:Other', 'initIntegerLiteral', {}, 0)); }))) {
+            if ((Bool.infix_38_38({}, (lhs).constructor.infix_61_61({}, lhs, _create(this.constructor, 'initIntegerLiteral', {}, 0)), function () { return (rhs).constructor.infix_61_61({}, rhs, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initIntegerLiteral', {}, 0)); }))) {
                 return false;
             }
         }
@@ -24793,12 +24793,12 @@ var BinaryInteger$implementation = /** @class */ (function () {
         var rhsAsSelf = _create(this.constructor, 'initTruncatingIfNeeded', {}, rhs);
         var rhsAsSelfNegative = (rhsAsSelf).constructor.infix_60({}, rhsAsSelf, _create(this.constructor, 'initIntegerLiteral', {}, 0));
         {
-            if ((Bool.infix_38_38({}, (_create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, rhsAsSelf)).constructor.infix_61_61({}, _create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, rhsAsSelf), rhs), function () { return Bool.infix_61_61({}, rhsNegative, rhsAsSelfNegative); }))) {
+            if ((Bool.infix_38_38({}, (_create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, rhsAsSelf)).constructor.infix_61_61({}, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, rhsAsSelf), rhs), function () { return Bool.infix_61_61({}, rhsNegative, rhsAsSelfNegative); }))) {
                 return (lhs).constructor.infix_60({}, lhs, rhsAsSelf);
             }
         }
         ;
-        return (_create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_60({}, _create('!unclarifiedGeneric:Other', 'initTruncatingIfNeeded', {}, lhs), rhs);
+        return (_create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs)).constructor.infix_60({}, _create(((function () { throw '!unclarifiedGeneric:Other'; })()), 'initTruncatingIfNeeded', {}, lhs), rhs);
     };
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
@@ -24976,8 +24976,8 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = _create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
-            return _create(_this.constructor, 'initTruncatingIfNeeded', {}, (_create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
+            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
+            return _create(_this.constructor, 'initTruncatingIfNeeded', {}, (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
         })();
         generator$inout.set(generator);
         return $result;
@@ -24995,15 +24995,15 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = _create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
+            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
             {
-                if (((delta).constructor.infix_61_61({}, delta, '!unclarifiedGeneric:Self.Magnitude'.max))) {
+                if (((delta).constructor.infix_61_61({}, delta, ((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).max))) {
                     return _create(_this.constructor, 'initTruncatingIfNeeded', {}, generator.next({ $setThis: function ($val) { return generator = $val; } }));
                 }
             }
             ;
-            (_create('!unclarifiedGeneric:Self.Magnitude', 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, { get: function () { return delta; }, set: function ($val) { return delta = $val; } }, _create('!unclarifiedGeneric:Self.Magnitude', 'initIntegerLiteral', {}, 1));
-            return _create(_this.constructor, 'initTruncatingIfNeeded', {}, (_create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create('!unclarifiedGeneric:Self.Magnitude', 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
+            (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, { get: function () { return delta; }, set: function ($val) { return delta = $val; } }, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initIntegerLiteral', {}, 1));
+            return _create(_this.constructor, 'initTruncatingIfNeeded', {}, (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
         })();
         generator$inout.set(generator);
         return $result;
@@ -25078,7 +25078,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
                 $info.$setThis(_cloneStruct(_create(this.constructor, 'init_truncatingBitsUInt', {}, source._lowWord)));
             }
             else {
-                var neg = (source).constructor.infix_60({}, source, _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0));
+                var neg = (source).constructor.infix_60({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0));
                 var result_2 = (neg ? this.constructor.prefix_126({}, _create(this.constructor, 'initIntegerLiteral', {}, 0)) : _create(this.constructor, 'initIntegerLiteral', {}, 0));
                 var shift_1 = _create(this.constructor, 'initIntegerLiteral', {}, 0);
                 var width = _create(this.constructor, 'init_truncatingBitsUInt', {}, this.constructor.bitWidth._lowWord);
@@ -25256,8 +25256,8 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     UnsignedInteger$implementation.prototype.init = function ($info, source) {
         var _this = this;
         {
-            if (('!unclarifiedGeneric:T'.isSigned)) {
-                preconditionFileLine({}, function () { return (source).constructor.infix_62_61({}, source, _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0)); }, function () { return "Negative value is not representable"; }, '?3', '?3');
+            if ((((function () { throw '!unclarifiedGeneric:T'; })()).isSigned)) {
+                preconditionFileLine({}, function () { return (source).constructor.infix_62_61({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }, function () { return "Negative value is not representable"; }, '?3', '?3');
             }
         }
         ;
@@ -25275,7 +25275,7 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     UnsignedInteger$implementation.prototype.initExactly = function ($info, source) {
         var _this = this;
         {
-            if ((Bool.infix_38_38({}, '!unclarifiedGeneric:T'.isSigned, function () { return (source).constructor.infix_60({}, source, _create('!unclarifiedGeneric:T', 'initIntegerLiteral', {}, 0)); }))) {
+            if ((Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return (source).constructor.infix_60({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }))) {
                 return (this.$failed = true);
             }
         }
@@ -25338,13 +25338,13 @@ var SignedInteger$implementation = /** @class */ (function () {
     SignedInteger$implementation.prototype.init = function ($info, source) {
         var _this = this;
         {
-            if ((Bool.infix_38_38({}, '!unclarifiedGeneric:T'.isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }))) {
+            if ((Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }))) {
                 preconditionFileLine({}, function () { return (source).constructor.infix_62_61({}, source, _this.constructor.min); }, function () { return "Not enough bits to represent a signed value"; }, '?3', '?3');
             }
         }
         ;
         {
-            if ((Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, '!unclarifiedGeneric:T'.isSigned); }); }))) {
+            if ((Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned); }); }))) {
                 preconditionFileLine({}, function () { return (source).constructor.infix_60_61({}, source, _this.constructor.max); }, function () { return "Not enough bits to represent the passed value"; }, '?3', '?3');
             }
         }
@@ -25357,13 +25357,13 @@ var SignedInteger$implementation = /** @class */ (function () {
     SignedInteger$implementation.prototype.initExactly = function ($info, source) {
         var _this = this;
         {
-            if ((Bool.infix_38_38({}, Bool.infix_38_38({}, '!unclarifiedGeneric:T'.isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }), function () { return (source).constructor.infix_60({}, source, _this.constructor.min); }))) {
+            if ((Bool.infix_38_38({}, Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }), function () { return (source).constructor.infix_60({}, source, _this.constructor.min); }))) {
                 return (this.$failed = true);
             }
         }
         ;
         {
-            if ((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, '!unclarifiedGeneric:T'.isSigned); }); }), function () { return (source).constructor.infix_62({}, source, _this.constructor.max); }))) {
+            if ((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned); }); }), function () { return (source).constructor.infix_62({}, source, _this.constructor.max); }))) {
                 return (this.$failed = true);
             }
         }
@@ -25916,7 +25916,7 @@ var Range = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return (i).constructor.infix_62({}, i, _this.lowerBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         preconditionFileLine({}, function () { return (i).constructor.infix_60_61({}, i, _this.upperBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
-        return i.advancedBy({}, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, -1));
+        return i.advancedBy({}, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, -1));
     };
     /*Swift.(file).Range.index(_:Range<Bound>.Index,offsetBy:Int)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Int)*/
@@ -25965,7 +25965,7 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.init(_:ClosedRange<Bound>)*/
     /*Swift.(file).Range.init(_:ClosedRange<Bound>)*/
     Range.prototype.initClosedRange = function ($info, other) {
-        var upperBound = other.upperBound.advancedBy({}, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, 1));
+        var upperBound = other.upperBound.advancedBy({}, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, 1));
         this.initUncheckedBoundstuple_type({}, { 0: other.lowerBound, 1: upperBound });
         return;
     };
@@ -27706,7 +27706,7 @@ var _UIntBuffer = /** @class */ (function () {
     };
     /*Swift.(file)._UIntBuffer.capacity*/
     _UIntBuffer.prototype.capacity$get = function () {
-        return Int.infix_47({}, _UIntBuffer.Storage.bitWidth, '!unclarifiedGeneric:Element'.bitWidth);
+        return Int.infix_47({}, _UIntBuffer.Storage.bitWidth, ((function () { throw '!unclarifiedGeneric:Element'; })()).bitWidth);
     };
     Object.defineProperty(_UIntBuffer.prototype, "capacity", {
         get: function () { return this.capacity$get(); },
@@ -29318,7 +29318,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
                 if (!($ifLet0.rawValue === 'some'))
                     break;
                 var _element = $ifLet0[0];
-                ptr.initializeMemoryAsRepeatingCount({}, '!unclarifiedGeneric:C.Element', _element, 1);
+                ptr.initializeMemoryAsRepeatingCount({}, ((function () { throw '!unclarifiedGeneric:C.Element'; })()), _element, 1);
                 UnsafeMutableRawPointer.infix_43_61({}, { get: function () { return ptr; }, set: function ($val) { return ptr = $val; } }, MemoryLayout.stride);
             }
         }
@@ -30237,7 +30237,7 @@ var Unicode = /** @class */ (function () {
             /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             class_86.transcodeFrom = function ($info, content, _) {
                 {
-                    if ((_fastPath({}, infix_61_61({}, _injectIntoOptional('!unclarifiedGeneric:FromEncoding'), _injectIntoOptional(UTF16))))) {
+                    if ((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function () { throw '!unclarifiedGeneric:FromEncoding'; })())), _injectIntoOptional(UTF16))))) {
                         var c = _cloneStruct(_identityCastTo({}, content, UTF16.EncodedScalar));
                         {
                             if (!((UInt32.infix_61_61({}, UInt32.infix_38({}, c._storage, 0xFF80), 0)))) {
@@ -30249,7 +30249,7 @@ var Unicode = /** @class */ (function () {
                     }
                     else {
                         {
-                            if ((_fastPath({}, infix_61_61({}, _injectIntoOptional('!unclarifiedGeneric:FromEncoding'), _injectIntoOptional(UTF8))))) {
+                            if ((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function () { throw '!unclarifiedGeneric:FromEncoding'; })())), _injectIntoOptional(UTF8))))) {
                                 var c = _cloneStruct(_identityCastTo({}, content, UTF8.EncodedScalar));
                                 var first = c.first.unsafelyUnwrapped;
                                 {
@@ -30264,7 +30264,7 @@ var Unicode = /** @class */ (function () {
                     }
                 }
                 ;
-                return this.encode({}, '!unclarifiedGeneric:FromEncoding'.decode({}, content));
+                return this.encode({}, ((function () { throw '!unclarifiedGeneric:FromEncoding'; })()).decode({}, content));
             };
             class_86.prototype.init$vars = function () {
             };
@@ -30286,7 +30286,7 @@ var Unicode = /** @class */ (function () {
                         var n = input.next({ $setThis: function ($val) { return input = $val; } });
                         {
                             var $ifLet0 = n;
-                            if ((_fastPath({}, Optional.infix_33_61({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && $ifLet0.rawValue === 'some') {
+                            if ((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && $ifLet0.rawValue === 'some') {
                                 var x = $ifLet0[0];
                                 {
                                     if (!((_fastPath({}, Int8.infix_62_61({}, _create(Int8, 'initTruncatingIfNeeded', {}, x), 0))))) {
@@ -31097,7 +31097,7 @@ var Unicode = /** @class */ (function () {
                         var n = input.next({ $setThis: function ($val) { return input = $val; } });
                         {
                             var $ifLet0 = n;
-                            if ((_fastPath({}, Optional.infix_33_61({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && $ifLet0.rawValue === 'some') {
+                            if ((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && $ifLet0.rawValue === 'some') {
                                 var x = $ifLet0[0];
                                 {
                                     if (!((_fastPath({}, Int8.infix_62_61({}, _create(Int8, 'initTruncatingIfNeeded', {}, x), 0))))) {
@@ -33470,7 +33470,7 @@ var ClosedRange = /** @class */ (function () {
         if ((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
             var x_1 = $match[0];
             preconditionFileLine({}, function () { return (_this.lowerBound).constructor.infix_62({}, x_1, _this.lowerBound); }, function () { return "Incrementing past start index"; }, '?3', '?3');
-            return ClosedRange.Index.inRange({}, x_1.advancedBy({}, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, -1)));
+            return ClosedRange.Index.inRange({}, x_1.advancedBy({}, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, -1)));
         }
         else if ((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             preconditionFileLine({}, function () { return (_this.upperBound).constructor.infix_62_61({}, _this.upperBound, _this.lowerBound); }, function () { return "Incrementing past start index"; }, '?3', '?3');
@@ -33496,7 +33496,7 @@ var ClosedRange = /** @class */ (function () {
             }
             ;
             {
-                if ((((d).constructor.infix_45({}, d, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, (d).constructor.infix_45({}, d, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, -1)), distance))) {
+                if ((((d).constructor.infix_45({}, d, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, (d).constructor.infix_45({}, d, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, -1)), distance))) {
                     return ClosedRange.Index.pastEnd;
                 }
             }
@@ -33532,11 +33532,11 @@ var ClosedRange = /** @class */ (function () {
         }
         else if ((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             var left = $match[0][0];
-            return numericCast({}, (_create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, 1), left.distanceTo({}, this.upperBound)));
+            return numericCast({}, (_create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, 1), left.distanceTo({}, this.upperBound)));
         }
         else if ((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.inRange().rawValue))) {
             var right = $match[1][0];
-            return numericCast({}, (this.upperBound.distanceTo({}, right)).constructor.infix_45({}, this.upperBound.distanceTo({}, right), _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, 1)));
+            return numericCast({}, (this.upperBound.distanceTo({}, right)).constructor.infix_45({}, this.upperBound.distanceTo({}, right), _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, 1)));
         }
         else if ((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             return 0;
@@ -33631,7 +33631,7 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).ClosedRange.init(_:Range<Bound>)*/
     ClosedRange.prototype.initRange = function ($info, other) {
         preconditionFileLine({}, function () { return Bool.prefix_33({}, other.isEmpty); }, function () { return "Can't form an empty closed range"; }, '?3', '?3');
-        var upperBound = other.upperBound.advancedBy({}, _create('!unclarifiedGeneric:Bound.Stride', 'initIntegerLiteral', {}, -1));
+        var upperBound = other.upperBound.advancedBy({}, _create(((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()), 'initIntegerLiteral', {}, -1));
         this.initUncheckedBoundstuple_type({}, { 0: other.lowerBound, 1: upperBound });
         return;
     };
@@ -33673,7 +33673,7 @@ var ClosedRange = /** @class */ (function () {
                 if ((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.inRange().rawValue))) {
                     var l = $match[0][0];
                     var r = $match[1][0];
-                    return '!unclarifiedGeneric:Bound'.infix_61_61({}, l, r);
+                    return ((function () { throw '!unclarifiedGeneric:Bound'; })()).infix_61_61({}, l, r);
                 }
                 else if ((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
                     return true;
@@ -33689,7 +33689,7 @@ var ClosedRange = /** @class */ (function () {
                 if ((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.inRange().rawValue))) {
                     var l = $match[0][0];
                     var r = $match[1][0];
-                    return '!unclarifiedGeneric:Bound'.infix_60({}, l, r);
+                    return ((function () { throw '!unclarifiedGeneric:Bound'; })()).infix_60({}, l, r);
                 }
                 else if ((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
                     return true;
@@ -41639,7 +41639,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_:Double)*/
     /*Swift.(file).Int.init(_:Double)*/
     MIO_Mixin_Int.prototype.initDouble = function ($info, source) {
-        return source;
+        return source | 0;
     };
     /*Swift.(file).Int.init(exactly:Double)*/
     /*Swift.(file).Int.init(exactly:Double)*/
@@ -48056,12 +48056,12 @@ function XCTFailFileLine($info, message, file, line) {
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNilFileLine($info, expression, message, file, line) {
-    preconditionFileLine({}, function () { return Optional.wrappedEqualsOptionalNilComparisonType({}, _injectIntoOptional(expression({})), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return Optional.wrappedEqualsOptionalNilComparisonType({}, expression({}), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotNilFileLine($info, expression, message, file, line) {
-    preconditionFileLine({}, function () { return Optional.infix_33_61({}, _injectIntoOptional(expression({})), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return Optional.wrappedNotEqualsOptionalNilComparisonType({}, expression({}), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/

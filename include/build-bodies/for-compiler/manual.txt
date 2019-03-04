@@ -49,6 +49,8 @@ return new Set()
 return new Set(#AA)
 ----Swift.(file).Array.init()
 return []
+----Swift.(file).Int.init(_:Double)
+return #AA | 0
 ----Swift.(file).BinaryInteger./infix(_:Self,_:Self)
 return (#A0 / #A1) | 0
 ----Swift.(file).BinaryInteger./=infix(_:Self,_:Self)
@@ -71,6 +73,10 @@ if(binaryRepr[j] !== '1') continue
 result += Math.pow(2, 7 - j)
 }
 return result
+----Swift.(file).ObjectIdentifier.init(_:AnyObject)
+this._value = #AA
+----Swift.(file).ObjectIdentifier.==infix(_:ObjectIdentifier,_:ObjectIdentifier)
+return #A0._value === #A1._value
 ----Darwin.(file).arc4random_uniform(_:UInt32)
 return (Math.random() * #AA) | 0
 ----Darwin.(file).arc4random()

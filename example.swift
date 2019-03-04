@@ -1,2 +1,5 @@
-max(0, 1)
-max(0, 1, 2)
+extension String: Error {}
+var str: String?
+guard let stra = str else {
+  throw "elo"
+}

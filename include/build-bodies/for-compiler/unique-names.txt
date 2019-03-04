@@ -32,5 +32,9 @@ Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)
 wrappedEqualsOptionalNilComparisonType
 Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)
 optionalNilComparisonTypeEqualsWrapped
+Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)
+wrappedNotEqualsOptionalNilComparisonType
+Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)
+optionalNilComparisonTypeNotEqualsWrapped
 Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)
 removeSubrangeRange
