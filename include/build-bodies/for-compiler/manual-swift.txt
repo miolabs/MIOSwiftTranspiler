@@ -1,51 +1,10 @@
-----Swift.(file).min(_:T,_:T,_:T,_:[T])
-let minValue = (x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, y, x) ? y : x);
-{
-if((x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, z, minValue))) {
-minValue = z;
-}
-};
-{
-if((Optional.infix_33_61({Self: Optional, Wrapped: _clarifyGenerics({Self:Array, Element: x.constructor})}, rest, null))) {
-{
-let $value$generator = _cloneStruct(rest.makeIterator({Self: _clarifyGenerics({Self:Array, Element: x.constructor})}, ));
-while(true) {
-const value = $value$generator.next({$setThis: $val => $value$generator = $val, Elements: _clarifyGenerics({Self:Array, Element: x.constructor})}, );
-if(!((value != null))) break;
-if(!(x.constructor.infix_60({Self: x.constructor, Self: x.constructor}, value, minValue))) break;
-minValue = value;
-}
-};
-}
-};
-return minValue
-----Swift.(file).max(_:T,_:T,_:T,_:[T])
-let maxValue = (x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, y, x) ? y : x);
-{
-if((x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, z, maxValue))) {
-maxValue = z;
-}
-};
-{
-if((Optional.infix_33_61({Self: Optional, Wrapped: _clarifyGenerics({Self:Array, Element: x.constructor})}, rest, null))) {
-{
-let $value$generator = _cloneStruct(rest.makeIterator({Self: _clarifyGenerics({Self:Array, Element: x.constructor})}, ));
-while(true) {
-const value = $value$generator.next({$setThis: $val => $value$generator = $val, Elements: _clarifyGenerics({Self:Array, Element: x.constructor})}, );
-if(!((value != null))) break;
-if(!(x.constructor.infix_62_61({Self: x.constructor, Self: x.constructor}, value, maxValue))) break;
-maxValue = value;
-}
-};
-}
-};
-return maxValue
 ----Swift.(file).Array.append(contentsOf:S)
 {
 let $el$generator = newElements.makeIterator({Self: newElements.constructor}, );
 while(true) {
-const el = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
-if(!((el != null))) break;
+const $ifLet0 = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
+if(!($ifLet0.rawValue === 'some')) break
+let el = $ifLet0[0]
 this.append({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, el);
 }
 }
@@ -55,7 +14,8 @@ this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val)), 
 {
 let $generator = _cloneStruct(subrange.makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
 while(true) {
-if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+const $ifLet0 = $generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!($ifLet0.rawValue === 'some')) break
 this.removeAt({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, subrange.startIndex);
 }
 };
@@ -63,8 +23,9 @@ let i = subrange.startIndex;
 {
 let $el$generator = newElements.makeIterator({Self: newElements.constructor}, );
 while(true) {
-const el = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
-if(!((el != null))) break;
+const $ifLet0 = $el$generator.next({$setThis: $val => $el$generator = $val, Self: newElements.constructor}, );
+if(!($ifLet0.rawValue === 'some')) break
+let el = $ifLet0[0]
 this.insertAt({$setThis: $val => $info.$setThis(_cloneStruct($val)), Element: '?'}, el, i);
 Int.infix_43_61({Self: Int}, {get: () => i, set: $val => i = $val}, 1);
 }
@@ -86,8 +47,9 @@ return true;
 {
 let $idx$generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, lhsCount).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
 while(true) {
-const idx = $idx$generator.next({$setThis: $val => $idx$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
-if(!((idx != null))) break;
+const $ifLet0 = $idx$generator.next({$setThis: $val => $idx$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!($ifLet0.rawValue === 'some')) break
+let idx = $ifLet0[0]
 {
 if(('?'.infix_33_61({Self: '?', Self: '?'}, lhs.subscript$get({}, idx), rhs.subscript$get({}, idx)))) {
 return false;
@@ -103,7 +65,8 @@ let result = _create(Array, 'init', {Element: repeatedValue.constructor}, );
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, count).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
 while(true) {
-if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+const $ifLet0 = $generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!($ifLet0.rawValue === 'some')) break
 result.append({$setThis: $val => result = $val, Element: repeatedValue.constructor}, repeatedValue);
 }
 };
@@ -115,8 +78,9 @@ if((separator.isEmpty)) {
 {
 let $x$generator = this.makeIterator({Self: this.constructor}, );
 while(true) {
-const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
-if(!((x != null))) break;
+const $ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
+if(!($ifLet0.rawValue === 'some')) break
+let x = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, x));
 }
 };
@@ -124,12 +88,14 @@ return result;
 }
 };
 let iter = this.makeIterator({Self: this.constructor}, );
-{const first = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
-if((first != null)) {
+{const $ifLet0 = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if($ifLet0.rawValue === 'some') {
+let first = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, first));
 while(true){
-const next = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
-if(!((next != null))) break
+const $ifLet0 = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if(!($ifLet0.rawValue === 'some')) break
+let next = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, separator);
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: String}, next));
 };
@@ -143,8 +109,9 @@ if((separator.isEmpty)) {
 {
 let $x$generator = this.makeIterator({Self: this.constructor}, );
 while(true) {
-const x = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
-if(!((x != null))) break;
+const $ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val, Self: this.constructor}, );
+if(!($ifLet0.rawValue === 'some')) break
+let x = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, x));
 }
 };
@@ -152,12 +119,14 @@ return result;
 }
 };
 let iter = this.makeIterator({Self: this.constructor}, );
-{const first = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
-if((first != null)) {
+{const $ifLet0 = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if($ifLet0.rawValue === 'some') {
+let first = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, first));
 while(true){
-const next = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
-if(!((next != null))) break
+const $ifLet0 = iter.next({$setThis: $val => iter = $val, Self: this.constructor}, )
+if(!($ifLet0.rawValue === 'some')) break
+let next = $ifLet0[0]
 result.append({$setThis: $val => result = $val}, separator);
 result.append({$setThis: $val => result = $val}, _create(String, 'initString', {S: this.constructor}, next));
 };
@@ -168,8 +137,9 @@ return result
 let result = _create(Array, 'init', {Element: '?'}, );
 let iterator = _cloneStruct(this.makeIterator({Self: _clarifyGenerics({Self:Array, Element: '?'})}, ));
 while(true){
-const _element = iterator.next({$setThis: $val => iterator = $val, Elements: _clarifyGenerics({Self:Array, Element: '?'})}, )
-if(!((_element != null))) break
+const $ifLet0 = iterator.next({$setThis: $val => iterator = $val, Elements: _clarifyGenerics({Self:Array, Element: '?'})}, )
+if(!($ifLet0.rawValue === 'some')) break
+let _element = $ifLet0[0]
 {
 if((isIncluded({}, _element))) {
 result.append({$setThis: $val => result = $val, Element: '?'}, _element);
@@ -189,8 +159,9 @@ let result = _create(Array, 'init', {Element: '?'}, );
 {
 let $index$generator = _cloneStruct(bounds.makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
 while(true) {
-const index = $index$generator.next({$setThis: $val => $index$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
-if(!((index != null))) break;
+const $ifLet0 = $index$generator.next({$setThis: $val => $index$generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!($ifLet0.rawValue === 'some')) break
+let index = $ifLet0[0]
 result.append({$setThis: $val => result = $val, Element: '?'}, this.subscript$get({}, index));
 }
 };
@@ -199,12 +170,12 @@ return result;
 ----Swift.(file).IndexingIterator.next()
 {
 if((this._elements.startIndex.constructor.infix_61_61({Self: this._elements.startIndex.constructor, Self: this._elements.startIndex.constructor}, this._position, this._elements.endIndex))) {
-return null;
+return Optional.none;
 }
 };
 const _element = this._elements.subscript$get({}, this._position);
 this._elements.formIndexAfter({Self: this._elements.constructor}, {get: () => this._position, set: $val => this._position = $val});
-return _element
+return _injectIntoOptional(_element)
 ----Swift.(file).IndexingIterator.init(_elements:Elements)
 this._elements = _elements;
 this._position = _elements.startIndex;
@@ -236,7 +207,8 @@ let i = this.startIndex;
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({Self: Int, Self: Int}, 0, n).makeIterator({Self: _clarifyGenerics({Self:Range, Bound: Int})}, ));
 while(true) {
-if($generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, ) == null) break;
+const $ifLet0 = $generator.next({$setThis: $val => $generator = $val, Elements: _clarifyGenerics({Self:Range, Bound: Int})}, );
+if(!($ifLet0.rawValue === 'some')) break
 result.append({$setThis: $val => result = $val, Element: '?'}, transform({}, this.subscript$get({}, i)));
 this.formIndexAfter({Self: this.constructor}, {get: () => i, set: $val => i = $val});
 }
@@ -248,6 +220,15 @@ result.sortBy({$setThis: $val => result = $val, Self: _clarifyGenerics({Self:Arr
 return result
 ----Swift.(file).Int.advanced(by:Int)
 return Int.infix_43({Self: Int}, this, n)
+----Swift.(file).??infix(_:T?,_:() throws -> T?)
+const $match = optional
+if((($match.rawValue == Optional.some().rawValue))) {
+const value = $match[0]
+return value;
+}
+else if((($match.rawValue == Optional.none.rawValue))) {
+return defaultValue({}, );
+}
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => expression({}, ), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
@@ -261,15 +242,21 @@ preconditionFileLine({}, () => '?'.infix_60({Self: '?', Self: '?'}, expression1(
 ----XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => '?'.infix_60_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-preconditionFileLine({}, () => Optional.infix_61_61({Self: Optional, Wrapped: Bool}, expression({}, ), null), () => message({}, ), '?3', '?3')
+preconditionFileLine({}, () => Optional.infix_61_61({Self: Optional, Wrapped: Bool}, _injectIntoOptional(expression({}, )), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-preconditionFileLine({}, () => Optional.infix_33_61({Self: Optional, Wrapped: Bool}, expression({}, ), null), () => message({}, ), '?3', '?3')
+preconditionFileLine({}, () => Optional.infix_33_61({Self: Optional, Wrapped: Bool}, _injectIntoOptional(expression({}, )), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => Bool.infix_61_61({Self: Bool}, expression({}, ), true), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => '?'.infix_61_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => '?'.infix_33_61({Self: '?', Self: '?'}, expression1({}, ), expression2({}, )), () => message({}, ), '?3', '?3')
+----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
+{
+if((Bool.prefix_33({Self: Bool}, condition({}, )))) {
+throw message({}, );
+}
+}
 ----XCTest.(file).XCTest.setUp()
 
 ----XCTest.(file).XCTest.tearDown()

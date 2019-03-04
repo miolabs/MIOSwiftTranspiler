@@ -1,29 +1,3 @@
-----Swift.(file).min(_:T,_:T,_:T,_:[T])
-public func min<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var minValue = y < x ? y : x
-  if z < minValue {
-    minValue = z
-  }
-  if rest != nil {
-    for value in rest where value < minValue {
-      minValue = value
-    }
-  }
-  return minValue
-}
-----Swift.(file).max(_:T,_:T,_:T,_:[T])
-public func max<T : Comparable>(_ x: T, _ y: T, _ z: T, _ rest: T...) -> T {
-  var maxValue = y >= x ? y : x
-  if z >= maxValue {
-    maxValue = z
-  }
-  if rest != nil {
-    for value in rest where value >= maxValue {
-      maxValue = value
-    }
-  }
-  return maxValue
-}
 ----Swift.(file).Array.append(contentsOf:S)
 extension Array {
   public mutating func append<S: Sequence>(contentsOf newElements: __owned S)
@@ -290,6 +264,17 @@ extension Sequence  {
 extension Int {
   public func advanced(by n: Int) -> Int {
     return self + n
+  }
+}
+----Swift.(file).??infix(_:T?,_:() throws -> T?)
+//not sure why originally the `T?` instead of `T`
+public func ?? <T>(optional: T?, defaultValue: @autoclosure () throws -> T)
+    rethrows -> T {
+  switch optional {
+  case .some(let value):
+    return value
+  case .none:
+    return try defaultValue()
   }
 }
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)

@@ -3,17 +3,21 @@ return this.length
 ----Swift.(file).print(_:[Any],separator:String,terminator:String)
 console.log.apply(null, #A0)
 ----Swift.(file).Dictionary.subscript(_:Dictionary<Key, Value>.Index)
-return this.get(#AA)
+if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+return Optional.none
 ----Swift.(file).Dictionary.subscript(_:Key)
-return this.get(#AA)
+if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+return Optional.none
 ----Swift.(file).Dictionary.subscript(_:Key)#ASS
-if(#A0 == null) this.delete(#A1)
-else this.set(#A1, _cloneStruct(#A0))
+if(#A0.rawValue === 'none') this.delete(#A1)
+else this.set(#A1, _cloneStruct(#A0[0]))
 ----Swift.(file).Dictionary.count
 return this.size
 ----Swift.(file).Dictionary.makeIterator()
-//TODO use _create for Array; preferably move to Swift and use the proper Iterator (then remove SwiftIterator.js too)
-return new SwiftIterator((current) => Array.from(this)[current])
+//TODO use _create for Array
+//TODO change SwiftIterator because now only Dictionary is using it to use js Map.iterator (much faster)
+//TODO preferably move to Swift and use the proper Iterator (then remove SwiftIterator.js too)
+return new SwiftIterator((current) => _injectIntoOptional(Array.from(this)[current]))
 ----Swift.(file).Array.count
 return this.length
 ----Swift.(file).Array.insert(_:Element,at:Int)
@@ -81,12 +85,6 @@ this.upperBound$internal = #AA[1]
 ----Swift.(file).ClosedRange.init(uncheckedBounds:(lower: Bound, upper: Bound))
 this.lowerBound$internal = #AA[0]
 this.upperBound$internal = #AA[1]
-----Swift.(file).??infix(_:T?,_:() throws -> T?)
-//TODO we might have to support optional as an enum; when that time comes, remove this and fall back to native swift definition
-if (optional != null) {
-  return optional
-}
-else return defaultValue({})
 ----Swift.(file).SignedNumeric.negate()
 $info.$setThis(-this)
 ----Swift.(file).String.append(_:Character)

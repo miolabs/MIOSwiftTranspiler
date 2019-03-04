@@ -14,7 +14,7 @@ const moduleFiles = {
 }
 let moduleFilePaths = []
 for(const module in moduleFiles) moduleFilePaths = moduleFilePaths.concat(moduleFiles[module].map(file => `${root}include/${module}/${file}.ts`))
-const includeFilePaths = [...moduleFilePaths, ...fs.readdirSync(`${root}include/util`).map(file => `${root}include/util/${file}`)]
+const includeFilePaths = [...fs.readdirSync(`${root}include/util`).map(file => `${root}include/util/${file}`), ...moduleFilePaths]
 const includes = includeFilePaths.map(file => fs.readFileSync(file)).join('\n')
 
 if(process.argv[2] === 'output-lib') {
@@ -26,7 +26,7 @@ const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = ['local', 'github']
+const suiteNames = ['local'/*, 'github'*/]
 
 let isTestCache = {}
 function isTest(path) {
@@ -173,7 +173,7 @@ const assertFile = {
         assert(swiftLines.length > 1)
         assert.equal(tsLines.length, swiftLines.length)
         for(var i = 0; i < swiftLines.length; i++) {
-            if(swiftLines[i] === 'nil') assert(tsLines[i] === 'null' || tsLines[i] === 'undefined')
+            if(swiftLines[i] === 'nil') assert(tsLines[i] === 'null' || tsLines[i] === 'undefined' || tsLines[i] === "Optional { rawValue: 'none' }")
             else assert.equal(tsLines[i], swiftLines[i])
         }
     },

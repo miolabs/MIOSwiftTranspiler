@@ -21,10 +21,6 @@ replaceInFile('/Users/bubulkowanorka/projects/antlr4-visitor/include/Swift/typeA
     contents
         .replace('ClassHolder.AccessRecord = UnsafeValueBuffer', '//ClassHolder.AccessRecord = UnsafeValueBuffer')
 ))
-replaceInFile('/Users/bubulkowanorka/projects/antlr4-visitor/include/Swift/Sequence.ts', contents => (
-    contents
-        .replace('makeIterator($info) {\nreturn this\n}', '/*makeIterator($info) {\nreturn this\n}*/')
-))
 
 execSync('/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks /Users/bubulkowanorka/projects/antlr4-visitor/include/build-bodies/generate-imported-module.swift', {stdio: [0, 1, 2]})
 
