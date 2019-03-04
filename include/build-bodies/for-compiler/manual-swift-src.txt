@@ -277,6 +277,33 @@ public func ?? <T>(optional: T?, defaultValue: @autoclosure () throws -> T)
     return try defaultValue()
   }
 }
+----Swift.(file).ClosedRange.index(after:ClosedRange<Bound>.Index)
+extension ClosedRange: Collection, BidirectionalCollection, RandomAccessCollection
+where Bound : Strideable, Bound.Stride : SignedInteger
+ {
+  public func index(after i: Index) -> Index {
+    switch i {
+    case .inRange(let x):
+      "#clarifyGeneric#Bound.Stride#Int"
+      return x == upperBound
+        ? .pastEnd
+        : .inRange(x.advanced(by: 1))
+    case .pastEnd:
+      preconditionFailure("Incrementing past end index")
+    }
+  }
+}
+----Swift.(file).Range.index(after:Range<Bound>.Index)
+extension Range: Collection, BidirectionalCollection, RandomAccessCollection
+where Bound : Strideable, Bound.Stride : SignedInteger
+ {
+  public func index(after i: Index) -> Index {
+    _failEarlyRangeCheck(i, bounds: startIndex..<endIndex)
+
+    "#clarifyGeneric#Bound.Stride#Int"
+    return i.advanced(by: 1)
+  }
+}
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 public func XCTAssertFalse(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
   precondition(expression(), message())
