@@ -32,34 +32,6 @@ Int.infix_43_61({}, {get: () => i, set: $val => i = $val}, 1);
 }
 ----Swift.(file).Array.removeAll(keepingCapacity:Bool)
 this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct($val))}, this.indices, _create(EmptyCollection, 'init', {}, ))
-----Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)
-const lhsCount = lhs.count;
-{
-if((Int.infix_33_61({}, lhsCount, rhs.count))) {
-return false;
-}
-};
-{
-if((Int.infix_61_61({}, lhsCount, 0))) {
-return true;
-}
-};
-{
-let $idx$generator = _cloneStruct(Int.infix_46_46_60({}, 0, lhsCount).makeIterator({}, ));
-while(true) {
-const $ifLet0 = $idx$generator.next({$setThis: $val => $idx$generator = $val}, );
-if(!($ifLet0.rawValue === 'some')) break
-let idx = $ifLet0[0]
-{
-if(((lhs.subscript$get({}, idx)).constructor.infix_33_61({}, lhs.subscript$get({}, idx), rhs.subscript$get({}, idx)))) {
-return false;
-}
-};
-}
-};
-return true
-----Swift.(file).RangeReplaceableCollection.removeLast()
-return this.removeAt({$setThis: $val => $info.$setThis(_cloneStruct($val))}, this.indexBefore({}, this.endIndex))
 ----Swift.(file).Array.init(repeating:Element,count:Int)
 let result = _create(Array, 'init', {}, );
 {
@@ -167,15 +139,6 @@ result.append({$setThis: $val => result = $val}, this.subscript$get({}, index));
 };
 return result;
 
-----Swift.(file).IndexingIterator.next()
-{
-if(((this._position).constructor.infix_61_61({}, this._position, this._elements.endIndex))) {
-return Optional.none;
-}
-};
-const _element = this._elements.subscript$get({}, this._position);
-this._elements.formIndexAfter({}, {get: () => this._position, set: $val => this._position = $val});
-return _injectIntoOptional(_element)
 ----Swift.(file).IndexingIterator.init(_elements:Elements)
 this._elements = _elements;
 this._position = _elements.startIndex;
@@ -184,17 +147,9 @@ return
 this._elements = _elements;
 this._position = _position;
 return
-----Swift.(file).CollectionOfOne.init(_:Element)
-this._element = _element;
+----Swift.(file).CollectionOfOne.Iterator.init(_elements:CollectionOfOne<Element>.Iterator.Element?)
+this._elements = _elements;
 return
-----Swift.(file).CollectionOfOne.subscript(_:Int)#ASS
-
-preconditionFileLine({}, () => Int.infix_61_61({}, position, 0), () => "Index out of range", '?3', '?3');
-this._element = _element
-----Swift.(file).CollectionOfOne.subscript(_:Int)
-preconditionFileLine({}, () => Int.infix_61_61({}, position, 0), () => "Index out of range", '?3', '?3');
-return this._element;
-
 ----Swift.(file).Collection.map(_:(Self.Element) throws -> T)
 const n = this.count;
 {
@@ -229,32 +184,6 @@ return value;
 else if((($match.rawValue == Optional.none.rawValue))) {
 return defaultValue({}, );
 }
-----Swift.(file).ClosedRange.index(after:ClosedRange<Bound>.Index)
-const $match = i
-if((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
-const x = $match[0]
-return ((this.upperBound).constructor.infix_61_61({}, x, this.upperBound) ? ClosedRange.Index.pastEnd : ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))));
-}
-else if((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
-preconditionFailureFileLine({}, () => "Incrementing past end index", '?3', '?3');
-}
-----Swift.(file).Range.index(after:Range<Bound>.Index)
-this._failEarlyRangeCheckBounds({}, i, (this.startIndex).constructor.infix_46_46_60({}, this.startIndex, this.endIndex));
-return i.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))
-----Swift.(file).Sequence.min()
-return this.minBy({}, this.first[0].constructor.infix_60)
-----Swift.(file).Sequence.max()
-return this.maxBy({}, this.first[0].constructor.infix_60)
-----Swift.(file).Sequence.starts(with:PossiblePrefix)
-return this.startsWithBy({}, possiblePrefix, this.first[0].constructor.infix_61_61)
-----Swift.(file).Sequence.elementsEqual(_:OtherSequence)
-return this.elementsEqualBy({}, other, this.first[0].constructor.infix_61_61)
-----Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)
-return this.lexicographicallyPrecedesBy({}, other, this.first[0].constructor.infix_60)
-----Swift.(file).Sequence.sorted()
-return this.sortedBy({}, this.first[0].constructor.infix_60)
-----Swift.(file).MutableCollection.sort()
-this.sortBy({$setThis: $val => $info.$setThis(_cloneStruct($val))}, this.first[0].constructor.infix_60)
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => expression({}, ), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)

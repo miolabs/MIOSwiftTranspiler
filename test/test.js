@@ -26,7 +26,7 @@ const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = ['local', 'github']
+const suiteNames = ['local'/*, 'github'*/]
 
 let isTestCache = {}
 function isTest(path) {
@@ -170,6 +170,8 @@ const assertFile = {
         assert(expectedLog.length > 1)
         assert(transpileChunk.length > 1)
         var tsLines = transpileChunk.split('\n'), swiftLines = expectedLog.split('\n')
+        let errorLine = tsLines.find(line => line.includes('!!!err'))
+        if(errorLine) assert.fail(errorLine)
         assert(tsLines.length > 1)
         assert(swiftLines.length > 1)
         assert.equal(tsLines.length, swiftLines.length)
@@ -203,7 +205,7 @@ suites.forEach(({suiteName, dirs}) => {
         fileNames.forEach(fileName => {
             const transpiled = transpile(suiteName, dirName, fileName)
             //if(transpiled.includes('.infix_47')) console.log('division!', suiteName, dirName, fileName)
-            transpiledCode += '\n;try{(function(){\n' + transpiled + '\n})()}catch(e){console.log(e)}\nconsole.log("$$$")'
+            transpiledCode += '\n;try{(function(){\n' + transpiled + '\n})()}catch(e){console.log("!!!err", e)}\nconsole.log("$$$")'
         })
     })
 })

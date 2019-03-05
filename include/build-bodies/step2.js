@@ -36,6 +36,34 @@ const PROPER_IDENTIFIERS = {
     'Swift.(file).Dictionary.remove(at)': 'Swift.(file).Dictionary.remove(at:Dictionary<Key, Value>.Index)'
 }
 
+const CLARIFY_GENERICS = {
+    'Swift.(file).ClosedRange.index(after:ClosedRange<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).Range.index(after:Range<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).Sequence.min()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).Sequence.max()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).Sequence.starts(with:PossiblePrefix)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).Sequence.elementsEqual(_:OtherSequence)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).Sequence.sorted()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).MutableCollection.sort()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"'
+}
+
+//true means don't use the whole function; false means only drop the line
+const UNUSABLE_PROPS = {
+    '_guts': true,
+    '_stringCompare': true,
+    '_variant': true,
+    '_internalInvariant': false,
+    '_checkIndex': false,
+    '_failEarlyRangeCheck': false,
+    '_expectEnd': false,
+    '_customRemoveLast': false
+}
+
+const JS_REPLACEMENTS = {
+    'Character': str => str.replace(/\._str/g, '')
+}
+
 function escapeRegex(s) {
     return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
@@ -77,16 +105,36 @@ let transpilations = ''
 let success = 0, all = 0
 for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
     if(!file.endsWith('.swift') || file === 'body.swift') continue
+    //if(file !== 'Range.swift') continue
     console.log(file)
     let arr = JSON.parse(fs.readFileSync(`${__dirname}/bodies/${file}`, 'utf8'))
     let isUntyped = arr.shift()
     for(let prop of arr) {
-        if((!prop.body.includes('func ') && !prop.body.includes('subscript(') && !prop.body.includes('subscript ') && !prop.body.includes('init(') && !prop.body.includes('init ') && !prop.body.includes('var ')) || !prop.body.includes('{') || prop.body.includes('prototype ') || prop.body.includes('class ') || prop.body.includes('struct ') || prop.body.includes('enum ')) continue
         let identifier = prop.identifier.split('.')
-        let name = identifier.slice(prop.isType ? 3 : 2).join('.')
+        let parent = '', nameI = 2
+        for(; nameI <= identifier.length - 1; nameI++) {
+            if(identifier[nameI].includes('(') || identifier[nameI].includes('@')) break
+            parent += (parent ? '.' : '') + identifier[nameI]
+        }
+        let skip = false
+        for(const unusableProp in UNUSABLE_PROPS) {
+            const discard = UNUSABLE_PROPS[unusableProp];
+            if(prop.body.includes(unusableProp)) {
+                //console.log(prop.identifier, unusableProp)
+                if(discard) {
+                    skip = true
+                    break
+                }
+                else {
+                    prop.body = prop.body.split('\n').filter(line => !line.includes(unusableProp)).join('\n')
+                    //console.log(prop.body)
+                }
+            }
+        }
+        if(skip) continue
+        let name = identifier.slice(nameI).join('.')
         if(name.includes('@')) name = name.substr(0, name.indexOf('@'))
         let pureName = name.includes('(') ? name.slice(0, name.indexOf('(')) : name
-        let parent = !!prop.isType && identifier[2]
         let properIdentifier = getProperIdentifier(isUntyped, prop, parent, pureName, name)
         if(!properIdentifier) {
             //console.log('!!!!', file, prop)
@@ -94,13 +142,18 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         }
         all++
         prop.body = prop.body.replace(/_precondition/g, 'precondition').replace(/_debugPrecondition/g, 'precondition')
+        if(CLARIFY_GENERICS[properIdentifier]) {
+            prop.body = prop.body.replace("{", "{\n" + CLARIFY_GENERICS[properIdentifier])
+        }
         let contents = ''
         if(prop.isType) contents += (prop.ext || 'extension ' + parent) + ' {\n'
         contents += prop.body
         if(prop.isType) contents += '\n}'
         swiftDefinitions += '\n\n----' + properIdentifier + '\n' + contents
         try {
-            transpilations += transpile(contents, properIdentifier, pureName)
+            let transpiled = transpile(contents, properIdentifier, pureName)
+            if(JS_REPLACEMENTS[parent]) transpiled = JS_REPLACEMENTS[parent](transpiled)
+            transpilations += transpiled
         }
         catch(err) {
             //console.log(err)

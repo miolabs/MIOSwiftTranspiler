@@ -38,33 +38,6 @@ extension Array {
     self.replaceSubrange(indices, with: EmptyCollection())
   }
 }
-----Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)
-extension Array where Element: Equatable {
-  public static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool {
-    let lhsCount = lhs.count
-    if lhsCount != rhs.count {
-      return false
-    }
-
-    if lhsCount == 0 {
-      return true
-    }
-
-    for idx in 0..<lhsCount {
-      if lhs[idx] != rhs[idx] {
-        return false
-      }
-    }
-
-    return true
-  }
-}
-----Swift.(file).RangeReplaceableCollection.removeLast()
-extension RangeReplaceableCollection where Self : BidirectionalCollection {
-  public mutating func removeLast() -> Element {
-    return remove(at: index(before: endIndex))
-  }
-}
 ----Swift.(file).Array.init(repeating:Element,count:Int)
 extension Array: RangeReplaceableCollection  {
   public init(repeating repeatedValue: Element, count: Int) {
@@ -159,20 +132,6 @@ extension Array: RandomAccessCollection, MutableCollection  {
     }
   }
 }
-----Swift.(file).IndexingIterator.next()
-public struct IndexingIterator<Elements : Collection> {
-  internal let _elements: Elements
-  internal var _position: Elements.Index
-}
-"--ignore-before"
-extension IndexingIterator: IteratorProtocol, Sequence  {
-  public mutating func next() -> Elements.Element? {
-    if _position == _elements.endIndex { return nil }
-    let element = _elements[_position]
-    _elements.formIndex(after: &_position)
-    return element
-  }
-}
 ----Swift.(file).IndexingIterator.init(_elements:Elements)
 public struct IndexingIterator<Elements : Collection> {
   internal let _elements: Elements
@@ -197,31 +156,14 @@ extension IndexingIterator {
     self._position = _position
   }
 }
-----Swift.(file).CollectionOfOne.init(_:Element)
-public struct CollectionOfOne<Element> {
-  internal var _element: Element
+----Swift.(file).CollectionOfOne.Iterator.init(_elements:CollectionOfOne<Element>.Iterator.Element?)
+public struct Iterator<Element> {
+  internal var _elements: Element?
 }
 "--ignore-before"
-extension CollectionOfOne {
-  public init(_ element: Element) {
-    self._element = element
-  }
-}
-----Swift.(file).CollectionOfOne.subscript(_:Int)
-public struct CollectionOfOne<Element> {
-  internal var _element: Element
-}
-"--ignore-before"
-extension CollectionOfOne {
-  public subscript(position: Int) -> Element {
-    get {
-      precondition(position == 0, "Index out of range")
-      return _element
-    }
-    set(element) {
-      precondition(position == 0, "Index out of range")
-      _element = element
-    }
+extension Iterator {
+  init(_elements: Element?) {
+    self._elements = _elements
   }
 }
 ----Swift.(file).Collection.map(_:(Self.Element) throws -> T)
@@ -274,89 +216,6 @@ public func ?? <T>(optional: T?, defaultValue: @autoclosure () throws -> T)
     return value
   case .none:
     return try defaultValue()
-  }
-}
-----Swift.(file).ClosedRange.index(after:ClosedRange<Bound>.Index)
-extension ClosedRange: Collection, BidirectionalCollection, RandomAccessCollection
-where Bound : Strideable, Bound.Stride : SignedInteger
- {
-  public func index(after i: Index) -> Index {
-    switch i {
-    case .inRange(let x):
-      "#clarifyGeneric#Bound.Stride#Int"
-      return x == upperBound
-        ? .pastEnd
-        : .inRange(x.advanced(by: 1))
-    case .pastEnd:
-      preconditionFailure("Incrementing past end index")
-    }
-  }
-}
-----Swift.(file).Range.index(after:Range<Bound>.Index)
-extension Range: Collection, BidirectionalCollection, RandomAccessCollection
-where Bound : Strideable, Bound.Stride : SignedInteger
- {
-  public func index(after i: Index) -> Index {
-    _failEarlyRangeCheck(i, bounds: startIndex..<endIndex)
-
-    "#clarifyGeneric#Bound.Stride#Int"
-    return i.advanced(by: 1)
-  }
-}
-----Swift.(file).Sequence.min()
-extension Sequence where Element: Comparable  {
-  public func min() -> Element? {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return self.min(by: <)
-  }
-}
-----Swift.(file).Sequence.max()
-extension Sequence where Element: Comparable  {
-  public func max() -> Element? {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return self.max(by: <)
-  }
-}
-----Swift.(file).Sequence.starts(with:PossiblePrefix)
-extension Sequence where Element: Equatable  {
-  public func starts<PossiblePrefix: Sequence>(
-    with possiblePrefix: PossiblePrefix
-  ) -> Bool where PossiblePrefix.Element == Element {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return self.starts(with: possiblePrefix, by: ==)
-  }
-}
-----Swift.(file).Sequence.elementsEqual(_:OtherSequence)
-extension Sequence where Element : Equatable  {
-  public func elementsEqual<OtherSequence: Sequence>(
-    _ other: OtherSequence
-  ) -> Bool where OtherSequence.Element == Element {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return self.elementsEqual(other, by: ==)
-  }
-}
-----Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)
-extension Sequence where Element : Comparable  {
-  public func lexicographicallyPrecedes<OtherSequence: Sequence>(
-    _ other: OtherSequence
-  ) -> Bool where OtherSequence.Element == Element {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return self.lexicographicallyPrecedes(other, by: <)
-  }
-}
-----Swift.(file).Sequence.sorted()
-extension Sequence where Element: Comparable  {
-  public func sorted() -> [Element] {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    return sorted(by: <)
-  }
-}
-----Swift.(file).MutableCollection.sort()
-extension MutableCollection
-where Self: RandomAccessCollection, Element: Comparable  {
-  public mutating func sort() {
-    "#clarifyGeneric#Self.Element#this.first[0].constructor"
-    sort(by: <)
   }
 }
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)

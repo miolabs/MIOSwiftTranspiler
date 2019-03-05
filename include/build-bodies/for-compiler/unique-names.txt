@@ -38,3 +38,9 @@ Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)
 optionalNilComparisonTypeNotEqualsWrapped
 Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)
 removeSubrangeRange
+Swift.(file).??infix(_:T?,_:() throws -> T?)
+nilCoalescingOptional
+Swift.(file).String.subscript(_:R)
+subscriptRange
+Swift.(file).MutableCollection.subscript(_:R)
+subscriptRange

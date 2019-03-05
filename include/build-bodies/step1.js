@@ -188,6 +188,7 @@ files.forEach(file => {
 
 files.forEach(file => {
     if(!file.endsWith('.swift')) return
+    //if(file !== 'CollectionOfOne.swift') return
     console.log(file)
     let contents = fs.readFileSync(`${__dirname}/swift-lib/${file}`, 'utf8').split('\n')
     let output

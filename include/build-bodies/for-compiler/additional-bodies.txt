@@ -1,6 +1,8 @@
 ----Swift.(file).Array
-toString(){return '[' + this.join(', ') + ']'}"}
-----Swift.(file).Collection
-_failEarlyRangeCheckBounds(){}
-_expectEnd(){}
+toString() {
+    return '[' + this.join(', ') + ']'
+}
+subscript$set($info, el, index) {
+    this[index] = _cloneStruct(el)
+}
 ----closing dashes needed for the last definition to be processed

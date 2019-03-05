@@ -18,6 +18,12 @@ return this.size
 //TODO change SwiftIterator because now only Dictionary is using it to use js Map.iterator (much faster)
 //TODO preferably move to Swift and use the proper Iterator (then remove SwiftIterator.js too)
 return new SwiftIterator((current) => _injectIntoOptional(Array.from(this)[current]))
+----Swift.(file).Array.subscript(_:Int)
+return this[#AA]
+----Swift.(file).Array.subscript(_:Int)#ASS
+return this[#A1] = #A0
+----Swift.(file).String.subscript(_:Int)
+return this[#AA]
 ----Swift.(file).Array.count
 return this.length
 ----Swift.(file).Array.insert(_:Element,at:Int)
@@ -51,6 +57,8 @@ return new Set(#AA)
 return []
 ----Swift.(file).Int.init(_:Double)
 return #AA | 0
+----Swift.(file).Character.init(unchecked:String)
+return #AA
 ----Swift.(file).BinaryInteger./infix(_:Self,_:Self)
 return (#A0 / #A1) | 0
 ----Swift.(file).BinaryInteger./=infix(_:Self,_:Self)
@@ -109,6 +117,8 @@ return this.sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1)
 return String(other)
 ----Swift.(file).Double.infinity
 return Infinity
+----Swift.(file).FloatingPoint.isLess(than:Self)
+return this < other
 ----XCTest.(file).XCTestCase.init()
 var proto = Object.keys(Object.getPrototypeOf(this))
 for(const testFunction of proto) {

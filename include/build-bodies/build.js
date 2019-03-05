@@ -5,13 +5,12 @@ function replaceInFile(path, transform) {
     fs.writeFileSync(path, transform(fs.readFileSync(path, 'utf8')))
 }
 
-let noAutogenerate = process.argv[2] === 'no-autogenerate'
+let fromStep = 1
+if(process.argv[2] && process.argv[2].includes('from-step-')) fromStep = parseInt(process.argv[2].match('[0-9]+'))
 
-if(!noAutogenerate) {
-    execSync(`node ${__dirname}/step1.js`, {stdio: [0, 1, 2]})
-    execSync(`node ${__dirname}/step2.js`, {stdio: [0, 1, 2]})
-}
-execSync(`node ${__dirname}/step3.js`, {stdio: [0, 1, 2]})
+if(fromStep <= 1) execSync(`node ${__dirname}/step1.js`, {stdio: [0, 1, 2]})
+if(fromStep <= 2) execSync(`node ${__dirname}/step2.js`, {stdio: [0, 1, 2]})
+if(fromStep <= 3) execSync(`node ${__dirname}/step3.js`, {stdio: [0, 1, 2]})
 
 execSync('/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks /Users/bubulkowanorka/projects/antlr4-visitor/include/build-bodies/generate-std-lib.swift', {stdio: [0, 1, 2]})
 
