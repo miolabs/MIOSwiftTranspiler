@@ -25,12 +25,12 @@ let $el$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet0, el$ifLet1;
 if(!((($ifLet0 = $el$generator.next({$setThis: $val => $el$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((el$ifLet1 = $ifLet0[0])||true))) break
-_this.append({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, el$ifLet1);
+_this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, el$ifLet1);
 }
 }
 ----Swift.(file).Array.append(_:Element)
 let _this = this;
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, Int.infix_46_46_60({}, _this.count, _this.count), _create(CollectionOfOne, 'init', {}, newElement))
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, Int.infix_46_46_60({}, _this.count, _this.count), _create(CollectionOfOne, 'init', {}, newElement))
 ----Swift.(file).Array.replaceSubrange(_:Range<Int>,with:C)
 let _this = this;
 {
@@ -38,7 +38,7 @@ let $generator = _cloneStruct(subrange.makeIterator({}, ));
 while(true) {
 const $ifLet0;
 if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
-_this.removeAt({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, subrange.startIndex);
+_this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, subrange.startIndex);
 }
 };
 let i = subrange.startIndex;
@@ -47,13 +47,13 @@ let $el$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet1, el$ifLet2;
 if(!((($ifLet1 = $el$generator.next({$setThis: $val => $el$generator = $val}, ))||true) && $ifLet1.rawValue === 'some' && ((el$ifLet2 = $ifLet1[0])||true))) break
-_this.insertAt({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, el$ifLet2, i);
+_this.insertAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, el$ifLet2, i);
 Int.infix_43_61({}, {get: () => i, set: $val => i = $val}, 1);
 }
 }
 ----Swift.(file).Array.removeAll(keepingCapacity:Bool)
 let _this = this;
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, _this.indices, _create(EmptyCollection, 'init', {}, ))
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.indices, _create(EmptyCollection, 'init', {}, ))
 ----Swift.(file).Array.init(repeating:Element,count:Int)
 let _this = this;
 let result = _create(Array, 'init', {}, );
@@ -138,7 +138,7 @@ get endIndex() { return this.endIndex$get()
 ----Swift.(file).Array.subscript(_:Range<Int>)#ASS
 
 let _this = this;
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_cloneStruct(_this = $val))}, bounds, rhs)
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, bounds, rhs)
 ----Swift.(file).Array.subscript(_:Range<Int>)
 let _this = this;
 let result = _create(Array, 'init', {}, );

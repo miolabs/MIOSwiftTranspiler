@@ -13,4 +13,9 @@ static _convertFrom($info, number) {
 static _convertFrom($info, number) {
     return {0: _injectIntoOptional(number), 1: true/*exact*/}
 }
+----Swift.(file).BinaryInteger
+//not sure why missing; it's there in generated-by-step-2.txt
+initT($info, from) {
+    return from
+}
 ----closing dashes needed for the last definition to be processed

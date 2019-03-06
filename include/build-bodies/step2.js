@@ -134,12 +134,22 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
     let isUntyped = arr.shift()
     for(let prop of arr) {
         let identifier = prop.identifier.split('.')
-        let originalBody = prop.body
         let parent = '', nameI = 2
         for(; nameI <= identifier.length - 1; nameI++) {
             if(identifier[nameI].includes('(') || identifier[nameI].includes('@')) break
             parent += (parent ? '.' : '') + identifier[nameI]
         }
+        let name = identifier.slice(nameI).join('.')
+        if(name.includes('@')) name = name.substr(0, name.indexOf('@'))
+        let pureName = name.includes('(') ? name.slice(0, name.indexOf('(')) : name
+        let properIdentifier = getProperIdentifier(isUntyped, prop, parent, pureName, name)
+        if(!properIdentifier) {
+            //console.log('!!!!', file, prop)
+            continue
+        }
+        let contentsPrefix = prop.isType ? (prop.ext || 'extension ' + parent) + ' {\n' : ''
+        let contentsSuffix = prop.isType ? '\n}' : ''
+        swiftDefinitions += '\n\n----' + properIdentifier + '\n' + contentsPrefix + prop.body + contentsSuffix
         let skip = false
         for(const unusableProp in UNUSABLE_PROPS) {
             const discard = UNUSABLE_PROPS[unusableProp];
@@ -156,16 +166,8 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
             }
         }
         if(skip) continue
-        let name = identifier.slice(nameI).join('.')
-        if(name.includes('@')) name = name.substr(0, name.indexOf('@'))
         if(NUMERIC_FILES.includes(file) && IS_OPERATOR(name)) {
             //we're just allowing native js to handle numeric operators (at least for now)
-            continue
-        }
-        let pureName = name.includes('(') ? name.slice(0, name.indexOf('(')) : name
-        let properIdentifier = getProperIdentifier(isUntyped, prop, parent, pureName, name)
-        if(!properIdentifier) {
-            //console.log('!!!!', file, prop)
             continue
         }
         all++
@@ -173,19 +175,8 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         if(CLARIFY_GENERICS[properIdentifier]) {
             prop.body = prop.body.replace("{", "{\n" + CLARIFY_GENERICS[properIdentifier])
         }
-        let contents = '', originalContents = ''
-        if(prop.isType) {
-            contents += (prop.ext || 'extension ' + parent) + ' {\n'
-            originalContents += (prop.ext || 'extension ' + parent) + ' {\n'
-        }
-        contents += prop.body
-        if(prop.isType) {
-            contents += '\n}'
-            originalContents += '\n}'
-        }
-        swiftDefinitions += '\n\n----' + properIdentifier + '\n' + originalContents
         try {
-            let transpiled = transpile(contents, properIdentifier, pureName)
+            let transpiled = transpile(contentsPrefix + prop.body + contentsSuffix, properIdentifier, pureName)
             if(JS_REPLACEMENTS[parent]) transpiled = JS_REPLACEMENTS[parent](transpiled)
             if(RETURN_INSTEAD_OF_ASSIGN.includes(properIdentifier)) {
                 while(true) {
