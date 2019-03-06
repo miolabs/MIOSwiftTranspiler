@@ -1,7 +1,7 @@
-"-print-extension"
-extension IndexingIterator {
-  init(_elements: Elements, _position: Elements.Index) {
-    self._elements = _elements
-    self._position = _position
-  }
+func deferred() {
+  defer { print("ok") }
+  defer { print("ok2") }
+  defer { print("ok3") }
+  return
 }
+deferred()

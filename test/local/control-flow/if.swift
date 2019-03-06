@@ -1,33 +1,37 @@
-var a = 4
-if a > 3 {
-    print("A greater than 3")
-} else {
-    print("A smaller or equal 3")
+var a: String? = "a"
+if let a = a, a < "c" {
+  print(a)
 }
+print(a!)
 
-var dict = ["key":"val"]
-if let dictVal = dict["key"] {
-    print(dictVal);
-}
-
+var dict = [0: "a", 1: "b", 2: "c"]
 for number in 0...10 {
-    guard number < 3 else {
-        break
-    }
-    print(number)
+  guard let letter = dict[number], letter <= "c" else {
+    break
+  }
+  print(number)
+  print(letter)
 }
 
-var str: String? = "elo"
-let b = "ziom"
-if let b = str {
-  print(b)
+func printStr(_ str: String?) {
+  guard let str = str else {
+    return
+  }
+  print(str)
 }
-print(b)
+printStr(nil)
+printStr("string")
 
 var dict2 = ["key": (0, (1, 2))]
-if let (x, (y, z)) = dict2["key"] {
+if let (x, (y, z)) = dict2["key"], x == 0, y == 1, z == 2 {
   print("nested tuple exists \(x) \(y) \(z)")
 }
-if let (x, (y, z)) = dict2["nonKey"] {
+if let (x, (y, z)) = dict2["nonKey"], x == 0, y == 1, z == 2 {
   print("nested tuple exists \(x) \(y) \(z)")
+}
+
+var i = 0
+while let letter = dict[i], letter < "c" {
+  i += 1
+  print(letter)
 }

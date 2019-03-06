@@ -6,7 +6,7 @@ function _create(Class, signature, $info, ...params) {
     params.unshift($info)
     if(Class.$mixin) {
         if(!Class.prototype[signature]) throw "unsupported signature " + signature + " for " + Class.name
-        obj = Class.prototype[signature].apply(null, params)
+        obj = Class.prototype[signature].apply(new Class(), params)
         if(obj == null) throw "unsupported signature or null argument passed " + signature + " for " + Class.name
         obj['$info' + Class.$infoAddress] = $info
         if(obj.init$vars) obj.init$vars()
@@ -15,6 +15,7 @@ function _create(Class, signature, $info, ...params) {
         obj = new Class()
         obj['$info' + Class.$infoAddress] = $info
         if(obj.init$vars) obj.init$vars()
+        if(!obj[signature]) throw "unsupported signature " + signature + " for " + Class.name
         obj[signature].apply(obj, params)
     }
     obj.$initialized = true

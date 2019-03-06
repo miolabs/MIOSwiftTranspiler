@@ -1,3 +1,24 @@
+----Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)
+extension Array where Element: Equatable {
+  public static func ==(lhs: Array<Element>, rhs: Array<Element>) -> Bool {
+    let lhsCount = lhs.count
+    if lhsCount != rhs.count {
+      return false
+    }
+
+    if lhsCount == 0 {
+      return true
+    }
+
+    for idx in 0..<lhsCount {
+      if lhs[idx] != rhs[idx] {
+        return false
+      }
+    }
+
+    return true
+  }
+}
 ----Swift.(file).Array.append(contentsOf:S)
 extension Array {
   public mutating func append<S: Sequence>(contentsOf newElements: __owned S)
@@ -144,6 +165,24 @@ extension IndexingIterator {
     self._position = _elements.startIndex
   }
 }
+----Swift.(file).StrideThrough.init(_start:Element,end:Element,stride:Element.Stride)
+public struct StrideThrough<Element: Strideable> {
+  @usableFromInline
+  internal let _start: Element
+  @usableFromInline
+  internal let _end: Element
+  @usableFromInline
+  internal let _stride: Element.Stride
+}
+"--ignore-before"
+extension StrideThrough {
+  internal init(_start: Element, end: Element, stride: Element.Stride) {
+    precondition(stride != 0, "Stride size must not be zero")
+    self._start = _start
+    self._end = end
+    self._stride = stride
+  }
+}
 ----Swift.(file).IndexingIterator.init(_elements:Elements,_position:Elements.Index)
 public struct IndexingIterator<Elements : Collection> {
   internal let _elements: Elements
@@ -190,6 +229,26 @@ extension Collection  {
     return result
   }
 }
+----Swift.(file).Sequence.map(_:(Self.Element) throws -> T)
+extension Sequence  {
+  public func map<T>(
+    _ transform: (Element) throws -> T
+  ) rethrows -> [T] {
+    var result = Array<T>()
+
+    var iterator = self.makeIterator()
+
+    // Add remaining elements, if any.
+    while let element = iterator.next() {
+      result.append(try transform(element))
+    }
+    return result
+  }
+}
+----Swift.(file).swap(_:T,_:T)
+public func swap<T>(_ a: inout T, _ b: inout T) {
+  (a, b) = (b, a)
+}
 ----Swift.(file).Sequence.sorted(by:(Self.Element, Self.Element) throws -> Bool)
 extension Sequence  {
   public func sorted(
@@ -207,15 +266,38 @@ extension Int {
     return self + n
   }
 }
-----Swift.(file).??infix(_:T?,_:() throws -> T?)
-//not sure why originally the `T?` instead of `T`
-public func ?? <T>(optional: T?, defaultValue: @autoclosure () throws -> T)
-    rethrows -> T {
-  switch optional {
-  case .some(let value):
-    return value
-  case .none:
-    return try defaultValue()
+----Swift.(file).StrideThrough.init(_start:Element,end:Element,stride:Element.Stride)
+extension StrideThrough {
+  internal init(_start: Element, end: Element, stride: Element.Stride) {
+    //precondition(stride != 0, "Stride size must not be zero")
+    self._start = _start
+    self._end = end
+    self._stride = stride
+  }
+}
+----Swift.(file).abs(_:T)
+public func abs<T : SignedNumeric & Comparable>(_ x: T) -> T {
+  "#clarifyGeneric#T#x.constructor"
+  return x < (0 as T) ? -x : x
+}
+----Swift.(file).Int.distance(to:Int)
+extension Int {
+  public func distance(to other: Int) -> Int {
+    return other - self
+  }
+}
+----Swift.(file).Dictionary.filter(_:(Dictionary<Key, Value>.Element) throws -> Bool)
+extension Dictionary {
+  public __consuming func filter(
+    _ isIncluded: (Element) throws -> Bool
+  ) rethrows -> [Key: Value] {
+    var result = Dictionary<Key, Value>()
+    for element in self {
+      if try isIncluded(element) {
+        result[element.key] = element.value
+      }
+    }
+    return result
   }
 }
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
@@ -263,23 +345,43 @@ public func XCTAssertNotEqual<T : Equatable>(_ expression1: @autoclosure () -> T
   precondition(expression1() != expression2(), message())
 }
 ----XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)
-extension String: Error {}
-public func XCTFail(_ message: String = "", file: StaticString = #file, line: UInt = #line) throws {
-  throw message
+public func XCTFail(_ message: String = "", file: StaticString = #file, line: UInt = #line) {
+  assertionFailure(message)
 }
 ----Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
-extension String: Error {}
 public func precondition(
   _ condition: @autoclosure () -> Bool,
   _ message: @autoclosure () -> String = String(),
   file: StaticString = #file, line: UInt = #line
-) throws {
+) {
   if !condition() {
-    throw message()
+    assertionFailure(message())
   }
+}
+----Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)
+public func assert(
+  _ condition: @autoclosure () -> Bool,
+  _ message: @autoclosure () -> String = String(),
+  file: StaticString = #file, line: UInt = #line
+) {
+  if(!condition()) assertionFailure(message())
+}
+----Swift.(file).assertionFailure(_:() -> String,file:StaticString,line:UInt)
+extension String: Error {}
+public func assertionFailure(
+  _ message: @autoclosure () -> String = String(),
+  file: StaticString = #file, line: UInt = #line
+) throws {
+  throw message()
 }
 ----XCTest.(file).XCTest.setUp()
 
 ----XCTest.(file).XCTest.tearDown()
+
+----Swift.(file)._OptionalNilComparisonType.init(nilLiteral:())
+
+----XCTest.(file).XCTestCase.measure(_:() -> Void)
+
+----ObjectiveC.(file).NSObject.init()
 
 ----closing dashes needed for the last definition to be processed

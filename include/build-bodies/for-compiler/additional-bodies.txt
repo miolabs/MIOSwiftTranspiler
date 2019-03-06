@@ -5,4 +5,12 @@ toString() {
 subscript$set($info, el, index) {
     this[index] = _cloneStruct(el)
 }
+----Swift.(file).BinaryFloatingPoint
+static _convertFrom($info, number) {
+    return {0: number, 1: true/*exact*/}
+}
+----Swift.(file).FixedWidthInteger
+static _convertFrom($info, number) {
+    return {0: _injectIntoOptional(number), 1: true/*exact*/}
+}
 ----closing dashes needed for the last definition to be processed

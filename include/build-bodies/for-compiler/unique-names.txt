@@ -44,3 +44,11 @@ Swift.(file).String.subscript(_:R)
 subscriptRange
 Swift.(file).MutableCollection.subscript(_:R)
 subscriptRange
+Swift.(file).FixedWidthInteger.init(_:T)
+initT
+Swift.(file).UnsignedInteger.init(_:T)
+initT
+Swift.(file).SignedInteger.init(_:T)
+initT
+Swift.(file).String.init(_:T)
+initT

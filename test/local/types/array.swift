@@ -31,3 +31,12 @@ print(inferredEmptyArray.count)
 var inferredFilledArray = [Int](repeating: 0, count: 3)
 print(inferredFilledArray[0])
 print(inferredFilledArray.count)
+
+class CanBeFromArr<T>: ExpressibleByArrayLiteral {
+    func printOk() {
+        print("ok")
+    }
+    required init(arrayLiteral elements: T...) {}
+}
+var canBeFromArr: CanBeFromArr<String> = []
+canBeFromArr.printOk()

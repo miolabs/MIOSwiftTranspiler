@@ -57,3 +57,11 @@ print((try? buy(amount: 6, myFunds: 10, other: false, unexpected: false)) ?? "er
 print(try! buy(amount: 6, myFunds: 10, other: false, unexpected: false))
 buyAndByeWrapper(amount: 100, myFunds: 200, other: false, unexpected: false)
 buyAndByeWrapper(amount: 6, myFunds: 10, other: false, unexpected: false)
+
+func deferred() -> String {
+  defer { print("ok1") }
+  defer { print("ok2") }
+  defer { print("ok3") }
+  return "ok"
+}
+print(deferred())

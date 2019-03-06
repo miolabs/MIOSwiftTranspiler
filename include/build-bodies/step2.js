@@ -38,31 +38,54 @@ const PROPER_IDENTIFIERS = {
 
 const CLARIFY_GENERICS = {
     'Swift.(file).ClosedRange.index(after:ClosedRange<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).ClosedRange.index(before:ClosedRange<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).ClosedRange.index(_:ClosedRange<Bound>.Index,offsetBy:Int)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).ClosedRange.distance(from:ClosedRange<Bound>.Index,to:ClosedRange<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).ClosedRange.init(_:Range<Bound>)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).Range.init(_:ClosedRange<Bound>)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).Range.index(before:Range<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
     'Swift.(file).Range.index(after:Range<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).PartialRangeFrom.Iterator.next()': '"#clarifyGeneric#Bound.Stride#Int"',
+    'Swift.(file).ClosedRange.distance(from:ClosedRange<Bound>.Index,to:ClosedRange<Bound>.Index)': '"#clarifyGeneric#Bound.Stride#Int"',
     'Swift.(file).Sequence.min()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
     'Swift.(file).Sequence.max()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
     'Swift.(file).Sequence.starts(with:PossiblePrefix)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
     'Swift.(file).Sequence.elementsEqual(_:OtherSequence)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
     'Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
     'Swift.(file).Sequence.sorted()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
-    'Swift.(file).MutableCollection.sort()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"'
+    'Swift.(file).MutableCollection.sort()': '"#clarifyGeneric#Self.Element#this.first[0].constructor"',
+    'Swift.(file).numericCast(_:T)': '"#clarifyGeneric#U#$info.U"'
 }
 
 //true means don't use the whole function; false means only drop the line
+//IMPORTANT: false props before true, because that gives us the chance to rid of unneeded lines
+//and potentially allow a function that would otherwise get rejected
 const UNUSABLE_PROPS = {
-    '_guts': true,
-    '_stringCompare': true,
-    '_variant': true,
     '_internalInvariant': false,
     '_checkIndex': false,
     '_failEarlyRangeCheck': false,
     '_expectEnd': false,
-    '_customRemoveLast': false
+    '_customRemoveLast': false,
+    'reserveCapacity': false,
+    '_guts': true,
+    '_stringCompare': true,
+    '_variant': true,
+    '_buffer': true
 }
 
 const JS_REPLACEMENTS = {
     'Character': str => str.replace(/\._str/g, '')
 }
+
+const NUMERIC_FILES = ["FloatingPoint.swift", "IntegerParsing.swift", "Integers.swift"]
+const IS_OPERATOR = name => !/[a-zA-Z_0-9]/.test(name[0])
+
+const RETURN_INSTEAD_OF_ASSIGN = [
+    'Swift.(file).FixedWidthInteger.init(_:T)',
+    'Swift.(file).FixedWidthInteger.init(exactly:T)',
+    'Swift.(file).FixedWidthInteger.init(clamping:Other)',
+    'Swift.(file).FixedWidthInteger.init(truncatingIfNeeded:T)'
+]
 
 function escapeRegex(s) {
     return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -111,6 +134,7 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
     let isUntyped = arr.shift()
     for(let prop of arr) {
         let identifier = prop.identifier.split('.')
+        let originalBody = prop.body
         let parent = '', nameI = 2
         for(; nameI <= identifier.length - 1; nameI++) {
             if(identifier[nameI].includes('(') || identifier[nameI].includes('@')) break
@@ -134,6 +158,10 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         if(skip) continue
         let name = identifier.slice(nameI).join('.')
         if(name.includes('@')) name = name.substr(0, name.indexOf('@'))
+        if(NUMERIC_FILES.includes(file) && IS_OPERATOR(name)) {
+            //we're just allowing native js to handle numeric operators (at least for now)
+            continue
+        }
         let pureName = name.includes('(') ? name.slice(0, name.indexOf('(')) : name
         let properIdentifier = getProperIdentifier(isUntyped, prop, parent, pureName, name)
         if(!properIdentifier) {
@@ -141,18 +169,35 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
             continue
         }
         all++
-        prop.body = prop.body.replace(/_precondition/g, 'precondition').replace(/_debugPrecondition/g, 'precondition')
+        prop.body = prop.body.replace(/_precondition/g, 'precondition').replace(/_debugPrecondition/g, 'precondition').replace(/_assert/g, 'assert')
         if(CLARIFY_GENERICS[properIdentifier]) {
             prop.body = prop.body.replace("{", "{\n" + CLARIFY_GENERICS[properIdentifier])
         }
-        let contents = ''
-        if(prop.isType) contents += (prop.ext || 'extension ' + parent) + ' {\n'
+        let contents = '', originalContents = ''
+        if(prop.isType) {
+            contents += (prop.ext || 'extension ' + parent) + ' {\n'
+            originalContents += (prop.ext || 'extension ' + parent) + ' {\n'
+        }
         contents += prop.body
-        if(prop.isType) contents += '\n}'
-        swiftDefinitions += '\n\n----' + properIdentifier + '\n' + contents
+        if(prop.isType) {
+            contents += '\n}'
+            originalContents += '\n}'
+        }
+        swiftDefinitions += '\n\n----' + properIdentifier + '\n' + originalContents
         try {
             let transpiled = transpile(contents, properIdentifier, pureName)
             if(JS_REPLACEMENTS[parent]) transpiled = JS_REPLACEMENTS[parent](transpiled)
+            if(RETURN_INSTEAD_OF_ASSIGN.includes(properIdentifier)) {
+                while(true) {
+                    let index0 = transpiled.indexOf('$info.$setThis('), index1 = index0 + '$info.$setThis('.length, index2 = index1
+                    if(index0 < 0) break
+                    for(let i = 0; index2 < transpiled.length; index2++) {
+                        if(transpiled[index2] === '(') i++
+                        else if(transpiled[index2] === ')' && --i < 0) break
+                    }
+                    transpiled = transpiled.slice(0, index0) + "return " + transpiled.slice(index1, index2) + transpiled.slice(index2 + 1)
+                }
+            }
             transpilations += transpiled
         }
         catch(err) {

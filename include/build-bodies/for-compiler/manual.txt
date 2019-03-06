@@ -34,9 +34,6 @@ return this.splice(#AA, 1)[0]
 this.add(_cloneStruct(#AA))
 ----Swift.(file).Set.count
 return this.size
-----Swift.(file).Sequence.enumerated()
-//TODO use _create for Array; preferably move to Swift
-return this.map((v, i) => [i, v])
 ----Swift.(file).Range.lowerBound
 return this.lowerBound$internal
 ----Swift.(file).Range.upperBound
@@ -53,10 +50,16 @@ return new Map()
 return new Set()
 ----Swift.(file).Set.init(_:Source)
 return new Set(#AA)
+----Swift.(file).Set.init(arrayLiteral:[Element])
+return new Set(#AA)
 ----Swift.(file).Array.init()
 return []
 ----Swift.(file).Int.init(_:Double)
 return #AA | 0
+----Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)
+return #AA
+----Swift.(file).String.init()
+return ""
 ----Swift.(file).Character.init(unchecked:String)
 return #AA
 ----Swift.(file).BinaryInteger./infix(_:Self,_:Self)
@@ -89,10 +92,18 @@ return #A0._value === #A1._value
 return (Math.random() * #AA) | 0
 ----Darwin.(file).arc4random()
 return arc4random_uniform(null, 4294967296)
-----Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)
-return value
-----Swift.(file).Array.init(_:S)
-return s
+----Darwin.(file).ceil(_:T)
+return Math.ceil(#A0)
+----Darwin.(file).floor(_:T)
+return Math.floor(#A0)
+----Darwin.(file).pow(_:Float80,_:Float80)
+return Math.pow(#A0, #A1)
+----Darwin.(file).pow(_:Float,_:Float)
+return Math.pow(#A0, #A1)
+----Darwin.(file).sqrt(_:T)
+return Math.sqrt(#A0)
+----Swift.(file).String.subscript(_:R)
+return this.slice(bounds.lowerBound, bounds.upperBound)
 ----Swift.(file).Range.init(uncheckedBounds:(lower: Bound, upper: Bound))
 this.lowerBound$internal = #AA[0]
 this.upperBound$internal = #AA[1]
@@ -110,22 +121,42 @@ return 0
 return this.length
 ----Swift.(file).String.index(after:String.Index)
 return i + 1
+----Swift.(file).String.index(before:String.Index)
+return i - 1
+----Swift.(file).String.index(_:String.Index,offsetBy:String.IndexDistance)
+return i + n
 ----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
 //TODO move to swift
 return this.sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1)
 ----Swift.(file).String.init(_:S)
 return String(other)
+----Swift.(file).FixedWidthInteger.init(_:S,radix:Int)
+let result = parseInt(_text)
+if(isNaN(result)) return Optional.none
+return Optional.some({}, result)
 ----Swift.(file).Double.infinity
 return Infinity
-----Swift.(file).FloatingPoint.isLess(than:Self)
-return this < other
+----Swift.(file).Double.greatestFiniteMagnitude
+return Number.MAX_VALUE
+----Swift.(file).UnsignedInteger.max
+return Number.MAX_SAFE_INTEGER
+----Swift.(file).BinaryInteger.description
+//FIXME not really sure if that's exhaustive
+return this.toFixed(1)
+----Swift.(file).String.hashValue
+//FIXME compute proper hash, e.g. by xoring
+return this.length
 ----XCTest.(file).XCTestCase.init()
-var proto = Object.keys(Object.getPrototypeOf(this))
-for(const testFunction of proto) {
-if(typeof this[testFunction] !== 'function' || XCTestCase.prototype[testFunction]/*is inherited*/ || testFunction.endsWith('$get') || testFunction.endsWith('$set') || testFunction.endsWith('$filePrivate')) continue
+var proto = Object.getPrototypeOf(this)
+var protoKeys = Object.keys(proto)
+for(const testFunction of protoKeys) {
+if(!testFunction.startsWith('test') || testFunction.endsWith('$get') || testFunction.endsWith('$set') || typeof Object.getOwnPropertyDescriptor(proto, testFunction).value !== 'function') continue
 this.init$vars()
 if(this.setUp) this.setUp()
 this[testFunction]()
 if(this.tearDown) this.tearDown()
 }
+----Swift.(file).AnyIterator.init(_:() -> Element?)
+//slightly bodgy; in principle, the passed function becomes the next, so that's exactly what we're doing here
+this.next = #AA
 ----closing dashes needed for the last definition to be processed
