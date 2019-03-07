@@ -30,6 +30,13 @@ var SwiftIterator = /** @class */ (function () {
     SwiftIterator.prototype.next = function () { return this._currentToNext(this._current++); };
     return SwiftIterator;
 }());
+var _DefaultEnumImplementation = /** @class */ (function () {
+    function _DefaultEnumImplementation() {
+    }
+    _DefaultEnumImplementation.infix_61_61 = function ($info, a, b) { return (a && a.rawValue) == (b && b.rawValue); };
+    _DefaultEnumImplementation.infix_33_61 = function ($info, a, b) { return !this.infix_61_61($info, a, b); };
+    return _DefaultEnumImplementation;
+}());
 //{Self:SNA2, T: {Self:SNA1, T: String}}
 function _clarifyGenerics(Class) {
     var _a;
@@ -171,22 +178,22 @@ var _ = {};
 /*Swift.(file).min(_:T,_:T)*/
 /*Swift.(file).min(_:T,_:T)*/
 function min($info, x, y) {
-    return ((y).constructor.infix_60({}, y, x) ? y : x);
+    return ((_.arg0 = y).constructor.infix_60({}, _.arg0, x) ? y : x);
 }
 /*Swift.(file).min(_:T,_:T)*/
 /*Swift.(file).min(_:T,_:T)*/
 function min($info, x, y) {
-    return ((y).constructor.infix_60({}, y, x) ? y : x);
+    return ((_.arg0 = y).constructor.infix_60({}, _.arg0, x) ? y : x);
 }
 /*Swift.(file).max(_:T,_:T)*/
 /*Swift.(file).max(_:T,_:T)*/
 function max($info, x, y) {
-    return ((y).constructor.infix_62_61({}, y, x) ? y : x);
+    return ((_.arg0 = y).constructor.infix_62_61({}, _.arg0, x) ? y : x);
 }
 /*Swift.(file).max(_:T,_:T)*/
 /*Swift.(file).max(_:T,_:T)*/
 function max($info, x, y) {
-    return ((y).constructor.infix_62_61({}, y, x) ? y : x);
+    return ((_.arg0 = y).constructor.infix_62_61({}, _.arg0, x) ? y : x);
 }
 /*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
 /*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
@@ -388,7 +395,7 @@ function infix_37_61($info, lhs$inout, rhs) {
 /*Swift.(file).Hashable_isEqual_indirect(_:UnsafePointer<T>,_:UnsafePointer<T>)*/
 /*Swift.(file).Hashable_isEqual_indirect(_:UnsafePointer<T>,_:UnsafePointer<T>)*/
 function Hashable_isEqual_indirect($info, lhs, rhs) {
-    return (lhs.pointee).constructor.infix_61_61({}, lhs.pointee, rhs.pointee);
+    return (_.arg0 = lhs.pointee).constructor.infix_61_61({}, _.arg0, rhs.pointee);
 }
 /*Swift.(file).Hashable_hashValue_indirect(_:UnsafePointer<T>)*/
 /*Swift.(file).Hashable_hashValue_indirect(_:UnsafePointer<T>)*/
@@ -403,7 +410,7 @@ function readLineStrippingNewline($info, strippingNewline) {
 /*Swift.(file).abs(_:T)*/
 /*Swift.(file).abs(_:T)*/
 function abs($info, x) {
-    return ((x).constructor.infix_60({}, x, _create(x.constructor, 'initIntegerLiteral', {}, 0)) ? x.constructor.prefix_45({}, x) : x);
+    return ((_.arg0 = x).constructor.infix_60({}, _.arg0, _create(x.constructor, 'initIntegerLiteral', {}, 0)) ? x.constructor.prefix_45({}, x) : x);
 }
 /*Swift.(file).numericCast(_:T)*/
 /*Swift.(file).numericCast(_:T)*/
@@ -474,7 +481,7 @@ function tryReallocateUniquelyReferencedBufferNewMinimumCapacity($info, buffer$i
         var newSizeInBytes = Int.infix_43({}, MemoryLayout.stride, Int.infix_42({}, newMinimumCapacity, MemoryLayout.stride));
         return withUnsafeMutablePointerTo({}, { get: function () { return buffer; }, set: function ($val) { return buffer = $val; } }, (function ($info, $0) { return $0.withMemoryReboundToCapacity({}, UnsafeMutableRawPointer, 1, (function ($info, $0) {
             var $ifLet0, reallocdObject$ifLet1;
-            if ((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes)) || true) && $ifLet0.rawValue === 'some' && ((reallocdObject$ifLet1 = $ifLet0[0]) || true)) {
+            if ((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes)) || true) && $ifLet0.rawValue == 'some' && ((reallocdObject$ifLet1 = $ifLet0[0]) || true)) {
                 $0.pointee = _cloneStruct(reallocdObject$ifLet1);
                 return true;
             }
@@ -558,7 +565,7 @@ function infix_63_63($info, optional, defaultValue) {
 /*Swift.(file).~=infix(_:T,_:T)*/
 /*Swift.(file).~=infix(_:T,_:T)*/
 function infix_126_61($info, a, b) {
-    return (a).constructor.infix_61_61({}, a, b);
+    return (_.arg0 = a).constructor.infix_61_61({}, _.arg0, b);
 }
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
@@ -569,7 +576,7 @@ function printSeparatorTerminator($info, items, separator, terminator) {
 /*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)*/
 function debugPrintSeparatorTerminator($info, items, separator, terminator) {
     var $ifLet0, hook$ifLet1;
-    if ((($ifLet0 = _playgroundPrintHook) || true) && $ifLet0.rawValue === 'some' && ((hook$ifLet1 = $ifLet0[0]) || true)) {
+    if ((($ifLet0 = _playgroundPrintHook) || true) && $ifLet0.rawValue == 'some' && ((hook$ifLet1 = $ifLet0[0]) || true)) {
         var output_1 = _create(_TeeStream, 'initLeftRight', {}, "", _create(_Stdout, 'init', {}));
         _debugPrintSeparatorTerminatorTo({}, items, separator, terminator, { get: function () { return output_1; }, set: function ($val) { return output_1 = $val; } });
         hook$ifLet1({}, output_1.left);
@@ -3380,6 +3387,8 @@ var _DebuggerSupport = /** @class */ (function () {
         _a);
     return _DebuggerSupport;
 }());
+_mixin(_DebuggerSupport.CollectionStatus, _DefaultEnumImplementation, false);
+_mixin(_DebuggerSupport, _DefaultEnumImplementation, false);
 var _DictionaryBuilder = /** @class */ (function () {
     function _DictionaryBuilder() {
     }
@@ -3416,7 +3425,7 @@ var Equatable$implementation = /** @class */ (function () {
     /*Swift.(file).Equatable.!=infix(_:Self,_:Self)*/
     Equatable$implementation.infix_33_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_61_61({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_61_61({}, _.arg0, rhs));
     };
     return Equatable$implementation;
 }());
@@ -3503,6 +3512,7 @@ var FloatingPointClassification = /** @class */ (function () {
     FloatingPointClassification.$infoAddress = '';
     return FloatingPointClassification;
 }());
+_mixin(FloatingPointClassification, _DefaultEnumImplementation, false);
 var FloatingPointRoundingRule = /** @class */ (function () {
     function FloatingPointRoundingRule() {
     }
@@ -3561,6 +3571,7 @@ var FloatingPointRoundingRule = /** @class */ (function () {
     FloatingPointRoundingRule.$infoAddress = '';
     return FloatingPointRoundingRule;
 }());
+_mixin(FloatingPointRoundingRule, _DefaultEnumImplementation, false);
 var Hashable$implementation = /** @class */ (function () {
     function Hashable$implementation() {
     }
@@ -3878,7 +3889,7 @@ var Hasher = /** @class */ (function () {
                     var $generator_1 = _cloneStruct(Int.infix_46_46_60({}, 0, 3).makeIterator({}));
                     while (true) {
                         var $ifLet0;
-                        if (!((($ifLet0 = $generator_1.next({ $setThis: function ($val) { return $generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                        if (!((($ifLet0 = $generator_1.next({ $setThis: function ($val) { return $generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                             break;
                         _this._round({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
                     }
@@ -4065,6 +4076,7 @@ var KeyPathKind = /** @class */ (function () {
     KeyPathKind.$infoAddress = '';
     return KeyPathKind;
 }());
+_mixin(KeyPathKind, _DefaultEnumImplementation, false);
 var KeyPathComponentKind = /** @class */ (function () {
     function KeyPathComponentKind() {
     }
@@ -4128,6 +4140,7 @@ var KeyPathComponentKind = /** @class */ (function () {
     KeyPathComponentKind.$infoAddress = '';
     return KeyPathComponentKind;
 }());
+_mixin(KeyPathComponentKind, _DefaultEnumImplementation, false);
 var ComputedPropertyID = /** @class */ (function () {
     function ComputedPropertyID() {
     }
@@ -4332,6 +4345,9 @@ var KeyPathComponent = /** @class */ (function () {
         _e);
     return KeyPathComponent;
 }());
+if (typeof Hashable$implementation != 'undefined')
+    _mixin(KeyPathComponent, Hashable$implementation, false);
+_mixin(KeyPathComponent, _DefaultEnumImplementation, false);
 var ClassHolder = /** @class */ (function () {
     function ClassHolder() {
     }
@@ -4554,6 +4570,7 @@ var KeyPathComputedIDKind = /** @class */ (function () {
     KeyPathComputedIDKind.$infoAddress = '';
     return KeyPathComputedIDKind;
 }());
+_mixin(KeyPathComputedIDKind, _DefaultEnumImplementation, false);
 var RawKeyPathComponent = /** @class */ (function () {
     function RawKeyPathComponent() {
     }
@@ -5125,6 +5142,7 @@ var RawKeyPathComponent = /** @class */ (function () {
         _g);
     return RawKeyPathComponent;
 }());
+_mixin(RawKeyPathComponent.ProjectionResult, _DefaultEnumImplementation, false);
 var KeyPathBuffer = /** @class */ (function () {
     function KeyPathBuffer() {
     }
@@ -5391,6 +5409,7 @@ var KeyPathStructOrClass = /** @class */ (function () {
     KeyPathStructOrClass.$infoAddress = '';
     return KeyPathStructOrClass;
 }());
+_mixin(KeyPathStructOrClass, _DefaultEnumImplementation, false);
 var KeyPathPatternStoredOffset = /** @class */ (function () {
     function KeyPathPatternStoredOffset() {
     }
@@ -5403,6 +5422,7 @@ var KeyPathPatternStoredOffset = /** @class */ (function () {
     KeyPathPatternStoredOffset.$infoAddress = '';
     return KeyPathPatternStoredOffset;
 }());
+_mixin(KeyPathPatternStoredOffset, _DefaultEnumImplementation, false);
 var KeyPathPatternComputedArguments = /** @class */ (function () {
     function KeyPathPatternComputedArguments() {
     }
@@ -6138,6 +6158,7 @@ var MemoryLayout = /** @class */ (function () {
     MemoryLayout.$infoAddress = '';
     return MemoryLayout;
 }());
+_mixin(MemoryLayout, _DefaultEnumImplementation, false);
 var _SwiftNewtypeWrapper$implementation = /** @class */ (function () {
     function _SwiftNewtypeWrapper$implementation() {
     }
@@ -6312,14 +6333,14 @@ var RandomNumberGenerator$implementation = /** @class */ (function () {
     /*Swift.(file).RandomNumberGenerator.next(upperBound:T)*/
     RandomNumberGenerator$implementation.prototype.nextUpperBound = function ($info, upperBound) {
         var _this = this;
-        preconditionFileLine({}, function () { return (upperBound).constructor.infix_33_61({}, upperBound, 0); }, function () { return "upperBound cannot be zero."; }, '?3', '?3');
-        var tmp = (_create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, (((function () { throw '!unclarifiedGeneric:T'; })()).max).constructor.infix_37({}, ((function () { throw '!unclarifiedGeneric:T'; })()).max, upperBound), _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 1));
-        var range = ((tmp).constructor.infix_61_61({}, tmp, upperBound) ? _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0) : tmp);
+        preconditionFileLine({}, function () { return (_.arg0 = upperBound).constructor.infix_33_61({}, _.arg0, 0); }, function () { return "upperBound cannot be zero."; }, '?3', '?3');
+        var tmp = (_.arg1 = _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, (_.arg2 = ((function () { throw '!unclarifiedGeneric:T'; })()).max).constructor.infix_37({}, _.arg2, upperBound), _.arg1);
+        var range = ((_.arg3 = tmp).constructor.infix_61_61({}, _.arg3, upperBound) ? _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0) : tmp);
         var random = _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0);
         do {
             random = _this.next({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
-        } while ((random).constructor.infix_60({}, random, range));
-        return (random).constructor.infix_37({}, random, upperBound);
+        } while ((_.arg4 = random).constructor.infix_60({}, _.arg4, range));
+        return (_.arg5 = random).constructor.infix_37({}, _.arg5, upperBound);
     };
     return RandomNumberGenerator$implementation;
 }());
@@ -6379,13 +6400,13 @@ var PartialRangeUpTo = /** @class */ (function () {
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeUpTo.prototype.relativeTo = function ($info, collection) {
         var _this = this;
-        return (collection.startIndex).constructor.infix_46_46_60({}, collection.startIndex, _this.upperBound);
+        return (_.arg0 = collection.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.upperBound);
     };
     /*Swift.(file).PartialRangeUpTo.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeUpTo.prototype.contains = function ($info, _element) {
         var _this = this;
-        return (_element).constructor.infix_60({}, _element, _this.upperBound);
+        return (_.arg0 = _element).constructor.infix_60({}, _.arg0, _this.upperBound);
     };
     PartialRangeUpTo.prototype.init$vars = function () {
     };
@@ -6417,13 +6438,13 @@ var PartialRangeThrough = /** @class */ (function () {
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeThrough.prototype.relativeTo = function ($info, collection) {
         var _this = this;
-        return (collection.startIndex).constructor.infix_46_46_60({}, collection.startIndex, collection.indexAfter({}, _this.upperBound));
+        return (_.arg0 = collection.startIndex).constructor.infix_46_46_60({}, _.arg0, collection.indexAfter({}, _this.upperBound));
     };
     /*Swift.(file).PartialRangeThrough.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeThrough.prototype.contains = function ($info, _element) {
         var _this = this;
-        return (_element).constructor.infix_60_61({}, _element, _this.upperBound);
+        return (_.arg0 = _element).constructor.infix_60_61({}, _.arg0, _this.upperBound);
     };
     PartialRangeThrough.prototype.init$vars = function () {
     };
@@ -6446,6 +6467,7 @@ var UnboundedRange_ = /** @class */ (function () {
     UnboundedRange_.$infoAddress = '';
     return UnboundedRange_;
 }());
+_mixin(UnboundedRange_, _DefaultEnumImplementation, false);
 var Result = /** @class */ (function () {
     function Result() {
     }
@@ -6563,6 +6585,11 @@ var Result = /** @class */ (function () {
     Result.$infoAddress = '';
     return Result;
 }());
+if (typeof Equatable$implementation != 'undefined')
+    _mixin(Result, Equatable$implementation, false);
+if (typeof Hashable$implementation != 'undefined')
+    _mixin(Result, Hashable$implementation, false);
+_mixin(Result, _DefaultEnumImplementation, false);
 var _Buffer32 = /** @class */ (function () {
     function _Buffer32() {
     }
@@ -7082,7 +7109,7 @@ var Sequence$implementation = /** @class */ (function () {
         var iterator = _this.makeIterator({});
         while (true) {
             var $ifLet0, _element$ifLet1;
-            if (!((($ifLet0 = iterator.next({ $setThis: function ($val) { return iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+            if (!((($ifLet0 = iterator.next({ $setThis: function ($val) { return iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                 break;
             result.append({ $setThis: function ($val) { return result = $val; } }, transform({}, _element$ifLet1));
         }
@@ -7114,7 +7141,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_1 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_1.next({ $setThis: function ($val) { return $element$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_1.next({ $setThis: function ($val) { return $element$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 body({}, _element$ifLet1);
             }
@@ -7128,7 +7155,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_2 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_2.next({ $setThis: function ($val) { return $element$generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_2.next({ $setThis: function ($val) { return $element$generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((predicate({}, _element$ifLet1))) {
                     return _injectIntoOptional(_element$ifLet1);
@@ -7143,7 +7170,7 @@ var Sequence$implementation = /** @class */ (function () {
     /*Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
     Sequence$implementation.prototype.splitSeparatorMaxSplitsOmittingEmptySubsequences = function ($info, separator, maxSplits, omittingEmptySubsequences) {
         var _this = this;
-        return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (function ($info, $0) { return ($0).constructor.infix_61_61({}, $0, separator); }));
+        return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (function ($info, $0) { return (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, separator); }));
     };
     /*Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)*/
@@ -7168,7 +7195,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_3 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_3.next({ $setThis: function ($val) { return $element$generator_3 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_3.next({ $setThis: function ($val) { return $element$generator_3 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((Int.infix_60({}, ringBuffer.count, maxLength))) {
                     ringBuffer.append({ $setThis: function ($val) { return ringBuffer = $val; } }, _element$ifLet1);
@@ -7214,7 +7241,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_4 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_4.next({ $setThis: function ($val) { return $element$generator_4 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_4.next({ $setThis: function ($val) { return $element$generator_4 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((Int.infix_60({}, ringBuffer.count, k))) {
                     ringBuffer.append({ $setThis: function ($val) { return ringBuffer = $val; } }, _element$ifLet1);
@@ -7252,7 +7279,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_5 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_5.next({ $setThis: function ($val) { return $element$generator_5 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_5.next({ $setThis: function ($val) { return $element$generator_5 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if (!((predicate({}, _element$ifLet1)))) {
                     break;
@@ -7282,13 +7309,13 @@ var Sequence$implementation = /** @class */ (function () {
         var _this = this;
         var it = _this.makeIterator({});
         var $ifLet0, result$ifLet1;
-        if (!((($ifLet0 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true))) {
             return Optional.none;
         }
         ;
         while (true) {
             var $ifLet2, e$ifLet3;
-            if (!((($ifLet2 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((e$ifLet3 = $ifLet2[0]) || true)))
+            if (!((($ifLet2 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((e$ifLet3 = $ifLet2[0]) || true)))
                 break;
             if ((areInIncreasingOrder({}, e$ifLet3, result$ifLet1))) {
                 result$ifLet1 = e$ifLet3;
@@ -7304,13 +7331,13 @@ var Sequence$implementation = /** @class */ (function () {
         var _this = this;
         var it = _this.makeIterator({});
         var $ifLet0, result$ifLet1;
-        if (!((($ifLet0 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true))) {
             return Optional.none;
         }
         ;
         while (true) {
             var $ifLet2, e$ifLet3;
-            if (!((($ifLet2 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((e$ifLet3 = $ifLet2[0]) || true)))
+            if (!((($ifLet2 = it.next({ $setThis: function ($val) { return it = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((e$ifLet3 = $ifLet2[0]) || true)))
                 break;
             if ((areInIncreasingOrder({}, result$ifLet1, e$ifLet3))) {
                 result$ifLet1 = e$ifLet3;
@@ -7341,10 +7368,10 @@ var Sequence$implementation = /** @class */ (function () {
             var $e0$generator_1 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, e0$ifLet1;
-                if (!((($ifLet0 = $e0$generator_1.next({ $setThis: function ($val) { return $e0$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((e0$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $e0$generator_1.next({ $setThis: function ($val) { return $e0$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((e0$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 var $ifLet2, e1$ifLet3;
-                if ((($ifLet2 = possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((e1$ifLet3 = $ifLet2[0]) || true)) {
+                if ((($ifLet2 = possiblePrefixIterator.next({ $setThis: function ($val) { return possiblePrefixIterator = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((e1$ifLet3 = $ifLet2[0]) || true)) {
                     if ((Bool.prefix_33({}, areEquivalent({}, e0$ifLet1, e1$ifLet3)))) {
                         return false;
                     }
@@ -7408,9 +7435,9 @@ var Sequence$implementation = /** @class */ (function () {
             if (!((true)))
                 break;
             var $ifLet0, e1$ifLet1;
-            if ((($ifLet0 = iter1.next({ $setThis: function ($val) { return iter1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((e1$ifLet1 = $ifLet0[0]) || true)) {
+            if ((($ifLet0 = iter1.next({ $setThis: function ($val) { return iter1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((e1$ifLet1 = $ifLet0[0]) || true)) {
                 var $ifLet2, e2$ifLet3;
-                if ((($ifLet2 = iter2.next({ $setThis: function ($val) { return iter2 = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((e2$ifLet3 = $ifLet2[0]) || true)) {
+                if ((($ifLet2 = iter2.next({ $setThis: function ($val) { return iter2 = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((e2$ifLet3 = $ifLet2[0]) || true)) {
                     if ((areInIncreasingOrder({}, e1$ifLet1, e2$ifLet3))) {
                         return true;
                     }
@@ -7442,7 +7469,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $e$generator_1 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, e$ifLet1;
-                if (!((($ifLet0 = $e$generator_1.next({ $setThis: function ($val) { return $e$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $e$generator_1.next({ $setThis: function ($val) { return $e$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((predicate({}, e$ifLet1))) {
                     return true;
@@ -7464,11 +7491,11 @@ var Sequence$implementation = /** @class */ (function () {
     Sequence$implementation.prototype.contains = function ($info, _element) {
         var _this = this;
         var $ifLet0, result$ifLet1;
-        if ((($ifLet0 = _this._customContainsEquatableElement({}, _element)) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this._customContainsEquatableElement({}, _element)) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
             return result$ifLet1;
         }
         else {
-            return _this.containsWhere({}, (function ($info, $0) { return ($0).constructor.infix_61_61({}, $0, _element); }));
+            return _this.containsWhere({}, (function ($info, $0) { return (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, _element); }));
         }
     };
     /*Swift.(file).Sequence.count(where:(Self.Element) throws -> Bool)*/
@@ -7480,7 +7507,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $e$generator_2 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, e$ifLet1;
-                if (!((($ifLet0 = $e$generator_2.next({ $setThis: function ($val) { return $e$generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $e$generator_2.next({ $setThis: function ($val) { return $e$generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((predicate({}, e$ifLet1))) {
                     Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, 1);
@@ -7500,7 +7527,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_6 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_6.next({ $setThis: function ($val) { return $element$generator_6 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_6.next({ $setThis: function ($val) { return $element$generator_6 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 accumulator = nextPartialResult({}, accumulator, _element$ifLet1);
             }
@@ -7517,7 +7544,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_7 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_7.next({ $setThis: function ($val) { return $element$generator_7 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_7.next({ $setThis: function ($val) { return $element$generator_7 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 updateAccumulatingResult({}, { get: function () { return accumulator; }, set: function ($val) { return accumulator = $val; } }, _element$ifLet1);
             }
@@ -7535,7 +7562,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $i$generator_1 = _cloneStruct(Int.infix_46_46_60({}, 0, Int.infix_47({}, count, 2)).makeIterator({}));
             while (true) {
                 var $ifLet0, i$ifLet1;
-                if (!((($ifLet0 = $i$generator_1.next({ $setThis: function ($val) { return $i$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $i$generator_1.next({ $setThis: function ($val) { return $i$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((i$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 result.swapAt({ $setThis: function ($val) { return result = $val; } }, i$ifLet1, Int.infix_45({}, count, Int.infix_43({}, i$ifLet1, 1)));
             }
@@ -7552,7 +7579,7 @@ var Sequence$implementation = /** @class */ (function () {
             var $element$generator_8 = _this.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_8.next({ $setThis: function ($val) { return $element$generator_8 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_8.next({ $setThis: function ($val) { return $element$generator_8 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 result.appendContentsOf({ $setThis: function ($val) { return result = $val; } }, transform({}, _element$ifLet1));
             }
@@ -7590,7 +7617,7 @@ var Sequence$implementation = /** @class */ (function () {
                 var $x$generator_1 = _this.makeIterator({});
                 while (true) {
                     var $ifLet0, x$ifLet1;
-                    if (!((($ifLet0 = $x$generator_1.next({ $setThis: function ($val) { return $x$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $x$generator_1.next({ $setThis: function ($val) { return $x$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, x$ifLet1));
                 }
@@ -7601,11 +7628,11 @@ var Sequence$implementation = /** @class */ (function () {
         ;
         var iter = _this.makeIterator({});
         var $ifLet2, first$ifLet3;
-        if ((($ifLet2 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((first$ifLet3 = $ifLet2[0]) || true)) {
+        if ((($ifLet2 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((first$ifLet3 = $ifLet2[0]) || true)) {
             result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, first$ifLet3));
             while (true) {
                 var $ifLet4, next$ifLet5;
-                if (!((($ifLet4 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet4.rawValue === 'some' && ((next$ifLet5 = $ifLet4[0]) || true)))
+                if (!((($ifLet4 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet4.rawValue == 'some' && ((next$ifLet5 = $ifLet4[0]) || true)))
                     break;
                 result.append({ $setThis: function ($val) { return result = $val; } }, separator);
                 result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, next$ifLet5));
@@ -7784,7 +7811,7 @@ var DropWhileSequence = /** @class */ (function () {
             class_10.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, next$ifLet1;
-                if (!((($ifLet0 = _this._nextElement) || true) && $ifLet0.rawValue === 'some' && ((next$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this._nextElement) || true) && $ifLet0.rawValue == 'some' && ((next$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -7858,7 +7885,7 @@ var SetAlgebra$implementation = /** @class */ (function () {
             var $e$generator_3 = sequence.makeIterator({});
             while (true) {
                 var $ifLet0, e$ifLet1;
-                if (!((($ifLet0 = $e$generator_3.next({ $setThis: function ($val) { return $e$generator_3 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $e$generator_3.next({ $setThis: function ($val) { return $e$generator_3 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.insert({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, e$ifLet1);
             }
@@ -7876,7 +7903,7 @@ var SetAlgebra$implementation = /** @class */ (function () {
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
     SetAlgebra$implementation.prototype.isSubsetOf = function ($info, other) {
         var _this = this;
-        return (_this.intersection({}, other)).constructor.infix_61_61({}, _this.intersection({}, other), _this);
+        return (_.arg0 = _this.intersection({}, other)).constructor.infix_61_61({}, _.arg0, _this);
     };
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
@@ -7899,7 +7926,7 @@ var SetAlgebra$implementation = /** @class */ (function () {
     /*Swift.(file).SetAlgebra.isEmpty*/
     SetAlgebra$implementation.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this).constructor.infix_61_61({}, _this, _create(_this.constructor, 'init', {}));
+        return (_.arg0 = _this).constructor.infix_61_61({}, _.arg0, _create(_this.constructor, 'init', {}));
     };
     Object.defineProperty(SetAlgebra$implementation.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -7911,7 +7938,7 @@ var SetAlgebra$implementation = /** @class */ (function () {
     /*Swift.(file).SetAlgebra.isStrictSuperset(of:Self)*/
     SetAlgebra$implementation.prototype.isStrictSupersetOf = function ($info, other) {
         var _this = this;
-        return Bool.infix_38_38({}, _this.isSupersetOf({}, other), function () { return (_this).constructor.infix_33_61({}, _this, other); });
+        return Bool.infix_38_38({}, _this.isSupersetOf({}, other), function () { return (_.arg0 = _this).constructor.infix_33_61({}, _.arg0, other); });
     };
     /*Swift.(file).SetAlgebra.isStrictSubset(of:Self)*/
     /*Swift.(file).SetAlgebra.isStrictSubset(of:Self)*/
@@ -8134,7 +8161,7 @@ var StrideToIterator = /** @class */ (function () {
     StrideToIterator.prototype.next = function ($info) {
         var _this = this;
         var result = _this._current["1"];
-        if ((((_this._stride).constructor.infix_62({}, _this._stride, _create(((function () { throw '!unclarifiedGeneric:Element.Stride'; })()), 'initIntegerLiteral', {}, 0)) ? (result).constructor.infix_62_61({}, result, _this._end) : (result).constructor.infix_60_61({}, result, _this._end)))) {
+        if ((((_.arg0 = _this._stride).constructor.infix_62({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:Element.Stride'; })()), 'initIntegerLiteral', {}, 0)) ? (_.arg1 = result).constructor.infix_62_61({}, _.arg1, _this._end) : (_.arg2 = result).constructor.infix_60_61({}, _.arg2, _this._end)))) {
             return Optional.none;
         }
         ;
@@ -8162,8 +8189,8 @@ var StrideThroughIterator = /** @class */ (function () {
     StrideThroughIterator.prototype.next = function ($info) {
         var _this = this;
         var result = _this._current["1"];
-        if ((((_this._stride).constructor.infix_62({}, _this._stride, _create(((function () { throw '!unclarifiedGeneric:Element.Stride'; })()), 'initIntegerLiteral', {}, 0)) ? (result).constructor.infix_62_61({}, result, _this._end) : (result).constructor.infix_60_61({}, result, _this._end)))) {
-            if ((Bool.infix_38_38({}, (result).constructor.infix_61_61({}, result, _this._end), function () { return Bool.prefix_33({}, _this._didReturnEnd); }))) {
+        if ((((_.arg0 = _this._stride).constructor.infix_62({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:Element.Stride'; })()), 'initIntegerLiteral', {}, 0)) ? (_.arg1 = result).constructor.infix_62_61({}, _.arg1, _this._end) : (_.arg2 = result).constructor.infix_60_61({}, _.arg2, _this._end)))) {
+            if ((Bool.infix_38_38({}, (_.arg3 = result).constructor.infix_61_61({}, _.arg3, _this._end), function () { return Bool.prefix_33({}, _this._didReturnEnd); }))) {
                 _this._didReturnEnd = true;
                 return _injectIntoOptional(result);
             }
@@ -8317,6 +8344,7 @@ var _KnownCocoaString = /** @class */ (function () {
     _KnownCocoaString.$infoAddress = '';
     return _KnownCocoaString;
 }());
+_mixin(_KnownCocoaString, _DefaultEnumImplementation, false);
 var CocoaStringPointer = /** @class */ (function () {
     function CocoaStringPointer() {
     }
@@ -8333,6 +8361,7 @@ var CocoaStringPointer = /** @class */ (function () {
     CocoaStringPointer.$infoAddress = '';
     return CocoaStringPointer;
 }());
+_mixin(CocoaStringPointer, _DefaultEnumImplementation, false);
 var __SwiftNativeNSString = /** @class */ (function () {
     function __SwiftNativeNSString() {
     }
@@ -8389,6 +8418,7 @@ var _StringComparisonResult = /** @class */ (function () {
     _StringComparisonResult.$infoAddress = '';
     return _StringComparisonResult;
 }());
+_mixin(_StringComparisonResult, _DefaultEnumImplementation, false);
 var _StringGuts = /** @class */ (function () {
     function _StringGuts() {
     }
@@ -8869,7 +8899,7 @@ var _StringGuts = /** @class */ (function () {
         var _this = this;
         if ((Bool.infix_38_38({}, _this.isSmall, function () { return other.isSmall; }))) {
             var $ifLet0, smol$ifLet1;
-            if ((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall)) || true) && $ifLet0.rawValue === 'some' && ((smol$ifLet1 = $ifLet0[0]) || true)) {
+            if ((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall)) || true) && $ifLet0.rawValue == 'some' && ((smol$ifLet1 = $ifLet0[0]) || true)) {
                 $info.$setThis(_this = _cloneStruct(_create(_StringGuts, 'init_SmallString', {}, smol$ifLet1)));
                 return;
             }
@@ -10028,6 +10058,7 @@ var _StringObject = /** @class */ (function () {
         _m);
     return _StringObject;
 }());
+_mixin(_StringObject.Nibbles, _DefaultEnumImplementation, false);
 var DefaultStringInterpolation = /** @class */ (function () {
     function DefaultStringInterpolation() {
     }
@@ -10113,6 +10144,7 @@ var _Normalization = /** @class */ (function () {
     _Normalization.$infoAddress = '';
     return _Normalization;
 }());
+_mixin(_Normalization, _DefaultEnumImplementation, false);
 var _AbstractStringStorage$implementation = /** @class */ (function () {
     function _AbstractStringStorage$implementation() {
     }
@@ -10358,7 +10390,7 @@ var _StringStorage = /** @class */ (function (_super) {
             var srcCount = 0;
             while (true) {
                 var $ifLet0, cu$ifLet1;
-                if (!((($ifLet0 = other.next({ $setThis: function ($val) { return other = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = other.next({ $setThis: function ($val) { return other = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.unusedStorage.subscript$set({ $setThis: function ($val) { return _this.unusedStorage = _cloneStruct($val); } }, cu$ifLet1, srcCount);
                 Int.infix_43_61({}, { get: function () { return srcCount; }, set: function ($val) { return srcCount = $val; } }, 1);
@@ -10408,7 +10440,7 @@ var _StringStorage = /** @class */ (function (_super) {
             var $cu$generator_1 = replacement.makeIterator({});
             while (true) {
                 var $ifLet0, cu$ifLet1;
-                if (!((($ifLet0 = $cu$generator_1.next({ $setThis: function ($val) { return $cu$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $cu$generator_1.next({ $setThis: function ($val) { return $cu$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((UInt8.infix_62_61({}, cu$ifLet1, 0x80))) {
                     isASCII = false;
@@ -10644,6 +10676,7 @@ var _StringRepresentation = /** @class */ (function () {
         _o);
     return _StringRepresentation;
 }());
+_mixin(_StringRepresentation._Form, _DefaultEnumImplementation, false);
 var UTF8ExtraInfo = /** @class */ (function () {
     function UTF8ExtraInfo() {
     }
@@ -10690,6 +10723,9 @@ var UTF8ValidationResult = /** @class */ (function () {
     UTF8ValidationResult.$infoAddress = '';
     return UTF8ValidationResult;
 }());
+if (typeof Equatable$implementation != 'undefined')
+    _mixin(UTF8ValidationResult, Equatable$implementation, false);
+_mixin(UTF8ValidationResult, _DefaultEnumImplementation, false);
 var UTF8ValidationError = /** @class */ (function () {
     function UTF8ValidationError() {
     }
@@ -11079,6 +11115,9 @@ var UnicodeDecodingResult = /** @class */ (function () {
     UnicodeDecodingResult.$infoAddress = '';
     return UnicodeDecodingResult;
 }());
+if (typeof Equatable$implementation != 'undefined')
+    _mixin(UnicodeDecodingResult, Equatable$implementation, false);
+_mixin(UnicodeDecodingResult, _DefaultEnumImplementation, false);
 var UnicodeCodec$implementation = /** @class */ (function () {
     function UnicodeCodec$implementation() {
     }
@@ -11118,17 +11157,17 @@ var _PlaygroundQuickLook = /** @class */ (function () {
     _PlaygroundQuickLook.prototype.initReflectingprotocol_composition_type = function ($info, subject) {
         var _this = this;
         var $ifLet0, customized$ifLet1;
-        if ((($ifLet0 = _injectIntoOptional(subject)) || true) && $ifLet0.rawValue === 'some' && ((customized$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _injectIntoOptional(subject)) || true) && $ifLet0.rawValue == 'some' && ((customized$ifLet1 = $ifLet0[0]) || true)) {
             $info.$setThis(_this = _cloneStruct(customized$ifLet1.customPlaygroundQuickLook));
         }
         else {
             var $ifLet2, customized$ifLet3;
-            if ((($ifLet2 = _injectIntoOptional(subject)) || true) && $ifLet2.rawValue === 'some' && ((customized$ifLet3 = $ifLet2[0]) || true)) {
+            if ((($ifLet2 = _injectIntoOptional(subject)) || true) && $ifLet2.rawValue == 'some' && ((customized$ifLet3 = $ifLet2[0]) || true)) {
                 $info.$setThis(_this = _cloneStruct(customized$ifLet3._defaultCustomPlaygroundQuickLook));
             }
             else {
                 var $ifLet4, q$ifLet5;
-                if ((($ifLet4 = Mirror.quickLookObject({}, subject)) || true) && $ifLet4.rawValue === 'some' && ((q$ifLet5 = $ifLet4[0]) || true)) {
+                if ((($ifLet4 = Mirror.quickLookObject({}, subject)) || true) && $ifLet4.rawValue == 'some' && ((q$ifLet5 = $ifLet4[0]) || true)) {
                     $info.$setThis(_this = _cloneStruct(q$ifLet5));
                 }
                 else {
@@ -11145,6 +11184,7 @@ var _PlaygroundQuickLook = /** @class */ (function () {
     _PlaygroundQuickLook.$infoAddress = '';
     return _PlaygroundQuickLook;
 }());
+_mixin(_PlaygroundQuickLook, _DefaultEnumImplementation, false);
 var _CustomPlaygroundQuickLookable$implementation = /** @class */ (function () {
     function _CustomPlaygroundQuickLookable$implementation() {
     }
@@ -11634,6 +11674,7 @@ var CommandLine = /** @class */ (function () {
     CommandLine.$infoAddress = '';
     return CommandLine;
 }());
+_mixin(CommandLine, _DefaultEnumImplementation, false);
 var SIMDStorage$implementation = /** @class */ (function () {
     function SIMDStorage$implementation() {
     }
@@ -13697,7 +13738,7 @@ var EnumeratedSequence = /** @class */ (function () {
             class_16.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, b$ifLet1;
-                if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((b$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((b$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -13872,7 +13913,7 @@ var _UnsafeBitset = /** @class */ (function () {
             var $w$generator_1 = _cloneStruct(Int.infix_46_46_60({}, 0, _this.wordCount).makeIterator({}));
             while (true) {
                 var $ifLet0, w$ifLet1;
-                if (!((($ifLet0 = $w$generator_1.next({ $setThis: function ($val) { return $w$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((w$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $w$generator_1.next({ $setThis: function ($val) { return $w$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((w$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 Int.infix_43_61({}, { get: function () { return count; }, set: function ($val) { return count = $val; } }, _this.words.subscript$get({}, w$ifLet1).count);
             }
@@ -14491,6 +14532,9 @@ var EncodingError = /** @class */ (function () {
         _u);
     return EncodingError;
 }());
+if (typeof Error$implementation != 'undefined')
+    _mixin(EncodingError, Error$implementation, false);
+_mixin(EncodingError, _DefaultEnumImplementation, false);
 var DecodingError = /** @class */ (function () {
     function DecodingError() {
     }
@@ -14564,6 +14608,9 @@ var DecodingError = /** @class */ (function () {
         _w);
     return DecodingError;
 }());
+if (typeof Error$implementation != 'undefined')
+    _mixin(DecodingError, Error$implementation, false);
+_mixin(DecodingError, _DefaultEnumImplementation, false);
 var _GenericIndexKey = /** @class */ (function () {
     function _GenericIndexKey() {
     }
@@ -14673,7 +14720,7 @@ var IndexingIterator = /** @class */ (function () {
     /*Swift.(file).IteratorProtocol.next()*/
     IndexingIterator.prototype.next = function ($info) {
         var _this = this;
-        if (((_this._position).constructor.infix_61_61({}, _this._position, _this._elements.endIndex))) {
+        if (((_.arg0 = _this._position).constructor.infix_61_61({}, _.arg0, _this._elements.endIndex))) {
             return Optional.none;
         }
         ;
@@ -14735,7 +14782,7 @@ var Collection$implementation = /** @class */ (function () {
         var i = i$inout.get();
         var $result = (function () {
             var $ifLet0, advancedIndex$ifLet1;
-            if ((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit)) || true) && $ifLet0.rawValue === 'some' && ((advancedIndex$ifLet1 = $ifLet0[0]) || true)) {
+            if ((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit)) || true) && $ifLet0.rawValue == 'some' && ((advancedIndex$ifLet1 = $ifLet0[0]) || true)) {
                 i = advancedIndex$ifLet1;
                 return true;
             }
@@ -14750,11 +14797,11 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     Collection$implementation.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -14807,13 +14854,13 @@ var Collection$implementation = /** @class */ (function () {
         }
         ;
         var _element = _this.first[0];
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _this.indexAfter({}, _this.startIndex), _this.endIndex))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
         return _injectIntoOptional(_element);
     };
     /*Swift.(file).Collection.isEmpty*/
     Collection$implementation.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(Collection$implementation.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -14825,7 +14872,7 @@ var Collection$implementation = /** @class */ (function () {
     Collection$implementation.prototype.first$get = function () {
         var _this = this;
         var start = _this.startIndex;
-        if (((start).constructor.infix_33_61({}, start, _this.endIndex))) {
+        if (((_.arg0 = start).constructor.infix_33_61({}, _.arg0, _this.endIndex))) {
             return _injectIntoOptional(_this.subscript$get({}, start));
         }
         else {
@@ -14875,7 +14922,7 @@ var Collection$implementation = /** @class */ (function () {
             var $generator_2 = _cloneStruct(Int.infix_46_46_60({}, 0, n).makeIterator({}));
             while (true) {
                 var $ifLet0;
-                if (!((($ifLet0 = $generator_2.next({ $setThis: function ($val) { return $generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                if (!((($ifLet0 = $generator_2.next({ $setThis: function ($val) { return $generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                     break;
                 result.append({ $setThis: function ($val) { return result = $val; } }, transform({}, _this.subscript$get({}, i)));
                 _this.formIndexAfter({}, { get: function () { return i; }, set: function ($val) { return i = $val; } });
@@ -14890,7 +14937,7 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
         var start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, k, _this.endIndex), function () { return _this.endIndex; });
-        return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex));
+        return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex));
     };
     /*Swift.(file).Collection.dropLast(_:Int)*/
     /*Swift.(file).Collection.dropLast(_:Int)*/
@@ -14899,7 +14946,7 @@ var Collection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
         var amount = /*dot_syntax_base_ignored*/ max({}, 0, Int.infix_45({}, _this.count, k));
         var end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, amount, _this.endIndex), function () { return _this.endIndex; });
-        return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool)*/
@@ -14907,12 +14954,12 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         var start = _this.startIndex;
         while (true) {
-            if (!((Bool.infix_38_38({}, (start).constructor.infix_33_61({}, start, _this.endIndex), function () { return predicate({}, _this.subscript$get({}, start)); }))))
+            if (!((Bool.infix_38_38({}, (_.arg0 = start).constructor.infix_33_61({}, _.arg0, _this.endIndex), function () { return predicate({}, _this.subscript$get({}, start)); }))))
                 break;
             _this.formIndexAfter({}, { get: function () { return start; }, set: function ($val) { return start = $val; } });
         }
         ;
-        return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex));
+        return _this.subscriptRange$get({}, (_.arg1 = start).constructor.infix_46_46_60({}, _.arg1, _this.endIndex));
     };
     /*Swift.(file).Collection.prefix(_:Int)*/
     /*Swift.(file).Collection.prefix(_:Int)*/
@@ -14920,7 +14967,7 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a prefix of negative length from a collection"; }, '?3', '?3');
         var end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, maxLength, _this.endIndex), function () { return _this.endIndex; });
-        return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool)*/
     /*Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool)*/
@@ -14928,12 +14975,12 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         var end = _this.startIndex;
         while (true) {
-            if (!((Bool.infix_38_38({}, (end).constructor.infix_33_61({}, end, _this.endIndex), function () { return predicate({}, _this.subscript$get({}, end)); }))))
+            if (!((Bool.infix_38_38({}, (_.arg0 = end).constructor.infix_33_61({}, _.arg0, _this.endIndex), function () { return predicate({}, _this.subscript$get({}, end)); }))))
                 break;
             _this.formIndexAfter({}, { get: function () { return end; }, set: function ($val) { return end = $val; } });
         }
         ;
-        return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        return _this.subscriptRange$get({}, (_.arg1 = _this.startIndex).constructor.infix_46_46_60({}, _.arg1, end));
     };
     /*Swift.(file).Collection.suffix(_:Int)*/
     /*Swift.(file).Collection.suffix(_:Int)*/
@@ -14942,19 +14989,19 @@ var Collection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a suffix of negative length from a collection"; }, '?3', '?3');
         var amount = /*dot_syntax_base_ignored*/ max({}, 0, Int.infix_45({}, _this.count, maxLength));
         var start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, amount, _this.endIndex), function () { return _this.endIndex; });
-        return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex));
+        return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex));
     };
     /*Swift.(file).Collection.prefix(upTo:Self.Index)*/
     /*Swift.(file).Collection.prefix(upTo:Self.Index)*/
     Collection$implementation.prototype.prefixUpTo = function ($info, end) {
         var _this = this;
-        return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).Collection.suffix(from:Self.Index)*/
     /*Swift.(file).Collection.suffix(from:Self.Index)*/
     Collection$implementation.prototype.suffixFrom = function ($info, start) {
         var _this = this;
-        return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex));
+        return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex));
     };
     /*Swift.(file).Collection.prefix(through:Self.Index)*/
     /*Swift.(file).Collection.prefix(through:Self.Index)*/
@@ -14970,11 +15017,11 @@ var Collection$implementation = /** @class */ (function () {
         var result = _create(Array, 'initArrayLiteralArray', {}, []);
         var subSequenceStart = _this.startIndex;
         function appendSubsequenceEnd($info, end) {
-            if ((Bool.infix_38_38({}, (subSequenceStart).constructor.infix_61_61({}, subSequenceStart, end), function () { return omittingEmptySubsequences; }))) {
+            if ((Bool.infix_38_38({}, (_.arg0 = subSequenceStart).constructor.infix_61_61({}, _.arg0, end), function () { return omittingEmptySubsequences; }))) {
                 return false;
             }
             ;
-            result.append({ $setThis: function ($val) { return result = $val; } }, _this.subscriptRange$get({}, (subSequenceStart).constructor.infix_46_46_60({}, subSequenceStart, end)));
+            result.append({ $setThis: function ($val) { return result = $val; } }, _this.subscriptRange$get({}, (_.arg1 = subSequenceStart).constructor.infix_46_46_60({}, _.arg1, end)));
             return true;
         }
         if ((Bool.infix_124_124({}, Int.infix_61_61({}, maxSplits, 0), function () { return _this.isEmpty; }))) {
@@ -14985,7 +15032,7 @@ var Collection$implementation = /** @class */ (function () {
         var subSequenceEnd = subSequenceStart;
         var cachedEndIndex = _this.endIndex;
         while (true) {
-            if (!(((subSequenceEnd).constructor.infix_33_61({}, subSequenceEnd, cachedEndIndex))))
+            if (!(((_.arg2 = subSequenceEnd).constructor.infix_33_61({}, _.arg2, cachedEndIndex))))
                 break;
             if ((isSeparator({}, _this.subscript$get({}, subSequenceEnd)))) {
                 var didAppend = appendSubsequenceEnd({}, subSequenceEnd);
@@ -15001,8 +15048,8 @@ var Collection$implementation = /** @class */ (function () {
             _this.formIndexAfter({}, { get: function () { return subSequenceEnd; }, set: function ($val) { return subSequenceEnd = $val; } });
         }
         ;
-        if ((Bool.infix_124_124({}, (subSequenceStart).constructor.infix_33_61({}, subSequenceStart, cachedEndIndex), function () { return Bool.prefix_33({}, omittingEmptySubsequences); }))) {
-            result.append({ $setThis: function ($val) { return result = $val; } }, _this.subscriptRange$get({}, (subSequenceStart).constructor.infix_46_46_60({}, subSequenceStart, cachedEndIndex)));
+        if ((Bool.infix_124_124({}, (_.arg3 = subSequenceStart).constructor.infix_33_61({}, _.arg3, cachedEndIndex), function () { return Bool.prefix_33({}, omittingEmptySubsequences); }))) {
+            result.append({ $setThis: function ($val) { return result = $val; } }, _this.subscriptRange$get({}, (_.arg4 = subSequenceStart).constructor.infix_46_46_60({}, _.arg4, cachedEndIndex)));
         }
         ;
         return result;
@@ -15011,7 +15058,7 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)*/
     Collection$implementation.prototype.splitSeparatorMaxSplitsOmittingEmptySubsequences = function ($info, separator, maxSplits, omittingEmptySubsequences) {
         var _this = this;
-        return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (function ($info, $0) { return ($0).constructor.infix_61_61({}, $0, separator); }));
+        return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (function ($info, $0) { return (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, separator); }));
     };
     /*Swift.(file).Collection.removeFirst()*/
     /*Swift.(file).Collection.removeFirst()*/
@@ -15019,7 +15066,7 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove items from an empty collection"; }, '?3', '?3');
         var _element = _this.first[0];
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _this.indexAfter({}, _this.startIndex), _this.endIndex))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
         return _element;
     };
     /*Swift.(file).Collection.removeFirst(_:Int)*/
@@ -15032,22 +15079,22 @@ var Collection$implementation = /** @class */ (function () {
         ;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it contains"; }, '?3', '?3');
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _this.indexOffsetBy({}, _this.startIndex, k), _this.endIndex))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
     };
     /*Swift.(file).Collection.firstIndex(of:Self.Element)*/
     /*Swift.(file).Collection.firstIndex(of:Self.Element)*/
     Collection$implementation.prototype.firstIndexOf = function ($info, _element) {
         var _this = this;
         var $ifLet0, result$ifLet1;
-        if ((($ifLet0 = _this._customIndexOfEquatableElement({}, _element)) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this._customIndexOfEquatableElement({}, _element)) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
             return result$ifLet1;
         }
         ;
         var i = _this.startIndex;
         while (true) {
-            if (!(((i).constructor.infix_33_61({}, i, _this.endIndex))))
+            if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex))))
                 break;
-            if (((_this.subscript$get({}, i)).constructor.infix_61_61({}, _this.subscript$get({}, i), _element))) {
+            if (((_.arg1 = _this.subscript$get({}, i)).constructor.infix_61_61({}, _.arg1, _element))) {
                 return _injectIntoOptional(i);
             }
             ;
@@ -15062,7 +15109,7 @@ var Collection$implementation = /** @class */ (function () {
         var _this = this;
         var i = _this.startIndex;
         while (true) {
-            if (!(((i).constructor.infix_33_61({}, i, _this.endIndex))))
+            if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex))))
                 break;
             if ((predicate({}, _this.subscript$get({}, i)))) {
                 return _injectIntoOptional(i);
@@ -15098,7 +15145,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T)*/
-    Collection$implementation.prototype.indexOffsetBy = function ($info, i, n) {
+    Collection$implementation.prototype.indexOffsetByT = function ($info, i, n) {
         var _this = this;
         return _this.indexOffsetBy({}, i, _create(Int, 'initT', {}, n));
     };
@@ -15115,7 +15162,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
-    Collection$implementation.prototype.indexOffsetByLimitedBy = function ($info, i, n, limit) {
+    Collection$implementation.prototype.indexOffsetByTLimitedBy = function ($info, i, n, limit) {
         var _this = this;
         return _this.indexOffsetByLimitedBy({}, i, _create(Int, 'initT', {}, n), limit);
     };
@@ -15134,11 +15181,11 @@ var Collection$implementation = /** @class */ (function () {
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     Collection$implementation.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -15175,32 +15222,32 @@ var Comparable$implementation = /** @class */ (function () {
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_46 = function ($info, minimum, maximum) {
         var _this = this;
-        preconditionFileLine({}, function () { return (minimum).constructor.infix_60_61({}, minimum, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = minimum).constructor.infix_60_61({}, _.arg0, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
         return _create(ClosedRange, 'initUncheckedBoundstuple_type', {}, { 0: minimum, 1: maximum });
     };
     /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_60 = function ($info, minimum, maximum) {
         var _this = this;
-        preconditionFileLine({}, function () { return (minimum).constructor.infix_60_61({}, minimum, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = minimum).constructor.infix_60_61({}, _.arg0, maximum); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3');
         return _create(Range, 'initUncheckedBoundstuple_type', {}, { 0: minimum, 1: maximum });
     };
     /*Swift.(file).Comparable...<prefix(_:Self)*/
@@ -15324,7 +15371,7 @@ var OpaquePointer = /** @class */ (function () {
     OpaquePointer.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -15343,7 +15390,7 @@ var OpaquePointer = /** @class */ (function () {
     OpaquePointer.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -15393,7 +15440,7 @@ var OpaquePointer = /** @class */ (function () {
     OpaquePointer.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -15412,7 +15459,7 @@ var OpaquePointer = /** @class */ (function () {
     OpaquePointer.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -15517,6 +15564,9 @@ var _MergeError = /** @class */ (function () {
     _MergeError.$infoAddress = '';
     return _MergeError;
 }());
+if (typeof Error$implementation != 'undefined')
+    _mixin(_MergeError, Error$implementation, false);
+_mixin(_MergeError, _DefaultEnumImplementation, false);
 var _SwiftDictionaryNSEnumerator = /** @class */ (function (_super) {
     __extends(_SwiftDictionaryNSEnumerator, _super);
     function _SwiftDictionaryNSEnumerator() {
@@ -15822,7 +15872,7 @@ var _CocoaDictionary = /** @class */ (function () {
             var $generator = _this.makeIterator({});
             while (true) {
                 var $ifLet0, cocoaKey$ifLet1, cocoaValue$ifLet2;
-                if (!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({})).rawValue === 'some') ? (_.tmp0[0]) : null)) || true) && $ifLet0.rawValue === 'some' && ((cocoaKey$ifLet1 = $ifLet0[0][0]) || true) && ((cocoaValue$ifLet2 = $ifLet0[0][1]) || true)))
+                if (!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({})).rawValue === 'some') ? (_.tmp0[0]) : null)) || true) && $ifLet0.rawValue == 'some' && ((cocoaKey$ifLet1 = $ifLet0[0][0]) || true) && ((cocoaValue$ifLet2 = $ifLet0[0][1]) || true)))
                     break;
                 var key = _forceBridgeFromObjectiveC({}, cocoaKey$ifLet1, ((function () { throw '!unclarifiedGeneric:Key'; })()));
                 var value = _forceBridgeFromObjectiveC({}, cocoaValue$ifLet2, ((function () { throw '!unclarifiedGeneric:Value'; })()));
@@ -16030,7 +16080,7 @@ var _CocoaDictionary = /** @class */ (function () {
             class_23.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, key$ifLet1;
-                if (!((($ifLet0 = _this.nextKey({})) || true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this.nextKey({})) || true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -16315,7 +16365,7 @@ var AnyHashable = /** @class */ (function () {
     AnyHashable.prototype.init = function ($info, base) {
         var _this = this;
         var $ifLet0, custom$ifLet1;
-        if ((($ifLet0 = (((_.tmp0 = _injectIntoOptional(base)).rawValue === 'some') ? (_.tmp0[0]._toCustomAnyHashable({})) : Optional.none)) || true) && $ifLet0.rawValue === 'some' && ((custom$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = (((_.tmp0 = _injectIntoOptional(base)).rawValue === 'some') ? (_.tmp0[0]._toCustomAnyHashable({})) : Optional.none)) || true) && $ifLet0.rawValue == 'some' && ((custom$ifLet1 = $ifLet0[0]) || true)) {
             $info.$setThis(_this = _cloneStruct(_cloneStruct(custom$ifLet1)));
             return;
         }
@@ -16641,7 +16691,7 @@ var _HashTable = /** @class */ (function () {
         var _this = this;
         var word = bucket.word;
         var $ifLet0, bit$ifLet1;
-        if ((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum) || true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum) || true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
             return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
         }
         ;
@@ -16687,7 +16737,7 @@ var _HashTable = /** @class */ (function () {
         var _this = this;
         var word = bucket.word;
         var $ifLet0, bit$ifLet1;
-        if ((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum) || true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum) || true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
             return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
         }
         ;
@@ -16703,7 +16753,7 @@ var _HashTable = /** @class */ (function () {
             }
             ;
             var $ifLet2, bit$ifLet3;
-            if ((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum) || true) && $ifLet2.rawValue === 'some' && ((bit$ifLet3 = $ifLet2[0]) || true)) {
+            if ((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum) || true) && $ifLet2.rawValue == 'some' && ((bit$ifLet3 = $ifLet2[0]) || true)) {
                 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet3);
             }
             ;
@@ -16715,7 +16765,7 @@ var _HashTable = /** @class */ (function () {
         var _this = this;
         var word = bucket.word;
         var $ifLet0, bit$ifLet1;
-        if ((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum) || true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum) || true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0]) || true)) {
             return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
         }
         ;
@@ -16731,7 +16781,7 @@ var _HashTable = /** @class */ (function () {
             }
             ;
             var $ifLet2, bit$ifLet3;
-            if ((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum) || true) && $ifLet2.rawValue === 'some' && ((bit$ifLet3 = $ifLet2[0]) || true)) {
+            if ((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum) || true) && $ifLet2.rawValue == 'some' && ((bit$ifLet3 = $ifLet2[0]) || true)) {
                 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet3);
             }
             ;
@@ -17025,7 +17075,7 @@ var JoinedSequence = /** @class */ (function () {
                     var $match = _this._state;
                     if ((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.start.rawValue))) {
                         var $ifLet0, nextSubSequence$ifLet1;
-                        if ((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((nextSubSequence$ifLet1 = $ifLet0[0]) || true)) {
+                        if ((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((nextSubSequence$ifLet1 = $ifLet0[0]) || true)) {
                             _this._inner = _injectIntoOptional(nextSubSequence$ifLet1.makeIterator({}));
                             _this._state = JoinedSequence.Iterator._JoinIteratorState.generatingElements;
                         }
@@ -17125,6 +17175,7 @@ var JoinedSequence = /** @class */ (function () {
         _4);
     return JoinedSequence;
 }());
+_mixin(JoinedSequence.Iterator._JoinIteratorState, _DefaultEnumImplementation, false);
 if (typeof IteratorProtocol$implementation != 'undefined')
     _mixin(JoinedSequence.Iterator, IteratorProtocol$implementation, false);
 if (typeof Sequence$implementation != 'undefined')
@@ -17188,7 +17239,7 @@ var AnyKeyPath = /** @class */ (function () {
                     var $tuple = buffer.next({ $setThis: function ($val) { return buffer = $val; } }), component = $tuple && $tuple[0], type = $tuple && $tuple[1];
                     hasher.combine({ $setThis: function ($val) { return hasher = $val; } }, component.value);
                     var $ifLet0, type$ifLet1;
-                    if ((($ifLet0 = type) || true) && $ifLet0.rawValue === 'some' && ((type$ifLet1 = $ifLet0[0]) || true)) {
+                    if ((($ifLet0 = type) || true) && $ifLet0.rawValue == 'some' && ((type$ifLet1 = $ifLet0[0]) || true)) {
                         hasher.combine({ $setThis: function ($val) { return hasher = $val; } }, unsafeBitCastTo({}, type$ifLet1, Int));
                     }
                     else {
@@ -17545,7 +17596,7 @@ var MutableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     MutableCollection$implementation.prototype.swapAt = function ($info, i, j) {
         var _this = this;
-        if (!(((i).constructor.infix_33_61({}, i, j)))) {
+        if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, j)))) {
             return;
         }
         ;
@@ -17586,7 +17637,7 @@ var MutableCollection$implementation = /** @class */ (function () {
         var f = _this.startIndex;
         var l = _this.indexBefore({}, _this.endIndex);
         while (true) {
-            if (!(((f).constructor.infix_60({}, f, l))))
+            if (!(((_.arg0 = f).constructor.infix_60({}, _.arg0, l))))
                 break;
             _this.swapAt({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, f, l);
             _this.formIndexAfter({}, { get: function () { return f; }, set: function ($val) { return f = $val; } });
@@ -17727,7 +17778,7 @@ var _NativeDictionary = /** @class */ (function () {
         while (true) {
             if (!((hashTable._isOccupied({}, bucket))))
                 break;
-            if (((_this.uncheckedKeyAt({}, bucket)).constructor.infix_61_61({}, _this.uncheckedKeyAt({}, bucket), key))) {
+            if (((_.arg0 = _this.uncheckedKeyAt({}, bucket)).constructor.infix_61_61({}, _.arg0, key))) {
                 return { 0: bucket, 1: true };
             }
             ;
@@ -17748,7 +17799,7 @@ var _NativeDictionary = /** @class */ (function () {
                 var $bucket$generator_1 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_1.next({ $setThis: function ($val) { return $bucket$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_1.next({ $setThis: function ($val) { return $bucket$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     var key = UnsafeMutablePointer.infix_43({}, _this._keys, bucket$ifLet1.offset).move({});
                     var value = UnsafeMutablePointer.infix_43({}, _this._values, bucket$ifLet1.offset).move({});
@@ -17774,7 +17825,7 @@ var _NativeDictionary = /** @class */ (function () {
                 var $bucket$generator_2 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_2.next({ $setThis: function ($val) { return $bucket$generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_2.next({ $setThis: function ($val) { return $bucket$generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     result._unsafeInsertNewKeyValue({}, _this.uncheckedKeyAt({}, bucket$ifLet1), _this.uncheckedValueAt({}, bucket$ifLet1));
                 }
@@ -17797,7 +17848,7 @@ var _NativeDictionary = /** @class */ (function () {
                 var $bucket$generator_3 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_3.next({ $setThis: function ($val) { return $bucket$generator_3 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_3.next({ $setThis: function ($val) { return $bucket$generator_3 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     var key = _this.uncheckedKeyAt({}, bucket$ifLet1);
                     var value = _this.uncheckedValueAt({}, bucket$ifLet1);
@@ -17982,7 +18033,7 @@ var _NativeDictionary = /** @class */ (function () {
             var value_1 = _injectIntoOptional(UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}));
             var $defer_1 = function () {
                 var $ifLet0, value$ifLet1;
-                if ((($ifLet0 = value_1) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true)) {
+                if ((($ifLet0 = value_1) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true)) {
                     UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).initializeTo({}, value$ifLet1);
                 }
                 else {
@@ -18008,7 +18059,7 @@ var _NativeDictionary = /** @class */ (function () {
             var value_2 = Optional.none;
             var $defer_2 = function () {
                 var $ifLet2, value$ifLet3;
-                if ((($ifLet2 = value_2) || true) && $ifLet2.rawValue === 'some' && ((value$ifLet3 = $ifLet2[0]) || true)) {
+                if ((($ifLet2 = value_2) || true) && $ifLet2.rawValue == 'some' && ((value$ifLet3 = $ifLet2[0]) || true)) {
                     _this._insertAtKeyValue({}, bucket, key, value$ifLet3);
                 }
                 ;
@@ -18039,7 +18090,7 @@ var _NativeDictionary = /** @class */ (function () {
             var value_3 = _injectIntoOptional(UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}));
             var $defer_3 = function () {
                 var $ifLet0, value$ifLet1;
-                if ((($ifLet0 = value_3) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true)) {
+                if ((($ifLet0 = value_3) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true)) {
                     UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).initializeTo({}, value$ifLet1);
                 }
                 else {
@@ -18065,7 +18116,7 @@ var _NativeDictionary = /** @class */ (function () {
             var value_4 = Optional.none;
             var $defer_4 = function () {
                 var $ifLet2, value$ifLet3;
-                if ((($ifLet2 = value_4) || true) && $ifLet2.rawValue === 'some' && ((value$ifLet3 = $ifLet2[0]) || true)) {
+                if ((($ifLet2 = value_4) || true) && $ifLet2.rawValue == 'some' && ((value$ifLet3 = $ifLet2[0]) || true)) {
                     _this._insertAtKeyValue({}, bucket, key, value$ifLet3);
                 }
                 ;
@@ -18155,10 +18206,10 @@ var _NativeDictionary = /** @class */ (function () {
             var $generator_3 = _cloneStruct(_this.makeIterator({}));
             while (true) {
                 var $ifLet0, key$ifLet1, value$ifLet2;
-                if (!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator_3.next({ $setThis: function ($val) { return $generator_3 = $val; } })).rawValue === 'some') ? (_.tmp0[0]) : null)) || true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0][0]) || true) && ((value$ifLet2 = $ifLet0[0][1]) || true)))
+                if (!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator_3.next({ $setThis: function ($val) { return $generator_3 = $val; } })).rawValue === 'some') ? (_.tmp0[0]) : null)) || true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0][0]) || true) && ((value$ifLet2 = $ifLet0[0][1]) || true)))
                     break;
                 var $tuple = other.find({}, key$ifLet1), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
-                if (!((found) && ((other.uncheckedValueAt({}, bucket)).constructor.infix_61_61({}, other.uncheckedValueAt({}, bucket), value$ifLet2)))) {
+                if (!((found) && ((_.arg0 = other.uncheckedValueAt({}, bucket)).constructor.infix_61_61({}, _.arg0, value$ifLet2)))) {
                     return false;
                 }
                 ;
@@ -18206,7 +18257,7 @@ var _NativeDictionary = /** @class */ (function () {
             var $bucket$generator_4 = _cloneStruct(_this.hashTable.makeIterator({}));
             while (true) {
                 var $ifLet0, bucket$ifLet1;
-                if (!((($ifLet0 = $bucket$generator_4.next({ $setThis: function ($val) { return $bucket$generator_4 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $bucket$generator_4.next({ $setThis: function ($val) { return $bucket$generator_4 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 UnsafeMutablePointer.infix_43({}, _this._keys, bucket$ifLet1.offset).deinitializeCount({}, 1);
                 UnsafeMutablePointer.infix_43({}, _this._values, bucket$ifLet1.offset).deinitializeCount({}, 1);
@@ -18227,7 +18278,7 @@ var _NativeDictionary = /** @class */ (function () {
             var $bucket$generator_5 = _cloneStruct(_this.hashTable.makeIterator({}));
             while (true) {
                 var $ifLet0, bucket$ifLet1;
-                if (!((($ifLet0 = $bucket$generator_5.next({ $setThis: function ($val) { return $bucket$generator_5 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $bucket$generator_5.next({ $setThis: function ($val) { return $bucket$generator_5 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 var key = _this.uncheckedKeyAt({}, bucket$ifLet1);
                 var value = _this.uncheckedValueAt({}, bucket$ifLet1);
@@ -18246,7 +18297,7 @@ var _NativeDictionary = /** @class */ (function () {
             var $generator_4 = keysAndValues.makeIterator({});
             var _loop_3 = function () {
                 var $ifLet0, key$ifLet1, value$ifLet2;
-                if (!((($ifLet0 = $generator_4.next({ $setThis: function ($val) { return $generator_4 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0][0]) || true) && ((value$ifLet2 = $ifLet0[0][1]) || true)))
+                if (!((($ifLet0 = $generator_4.next({ $setThis: function ($val) { return $generator_4 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0][0]) || true) && ((value$ifLet2 = $ifLet0[0][1]) || true)))
                     return "break";
                 var $tuple = _this.mutatingFindIsUnique({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, key$ifLet1, isUnique_dupl), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
                 isUnique_dupl = true;
@@ -18285,7 +18336,7 @@ var _NativeDictionary = /** @class */ (function () {
             var $value$generator_1 = values.makeIterator({});
             var _loop_4 = function () {
                 var $ifLet0, value$ifLet1;
-                if (!((($ifLet0 = $value$generator_1.next({ $setThis: function ($val) { return $value$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $value$generator_1.next({ $setThis: function ($val) { return $value$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true)))
                     return "break";
                 var key = keyForValue({}, value$ifLet1);
                 var $tuple = _this.mutatingFindIsUnique({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, key, true), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
@@ -18350,7 +18401,7 @@ var _NativeDictionary = /** @class */ (function () {
             class_30.prototype.nextKey = function ($info) {
                 var _this = this;
                 var $ifLet0, index$ifLet1;
-                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -18361,7 +18412,7 @@ var _NativeDictionary = /** @class */ (function () {
             class_30.prototype.nextValue = function ($info) {
                 var _this = this;
                 var $ifLet0, index$ifLet1;
-                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -18372,7 +18423,7 @@ var _NativeDictionary = /** @class */ (function () {
             class_30.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, index$ifLet1;
-                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -18495,7 +18546,7 @@ var _NativeSet = /** @class */ (function () {
         while (true) {
             if (!((hashTable._isOccupied({}, bucket))))
                 break;
-            if (((_this.uncheckedElementAt({}, bucket)).constructor.infix_61_61({}, _this.uncheckedElementAt({}, bucket), _element))) {
+            if (((_.arg0 = _this.uncheckedElementAt({}, bucket)).constructor.infix_61_61({}, _.arg0, _element))) {
                 return { 0: bucket, 1: true };
             }
             ;
@@ -18515,7 +18566,7 @@ var _NativeSet = /** @class */ (function () {
                 var $bucket$generator_6 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_6.next({ $setThis: function ($val) { return $bucket$generator_6 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_6.next({ $setThis: function ($val) { return $bucket$generator_6 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     var _element = UnsafeMutablePointer.infix_43({}, _this._elements, bucket$ifLet1.offset).move({});
                     result._unsafeInsertNew({}, _element);
@@ -18539,7 +18590,7 @@ var _NativeSet = /** @class */ (function () {
                 var $bucket$generator_7 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_7.next({ $setThis: function ($val) { return $bucket$generator_7 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_7.next({ $setThis: function ($val) { return $bucket$generator_7 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     result._unsafeInsertNew({}, _this.uncheckedElementAt({}, bucket$ifLet1));
                 }
@@ -18562,7 +18613,7 @@ var _NativeSet = /** @class */ (function () {
                 var $bucket$generator_8 = _cloneStruct(_this.hashTable.makeIterator({}));
                 while (true) {
                     var $ifLet0, bucket$ifLet1;
-                    if (!((($ifLet0 = $bucket$generator_8.next({ $setThis: function ($val) { return $bucket$generator_8 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $bucket$generator_8.next({ $setThis: function ($val) { return $bucket$generator_8 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     var _element = _this.uncheckedElementAt({}, bucket$ifLet1);
                     result.uncheckedInitializeAtTo({}, bucket$ifLet1, _element);
@@ -18752,7 +18803,7 @@ var _NativeSet = /** @class */ (function () {
             var $member$generator_1 = _cloneStruct(_this.makeIterator({}));
             while (true) {
                 var $ifLet0, member$ifLet1;
-                if (!((($ifLet0 = $member$generator_1.next({ $setThis: function ($val) { return $member$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((member$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $member$generator_1.next({ $setThis: function ($val) { return $member$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((member$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if (!((other.find({}, member$ifLet1)["1"]))) {
                     return false;
@@ -18797,7 +18848,7 @@ var _NativeSet = /** @class */ (function () {
             var $bucket$generator_9 = _cloneStruct(_this.hashTable.makeIterator({}));
             while (true) {
                 var $ifLet0, bucket$ifLet1;
-                if (!((($ifLet0 = $bucket$generator_9.next({ $setThis: function ($val) { return $bucket$generator_9 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $bucket$generator_9.next({ $setThis: function ($val) { return $bucket$generator_9 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 UnsafeMutablePointer.infix_43({}, _this._elements, bucket$ifLet1.offset).deinitializeCount({}, 1);
             }
@@ -18856,7 +18907,7 @@ var _NativeSet = /** @class */ (function () {
             class_31.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, index$ifLet1;
-                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
+                if (!((($ifLet0 = _this.iterator.next({ $setThis: function ($val) { return _this.iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -19327,7 +19378,7 @@ var _NormalizedUTF8CodeUnitIterator_2 = /** @class */ (function () {
             var nfc = _cloneStruct($0);
             while (true) {
                 var $ifLet0, cu$ifLet1;
-                if (!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({ $setThis: function ($val) { return nfc = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
+                if (!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({ $setThis: function ($val) { return nfc = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.outputBuffer.subscript$set({ $setThis: function ($val) { return _this.outputBuffer = $val; } }, cu$ifLet1, _this.outputBufferCount);
                 Int.infix_38_43_61({}, { get: function () { return _this.outputBufferCount; }, set: function ($val) { return _this.outputBufferCount = $val; } }, 1);
@@ -19472,7 +19523,7 @@ var Optional = /** @class */ (function () {
     Optional.prototype.unsafelyUnwrapped$get = function () {
         var _this = this;
         var $ifLet0, x$ifLet1;
-        if ((($ifLet0 = _this) || true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this) || true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0]) || true)) {
             return x$ifLet1;
         }
         ;
@@ -19541,7 +19592,7 @@ var Optional = /** @class */ (function () {
         if ((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
             var l = $match[0][0];
             var r = $match[1][0];
-            return (l).constructor.infix_61_61({}, l, r);
+            return (_.arg0 = l).constructor.infix_61_61({}, _.arg0, r);
         }
         else if ((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
             return true;
@@ -19645,6 +19696,23 @@ var Optional = /** @class */ (function () {
     Optional.$infoAddress = '';
     return Optional;
 }());
+if (typeof ExpressibleByNilLiteral$implementation != 'undefined')
+    _mixin(Optional, ExpressibleByNilLiteral$implementation, false);
+if (typeof Encodable$implementation != 'undefined')
+    _mixin(Optional, Encodable$implementation, false);
+if (typeof Decodable$implementation != 'undefined')
+    _mixin(Optional, Decodable$implementation, false);
+if (typeof CustomDebugStringConvertible$implementation != 'undefined')
+    _mixin(Optional, CustomDebugStringConvertible$implementation, false);
+if (typeof CustomReflectable$implementation != 'undefined')
+    _mixin(Optional, CustomReflectable$implementation, false);
+if (typeof Equatable$implementation != 'undefined')
+    _mixin(Optional, Equatable$implementation, false);
+if (typeof Hashable$implementation != 'undefined')
+    _mixin(Optional, Hashable$implementation, false);
+if (typeof _ObjectiveCBridgeable$implementation != 'undefined')
+    _mixin(Optional, _ObjectiveCBridgeable$implementation, false);
+_mixin(Optional, _DefaultEnumImplementation, false);
 var OptionSet$implementation = /** @class */ (function () {
     function OptionSet$implementation() {
     }
@@ -19683,7 +19751,7 @@ var OptionSet$implementation = /** @class */ (function () {
     OptionSet$implementation.prototype.insert = function ($info, newMember) {
         var _this = this;
         var oldMember = _this.intersection({}, newMember);
-        var shouldInsert = (oldMember).constructor.infix_33_61({}, oldMember, newMember);
+        var shouldInsert = (_.arg0 = oldMember).constructor.infix_33_61({}, _.arg0, newMember);
         var result = { 0: shouldInsert, 1: (shouldInsert ? newMember : oldMember) };
         if ((shouldInsert)) {
             _this.formUnion({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, newMember);
@@ -19718,19 +19786,19 @@ var OptionSet$implementation = /** @class */ (function () {
     /*Swift.(file).OptionSet.formUnion(_:Self)*/
     OptionSet$implementation.prototype.formUnion = function ($info, other) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_124({}, _this.rawValue, other.rawValue))));
+        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_124({}, _.arg0, other.rawValue))));
     };
     /*Swift.(file).OptionSet.formIntersection(_:Self)*/
     /*Swift.(file).OptionSet.formIntersection(_:Self)*/
     OptionSet$implementation.prototype.formIntersection = function ($info, other) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_38({}, _this.rawValue, other.rawValue))));
+        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_38({}, _.arg0, other.rawValue))));
     };
     /*Swift.(file).OptionSet.formSymmetricDifference(_:Self)*/
     /*Swift.(file).OptionSet.formSymmetricDifference(_:Self)*/
     OptionSet$implementation.prototype.formSymmetricDifference = function ($info, other) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_94({}, _this.rawValue, other.rawValue))));
+        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_94({}, _.arg0, other.rawValue))));
     };
     return OptionSet$implementation;
 }());
@@ -19771,6 +19839,15 @@ var Never = /** @class */ (function () {
     Never.$infoAddress = '';
     return Never;
 }());
+if (typeof Error$implementation != 'undefined')
+    _mixin(Never, Error$implementation, false);
+if (typeof Equatable$implementation != 'undefined')
+    _mixin(Never, Equatable$implementation, false);
+if (typeof Comparable$implementation != 'undefined')
+    _mixin(Never, Comparable$implementation, false);
+if (typeof Hashable$implementation != 'undefined')
+    _mixin(Never, Hashable$implementation, false);
+_mixin(Never, _DefaultEnumImplementation, false);
 var PartialRangeFrom = /** @class */ (function () {
     function PartialRangeFrom() {
     }
@@ -19793,13 +19870,13 @@ var PartialRangeFrom = /** @class */ (function () {
     /*Swift.(file).RangeExpression.relative(to:C)*/
     PartialRangeFrom.prototype.relativeTo = function ($info, collection) {
         var _this = this;
-        return (_this.lowerBound).constructor.infix_46_46_60({}, _this.lowerBound, collection.endIndex);
+        return (_.arg0 = _this.lowerBound).constructor.infix_46_46_60({}, _.arg0, collection.endIndex);
     };
     /*Swift.(file).PartialRangeFrom.contains(_:Bound)*/
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     PartialRangeFrom.prototype.contains = function ($info, _element) {
         var _this = this;
-        return (_this.lowerBound).constructor.infix_60_61({}, _this.lowerBound, _element);
+        return (_.arg0 = _this.lowerBound).constructor.infix_60_61({}, _.arg0, _element);
     };
     /*Swift.(file).PartialRangeFrom.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
@@ -19895,7 +19972,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
             var $element$generator_9 = newElements.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_9.next({ $setThis: function ($val) { return $element$generator_9 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_9.next({ $setThis: function ($val) { return $element$generator_9 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, _element$ifLet1);
             }
@@ -19905,13 +19982,13 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)*/
     RangeReplaceableCollection$implementation.prototype.insertAt = function ($info, newElement, i) {
         var _this = this;
-        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (i).constructor.infix_46_46_60({}, i, i), _create(CollectionOfOne, 'init', {}, newElement));
+        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = i).constructor.infix_46_46_60({}, _.arg0, i), _create(CollectionOfOne, 'init', {}, newElement));
     };
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
     RangeReplaceableCollection$implementation.prototype.insertContentsOfAt = function ($info, newElements, i) {
         var _this = this;
-        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (i).constructor.infix_46_46_60({}, i, i), newElements);
+        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = i).constructor.infix_46_46_60({}, _.arg0, i), newElements);
     };
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)*/
@@ -19919,7 +19996,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
         var result = _this.subscript$get({}, position);
-        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (position).constructor.infix_46_46_60({}, position, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
+        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = position).constructor.infix_46_46_60({}, _.arg0, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
         return result;
     };
     /*Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)*/
@@ -19939,7 +20016,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
         var end = _this.indexOffsetBy({}, _this.startIndex, k);
-        _this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        _this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
     /*Swift.(file).RangeReplaceableCollection.removeFirst()*/
@@ -19958,7 +20035,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
             $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'init', {})));
         }
         else {
-            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex), _create(EmptyCollection, 'init', {}));
+            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex), _create(EmptyCollection, 'init', {}));
         }
     };
     /*Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)*/
@@ -19985,7 +20062,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it has"; }, '?3', '?3');
         var end = _this.indexOffsetBy({}, _this.startIndex, k);
-        _this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        _this.removeSubrangeRange({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
@@ -20217,7 +20294,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.isEmpty*/
     MIO_Mixin_Set.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(MIO_Mixin_Set.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -20380,7 +20457,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
     MIO_Mixin_Set.prototype.isSubsetOf = function ($info, other) {
         var _this = this;
-        return (_this.intersection({}, other)).constructor.infix_61_61({}, _this.intersection({}, other), _this);
+        return (_.arg0 = _this.intersection({}, other)).constructor.infix_61_61({}, _.arg0, _this);
     };
     /*Swift.(file).Set.isSuperset(of:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
@@ -20769,12 +20846,14 @@ var MIO_Mixin_Set = /** @class */ (function () {
         _15);
     return MIO_Mixin_Set;
 }());
+_mixin(MIO_Mixin_Set.Index._Variant, _DefaultEnumImplementation, false);
 if (typeof Equatable$implementation != 'undefined')
     _mixin(MIO_Mixin_Set.Index, Equatable$implementation, false);
 if (typeof Comparable$implementation != 'undefined')
     _mixin(MIO_Mixin_Set.Index, Comparable$implementation, false);
 if (typeof Hashable$implementation != 'undefined')
     _mixin(MIO_Mixin_Set.Index, Hashable$implementation, false);
+_mixin(MIO_Mixin_Set.Iterator._Variant, _DefaultEnumImplementation, false);
 if (typeof IteratorProtocol$implementation != 'undefined')
     _mixin(MIO_Mixin_Set.Iterator, IteratorProtocol$implementation, false);
 if (typeof CustomReflectable$implementation != 'undefined')
@@ -21648,13 +21727,13 @@ var Strideable$implementation = /** @class */ (function () {
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     Strideable$implementation.infix_60 = function ($info, x, y) {
         var _this = this;
-        return (x.distanceTo({}, y)).constructor.infix_62({}, x.distanceTo({}, y), _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
+        return (_.arg0 = x.distanceTo({}, y)).constructor.infix_62({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
     };
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     Strideable$implementation.infix_61_61 = function ($info, x, y) {
         var _this = this;
-        return (x.distanceTo({}, y)).constructor.infix_61_61({}, x.distanceTo({}, y), _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
+        return (_.arg0 = x.distanceTo({}, y)).constructor.infix_61_61({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()), 'initIntegerLiteral', {}, 0));
     };
     return Strideable$implementation;
 }());
@@ -21979,11 +22058,11 @@ var AnyCollection = /** @class */ (function () {
     /*Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)*/
     AnyCollection.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -22282,6 +22361,9 @@ var Mirror = /** @class */ (function () {
         _22);
     return Mirror;
 }());
+_mixin(Mirror._DefaultDescendantRepresentation, _DefaultEnumImplementation, false);
+_mixin(Mirror.AncestorRepresentation, _DefaultEnumImplementation, false);
+_mixin(Mirror.DisplayStyle, _DefaultEnumImplementation, false);
 if (typeof CustomReflectable$implementation != 'undefined')
     _mixin(Mirror._Dummy, CustomReflectable$implementation, false);
 if (typeof CustomStringConvertible$implementation != 'undefined')
@@ -22299,7 +22381,7 @@ var _ArrayProtocol$implementation = /** @class */ (function () {
         var iterator = _cloneStruct(_this.makeIterator({}));
         while (true) {
             var $ifLet0, _element$ifLet1;
-            if (!((($ifLet0 = iterator.next({ $setThis: function ($val) { return iterator = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+            if (!((($ifLet0 = iterator.next({ $setThis: function ($val) { return iterator = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                 break;
             if ((isIncluded({}, _element$ifLet1))) {
                 result.append({ $setThis: function ($val) { return result = $val; } }, _element$ifLet1);
@@ -22356,7 +22438,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         }
         ;
         var _element = _this.last[0];
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexBefore({}, _this.endIndex)))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
         return _injectIntoOptional(_element);
     };
     /*Swift.(file).BidirectionalCollection.removeLast()*/
@@ -22364,7 +22446,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     BidirectionalCollection$implementation.prototype.removeLast = function ($info) {
         var _this = this;
         var _element = _this.last[0];
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexBefore({}, _this.endIndex)))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
         return _element;
     };
     /*Swift.(file).BidirectionalCollection.removeLast(_:Int)*/
@@ -22377,7 +22459,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         ;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Number of elements to remove should be non-negative"; }, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_62_61({}, _this.count, k); }, function () { return "Can't remove more items from a collection than it contains"; }, '?3', '?3');
-        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexOffsetBy({}, _this.endIndex, Int.prefix_45({}, k))))));
+        $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexOffsetBy({}, _this.endIndex, Int.prefix_45({}, k))))));
     };
     /*Swift.(file).BidirectionalCollection.dropLast(_:Int)*/
     /*Swift.(file).BidirectionalCollection.dropLast(_:Int)*/
@@ -22385,7 +22467,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, k, 0); }, function () { return "Can't drop a negative number of elements from a collection"; }, '?3', '?3');
         var end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.endIndex, Int.prefix_45({}, k), _this.startIndex), function () { return _this.startIndex; });
-        return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end));
+        return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end));
     };
     /*Swift.(file).BidirectionalCollection.suffix(_:Int)*/
     /*Swift.(file).BidirectionalCollection.suffix(_:Int)*/
@@ -22393,7 +22475,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Int.infix_62_61({}, maxLength, 0); }, function () { return "Can't take a suffix of negative length from a collection"; }, '?3', '?3');
         var start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.endIndex, Int.prefix_45({}, maxLength), _this.startIndex), function () { return _this.startIndex; });
-        return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex));
+        return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex));
     };
     /*Swift.(file).BidirectionalCollection.last*/
     BidirectionalCollection$implementation.prototype.last$get = function () {
@@ -22418,7 +22500,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         var _this = this;
         var i = _this.endIndex;
         while (true) {
-            if (!(((i).constructor.infix_33_61({}, i, _this.startIndex))))
+            if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.startIndex))))
                 break;
             _this.formIndexBefore({}, { get: function () { return i; }, set: function ($val) { return i = $val; } });
             if ((predicate({}, _this.subscript$get({}, i)))) {
@@ -22434,11 +22516,11 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     BidirectionalCollection$implementation.prototype.lastIndexOfSwift = function ($info, _element) {
         var _this = this;
         var $ifLet0, result$ifLet1;
-        if ((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element)) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element)) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
             return result$ifLet1;
         }
         ;
-        return _this.lastIndexWhere({}, (function ($info, $0) { return ($0).constructor.infix_61_61({}, $0, _element); }));
+        return _this.lastIndexWhere({}, (function ($info, $0) { return (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, _element); }));
     };
     /*Swift.(file).BidirectionalCollection.reversed()*/
     /*Swift.(file).BidirectionalCollection.reversed()*/
@@ -22456,7 +22538,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
                 var $x$generator_2 = _this.makeIterator({});
                 while (true) {
                     var $ifLet0, x$ifLet1;
-                    if (!((($ifLet0 = $x$generator_2.next({ $setThis: function ($val) { return $x$generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $x$generator_2.next({ $setThis: function ($val) { return $x$generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, x$ifLet1));
                 }
@@ -22467,11 +22549,11 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
         ;
         var iter = _this.makeIterator({});
         var $ifLet2, first$ifLet3;
-        if ((($ifLet2 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((first$ifLet3 = $ifLet2[0]) || true)) {
+        if ((($ifLet2 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((first$ifLet3 = $ifLet2[0]) || true)) {
             result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, first$ifLet3));
             while (true) {
                 var $ifLet4, next$ifLet5;
-                if (!((($ifLet4 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet4.rawValue === 'some' && ((next$ifLet5 = $ifLet4[0]) || true)))
+                if (!((($ifLet4 = iter.next({ $setThis: function ($val) { return iter = $val; } })) || true) && $ifLet4.rawValue == 'some' && ((next$ifLet5 = $ifLet4[0]) || true)))
                     break;
                 result.append({ $setThis: function ($val) { return result = $val; } }, separator);
                 result.append({ $setThis: function ($val) { return result = $val; } }, _create(String, 'initString', {}, next$ifLet5));
@@ -22742,7 +22824,7 @@ var Character = /** @class */ (function () {
         }
         ;
         var $ifLet0, value$ifLet1;
-        if (!((($ifLet0 = _this._firstScalar.properties.numericValue) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = _this._firstScalar.properties.numericValue) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
             return Optional.none;
         }
         ;
@@ -23018,7 +23100,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             var $element$generator_10 = _cloneStruct(_this.makeIterator({}));
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_10.next({ $setThis: function ($val) { return $element$generator_10 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_10.next({ $setThis: function ($val) { return $element$generator_10 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 if ((isIncluded({}, _element$ifLet1))) {
                     result.subscript$set({ $setThis: function ($val) { return result = $val; } }, _injectIntoOptional(_element$ifLet1["1"]), _element$ifLet1["0"]);
@@ -23090,7 +23172,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.isEmpty*/
     MIO_Mixin_Dictionary.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(MIO_Mixin_Dictionary.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -23346,7 +23428,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Dictionary.Keys.isEmpty*/
             class_47.prototype.isEmpty$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_47.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -23487,7 +23569,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).Dictionary.Values.isEmpty*/
             class_49.prototype.isEmpty$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_49.prototype, "isEmpty", {
                 get: function () { return this.isEmpty$get(); },
@@ -23519,7 +23601,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
             class_49.prototype.swapAt = function ($info, i, j) {
                 var _this = this;
-                if (!(((i).constructor.infix_33_61({}, i, j)))) {
+                if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, j)))) {
                     return;
                 }
                 ;
@@ -23917,12 +23999,14 @@ if (typeof CustomStringConvertible$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Values, CustomStringConvertible$implementation, false);
 if (typeof CustomDebugStringConvertible$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Values, CustomDebugStringConvertible$implementation, false);
+_mixin(MIO_Mixin_Dictionary.Index._Variant, _DefaultEnumImplementation, false);
 if (typeof Equatable$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Index, Equatable$implementation, false);
 if (typeof Comparable$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Index, Comparable$implementation, false);
 if (typeof Hashable$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Index, Hashable$implementation, false);
+_mixin(MIO_Mixin_Dictionary.Iterator._Variant, _DefaultEnumImplementation, false);
 if (typeof IteratorProtocol$implementation != 'undefined')
     _mixin(MIO_Mixin_Dictionary.Iterator, IteratorProtocol$implementation, false);
 if (typeof CustomReflectable$implementation != 'undefined')
@@ -24018,11 +24102,11 @@ var FlattenSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     FlattenSequence.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -24138,20 +24222,20 @@ var FlattenSequence = /** @class */ (function () {
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_57.infix_61_61 = function ($info, lhs, rhs) {
                 var _this = this;
-                return Bool.infix_38_38({}, (lhs._outer).constructor.infix_61_61({}, lhs._outer, rhs._outer), function () { return Optional.infix_61_61({}, lhs._inner, rhs._inner); });
+                return Bool.infix_38_38({}, (_.arg0 = lhs._outer).constructor.infix_61_61({}, _.arg0, rhs._outer), function () { return Optional.infix_61_61({}, lhs._inner, rhs._inner); });
             };
             /*Swift.(file).FlattenSequence.Index.<infix(_:FlattenCollection<Base>.Index,_:FlattenCollection<Base>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_57.infix_60 = function ($info, lhs, rhs) {
                 var _this = this;
-                if (((lhs._outer).constructor.infix_33_61({}, lhs._outer, rhs._outer))) {
-                    return (lhs._outer).constructor.infix_60({}, lhs._outer, rhs._outer);
+                if (((_.arg0 = lhs._outer).constructor.infix_33_61({}, _.arg0, rhs._outer))) {
+                    return (_.arg1 = lhs._outer).constructor.infix_60({}, _.arg1, rhs._outer);
                 }
                 ;
                 var $ifLet0, lhsInner$ifLet1;
                 var $ifLet2, rhsInner$ifLet3;
-                if ((($ifLet0 = lhs._inner) || true) && $ifLet0.rawValue === 'some' && ((lhsInner$ifLet1 = $ifLet0[0]) || true) && (($ifLet2 = rhs._inner) || true) && $ifLet2.rawValue === 'some' && ((rhsInner$ifLet3 = $ifLet2[0]) || true)) {
-                    return (lhsInner$ifLet1).constructor.infix_60({}, lhsInner$ifLet1, rhsInner$ifLet3);
+                if ((($ifLet0 = lhs._inner) || true) && $ifLet0.rawValue == 'some' && ((lhsInner$ifLet1 = $ifLet0[0]) || true) && (($ifLet2 = rhs._inner) || true) && $ifLet2.rawValue == 'some' && ((rhsInner$ifLet3 = $ifLet2[0]) || true)) {
+                    return (_.arg2 = lhsInner$ifLet1).constructor.infix_60({}, _.arg2, rhsInner$ifLet3);
                 }
                 ;
                 preconditionFileLine({}, function () { return Bool.infix_38_38({}, Optional.wrappedEqualsOptionalNilComparisonType({}, lhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), function () { return Optional.wrappedEqualsOptionalNilComparisonType({}, rhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})); }); }, function () { return String(); } /*!default_value*/, '?3', '?3');
@@ -24313,10 +24397,10 @@ var FloatingPoint$implementation = /** @class */ (function () {
     FloatingPoint$implementation.minimum = function ($info, x, y) {
         var _this = this;
         if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
-            return (x).constructor.infix_43({}, x, y);
+            return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
         }
         ;
-        if ((Bool.infix_124_124({}, (x).constructor.infix_60_61({}, x, y), function () { return y._isNaN; }))) {
+        if ((Bool.infix_124_124({}, (_.arg1 = x).constructor.infix_60_61({}, _.arg1, y), function () { return y._isNaN; }))) {
             return x;
         }
         ;
@@ -24327,10 +24411,10 @@ var FloatingPoint$implementation = /** @class */ (function () {
     FloatingPoint$implementation.maximum = function ($info, x, y) {
         var _this = this;
         if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
-            return (x).constructor.infix_43({}, x, y);
+            return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
         }
         ;
-        if ((Bool.infix_124_124({}, (x).constructor.infix_62({}, x, y), function () { return y._isNaN; }))) {
+        if ((Bool.infix_124_124({}, (_.arg1 = x).constructor.infix_62({}, _.arg1, y), function () { return y._isNaN; }))) {
             return x;
         }
         ;
@@ -24341,10 +24425,10 @@ var FloatingPoint$implementation = /** @class */ (function () {
     FloatingPoint$implementation.minimumMagnitude = function ($info, x, y) {
         var _this = this;
         if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
-            return (x).constructor.infix_43({}, x, y);
+            return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
         }
         ;
-        if ((Bool.infix_124_124({}, (x.magnitude).constructor.infix_60_61({}, x.magnitude, y.magnitude), function () { return y._isNaN; }))) {
+        if ((Bool.infix_124_124({}, (_.arg1 = x.magnitude).constructor.infix_60_61({}, _.arg1, y.magnitude), function () { return y._isNaN; }))) {
             return x;
         }
         ;
@@ -24355,10 +24439,10 @@ var FloatingPoint$implementation = /** @class */ (function () {
     FloatingPoint$implementation.maximumMagnitude = function ($info, x, y) {
         var _this = this;
         if ((Bool.infix_124_124({}, x.isSignalingNaN, function () { return y.isSignalingNaN; }))) {
-            return (x).constructor.infix_43({}, x, y);
+            return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
         }
         ;
-        if ((Bool.infix_124_124({}, (x.magnitude).constructor.infix_62({}, x.magnitude, y.magnitude), function () { return y._isNaN; }))) {
+        if ((Bool.infix_124_124({}, (_.arg1 = x.magnitude).constructor.infix_62({}, _.arg1, y.magnitude), function () { return y._isNaN; }))) {
             return x;
         }
         ;
@@ -24449,11 +24533,11 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)*/
     BinaryFloatingPoint$implementation.prototype.isTotallyOrderedBelowOrEqualTo = function ($info, other) {
         var _this = this;
-        if (((_this).constructor.infix_60({}, _this, other))) {
+        if (((_.arg0 = _this).constructor.infix_60({}, _.arg0, other))) {
             return true;
         }
         ;
-        if (((other).constructor.infix_62({}, other, _this))) {
+        if (((_.arg1 = other).constructor.infix_62({}, _.arg1, _this))) {
             return false;
         }
         ;
@@ -24461,19 +24545,19 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
         }
         ;
-        if (((_this.exponentBitPattern).constructor.infix_62({}, _this.exponentBitPattern, other.exponentBitPattern))) {
+        if (((_.arg2 = _this.exponentBitPattern).constructor.infix_62({}, _.arg2, other.exponentBitPattern))) {
             return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
         }
         ;
-        if (((_this.exponentBitPattern).constructor.infix_60({}, _this.exponentBitPattern, other.exponentBitPattern))) {
+        if (((_.arg3 = _this.exponentBitPattern).constructor.infix_60({}, _.arg3, other.exponentBitPattern))) {
             return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.plus);
         }
         ;
-        if (((_this.significandBitPattern).constructor.infix_62({}, _this.significandBitPattern, other.significandBitPattern))) {
+        if (((_.arg4 = _this.significandBitPattern).constructor.infix_62({}, _.arg4, other.significandBitPattern))) {
             return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
         }
         ;
-        if (((_this.significandBitPattern).constructor.infix_60({}, _this.significandBitPattern, other.significandBitPattern))) {
+        if (((_.arg5 = _this.significandBitPattern).constructor.infix_60({}, _.arg5, other.significandBitPattern))) {
             return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.plus);
         }
         ;
@@ -24505,7 +24589,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = (range.upperBound).constructor.infix_45({}, range.upperBound, range.lowerBound);
+            var delta = (_.arg0 = range.upperBound).constructor.infix_45({}, _.arg0, range.lowerBound);
             preconditionFileLine({}, function () { return delta._isFinite; }, function () { return "There is no uniform distribution on an infinite range"; }, '?3', '?3');
             var rand;
             if ((Int.infix_61_61({}, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).bitWidth, Int.infix_43({}, _this.significandBitCount, 1)))) {
@@ -24513,13 +24597,13 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             }
             else {
                 var significandCount = Int.infix_43({}, _this.significandBitCount, 1);
-                var maxSignificand = (_create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1), significandCount);
-                rand = (generator.next({ $setThis: function ($val) { return generator = $val; } })).constructor.infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), (maxSignificand).constructor.infix_45({}, maxSignificand, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
+                var maxSignificand = (_.arg1 = _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _.arg1, significandCount);
+                rand = (_.arg2 = generator.next({ $setThis: function ($val) { return generator = $val; } })).constructor.infix_38({}, _.arg2, (_.arg3 = maxSignificand).constructor.infix_45({}, _.arg3, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
             }
             ;
-            var unitRandom = (_create(_this, 'init', {}, rand)).constructor.infix_42({}, _create(_this, 'init', {}, rand), (_this.ulpOfOne).constructor.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
-            var randFloat = ((delta).constructor.infix_42({}, delta, unitRandom)).constructor.infix_43({}, (delta).constructor.infix_42({}, delta, unitRandom), range.lowerBound);
-            if (((randFloat).constructor.infix_61_61({}, randFloat, range.upperBound))) {
+            var unitRandom = (_.arg4 = _create(_this, 'init', {}, rand)).constructor.infix_42({}, _.arg4, (_.arg5 = _this.ulpOfOne).constructor.infix_47({}, _.arg5, _create(_this, 'initIntegerLiteral', {}, 2)));
+            var randFloat = (_.arg6 = (_.arg7 = delta).constructor.infix_42({}, _.arg7, unitRandom)).constructor.infix_43({}, _.arg6, range.lowerBound);
+            if (((_.arg8 = randFloat).constructor.infix_61_61({}, _.arg8, range.upperBound))) {
                 return _this.randomInUsing({}, range, { get: function () { return generator; }, set: function ($val) { return generator = $val; } });
             }
             ;
@@ -24542,29 +24626,29 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = (range.upperBound).constructor.infix_45({}, range.upperBound, range.lowerBound);
+            var delta = (_.arg0 = range.upperBound).constructor.infix_45({}, _.arg0, range.lowerBound);
             preconditionFileLine({}, function () { return delta._isFinite; }, function () { return "There is no uniform distribution on an infinite range"; }, '?3', '?3');
             var rand;
             if ((Int.infix_61_61({}, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).bitWidth, Int.infix_43({}, _this.significandBitCount, 1)))) {
                 rand = generator.next({ $setThis: function ($val) { return generator = $val; } });
                 var tmp_1 = UInt8.infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), 1);
-                if ((Bool.infix_38_38({}, (rand).constructor.infix_61_61({}, rand, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).max), function () { return UInt8.infix_61_61({}, tmp_1, 1); }))) {
+                if ((Bool.infix_38_38({}, (_.arg1 = rand).constructor.infix_61_61({}, _.arg1, ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).max), function () { return UInt8.infix_61_61({}, tmp_1, 1); }))) {
                     return range.upperBound;
                 }
                 ;
             }
             else {
                 var significandCount = Int.infix_43({}, _this.significandBitCount, 1);
-                var maxSignificand = (_create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1), significandCount);
-                rand = generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, (maxSignificand).constructor.infix_43({}, maxSignificand, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
-                if (((rand).constructor.infix_61_61({}, rand, maxSignificand))) {
+                var maxSignificand = (_.arg2 = _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _.arg2, significandCount);
+                rand = generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, (_.arg3 = maxSignificand).constructor.infix_43({}, _.arg3, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
+                if (((_.arg4 = rand).constructor.infix_61_61({}, _.arg4, maxSignificand))) {
                     return range.upperBound;
                 }
                 ;
             }
             ;
-            var unitRandom = (_create(_this, 'init', {}, rand)).constructor.infix_42({}, _create(_this, 'init', {}, rand), (_this.ulpOfOne).constructor.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
-            var randFloat = ((delta).constructor.infix_42({}, delta, unitRandom)).constructor.infix_43({}, (delta).constructor.infix_42({}, delta, unitRandom), range.lowerBound);
+            var unitRandom = (_.arg5 = _create(_this, 'init', {}, rand)).constructor.infix_42({}, _.arg5, (_.arg6 = _this.ulpOfOne).constructor.infix_47({}, _.arg6, _create(_this, 'initIntegerLiteral', {}, 2)));
+            var randFloat = (_.arg7 = (_.arg8 = delta).constructor.infix_42({}, _.arg8, unitRandom)).constructor.infix_43({}, _.arg7, range.lowerBound);
             return randFloat;
         })();
         generator$inout.set(generator);
@@ -26904,23 +26988,23 @@ var BinaryInteger$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     BinaryInteger$implementation.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self)*/
     /*Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self)*/
     BinaryInteger$implementation.prototype.quotientAndRemainderDividingBy = function ($info, rhs) {
         var _this = this;
-        return { 0: (_this).constructor.infix_47({}, _this, rhs), 1: (_this).constructor.infix_37({}, _this, rhs) };
+        return { 0: (_.arg0 = _this).constructor.infix_47({}, _.arg0, rhs), 1: (_.arg1 = _this).constructor.infix_37({}, _.arg1, rhs) };
     };
     /*Swift.(file).BinaryInteger.isMultiple(of:Self)*/
     /*Swift.(file).BinaryInteger.isMultiple(of:Self)*/
     BinaryInteger$implementation.prototype.isMultipleOf = function ($info, other) {
         var _this = this;
-        if (((other).constructor.infix_61_61({}, other, 0))) {
-            return (_this).constructor.infix_61_61({}, _this, 0);
+        if (((_.arg0 = other).constructor.infix_61_61({}, _.arg0, 0))) {
+            return (_.arg1 = _this).constructor.infix_61_61({}, _.arg1, 0);
         }
         ;
-        return ((_this.magnitude).constructor.infix_37({}, _this.magnitude, other.magnitude)).constructor.infix_61_61({}, (_this.magnitude).constructor.infix_37({}, _this.magnitude, other.magnitude), 0);
+        return (_.arg2 = (_.arg3 = _this.magnitude).constructor.infix_37({}, _.arg3, other.magnitude)).constructor.infix_61_61({}, _.arg2, 0);
     };
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -26963,16 +27047,16 @@ var BinaryInteger$implementation = /** @class */ (function () {
     BinaryInteger$implementation.prototype.distanceTo = function ($info, other) {
         var _this = this;
         if ((Bool.prefix_33({}, _this.constructor.isSigned))) {
-            if (((_this).constructor.infix_62({}, _this, other))) {
+            if (((_.arg0 = _this).constructor.infix_62({}, _.arg0, other))) {
                 var $ifLet0, result$ifLet1;
-                if ((($ifLet0 = _create(Int, 'initExactly', {}, (_this).constructor.infix_45({}, _this, other))) || true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
+                if ((($ifLet0 = _create(Int, 'initExactly', {}, (_.arg1 = _this).constructor.infix_45({}, _.arg1, other))) || true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0]) || true)) {
                     return Int.prefix_45({}, result$ifLet1);
                 }
                 ;
             }
             else {
                 var $ifLet2, result$ifLet3;
-                if ((($ifLet2 = _create(Int, 'initExactly', {}, (other).constructor.infix_45({}, other, _this))) || true) && $ifLet2.rawValue === 'some' && ((result$ifLet3 = $ifLet2[0]) || true)) {
+                if ((($ifLet2 = _create(Int, 'initExactly', {}, (_.arg2 = other).constructor.infix_45({}, _.arg2, _this))) || true) && $ifLet2.rawValue == 'some' && ((result$ifLet3 = $ifLet2[0]) || true)) {
                     return result$ifLet3;
                 }
                 ;
@@ -26980,17 +27064,17 @@ var BinaryInteger$implementation = /** @class */ (function () {
             ;
         }
         else {
-            var isNegative = (_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0));
-            if ((Bool.infix_61_61({}, isNegative, (other).constructor.infix_60({}, other, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
+            var isNegative = (_.arg3 = _this).constructor.infix_60({}, _.arg3, _create(_this.constructor, 'initIntegerLiteral', {}, 0));
+            if ((Bool.infix_61_61({}, isNegative, (_.arg4 = other).constructor.infix_60({}, _.arg4, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
                 var $ifLet4, result$ifLet5;
-                if ((($ifLet4 = _create(Int, 'initExactly', {}, (other).constructor.infix_45({}, other, _this))) || true) && $ifLet4.rawValue === 'some' && ((result$ifLet5 = $ifLet4[0]) || true)) {
+                if ((($ifLet4 = _create(Int, 'initExactly', {}, (_.arg5 = other).constructor.infix_45({}, _.arg5, _this))) || true) && $ifLet4.rawValue == 'some' && ((result$ifLet5 = $ifLet4[0]) || true)) {
                     return result$ifLet5;
                 }
                 ;
             }
             else {
                 var $ifLet6, result$ifLet7;
-                if ((($ifLet6 = _create(Int, 'initExactly', {}, (_this.magnitude).constructor.infix_43({}, _this.magnitude, other.magnitude))) || true) && $ifLet6.rawValue === 'some' && ((result$ifLet7 = $ifLet6[0]) || true)) {
+                if ((($ifLet6 = _create(Int, 'initExactly', {}, (_.arg6 = _this.magnitude).constructor.infix_43({}, _.arg6, other.magnitude))) || true) && $ifLet6.rawValue == 'some' && ((result$ifLet7 = $ifLet6[0]) || true)) {
                     return (isNegative ? result$ifLet7 : Int.prefix_45({}, result$ifLet7));
                 }
                 ;
@@ -27005,14 +27089,14 @@ var BinaryInteger$implementation = /** @class */ (function () {
     BinaryInteger$implementation.prototype.advancedBy = function ($info, n) {
         var _this = this;
         if ((Bool.prefix_33({}, _this.constructor.isSigned))) {
-            return (Int.infix_60({}, n, 0) ? (_this).constructor.infix_45({}, _this, _create(_this.constructor, 'initT', {}, Int.prefix_45({}, n))) : (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n)));
+            return (Int.infix_60({}, n, 0) ? (_.arg0 = _this).constructor.infix_45({}, _.arg0, _create(_this.constructor, 'initT', {}, Int.prefix_45({}, n))) : (_.arg1 = _this).constructor.infix_43({}, _.arg1, _create(_this.constructor, 'initT', {}, n)));
         }
         ;
-        if ((Bool.infix_61_61({}, (_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)), Int.infix_60({}, n, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
-            return (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n));
+        if ((Bool.infix_61_61({}, (_.arg2 = _this).constructor.infix_60({}, _.arg2, _create(_this.constructor, 'initIntegerLiteral', {}, 0)), Int.infix_60({}, n, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
+            return (_.arg3 = _this).constructor.infix_43({}, _.arg3, _create(_this.constructor, 'initT', {}, n));
         }
         ;
-        return ((_this.magnitude).constructor.infix_60({}, _this.magnitude, n.magnitude) ? _create(_this.constructor, 'initT', {}, Int.infix_43({}, _create(Int, 'initT', {}, _this), n)) : (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n)));
+        return ((_.arg4 = _this.magnitude).constructor.infix_60({}, _.arg4, n.magnitude) ? _create(_this.constructor, 'initT', {}, Int.infix_43({}, _create(Int, 'initT', {}, _this), n)) : (_.arg5 = _this).constructor.infix_43({}, _.arg5, _create(_this.constructor, 'initT', {}, n)));
     };
     /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
@@ -27210,8 +27294,8 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
-            return _create(_this, 'initTruncatingIfNeeded', {}, (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
+            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (_.arg0 = range.upperBound).constructor.infix_38_45({}, _.arg0, range.lowerBound));
+            return _create(_this, 'initTruncatingIfNeeded', {}, (_.arg1 = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _.arg1, generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
         })();
         generator$inout.set(generator);
         return $result;
@@ -27230,13 +27314,13 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         var generator = generator$inout.get();
         var $result = (function () {
             preconditionFileLine({}, function () { return Bool.prefix_33({}, range.isEmpty); }, function () { return "Can't get random value with an empty range"; }, '?3', '?3');
-            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
-            if (((delta).constructor.infix_61_61({}, delta, ((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).max))) {
+            var delta = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, (_.arg0 = range.upperBound).constructor.infix_38_45({}, _.arg0, range.lowerBound));
+            if (((_.arg1 = delta).constructor.infix_61_61({}, _.arg1, ((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).max))) {
                 return _create(_this, 'initTruncatingIfNeeded', {}, generator.next({ $setThis: function ($val) { return generator = $val; } }));
             }
             ;
-            (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, { get: function () { return delta; }, set: function ($val) { return delta = $val; } }, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initIntegerLiteral', {}, 1));
-            return _create(_this, 'initTruncatingIfNeeded', {}, (_create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
+            (_.arg2 = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, { get: function () { return delta; }, set: function ($val) { return delta = $val; } }, _.arg2);
+            return _create(_this, 'initTruncatingIfNeeded', {}, (_.arg3 = _create(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _.arg3, generator.nextUpperBound({ $setThis: function ($val) { return generator = $val; } }, delta)));
         })();
         generator$inout.set(generator);
         return $result;
@@ -27278,7 +27362,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     FixedWidthInteger$implementation.prototype.initT = function ($info, source) {
         var _this = this;
         var $ifLet0, value$ifLet1;
-        if (!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"]) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"]) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
             fatalErrorFileLine({}, function () { return (("") + (((function () { throw '!unclarifiedGeneric:T'; })())) + (" value cannot be converted to ") + (_this.constructor) + (" because it is outside the representable range")); }, '?3', '?3');
         }
         ;
@@ -27291,7 +27375,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         var _this = this;
         var $tuple = _this.constructor._convertFrom({}, source), temporary = $tuple && $tuple[0], exact = $tuple && $tuple[1];
         var $ifLet0, value$ifLet1;
-        if (!((exact) && (($ifLet0 = temporary) || true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((exact) && (($ifLet0 = temporary) || true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -27302,11 +27386,11 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     /*Swift.(file).FixedWidthInteger.init(clamping:Other)*/
     FixedWidthInteger$implementation.prototype.initClamping = function ($info, source) {
         var _this = this;
-        if ((_slowPath({}, (source).constructor.infix_60({}, source, _this.constructor.min)))) {
+        if ((_slowPath({}, (_.arg0 = source).constructor.infix_60({}, _.arg0, _this.constructor.min)))) {
             return _this = _cloneStruct(_this.constructor.min);
         }
         else {
-            if ((_slowPath({}, (source).constructor.infix_62({}, source, _this.constructor.max)))) {
+            if ((_slowPath({}, (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max)))) {
                 return _this = _cloneStruct(_this.constructor.max);
             }
             else {
@@ -27324,7 +27408,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
             return _this = _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, source._lowWord));
         }
         else {
-            var neg = (source).constructor.infix_60({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0));
+            var neg = (_.arg0 = source).constructor.infix_60({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0));
             var result_2 = (neg ? _this.constructor.prefix_126({}, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) : _create(_this.constructor, 'initIntegerLiteral', {}, 0));
             var shift_1 = _create(_this.constructor, 'initIntegerLiteral', {}, 0);
             var width = _create(_this.constructor, 'init_truncatingBitsUInt', {}, _this.constructor.bitWidth._lowWord);
@@ -27332,14 +27416,14 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
                 var $word$generator_1 = source.words.makeIterator({});
                 while (true) {
                     var $ifLet0, word$ifLet1;
-                    if (!((($ifLet0 = $word$generator_1.next({ $setThis: function ($val) { return $word$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((word$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $word$generator_1.next({ $setThis: function ($val) { return $word$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((word$ifLet1 = $ifLet0[0]) || true)))
                         break;
-                    if (!(((shift_1).constructor.infix_60({}, shift_1, width)))) {
+                    if (!(((_.arg1 = shift_1).constructor.infix_60({}, _.arg1, width)))) {
                         break;
                     }
                     ;
-                    ((_create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1)), shift_1)).constructor.infix_94_61({}, { get: function () { return result_2; }, set: function ($val) { return result_2 = $val; } }, (_create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1)), shift_1));
-                    (_create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord)).constructor.infix_43_61({}, { get: function () { return shift_1; }, set: function ($val) { return shift_1 = $val; } }, _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord));
+                    (_.arg2 = (_.arg3 = _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _.arg3, shift_1)).constructor.infix_94_61({}, { get: function () { return result_2; }, set: function ($val) { return result_2 = $val; } }, _.arg2);
+                    (_.arg4 = _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord)).constructor.infix_43_61({}, { get: function () { return shift_1; }, set: function ($val) { return shift_1 = $val; } }, _.arg4);
                 }
             }
             ;
@@ -27477,11 +27561,11 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     UnsignedInteger$implementation.prototype.initT = function ($info, source) {
         var _this = this;
         if ((((function () { throw '!unclarifiedGeneric:T'; })()).isSigned)) {
-            preconditionFileLine({}, function () { return (source).constructor.infix_62_61({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }, function () { return "Negative value is not representable"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg0 = source).constructor.infix_62_61({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }, function () { return "Negative value is not representable"; }, '?3', '?3');
         }
         ;
         if ((Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth))) {
-            preconditionFileLine({}, function () { return (source).constructor.infix_60_61({}, source, _this.constructor.max); }, function () { return "Not enough bits to represent the passed value"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg1 = source).constructor.infix_60_61({}, _.arg1, _this.constructor.max); }, function () { return "Not enough bits to represent the passed value"; }, '?3', '?3');
         }
         ;
         _this.initTruncatingIfNeeded({}, source);
@@ -27491,11 +27575,11 @@ var UnsignedInteger$implementation = /** @class */ (function () {
     /*Swift.(file).UnsignedInteger.init(exactly:T)*/
     UnsignedInteger$implementation.prototype.initExactly = function ($info, source) {
         var _this = this;
-        if ((Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return (source).constructor.infix_60({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }))) {
+        if ((Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return (_.arg0 = source).constructor.infix_60({}, _.arg0, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0)); }))) {
             return (this.$failed = true);
         }
         ;
-        if ((Bool.infix_38_38({}, Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return (source).constructor.infix_62({}, source, _this.constructor.max); }))) {
+        if ((Bool.infix_38_38({}, Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max); }))) {
             return (this.$failed = true);
         }
         ;
@@ -27551,11 +27635,11 @@ var SignedInteger$implementation = /** @class */ (function () {
     SignedInteger$implementation.prototype.initT = function ($info, source) {
         var _this = this;
         if ((Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }))) {
-            preconditionFileLine({}, function () { return (source).constructor.infix_62_61({}, source, _this.constructor.min); }, function () { return "Not enough bits to represent a signed value"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg0 = source).constructor.infix_62_61({}, _.arg0, _this.constructor.min); }, function () { return "Not enough bits to represent a signed value"; }, '?3', '?3');
         }
         ;
         if ((Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned); }); }))) {
-            preconditionFileLine({}, function () { return (source).constructor.infix_60_61({}, source, _this.constructor.max); }, function () { return "Not enough bits to represent the passed value"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg1 = source).constructor.infix_60_61({}, _.arg1, _this.constructor.max); }, function () { return "Not enough bits to represent the passed value"; }, '?3', '?3');
         }
         ;
         _this.initTruncatingIfNeeded({}, source);
@@ -27565,11 +27649,11 @@ var SignedInteger$implementation = /** @class */ (function () {
     /*Swift.(file).SignedInteger.init(exactly:T)*/
     SignedInteger$implementation.prototype.initExactly = function ($info, source) {
         var _this = this;
-        if ((Bool.infix_38_38({}, Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }), function () { return (source).constructor.infix_60({}, source, _this.constructor.min); }))) {
+        if ((Bool.infix_38_38({}, Bool.infix_38_38({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned, function () { return Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth); }), function () { return (_.arg0 = source).constructor.infix_60({}, _.arg0, _this.constructor.min); }))) {
             return (this.$failed = true);
         }
         ;
-        if ((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned); }); }), function () { return (source).constructor.infix_62({}, source, _this.constructor.max); }))) {
+        if ((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), function () { return Bool.prefix_33({}, ((function () { throw '!unclarifiedGeneric:T'; })()).isSigned); }); }), function () { return (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max); }))) {
             return (this.$failed = true);
         }
         ;
@@ -27592,7 +27676,7 @@ var SignedInteger$implementation = /** @class */ (function () {
     /*Swift.(file).SignedInteger.min*/
     SignedInteger$implementation.min$get = function () {
         var _this = this;
-        return (_this._highBitIndex).constructor.infix_38_60_60({}, _create(_this, 'initIntegerLiteral', {}, -1), _this._highBitIndex);
+        return (_.arg0 = _this._highBitIndex).constructor.infix_38_60_60({}, _create(_this, 'initIntegerLiteral', {}, -1), _.arg0);
     };
     Object.defineProperty(SignedInteger$implementation, "min", {
         get: function () {
@@ -27606,15 +27690,15 @@ var SignedInteger$implementation = /** @class */ (function () {
     /*Swift.(file).SignedInteger.isMultiple(of:Self)*/
     SignedInteger$implementation.prototype.isMultipleOf = function ($info, other) {
         var _this = this;
-        if (((other).constructor.infix_61_61({}, other, 0))) {
-            return (_this).constructor.infix_61_61({}, _this, 0);
+        if (((_.arg0 = other).constructor.infix_61_61({}, _.arg0, 0))) {
+            return (_.arg1 = _this).constructor.infix_61_61({}, _.arg1, 0);
         }
         ;
-        if (((other).constructor.infix_61_61({}, other, -1))) {
+        if (((_.arg2 = other).constructor.infix_61_61({}, _.arg2, -1))) {
             return true;
         }
         ;
-        return ((_this).constructor.infix_37({}, _this, other)).constructor.infix_61_61({}, (_this).constructor.infix_37({}, _this, other), 0);
+        return (_.arg3 = (_.arg4 = _this).constructor.infix_37({}, _.arg4, other)).constructor.infix_61_61({}, _.arg3, 0);
     };
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
@@ -27684,7 +27768,7 @@ var _Pointer$implementation = /** @class */ (function () {
     _Pointer$implementation.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -27713,7 +27797,7 @@ var _Pointer$implementation = /** @class */ (function () {
     _Pointer$implementation.prototype.initOptional = function ($info, other) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -27732,7 +27816,7 @@ var _Pointer$implementation = /** @class */ (function () {
     _Pointer$implementation.prototype.initOptional = function ($info, other) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -27888,7 +27972,7 @@ var LazyPrefixWhileSequence = /** @class */ (function () {
             class_71.prototype.next = function ($info) {
                 var _this = this;
                 var $ifLet0, nextElement$ifLet1;
-                if ((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((nextElement$ifLet1 = $ifLet0[0]) || true)) {
+                if ((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((nextElement$ifLet1 = $ifLet0[0]) || true)) {
                     if ((_this._predicate({}, nextElement$ifLet1))) {
                         return _injectIntoOptional(nextElement$ifLet1);
                     }
@@ -28011,6 +28095,7 @@ if (typeof IteratorProtocol$implementation != 'undefined')
     _mixin(LazyPrefixWhileSequence.Iterator, IteratorProtocol$implementation, false);
 if (typeof Sequence$implementation != 'undefined')
     _mixin(LazyPrefixWhileSequence.Iterator, Sequence$implementation, false);
+_mixin(LazyPrefixWhileSequence._IndexRepresentation, _DefaultEnumImplementation, false);
 if (typeof Comparable$implementation != 'undefined')
     _mixin(LazyPrefixWhileSequence.Index, Comparable$implementation, false);
 if (typeof Hashable$implementation != 'undefined')
@@ -28042,7 +28127,7 @@ var RandomAccessCollection$implementation = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.indices*/
     RandomAccessCollection$implementation.prototype.indices$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(RandomAccessCollection$implementation.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -28107,12 +28192,12 @@ var Range = /** @class */ (function () {
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     Range.prototype.contains = function ($info, _element) {
         var _this = this;
-        return Bool.infix_38_38({}, (_this.lowerBound).constructor.infix_60_61({}, _this.lowerBound, _element), function () { return (_element).constructor.infix_60({}, _element, _this.upperBound); });
+        return Bool.infix_38_38({}, (_.arg0 = _this.lowerBound).constructor.infix_60_61({}, _.arg0, _element), function () { return (_.arg1 = _element).constructor.infix_60({}, _.arg1, _this.upperBound); });
     };
     /*Swift.(file).Range.isEmpty*/
     Range.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.lowerBound).constructor.infix_61_61({}, _this.lowerBound, _this.upperBound);
+        return (_.arg0 = _this.lowerBound).constructor.infix_61_61({}, _.arg0, _this.upperBound);
     };
     Object.defineProperty(Range.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -28155,8 +28240,8 @@ var Range = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.index(before:Self.Index)*/
     Range.prototype.indexBefore = function ($info, i) {
         var _this = this;
-        preconditionFileLine({}, function () { return (i).constructor.infix_62({}, i, _this.lowerBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
-        preconditionFileLine({}, function () { return (i).constructor.infix_60_61({}, i, _this.upperBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = i).constructor.infix_62({}, _.arg0, _this.lowerBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg1 = i).constructor.infix_60_61({}, _.arg1, _this.upperBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         return i.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, -1));
     };
     /*Swift.(file).Range.index(_:Range<Bound>.Index,offsetBy:Int)*/
@@ -28166,8 +28251,8 @@ var Range = /** @class */ (function () {
     Range.prototype.indexOffsetBy = function ($info, i, n) {
         var _this = this;
         var r = i.advancedBy({}, numericCast({ T: Int, U: ((function () { throw '!unclarifiedGeneric:Bound.Stride'; })()) }, n));
-        preconditionFileLine({}, function () { return (r).constructor.infix_62_61({}, r, _this.lowerBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
-        preconditionFileLine({}, function () { return (r).constructor.infix_60_61({}, r, _this.upperBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = r).constructor.infix_62_61({}, _.arg0, _this.lowerBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg1 = r).constructor.infix_60_61({}, _.arg1, _this.upperBound); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         return r;
     };
     /*Swift.(file).Range.distance(from:Range<Bound>.Index,to:Range<Bound>.Index)*/
@@ -28224,8 +28309,8 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Range.clamped(to:Range<Bound>)*/
     Range.prototype.clampedTo = function ($info, limits) {
         var _this = this;
-        var lower = ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.lowerBound) ? limits.lowerBound : ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
-        var upper = ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.upperBound) ? limits.upperBound : ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.upperBound) ? limits.lowerBound : _this.upperBound));
+        var lower = ((_.arg0 = limits.lowerBound).constructor.infix_62({}, _.arg0, _this.lowerBound) ? limits.lowerBound : ((_.arg1 = limits.upperBound).constructor.infix_60({}, _.arg1, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
+        var upper = ((_.arg2 = limits.upperBound).constructor.infix_60({}, _.arg2, _this.upperBound) ? limits.upperBound : ((_.arg3 = limits.lowerBound).constructor.infix_62({}, _.arg3, _this.upperBound) ? limits.lowerBound : _this.upperBound));
         return _create(Range, 'initUncheckedBoundstuple_type', {}, { 0: lower, 1: upper });
     };
     /*Swift.(file).Range.description*/
@@ -28265,7 +28350,7 @@ var Range = /** @class */ (function () {
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Range.infix_61_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.infix_38_38({}, (lhs.lowerBound).constructor.infix_61_61({}, lhs.lowerBound, rhs.lowerBound), function () { return (lhs.upperBound).constructor.infix_61_61({}, lhs.upperBound, rhs.upperBound); });
+        return Bool.infix_38_38({}, (_.arg0 = lhs.lowerBound).constructor.infix_61_61({}, _.arg0, rhs.lowerBound), function () { return (_.arg1 = lhs.upperBound).constructor.infix_61_61({}, _.arg1, rhs.upperBound); });
     };
     /*Swift.(file).Range.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -28514,7 +28599,7 @@ var ReversedCollection = /** @class */ (function () {
             /*Swift.(file).IteratorProtocol.next()*/
             class_74.prototype.next = function ($info) {
                 var _this = this;
-                if (!((_fastPath({}, (_this._position).constructor.infix_33_61({}, _this._position, _this._base.startIndex))))) {
+                if (!((_fastPath({}, (_.arg0 = _this._position).constructor.infix_33_61({}, _.arg0, _this._base.startIndex))))) {
                     return Optional.none;
                 }
                 ;
@@ -28550,13 +28635,13 @@ var ReversedCollection = /** @class */ (function () {
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_75.infix_61_61 = function ($info, lhs, rhs) {
                 var _this = this;
-                return (lhs.base).constructor.infix_61_61({}, lhs.base, rhs.base);
+                return (_.arg0 = lhs.base).constructor.infix_61_61({}, _.arg0, rhs.base);
             };
             /*Swift.(file).ReversedCollection.Index.<infix(_:ReversedCollection<Base>.Index,_:ReversedCollection<Base>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_75.infix_60 = function ($info, lhs, rhs) {
                 var _this = this;
-                return (lhs.base).constructor.infix_62({}, lhs.base, rhs.base);
+                return (_.arg0 = lhs.base).constructor.infix_62({}, _.arg0, rhs.base);
             };
             /*Swift.(file).ReversedCollection.Index.hash(into:Hasher)*/
             /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -28670,7 +28755,7 @@ var Slice = /** @class */ (function () {
     /*Swift.(file).Slice.indices*/
     Slice.prototype.indices$get = function () {
         var _this = this;
-        return _this._base.indices.subscriptRange$get({}, (_this._startIndex).constructor.infix_46_46_60({}, _this._startIndex, _this._endIndex));
+        return _this._base.indices.subscriptRange$get({}, (_.arg0 = _this._startIndex).constructor.infix_46_46_60({}, _.arg0, _this._endIndex));
     };
     Object.defineProperty(Slice.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -29173,7 +29258,7 @@ var _SmallString = /** @class */ (function () {
             var $readIdx$generator_1 = _cloneStruct(Int.infix_46_46_60({}, 0, other.count).makeIterator({}));
             while (true) {
                 var $ifLet0, readIdx$ifLet1;
-                if (!((($ifLet0 = $readIdx$generator_1.next({ $setThis: function ($val) { return $readIdx$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((readIdx$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $readIdx$generator_1.next({ $setThis: function ($val) { return $readIdx$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((readIdx$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 result.subscript$set({ $setThis: function ($val) { return result = $val; } }, other.subscript$get({}, readIdx$ifLet1), writeIdx);
                 Int.infix_38_43_61({}, { get: function () { return writeIdx; }, set: function ($val) { return writeIdx = $val; } }, 1);
@@ -29218,7 +29303,7 @@ var StringProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_33_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_61_61({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_61_61({}, _.arg0, rhs));
     };
     /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
@@ -29229,19 +29314,19 @@ var StringProtocol$implementation = /** @class */ (function () {
     /*Swift.(file).StringProtocol.>infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
@@ -29527,13 +29612,13 @@ var Substring = /** @class */ (function () {
     Substring.prototype.initBuffer = function ($info, _elements) {
         var _this = this;
         var $ifLet0, str$ifLet1;
-        if ((($ifLet0 = _injectIntoOptional(_elements)) || true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _injectIntoOptional(_elements)) || true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0]) || true)) {
             $info.$setThis(_this = _cloneStruct(_cloneStruct(str$ifLet1.subscriptUnboundedRange$get({}, UnboundedRange_.postfix_46_46_46))));
             return;
         }
         ;
         var $ifLet2, subStr$ifLet3;
-        if ((($ifLet2 = _injectIntoOptional(_elements)) || true) && $ifLet2.rawValue === 'some' && ((subStr$ifLet3 = $ifLet2[0]) || true)) {
+        if ((($ifLet2 = _injectIntoOptional(_elements)) || true) && $ifLet2.rawValue == 'some' && ((subStr$ifLet3 = $ifLet2[0]) || true)) {
             $info.$setThis(_this = _cloneStruct(_cloneStruct(subStr$ifLet3)));
             return;
         }
@@ -30439,11 +30524,11 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -30454,7 +30539,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).UnsafeMutableBufferPointer.indices*/
     UnsafeMutableBufferPointer.prototype.indices$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(UnsafeMutableBufferPointer.prototype, "indices", {
         get: function () { return this.indices$get(); },
@@ -30507,7 +30592,7 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     UnsafeMutableBufferPointer.prototype.swapAt = function ($info, i, j) {
         var _this = this;
-        if (!(((i).constructor.infix_33_61({}, i, j)))) {
+        if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, j)))) {
             return;
         }
         ;
@@ -30743,11 +30828,11 @@ var UnsafeBufferPointer = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     UnsafeBufferPointer.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -30968,7 +31053,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     /*Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)*/
     UnsafeMutableRawBufferPointer.prototype.swapAt = function ($info, i, j) {
         var _this = this;
-        if (!(((i).constructor.infix_33_61({}, i, j)))) {
+        if (!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, j)))) {
             return;
         }
         ;
@@ -31402,7 +31487,7 @@ var UnsafeMutablePointer = /** @class */ (function () {
     UnsafeMutablePointer.prototype.initMutatingOptional = function ($info, other) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -31453,7 +31538,7 @@ var UnsafeMutablePointer = /** @class */ (function () {
             var $i$generator_2 = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}));
             while (true) {
                 var $ifLet0, i$ifLet1;
-                if (!((($ifLet0 = $i$generator_2.next({ $setThis: function ($val) { return $i$generator_2 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $i$generator_2.next({ $setThis: function ($val) { return $i$generator_2 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((i$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.subscript$set({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct(_cloneStruct($val))); } }, repeatedValue, i$ifLet1);
             }
@@ -31648,7 +31733,7 @@ var UnsafeRawPointer = /** @class */ (function () {
     UnsafeRawPointer.prototype.initOptional = function ($info, other) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -31797,7 +31882,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     UnsafeMutableRawPointer.prototype.initOptional = function ($info, other) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = other) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -31883,7 +31968,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
             var $element$generator_11 = source.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_11.next({ $setThis: function ($val) { return $element$generator_11 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_11.next({ $setThis: function ($val) { return $element$generator_11 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 ptr.initializeMemoryAsRepeatingCount({}, ((function () { throw '!unclarifiedGeneric:C.Element'; })()), _element$ifLet1, 1);
                 UnsafeMutableRawPointer.infix_43_61({}, { get: function () { return ptr; }, set: function ($val) { return ptr = $val; } }, MemoryLayout.stride);
@@ -33641,6 +33726,9 @@ if (typeof TextOutputStreamable$implementation != 'undefined')
     _mixin(Unicode.Scalar, TextOutputStreamable$implementation, false);
 if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'undefined')
     _mixin(Unicode.ASCII.Parser, Unicode.Parser$implementation, false);
+if (typeof Unicode != 'undefined' && typeof Unicode.Encoding$implementation != 'undefined')
+    _mixin(Unicode.ASCII, Unicode.Encoding$implementation, false);
+_mixin(Unicode.ASCII, _DefaultEnumImplementation, false);
 if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'undefined')
     _mixin(Unicode.UTF16.ForwardParser, Unicode.Parser$implementation, false);
 if (typeof _UTFParser$implementation != 'undefined')
@@ -33649,6 +33737,11 @@ if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'un
     _mixin(Unicode.UTF16.ReverseParser, Unicode.Parser$implementation, false);
 if (typeof _UTFParser$implementation != 'undefined')
     _mixin(Unicode.UTF16.ReverseParser, _UTFParser$implementation, false);
+if (typeof Unicode != 'undefined' && typeof Unicode.Encoding$implementation != 'undefined')
+    _mixin(Unicode.UTF16, Unicode.Encoding$implementation, false);
+if (typeof UnicodeCodec$implementation != 'undefined')
+    _mixin(Unicode.UTF16, UnicodeCodec$implementation, false);
+_mixin(Unicode.UTF16, _DefaultEnumImplementation, false);
 if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'undefined')
     _mixin(Unicode.UTF8.ForwardParser, Unicode.Parser$implementation, false);
 if (typeof _UTFParser$implementation != 'undefined')
@@ -33657,14 +33750,28 @@ if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'un
     _mixin(Unicode.UTF8.ReverseParser, Unicode.Parser$implementation, false);
 if (typeof _UTFParser$implementation != 'undefined')
     _mixin(Unicode.UTF8.ReverseParser, _UTFParser$implementation, false);
+if (typeof _UnicodeEncoding$implementation != 'undefined')
+    _mixin(Unicode.UTF8, _UnicodeEncoding$implementation, false);
+if (typeof UnicodeCodec$implementation != 'undefined')
+    _mixin(Unicode.UTF8, UnicodeCodec$implementation, false);
+_mixin(Unicode.UTF8, _DefaultEnumImplementation, false);
+_mixin(Unicode.ParseResult, _DefaultEnumImplementation, false);
+_mixin(Unicode.GeneralCategory, _DefaultEnumImplementation, false);
 if (typeof Comparable$implementation != 'undefined')
     _mixin(Unicode.CanonicalCombiningClass, Comparable$implementation, false);
 if (typeof Hashable$implementation != 'undefined')
     _mixin(Unicode.CanonicalCombiningClass, Hashable$implementation, false);
 if (typeof RawRepresentable$implementation != 'undefined')
     _mixin(Unicode.CanonicalCombiningClass, RawRepresentable$implementation, false);
+_mixin(Unicode.NumericType, _DefaultEnumImplementation, false);
 if (typeof Unicode != 'undefined' && typeof Unicode.Parser$implementation != 'undefined')
     _mixin(Unicode.UTF32.Parser, Unicode.Parser$implementation, false);
+if (typeof Unicode != 'undefined' && typeof Unicode.Encoding$implementation != 'undefined')
+    _mixin(Unicode.UTF32, Unicode.Encoding$implementation, false);
+if (typeof UnicodeCodec$implementation != 'undefined')
+    _mixin(Unicode.UTF32, UnicodeCodec$implementation, false);
+_mixin(Unicode.UTF32, _DefaultEnumImplementation, false);
+_mixin(Unicode, _DefaultEnumImplementation, false);
 var _ValidUTF8Buffer = /** @class */ (function () {
     function _ValidUTF8Buffer() {
     }
@@ -33835,7 +33942,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
             var $x$generator_3 = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.prefix_46_46_60({}, target.lowerBound)).makeIterator({}));
             while (true) {
                 var $ifLet0, x$ifLet1;
-                if (!((($ifLet0 = $x$generator_3.next({ $setThis: function ($val) { return $x$generator_3 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $x$generator_3.next({ $setThis: function ($val) { return $x$generator_3 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 r.append({ $setThis: function ($val) { return r = $val; } }, x$ifLet1);
             }
@@ -33845,7 +33952,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
             var $x$generator_4 = replacement.makeIterator({});
             while (true) {
                 var $ifLet2, x$ifLet3;
-                if (!((($ifLet2 = $x$generator_4.next({ $setThis: function ($val) { return $x$generator_4 = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((x$ifLet3 = $ifLet2[0]) || true)))
+                if (!((($ifLet2 = $x$generator_4.next({ $setThis: function ($val) { return $x$generator_4 = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((x$ifLet3 = $ifLet2[0]) || true)))
                     break;
                 r.append({ $setThis: function ($val) { return r = $val; } }, x$ifLet3);
             }
@@ -33855,7 +33962,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
             var $x$generator_5 = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.postfix_46_46_46({}, target.upperBound)).makeIterator({}));
             while (true) {
                 var $ifLet4, x$ifLet5;
-                if (!((($ifLet4 = $x$generator_5.next({ $setThis: function ($val) { return $x$generator_5 = $val; } })) || true) && $ifLet4.rawValue === 'some' && ((x$ifLet5 = $ifLet4[0]) || true)))
+                if (!((($ifLet4 = $x$generator_5.next({ $setThis: function ($val) { return $x$generator_5 = $val; } })) || true) && $ifLet4.rawValue == 'some' && ((x$ifLet5 = $ifLet4[0]) || true)))
                     break;
                 r.append({ $setThis: function ($val) { return r = $val; } }, x$ifLet5);
             }
@@ -34634,7 +34741,7 @@ var _ArrayBufferProtocol$implementation = /** @class */ (function () {
                 var $j$generator_1 = _cloneStruct(subrange.makeIterator({}));
                 while (true) {
                     var $ifLet0, j$ifLet1;
-                    if (!((($ifLet0 = $j$generator_1.next({ $setThis: function ($val) { return $j$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((j$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $j$generator_1.next({ $setThis: function ($val) { return $j$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((j$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     _elements.subscript$set({ $setThis: function ($val) { return _elements = _cloneStruct($val); } }, newValues.subscript$get({}, i_1), j$ifLet1);
                     newValues.formIndexAfter({}, { get: function () { return i_1; }, set: function ($val) { return i_1 = $val; } });
@@ -34645,7 +34752,7 @@ var _ArrayBufferProtocol$implementation = /** @class */ (function () {
                 var $j$generator_2 = _cloneStruct(Int.infix_46_46_60({}, oldTailIndex, newTailIndex).makeIterator({}));
                 while (true) {
                     var $ifLet2, j$ifLet3;
-                    if (!((($ifLet2 = $j$generator_2.next({ $setThis: function ($val) { return $j$generator_2 = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((j$ifLet3 = $ifLet2[0]) || true)))
+                    if (!((($ifLet2 = $j$generator_2.next({ $setThis: function ($val) { return $j$generator_2 = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((j$ifLet3 = $ifLet2[0]) || true)))
                         break;
                     UnsafeMutablePointer.infix_43({}, _elements, j$ifLet3).initializeTo({}, newValues.subscript$get({}, i_1));
                     newValues.formIndexAfter({}, { get: function () { return i_1; }, set: function ($val) { return i_1 = $val; } });
@@ -34660,7 +34767,7 @@ var _ArrayBufferProtocol$implementation = /** @class */ (function () {
                 var $generator_5 = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}));
                 while (true) {
                     var $ifLet4;
-                    if (!((($ifLet4 = $generator_5.next({ $setThis: function ($val) { return $generator_5 = $val; } })) || true) && $ifLet4.rawValue === 'some'))
+                    if (!((($ifLet4 = $generator_5.next({ $setThis: function ($val) { return $generator_5 = $val; } })) || true) && $ifLet4.rawValue == 'some'))
                         break;
                     _elements.subscript$set({ $setThis: function ($val) { return _elements = _cloneStruct($val); } }, newValues.subscript$get({}, j_1), i_2);
                     Int.infix_43_61({}, { get: function () { return i_2; }, set: function ($val) { return i_2 = $val; } }, 1);
@@ -34832,7 +34939,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $index$generator_1 = _cloneStruct(bounds.makeIterator({}));
             while (true) {
                 var $ifLet0, index$ifLet1;
-                if (!((($ifLet0 = $index$generator_1.next({ $setThis: function ($val) { return $index$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $index$generator_1.next({ $setThis: function ($val) { return $index$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 result.append({ $setThis: function ($val) { return result = $val; } }, _this.subscript$get({}, index$ifLet1));
             }
@@ -34884,7 +34991,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $generator_6 = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}));
             while (true) {
                 var $ifLet0;
-                if (!((($ifLet0 = $generator_6.next({ $setThis: function ($val) { return $generator_6 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                if (!((($ifLet0 = $generator_6.next({ $setThis: function ($val) { return $generator_6 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                     break;
                 result.append({ $setThis: function ($val) { return result = $val; } }, repeatedValue);
             }
@@ -34916,7 +35023,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $el$generator_1 = newElements.makeIterator({});
             while (true) {
                 var $ifLet0, el$ifLet1;
-                if (!((($ifLet0 = $el$generator_1.next({ $setThis: function ($val) { return $el$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((el$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $el$generator_1.next({ $setThis: function ($val) { return $el$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((el$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, el$ifLet1);
             }
@@ -35032,7 +35139,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $generator_7 = _cloneStruct(subrange.makeIterator({}));
             while (true) {
                 var $ifLet0;
-                if (!((($ifLet0 = $generator_7.next({ $setThis: function ($val) { return $generator_7 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                if (!((($ifLet0 = $generator_7.next({ $setThis: function ($val) { return $generator_7 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                     break;
                 _this.removeAt({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, subrange.startIndex);
             }
@@ -35043,7 +35150,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $el$generator_2 = newElements.makeIterator({});
             while (true) {
                 var $ifLet1, el$ifLet2;
-                if (!((($ifLet1 = $el$generator_2.next({ $setThis: function ($val) { return $el$generator_2 = $val; } })) || true) && $ifLet1.rawValue === 'some' && ((el$ifLet2 = $ifLet1[0]) || true)))
+                if (!((($ifLet1 = $el$generator_2.next({ $setThis: function ($val) { return $el$generator_2 = $val; } })) || true) && $ifLet1.rawValue == 'some' && ((el$ifLet2 = $ifLet1[0]) || true)))
                     break;
                 _this.insertAt({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, el$ifLet2, i);
                 Int.infix_43_61({}, { get: function () { return i; }, set: function ($val) { return i = $val; } }, 1);
@@ -35067,9 +35174,9 @@ var MIO_Mixin_Array = /** @class */ (function () {
             var $idx$generator_1 = _cloneStruct(Int.infix_46_46_60({}, 0, lhsCount).makeIterator({}));
             while (true) {
                 var $ifLet0, idx$ifLet1;
-                if (!((($ifLet0 = $idx$generator_1.next({ $setThis: function ($val) { return $idx$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((idx$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $idx$generator_1.next({ $setThis: function ($val) { return $idx$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((idx$ifLet1 = $ifLet0[0]) || true)))
                     break;
-                if (((lhs.subscript$get({}, idx$ifLet1)).constructor.infix_33_61({}, lhs.subscript$get({}, idx$ifLet1), rhs.subscript$get({}, idx$ifLet1)))) {
+                if (((_.arg0 = lhs.subscript$get({}, idx$ifLet1)).constructor.infix_33_61({}, _.arg0, rhs.subscript$get({}, idx$ifLet1)))) {
                     return false;
                 }
                 ;
@@ -35089,7 +35196,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
                 var $element$generator_12 = _cloneStruct(_this.makeIterator({}));
                 while (true) {
                     var $ifLet0, _element$ifLet1;
-                    if (!((($ifLet0 = $element$generator_12.next({ $setThis: function ($val) { return $element$generator_12 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $element$generator_12.next({ $setThis: function ($val) { return $element$generator_12 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     hasher.combine({ $setThis: function ($val) { return hasher = $val; } }, _element$ifLet1);
                 }
@@ -35371,7 +35478,7 @@ var ArraySlice = /** @class */ (function () {
             var $generator_8 = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}));
             while (true) {
                 var $ifLet0;
-                if (!((($ifLet0 = $generator_8.next({ $setThis: function ($val) { return $generator_8 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                if (!((($ifLet0 = $generator_8.next({ $setThis: function ($val) { return $generator_8 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                     break;
                 p.initializeTo({}, repeatedValue);
                 UnsafeMutablePointer.infix_43_61({}, { get: function () { return p; }, set: function ($val) { return p = $val; } }, 1);
@@ -35407,7 +35514,7 @@ var ArraySlice = /** @class */ (function () {
             var $element$generator_13 = newElements.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_13.next({ $setThis: function ($val) { return $element$generator_13 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_13.next({ $setThis: function ($val) { return $element$generator_13 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, _element$ifLet1);
             }
@@ -35442,7 +35549,7 @@ var ArraySlice = /** @class */ (function () {
             $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'init', {})));
         }
         else {
-            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex), _create(EmptyCollection, 'init', {}));
+            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex), _create(EmptyCollection, 'init', {}));
         }
     };
     /*Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
@@ -35521,7 +35628,7 @@ var ArraySlice = /** @class */ (function () {
                 var $element$generator_14 = _cloneStruct(_this.makeIterator({}));
                 while (true) {
                     var $ifLet0, _element$ifLet1;
-                    if (!((($ifLet0 = $element$generator_14.next({ $setThis: function ($val) { return $element$generator_14 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $element$generator_14.next({ $setThis: function ($val) { return $element$generator_14 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     hasher.combine({ $setThis: function ($val) { return hasher = $val; } }, _element$ifLet1);
                 }
@@ -35620,7 +35727,7 @@ var AutoreleasingUnsafeMutablePointer = /** @class */ (function () {
     AutoreleasingUnsafeMutablePointer.prototype.initOptional = function ($info, from) {
         var _this = this;
         var $ifLet0, unwrapped$ifLet1;
-        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = from) || true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0]) || true))) {
             return (this.$failed = true);
         }
         ;
@@ -35912,7 +36019,7 @@ var ContiguousArray = /** @class */ (function () {
             var $generator_9 = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}));
             while (true) {
                 var $ifLet0;
-                if (!((($ifLet0 = $generator_9.next({ $setThis: function ($val) { return $generator_9 = $val; } })) || true) && $ifLet0.rawValue === 'some'))
+                if (!((($ifLet0 = $generator_9.next({ $setThis: function ($val) { return $generator_9 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
                     break;
                 p.initializeTo({}, repeatedValue);
                 UnsafeMutablePointer.infix_43_61({}, { get: function () { return p; }, set: function ($val) { return p = $val; } }, 1);
@@ -35948,7 +36055,7 @@ var ContiguousArray = /** @class */ (function () {
             var $element$generator_15 = newElements.makeIterator({});
             while (true) {
                 var $ifLet0, _element$ifLet1;
-                if (!((($ifLet0 = $element$generator_15.next({ $setThis: function ($val) { return $element$generator_15 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $element$generator_15.next({ $setThis: function ($val) { return $element$generator_15 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, _element$ifLet1);
             }
@@ -35966,7 +36073,7 @@ var ContiguousArray = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
         var result = _this.subscript$get({}, position);
-        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (position).constructor.infix_46_46_60({}, position, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
+        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = position).constructor.infix_46_46_60({}, _.arg0, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
         return result;
     };
     /*Swift.(file).ContiguousArray.insert(_:Element,at:Int)*/
@@ -35984,7 +36091,7 @@ var ContiguousArray = /** @class */ (function () {
             $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'init', {})));
         }
         else {
-            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex), _create(EmptyCollection, 'init', {}));
+            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex), _create(EmptyCollection, 'init', {}));
         }
     };
     /*Swift.(file).ContiguousArray.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)*/
@@ -36063,7 +36170,7 @@ var ContiguousArray = /** @class */ (function () {
                 var $element$generator_16 = _cloneStruct(_this.makeIterator({}));
                 while (true) {
                     var $ifLet0, _element$ifLet1;
-                    if (!((($ifLet0 = $element$generator_16.next({ $setThis: function ($val) { return $element$generator_16 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $element$generator_16.next({ $setThis: function ($val) { return $element$generator_16 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     hasher.combine({ $setThis: function ($val) { return hasher = $val; } }, _element$ifLet1);
                 }
@@ -36175,7 +36282,7 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).RangeExpression.contains(_:Self.Bound)*/
     ClosedRange.prototype.contains = function ($info, _element) {
         var _this = this;
-        return Bool.infix_38_38({}, (_element).constructor.infix_62_61({}, _element, _this.lowerBound), function () { return (_element).constructor.infix_60_61({}, _element, _this.upperBound); });
+        return Bool.infix_38_38({}, (_.arg0 = _element).constructor.infix_62_61({}, _.arg0, _this.lowerBound), function () { return (_.arg1 = _element).constructor.infix_60_61({}, _.arg1, _this.upperBound); });
     };
     /*Swift.(file).ClosedRange.startIndex*/
     ClosedRange.prototype.startIndex$get = function () {
@@ -36208,7 +36315,7 @@ var ClosedRange = /** @class */ (function () {
         var $match = i;
         if ((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
             var x = $match[0];
-            return ((_this.upperBound).constructor.infix_61_61({}, x, _this.upperBound) ? ClosedRange.Index.pastEnd : ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))));
+            return ((_.arg0 = _this.upperBound).constructor.infix_61_61({}, x, _.arg0) ? ClosedRange.Index.pastEnd : ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))));
         }
         else if ((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             preconditionFailureFileLine({}, function () { return "Incrementing past end index"; }, '?3', '?3');
@@ -36222,11 +36329,11 @@ var ClosedRange = /** @class */ (function () {
         var $match = i;
         if ((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
             var x_1 = $match[0];
-            preconditionFileLine({}, function () { return (_this.lowerBound).constructor.infix_62({}, x_1, _this.lowerBound); }, function () { return "Incrementing past start index"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg0 = _this.lowerBound).constructor.infix_62({}, x_1, _.arg0); }, function () { return "Incrementing past start index"; }, '?3', '?3');
             return ClosedRange.Index.inRange({}, x_1.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, -1)));
         }
         else if ((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
-            preconditionFileLine({}, function () { return (_this.upperBound).constructor.infix_62_61({}, _this.upperBound, _this.lowerBound); }, function () { return "Incrementing past start index"; }, '?3', '?3');
+            preconditionFileLine({}, function () { return (_.arg1 = _this.upperBound).constructor.infix_62_61({}, _.arg1, _this.lowerBound); }, function () { return "Incrementing past start index"; }, '?3', '?3');
             return ClosedRange.Index.inRange({}, _this.upperBound);
         }
     };
@@ -36242,11 +36349,11 @@ var ClosedRange = /** @class */ (function () {
             var d = x.distanceTo({}, _this.upperBound);
             if ((Int.infix_60_61({}, distance, d))) {
                 var newPosition_1 = x.advancedBy({}, numericCast({ T: Int, U: Int }, distance));
-                preconditionFileLine({}, function () { return (_this.lowerBound).constructor.infix_62_61({}, newPosition_1, _this.lowerBound); }, function () { return "Advancing past start index"; }, '?3', '?3');
+                preconditionFileLine({}, function () { return (_.arg0 = _this.lowerBound).constructor.infix_62_61({}, newPosition_1, _.arg0); }, function () { return "Advancing past start index"; }, '?3', '?3');
                 return ClosedRange.Index.inRange({}, newPosition_1);
             }
             ;
-            if ((((d).constructor.infix_45({}, d, _create(Int, 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, (d).constructor.infix_45({}, d, _create(Int, 'initIntegerLiteral', {}, -1)), distance))) {
+            if (((_.arg1 = (_.arg2 = d).constructor.infix_45({}, _.arg2, _create(Int, 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, _.arg1, distance))) {
                 return ClosedRange.Index.pastEnd;
             }
             ;
@@ -36278,11 +36385,11 @@ var ClosedRange = /** @class */ (function () {
         }
         else if ((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             var left = $match[0][0];
-            return numericCast({ T: Int, U: Int }, (_create(Int, 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _create(Int, 'initIntegerLiteral', {}, 1), left.distanceTo({}, _this.upperBound)));
+            return numericCast({ T: Int, U: Int }, (_.arg0 = _create(Int, 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _.arg0, left.distanceTo({}, _this.upperBound)));
         }
         else if ((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.inRange().rawValue))) {
             var right = $match[1][0];
-            return numericCast({ T: Int, U: Int }, (_this.upperBound.distanceTo({}, right)).constructor.infix_45({}, _this.upperBound.distanceTo({}, right), _create(Int, 'initIntegerLiteral', {}, 1)));
+            return numericCast({ T: Int, U: Int }, (_.arg1 = _this.upperBound.distanceTo({}, right)).constructor.infix_45({}, _.arg1, _create(Int, 'initIntegerLiteral', {}, 1)));
         }
         else if ((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
             return 0;
@@ -36315,7 +36422,7 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ClosedRange.infix_61_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.infix_38_38({}, (lhs.lowerBound).constructor.infix_61_61({}, lhs.lowerBound, rhs.lowerBound), function () { return (lhs.upperBound).constructor.infix_61_61({}, lhs.upperBound, rhs.upperBound); });
+        return Bool.infix_38_38({}, (_.arg0 = lhs.lowerBound).constructor.infix_61_61({}, _.arg0, rhs.lowerBound), function () { return (_.arg1 = lhs.upperBound).constructor.infix_61_61({}, _.arg1, rhs.upperBound); });
     };
     /*Swift.(file).ClosedRange.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -36376,8 +36483,8 @@ var ClosedRange = /** @class */ (function () {
     /*Swift.(file).ClosedRange.clamped(to:ClosedRange<Bound>)*/
     ClosedRange.prototype.clampedTo = function ($info, limits) {
         var _this = this;
-        var lower = ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.lowerBound) ? limits.lowerBound : ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
-        var upper = ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.upperBound) ? limits.upperBound : ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.upperBound) ? limits.lowerBound : _this.upperBound));
+        var lower = ((_.arg0 = limits.lowerBound).constructor.infix_62({}, _.arg0, _this.lowerBound) ? limits.lowerBound : ((_.arg1 = limits.upperBound).constructor.infix_60({}, _.arg1, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
+        var upper = ((_.arg2 = limits.upperBound).constructor.infix_60({}, _.arg2, _this.upperBound) ? limits.upperBound : ((_.arg3 = limits.lowerBound).constructor.infix_62({}, _.arg3, _this.upperBound) ? limits.lowerBound : _this.upperBound));
         return _create(ClosedRange, 'initUncheckedBoundstuple_type', {}, { 0: lower, 1: upper });
     };
     /*Swift.(file).ClosedRange.init(_:Range<Bound>)*/
@@ -36494,6 +36601,11 @@ var ClosedRange = /** @class */ (function () {
         _79);
     return ClosedRange;
 }());
+if (typeof Comparable$implementation != 'undefined')
+    _mixin(ClosedRange.Index, Comparable$implementation, false);
+if (typeof Hashable$implementation != 'undefined')
+    _mixin(ClosedRange.Index, Hashable$implementation, false);
+_mixin(ClosedRange.Index, _DefaultEnumImplementation, false);
 if (typeof RangeExpression$implementation != 'undefined')
     _mixin(ClosedRange, RangeExpression$implementation, false);
 if (typeof Sequence$implementation != 'undefined')
@@ -36815,7 +36927,7 @@ var LazyDropWhileSequence = /** @class */ (function () {
                 ;
                 while (true) {
                     var $ifLet0, nextElement$ifLet1;
-                    if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((nextElement$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((nextElement$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     if ((Bool.prefix_33({}, _this._predicate({}, nextElement$ifLet1)))) {
                         _this._predicateHasFailed = true;
@@ -37089,11 +37201,11 @@ var LazyFilterSequence = /** @class */ (function () {
     /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
     LazyFilterSequence.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -37190,7 +37302,7 @@ var LazyFilterSequence = /** @class */ (function () {
                 var _this = this;
                 while (true) {
                     var $ifLet0, n$ifLet1;
-                    if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((n$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = _this._base.next({ $setThis: function ($val) { return _this._base = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((n$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     if ((_this._predicate({}, n$ifLet1))) {
                         return _injectIntoOptional(n$ifLet1);
@@ -38105,7 +38217,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt8.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).UInt8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -38257,19 +38369,19 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).UInt8.>=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).UInt8.>infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
@@ -38347,7 +38459,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
             /*Swift.(file).UInt8.Words.indices*/
             class_107.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_107.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -38862,7 +38974,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int8.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).Int8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -39014,19 +39126,19 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Int8.>=infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Int8.>infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Int8.customMirror*/
     MIO_Mixin_Int8.prototype.customMirror$get = function () {
@@ -39099,7 +39211,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
             /*Swift.(file).Int8.Words.indices*/
             class_114.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_114.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -39602,7 +39714,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt16.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).UInt16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -39736,19 +39848,19 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).UInt16.>=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).UInt16.>infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).UInt16.customMirror*/
     MIO_Mixin_UInt16.prototype.customMirror$get = function () {
@@ -39821,7 +39933,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
             /*Swift.(file).UInt16.Words.indices*/
             class_121.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_121.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -40336,7 +40448,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int16.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).Int16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -40470,19 +40582,19 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Int16.>=infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Int16.>infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Int16.customMirror*/
     MIO_Mixin_Int16.prototype.customMirror$get = function () {
@@ -40555,7 +40667,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
             /*Swift.(file).Int16.Words.indices*/
             class_128.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_128.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -41058,7 +41170,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt32.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).UInt32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -41182,19 +41294,19 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).UInt32.>=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).UInt32.>infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
@@ -41272,7 +41384,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
             /*Swift.(file).UInt32.Words.indices*/
             class_135.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_135.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -41790,7 +41902,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int32.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).Int32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -41914,19 +42026,19 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Int32.>=infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Int32.>infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Int32.customMirror*/
     MIO_Mixin_Int32.prototype.customMirror$get = function () {
@@ -41999,7 +42111,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
             /*Swift.(file).Int32.Words.indices*/
             class_142.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_142.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -42502,7 +42614,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt64.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).UInt64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -42606,19 +42718,19 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).UInt64.>=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).UInt64.>infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
@@ -42696,7 +42808,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
             /*Swift.(file).UInt64.Words.indices*/
             class_149.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_149.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -43216,7 +43328,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int64.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).Int64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -43320,19 +43432,19 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Int64.>=infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Int64.>infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Int64.customMirror*/
     MIO_Mixin_Int64.prototype.customMirror$get = function () {
@@ -43405,7 +43517,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
             /*Swift.(file).Int64.Words.indices*/
             class_156.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_156.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -43915,7 +44027,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_UInt.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).UInt.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -44034,19 +44146,19 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).UInt.>=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).UInt.>infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).UInt.customMirror*/
     MIO_Mixin_UInt.prototype.customMirror$get = function () {
@@ -44129,7 +44241,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
             /*Swift.(file).UInt.Words.indices*/
             class_163.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_163.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -44650,7 +44762,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.signum()*/
     MIO_Mixin_Int.prototype.signum = function ($info) {
         var _this = this;
-        return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)));
     };
     /*Swift.(file).Int.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
@@ -44769,19 +44881,19 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_60_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs));
+        return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs));
     };
     /*Swift.(file).Int.>=infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62_61 = function ($info, lhs, rhs) {
         var _this = this;
-        return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs));
+        return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs));
     };
     /*Swift.(file).Int.>infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62 = function ($info, lhs, rhs) {
         var _this = this;
-        return (rhs).constructor.infix_60({}, rhs, lhs);
+        return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs);
     };
     /*Swift.(file).Int.distance(to:Int)*/
     /*Swift.(file).Strideable.distance(to:Self)*/
@@ -44876,7 +44988,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
             /*Swift.(file).Int.Words.indices*/
             class_170.prototype.indices$get = function () {
                 var _this = this;
-                return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex);
+                return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex);
             };
             Object.defineProperty(class_170.prototype, "indices", {
                 get: function () { return this.indices$get(); },
@@ -45295,7 +45407,7 @@ var LazySequence = /** @class */ (function () {
     /*Swift.(file).LazySequence.isEmpty*/
     LazySequence.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(LazySequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -45336,11 +45448,11 @@ var LazySequence = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     LazySequence.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -45485,7 +45597,7 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).LazyMapSequence.isEmpty*/
     LazyMapSequence.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(LazyMapSequence.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -45526,11 +45638,11 @@ var LazyMapSequence = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.distance(from:Self.Index,to:Self.Index)*/
     LazyMapSequence.prototype.distanceFromTo = function ($info, start, end) {
         var _this = this;
-        preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+        preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
         var start_dupl = start;
         var count = 0;
         while (true) {
-            if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+            if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                 break;
             count = Int.infix_43({}, count, 1);
             _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -45675,7 +45787,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     MIO_Mixin_String.decodeCStringAsRepairingInvalidCodeUnits = function ($info, cString, encoding, isRepairing) {
         var _this = this;
         var $ifLet0, cPtr$ifLet1;
-        if (!((($ifLet0 = cString) || true) && $ifLet0.rawValue === 'some' && ((cPtr$ifLet1 = $ifLet0[0]) || true))) {
+        if (!((($ifLet0 = cString) || true) && $ifLet0.rawValue == 'some' && ((cPtr$ifLet1 = $ifLet0[0]) || true))) {
             return Optional.none;
         }
         ;
@@ -45688,7 +45800,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             }
             else {
                 var $ifLet2, str$ifLet3;
-                if (!((($ifLet2 = String._tryFromUTF8({}, codeUnits_1)) || true) && $ifLet2.rawValue === 'some' && ((str$ifLet3 = $ifLet2[0]) || true))) {
+                if (!((($ifLet2 = String._tryFromUTF8({}, codeUnits_1)) || true) && $ifLet2.rawValue == 'some' && ((str$ifLet3 = $ifLet2[0]) || true))) {
                     return Optional.none;
                 }
                 ;
@@ -45699,7 +45811,7 @@ var MIO_Mixin_String = /** @class */ (function () {
         ;
         var end = _cloneStruct(cPtr$ifLet1);
         while (true) {
-            if (!(((end.pointee).constructor.infix_33_61({}, end.pointee, 0))))
+            if (!(((_.arg0 = end.pointee).constructor.infix_33_61({}, _.arg0, 0))))
                 break;
             UnsafePointer.infix_43_61({}, { get: function () { return end; }, set: function ($val) { return end = $val; } }, 1);
         }
@@ -45822,7 +45934,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             var $us$generator_1 = _cloneStruct(_this.unicodeScalars.makeIterator({}));
             while (true) {
                 var $ifLet0, us$ifLet1;
-                if (!((($ifLet0 = $us$generator_1.next({ $setThis: function ($val) { return $us$generator_1 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((us$ifLet1 = $ifLet0[0]) || true)))
+                if (!((($ifLet0 = $us$generator_1.next({ $setThis: function ($val) { return $us$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((us$ifLet1 = $ifLet0[0]) || true)))
                     break;
                 String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, us$ifLet1.escapedAsASCII({}, false));
             }
@@ -45986,7 +46098,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.isEmpty*/
     MIO_Mixin_String.prototype.isEmpty$get = function () {
         var _this = this;
-        return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex);
+        return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex);
     };
     Object.defineProperty(MIO_Mixin_String.prototype, "isEmpty", {
         get: function () { return this.isEmpty$get(); },
@@ -46054,13 +46166,13 @@ var MIO_Mixin_String = /** @class */ (function () {
     MIO_Mixin_String.prototype.appendContentsOf = function ($info, newElements) {
         var _this = this;
         var $ifLet0, str$ifLet1;
-        if ((($ifLet0 = _injectIntoOptional(newElements)) || true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0]) || true)) {
+        if ((($ifLet0 = _injectIntoOptional(newElements)) || true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0]) || true)) {
             _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, str$ifLet1);
             return;
         }
         ;
         var $ifLet2, substr$ifLet3;
-        if ((($ifLet2 = _injectIntoOptional(newElements)) || true) && $ifLet2.rawValue === 'some' && ((substr$ifLet3 = $ifLet2[0]) || true)) {
+        if ((($ifLet2 = _injectIntoOptional(newElements)) || true) && $ifLet2.rawValue == 'some' && ((substr$ifLet3 = $ifLet2[0]) || true)) {
             _this.appendContentsOf({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, substr$ifLet3);
             return;
         }
@@ -46069,7 +46181,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             var $c$generator_1 = newElements.makeIterator({});
             while (true) {
                 var $ifLet4, c$ifLet5;
-                if (!((($ifLet4 = $c$generator_1.next({ $setThis: function ($val) { return $c$generator_1 = $val; } })) || true) && $ifLet4.rawValue === 'some' && ((c$ifLet5 = $ifLet4[0]) || true)))
+                if (!((($ifLet4 = $c$generator_1.next({ $setThis: function ($val) { return $c$generator_1 = $val; } })) || true) && $ifLet4.rawValue == 'some' && ((c$ifLet5 = $ifLet4[0]) || true)))
                     break;
                 _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, c$ifLet5._str);
             }
@@ -46098,7 +46210,7 @@ var MIO_Mixin_String = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return "Can't remove from an empty collection"; }, '?3', '?3');
         var result = _this.subscript$get({}, position);
-        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (position).constructor.infix_46_46_60({}, position, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
+        _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = position).constructor.infix_46_46_60({}, _.arg0, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}));
         return result;
     };
     /*Swift.(file).String.removeSubrange(_:Range<String.Index>)*/
@@ -46115,7 +46227,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'init', {})));
         }
         else {
-            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex), _create(EmptyCollection, 'init', {}));
+            _this.replaceSubrangeWith({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex), _create(EmptyCollection, 'init', {}));
         }
     };
     /*Swift.(file).String.max(_:T,_:T)*/
@@ -46609,7 +46721,7 @@ var MIO_Mixin_String = /** @class */ (function () {
                     var $element$generator_17 = newElements.makeIterator({});
                     while (true) {
                         var $ifLet0, _element$ifLet1;
-                        if (!((($ifLet0 = $element$generator_17.next({ $setThis: function ($val) { return $element$generator_17 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
+                        if (!((($ifLet0 = $element$generator_17.next({ $setThis: function ($val) { return $element$generator_17 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0]) || true)))
                             break;
                         _this.append({ $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, _element$ifLet1);
                     }
@@ -46903,11 +47015,11 @@ var MIO_Mixin_String = /** @class */ (function () {
             /*Swift.(file).BidirectionalCollection.distance(from:Self.Index,to:Self.Index)*/
             class_184.prototype.distanceFromTo = function ($info, i, j) {
                 var _this = this;
-                preconditionFileLine({}, function () { return (start).constructor.infix_60_61({}, start, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
+                preconditionFileLine({}, function () { return (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end); }, function () { return "Only BidirectionalCollections can have end come before start"; }, '?3', '?3');
                 var start_dupl = start;
                 var count = 0;
                 while (true) {
-                    if (!(((start_dupl).constructor.infix_33_61({}, start_dupl, end))))
+                    if (!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end))))
                         break;
                     count = Int.infix_43({}, count, 1);
                     _this.formIndexAfter({}, { get: function () { return start_dupl; }, set: function ($val) { return start_dupl = $val; } });
@@ -47185,7 +47297,7 @@ var _SliceBuffer = /** @class */ (function () {
                 var $j$generator_3 = _cloneStruct(subrange.makeIterator({}));
                 while (true) {
                     var $ifLet0, j$ifLet1;
-                    if (!((($ifLet0 = $j$generator_3.next({ $setThis: function ($val) { return $j$generator_3 = $val; } })) || true) && $ifLet0.rawValue === 'some' && ((j$ifLet1 = $ifLet0[0]) || true)))
+                    if (!((($ifLet0 = $j$generator_3.next({ $setThis: function ($val) { return $j$generator_3 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((j$ifLet1 = $ifLet0[0]) || true)))
                         break;
                     _elements.subscript$set({ $setThis: function ($val) { return _elements = _cloneStruct($val); } }, newValues.subscript$get({}, i_3), j$ifLet1);
                     newValues.formIndexAfter({}, { get: function () { return i_3; }, set: function ($val) { return i_3 = $val; } });
@@ -47196,7 +47308,7 @@ var _SliceBuffer = /** @class */ (function () {
                 var $j$generator_4 = _cloneStruct(Int.infix_46_46_60({}, oldTailIndex, newTailIndex).makeIterator({}));
                 while (true) {
                     var $ifLet2, j$ifLet3;
-                    if (!((($ifLet2 = $j$generator_4.next({ $setThis: function ($val) { return $j$generator_4 = $val; } })) || true) && $ifLet2.rawValue === 'some' && ((j$ifLet3 = $ifLet2[0]) || true)))
+                    if (!((($ifLet2 = $j$generator_4.next({ $setThis: function ($val) { return $j$generator_4 = $val; } })) || true) && $ifLet2.rawValue == 'some' && ((j$ifLet3 = $ifLet2[0]) || true)))
                         break;
                     UnsafeMutablePointer.infix_43({}, _elements, j$ifLet3).initializeTo({}, newValues.subscript$get({}, i_3));
                     newValues.formIndexAfter({}, { get: function () { return i_3; }, set: function ($val) { return i_3 = $val; } });
@@ -47211,7 +47323,7 @@ var _SliceBuffer = /** @class */ (function () {
                 var $generator_10 = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}));
                 while (true) {
                     var $ifLet4;
-                    if (!((($ifLet4 = $generator_10.next({ $setThis: function ($val) { return $generator_10 = $val; } })) || true) && $ifLet4.rawValue === 'some'))
+                    if (!((($ifLet4 = $generator_10.next({ $setThis: function ($val) { return $generator_10 = $val; } })) || true) && $ifLet4.rawValue == 'some'))
                         break;
                     _elements.subscript$set({ $setThis: function ($val) { return _elements = _cloneStruct($val); } }, newValues.subscript$get({}, j_2), i_4);
                     Int.infix_43_61({}, { get: function () { return i_4; }, set: function ($val) { return i_4 = $val; } }, 1);
@@ -47778,6 +47890,7 @@ var FloatingPointSign = /** @class */ (function () {
     FloatingPointSign.initRawValue$failable = true;
     return FloatingPointSign;
 }());
+_mixin(FloatingPointSign, _DefaultEnumImplementation, false);
 var _ArrayBridgeStorage = _BridgeStorage;
 var _BridgingBuffer = ManagedBufferPointer;
 var Codable = '?protocol_composition_type';
@@ -51018,12 +51131,12 @@ if (typeof _KeyValueCodingAndObserving$implementation != 'undefined')
 /*Darwin.(file).arc4random()*/
 /*Darwin.(file).arc4random()*/
 function arc4random($info) {
-    return arc4random_uniform(null, 4294967296);
+    return arc4random_uniform(null, Math.pow(2, 32));
 }
 /*Darwin.(file).arc4random_uniform(_:UInt32)*/
 /*Darwin.(file).arc4random_uniform(_:UInt32)*/
 function arc4random_uniform($info, __upper_bound) {
-    return (Math.random() * __upper_bound) | 0;
+    return Math.floor(Math.random() * __upper_bound);
 }
 /*Darwin.(file).ceil(_:T)*/
 /*Darwin.(file).ceil(_:T)*/
@@ -51149,12 +51262,12 @@ function XCTAssertFalseFileLine($info, expression, message, file, line) {
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertEqualFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_61_61({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_61_61({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertNotEqualFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_33_61({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_33_61({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
@@ -51179,22 +51292,22 @@ function XCTAssertNotEqualWithAccuracyFileLine($info, expression1, expression2, 
 /*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertGreaterThanFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_62({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_62({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertGreaterThanOrEqualFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_62_61({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_62_61({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertLessThanFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_60({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_60({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 /*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
 function XCTAssertLessThanOrEqualFileLine($info, expression1, expression2, message, file, line) {
-    preconditionFileLine({}, function () { return (expression1({})).constructor.infix_60_61({}, expression1({}), expression2({})); }, function () { return message({}); }, '?3', '?3');
+    preconditionFileLine({}, function () { return (_.arg0 = expression1({})).constructor.infix_60_61({}, _.arg0, expression2({})); }, function () { return message({}); }, '?3', '?3');
 }
 /*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
 /*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
@@ -51471,6 +51584,8 @@ var XCTAttachment = /** @class */ (function (_super) {
         _162);
     return XCTAttachment;
 }(NSObject));
+_mixin(XCTAttachment.ImageQuality, _DefaultEnumImplementation, false);
+_mixin(XCTAttachment.Lifetime, _DefaultEnumImplementation, false);
 if (typeof NSSecureCoding$implementation != 'undefined')
     _mixin(XCTAttachment, NSSecureCoding$implementation, false);
 var XCTContext = /** @class */ (function (_super) {
@@ -51635,6 +51750,7 @@ var XCTWaiter = /** @class */ (function (_super) {
         _163);
     return XCTWaiter;
 }(NSObject));
+_mixin(XCTWaiter.Result, _DefaultEnumImplementation, false);
 var XCTWaiterDelegate$implementation = /** @class */ (function () {
     function XCTWaiterDelegate$implementation() {
     }
@@ -51792,7 +51908,7 @@ var XCTestCase = /** @class */ (function (_super) {
         var protoKeys = Object.keys(proto);
         for (var _i = 0, protoKeys_1 = protoKeys; _i < protoKeys_1.length; _i++) {
             var testFunction = protoKeys_1[_i];
-            if (!testFunction.startsWith('test') || testFunction.endsWith('$get') || testFunction.endsWith('$set') || typeof Object.getOwnPropertyDescriptor(proto, testFunction).value !== 'function')
+            if (!testFunction.startsWith('test') || testFunction.endsWith('$get') || testFunction.endsWith('$set') || typeof Object.getOwnPropertyDescriptor(proto, testFunction).value !== 'function' || this[testFunction].length !== 1)
                 continue;
             this.init$vars();
             if (this.setUp)
@@ -51979,6 +52095,7 @@ var XCTestError = /** @class */ (function () {
         _164);
     return XCTestError;
 }());
+_mixin(XCTestError.Code, _DefaultEnumImplementation, false);
 var XCTestExpectation = /** @class */ (function (_super) {
     __extends(XCTestExpectation, _super);
     function XCTestExpectation() {
@@ -52502,6 +52619,7 @@ var XCUIRemoteButton = /** @class */ (function () {
     XCUIRemoteButton.initRawValueUInt$failable = true;
     return XCUIRemoteButton;
 }());
+_mixin(XCUIRemoteButton, _DefaultEnumImplementation, false);
 var XCUIScreenshot = /** @class */ (function (_super) {
     __extends(XCUIScreenshot, _super);
     function XCUIScreenshot() {
@@ -52654,6 +52772,7 @@ var _XCTAssertionType = /** @class */ (function () {
     _XCTAssertionType.initRawValueUInt$failable = true;
     return _XCTAssertionType;
 }());
+_mixin(_XCTAssertionType, _DefaultEnumImplementation, false);
 var _XCTestCaseInterruptionException = /** @class */ (function (_super) {
     __extends(_XCTestCaseInterruptionException, _super);
     function _XCTestCaseInterruptionException() {
@@ -52701,6 +52820,7 @@ var _XCTThrowableBlockResult = /** @class */ (function () {
     _XCTThrowableBlockResult.$infoAddress = '';
     return _XCTThrowableBlockResult;
 }());
+_mixin(_XCTThrowableBlockResult, _DefaultEnumImplementation, false);
 var XCTDarwinNotificationExpectation = /** @class */ (function (_super) {
     __extends(XCTDarwinNotificationExpectation, _super);
     function XCTDarwinNotificationExpectation() {
@@ -53554,6 +53674,8 @@ var XCUIElement = /** @class */ (function (_super) {
         _167);
     return XCUIElement;
 }(NSObject));
+_mixin(XCUIElement.ElementType, _DefaultEnumImplementation, false);
+_mixin(XCUIElement.SizeClass, _DefaultEnumImplementation, false);
 if (typeof XCUIElementAttributes$implementation != 'undefined')
     _mixin(XCUIElement, XCUIElementAttributes$implementation, false);
 if (typeof XCUIElementTypeQueryProvider$implementation != 'undefined')
@@ -53825,6 +53947,7 @@ var XCUIApplication = /** @class */ (function (_super) {
         _168);
     return XCUIApplication;
 }(XCUIElement));
+_mixin(XCUIApplication.State, _DefaultEnumImplementation, false);
 var XCKeyValueObservingExpectationHandler = XCTKVOExpectation.Handler;
 var XCNotificationExpectationHandler = XCTNSNotificationExpectation.Handler;
 var XCPredicateExpectationHandler = XCTNSPredicateExpectation.Handler;

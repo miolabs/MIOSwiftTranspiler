@@ -54,3 +54,7 @@ Swift.(file).String.init(_:T)
 initT
 Swift.(file).BinaryInteger.init(_:T)
 initT
+Swift.(file).Collection.index(_:Self.Index,offsetBy:T)
+indexOffsetByT
+Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)
+indexOffsetByTLimitedBy

@@ -40,7 +40,7 @@ let input = input$inout.get()
 const $result = (() => {
 const n = input.next({$setThis: $val => input = $val}, );
 const $ifLet0, x$ifLet1
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
 if(!((_fastPath({}, Int8.infix_62_61({}, _create(Int8, 'initTruncatingIfNeeded', {}, x$ifLet1), 0))))) {
 return Unicode.ParseResult.error({}, 1);
 };
@@ -50,29 +50,29 @@ return Unicode.ParseResult.emptyInput;})()
 input$inout.set(input)
 return $result
 ----Swift.(file).min(_:T,_:T)
-return ((y).constructor.infix_60({}, y, x) ? y : x)
+return ((_.arg0 = y).constructor.infix_60({}, _.arg0, x) ? y : x)
 ----Swift.(file).min(_:T,_:T,_:T,_:[T])
 let minValue = min({}, min({}, x, y), z);
 {
 let $value$generator = _cloneStruct(rest.makeIterator({}, ));
 while(true) {
 const $ifLet0, value$ifLet1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
-if(!((value$ifLet1).constructor.infix_60({}, value$ifLet1, minValue))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
+if(!((_.arg0 = value$ifLet1).constructor.infix_60({}, _.arg0, minValue))) break
 minValue = value$ifLet1;
 }
 };
 return minValue
 ----Swift.(file).max(_:T,_:T)
-return ((y).constructor.infix_62_61({}, y, x) ? y : x)
+return ((_.arg0 = y).constructor.infix_62_61({}, _.arg0, x) ? y : x)
 ----Swift.(file).max(_:T,_:T,_:T,_:[T])
 let maxValue = max({}, max({}, x, y), z);
 {
 let $value$generator = _cloneStruct(rest.makeIterator({}, ));
 while(true) {
 const $ifLet0, value$ifLet1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
-if(!((value$ifLet1).constructor.infix_62_61({}, value$ifLet1, maxValue))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
+if(!((_.arg0 = value$ifLet1).constructor.infix_62_61({}, _.arg0, maxValue))) break
 maxValue = value$ifLet1;
 }
 };
@@ -91,7 +91,7 @@ return
 ----Swift.(file).EnumeratedSequence.Iterator.next()
 let _this = this;
 const $ifLet0, b$ifLet1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((b$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((b$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 const result = {0: _this._count, 1: b$ifLet1};
@@ -107,7 +107,7 @@ return
 ----Swift.(file).AnyHashable.init(_:H)
 let _this = this;
 const $ifLet0, custom$ifLet1
-if((($ifLet0 = (((_.tmp0 = _injectIntoOptional(base)).rawValue === 'some') ? (_.tmp0[0]._toCustomAnyHashable({}, )) : Optional.none))||true) && $ifLet0.rawValue === 'some' && ((custom$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = (((_.tmp0 = _injectIntoOptional(base)).rawValue === 'some') ? (_.tmp0[0]._toCustomAnyHashable({}, )) : Optional.none))||true) && $ifLet0.rawValue == 'some' && ((custom$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(custom$ifLet1)));
 return ;
 };
@@ -206,7 +206,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -256,7 +256,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element$ifLet1);
 }
 };})()
@@ -405,7 +405,7 @@ let i = newValues.startIndex;
 let $j$generator = _cloneStruct(subrange.makeIterator({}, ));
 while(true) {
 const $ifLet0, j$ifLet1;
-if(!((($ifLet0 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((j$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((j$ifLet1 = $ifLet0[0])||true))) break
 _elements.subscript$set({$setThis: $val => _elements = _cloneStruct($val)}, newValues.subscript$get({}, i), j$ifLet1);
 newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -414,7 +414,7 @@ newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 let $j$generator = _cloneStruct(Int.infix_46_46_60({}, oldTailIndex, newTailIndex).makeIterator({}, ));
 while(true) {
 const $ifLet2, j$ifLet3;
-if(!((($ifLet2 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((j$ifLet3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((j$ifLet3 = $ifLet2[0])||true))) break
 UnsafeMutablePointer.infix_43({}, _elements, j$ifLet3).initializeTo({}, newValues.subscript$get({}, i));
 newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -427,7 +427,7 @@ let j = newValues.startIndex;
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}, ));
 while(true) {
 const $ifLet4;
-if(!((($ifLet4 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet4.rawValue === 'some')) break
+if(!((($ifLet4 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet4.rawValue == 'some')) break
 _elements.subscript$set({$setThis: $val => _elements = _cloneStruct($val)}, newValues.subscript$get({}, j), i);
 Int.infix_43_61({}, {get: () => i, set: $val => i = $val}, 1);
 newValues.formIndexAfter({}, {get: () => j, set: $val => j = $val});
@@ -499,7 +499,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -542,7 +542,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element$ifLet1);
 }
 };})()
@@ -579,12 +579,12 @@ if(!((Bool.prefix_33({}, _this.isEmpty)))) {
 return Optional.none;
 };
 const _element = _this.last[0];
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexBefore({}, _this.endIndex)))));
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
 return _injectIntoOptional(_element)
 ----Swift.(file).BidirectionalCollection.removeLast()
 let _this = this;
 const _element = _this.last[0];
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexBefore({}, _this.endIndex)))));
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
 return _element
 ----Swift.(file).BidirectionalCollection.removeLast(_:Int)
 let _this = this;
@@ -593,17 +593,17 @@ return ;
 };
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Number of elements to remove should be non-negative", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_62_61({}, _this.count, k), () => "Can't remove more items from a collection than it contains", '?3', '?3');
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.indexOffsetBy({}, _this.endIndex, Int.prefix_45({}, k))))))
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexOffsetBy({}, _this.endIndex, Int.prefix_45({}, k))))))
 ----Swift.(file).BidirectionalCollection.dropLast(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Can't drop a negative number of elements from a collection", '?3', '?3');
 const end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.endIndex, Int.prefix_45({}, k), _this.startIndex), () => _this.startIndex);
-return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end))
 ----Swift.(file).BidirectionalCollection.suffix(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, maxLength, 0), () => "Can't take a suffix of negative length from a collection", '?3', '?3');
 const start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.endIndex, Int.prefix_45({}, maxLength), _this.startIndex), () => _this.startIndex);
-return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex))
+return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))
 ----Swift.(file)._UnsafeBitset.word(for:Int)
 let _this = this;
 const _element = _create(UInt, 'initBitPatternInt', {}, _element);
@@ -651,7 +651,7 @@ let count = 0;
 let $w$generator = _cloneStruct(Int.infix_46_46_60({}, 0, _this.wordCount).makeIterator({}, ));
 while(true) {
 const $ifLet0, w$ifLet1;
-if(!((($ifLet0 = $w$generator.next({$setThis: $val => $w$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((w$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $w$generator.next({$setThis: $val => $w$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((w$ifLet1 = $ifLet0[0])||true))) break
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, _this.words.subscript$get({}, w$ifLet1).count);
 }
 };
@@ -794,7 +794,7 @@ let _this = this;
 ----Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafePointer({}, unwrapped$ifLet1);
@@ -802,7 +802,7 @@ return
 ----Swift.(file).UnsafeMutableRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initAutoreleasingUnsafeMutablePointer({}, unwrapped$ifLet1);
@@ -810,7 +810,7 @@ return
 ----Swift.(file).UnsafeRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.init({}, /*pointer_to_pointer*/unwrapped$ifLet1);
@@ -848,7 +848,7 @@ return
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
 const $ifLet0, str$ifLet1
-if(!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len)))||true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len)))||true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 $info.$setThis(_this = _cloneStruct(str$ifLet1));
@@ -856,7 +856,7 @@ return
 ----Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)
 let _this = this;
 const $ifLet0, cPtr$ifLet1
-if(!((($ifLet0 = cString)||true) && $ifLet0.rawValue === 'some' && ((cPtr$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = cString)||true) && $ifLet0.rawValue == 'some' && ((cPtr$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 if((_fastPath({}, infix_61_61({}, _injectIntoOptional(encoding), _injectIntoOptional(Unicode.UTF8))))) {
@@ -868,7 +868,7 @@ return _injectIntoOptional(String._fromUTF8Repairing({}, codeUnits));
 }
 else {
 const $ifLet2, str$ifLet3
-if(!((($ifLet2 = String._tryFromUTF8({}, codeUnits))||true) && $ifLet2.rawValue === 'some' && ((str$ifLet3 = $ifLet2[0])||true))) {
+if(!((($ifLet2 = String._tryFromUTF8({}, codeUnits))||true) && $ifLet2.rawValue == 'some' && ((str$ifLet3 = $ifLet2[0])||true))) {
 return Optional.none;
 };
 return _injectIntoOptional({0: str$ifLet3, 1: false});
@@ -876,7 +876,7 @@ return _injectIntoOptional({0: str$ifLet3, 1: false});
 };
 let end = _cloneStruct(cPtr$ifLet1);
 while(true){
-if(!(((end.pointee).constructor.infix_33_61({}, end.pointee, 0)))) break
+if(!(((_.arg0 = end.pointee).constructor.infix_33_61({}, _.arg0, 0)))) break
 UnsafePointer.infix_43_61({}, {get: () => end, set: $val => end = $val}, 1);
 };
 const len = UnsafePointer.infix_45({}, end, cPtr$ifLet1);
@@ -893,7 +893,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeRawPointer({}, /*pointer_to_pointer*/unwrapped$ifLet1);
@@ -905,7 +905,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeMutablePointer({}, unwrapped$ifLet1);
@@ -1020,7 +1020,7 @@ if(!((_this._isSingleScalar))) {
 return Optional.none;
 };
 const $ifLet0, value$ifLet1
-if(!((($ifLet0 = _this._firstScalar.properties.numericValue)||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this._firstScalar.properties.numericValue)||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 return _create(Int, 'initExactlyDouble', {}, value$ifLet1)
@@ -1102,7 +1102,7 @@ let _this = this;
 return _create(Range, 'initUncheckedBoundstuple_type', {}, {0: _this.lowerBound, 1: collection.indexAfter({}, _this.upperBound)})
 ----Swift.(file).ClosedRange.contains(_:Bound)
 let _this = this;
-return Bool.infix_38_38({}, (_element).constructor.infix_62_61({}, _element, _this.lowerBound), () => (_element).constructor.infix_60_61({}, _element, _this.upperBound))
+return Bool.infix_38_38({}, (_.arg0 = _element).constructor.infix_62_61({}, _.arg0, _this.lowerBound), () => (_.arg1 = _element).constructor.infix_60_61({}, _.arg1, _this.upperBound))
 ----Swift.(file).ClosedRange.Iterator
 
 ----Swift.(file).ClosedRange.Index.==infix(_:ClosedRange<Bound>.Index,_:ClosedRange<Bound>.Index)
@@ -1161,7 +1161,7 @@ let _this = this;
 const $match = i
 if((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
 const x = $match[0]
-return ((_this.upperBound).constructor.infix_61_61({}, x, _this.upperBound) ? ClosedRange.Index.pastEnd : ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))));
+return ((_.arg0 = _this.upperBound).constructor.infix_61_61({}, x, _.arg0) ? ClosedRange.Index.pastEnd : ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))));
 }
 else if((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
 preconditionFailureFileLine({}, () => "Incrementing past end index", '?3', '?3');
@@ -1171,11 +1171,11 @@ let _this = this;
 const $match = i
 if((($match.rawValue == ClosedRange.Index.inRange().rawValue))) {
 const x = $match[0]
-preconditionFileLine({}, () => (_this.lowerBound).constructor.infix_62({}, x, _this.lowerBound), () => "Incrementing past start index", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = _this.lowerBound).constructor.infix_62({}, x, _.arg0), () => "Incrementing past start index", '?3', '?3');
 return ClosedRange.Index.inRange({}, x.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, -1)));
 }
 else if((($match.rawValue == ClosedRange.Index.pastEnd.rawValue))) {
-preconditionFileLine({}, () => (_this.upperBound).constructor.infix_62_61({}, _this.upperBound, _this.lowerBound), () => "Incrementing past start index", '?3', '?3');
+preconditionFileLine({}, () => (_.arg1 = _this.upperBound).constructor.infix_62_61({}, _.arg1, _this.lowerBound), () => "Incrementing past start index", '?3', '?3');
 return ClosedRange.Index.inRange({}, _this.upperBound);
 }
 ----Swift.(file).ClosedRange.index(_:ClosedRange<Bound>.Index,offsetBy:Int)
@@ -1186,10 +1186,10 @@ const x = $match[0]
 const d = x.distanceTo({}, _this.upperBound);
 if((Int.infix_60_61({}, distance, d))) {
 const newPosition = x.advancedBy({}, numericCast({T: Int, U: Int}, distance));
-preconditionFileLine({}, () => (_this.lowerBound).constructor.infix_62_61({}, newPosition, _this.lowerBound), () => "Advancing past start index", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = _this.lowerBound).constructor.infix_62_61({}, newPosition, _.arg0), () => "Advancing past start index", '?3', '?3');
 return ClosedRange.Index.inRange({}, newPosition);
 };
-if((((d).constructor.infix_45({}, d, _create(Int, 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, (d).constructor.infix_45({}, d, _create(Int, 'initIntegerLiteral', {}, -1)), distance))) {
+if(((_.arg1 = (_.arg2 = d).constructor.infix_45({}, _.arg2, _create(Int, 'initIntegerLiteral', {}, -1))).constructor.infix_61_61({}, _.arg1, distance))) {
 return ClosedRange.Index.pastEnd;
 };
 preconditionFailureFileLine({}, () => "Advancing past end index", '?3', '?3');
@@ -1213,11 +1213,11 @@ return numericCast({T: Int, U: Int}, left.distanceTo({}, right));
 }
 else if((($match[0].rawValue == ClosedRange.Index.inRange().rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
 const left = $match[0][0]
-return numericCast({T: Int, U: Int}, (_create(Int, 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _create(Int, 'initIntegerLiteral', {}, 1), left.distanceTo({}, _this.upperBound)));
+return numericCast({T: Int, U: Int}, (_.arg0 = _create(Int, 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, _.arg0, left.distanceTo({}, _this.upperBound)));
 }
 else if((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.inRange().rawValue))) {
 const right = $match[1][0]
-return numericCast({T: Int, U: Int}, (_this.upperBound.distanceTo({}, right)).constructor.infix_45({}, _this.upperBound.distanceTo({}, right), _create(Int, 'initIntegerLiteral', {}, 1)));
+return numericCast({T: Int, U: Int}, (_.arg1 = _this.upperBound.distanceTo({}, right)).constructor.infix_45({}, _.arg1, _create(Int, 'initIntegerLiteral', {}, 1)));
 }
 else if((($match[0].rawValue == ClosedRange.Index.pastEnd.rawValue && $match[1].rawValue == ClosedRange.Index.pastEnd.rawValue))) {
 return 0;
@@ -1237,11 +1237,11 @@ let _this = this;
 return _create(Slice, 'initBaseBoundsRange', {}, _this, bounds)
 ----Swift.(file).Comparable....infix(_:Self,_:Self)
 let _this = this;
-preconditionFileLine({}, () => (minimum).constructor.infix_60_61({}, minimum, maximum), () => "Can't form Range with upperBound < lowerBound", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = minimum).constructor.infix_60_61({}, _.arg0, maximum), () => "Can't form Range with upperBound < lowerBound", '?3', '?3');
 return _create(ClosedRange, 'initUncheckedBoundstuple_type', {}, {0: minimum, 1: maximum})
 ----Swift.(file).ClosedRange.==infix(_:ClosedRange<Bound>,_:ClosedRange<Bound>)
 let _this = this;
-return Bool.infix_38_38({}, (lhs.lowerBound).constructor.infix_61_61({}, lhs.lowerBound, rhs.lowerBound), () => (lhs.upperBound).constructor.infix_61_61({}, lhs.upperBound, rhs.upperBound))
+return Bool.infix_38_38({}, (_.arg0 = lhs.lowerBound).constructor.infix_61_61({}, _.arg0, rhs.lowerBound), () => (_.arg1 = lhs.upperBound).constructor.infix_61_61({}, _.arg1, rhs.upperBound))
 ----Swift.(file).ClosedRange.hash(into:Hasher)
 let _this = this;
 let hasher = hasher$inout.get()
@@ -1261,8 +1261,8 @@ let _this = this;
 return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([["lowerBound", _this.lowerBound], ["upperBound", _this.upperBound]]), nil/*!default_value*/, .generated/*!default_value*/)
 ----Swift.(file).ClosedRange.clamped(to:ClosedRange<Bound>)
 let _this = this;
-const lower = ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.lowerBound) ? limits.lowerBound : ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
-const upper = ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.upperBound) ? limits.upperBound : ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.upperBound) ? limits.lowerBound : _this.upperBound));
+const lower = ((_.arg0 = limits.lowerBound).constructor.infix_62({}, _.arg0, _this.lowerBound) ? limits.lowerBound : ((_.arg1 = limits.upperBound).constructor.infix_60({}, _.arg1, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
+const upper = ((_.arg2 = limits.upperBound).constructor.infix_60({}, _.arg2, _this.upperBound) ? limits.upperBound : ((_.arg3 = limits.lowerBound).constructor.infix_62({}, _.arg3, _this.upperBound) ? limits.lowerBound : _this.upperBound));
 return _create(ClosedRange, 'initUncheckedBoundstuple_type', {}, {0: lower, 1: upper})
 ----Swift.(file).ClosedRange.init(_:Range<Bound>)
 let _this = this;
@@ -1282,7 +1282,7 @@ return other.overlaps({}, _this)
 
 ----Swift.(file).IndexingIterator.next()
 let _this = this;
-if(((_this._position).constructor.infix_61_61({}, _this._position, _this._elements.endIndex))) {
+if(((_.arg0 = _this._position).constructor.infix_61_61({}, _.arg0, _this._elements.endIndex))) {
 return Optional.none;
 };
 const _element = _this._elements.subscript$get({}, _this._position);
@@ -1313,7 +1313,7 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex$ifLet1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit))||true) && $ifLet0.rawValue === 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
 i = advancedIndex$ifLet1;
 return true;
 };
@@ -1323,11 +1323,11 @@ i$inout.set(i)
 return $result
 ----Swift.(file).Collection.distance(from:Self.Index,to:Self.Index)
 let _this = this;
-preconditionFileLine({}, () => (start).constructor.infix_60_61({}, start, end), () => "Only BidirectionalCollections can have end come before start", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = start).constructor.infix_60_61({}, _.arg0, end), () => "Only BidirectionalCollections can have end come before start", '?3', '?3');
 let start_dupl = start;
 let count = 0;
 while(true){
-if(!(((start_dupl).constructor.infix_33_61({}, start_dupl, end)))) break
+if(!(((_.arg1 = start_dupl).constructor.infix_33_61({}, _.arg1, end)))) break
 count = Int.infix_43({}, count, 1);
 _this.formIndexAfter({}, {get: () => start_dupl, set: $val => start_dupl = $val});
 };
@@ -1360,15 +1360,15 @@ if(!((Bool.prefix_33({}, _this.isEmpty)))) {
 return Optional.none;
 };
 const _element = _this.first[0];
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _this.indexAfter({}, _this.startIndex), _this.endIndex))));
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
 return _injectIntoOptional(_element)
 ----Swift.(file).Collection.isEmpty
 let _this = this;
-return (_this.startIndex).constructor.infix_61_61({}, _this.startIndex, _this.endIndex)
+return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex)
 ----Swift.(file).Collection.first
 let _this = this;
 const start = _this.startIndex;
-if(((start).constructor.infix_33_61({}, start, _this.endIndex))) {
+if(((_.arg0 = start).constructor.infix_33_61({}, _.arg0, _this.endIndex))) {
 return _injectIntoOptional(_this.subscript$get({}, start));
 }
 else {
@@ -1392,7 +1392,7 @@ let i = _this.startIndex;
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, n).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 result.append({$setThis: $val => result = $val}, transform({}, _this.subscript$get({}, i)));
 _this.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -1402,46 +1402,46 @@ return _create(Array, 'initBuffer', {}, result)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Can't drop a negative number of elements from a collection", '?3', '?3');
 const start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, k, _this.endIndex), () => _this.endIndex);
-return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex))
+return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))
 ----Swift.(file).Collection.dropLast(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Can't drop a negative number of elements from a collection", '?3', '?3');
 const amount = /*dot_syntax_base_ignored*/max({}, 0, Int.infix_45({}, _this.count, k));
 const end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, amount, _this.endIndex), () => _this.endIndex);
-return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end))
 ----Swift.(file).Collection.drop(while:(Self.Element) throws -> Bool)
 let _this = this;
 let start = _this.startIndex;
 while(true){
-if(!((Bool.infix_38_38({}, (start).constructor.infix_33_61({}, start, _this.endIndex), () => predicate({}, _this.subscript$get({}, start)))))) break
+if(!((Bool.infix_38_38({}, (_.arg0 = start).constructor.infix_33_61({}, _.arg0, _this.endIndex), () => predicate({}, _this.subscript$get({}, start)))))) break
 _this.formIndexAfter({}, {get: () => start, set: $val => start = $val});
 };
-return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex))
+return _this.subscriptRange$get({}, (_.arg1 = start).constructor.infix_46_46_60({}, _.arg1, _this.endIndex))
 ----Swift.(file).Collection.prefix(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, maxLength, 0), () => "Can't take a prefix of negative length from a collection", '?3', '?3');
 const end = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, maxLength, _this.endIndex), () => _this.endIndex);
-return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end))
 ----Swift.(file).Collection.prefix(while:(Self.Element) throws -> Bool)
 let _this = this;
 let end = _this.startIndex;
 while(true){
-if(!((Bool.infix_38_38({}, (end).constructor.infix_33_61({}, end, _this.endIndex), () => predicate({}, _this.subscript$get({}, end)))))) break
+if(!((Bool.infix_38_38({}, (_.arg0 = end).constructor.infix_33_61({}, _.arg0, _this.endIndex), () => predicate({}, _this.subscript$get({}, end)))))) break
 _this.formIndexAfter({}, {get: () => end, set: $val => end = $val});
 };
-return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+return _this.subscriptRange$get({}, (_.arg1 = _this.startIndex).constructor.infix_46_46_60({}, _.arg1, end))
 ----Swift.(file).Collection.suffix(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, maxLength, 0), () => "Can't take a suffix of negative length from a collection", '?3', '?3');
 const amount = /*dot_syntax_base_ignored*/max({}, 0, Int.infix_45({}, _this.count, maxLength));
 const start = infix_63_63({}, _this.indexOffsetByLimitedBy({}, _this.startIndex, amount, _this.endIndex), () => _this.endIndex);
-return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex))
+return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))
 ----Swift.(file).Collection.prefix(upTo:Self.Index)
 let _this = this;
-return _this.subscriptRange$get({}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+return _this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end))
 ----Swift.(file).Collection.suffix(from:Self.Index)
 let _this = this;
-return _this.subscriptRange$get({}, (start).constructor.infix_46_46_60({}, start, _this.endIndex))
+return _this.subscriptRange$get({}, (_.arg0 = start).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))
 ----Swift.(file).Collection.prefix(through:Self.Index)
 let _this = this;
 return _this.prefixUpTo({}, _this.indexAfter({}, position))
@@ -1451,10 +1451,10 @@ preconditionFileLine({}, () => Int.infix_62_61({}, maxSplits, 0), () => "Must ta
 let result = _create(Array, 'initArrayLiteralArray', {}, []);
 let subSequenceStart = _this.startIndex;
 function appendSubsequenceEnd($info, end){
-if((Bool.infix_38_38({}, (subSequenceStart).constructor.infix_61_61({}, subSequenceStart, end), () => omittingEmptySubsequences))) {
+if((Bool.infix_38_38({}, (_.arg0 = subSequenceStart).constructor.infix_61_61({}, _.arg0, end), () => omittingEmptySubsequences))) {
 return false;
 };
-result.append({$setThis: $val => result = $val}, _this.subscriptRange$get({}, (subSequenceStart).constructor.infix_46_46_60({}, subSequenceStart, end)));
+result.append({$setThis: $val => result = $val}, _this.subscriptRange$get({}, (_.arg1 = subSequenceStart).constructor.infix_46_46_60({}, _.arg1, end)));
 return true;
 }
 if((Bool.infix_124_124({}, Int.infix_61_61({}, maxSplits, 0), () => _this.isEmpty))) {
@@ -1464,7 +1464,7 @@ return result;
 let subSequenceEnd = subSequenceStart;
 const cachedEndIndex = _this.endIndex;
 while(true){
-if(!(((subSequenceEnd).constructor.infix_33_61({}, subSequenceEnd, cachedEndIndex)))) break
+if(!(((_.arg2 = subSequenceEnd).constructor.infix_33_61({}, _.arg2, cachedEndIndex)))) break
 if((isSeparator({}, _this.subscript$get({}, subSequenceEnd)))) {
 const didAppend = appendSubsequenceEnd({}, subSequenceEnd);
 _this.formIndexAfter({}, {get: () => subSequenceEnd, set: $val => subSequenceEnd = $val});
@@ -1476,18 +1476,18 @@ continue;
 };
 _this.formIndexAfter({}, {get: () => subSequenceEnd, set: $val => subSequenceEnd = $val});
 };
-if((Bool.infix_124_124({}, (subSequenceStart).constructor.infix_33_61({}, subSequenceStart, cachedEndIndex), () => Bool.prefix_33({}, omittingEmptySubsequences)))) {
-result.append({$setThis: $val => result = $val}, _this.subscriptRange$get({}, (subSequenceStart).constructor.infix_46_46_60({}, subSequenceStart, cachedEndIndex)));
+if((Bool.infix_124_124({}, (_.arg3 = subSequenceStart).constructor.infix_33_61({}, _.arg3, cachedEndIndex), () => Bool.prefix_33({}, omittingEmptySubsequences)))) {
+result.append({$setThis: $val => result = $val}, _this.subscriptRange$get({}, (_.arg4 = subSequenceStart).constructor.infix_46_46_60({}, _.arg4, cachedEndIndex)));
 };
 return result
 ----Swift.(file).Collection.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)
 let _this = this;
-return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (($info, $0) => ($0).constructor.infix_61_61({}, $0, separator)))
+return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, separator)))
 ----Swift.(file).Collection.removeFirst()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove items from an empty collection", '?3', '?3');
 const _element = _this.first[0];
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _this.indexAfter({}, _this.startIndex), _this.endIndex))));
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
 return _element
 ----Swift.(file).Collection.removeFirst(_:Int)
 let _this = this;
@@ -1496,20 +1496,20 @@ return ;
 };
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Number of elements to remove should be non-negative", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_62_61({}, _this.count, k), () => "Can't remove more items from a collection than it contains", '?3', '?3');
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _this.indexOffsetBy({}, _this.startIndex, k), _this.endIndex))))
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))))
 ----Swift.(file).BidirectionalCollection.last
 let _this = this;
 return (_this.isEmpty ? Optional.none : _injectIntoOptional(_this.subscript$get({}, _this.indexBefore({}, _this.endIndex))))
 ----Swift.(file).Collection.firstIndex(of:Self.Element)
 let _this = this;
 const $ifLet0, result$ifLet1
-if((($ifLet0 = _this._customIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
 return result$ifLet1;
 };
 let i = _this.startIndex;
 while(true){
-if(!(((i).constructor.infix_33_61({}, i, _this.endIndex)))) break
-if(((_this.subscript$get({}, i)).constructor.infix_61_61({}, _this.subscript$get({}, i), _element))) {
+if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex)))) break
+if(((_.arg1 = _this.subscript$get({}, i)).constructor.infix_61_61({}, _.arg1, _element))) {
 return _injectIntoOptional(i);
 };
 _this.formIndexAfter({}, {get: () => i, set: $val => i = $val});
@@ -1519,7 +1519,7 @@ return Optional.none
 let _this = this;
 let i = _this.startIndex;
 while(true){
-if(!(((i).constructor.infix_33_61({}, i, _this.endIndex)))) break
+if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex)))) break
 if((predicate({}, _this.subscript$get({}, i)))) {
 return _injectIntoOptional(i);
 };
@@ -1533,7 +1533,7 @@ return _this.lastIndexWhere({}, predicate).mapSwift({}, (($info, $0) => _this.su
 let _this = this;
 let i = _this.endIndex;
 while(true){
-if(!(((i).constructor.infix_33_61({}, i, _this.startIndex)))) break
+if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.startIndex)))) break
 _this.formIndexBefore({}, {get: () => i, set: $val => i = $val});
 if((predicate({}, _this.subscript$get({}, i)))) {
 return _injectIntoOptional(i);
@@ -1543,10 +1543,10 @@ return Optional.none
 ----Swift.(file).BidirectionalCollection.lastIndex(of:Self.Element)
 let _this = this;
 const $ifLet0, result$ifLet1
-if((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
 return result$ifLet1;
 };
-return _this.lastIndexWhere({}, (($info, $0) => ($0).constructor.infix_61_61({}, $0, _element)))
+return _this.lastIndexWhere({}, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, _element)))
 ----Swift.(file).MutableCollection.partition(by:(Self.Element) throws -> Bool)
 let _this = this;
 return _this._halfStablePartitionIsSuffixElement({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, belongsInSecondPartition)
@@ -1556,7 +1556,7 @@ const maybeOffset = _this._withUnsafeMutableBufferPointerIfSupported({$setThis: 
 const unsafeBufferPivot = bufferPointer._partitionImplBy({$setThis: $val => bufferPointer = $val}, belongsInSecondPartition);
 return Int.infix_45({}, unsafeBufferPivot, bufferPointer.startIndex); }));
 const $ifLet0, offset$ifLet1
-if((($ifLet0 = maybeOffset)||true) && $ifLet0.rawValue === 'some' && ((offset$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = maybeOffset)||true) && $ifLet0.rawValue == 'some' && ((offset$ifLet1 = $ifLet0[0])||true)) {
 return _this.indexOffsetBy({}, _this.startIndex, offset$ifLet1);
 }
 else {
@@ -1662,19 +1662,19 @@ let _this = this;
 return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([["element", _this._element]]), nil/*!default_value*/, .generated/*!default_value*/)
 ----Swift.(file).Comparable.>infix(_:Self,_:Self)
 let _this = this;
-return (rhs).constructor.infix_60({}, rhs, lhs)
+return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs)
 ----Swift.(file).Comparable.<=infix(_:Self,_:Self)
 let _this = this;
-return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs))
+return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs))
 ----Swift.(file).Comparable.>=infix(_:Self,_:Self)
 let _this = this;
-return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs))
+return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs))
 ----Swift.(file).==infix(_:T,_:T)
-return (lhs.rawValue).constructor.infix_61_61({}, lhs.rawValue, rhs.rawValue)
+return (_.arg0 = lhs.rawValue).constructor.infix_61_61({}, _.arg0, rhs.rawValue)
 ----Swift.(file).!=infix(_:T,_:T)
-return (lhs.rawValue).constructor.infix_33_61({}, lhs.rawValue, rhs.rawValue)
+return (_.arg0 = lhs.rawValue).constructor.infix_33_61({}, _.arg0, rhs.rawValue)
 ----Swift.(file).!=infix(_:T,_:T)
-return (lhs.rawValue).constructor.infix_33_61({}, lhs.rawValue, rhs.rawValue)
+return (_.arg0 = lhs.rawValue).constructor.infix_33_61({}, _.arg0, rhs.rawValue)
 ----Swift.(file).RawRepresentable.hashValue
 let _this = this;
 return _this.rawValue.hashValue
@@ -1756,7 +1756,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -1794,7 +1794,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element$ifLet1);
 }
 };})()
@@ -1861,7 +1861,7 @@ return
 ----Swift.(file).Dictionary.init(uniqueKeysWithValues:S)
 let _this = this;
 const $ifLet0, d$ifLet1
-if((($ifLet0 = _injectIntoOptional(keysAndValues))||true) && $ifLet0.rawValue === 'some' && ((d$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(keysAndValues))||true) && $ifLet0.rawValue == 'some' && ((d$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(d$ifLet1)));
 return ;
 };
@@ -1958,7 +1958,7 @@ let result = _create(_NativeDictionary, 'initCapacityInt', {}, _this.count);
 let $generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, cocoaKey$ifLet1, cocoaValue$ifLet2;
-if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue === 'some' && ((cocoaKey$ifLet1 = $ifLet0[0][0])||true) && ((cocoaValue$ifLet2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue == 'some' && ((cocoaKey$ifLet1 = $ifLet0[0][0])||true) && ((cocoaValue$ifLet2 = $ifLet0[0][1])||true))) break
 const key = _forceBridgeFromObjectiveC({}, cocoaKey$ifLet1, ((function(){throw '!unclarifiedGeneric:Key'})()));
 const value = _forceBridgeFromObjectiveC({}, cocoaValue$ifLet2, ((function(){throw '!unclarifiedGeneric:Value'})()));
 result.insertNewKeyValue({$setThis: $val => result = $val}, key, transform({}, value));
@@ -2014,7 +2014,7 @@ return _injectIntoOptional(key)
 ----Swift.(file)._CocoaDictionary.Iterator.next()
 let _this = this;
 const $ifLet0, key$ifLet1
-if(!((($ifLet0 = _this.nextKey({}, ))||true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.nextKey({}, ))||true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 const value = _cloneStruct(/*dynamic_member_ref_expr*/_this.base.object[0]({}, key$ifLet1)[0]);
@@ -2105,7 +2105,7 @@ return _this._base.next({$setThis: $val => _this._base = $val}, );
 };
 while(true){
 const $ifLet0, nextElement$ifLet1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((nextElement$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextElement$ifLet1 = $ifLet0[0])||true))) break
 if((Bool.prefix_33({}, _this._predicate({}, nextElement$ifLet1)))) {
 _this._predicateHasFailed = true;
 return _injectIntoOptional(nextElement$ifLet1);
@@ -2126,7 +2126,7 @@ const LazyDropWhileCollection = LazyDropWhileSequenc
 let _this = this;
 let index = _this._base.startIndex;
 while(true){
-if(!((Bool.infix_38_38({}, (index).constructor.infix_33_61({}, index, _this._base.endIndex), () => _this._predicate({}, _this._base.subscript$get({}, index)))))) break
+if(!((Bool.infix_38_38({}, (_.arg0 = index).constructor.infix_33_61({}, _.arg0, _this._base.endIndex), () => _this._predicate({}, _this._base.subscript$get({}, index)))))) break
 _this._base.formIndexAfter({}, {get: () => index, set: $val => index = $val});
 };
 return index
@@ -2135,14 +2135,14 @@ let _this = this;
 return _this._base.endIndex
 ----Swift.(file).LazyDropWhileCollection.index(after:LazyDropWhileSequence<Base>.Index)
 let _this = this;
-preconditionFileLine({}, () => (i).constructor.infix_60({}, i, _this._base.endIndex), () => "Can't advance past endIndex", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = i).constructor.infix_60({}, _.arg0, _this._base.endIndex), () => "Can't advance past endIndex", '?3', '?3');
 return _this._base.indexAfter({}, i)
 ----Swift.(file).LazyDropWhileCollection.subscript(_:LazyDropWhileSequence<Base>.Index)
 let _this = this;
 return _this._base.subscript$get({}, position)
 ----Swift.(file).LazyDropWhileCollection.index(before:LazyDropWhileSequence<Base>.Index)
 let _this = this;
-preconditionFileLine({}, () => (i).constructor.infix_62({}, i, _this.startIndex), () => "Can't move before startIndex", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = i).constructor.infix_62({}, _.arg0, _this.startIndex), () => "Can't move before startIndex", '?3', '?3');
 return _this._base.indexBefore({}, i)
 ----Swift.(file).dump(_:T,to:TargetStream,name:String?,indent:Int,maxDepth:Int,maxItems:Int)
 let target = target$inout.get()
@@ -2228,7 +2228,7 @@ let _this = this;
 return true
 ----Swift.(file).Equatable.!=infix(_:Self,_:Self)
 let _this = this;
-return Bool.prefix_33({}, (lhs).constructor.infix_61_61({}, lhs, rhs))
+return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_61_61({}, _.arg0, rhs))
 ----Swift.(file).===infix(_:AnyObject?,_:AnyObject?)
 const $match = {0: lhs, 1: rhs}
 if((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
@@ -2251,7 +2251,7 @@ return _this._base
 let _this = this;
 while(true){
 const $ifLet0, n$ifLet1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((n$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((n$ifLet1 = $ifLet0[0])||true))) break
 if((_this._predicate({}, n$ifLet1))) {
 return _injectIntoOptional(n$ifLet1);
 };
@@ -2271,7 +2271,7 @@ return 0
 let _this = this;
 let index = _this._base.startIndex;
 while(true){
-if(!((Bool.infix_38_38({}, (index).constructor.infix_33_61({}, index, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, index))))))) break
+if(!((Bool.infix_38_38({}, (_.arg0 = index).constructor.infix_33_61({}, _.arg0, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, index))))))) break
 _this._base.formIndexAfter({}, {get: () => index, set: $val => index = $val});
 };
 return index
@@ -2288,10 +2288,10 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 let index = i;
-preconditionFileLine({}, () => (index).constructor.infix_33_61({}, index, _this._base.endIndex), () => "Can't advance past endIndex", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = index).constructor.infix_33_61({}, _.arg0, _this._base.endIndex), () => "Can't advance past endIndex", '?3', '?3');
 do {
 _this._base.formIndexAfter({}, {get: () => index, set: $val => index = $val});
-} while(Bool.infix_38_38({}, (index).constructor.infix_33_61({}, index, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, index)))));
+} while(Bool.infix_38_38({}, (_.arg1 = index).constructor.infix_33_61({}, _.arg1, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, index)))));
 i = index;})()
 i$inout.set(i)
 return $result
@@ -2301,7 +2301,7 @@ _.discardAssignment = _this._base.distanceFromTo({}, start, end);
 let _start;
 const _end;
 const step;
-if(((start).constructor.infix_62({}, start, end))) {
+if(((_.arg0 = start).constructor.infix_62({}, _.arg0, end))) {
 _start = end;
 _end = start;
 step = -1;
@@ -2327,7 +2327,7 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
@@ -2348,8 +2348,8 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
-if(((i_dupl).constructor.infix_61_61({}, i_dupl, limit))) {
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(((_.arg0 = i_dupl).constructor.infix_61_61({}, _.arg0, limit))) {
 return Optional.none;
 };
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
@@ -2361,7 +2361,7 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex$ifLet1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue === 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
 i = advancedIndex$ifLet1;
 return true;
 };
@@ -2385,7 +2385,7 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 let index = i;
-preconditionFileLine({}, () => (index).constructor.infix_33_61({}, index, _this._base.startIndex), () => "Can't retreat before startIndex", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = index).constructor.infix_33_61({}, _.arg0, _this._base.startIndex), () => "Can't retreat before startIndex", '?3', '?3');
 do {
 _this._base.formIndexBefore({}, {get: () => index, set: $val => index = $val});
 } while(Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, index))));
@@ -2438,16 +2438,16 @@ let _this = this;
 return _create(FlattenSequence, 'init_base', {}, _this._elements).lazy
 ----Swift.(file).FlattenSequence.Index.==infix(_:FlattenCollection<Base>.Index,_:FlattenCollection<Base>.Index)
 let _this = this;
-return Bool.infix_38_38({}, (lhs._outer).constructor.infix_61_61({}, lhs._outer, rhs._outer), () => Optional.infix_61_61({}, lhs._inner, rhs._inner))
+return Bool.infix_38_38({}, (_.arg0 = lhs._outer).constructor.infix_61_61({}, _.arg0, rhs._outer), () => Optional.infix_61_61({}, lhs._inner, rhs._inner))
 ----Swift.(file).FlattenSequence.Index.<infix(_:FlattenCollection<Base>.Index,_:FlattenCollection<Base>.Index)
 let _this = this;
-if(((lhs._outer).constructor.infix_33_61({}, lhs._outer, rhs._outer))) {
-return (lhs._outer).constructor.infix_60({}, lhs._outer, rhs._outer);
+if(((_.arg0 = lhs._outer).constructor.infix_33_61({}, _.arg0, rhs._outer))) {
+return (_.arg1 = lhs._outer).constructor.infix_60({}, _.arg1, rhs._outer);
 };
 const $ifLet0, lhsInner$ifLet1
 const $ifLet2, rhsInner$ifLet3
-if((($ifLet0 = lhs._inner)||true) && $ifLet0.rawValue === 'some' && ((lhsInner$ifLet1 = $ifLet0[0])||true) && (($ifLet2 = rhs._inner)||true) && $ifLet2.rawValue === 'some' && ((rhsInner$ifLet3 = $ifLet2[0])||true)) {
-return (lhsInner$ifLet1).constructor.infix_60({}, lhsInner$ifLet1, rhsInner$ifLet3);
+if((($ifLet0 = lhs._inner)||true) && $ifLet0.rawValue == 'some' && ((lhsInner$ifLet1 = $ifLet0[0])||true) && (($ifLet2 = rhs._inner)||true) && $ifLet2.rawValue == 'some' && ((rhsInner$ifLet3 = $ifLet2[0])||true)) {
+return (_.arg2 = lhsInner$ifLet1).constructor.infix_60({}, _.arg2, rhsInner$ifLet3);
 };
 preconditionFileLine({}, () => Bool.infix_38_38({}, Optional.wrappedEqualsOptionalNilComparisonType({}, lhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => Optional.wrappedEqualsOptionalNilComparisonType({}, rhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))), () => String()/*!default_value*/, '?3', '?3');
 return false
@@ -2464,7 +2464,7 @@ let _this = this;
 const end = _this._base.endIndex;
 let outer = _this._base.startIndex;
 while(true){
-if(!(((outer).constructor.infix_33_61({}, outer, end)))) break
+if(!(((_.arg0 = outer).constructor.infix_33_61({}, _.arg0, end)))) break
 const innerCollection = _this._base.subscript$get({}, outer);
 if((Bool.prefix_33({}, innerCollection.isEmpty))) {
 return _create(FlattenSequence.Index, 'initOptional', {}, outer, _injectIntoOptional(innerCollection.startIndex));
@@ -2519,7 +2519,7 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
@@ -2540,7 +2540,7 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 if((FlattenSequence.Index.infix_61_61({}, i_dupl, limit))) {
 return Optional.none;
 };
@@ -2553,7 +2553,7 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex$ifLet1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue === 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex$ifLet1 = $ifLet0[0])||true)) {
 i = _cloneStruct(advancedIndex$ifLet1);
 return true;
 };
@@ -2651,36 +2651,36 @@ return addend
 ----Swift.(file).FloatingPoint.minimum(_:Self,_:Self)
 let _this = this;
 if((Bool.infix_124_124({}, x.isSignalingNaN, () => y.isSignalingNaN))) {
-return (x).constructor.infix_43({}, x, y);
+return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
 };
-if((Bool.infix_124_124({}, (x).constructor.infix_60_61({}, x, y), () => y._isNaN))) {
+if((Bool.infix_124_124({}, (_.arg1 = x).constructor.infix_60_61({}, _.arg1, y), () => y._isNaN))) {
 return x;
 };
 return y
 ----Swift.(file).FloatingPoint.maximum(_:Self,_:Self)
 let _this = this;
 if((Bool.infix_124_124({}, x.isSignalingNaN, () => y.isSignalingNaN))) {
-return (x).constructor.infix_43({}, x, y);
+return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
 };
-if((Bool.infix_124_124({}, (x).constructor.infix_62({}, x, y), () => y._isNaN))) {
+if((Bool.infix_124_124({}, (_.arg1 = x).constructor.infix_62({}, _.arg1, y), () => y._isNaN))) {
 return x;
 };
 return y
 ----Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self)
 let _this = this;
 if((Bool.infix_124_124({}, x.isSignalingNaN, () => y.isSignalingNaN))) {
-return (x).constructor.infix_43({}, x, y);
+return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
 };
-if((Bool.infix_124_124({}, (x.magnitude).constructor.infix_60_61({}, x.magnitude, y.magnitude), () => y._isNaN))) {
+if((Bool.infix_124_124({}, (_.arg1 = x.magnitude).constructor.infix_60_61({}, _.arg1, y.magnitude), () => y._isNaN))) {
 return x;
 };
 return y
 ----Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self)
 let _this = this;
 if((Bool.infix_124_124({}, x.isSignalingNaN, () => y.isSignalingNaN))) {
-return (x).constructor.infix_43({}, x, y);
+return (_.arg0 = x).constructor.infix_43({}, _.arg0, y);
 };
-if((Bool.infix_124_124({}, (x.magnitude).constructor.infix_62({}, x.magnitude, y.magnitude), () => y._isNaN))) {
+if((Bool.infix_124_124({}, (_.arg1 = x.magnitude).constructor.infix_62({}, _.arg1, y.magnitude), () => y._isNaN))) {
 return x;
 };
 return y
@@ -2725,25 +2725,25 @@ $info.$setThis(_this = _cloneStruct(value_));
 return
 ----Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)
 let _this = this;
-if(((_this).constructor.infix_60({}, _this, other))) {
+if(((_.arg0 = _this).constructor.infix_60({}, _.arg0, other))) {
 return true;
 };
-if(((other).constructor.infix_62({}, other, _this))) {
+if(((_.arg1 = other).constructor.infix_62({}, _.arg1, _this))) {
 return false;
 };
 if((FloatingPointSign.infix_33_61({}, _this.sign, other.sign))) {
 return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
 };
-if(((_this.exponentBitPattern).constructor.infix_62({}, _this.exponentBitPattern, other.exponentBitPattern))) {
+if(((_.arg2 = _this.exponentBitPattern).constructor.infix_62({}, _.arg2, other.exponentBitPattern))) {
 return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
 };
-if(((_this.exponentBitPattern).constructor.infix_60({}, _this.exponentBitPattern, other.exponentBitPattern))) {
+if(((_.arg3 = _this.exponentBitPattern).constructor.infix_60({}, _.arg3, other.exponentBitPattern))) {
 return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.plus);
 };
-if(((_this.significandBitPattern).constructor.infix_62({}, _this.significandBitPattern, other.significandBitPattern))) {
+if(((_.arg4 = _this.significandBitPattern).constructor.infix_62({}, _.arg4, other.significandBitPattern))) {
 return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.minus);
 };
-if(((_this.significandBitPattern).constructor.infix_60({}, _this.significandBitPattern, other.significandBitPattern))) {
+if(((_.arg5 = _this.significandBitPattern).constructor.infix_60({}, _.arg5, other.significandBitPattern))) {
 return FloatingPointSign.infix_61_61({}, _this.sign, FloatingPointSign.plus);
 };
 return true
@@ -2764,7 +2764,7 @@ let _this = this;
 let generator = generator$inout.get()
 const $result = (() => {
 preconditionFileLine({}, () => Bool.prefix_33({}, range.isEmpty), () => "Can't get random value with an empty range", '?3', '?3');
-const delta = (range.upperBound).constructor.infix_45({}, range.upperBound, range.lowerBound);
+const delta = (_.arg0 = range.upperBound).constructor.infix_45({}, _.arg0, range.lowerBound);
 preconditionFileLine({}, () => delta._isFinite, () => "There is no uniform distribution on an infinite range", '?3', '?3');
 const rand;
 if((Int.infix_61_61({}, ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).bitWidth, Int.infix_43({}, _this.significandBitCount, 1)))) {
@@ -2772,12 +2772,12 @@ rand = generator.next({$setThis: $val => generator = $val}, );
 }
 else {
 const significandCount = Int.infix_43({}, _this.significandBitCount, 1);
-const maxSignificand = (_create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1), significandCount);
-rand = (generator.next({$setThis: $val => generator = $val}, )).constructor.infix_38({}, generator.next({$setThis: $val => generator = $val}, ), (maxSignificand).constructor.infix_45({}, maxSignificand, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)));
+const maxSignificand = (_.arg1 = _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _.arg1, significandCount);
+rand = (_.arg2 = generator.next({$setThis: $val => generator = $val}, )).constructor.infix_38({}, _.arg2, (_.arg3 = maxSignificand).constructor.infix_45({}, _.arg3, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)));
 };
-const unitRandom = (_create(_this, 'init', {}, rand)).constructor.infix_42({}, _create(_this, 'init', {}, rand), (_this.ulpOfOne).constructor.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
-const randFloat = ((delta).constructor.infix_42({}, delta, unitRandom)).constructor.infix_43({}, (delta).constructor.infix_42({}, delta, unitRandom), range.lowerBound);
-if(((randFloat).constructor.infix_61_61({}, randFloat, range.upperBound))) {
+const unitRandom = (_.arg4 = _create(_this, 'init', {}, rand)).constructor.infix_42({}, _.arg4, (_.arg5 = _this.ulpOfOne).constructor.infix_47({}, _.arg5, _create(_this, 'initIntegerLiteral', {}, 2)));
+const randFloat = (_.arg6 = (_.arg7 = delta).constructor.infix_42({}, _.arg7, unitRandom)).constructor.infix_43({}, _.arg6, range.lowerBound);
+if(((_.arg8 = randFloat).constructor.infix_61_61({}, _.arg8, range.upperBound))) {
 return _this.randomInUsing({}, range, {get: () => generator, set: $val => generator = $val});
 };
 return randFloat;})()
@@ -2792,26 +2792,26 @@ let _this = this;
 let generator = generator$inout.get()
 const $result = (() => {
 preconditionFileLine({}, () => Bool.prefix_33({}, range.isEmpty), () => "Can't get random value with an empty range", '?3', '?3');
-const delta = (range.upperBound).constructor.infix_45({}, range.upperBound, range.lowerBound);
+const delta = (_.arg0 = range.upperBound).constructor.infix_45({}, _.arg0, range.lowerBound);
 preconditionFileLine({}, () => delta._isFinite, () => "There is no uniform distribution on an infinite range", '?3', '?3');
 const rand;
 if((Int.infix_61_61({}, ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).bitWidth, Int.infix_43({}, _this.significandBitCount, 1)))) {
 rand = generator.next({$setThis: $val => generator = $val}, );
 const tmp = UInt8.infix_38({}, generator.next({$setThis: $val => generator = $val}, ), 1);
-if((Bool.infix_38_38({}, (rand).constructor.infix_61_61({}, rand, ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).max), () => UInt8.infix_61_61({}, tmp, 1)))) {
+if((Bool.infix_38_38({}, (_.arg1 = rand).constructor.infix_61_61({}, _.arg1, ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).max), () => UInt8.infix_61_61({}, tmp, 1)))) {
 return range.upperBound;
 };
 }
 else {
 const significandCount = Int.infix_43({}, _this.significandBitCount, 1);
-const maxSignificand = (_create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1), significandCount);
-rand = generator.nextUpperBound({$setThis: $val => generator = $val}, (maxSignificand).constructor.infix_43({}, maxSignificand, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)));
-if(((rand).constructor.infix_61_61({}, rand, maxSignificand))) {
+const maxSignificand = (_.arg2 = _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_60_60({}, _.arg2, significandCount);
+rand = generator.nextUpperBound({$setThis: $val => generator = $val}, (_.arg3 = maxSignificand).constructor.infix_43({}, _.arg3, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)));
+if(((_.arg4 = rand).constructor.infix_61_61({}, _.arg4, maxSignificand))) {
 return range.upperBound;
 };
 };
-const unitRandom = (_create(_this, 'init', {}, rand)).constructor.infix_42({}, _create(_this, 'init', {}, rand), (_this.ulpOfOne).constructor.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
-const randFloat = ((delta).constructor.infix_42({}, delta, unitRandom)).constructor.infix_43({}, (delta).constructor.infix_42({}, delta, unitRandom), range.lowerBound);
+const unitRandom = (_.arg5 = _create(_this, 'init', {}, rand)).constructor.infix_42({}, _.arg5, (_.arg6 = _this.ulpOfOne).constructor.infix_47({}, _.arg6, _create(_this, 'initIntegerLiteral', {}, 2)));
+const randFloat = (_.arg7 = (_.arg8 = delta).constructor.infix_42({}, _.arg8, unitRandom)).constructor.infix_43({}, _.arg7, range.lowerBound);
 return randFloat;})()
 generator$inout.set(generator)
 return $result
@@ -2875,7 +2875,7 @@ preconditionFileLine({}, () => _this.isOccupied({}, bucket), () => "Attempting t
 let _this = this;
 const word = bucket.word;
 const $ifLet0, bit$ifLet1
-if((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum)||true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum)||true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
 };
 return _this._firstOccupiedBucketFromWord({}, Int.infix_43({}, word, 1))
@@ -2895,7 +2895,7 @@ return _create(_HashTable.Bucket, 'initOffsetInt', {}, Int.infix_38({}, Int.infi
 let _this = this;
 let word = bucket.word;
 const $ifLet0, bit$ifLet1
-if((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum)||true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum)||true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
 };
 let wrap = false;
@@ -2908,7 +2908,7 @@ wrap = true;
 word = Int.infix_45({}, _this.wordCount, 1);
 };
 const $ifLet2, bit$ifLet3
-if((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum)||true) && $ifLet2.rawValue === 'some' && ((bit$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum)||true) && $ifLet2.rawValue == 'some' && ((bit$ifLet3 = $ifLet2[0])||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet3);
 };
 }
@@ -2916,7 +2916,7 @@ return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet3);
 let _this = this;
 let word = bucket.word;
 const $ifLet0, bit$ifLet1
-if((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum)||true) && $ifLet0.rawValue === 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum)||true) && $ifLet0.rawValue == 'some' && ((bit$ifLet1 = $ifLet0[0])||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet1);
 };
 let wrap = false;
@@ -2929,7 +2929,7 @@ wrap = true;
 word = 0;
 };
 const $ifLet2, bit$ifLet3
-if((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum)||true) && $ifLet2.rawValue === 'some' && ((bit$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum)||true) && $ifLet2.rawValue == 'some' && ((bit$ifLet3 = $ifLet2[0])||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit$ifLet3);
 };
 }
@@ -2975,7 +2975,7 @@ candidate = _cloneStruct(_this.bucketWrappedAfter({}, candidate));
 };
 _this.words.subscript$get({}, hole.word).uncheckedRemove({$setThis: $val => _this.words.subscript$set({$setThis: $val => _this.words = _cloneStruct($val)}, $val, hole.word)}, hole.bit)
 ----Swift.(file).Hashable_isEqual_indirect(_:UnsafePointer<T>,_:UnsafePointer<T>)
-return (lhs.pointee).constructor.infix_61_61({}, lhs.pointee, rhs.pointee)
+return (_.arg0 = lhs.pointee).constructor.infix_61_61({}, _.arg0, rhs.pointee)
 ----Swift.(file).Hashable_hashValue_indirect(_:UnsafePointer<T>)
 return value.pointee.hashValue
 ----Swift.(file).Hasher.init()
@@ -3065,58 +3065,58 @@ return _create(_this, 'initIntegerLiteral', {}, 0);
 static get zero() { return this.zero$get()
 ----Swift.(file).SignedNumeric.negate()
 let _this = this;
-$info.$setThis(_this = _cloneStruct((_create(_this.constructor, 'initIntegerLiteral', {}, 0)).constructor.infix_45({}, _create(_this.constructor, 'initIntegerLiteral', {}, 0), _this)))
+$info.$setThis(_this = _cloneStruct((_.arg0 = _create(_this.constructor, 'initIntegerLiteral', {}, 0)).constructor.infix_45({}, _.arg0, _this)))
 ----Swift.(file).abs(_:T)
 if((infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:T'})())), _injectIntoOptional(((function(){throw '!unclarifiedGeneric:T.Magnitude'})()))))) {
 return unsafeBitCastTo({}, x.magnitude, ((function(){throw '!unclarifiedGeneric:T'})()));
 };
-return ((x).constructor.infix_60({}, x, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)) ? ((function(){throw '!unclarifiedGeneric:T'})()).prefix_45({}, x) : x)
+return ((_.arg0 = x).constructor.infix_60({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)) ? ((function(){throw '!unclarifiedGeneric:T'})()).prefix_45({}, x) : x)
 ----Swift.(file).BinaryInteger.init()
 let _this = this;
 $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initIntegerLiteral', {}, 0)));
 return
 ----Swift.(file).BinaryInteger.signum()
 let _this = this;
-return _this.constructor.infix_45({}, ((_this).constructor.infix_62({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)))
+return _this.constructor.infix_45({}, ((_.arg0 = _this).constructor.infix_62({}, _.arg0, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)), ((_.arg1 = _this).constructor.infix_60({}, _.arg1, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) ? _create(_this.constructor, 'initIntegerLiteral', {}, 1) : _create(_this.constructor, 'initIntegerLiteral', {}, 0)))
 ----Swift.(file).BinaryInteger.quotientAndRemainder(dividingBy:Self)
 let _this = this;
-return {0: (_this).constructor.infix_47({}, _this, rhs), 1: (_this).constructor.infix_37({}, _this, rhs)}
+return {0: (_.arg0 = _this).constructor.infix_47({}, _.arg0, rhs), 1: (_.arg1 = _this).constructor.infix_37({}, _.arg1, rhs)}
 ----Swift.(file).BinaryInteger.isMultiple(of:Self)
 let _this = this;
-if(((other).constructor.infix_61_61({}, other, 0))) {
-return (_this).constructor.infix_61_61({}, _this, 0);
+if(((_.arg0 = other).constructor.infix_61_61({}, _.arg0, 0))) {
+return (_.arg1 = _this).constructor.infix_61_61({}, _.arg1, 0);
 };
-return ((_this.magnitude).constructor.infix_37({}, _this.magnitude, other.magnitude)).constructor.infix_61_61({}, (_this.magnitude).constructor.infix_37({}, _this.magnitude, other.magnitude), 0)
+return (_.arg2 = (_.arg3 = _this.magnitude).constructor.infix_37({}, _.arg3, other.magnitude)).constructor.infix_61_61({}, _.arg2, 0)
 ----Swift.(file).BinaryInteger.description
 let _this = this;
 return _this._descriptionRadixUppercase({}, 10, false)
 ----Swift.(file).BinaryInteger.distance(to:Self)
 let _this = this;
 if((Bool.prefix_33({}, _this.constructor.isSigned))) {
-if(((_this).constructor.infix_62({}, _this, other))) {
+if(((_.arg0 = _this).constructor.infix_62({}, _.arg0, other))) {
 const $ifLet0, result$ifLet1
-if((($ifLet0 = _create(Int, 'initExactly', {}, (_this).constructor.infix_45({}, _this, other)))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(Int, 'initExactly', {}, (_.arg1 = _this).constructor.infix_45({}, _.arg1, other)))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
 return Int.prefix_45({}, result$ifLet1);
 };
 }
 else {
 const $ifLet2, result$ifLet3
-if((($ifLet2 = _create(Int, 'initExactly', {}, (other).constructor.infix_45({}, other, _this)))||true) && $ifLet2.rawValue === 'some' && ((result$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _create(Int, 'initExactly', {}, (_.arg2 = other).constructor.infix_45({}, _.arg2, _this)))||true) && $ifLet2.rawValue == 'some' && ((result$ifLet3 = $ifLet2[0])||true)) {
 return result$ifLet3;
 };
 };
 }
 else {
-const isNegative = (_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0));
-if((Bool.infix_61_61({}, isNegative, (other).constructor.infix_60({}, other, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
+const isNegative = (_.arg3 = _this).constructor.infix_60({}, _.arg3, _create(_this.constructor, 'initIntegerLiteral', {}, 0));
+if((Bool.infix_61_61({}, isNegative, (_.arg4 = other).constructor.infix_60({}, _.arg4, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
 const $ifLet4, result$ifLet5
-if((($ifLet4 = _create(Int, 'initExactly', {}, (other).constructor.infix_45({}, other, _this)))||true) && $ifLet4.rawValue === 'some' && ((result$ifLet5 = $ifLet4[0])||true)) {
+if((($ifLet4 = _create(Int, 'initExactly', {}, (_.arg5 = other).constructor.infix_45({}, _.arg5, _this)))||true) && $ifLet4.rawValue == 'some' && ((result$ifLet5 = $ifLet4[0])||true)) {
 return result$ifLet5;
 };
 }
 else {
 const $ifLet6, result$ifLet7
-if((($ifLet6 = _create(Int, 'initExactly', {}, (_this.magnitude).constructor.infix_43({}, _this.magnitude, other.magnitude)))||true) && $ifLet6.rawValue === 'some' && ((result$ifLet7 = $ifLet6[0])||true)) {
+if((($ifLet6 = _create(Int, 'initExactly', {}, (_.arg6 = _this.magnitude).constructor.infix_43({}, _.arg6, other.magnitude)))||true) && $ifLet6.rawValue == 'some' && ((result$ifLet7 = $ifLet6[0])||true)) {
 return (isNegative ? result$ifLet7 : Int.prefix_45({}, result$ifLet7));
 };
 };
@@ -3125,12 +3125,12 @@ preconditionFailureFileLine({}, () => "Distance is not representable in Int", '?
 ----Swift.(file).BinaryInteger.advanced(by:Int)
 let _this = this;
 if((Bool.prefix_33({}, _this.constructor.isSigned))) {
-return (Int.infix_60({}, n, 0) ? (_this).constructor.infix_45({}, _this, _create(_this.constructor, 'initT', {}, Int.prefix_45({}, n))) : (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n)));
+return (Int.infix_60({}, n, 0) ? (_.arg0 = _this).constructor.infix_45({}, _.arg0, _create(_this.constructor, 'initT', {}, Int.prefix_45({}, n))) : (_.arg1 = _this).constructor.infix_43({}, _.arg1, _create(_this.constructor, 'initT', {}, n)));
 };
-if((Bool.infix_61_61({}, (_this).constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0)), Int.infix_60({}, n, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
-return (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n));
+if((Bool.infix_61_61({}, (_.arg2 = _this).constructor.infix_60({}, _.arg2, _create(_this.constructor, 'initIntegerLiteral', {}, 0)), Int.infix_60({}, n, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
+return (_.arg3 = _this).constructor.infix_43({}, _.arg3, _create(_this.constructor, 'initT', {}, n));
 };
-return ((_this.magnitude).constructor.infix_60({}, _this.magnitude, n.magnitude) ? _create(_this.constructor, 'initT', {}, Int.infix_43({}, _create(Int, 'initT', {}, _this), n)) : (_this).constructor.infix_43({}, _this, _create(_this.constructor, 'initT', {}, n)))
+return ((_.arg4 = _this.magnitude).constructor.infix_60({}, _.arg4, n.magnitude) ? _create(_this.constructor, 'initT', {}, Int.infix_43({}, _create(Int, 'initT', {}, _this), n)) : (_.arg5 = _this).constructor.infix_43({}, _.arg5, _create(_this.constructor, 'initT', {}, n)))
 ----Swift.(file).FixedWidthInteger.bitWidth
 let _this = this;
 return _this.constructor.bitWidth
@@ -3153,8 +3153,8 @@ let _this = this;
 let generator = generator$inout.get()
 const $result = (() => {
 preconditionFileLine({}, () => Bool.prefix_33({}, range.isEmpty), () => "Can't get random value with an empty range", '?3', '?3');
-const delta = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
-return _create(_this, 'initTruncatingIfNeeded', {}, (_create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({$setThis: $val => generator = $val}, delta)));})()
+const delta = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, (_.arg0 = range.upperBound).constructor.infix_38_45({}, _.arg0, range.lowerBound));
+return _create(_this, 'initTruncatingIfNeeded', {}, (_.arg1 = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _.arg1, generator.nextUpperBound({$setThis: $val => generator = $val}, delta)));})()
 generator$inout.set(generator)
 return $result
 ----Swift.(file).FixedWidthInteger.random(in:Range<Self>)
@@ -3166,12 +3166,12 @@ let _this = this;
 let generator = generator$inout.get()
 const $result = (() => {
 preconditionFileLine({}, () => Bool.prefix_33({}, range.isEmpty), () => "Can't get random value with an empty range", '?3', '?3');
-let delta = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, (range.upperBound).constructor.infix_38_45({}, range.upperBound, range.lowerBound));
-if(((delta).constructor.infix_61_61({}, delta, ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).max))) {
+let delta = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, (_.arg0 = range.upperBound).constructor.infix_38_45({}, _.arg0, range.lowerBound));
+if(((_.arg1 = delta).constructor.infix_61_61({}, _.arg1, ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).max))) {
 return _create(_this, 'initTruncatingIfNeeded', {}, generator.next({$setThis: $val => generator = $val}, ));
 };
-(_create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, {get: () => delta, set: $val => delta = $val}, _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initIntegerLiteral', {}, 1));
-return _create(_this, 'initTruncatingIfNeeded', {}, (_create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound), generator.nextUpperBound({$setThis: $val => generator = $val}, delta)));})()
+(_.arg2 = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_43_61({}, {get: () => delta, set: $val => delta = $val}, _.arg2);
+return _create(_this, 'initTruncatingIfNeeded', {}, (_.arg3 = _create(((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()), 'initTruncatingIfNeeded', {}, range.lowerBound)).constructor.infix_38_43({}, _.arg3, generator.nextUpperBound({$setThis: $val => generator = $val}, delta)));})()
 generator$inout.set(generator)
 return $result
 ----Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>)
@@ -3181,7 +3181,7 @@ return _this.randomInUsing({}, range, {get: () => g, set: $val => g = $val})
 ----Swift.(file).FixedWidthInteger.init(_:T)
 let _this = this;
 const $ifLet0, value$ifLet1
-if(!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"])||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"])||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
 fatalErrorFileLine({}, () => (("") + (((function(){throw '!unclarifiedGeneric:T'})())) + (" value cannot be converted to ") + (_this.constructor) + (" because it is outside the representable range")), '?3', '?3');
 };
 return _this = _cloneStruct(value$ifLet1);
@@ -3190,18 +3190,18 @@ return
 let _this = this;
 const $tuple = _this.constructor._convertFrom({}, source), temporary = $tuple && $tuple[0], exact = $tuple && $tuple[1];
 const $ifLet0, value$ifLet1
-if(!((exact) && (($ifLet0 = temporary)||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
+if(!((exact) && (($ifLet0 = temporary)||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 return _this = _cloneStruct(value$ifLet1);
 return
 ----Swift.(file).FixedWidthInteger.init(clamping:Other)
 let _this = this;
-if((_slowPath({}, (source).constructor.infix_60({}, source, _this.constructor.min)))) {
+if((_slowPath({}, (_.arg0 = source).constructor.infix_60({}, _.arg0, _this.constructor.min)))) {
 return _this = _cloneStruct(_this.constructor.min);
 }
 else {
-if((_slowPath({}, (source).constructor.infix_62({}, source, _this.constructor.max)))) {
+if((_slowPath({}, (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max)))) {
 return _this = _cloneStruct(_this.constructor.max);
 }
 else {
@@ -3215,7 +3215,7 @@ if((Int.infix_60_61({}, _this.constructor.bitWidth, Int.bitWidth))) {
 return _this = _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, source._lowWord));
 }
 else {
-const neg = (source).constructor.infix_60({}, source, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0));
+const neg = (_.arg0 = source).constructor.infix_60({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0));
 let result = (neg ? _this.constructor.prefix_126({}, _create(_this.constructor, 'initIntegerLiteral', {}, 0)) : _create(_this.constructor, 'initIntegerLiteral', {}, 0));
 let shift = _create(_this.constructor, 'initIntegerLiteral', {}, 0);
 const width = _create(_this.constructor, 'init_truncatingBitsUInt', {}, _this.constructor.bitWidth._lowWord);
@@ -3223,12 +3223,12 @@ const width = _create(_this.constructor, 'init_truncatingBitsUInt', {}, _this.co
 let $word$generator = source.words.makeIterator({}, );
 while(true) {
 const $ifLet0, word$ifLet1;
-if(!((($ifLet0 = $word$generator.next({$setThis: $val => $word$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((word$ifLet1 = $ifLet0[0])||true))) break
-if(!(((shift).constructor.infix_60({}, shift, width)))) {
+if(!((($ifLet0 = $word$generator.next({$setThis: $val => $word$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((word$ifLet1 = $ifLet0[0])||true))) break
+if(!(((_.arg1 = shift).constructor.infix_60({}, _.arg1, width)))) {
 break;
 };
-((_create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1)), shift)).constructor.infix_94_61({}, {get: () => result, set: $val => result = $val}, (_create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1)), shift));
-(_create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord)).constructor.infix_43_61({}, {get: () => shift, set: $val => shift = $val}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord));
+(_.arg2 = (_.arg3 = _create(_this.constructor, 'init_truncatingBitsUInt', {}, (neg ? UInt.prefix_126({}, word$ifLet1) : word$ifLet1))).constructor.infix_38_60_60({}, _.arg3, shift)).constructor.infix_94_61({}, {get: () => result, set: $val => result = $val}, _.arg2);
+(_.arg4 = _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.bitWidth._lowWord)).constructor.infix_43_61({}, {get: () => shift, set: $val => shift = $val}, _.arg4);
 }
 };
 return _this = _cloneStruct(result);
@@ -3245,19 +3245,19 @@ static get isSigned() { return this.isSigned$get()
 ----Swift.(file).UnsignedInteger.init(_:T)
 let _this = this;
 if((((function(){throw '!unclarifiedGeneric:T'})()).isSigned)) {
-preconditionFileLine({}, () => (source).constructor.infix_62_61({}, source, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)), () => "Negative value is not representable", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = source).constructor.infix_62_61({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)), () => "Negative value is not representable", '?3', '?3');
 };
 if((Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth))) {
-preconditionFileLine({}, () => (source).constructor.infix_60_61({}, source, _this.constructor.max), () => "Not enough bits to represent the passed value", '?3', '?3');
+preconditionFileLine({}, () => (_.arg1 = source).constructor.infix_60_61({}, _.arg1, _this.constructor.max), () => "Not enough bits to represent the passed value", '?3', '?3');
 };
 _this.initTruncatingIfNeeded({}, source);
 return
 ----Swift.(file).UnsignedInteger.init(exactly:T)
 let _this = this;
-if((Bool.infix_38_38({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned, () => (source).constructor.infix_60({}, source, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0))))) {
+if((Bool.infix_38_38({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned, () => (_.arg0 = source).constructor.infix_60({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0))))) {
 return (this.$failed = true);
 };
-if((Bool.infix_38_38({}, Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth), () => (source).constructor.infix_62({}, source, _this.constructor.max)))) {
+if((Bool.infix_38_38({}, Int.infix_62_61({}, source.bitWidth, _this.constructor.bitWidth), () => (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max)))) {
 return (this.$failed = true);
 };
 _this.initTruncatingIfNeeded({}, source);
@@ -3280,19 +3280,19 @@ static get isSigned() { return this.isSigned$get()
 ----Swift.(file).SignedInteger.init(_:T)
 let _this = this;
 if((Bool.infix_38_38({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned, () => Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth)))) {
-preconditionFileLine({}, () => (source).constructor.infix_62_61({}, source, _this.constructor.min), () => "Not enough bits to represent a signed value", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = source).constructor.infix_62_61({}, _.arg0, _this.constructor.min), () => "Not enough bits to represent a signed value", '?3', '?3');
 };
 if((Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.prefix_33({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned))))) {
-preconditionFileLine({}, () => (source).constructor.infix_60_61({}, source, _this.constructor.max), () => "Not enough bits to represent the passed value", '?3', '?3');
+preconditionFileLine({}, () => (_.arg1 = source).constructor.infix_60_61({}, _.arg1, _this.constructor.max), () => "Not enough bits to represent the passed value", '?3', '?3');
 };
 _this.initTruncatingIfNeeded({}, source);
 return
 ----Swift.(file).SignedInteger.init(exactly:T)
 let _this = this;
-if((Bool.infix_38_38({}, Bool.infix_38_38({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned, () => Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth)), () => (source).constructor.infix_60({}, source, _this.constructor.min)))) {
+if((Bool.infix_38_38({}, Bool.infix_38_38({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned, () => Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth)), () => (_.arg0 = source).constructor.infix_60({}, _.arg0, _this.constructor.min)))) {
 return (this.$failed = true);
 };
-if((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.prefix_33({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned))), () => (source).constructor.infix_62({}, source, _this.constructor.max)))) {
+if((Bool.infix_38_38({}, Bool.infix_124_124({}, Int.infix_62({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.infix_38_38({}, Int.infix_61_61({}, source.bitWidth, _this.constructor.bitWidth), () => Bool.prefix_33({}, ((function(){throw '!unclarifiedGeneric:T'})()).isSigned))), () => (_.arg1 = source).constructor.infix_62({}, _.arg1, _this.constructor.max)))) {
 return (this.$failed = true);
 };
 _this.initTruncatingIfNeeded({}, source);
@@ -3304,18 +3304,18 @@ return _this.prefix_126({}, _this.min);
 static get max() { return this.max$get()
 ----Swift.(file).SignedInteger.min
 let _this = this;
-return (_this._highBitIndex).constructor.infix_38_60_60({}, _create(_this, 'initIntegerLiteral', {}, -1), _this._highBitIndex);
+return (_.arg0 = _this._highBitIndex).constructor.infix_38_60_60({}, _create(_this, 'initIntegerLiteral', {}, -1), _.arg0);
 }
 static get min() { return this.min$get()
 ----Swift.(file).SignedInteger.isMultiple(of:Self)
 let _this = this;
-if(((other).constructor.infix_61_61({}, other, 0))) {
-return (_this).constructor.infix_61_61({}, _this, 0);
+if(((_.arg0 = other).constructor.infix_61_61({}, _.arg0, 0))) {
+return (_.arg1 = _this).constructor.infix_61_61({}, _.arg1, 0);
 };
-if(((other).constructor.infix_61_61({}, other, -1))) {
+if(((_.arg2 = other).constructor.infix_61_61({}, _.arg2, -1))) {
 return true;
 };
-return ((_this).constructor.infix_37({}, _this, other)).constructor.infix_61_61({}, (_this).constructor.infix_37({}, _this, other), 0)
+return (_.arg3 = (_.arg4 = _this).constructor.infix_37({}, _.arg4, other)).constructor.infix_61_61({}, _.arg3, 0)
 ----Swift.(file).numericCast(_:T)
 return _create($info.U, 'initT', {}, x)
 ----Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self)
@@ -3370,7 +3370,7 @@ if(!((true))) break
 const $match = _this._state
 if((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.start.rawValue))) {
 const $ifLet0, nextSubSequence$ifLet1
-if((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((nextSubSequence$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextSubSequence$ifLet1 = $ifLet0[0])||true)) {
 _this._inner = _injectIntoOptional(nextSubSequence$ifLet1.makeIterator({}, ));
 _this._state = JoinedSequence.Iterator._JoinIteratorState.generatingElements;
 }
@@ -3439,7 +3439,7 @@ if(!((true))) break
 const $tuple = buffer.next({$setThis: $val => buffer = $val}, ), component = $tuple && $tuple[0], type = $tuple && $tuple[1];
 hasher.combine({$setThis: $val => hasher = $val}, component.value);
 const $ifLet0, type$ifLet1
-if((($ifLet0 = type)||true) && $ifLet0.rawValue === 'some' && ((type$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = type)||true) && $ifLet0.rawValue == 'some' && ((type$ifLet1 = $ifLet0[0])||true)) {
 hasher.combine({$setThis: $val => hasher = $val}, unsafeBitCastTo({}, type$ifLet1, Int));
 }
 else {
@@ -3659,7 +3659,7 @@ preconditionFileLine({}, () => isKnownUniquelyReferenced({}, {get: () => buffer,
 const newSizeInBytes = Int.infix_43({}, MemoryLayout.stride, Int.infix_42({}, newMinimumCapacity, MemoryLayout.stride));
 return withUnsafeMutablePointerTo({}, {get: () => buffer, set: $val => buffer = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UnsafeMutableRawPointer, 1, (($info, $0) => { 
 const $ifLet0, reallocdObject$ifLet1
-if((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes))||true) && $ifLet0.rawValue === 'some' && ((reallocdObject$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes))||true) && $ifLet0.rawValue == 'some' && ((reallocdObject$ifLet1 = $ifLet0[0])||true)) {
 $0.pointee = _cloneStruct(reallocdObject$ifLet1);
 return true;
 }
@@ -3916,7 +3916,7 @@ let ptr = _cloneStruct(_this);
 let $element$generator = source.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 ptr.initializeMemoryAsRepeatingCount({}, ((function(){throw '!unclarifiedGeneric:C.Element'})()), _element$ifLet1, 1);
 UnsafeMutableRawPointer.infix_43_61({}, {get: () => ptr, set: $val => ptr = $val}, MemoryLayout.stride);
 }
@@ -3946,16 +3946,16 @@ return _this.firstIndexOf({}, _element)
 ----Swift.(file)._PlaygroundQuickLook.init(reflecting:Any)
 let _this = this;
 const $ifLet0, customized$ifLet1
-if((($ifLet0 = _injectIntoOptional(subject))||true) && $ifLet0.rawValue === 'some' && ((customized$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(subject))||true) && $ifLet0.rawValue == 'some' && ((customized$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(customized$ifLet1.customPlaygroundQuickLook));
 }
 else {const $ifLet2, customized$ifLet3
-if((($ifLet2 = _injectIntoOptional(subject))||true) && $ifLet2.rawValue === 'some' && ((customized$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _injectIntoOptional(subject))||true) && $ifLet2.rawValue == 'some' && ((customized$ifLet3 = $ifLet2[0])||true)) {
 $info.$setThis(_this = _cloneStruct(customized$ifLet3._defaultCustomPlaygroundQuickLook));
 }
 else {
 const $ifLet4, q$ifLet5
-if((($ifLet4 = Mirror.quickLookObject({}, subject))||true) && $ifLet4.rawValue === 'some' && ((q$ifLet5 = $ifLet4[0])||true)) {
+if((($ifLet4 = Mirror.quickLookObject({}, subject))||true) && $ifLet4.rawValue == 'some' && ((q$ifLet5 = $ifLet4[0])||true)) {
 $info.$setThis(_this = _cloneStruct(q$ifLet5));
 }
 else {
@@ -3977,7 +3977,7 @@ return _create(Slice, 'initBaseBoundsRange', {}, _this, bounds);
 
 ----Swift.(file).MutableCollection.swapAt(_:Self.Index,_:Self.Index)
 let _this = this;
-if(!(((i).constructor.infix_33_61({}, i, j)))) {
+if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, j)))) {
 return ;
 };
 const tmp = _this.subscript$get({}, i);
@@ -4041,7 +4041,7 @@ const hashTable = _cloneStruct(_this.hashTable);
 let bucket = _cloneStruct(hashTable.idealBucketForHashValue({}, hashValue));
 while(true){
 if(!((hashTable._isOccupied({}, bucket)))) break
-if(((_this.uncheckedKeyAt({}, bucket)).constructor.infix_61_61({}, _this.uncheckedKeyAt({}, bucket), key))) {
+if(((_.arg0 = _this.uncheckedKeyAt({}, bucket)).constructor.infix_61_61({}, _.arg0, key))) {
 return {0: bucket, 1: true};
 };
 bucket = _cloneStruct(hashTable.bucketWrappedAfter({}, bucket));
@@ -4057,7 +4057,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const key = UnsafeMutablePointer.infix_43({}, _this._keys, bucket$ifLet1.offset).move({}, );
 const value = UnsafeMutablePointer.infix_43({}, _this._values, bucket$ifLet1.offset).move({}, );
 result._unsafeInsertNewKeyValue({}, key, value);
@@ -4077,7 +4077,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 result._unsafeInsertNewKeyValue({}, _this.uncheckedKeyAt({}, bucket$ifLet1), _this.uncheckedValueAt({}, bucket$ifLet1));
 }
 };
@@ -4094,7 +4094,7 @@ result._storage._count = _this.count;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const key = _this.uncheckedKeyAt({}, bucket$ifLet1);
 const value = _this.uncheckedValueAt({}, bucket$ifLet1);
 result.uncheckedInitializeAtToKeyValue({}, bucket$ifLet1, key, value);
@@ -4204,7 +4204,7 @@ if((found)) {
 let value = _injectIntoOptional(UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}, ));
 let $defer = () => {
 const $ifLet0, value$ifLet1
-if((($ifLet0 = value)||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = value)||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true)) {
 UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).initializeTo({}, value$ifLet1);
 }
 else {
@@ -4220,7 +4220,7 @@ else {
 let value = Optional.none;
 let $defer = () => {
 const $ifLet2, value$ifLet3
-if((($ifLet2 = value)||true) && $ifLet2.rawValue === 'some' && ((value$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = value)||true) && $ifLet2.rawValue == 'some' && ((value$ifLet3 = $ifLet2[0])||true)) {
 _this._insertAtKeyValue({}, bucket, key, value$ifLet3);
 };
 }
@@ -4281,9 +4281,9 @@ return false;
 let $generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, key$ifLet1, value$ifLet2;
-if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({$setThis: $val => $generator = $val}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0][0])||true) && ((value$ifLet2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({$setThis: $val => $generator = $val}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0][0])||true) && ((value$ifLet2 = $ifLet0[0][1])||true))) break
 const $tuple = other.find({}, key$ifLet1), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
-if(!((found) && ((other.uncheckedValueAt({}, bucket)).constructor.infix_61_61({}, other.uncheckedValueAt({}, bucket), value$ifLet2)))) {
+if(!((found) && ((_.arg0 = other.uncheckedValueAt({}, bucket)).constructor.infix_61_61({}, _.arg0, value$ifLet2)))) {
 return false;
 };
 }
@@ -4303,11 +4303,11 @@ try {;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const key = _this.uncheckedKeyAt({}, bucket$ifLet1);
 const value = _this.uncheckedValueAt({}, bucket$ifLet1);
 const $ifLet2, cocoaValue$ifLet3
-if(!((($ifLet2 = other.lookup({}, _bridgeAnythingToObjectiveC({}, key)))||true) && $ifLet2.rawValue === 'some' && ((cocoaValue$ifLet3 = $ifLet2[0])||true) && ((value).constructor.infix_61_61({}, value, _forceBridgeFromObjectiveC({}, cocoaValue$ifLet3, ((function(){throw '!unclarifiedGeneric:Value'})())))))) {
+if(!((($ifLet2 = other.lookup({}, _bridgeAnythingToObjectiveC({}, key)))||true) && $ifLet2.rawValue == 'some' && ((cocoaValue$ifLet3 = $ifLet2[0])||true) && ((_.arg0 = value).constructor.infix_61_61({}, _.arg0, _forceBridgeFromObjectiveC({}, cocoaValue$ifLet3, ((function(){throw '!unclarifiedGeneric:Value'})())))))) {
 return false;
 };
 }
@@ -4342,7 +4342,7 @@ return ;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 UnsafeMutablePointer.infix_43({}, _this._keys, bucket$ifLet1.offset).deinitializeCount({}, 1);
 UnsafeMutablePointer.infix_43({}, _this._values, bucket$ifLet1.offset).deinitializeCount({}, 1);
 }
@@ -4358,7 +4358,7 @@ const result = _create(_NativeDictionary, 'init_RawDictionaryStorage', {}, /*der
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const key = _this.uncheckedKeyAt({}, bucket$ifLet1);
 const value = _this.uncheckedValueAt({}, bucket$ifLet1);
 result._insertAtKeyValue({}, bucket$ifLet1, key, transform({}, value));
@@ -4372,7 +4372,7 @@ let isUnique_dupl = isUnique;
 let $generator = keysAndValues.makeIterator({}, );
 while(true) {
 const $ifLet0, key$ifLet1, value$ifLet2;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((key$ifLet1 = $ifLet0[0][0])||true) && ((value$ifLet2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((key$ifLet1 = $ifLet0[0][0])||true) && ((value$ifLet2 = $ifLet0[0][1])||true))) break
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key$ifLet1, isUnique_dupl), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 isUnique_dupl = true;
 if((found)) {
@@ -4398,7 +4398,7 @@ _this.init({}, );
 let $value$generator = values.makeIterator({}, );
 while(true) {
 const $ifLet0, value$ifLet1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value$ifLet1 = $ifLet0[0])||true))) break
 const key = keyForValue({}, value$ifLet1);
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key, true), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if((found)) {
@@ -4418,21 +4418,21 @@ return _create(_NativeDictionary.Iterator, 'init_NativeDictionary', {}, _this)
 ----Swift.(file)._NativeDictionary.Iterator.nextKey()
 let _this = this;
 const $ifLet0, index$ifLet1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 return _injectIntoOptional(_this.base.uncheckedKeyAt({}, index$ifLet1))
 ----Swift.(file)._NativeDictionary.Iterator.nextValue()
 let _this = this;
 const $ifLet0, index$ifLet1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 return _injectIntoOptional(_this.base.uncheckedValueAt({}, index$ifLet1))
 ----Swift.(file)._NativeDictionary.Iterator.next()
 let _this = this;
 const $ifLet0, index$ifLet1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 const key = _this.base.uncheckedKeyAt({}, index$ifLet1);
@@ -4473,7 +4473,7 @@ const hashTable = _cloneStruct(_this.hashTable);
 let bucket = _cloneStruct(hashTable.idealBucketForHashValue({}, hashValue));
 while(true){
 if(!((hashTable._isOccupied({}, bucket)))) break
-if(((_this.uncheckedElementAt({}, bucket)).constructor.infix_61_61({}, _this.uncheckedElementAt({}, bucket), _element))) {
+if(((_.arg0 = _this.uncheckedElementAt({}, bucket)).constructor.infix_61_61({}, _.arg0, _element))) {
 return {0: bucket, 1: true};
 };
 bucket = _cloneStruct(hashTable.bucketWrappedAfter({}, bucket));
@@ -4488,7 +4488,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const _element = UnsafeMutablePointer.infix_43({}, _this._elements, bucket$ifLet1.offset).move({}, );
 result._unsafeInsertNew({}, _element);
 }
@@ -4506,7 +4506,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 result._unsafeInsertNew({}, _this.uncheckedElementAt({}, bucket$ifLet1));
 }
 };
@@ -4523,7 +4523,7 @@ result._storage._count = _this.count;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const _element = _this.uncheckedElementAt({}, bucket$ifLet1);
 result.uncheckedInitializeAtTo({}, bucket$ifLet1, _element);
 }
@@ -4646,7 +4646,7 @@ return false;
 let $member$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, member$ifLet1;
-if(!((($ifLet0 = $member$generator.next({$setThis: $val => $member$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((member$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $member$generator.next({$setThis: $val => $member$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((member$ifLet1 = $ifLet0[0])||true))) break
 if(!((other.find({}, member$ifLet1)["1"]))) {
 return false;
 };
@@ -4667,7 +4667,7 @@ try {;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 const key = _this.uncheckedElementAt({}, bucket$ifLet1);
 const bridgedKey = _cloneStruct(_bridgeAnythingToObjectiveC({}, key));
 if(!((other.contains({}, bridgedKey)))) {
@@ -4699,7 +4699,7 @@ return ;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket$ifLet1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket$ifLet1 = $ifLet0[0])||true))) break
 UnsafeMutablePointer.infix_43({}, _this._elements, bucket$ifLet1.offset).deinitializeCount({}, 1);
 }
 };
@@ -4712,7 +4712,7 @@ return _create(_NativeSet.Iterator, 'init_NativeSet', {}, _this)
 ----Swift.(file)._NativeSet.Iterator.next()
 let _this = this;
 const $ifLet0, index$ifLet1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 return _injectIntoOptional(_this.base.uncheckedElementAt({}, index$ifLet1))
@@ -4774,7 +4774,7 @@ const remaining = _this.gutsSlice.withNFCCodeUnitsIterator({}, (($info, $0) => {
 let nfc = _cloneStruct($0);
 while(true){
 const $ifLet0, cu$ifLet1
-if(!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({$setThis: $val => nfc = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
+if(!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({$setThis: $val => nfc = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
 _this.outputBuffer.subscript$set({$setThis: $val => _this.outputBuffer = $val}, cu$ifLet1, _this.outputBufferCount);
 Int.infix_38_43_61({}, {get: () => _this.outputBufferCount, set: $val => _this.outputBufferCount = $val}, 1);
 };
@@ -4789,9 +4789,9 @@ let mutableOther = _cloneStruct(other);
 let $cu$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, cu$ifLet1;
-if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
 const $ifLet2, otherCU$ifLet3
-if(!((($ifLet2 = mutableOther.next({$setThis: $val => mutableOther = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((otherCU$ifLet3 = $ifLet2[0])||true))) {
+if(!((($ifLet2 = mutableOther.next({$setThis: $val => mutableOther = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((otherCU$ifLet3 = $ifLet2[0])||true))) {
 return false;
 };
 if((UInt8.infix_61_61({}, cu$ifLet1, otherCU$ifLet3))) {
@@ -4832,7 +4832,7 @@ return _this.isSupersetOf({}, member)
 ----Swift.(file).OptionSet.insert(_:Self.Element)
 let _this = this;
 const oldMember = _this.intersection({}, newMember);
-const shouldInsert = (oldMember).constructor.infix_33_61({}, oldMember, newMember);
+const shouldInsert = (_.arg0 = oldMember).constructor.infix_33_61({}, _.arg0, newMember);
 const result = {0: shouldInsert, 1: (shouldInsert ? newMember : oldMember)};
 if((shouldInsert)) {
 _this.formUnion({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, newMember);
@@ -4854,13 +4854,13 @@ _this.initRawValue({}, _create(((function(){throw '!unclarifiedGeneric:Self.RawV
 return
 ----Swift.(file).OptionSet.formUnion(_:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_124({}, _this.rawValue, other.rawValue))))
+$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_124({}, _.arg0, other.rawValue))))
 ----Swift.(file).OptionSet.formIntersection(_:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_38({}, _this.rawValue, other.rawValue))))
+$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_38({}, _.arg0, other.rawValue))))
 ----Swift.(file).OptionSet.formSymmetricDifference(_:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_this.rawValue).constructor.infix_94({}, _this.rawValue, other.rawValue))))
+$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initRawValue', {}, (_.arg0 = _this.rawValue).constructor.infix_94({}, _.arg0, other.rawValue))))
 ----Swift.(file).Optional.init(_:Wrapped)
 let _this = this;
 $info.$setThis(_this = _cloneStruct(Optional.some({}, some)));
@@ -4892,7 +4892,7 @@ return
 ----Swift.(file).Optional.unsafelyUnwrapped
 let _this = this;
 const $ifLet0, x$ifLet1
-if((($ifLet0 = _this)||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this)||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
 return x$ifLet1;
 };
 preconditionFailureFileLine({}, () => "unsafelyUnwrapped of nil optional", '?3', '?3')
@@ -4925,7 +4925,7 @@ const $match = {0: lhs, 1: rhs}
 if((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
 const l = $match[0][0]
 const r = $match[1][0]
-return (l).constructor.infix_61_61({}, l, r);
+return (_.arg0 = l).constructor.infix_61_61({}, _.arg0, r);
 }
 else if((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
 return true;
@@ -5042,7 +5042,7 @@ return
 ----Swift.(file)._Pointer.init(_:OpaquePointer?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initOpaquePointer({}, unwrapped$ifLet1);
@@ -5054,7 +5054,7 @@ return
 ----Swift.(file)._Pointer.init(_:Self?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initRawPointer({}, unwrapped$ifLet1._rawValue);
@@ -5066,7 +5066,7 @@ return
 ----Swift.(file)._Pointer.init(_:UnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeMutablePointer({}, unwrapped$ifLet1);
@@ -5118,11 +5118,11 @@ let _this = this
 ----Swift.(file).Void
 const Void = '?tuple_type
 ----Swift.(file).~=infix(_:T,_:T)
-return (a).constructor.infix_61_61({}, a, b)
+return (_.arg0 = a).constructor.infix_61_61({}, _.arg0, b)
 ----Swift.(file).LazyPrefixWhileSequence.Iterator.next()
 let _this = this;
 const $ifLet0, nextElement$ifLet1
-if((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((nextElement$ifLet1 = $ifLet0[0])||true)) {
+if((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextElement$ifLet1 = $ifLet0[0])||true)) {
 if((_this._predicate({}, nextElement$ifLet1))) {
 return _injectIntoOptional(nextElement$ifLet1);
 }
@@ -5189,7 +5189,7 @@ return _create(LazyPrefixWhileSequence.Index, 'init', {}, _this._base.startIndex
 ----Swift.(file).LazyPrefixWhileCollection.endIndex
 let _this = this;
 const $ifLet0, first$ifLet1
-if((($ifLet0 = _this._base.first)||true) && $ifLet0.rawValue === 'some' && ((first$ifLet1 = $ifLet0[0])||true) && (_this._predicate({}, first$ifLet1))) {
+if((($ifLet0 = _this._base.first)||true) && $ifLet0.rawValue == 'some' && ((first$ifLet1 = $ifLet0[0])||true) && (_this._predicate({}, first$ifLet1))) {
 return _create(LazyPrefixWhileSequence.Index, 'initEndOf', {}, _this._base);
 };
 return _this.startIndex
@@ -5197,11 +5197,11 @@ return _this.startIndex
 let _this = this;
 preconditionFileLine({}, () => LazyPrefixWhileSequence.Index.infix_33_61({}, i, _this.endIndex), () => "Can't advance past endIndex", '?3', '?3');
 const $ifLet0, i$ifLet1
-if(!((($ifLet0 = i._value)||true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = i._value)||true) && $ifLet0.rawValue == LazyPrefixWhileSequence._IndexRepresentation.index().rawValue && ((i$ifLet1 = $ifLet0[0])||true))) {
 preconditionFailureFileLine({}, () => "Invalid index passed to index(after:)", '?3', '?3');
 };
 const nextIndex = _this._base.indexAfter({}, i$ifLet1);
-if(!((Bool.infix_38_38({}, (nextIndex).constructor.infix_33_61({}, nextIndex, _this._base.endIndex), () => _this._predicate({}, _this._base.subscript$get({}, nextIndex)))))) {
+if(!((Bool.infix_38_38({}, (_.arg0 = nextIndex).constructor.infix_33_61({}, _.arg0, _this._base.endIndex), () => _this._predicate({}, _this._base.subscript$get({}, nextIndex)))))) {
 return _create(LazyPrefixWhileSequence.Index, 'initEndOf', {}, _this._base);
 };
 return _create(LazyPrefixWhileSequence.Index, 'init', {}, nextIndex)
@@ -5220,7 +5220,7 @@ let _this = this;
 const $match = i._value
 if((($match.rawValue == LazyPrefixWhileSequence._IndexRepresentation.index().rawValue))) {
 const i = $match[0]
-preconditionFileLine({}, () => (_this._base.startIndex).constructor.infix_33_61({}, i, _this._base.startIndex), () => "Can't move before startIndex", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = _this._base.startIndex).constructor.infix_33_61({}, i, _.arg0), () => "Can't move before startIndex", '?3', '?3');
 return _create(LazyPrefixWhileSequence.Index, 'init', {}, _this._base.indexBefore({}, i));
 }
 else if((($match.rawValue == LazyPrefixWhileSequence._IndexRepresentation.pastEnd.rawValue))) {
@@ -5228,7 +5228,7 @@ let result = _this._base.startIndex;
 while(true){
 if(!((true))) break
 const next = _this._base.indexAfter({}, result);
-if((Bool.infix_124_124({}, (next).constructor.infix_61_61({}, next, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, next)))))) {
+if((Bool.infix_124_124({}, (_.arg1 = next).constructor.infix_61_61({}, _.arg1, _this._base.endIndex), () => Bool.prefix_33({}, _this._predicate({}, _this._base.subscript$get({}, next)))))) {
 break;
 };
 result = next;
@@ -5237,7 +5237,7 @@ return _create(LazyPrefixWhileSequence.Index, 'init', {}, result);
 }
 ----Swift.(file).print(_:[Any],separator:String,terminator:String)
 const $ifLet0, hook$ifLet1
-if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue === 'some' && ((hook$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue == 'some' && ((hook$ifLet1 = $ifLet0[0])||true)) {
 let output = _create(_TeeStream, 'initLeftRight', {}, "", _create(_Stdout, 'init', {}, ));
 _printSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output, set: $val => output = $val});
 hook$ifLet1({}, output.left);
@@ -5248,7 +5248,7 @@ _printSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output
 }
 ----Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)
 const $ifLet0, hook$ifLet1
-if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue === 'some' && ((hook$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue == 'some' && ((hook$ifLet1 = $ifLet0[0])||true)) {
 let output = _create(_TeeStream, 'initLeftRight', {}, "", _create(_Stdout, 'init', {}, ));
 _debugPrintSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output, set: $val => output = $val});
 hook$ifLet1({}, output.left);
@@ -5274,14 +5274,14 @@ let _this = this;
 return ((function(){throw '!unclarifiedGeneric:T'})())._randomUsing({}, {get: () => _this, set: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).RandomNumberGenerator.next(upperBound:T)
 let _this = this;
-preconditionFileLine({}, () => (upperBound).constructor.infix_33_61({}, upperBound, 0), () => "upperBound cannot be zero.", '?3', '?3');
-const tmp = (_create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, (((function(){throw '!unclarifiedGeneric:T'})()).max).constructor.infix_37({}, ((function(){throw '!unclarifiedGeneric:T'})()).max, upperBound), _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 1));
-const range = ((tmp).constructor.infix_61_61({}, tmp, upperBound) ? _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0) : tmp);
+preconditionFileLine({}, () => (_.arg0 = upperBound).constructor.infix_33_61({}, _.arg0, 0), () => "upperBound cannot be zero.", '?3', '?3');
+const tmp = (_.arg1 = _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 1)).constructor.infix_43({}, (_.arg2 = ((function(){throw '!unclarifiedGeneric:T'})()).max).constructor.infix_37({}, _.arg2, upperBound), _.arg1);
+const range = ((_.arg3 = tmp).constructor.infix_61_61({}, _.arg3, upperBound) ? _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0) : tmp);
 let random = _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0);
 do {
 random = _this.next({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, );
-} while((random).constructor.infix_60({}, random, range));
-return (random).constructor.infix_37({}, random, upperBound)
+} while((_.arg4 = random).constructor.infix_60({}, _.arg4, range));
+return (_.arg5 = random).constructor.infix_37({}, _.arg5, upperBound)
 ----Swift.(file).SystemRandomNumberGenerator.init()
 let _this = this;
 return
@@ -5294,16 +5294,16 @@ return Optional.none;
 return _injectIntoOptional(_this.indexOffsetBy({}, i, distance))
 ----Swift.(file).RandomAccessCollection.indices
 let _this = this;
-return (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex)
+return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex)
 ----Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)
 let _this = this;
 return pattern.contains({}, value)
 ----Swift.(file).Range.contains(_:Bound)
 let _this = this;
-return Bool.infix_38_38({}, (_this.lowerBound).constructor.infix_60_61({}, _this.lowerBound, _element), () => (_element).constructor.infix_60({}, _element, _this.upperBound))
+return Bool.infix_38_38({}, (_.arg0 = _this.lowerBound).constructor.infix_60_61({}, _.arg0, _element), () => (_.arg1 = _element).constructor.infix_60({}, _.arg1, _this.upperBound))
 ----Swift.(file).Range.isEmpty
 let _this = this;
-return (_this.lowerBound).constructor.infix_61_61({}, _this.lowerBound, _this.upperBound)
+return (_.arg0 = _this.lowerBound).constructor.infix_61_61({}, _.arg0, _this.upperBound)
 ----Swift.(file).Range.Iterator
 
 ----Swift.(file).Range.Indices
@@ -5321,14 +5321,14 @@ let _this = this;
 return i.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, 1))
 ----Swift.(file).Range.index(before:Range<Bound>.Index)
 let _this = this;
-preconditionFileLine({}, () => (i).constructor.infix_62({}, i, _this.lowerBound), () => String()/*!default_value*/, '?3', '?3');
-preconditionFileLine({}, () => (i).constructor.infix_60_61({}, i, _this.upperBound), () => String()/*!default_value*/, '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = i).constructor.infix_62({}, _.arg0, _this.lowerBound), () => String()/*!default_value*/, '?3', '?3');
+preconditionFileLine({}, () => (_.arg1 = i).constructor.infix_60_61({}, _.arg1, _this.upperBound), () => String()/*!default_value*/, '?3', '?3');
 return i.advancedBy({}, _create(Int, 'initIntegerLiteral', {}, -1))
 ----Swift.(file).Range.index(_:Range<Bound>.Index,offsetBy:Int)
 let _this = this;
 const r = i.advancedBy({}, numericCast({T: Int, U: ((function(){throw '!unclarifiedGeneric:Bound.Stride'})())}, n));
-preconditionFileLine({}, () => (r).constructor.infix_62_61({}, r, _this.lowerBound), () => String()/*!default_value*/, '?3', '?3');
-preconditionFileLine({}, () => (r).constructor.infix_60_61({}, r, _this.upperBound), () => String()/*!default_value*/, '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = r).constructor.infix_62_61({}, _.arg0, _this.lowerBound), () => String()/*!default_value*/, '?3', '?3');
+preconditionFileLine({}, () => (_.arg1 = r).constructor.infix_60_61({}, _.arg1, _this.upperBound), () => String()/*!default_value*/, '?3', '?3');
 return r
 ----Swift.(file).Range.distance(from:Range<Bound>.Index,to:Range<Bound>.Index)
 let _this = this;
@@ -5353,8 +5353,8 @@ let _this = this;
 return _create(Range, 'initUncheckedBoundstuple_type', {}, {0: _this.lowerBound, 1: _this.upperBound})
 ----Swift.(file).Range.clamped(to:Range<Bound>)
 let _this = this;
-const lower = ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.lowerBound) ? limits.lowerBound : ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
-const upper = ((limits.upperBound).constructor.infix_60({}, limits.upperBound, _this.upperBound) ? limits.upperBound : ((limits.lowerBound).constructor.infix_62({}, limits.lowerBound, _this.upperBound) ? limits.lowerBound : _this.upperBound));
+const lower = ((_.arg0 = limits.lowerBound).constructor.infix_62({}, _.arg0, _this.lowerBound) ? limits.lowerBound : ((_.arg1 = limits.upperBound).constructor.infix_60({}, _.arg1, _this.lowerBound) ? limits.upperBound : _this.lowerBound));
+const upper = ((_.arg2 = limits.upperBound).constructor.infix_60({}, _.arg2, _this.upperBound) ? limits.upperBound : ((_.arg3 = limits.lowerBound).constructor.infix_62({}, _.arg3, _this.upperBound) ? limits.lowerBound : _this.upperBound));
 return _create(Range, 'initUncheckedBoundstuple_type', {}, {0: lower, 1: upper})
 ----Swift.(file).Range.description
 let _this = this;
@@ -5367,7 +5367,7 @@ let _this = this;
 return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([["lowerBound", _this.lowerBound], ["upperBound", _this.upperBound]]), nil/*!default_value*/, .generated/*!default_value*/)
 ----Swift.(file).Range.==infix(_:Range<Bound>,_:Range<Bound>)
 let _this = this;
-return Bool.infix_38_38({}, (lhs.lowerBound).constructor.infix_61_61({}, lhs.lowerBound, rhs.lowerBound), () => (lhs.upperBound).constructor.infix_61_61({}, lhs.upperBound, rhs.upperBound))
+return Bool.infix_38_38({}, (_.arg0 = lhs.lowerBound).constructor.infix_61_61({}, _.arg0, rhs.lowerBound), () => (_.arg1 = lhs.upperBound).constructor.infix_61_61({}, _.arg1, rhs.upperBound))
 ----Swift.(file).Range.hash(into:Hasher)
 let _this = this;
 let hasher = hasher$inout.get()
@@ -5378,22 +5378,22 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).PartialRangeUpTo.relative(to:C)
 let _this = this;
-return (collection.startIndex).constructor.infix_46_46_60({}, collection.startIndex, _this.upperBound)
+return (_.arg0 = collection.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.upperBound)
 ----Swift.(file).PartialRangeUpTo.contains(_:Bound)
 let _this = this;
-return (_element).constructor.infix_60({}, _element, _this.upperBound)
+return (_.arg0 = _element).constructor.infix_60({}, _.arg0, _this.upperBound)
 ----Swift.(file).PartialRangeThrough.relative(to:C)
 let _this = this;
-return (collection.startIndex).constructor.infix_46_46_60({}, collection.startIndex, collection.indexAfter({}, _this.upperBound))
+return (_.arg0 = collection.startIndex).constructor.infix_46_46_60({}, _.arg0, collection.indexAfter({}, _this.upperBound))
 ----Swift.(file).PartialRangeThrough.contains(_:Bound)
 let _this = this;
-return (_element).constructor.infix_60_61({}, _element, _this.upperBound)
+return (_.arg0 = _element).constructor.infix_60_61({}, _.arg0, _this.upperBound)
 ----Swift.(file).PartialRangeFrom.relative(to:C)
 let _this = this;
-return (_this.lowerBound).constructor.infix_46_46_60({}, _this.lowerBound, collection.endIndex)
+return (_.arg0 = _this.lowerBound).constructor.infix_46_46_60({}, _.arg0, collection.endIndex)
 ----Swift.(file).PartialRangeFrom.contains(_:Bound)
 let _this = this;
-return (_this.lowerBound).constructor.infix_60_61({}, _this.lowerBound, _element)
+return (_.arg0 = _this.lowerBound).constructor.infix_60_61({}, _.arg0, _element)
 ----Swift.(file).PartialRangeFrom.Iterator.init(_current:Bound)
 let _this = this;
 _this._current = _current;
@@ -5411,7 +5411,7 @@ let _this = this;
 return _create(PartialRangeFrom.Iterator, 'init_current', {}, _this.lowerBound)
 ----Swift.(file).Comparable...<infix(_:Self,_:Self)
 let _this = this;
-preconditionFileLine({}, () => (minimum).constructor.infix_60_61({}, minimum, maximum), () => "Can't form Range with upperBound < lowerBound", '?3', '?3');
+preconditionFileLine({}, () => (_.arg0 = minimum).constructor.infix_60_61({}, _.arg0, maximum), () => "Can't form Range with upperBound < lowerBound", '?3', '?3');
 return _create(Range, 'initUncheckedBoundstuple_type', {}, {0: minimum, 1: maximum})
 ----Swift.(file).Comparable...<prefix(_:Self)
 let _this = this;
@@ -5477,21 +5477,21 @@ const approximateCapacity = Int.infix_43({}, _this.count, numericCast({T: Int, U
 let $element$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _element$ifLet1);
 }
 }
 ----Swift.(file).RangeReplaceableCollection.insert(_:Self.Element,at:Self.Index)
 let _this = this;
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (i).constructor.infix_46_46_60({}, i, i), _create(CollectionOfOne, 'init', {}, newElement))
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_.arg0 = i).constructor.infix_46_46_60({}, _.arg0, i), _create(CollectionOfOne, 'init', {}, newElement))
 ----Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)
 let _this = this;
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (i).constructor.infix_46_46_60({}, i, i), newElements)
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_.arg0 = i).constructor.infix_46_46_60({}, _.arg0, i), newElements)
 ----Swift.(file).RangeReplaceableCollection.remove(at:Self.Index)
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove from an empty collection", '?3', '?3');
 const result = _this.subscript$get({}, position);
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (position).constructor.infix_46_46_60({}, position, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}, ));
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_.arg0 = position).constructor.infix_46_46_60({}, _.arg0, _this.indexAfter({}, position)), _create(EmptyCollection, 'init', {}, ));
 return result
 ----Swift.(file).RangeReplaceableCollection.removeSubrange(_:Range<Self.Index>)
 let _this = this;
@@ -5504,7 +5504,7 @@ return ;
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Number of elements to remove should be non-negative", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_62_61({}, _this.count, k), () => "Can't remove more items from a collection than it has", '?3', '?3');
 const end = _this.indexOffsetBy({}, _this.startIndex, k);
-_this.removeSubrangeRange({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, end))
+_this.removeSubrangeRange({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, end))
 ----Swift.(file).RangeReplaceableCollection.removeFirst()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove first element from an empty collection", '?3', '?3');
@@ -5517,7 +5517,7 @@ if((Bool.prefix_33({}, keepCapacity))) {
 $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'init', {}, )));
 }
 else {
-_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_this.startIndex).constructor.infix_46_46_60({}, _this.startIndex, _this.endIndex), _create(EmptyCollection, 'init', {}, ));
+_this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex), _create(EmptyCollection, 'init', {}, ));
 }
 ----Swift.(file).RangeReplaceableCollection.reserveCapacity(_:Int)
 
@@ -5525,7 +5525,7 @@ _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove items from an empty collection", '?3', '?3');
 const _element = _this.first[0];
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _this.indexAfter({}, _this.startIndex), _this.endIndex))));
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
 return _element
 ----Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)
 let _this = this;
@@ -5534,7 +5534,7 @@ return ;
 };
 preconditionFileLine({}, () => Int.infix_62_61({}, k, 0), () => "Number of elements to remove should be non-negative", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_62_61({}, _this.count, k), () => "Can't remove more items from a collection than it contains", '?3', '?3');
-$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _this.indexOffsetBy({}, _this.startIndex, k), _this.endIndex))))
+$info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))))
 ----Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)
 let _this = this;
 _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, subrange.relativeTo({}, _this), newElements)
@@ -5693,14 +5693,14 @@ return ;
 let f = _this.startIndex;
 let l = _this.indexBefore({}, _this.endIndex);
 while(true){
-if(!(((f).constructor.infix_60({}, f, l)))) break
+if(!(((_.arg0 = f).constructor.infix_60({}, _.arg0, l)))) break
 _this.swapAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, f, l);
 _this.formIndexAfter({}, {get: () => f, set: $val => f = $val});
 _this.formIndexBefore({}, {get: () => l, set: $val => l = $val});
 }
 ----Swift.(file).ReversedCollection.Iterator.next()
 let _this = this;
-if(!((_fastPath({}, (_this._position).constructor.infix_33_61({}, _this._position, _this._base.startIndex))))) {
+if(!((_fastPath({}, (_.arg0 = _this._position).constructor.infix_33_61({}, _.arg0, _this._base.startIndex))))) {
 return Optional.none;
 };
 _this._base.formIndexBefore({}, {get: () => _this._position, set: $val => _this._position = $val});
@@ -5710,10 +5710,10 @@ let _this = this;
 return _create(ReversedCollection.Iterator, 'init_base', {}, _this._base)
 ----Swift.(file).ReversedCollection.Index.==infix(_:ReversedCollection<Base>.Index,_:ReversedCollection<Base>.Index)
 let _this = this;
-return (lhs.base).constructor.infix_61_61({}, lhs.base, rhs.base)
+return (_.arg0 = lhs.base).constructor.infix_61_61({}, _.arg0, rhs.base)
 ----Swift.(file).ReversedCollection.Index.<infix(_:ReversedCollection<Base>.Index,_:ReversedCollection<Base>.Index)
 let _this = this;
-return (lhs.base).constructor.infix_62({}, lhs.base, rhs.base)
+return (_.arg0 = lhs.base).constructor.infix_62({}, _.arg0, rhs.base)
 ----Swift.(file).ReversedCollection.Index.hash(into:Hasher)
 let _this = this;
 let hasher = hasher$inout.get()
@@ -5795,7 +5795,7 @@ _this._iterator = iterator;
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
 while(true){
 const $ifLet0, x$ifLet1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true) && (predicate({}, x$ifLet1)))) break
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true) && (predicate({}, x$ifLet1)))) break
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
 };
 return
@@ -5811,7 +5811,7 @@ return
 ----Swift.(file).DropWhileSequence.Iterator.next()
 let _this = this;
 const $ifLet0, next$ifLet1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue === 'some' && ((next$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((next$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
@@ -5822,7 +5822,7 @@ return _create(DropWhileSequence.Iterator, 'initNextElementOptional', {}, _this.
 ----Swift.(file).DropWhileSequence.drop(while:(Base.Element) throws -> Bool)
 let _this = this;
 const $ifLet0, x$ifLet1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true) && (predicate({}, x$ifLet1)))) {
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true) && (predicate({}, x$ifLet1)))) {
 return _this;
 };
 return _create(DropWhileSequence, 'initIteratorPredicatefunction_type', {}, _this._iterator, predicate)
@@ -5835,13 +5835,13 @@ let iterator = _this.makeIterator({}, );
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, initialCapacity).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 result.append({$setThis: $val => result = $val}, transform({}, iterator.next({$setThis: $val => iterator = $val}, )[0]));
 }
 };
 while(true){
 const $ifLet1, _element$ifLet2
-if(!((($ifLet1 = iterator.next({$setThis: $val => iterator = $val}, ))||true) && $ifLet1.rawValue === 'some' && ((_element$ifLet2 = $ifLet1[0])||true))) break
+if(!((($ifLet1 = iterator.next({$setThis: $val => iterator = $val}, ))||true) && $ifLet1.rawValue == 'some' && ((_element$ifLet2 = $ifLet1[0])||true))) break
 result.append({$setThis: $val => result = $val}, transform({}, _element$ifLet2));
 };
 return _create(Array, 'initBuffer', {}, result)
@@ -5857,7 +5857,7 @@ let _this = this;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 body({}, _element$ifLet1);
 }
 }
@@ -5867,7 +5867,7 @@ let _this = this;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 if((predicate({}, _element$ifLet1))) {
 return _injectIntoOptional(_element$ifLet1);
 };
@@ -5876,7 +5876,7 @@ return _injectIntoOptional(_element$ifLet1);
 return Optional.none
 ----Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)
 let _this = this;
-return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (($info, $0) => ($0).constructor.infix_61_61({}, $0, separator)))
+return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, separator)))
 ----Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, maxSplits, 0), () => "Must take zero or more splits", '?3', '?3');
@@ -5894,7 +5894,7 @@ let i = 0;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 if((Int.infix_60({}, ringBuffer.count, maxLength))) {
 ringBuffer.append({$setThis: $val => ringBuffer = $val}, _element$ifLet1);
 }
@@ -5930,7 +5930,7 @@ let i = ringBuffer.startIndex;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 if((Int.infix_60({}, ringBuffer.count, k))) {
 ringBuffer.append({$setThis: $val => ringBuffer = $val}, _element$ifLet1);
 }
@@ -5956,7 +5956,7 @@ let result = _create(Array, 'initArrayLiteralArray', {}, []);
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 if(!((predicate({}, _element$ifLet1)))) {
 break;
 };
@@ -5981,12 +5981,12 @@ return _create(EnumeratedSequence, 'init_base', {}, _this)
 let _this = this;
 let it = _this.makeIterator({}, );
 const $ifLet0, result$ifLet1
-if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 while(true){
 const $ifLet2, e$ifLet3
-if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((e$ifLet3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e$ifLet3 = $ifLet2[0])||true))) break
 if((areInIncreasingOrder({}, e$ifLet3, result$ifLet1))) {
 result$ifLet1 = e$ifLet3;
 };
@@ -5996,12 +5996,12 @@ return _injectIntoOptional(result$ifLet1)
 let _this = this;
 let it = _this.makeIterator({}, );
 const $ifLet0, result$ifLet1
-if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true))) {
 return Optional.none;
 };
 while(true){
 const $ifLet2, e$ifLet3
-if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((e$ifLet3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e$ifLet3 = $ifLet2[0])||true))) break
 if((areInIncreasingOrder({}, result$ifLet1, e$ifLet3))) {
 result$ifLet1 = e$ifLet3;
 };
@@ -6020,9 +6020,9 @@ let possiblePrefixIterator = possiblePrefix.makeIterator({}, );
 let $e0$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e0$ifLet1;
-if(!((($ifLet0 = $e0$generator.next({$setThis: $val => $e0$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((e0$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e0$generator.next({$setThis: $val => $e0$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e0$ifLet1 = $ifLet0[0])||true))) break
 const $ifLet2, e1$ifLet3
-if((($ifLet2 = possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((e1$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e1$ifLet3 = $ifLet2[0])||true)) {
 if((Bool.prefix_33({}, areEquivalent({}, e0$ifLet1, e1$ifLet3)))) {
 return false;
 };
@@ -6067,9 +6067,9 @@ let iter2 = other.makeIterator({}, );
 while(true){
 if(!((true))) break
 const $ifLet0, e1$ifLet1
-if((($ifLet0 = iter1.next({$setThis: $val => iter1 = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((e1$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = iter1.next({$setThis: $val => iter1 = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e1$ifLet1 = $ifLet0[0])||true)) {
 const $ifLet2, e2$ifLet3
-if((($ifLet2 = iter2.next({$setThis: $val => iter2 = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((e2$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = iter2.next({$setThis: $val => iter2 = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e2$ifLet3 = $ifLet2[0])||true)) {
 if((areInIncreasingOrder({}, e1$ifLet1, e2$ifLet3))) {
 return true;
 };
@@ -6091,7 +6091,7 @@ let _this = this;
 let $e$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e$ifLet1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
 if((predicate({}, e$ifLet1))) {
 return true;
 };
@@ -6104,11 +6104,11 @@ return Bool.prefix_33({}, _this.containsWhere({}, (($info, $0) => Bool.prefix_33
 ----Swift.(file).Sequence.contains(_:Self.Element)
 let _this = this;
 const $ifLet0, result$ifLet1
-if((($ifLet0 = _this._customContainsEquatableElement({}, _element))||true) && $ifLet0.rawValue === 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customContainsEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result$ifLet1 = $ifLet0[0])||true)) {
 return result$ifLet1;
 }
 else {
-return _this.containsWhere({}, (($info, $0) => ($0).constructor.infix_61_61({}, $0, _element)));
+return _this.containsWhere({}, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, _element)));
 }
 ----Swift.(file).Sequence.count(where:(Self.Element) throws -> Bool)
 let _this = this;
@@ -6117,7 +6117,7 @@ let count = 0;
 let $e$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e$ifLet1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
 if((predicate({}, e$ifLet1))) {
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, 1);
 };
@@ -6131,7 +6131,7 @@ let accumulator = initialResult;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 accumulator = nextPartialResult({}, accumulator, _element$ifLet1);
 }
 };
@@ -6143,7 +6143,7 @@ let accumulator = initialResult;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 updateAccumulatingResult({}, {get: () => accumulator, set: $val => accumulator = $val}, _element$ifLet1);
 }
 };
@@ -6156,7 +6156,7 @@ const count = result.count;
 let $i$generator = _cloneStruct(Int.infix_46_46_60({}, 0, Int.infix_47({}, count, 2)).makeIterator({}, ));
 while(true) {
 const $ifLet0, i$ifLet1;
-if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i$ifLet1 = $ifLet0[0])||true))) break
 result.swapAt({$setThis: $val => result = $val}, i$ifLet1, Int.infix_45({}, count, Int.infix_43({}, i$ifLet1, 1)));
 }
 };
@@ -6168,7 +6168,7 @@ let result = _create(Array, 'initArrayLiteralArray', {}, []);
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element$ifLet1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element$ifLet1 = $ifLet0[0])||true))) break
 result.appendContentsOf({$setThis: $val => result = $val}, transform({}, _element$ifLet1));
 }
 };
@@ -6183,7 +6183,7 @@ _this.init({}, );
 let $e$generator = sequence.makeIterator({}, );
 while(true) {
 const $ifLet0, e$ifLet1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e$ifLet1 = $ifLet0[0])||true))) break
 _this.insert({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, e$ifLet1);
 }
 };
@@ -6193,7 +6193,7 @@ let _this = this;
 _this.formIntersection({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.symmetricDifference({}, other))
 ----Swift.(file).SetAlgebra.isSubset(of:Self)
 let _this = this;
-return (_this.intersection({}, other)).constructor.infix_61_61({}, _this.intersection({}, other), _this)
+return (_.arg0 = _this.intersection({}, other)).constructor.infix_61_61({}, _.arg0, _this)
 ----Swift.(file).SetAlgebra.isSuperset(of:Self)
 let _this = this;
 return other.isSubsetOf({}, _this)
@@ -6205,10 +6205,10 @@ let _this = this;
 return _this.intersection({}, _this.symmetricDifference({}, other))
 ----Swift.(file).SetAlgebra.isEmpty
 let _this = this;
-return (_this).constructor.infix_61_61({}, _this, _create(_this.constructor, 'init', {}, ))
+return (_.arg0 = _this).constructor.infix_61_61({}, _.arg0, _create(_this.constructor, 'init', {}, ))
 ----Swift.(file).SetAlgebra.isStrictSuperset(of:Self)
 let _this = this;
-return Bool.infix_38_38({}, _this.isSupersetOf({}, other), () => (_this).constructor.infix_33_61({}, _this, other))
+return Bool.infix_38_38({}, _this.isSupersetOf({}, other), () => (_.arg0 = _this).constructor.infix_33_61({}, _.arg0, other))
 ----Swift.(file).SetAlgebra.isStrictSubset(of:Self)
 let _this = this;
 return other.isStrictSupersetOf({}, _this)
@@ -6367,7 +6367,7 @@ UInt64.infix_94_61({}, {get: () => _this.v2, set: $val => _this.v2 = $val}, 0xff
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, 3).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 _this._round({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, );
 }
 };
@@ -6409,7 +6409,7 @@ let _this = this;
 return _create(Slice, 'initBaseBoundsRange', {}, _this._base, bounds)
 ----Swift.(file).Slice.indices
 let _this = this;
-return _this._base.indices.subscriptRange$get({}, (_this._startIndex).constructor.infix_46_46_60({}, _this._startIndex, _this._endIndex))
+return _this._base.indices.subscriptRange$get({}, (_.arg0 = _this._startIndex).constructor.infix_46_46_60({}, _.arg0, _this._endIndex))
 ----Swift.(file).Slice.index(after:Slice<Base>.Index)
 let _this = this;
 return _this._base.indexAfter({}, i)
@@ -6511,14 +6511,14 @@ _this._startIndex = _this._base.indexOffsetBy({}, _this._base.startIndex, sliceO
 _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount)
 ----Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)
 let _this = this;
-if(((subRange.lowerBound).constructor.infix_61_61({}, subRange.lowerBound, _this._base.startIndex))) {
+if(((_.arg0 = subRange.lowerBound).constructor.infix_61_61({}, _.arg0, _this._base.startIndex))) {
 const newSliceCount = Int.infix_43({}, Int.infix_43({}, _this._base.distanceFromTo({}, _this._startIndex, subRange.lowerBound), _this._base.distanceFromTo({}, subRange.upperBound, _this._endIndex)), numericCast({T: Int, U: Int}, newElements.count));
 _this._base.replaceSubrangeWith({$setThis: $val => _this._base = $val}, subRange, newElements);
 _this._startIndex = _this._base.startIndex;
 _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount);
 }
 else {
-const shouldUpdateStartIndex = (subRange.lowerBound).constructor.infix_61_61({}, subRange.lowerBound, _this._startIndex);
+const shouldUpdateStartIndex = (_.arg1 = subRange.lowerBound).constructor.infix_61_61({}, _.arg1, _this._startIndex);
 const lastValidIndex = _this._base.indexBefore({}, subRange.lowerBound);
 const newEndIndexOffset = Int.infix_43({}, Int.infix_43({}, _this._base.distanceFromTo({}, subRange.upperBound, _this._endIndex), numericCast({T: Int, U: Int}, newElements.count)), 1);
 _this._base.replaceSubrangeWith({$setThis: $val => _this._base = $val}, subRange, newElements);
@@ -6529,14 +6529,14 @@ _this._endIndex = _this._base.indexOffsetBy({}, lastValidIndex, newEndIndexOffse
 }
 ----Swift.(file).Slice.insert(_:Base.Element,at:Slice<Base>.Index)
 let _this = this;
-if(((i).constructor.infix_61_61({}, i, _this._base.startIndex))) {
+if(((_.arg0 = i).constructor.infix_61_61({}, _.arg0, _this._base.startIndex))) {
 const newSliceCount = Int.infix_43({}, _this.count, 1);
 _this._base.insertAt({$setThis: $val => _this._base = $val}, newElement, i);
 _this._startIndex = _this._base.startIndex;
 _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount);
 }
 else {
-const shouldUpdateStartIndex = (i).constructor.infix_61_61({}, i, _this._startIndex);
+const shouldUpdateStartIndex = (_.arg1 = i).constructor.infix_61_61({}, _.arg1, _this._startIndex);
 const lastValidIndex = _this._base.indexBefore({}, i);
 const newEndIndexOffset = Int.infix_43({}, _this._base.distanceFromTo({}, i, _this._endIndex), 2);
 _this._base.insertAt({$setThis: $val => _this._base = $val}, newElement, i);
@@ -6547,14 +6547,14 @@ _this._endIndex = _this._base.indexOffsetBy({}, lastValidIndex, newEndIndexOffse
 }
 ----Swift.(file).Slice.insert(contentsOf:S,at:Slice<Base>.Index)
 let _this = this;
-if(((i).constructor.infix_61_61({}, i, _this._base.startIndex))) {
+if(((_.arg0 = i).constructor.infix_61_61({}, _.arg0, _this._base.startIndex))) {
 const newSliceCount = Int.infix_43({}, _this.count, numericCast({T: Int, U: Int}, newElements.count));
 _this._base.insertContentsOfAt({$setThis: $val => _this._base = $val}, newElements, i);
 _this._startIndex = _this._base.startIndex;
 _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount);
 }
 else {
-const shouldUpdateStartIndex = (i).constructor.infix_61_61({}, i, _this._startIndex);
+const shouldUpdateStartIndex = (_.arg1 = i).constructor.infix_61_61({}, _.arg1, _this._startIndex);
 const lastValidIndex = _this._base.indexBefore({}, i);
 const newEndIndexOffset = Int.infix_43({}, Int.infix_43({}, _this._base.distanceFromTo({}, i, _this._endIndex), numericCast({T: Int, U: Int}, newElements.count)), 1);
 _this._base.insertContentsOfAt({$setThis: $val => _this._base = $val}, newElements, i);
@@ -6565,7 +6565,7 @@ _this._endIndex = _this._base.indexOffsetBy({}, lastValidIndex, newEndIndexOffse
 }
 ----Swift.(file).Slice.remove(at:Slice<Base>.Index)
 let _this = this;
-if(((i).constructor.infix_61_61({}, i, _this._base.startIndex))) {
+if(((_.arg0 = i).constructor.infix_61_61({}, _.arg0, _this._base.startIndex))) {
 const newSliceCount = Int.infix_45({}, _this.count, 1);
 const result = _this._base.removeAt({$setThis: $val => _this._base = $val}, i);
 _this._startIndex = _this._base.startIndex;
@@ -6573,7 +6573,7 @@ _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount
 return result;
 }
 else {
-const shouldUpdateStartIndex = (i).constructor.infix_61_61({}, i, _this._startIndex);
+const shouldUpdateStartIndex = (_.arg1 = i).constructor.infix_61_61({}, _.arg1, _this._startIndex);
 const lastValidIndex = _this._base.indexBefore({}, i);
 const newEndIndexOffset = _this._base.distanceFromTo({}, i, _this._endIndex);
 const result = _this._base.removeAt({$setThis: $val => _this._base = $val}, i);
@@ -6585,14 +6585,14 @@ return result;
 }
 ----Swift.(file).Slice.removeSubrange(_:Range<Slice<Base>.Index>)
 let _this = this;
-if(((bounds.lowerBound).constructor.infix_61_61({}, bounds.lowerBound, _this._base.startIndex))) {
+if(((_.arg0 = bounds.lowerBound).constructor.infix_61_61({}, _.arg0, _this._base.startIndex))) {
 const newSliceCount = Int.infix_45({}, _this.count, _this._base.distanceFromTo({}, bounds.lowerBound, bounds.upperBound));
 _this._base.removeSubrangeRange({$setThis: $val => _this._base = $val}, bounds);
 _this._startIndex = _this._base.startIndex;
 _this._endIndex = _this._base.indexOffsetBy({}, _this._startIndex, newSliceCount);
 }
 else {
-const shouldUpdateStartIndex = (bounds.lowerBound).constructor.infix_61_61({}, bounds.lowerBound, _this._startIndex);
+const shouldUpdateStartIndex = (_.arg1 = bounds.lowerBound).constructor.infix_61_61({}, _.arg1, _this._startIndex);
 const lastValidIndex = _this._base.indexBefore({}, bounds.lowerBound);
 const newEndIndexOffset = Int.infix_43({}, Int.infix_45({}, _this._base.distanceFromTo({}, bounds.lowerBound, _this._endIndex), _this._base.distanceFromTo({}, bounds.lowerBound, bounds.upperBound)), 1);
 _this._base.removeSubrangeRange({$setThis: $val => _this._base = $val}, bounds);
@@ -6723,7 +6723,7 @@ let writeIdx = base.count;
 let $readIdx$generator = _cloneStruct(Int.infix_46_46_60({}, 0, other.count).makeIterator({}, ));
 while(true) {
 const $ifLet0, readIdx$ifLet1;
-if(!((($ifLet0 = $readIdx$generator.next({$setThis: $val => $readIdx$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((readIdx$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $readIdx$generator.next({$setThis: $val => $readIdx$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((readIdx$ifLet1 = $ifLet0[0])||true))) break
 result.subscript$set({$setThis: $val => result = $val}, other.subscript$get({}, readIdx$ifLet1), writeIdx);
 Int.infix_38_43_61({}, {get: () => writeIdx, set: $val => writeIdx = $val}, 1);
 }
@@ -6751,7 +6751,7 @@ const sortedElements = _cloneStruct(_this.sortedBy({}, areInIncreasingOrder));
 let $generator = _cloneStruct(zip({}, _this.indices, sortedElements.indices).makeIterator({}, ));
 while(true) {
 const $ifLet0, i$ifLet1, j$ifLet2;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0][0])||true) && ((j$ifLet2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i$ifLet1 = $ifLet0[0][0])||true) && ((j$ifLet2 = $ifLet0[0][1])||true))) break
 _this.subscript$set({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, sortedElements.subscript$get({}, j$ifLet2), i$ifLet1);
 }
 };
@@ -6801,14 +6801,14 @@ let _this = this;
 return _create(Mirror, 'initReflectingprotocol_composition_type', {}, _this.description)
 ----Swift.(file).Strideable.<infix(_:Self,_:Self)
 let _this = this;
-return (x.distanceTo({}, y)).constructor.infix_62({}, x.distanceTo({}, y), _create(((function(){throw '!unclarifiedGeneric:Self.Stride'})()), 'initIntegerLiteral', {}, 0))
+return (_.arg0 = x.distanceTo({}, y)).constructor.infix_62({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:Self.Stride'})()), 'initIntegerLiteral', {}, 0))
 ----Swift.(file).Strideable.==infix(_:Self,_:Self)
 let _this = this;
-return (x.distanceTo({}, y)).constructor.infix_61_61({}, x.distanceTo({}, y), _create(((function(){throw '!unclarifiedGeneric:Self.Stride'})()), 'initIntegerLiteral', {}, 0))
+return (_.arg0 = x.distanceTo({}, y)).constructor.infix_61_61({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:Self.Stride'})()), 'initIntegerLiteral', {}, 0))
 ----Swift.(file).StrideToIterator.next()
 let _this = this;
 const result = _this._current["1"];
-if((((_this._stride).constructor.infix_62({}, _this._stride, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (result).constructor.infix_62_61({}, result, _this._end) : (result).constructor.infix_60_61({}, result, _this._end)))) {
+if((((_.arg0 = _this._stride).constructor.infix_62({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (_.arg1 = result).constructor.infix_62_61({}, _.arg1, _this._end) : (_.arg2 = result).constructor.infix_60_61({}, _.arg2, _this._end)))) {
 return Optional.none;
 };
 _this._current = ((function(){throw '!unclarifiedGeneric:Element'})())._stepAfterFromBy({}, _this._current, _this._start, _this._stride);
@@ -6833,8 +6833,8 @@ return _create(StrideTo, 'init_startEndStride', {}, start, end, stride)
 ----Swift.(file).StrideThroughIterator.next()
 let _this = this;
 const result = _this._current["1"];
-if((((_this._stride).constructor.infix_62({}, _this._stride, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (result).constructor.infix_62_61({}, result, _this._end) : (result).constructor.infix_60_61({}, result, _this._end)))) {
-if((Bool.infix_38_38({}, (result).constructor.infix_61_61({}, result, _this._end), () => Bool.prefix_33({}, _this._didReturnEnd)))) {
+if((((_.arg0 = _this._stride).constructor.infix_62({}, _.arg0, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (_.arg1 = result).constructor.infix_62_61({}, _.arg1, _this._end) : (_.arg2 = result).constructor.infix_60_61({}, _.arg2, _this._end)))) {
+if((Bool.infix_38_38({}, (_.arg3 = result).constructor.infix_61_61({}, _.arg3, _this._end), () => Bool.prefix_33({}, _this._didReturnEnd)))) {
 _this._didReturnEnd = true;
 return _injectIntoOptional(result);
 };
@@ -6868,7 +6868,7 @@ return
 ----Swift.(file).String.init(decoding:C,as:Encoding.Type)
 let _this = this;
 const $ifLet0, contigBytes$ifLet1
-if((($ifLet0 = _injectIntoOptional(codeUnits))||true) && $ifLet0.rawValue === 'some' && ((contigBytes$ifLet1 = $ifLet0[0])||true) && (infix_61_61({}, _injectIntoOptional(sourceEncoding), _injectIntoOptional(UTF8))) && (contigBytes$ifLet1._providesContiguousBytesNoCopy)) {
+if((($ifLet0 = _injectIntoOptional(codeUnits))||true) && $ifLet0.rawValue == 'some' && ((contigBytes$ifLet1 = $ifLet0[0])||true) && (infix_61_61({}, _injectIntoOptional(sourceEncoding), _injectIntoOptional(UTF8))) && (contigBytes$ifLet1._providesContiguousBytesNoCopy)) {
 $info.$setThis(_this = _cloneStruct(contigBytes$ifLet1.withUnsafeBytes({}, (($info, rawBufPtr) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked);
 return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr.assumingMemoryBoundTo({}, UInt8)), rawBufPtr.count))["0"]; }))));
@@ -6899,7 +6899,7 @@ let result = "\"";
 let $us$generator = _cloneStruct(_this.unicodeScalars.makeIterator({}, ));
 while(true) {
 const $ifLet0, us$ifLet1;
-if(!((($ifLet0 = $us$generator.next({$setThis: $val => $us$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((us$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $us$generator.next({$setThis: $val => $us$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((us$ifLet1 = $ifLet0[0])||true))) break
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, us$ifLet1.escapedAsASCII({}, false));
 }
 };
@@ -6983,16 +6983,16 @@ let _this = this;
 return _this._distanceFromTo({}, start, end)
 ----Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)
 let _this = this;
-return Bool.prefix_33({}, (lhs).constructor.infix_61_61({}, lhs, rhs))
+return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_61_61({}, _.arg0, rhs))
 ----Swift.(file).StringProtocol.>infix(_:Self,_:RHS)
 let _this = this;
-return (rhs).constructor.infix_60({}, rhs, lhs)
+return (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs)
 ----Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)
 let _this = this;
-return Bool.prefix_33({}, (rhs).constructor.infix_60({}, rhs, lhs))
+return Bool.prefix_33({}, (_.arg0 = rhs).constructor.infix_60({}, _.arg0, lhs))
 ----Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)
 let _this = this;
-return Bool.prefix_33({}, (lhs).constructor.infix_60({}, lhs, rhs))
+return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_60({}, _.arg0, rhs))
 ----Swift.(file)..(error_type).withNFCCodeUnitsIterator_2(_:<<error type>>)
 let _this = this;
 let $defer = () => {
@@ -7183,7 +7183,7 @@ return
 let _this = this;
 if((Bool.infix_38_38({}, _this.isSmall, () => other.isSmall))) {
 const $ifLet0, smol$ifLet1
-if((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall))||true) && $ifLet0.rawValue === 'some' && ((smol$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall))||true) && $ifLet0.rawValue == 'some' && ((smol$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_create(_StringGuts, 'init_SmallString', {}, smol$ifLet1)));
 return ;
 };
@@ -7346,7 +7346,7 @@ let result = _create(String, 'init', {}, );
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue === 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, repeatedValue);
 }
 };
@@ -7637,7 +7637,7 @@ return
 ----Swift.(file).String.init(_:S)
 let _this = this;
 const $ifLet0, str$ifLet1
-if((($ifLet0 = _injectIntoOptional(other))||true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(other))||true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(str$ifLet1));
 return ;
 };
@@ -7646,12 +7646,12 @@ return
 ----Swift.(file).String.init(_:S)
 let _this = this;
 const $ifLet0, str$ifLet1
-if((($ifLet0 = _injectIntoOptional(characters))||true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(characters))||true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(str$ifLet1));
 return ;
 };
 const $ifLet2, subStr$ifLet3
-if((($ifLet2 = _injectIntoOptional(characters))||true) && $ifLet2.rawValue === 'some' && ((subStr$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _injectIntoOptional(characters))||true) && $ifLet2.rawValue == 'some' && ((subStr$ifLet3 = $ifLet2[0])||true)) {
 _this.initSubstring({}, subStr$ifLet3);
 return ;
 };
@@ -7667,12 +7667,12 @@ _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, new
 ----Swift.(file).String.append(contentsOf:S)
 let _this = this;
 const $ifLet0, str$ifLet1
-if((($ifLet0 = _injectIntoOptional(newElements))||true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(newElements))||true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, str$ifLet1);
 return ;
 };
 const $ifLet2, substr$ifLet3
-if((($ifLet2 = _injectIntoOptional(newElements))||true) && $ifLet2.rawValue === 'some' && ((substr$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _injectIntoOptional(newElements))||true) && $ifLet2.rawValue == 'some' && ((substr$ifLet3 = $ifLet2[0])||true)) {
 _this.appendContentsOf({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, substr$ifLet3);
 return ;
 };
@@ -7680,7 +7680,7 @@ return ;
 let $c$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet4, c$ifLet5;
-if(!((($ifLet4 = $c$generator.next({$setThis: $val => $c$generator = $val}, ))||true) && $ifLet4.rawValue === 'some' && ((c$ifLet5 = $ifLet4[0])||true))) break
+if(!((($ifLet4 = $c$generator.next({$setThis: $val => $c$generator = $val}, ))||true) && $ifLet4.rawValue == 'some' && ((c$ifLet5 = $ifLet4[0])||true))) break
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, c$ifLet5._str);
 }
 }
@@ -7754,7 +7754,7 @@ const $result = (() => {
 let srcCount = 0;
 while(true){
 const $ifLet0, cu$ifLet1
-if(!((($ifLet0 = other.next({$setThis: $val => other = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = other.next({$setThis: $val => other = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
 _this.unusedStorage.subscript$set({$setThis: $val => _this.unusedStorage = _cloneStruct($val)}, cu$ifLet1, srcCount);
 Int.infix_43_61({}, {get: () => srcCount, set: $val => srcCount = $val}, 1);
 };
@@ -7789,7 +7789,7 @@ let srcCount = 0;
 let $cu$generator = replacement.makeIterator({}, );
 while(true) {
 const $ifLet0, cu$ifLet1;
-if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu$ifLet1 = $ifLet0[0])||true))) break
 if((UInt8.infix_62_61({}, cu$ifLet1, 0x80))) {
 isASCII = false;
 };
@@ -8094,12 +8094,12 @@ _this._slice.replaceSubrangeWith({$setThis: $val => _this._slice = $val}, target
 ----Swift.(file).Substring.init(_:S)
 let _this = this;
 const $ifLet0, str$ifLet1
-if((($ifLet0 = _injectIntoOptional(_elements))||true) && $ifLet0.rawValue === 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _injectIntoOptional(_elements))||true) && $ifLet0.rawValue == 'some' && ((str$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(str$ifLet1.subscriptUnboundedRange$get({}, UnboundedRange_.postfix_46_46_46))));
 return ;
 };
 const $ifLet2, subStr$ifLet3
-if((($ifLet2 = _injectIntoOptional(_elements))||true) && $ifLet2.rawValue === 'some' && ((subStr$ifLet3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _injectIntoOptional(_elements))||true) && $ifLet2.rawValue == 'some' && ((subStr$ifLet3 = $ifLet2[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(subStr$ifLet3)));
 return ;
 };
@@ -8327,7 +8327,7 @@ let input = input$inout.get()
 const $result = (() => {
 const n = input.next({$setThis: $val => input = $val}, );
 const $ifLet0, x$ifLet1
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true)) {
 if(!((_fastPath({}, Bool.infix_38_38({}, UInt32.infix_33_61({}, UInt32.infix_38_62_62({}, x$ifLet1, 11), 0b11011), () => UInt32.infix_60_61({}, x$ifLet1, 0x10ffff)))))) {
 return Unicode.ParseResult.error({}, 1);
 };
@@ -8509,7 +8509,7 @@ if((($match.rawValue == Unicode.ParseResult.valid().rawValue))) {
 const s = $match[0]
 const t = ((function(){throw '!unclarifiedGeneric:OutputEncoding'})()).transcodeFrom({}, s, inputEncoding);
 const $ifLet0, s$ifLet1
-if(!((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, t, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = t)||true) && $ifLet0.rawValue === 'some' && ((s$ifLet1 = $ifLet0[0])||true))) {
+if(!((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, t, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = t)||true) && $ifLet0.rawValue == 'some' && ((s$ifLet1 = $ifLet0[0])||true))) {
 };
 s$ifLet1.forEachSwift({}, processCodeUnit);
 continue;
@@ -8786,7 +8786,7 @@ return (("\"") + (_this.escapedAsASCII({}, true)) + ("\""))
 let _this = this;
 const scalars = _cloneStruct(description.unicodeScalars);
 const $ifLet0, v$ifLet1
-if(!((($ifLet0 = scalars.first)||true) && $ifLet0.rawValue === 'some' && ((v$ifLet1 = $ifLet0[0])||true) && (Int.infix_61_61({}, scalars.count, 1)))) {
+if(!((($ifLet0 = scalars.first)||true) && $ifLet0.rawValue == 'some' && ((v$ifLet1 = $ifLet0[0])||true) && (Int.infix_61_61({}, scalars.count, 1)))) {
 return (this.$failed = true);
 };
 $info.$setThis(_this = _cloneStruct(_cloneStruct(v$ifLet1)));
@@ -8801,7 +8801,7 @@ return $result
 ----Swift.(file)..(error_type).init(_:Int)
 let _this = this;
 const $ifLet0, us$ifLet1
-if((($ifLet0 = _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, v)))||true) && $ifLet0.rawValue === 'some' && ((us$ifLet1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, v)))||true) && $ifLet0.rawValue == 'some' && ((us$ifLet1 = $ifLet0[0])||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(us$ifLet1)));
 }
 else {
@@ -8905,7 +8905,7 @@ return UnsafePointer.infix_43({}, _this, i)
 ----Swift.(file).UnsafeMutablePointer.init(mutating:UnsafePointer<Pointee>?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this.initMutatingUnsafePointer({}, unwrapped$ifLet1);
@@ -8919,7 +8919,7 @@ preconditionFileLine({}, () => Int.infix_62_61({}, count, 0), () => "UnsafeMutab
 let $i$generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0, i$ifLet1;
-if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((i$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i$ifLet1 = $ifLet0[0])||true))) break
 _this.subscript$set({$setThis: $val => $info.$setThis(_this = _cloneStruct(_cloneStruct($val)))}, repeatedValue, i$ifLet1);
 }
 }
@@ -8946,7 +8946,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeMutableRawPointer?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this._rawValue = unwrapped$ifLet1._rawValue;
@@ -8958,7 +8958,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeRawPointer?)
 let _this = this;
 const $ifLet0, unwrapped$ifLet1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue === 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped$ifLet1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
 _this._rawValue = unwrapped$ifLet1._rawValue;
@@ -9049,7 +9049,7 @@ let r = _create(_ValidUTF8Buffer, 'init', {}, );
 let $x$generator = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.prefix_46_46_60({}, target.lowerBound)).makeIterator({}, ));
 while(true) {
 const $ifLet0, x$ifLet1;
-if(!((($ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet0.rawValue === 'some' && ((x$ifLet1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((x$ifLet1 = $ifLet0[0])||true))) break
 r.append({$setThis: $val => r = $val}, x$ifLet1);
 }
 };
@@ -9057,7 +9057,7 @@ r.append({$setThis: $val => r = $val}, x$ifLet1);
 let $x$generator = replacement.makeIterator({}, );
 while(true) {
 const $ifLet2, x$ifLet3;
-if(!((($ifLet2 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet2.rawValue === 'some' && ((x$ifLet3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((x$ifLet3 = $ifLet2[0])||true))) break
 r.append({$setThis: $val => r = $val}, x$ifLet3);
 }
 };
@@ -9065,7 +9065,7 @@ r.append({$setThis: $val => r = $val}, x$ifLet3);
 let $x$generator = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.postfix_46_46_46({}, target.upperBound)).makeIterator({}, ));
 while(true) {
 const $ifLet4, x$ifLet5;
-if(!((($ifLet4 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet4.rawValue === 'some' && ((x$ifLet5 = $ifLet4[0])||true))) break
+if(!((($ifLet4 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet4.rawValue == 'some' && ((x$ifLet5 = $ifLet4[0])||true))) break
 r.append({$setThis: $val => r = $val}, x$ifLet5);
 }
 };

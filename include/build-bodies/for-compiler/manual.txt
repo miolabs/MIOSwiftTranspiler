@@ -89,9 +89,9 @@ this._value = #AA
 ----Swift.(file).ObjectIdentifier.==infix(_:ObjectIdentifier,_:ObjectIdentifier)
 return #A0._value === #A1._value
 ----Darwin.(file).arc4random_uniform(_:UInt32)
-return (Math.random() * #AA) | 0
+return Math.floor(Math.random() * #AA)
 ----Darwin.(file).arc4random()
-return arc4random_uniform(null, 4294967296)
+return arc4random_uniform(null, Math.pow(2, 32))
 ----Darwin.(file).ceil(_:T)
 return Math.ceil(#A0)
 ----Darwin.(file).floor(_:T)
@@ -150,7 +150,7 @@ return this.length
 var proto = Object.getPrototypeOf(this)
 var protoKeys = Object.keys(proto)
 for(const testFunction of protoKeys) {
-if(!testFunction.startsWith('test') || testFunction.endsWith('$get') || testFunction.endsWith('$set') || typeof Object.getOwnPropertyDescriptor(proto, testFunction).value !== 'function') continue
+if(!testFunction.startsWith('test') || testFunction.endsWith('$get') || testFunction.endsWith('$set') || typeof Object.getOwnPropertyDescriptor(proto, testFunction).value !== 'function' || this[testFunction].length !== 1) continue
 this.init$vars()
 if(this.setUp) this.setUp()
 this[testFunction]()
