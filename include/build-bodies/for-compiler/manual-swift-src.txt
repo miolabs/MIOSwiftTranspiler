@@ -300,6 +300,19 @@ extension Dictionary {
     return result
   }
 }
+----Swift.(file).Array.init(_:S)
+extension Array: RangeReplaceableCollection  {
+  public init<S: Sequence>(_ s: S) where S.Element == Element {
+
+    var result = Array<Element>()
+    var iterator = s.makeIterator()
+    while let element = iterator.next() {
+      result.append(element)
+    }
+  }
+}
+----Swift.(file).Array.init(_:S)#SUFFIX
+ result
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 public func XCTAssert(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
   precondition(expression(), message())

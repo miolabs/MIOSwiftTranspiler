@@ -141,8 +141,19 @@ return Number.MAX_VALUE
 ----Swift.(file).UnsignedInteger.max
 return Number.MAX_SAFE_INTEGER
 ----Swift.(file).BinaryInteger.description
-//FIXME not really sure if that's exhaustive
-return this.toFixed(1)
+return this.toString()
+----Swift.(file).Double.description
+let result = this.toString()
+if(!result.includes('.')) result += '.0';
+return result
+----Swift.(file).Float.description
+let result = this.toString()
+if(!result.includes('.')) result += '.0';
+return result
+----Swift.(file).Float80.description
+let result = this.toString()
+if(!result.includes('.')) result += '.0';
+return result
 ----Swift.(file).String.hashValue
 //FIXME compute proper hash, e.g. by xoring
 return this.length
