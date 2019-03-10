@@ -1,7 +1,4 @@
 ----Swift.(file).Array
-toString() {
-    return '[' + this.join(', ') + ']'
-}
 subscript$set($info, el, index) {
     this[index] = _cloneStruct(el)
 }

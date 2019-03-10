@@ -1,3 +1,3 @@
-func printBinary<T: BinaryInteger>(_ lhs: T, _ rhs: T) {
-  print(lhs << rhs)
+func elo<T>(a: T) {
+
 }
