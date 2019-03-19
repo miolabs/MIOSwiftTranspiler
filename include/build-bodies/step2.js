@@ -77,15 +77,18 @@ const JS_REPLACEMENTS = {
     'Character': str => str.replace(/\._str/g, '')
 }
 
+const JS_MIXINS = {
+    "String": true, "Bool": true, "Double": true, "Float": true, "Float80": true,
+    "Int": true, "Int8": true, "Int16": true, "Int32": true, "Int64": true, "UInt": true, "UInt8": true, "UInt16": true, "UInt32": true, "UInt64": true,
+    "Array": true, "Dictionary": true, "Set": true,
+    "BinaryFloatingPoint": true, "_ExpressibleByBuiltinIntegerLiteral": true, "ExpressibleByIntegerLiteral": true,
+    "_ExpressibleByBuiltinFloatLiteral": true, "_CVarArgPassedAsDouble": true, "FloatingPoint": true,
+    "ExpressibleByFloatLiteral": true, "SignedNumeric": true, "Numeric": true, "AdditiveArithmetic": true,
+    "FixedWidthInteger": true, "UnsignedInteger": true, "BinaryInteger": true, "SignedInteger": true
+}
+
 const NUMERIC_FILES = ["FloatingPoint.swift", "IntegerParsing.swift", "Integers.swift"]
 const IS_OPERATOR = name => !/[a-zA-Z_0-9]/.test(name[0])
-
-const RETURN_INSTEAD_OF_ASSIGN = [
-    'Swift.(file).FixedWidthInteger.init(_:T)',
-    'Swift.(file).FixedWidthInteger.init(exactly:T)',
-    'Swift.(file).FixedWidthInteger.init(clamping:Other)',
-    'Swift.(file).FixedWidthInteger.init(truncatingIfNeeded:T)'
-]
 
 function escapeRegex(s) {
     return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -178,9 +181,9 @@ for(let file of fs.readdirSync(`${__dirname}/bodies`)) {
         try {
             let transpiled = transpile(contentsPrefix + prop.body + contentsSuffix, properIdentifier, pureName)
             if(JS_REPLACEMENTS[parent]) transpiled = JS_REPLACEMENTS[parent](transpiled)
-            if(RETURN_INSTEAD_OF_ASSIGN.includes(properIdentifier)) {
+            if(properIdentifier.includes('.init(') && JS_MIXINS[parent]) {
                 while(true) {
-                    let index0 = transpiled.indexOf('$info.$setThis('), index1 = index0 + '$info.$setThis('.length, index2 = index1
+                    let index0 = transpiled.indexOf('$info.$setThis(_this = '), index1 = index0 + '$info.$setThis(_this = '.length, index2 = index1
                     if(index0 < 0) break
                     for(let i = 0; index2 < transpiled.length; index2++) {
                         if(transpiled[index2] === '(') i++

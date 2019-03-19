@@ -56,6 +56,10 @@ return new Set(#AA)
 return []
 ----Swift.(file).Int.init(_:Double)
 return #AA | 0
+----Swift.(file).Double.init(_:Int)
+return #AA
+----Swift.(file).String.init(_:Character)
+return #AA
 ----Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)
 return #AA
 ----Swift.(file).String.init()

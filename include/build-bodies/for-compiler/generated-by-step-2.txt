@@ -194,13 +194,13 @@ let _this = this;
 return _this._getCount({}, )
 ----Swift.(file).Array.init(arrayLiteral:[Element])
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_cloneStruct(_elements)));
+return _cloneStruct(_cloneStruct(_elements));
 return
 ----Swift.(file).Array.init(repeating:Element,count:Int)
 let _this = this;
 let p;
 let $tuple = Array._allocateUninitialized({}, count)
-$info.$setThis(_this = _cloneStruct($tuple[0]))
+return _cloneStruct($tuple[0])
 p = $tuple[1];
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
@@ -270,7 +270,7 @@ let _this = this;
 return _this.withUnsafeBufferPointer({}, (($info, $0) => body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', {}, $0))))
 ----Swift.(file).Array.init(_immutableCocoaArray:AnyObject)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_cloneStruct(_bridgeCocoaArray({}, _immutableCocoaArray))));
+return _cloneStruct(_cloneStruct(_bridgeCocoaArray({}, _immutableCocoaArray)));
 return
 ----Swift.(file)._ArrayBuffer.arrayPropertyIsNativeTypeChecked
 let _this = this;
@@ -738,7 +738,7 @@ UInt.infix_38_61({}, {get: () => _this.value, set: $val => _this.value = $val}, 
 return _injectIntoOptional(bit)
 ----Swift.(file).Bool.init(_:Bool)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value));
+return _cloneStruct(value);
 return
 ----Swift.(file).Bool.random(using:T)
 let _this = this;
@@ -753,7 +753,7 @@ let g = _create(SystemRandomNumberGenerator, 'init', {}, );
 return Bool.randomUsing({}, {get: () => g, set: $val => g = $val})
 ----Swift.(file).Bool.init(booleanLiteral:Bool)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value));
+return _cloneStruct(value);
 return
 ----Swift.(file).Bool.description
 let _this = this;
@@ -768,11 +768,11 @@ return $result
 ----Swift.(file).Bool.init(_:String)
 let _this = this;
 if((String.infix_61_61({}, description, "true"))) {
-$info.$setThis(_this = _cloneStruct(true));
+return _cloneStruct(true);
 }
 else {
 if((String.infix_61_61({}, description, "false"))) {
-$info.$setThis(_this = _cloneStruct(false));
+return _cloneStruct(false);
 }
 else {
 return (this.$failed = true);
@@ -837,12 +837,12 @@ return Bool.prefix_33({}, infix_61_61({}, t0, t1))
 ----Swift.(file).String.init(cString:UnsafePointer<CChar>)
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
-$info.$setThis(_this = _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len))["0"]));
+return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len))["0"]);
 return
 ----Swift.(file).String.init(cString:UnsafePointer<UInt8>)
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
-$info.$setThis(_this = _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString), len))["0"]));
+return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString), len))["0"]);
 return
 ----Swift.(file).String.init(validatingUTF8:UnsafePointer<CChar>)
 let _this = this;
@@ -851,7 +851,7 @@ const $ifLet0, str_1
 if(!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len)))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
-$info.$setThis(_this = _cloneStruct(str_1));
+return _cloneStruct(str_1);
 return
 ----Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)
 let _this = this;
@@ -884,7 +884,7 @@ const codeUnits = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, 
 return _injectIntoOptional(((_.tmp0 = String._fromCodeUnitsEncodingRepair({}, codeUnits, encoding, isRepairing)).rawValue === 'some') ? (_.tmp0[0]) : null)
 ----Swift.(file).String.init(decodingCString:UnsafePointer<Encoding.CodeUnit>,as:Encoding.Type)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(String.decodeCStringAsRepairingInvalidCodeUnits({}, _injectIntoOptional(/*pointer_to_pointer*/ptr), sourceEncoding, true/*!default_value*/)[0]["0"]));
+return _cloneStruct(String.decodeCStringAsRepairingInvalidCodeUnits({}, _injectIntoOptional(/*pointer_to_pointer*/ptr), sourceEncoding, true/*!default_value*/)[0]["0"]);
 return
 ----Swift.(file).OpaquePointer.init(_:UnsafePointer<T>)
 let _this = this;
@@ -1862,7 +1862,7 @@ return
 let _this = this;
 const $ifLet0, d_1
 if((($ifLet0 = _injectIntoOptional(keysAndValues))||true) && $ifLet0.rawValue == 'some' && ((d_1 = $ifLet0[0])||true)) {
-$info.$setThis(_this = _cloneStruct(_cloneStruct(d_1)));
+return _cloneStruct(_cloneStruct(d_1));
 return ;
 };
 let _native = _create(_NativeDictionary, 'initCapacityInt', {}, keysAndValues.underestimatedCount);
@@ -2321,7 +2321,7 @@ return count
 ----Swift.(file).LazyFilterCollection.index(_:LazyFilterSequence<Base>.Index,offsetBy:Int)
 let _this = this;
 let i_dupl = i;
-const step = Int.prototype.signum$get.call(n, {}, );
+const step = Int.prototype.signum.call(n, {}, );
 _this._ensureBidirectionalStep({}, step);
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
@@ -2342,7 +2342,7 @@ return $result
 ----Swift.(file).LazyFilterCollection.index(_:LazyFilterSequence<Base>.Index,offsetBy:Int,limitedBy:LazyFilterSequence<Base>.Index)
 let _this = this;
 let i_dupl = i;
-const step = Int.prototype.signum$get.call(n, {}, );
+const step = Int.prototype.signum.call(n, {}, );
 _this._ensureBidirectionalStep({}, step);
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
@@ -2513,7 +2513,7 @@ return count
 ----Swift.(file).FlattenCollection.index(_:FlattenSequence<Base>.Index,offsetBy:Int)
 let _this = this;
 let i_dupl = _cloneStruct(i);
-const step = Int.prototype.signum$get.call(n, {}, );
+const step = Int.prototype.signum.call(n, {}, );
 _this._ensureBidirectionalStep({}, step);
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
@@ -2534,7 +2534,7 @@ return $result
 ----Swift.(file).FlattenCollection.index(_:FlattenSequence<Base>.Index,offsetBy:Int,limitedBy:FlattenSequence<Base>.Index)
 let _this = this;
 let i_dupl = _cloneStruct(i);
-const step = Int.prototype.signum$get.call(n, {}, );
+const step = Int.prototype.signum.call(n, {}, );
 _this._ensureBidirectionalStep({}, step);
 {
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
@@ -2621,7 +2621,7 @@ lhs.round({$setThis: $val => lhs = $val}, rule);
 return lhs
 ----Swift.(file).FloatingPoint.rounded()
 let _this = this;
-return _this.constructor.prototype.rounded$get.call(_this, {}, FloatingPointRoundingRule.toNearestOrAwayFromZero)
+return _this.constructor.prototype.rounded.call(_this, {}, FloatingPointRoundingRule.toNearestOrAwayFromZero)
 ----Swift.(file).FloatingPoint.round()
 let _this = this;
 _this.round({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, FloatingPointRoundingRule.toNearestOrAwayFromZero)
@@ -2713,7 +2713,7 @@ _this.initSignFloatingPointSignExponentBitPatternSignificandBitPattern({}, _this
 return
 ----Swift.(file).BinaryFloatingPoint.init(_:Source)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_this.constructor._convertFrom({}, value)["0"]));
+return _cloneStruct(_this.constructor._convertFrom({}, value)["0"]);
 return
 ----Swift.(file).BinaryFloatingPoint.init(exactly:Source)
 let _this = this;
@@ -2721,7 +2721,7 @@ const $tuple = _this.constructor._convertFrom({}, value), value_ = $tuple && $tu
 if(!((exact))) {
 return (this.$failed = true);
 };
-$info.$setThis(_this = _cloneStruct(value_));
+return _cloneStruct(value_);
 return
 ----Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)
 let _this = this;
@@ -2749,7 +2749,7 @@ return FloatingPointSign.infix_61_61({}, _this.constructor.prototype.sign$get.ca
 return true
 ----Swift.(file).BinaryFloatingPoint.init(_:Source)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_this.constructor._convertFrom({}, value)["0"]));
+return _cloneStruct(_this.constructor._convertFrom({}, value)["0"]);
 return
 ----Swift.(file).BinaryFloatingPoint.init(exactly:Source)
 let _this = this;
@@ -2757,7 +2757,7 @@ const $tuple = _this.constructor._convertFrom({}, value), value_ = $tuple && $tu
 if(!((exact))) {
 return (this.$failed = true);
 };
-$info.$setThis(_this = _cloneStruct(value_));
+return _cloneStruct(value_);
 return
 ----Swift.(file).BinaryFloatingPoint.random(in:Range<Self>,using:T)
 let _this = this;
@@ -2775,7 +2775,7 @@ const significandCount = Int.infix_43({}, _this.significandBitCount, 1);
 const maxSignificand = ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).infix_60_60({}, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1), significandCount);
 rand = ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).infix_38({}, generator.next({$setThis: $val => generator = $val}, ), ((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).infix_45({}, maxSignificand, _create(((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()), 'initIntegerLiteral', {}, 1)));
 };
-const unitRandom = _this.infix_42({}, _create(_this, 'init', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
+const unitRandom = _this.infix_42({}, _create(_this, 'initSource', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
 const randFloat = _this.infix_43({}, _this.infix_42({}, delta, unitRandom), range.lowerBound);
 if((_this.infix_61_61({}, randFloat, range.upperBound))) {
 return _this.randomInUsing({}, range, {get: () => generator, set: $val => generator = $val});
@@ -2810,7 +2810,7 @@ if((((function(){throw '!unclarifiedGeneric:Self.RawSignificand'})()).infix_61_6
 return range.upperBound;
 };
 };
-const unitRandom = _this.infix_42({}, _create(_this, 'init', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
+const unitRandom = _this.infix_42({}, _create(_this, 'initSource', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
 const randFloat = _this.infix_43({}, _this.infix_42({}, delta, unitRandom), range.lowerBound);
 return randFloat;})()
 generator$inout.set(generator)
@@ -2831,8 +2831,8 @@ return _create(Int, 'initDouble', {}, Double.infix_42({}, _create(Double, 'initI
 ----Swift.(file)._HashTable.scale(forCapacity:Int)
 let _this = this;
 const capacity = /*dot_syntax_base_ignored*/max({}, capacity, 1);
-const minimumEntries = /*dot_syntax_base_ignored*/max({}, _create(Int, 'initDouble', {}, Double.prototype.rounded$get.call(Double.infix_47({}, _create(Double, 'initInt', {}, capacity), _this.maxLoadFactor), {}, FloatingPointRoundingRule.up)), Int.infix_43({}, capacity, 1));
-const exponent = Int.infix_43({}, Int.prototype._binaryLogarithm$get.call(Int.infix_45({}, /*dot_syntax_base_ignored*/max({}, minimumEntries, 2), 1), {}, ), 1);
+const minimumEntries = /*dot_syntax_base_ignored*/max({}, _create(Int, 'initDouble', {}, Double.prototype.rounded.call(Double.infix_47({}, _create(Double, 'initInt', {}, capacity), _this.maxLoadFactor), {}, FloatingPointRoundingRule.up)), Int.infix_43({}, capacity, 1));
+const exponent = Int.infix_43({}, Int.prototype._binaryLogarithm.call(Int.infix_45({}, /*dot_syntax_base_ignored*/max({}, minimumEntries, 2), 1), {}, ), 1);
 const scale = _create(Int8, 'initTruncatingIfNeeded', {}, exponent);
 return scale
 ----Swift.(file)._HashTable.age(for:AnyObject)
@@ -3056,7 +3056,7 @@ _this.initRadixInt({}, description, 10);
 return
 ----Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value));
+return _cloneStruct(value);
 return
 ----Swift.(file).AdditiveArithmetic.zero
 let _this = this;
@@ -3073,7 +3073,7 @@ return unsafeBitCastTo({}, ((function(){throw '!unclarifiedGeneric:T'})()).proto
 return (((function(){throw '!unclarifiedGeneric:T'})()).infix_60({}, x, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)) ? ((function(){throw '!unclarifiedGeneric:T'})()).prefix_45({}, x) : x)
 ----Swift.(file).BinaryInteger.init()
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+return _cloneStruct(_create(_this.constructor, 'initIntegerLiteral', {}, 0));
 return
 ----Swift.(file).BinaryInteger.signum()
 let _this = this;
@@ -3089,7 +3089,7 @@ return _this.constructor.infix_61_61({}, _this, 0);
 return ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).infix_61_61({}, ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).infix_37({}, _this.constructor.prototype.magnitude$get.call(_this), _this.constructor.prototype.magnitude$get.call(other)), 0)
 ----Swift.(file).BinaryInteger.description
 let _this = this;
-return _this.constructor.prototype._descriptionRadixUppercase$get.call(_this, {}, 10, false)
+return _this.constructor.prototype._descriptionRadixUppercase.call(_this, {}, 10, false)
 ----Swift.(file).BinaryInteger.distance(to:Self)
 let _this = this;
 if((Bool.prefix_33({}, _this.constructor.isSigned))) {
@@ -3136,11 +3136,11 @@ let _this = this;
 return _this.constructor.bitWidth
 ----Swift.(file).FixedWidthInteger.init(littleEndian:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value));
+return _cloneStruct(value);
 return
 ----Swift.(file).FixedWidthInteger.init(bigEndian:Self)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_this.constructor.prototype.byteSwapped$get.call(value)));
+return _cloneStruct(_this.constructor.prototype.byteSwapped$get.call(value));
 return
 ----Swift.(file).FixedWidthInteger.littleEndian
 let _this = this;
@@ -3184,7 +3184,7 @@ const $ifLet0, value_1
 if(!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"])||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) {
 fatalErrorFileLine({}, () => (("") + (((function(){throw '!unclarifiedGeneric:T'})())) + (" value cannot be converted to ") + (_this.constructor) + (" because it is outside the representable range")), '?3', '?3');
 };
-return _this = _cloneStruct(value_1);
+return _cloneStruct(value_1);
 return
 ----Swift.(file).FixedWidthInteger.init(exactly:T)
 let _this = this;
@@ -3193,26 +3193,26 @@ const $ifLet0, value_1
 if(!((exact) && (($ifLet0 = temporary)||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) {
 return (this.$failed = true);
 };
-return _this = _cloneStruct(value_1);
+return _cloneStruct(value_1);
 return
 ----Swift.(file).FixedWidthInteger.init(clamping:Other)
 let _this = this;
 if((_slowPath({}, ((function(){throw '!unclarifiedGeneric:Other'})()).infix_60({}, source, _this.constructor.min)))) {
-return _this = _cloneStruct(_this.constructor.min);
+return _cloneStruct(_this.constructor.min);
 }
 else {
 if((_slowPath({}, ((function(){throw '!unclarifiedGeneric:Other'})()).infix_62({}, source, _this.constructor.max)))) {
-return _this = _cloneStruct(_this.constructor.max);
+return _cloneStruct(_this.constructor.max);
 }
 else {
-return _this = _cloneStruct(_create(_this.constructor, 'initTruncatingIfNeeded', {}, source));
+return _cloneStruct(_create(_this.constructor, 'initTruncatingIfNeeded', {}, source));
 }
 };
 return
 ----Swift.(file).FixedWidthInteger.init(truncatingIfNeeded:T)
 let _this = this;
 if((Int.infix_60_61({}, _this.constructor.bitWidth, Int.bitWidth))) {
-return _this = _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, ((function(){throw '!unclarifiedGeneric:T'})()).prototype._lowWord$get.call(source)));
+return _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, ((function(){throw '!unclarifiedGeneric:T'})()).prototype._lowWord$get.call(source)));
 }
 else {
 const neg = ((function(){throw '!unclarifiedGeneric:T'})()).infix_60({}, source, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0));
@@ -3231,7 +3231,7 @@ _this.constructor.infix_94_61({}, {get: () => result, set: $val => result = $val
 _this.constructor.infix_43_61({}, {get: () => shift, set: $val => shift = $val}, _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.prototype._lowWord$get.call(Int.bitWidth)));
 }
 };
-return _this = _cloneStruct(result);
+return _cloneStruct(result);
 };
 return
 ----Swift.(file).UnsignedInteger.magnitude
@@ -3320,23 +3320,23 @@ return _this.constructor.infix_61_61({}, _this.constructor.infix_37({}, _this, o
 return _create($info.U, 'initT', {}, x)
 ----Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self)
 let _this = this;
-const $tuple = _this.prototype.addingReportingOverflow$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+const $tuple = _this.prototype.addingReportingOverflow.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
 return {0: partialValue, 1: overflow}
 ----Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self)
 let _this = this;
-const $tuple = _this.prototype.subtractingReportingOverflow$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+const $tuple = _this.prototype.subtractingReportingOverflow.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
 return {0: partialValue, 1: overflow}
 ----Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self)
 let _this = this;
-const $tuple = _this.prototype.multipliedReportingOverflowBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+const $tuple = _this.prototype.multipliedReportingOverflowBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
 return {0: partialValue, 1: overflow}
 ----Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self)
 let _this = this;
-const $tuple = _this.prototype.dividedReportingOverflowBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+const $tuple = _this.prototype.dividedReportingOverflowBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
 return {0: partialValue, 1: overflow}
 ----Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self)
 let _this = this;
-const $tuple = _this.prototype.remainderReportingOverflowDividingBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+const $tuple = _this.prototype.remainderReportingOverflowDividingBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
 return {0: partialValue, 1: overflow}
 ----Swift.(file).BinaryInteger.addWithOverflow(_:Self,_:Self)
 let _this = this;
@@ -6670,10 +6670,10 @@ _this.trailingRawBits._uncheckedSetByteAtTo({$setThis: $val => _this.trailingRaw
 ----Swift.(file)._SmallString.subscript(_:Int)
 let _this = this;
 if((Int.infix_60({}, idx, 8))) {
-return UInt64.prototype._uncheckedGetByteAt$get.call(_this.leadingRawBits, {}, idx);
+return UInt64.prototype._uncheckedGetByteAt.call(_this.leadingRawBits, {}, idx);
 }
 else {
-return UInt64.prototype._uncheckedGetByteAt$get.call(_this.trailingRawBits, {}, Int.infix_38_45({}, idx, 8));
+return UInt64.prototype._uncheckedGetByteAt.call(_this.trailingRawBits, {}, Int.infix_38_45({}, idx, 8));
 };
 
 ----Swift.(file)._SmallString.subscript(_:Range<_SmallString.Index>)
@@ -6869,12 +6869,12 @@ return
 let _this = this;
 const $ifLet0, contigBytes_1
 if((($ifLet0 = _injectIntoOptional(codeUnits))||true) && $ifLet0.rawValue == 'some' && ((contigBytes_1 = $ifLet0[0])||true) && (infix_61_61({}, _injectIntoOptional(sourceEncoding), _injectIntoOptional(UTF8))) && (contigBytes_1._providesContiguousBytesNoCopy)) {
-$info.$setThis(_this = _cloneStruct(contigBytes_1.withUnsafeBytes({}, (($info, rawBufPtr) => { 
+return _cloneStruct(contigBytes_1.withUnsafeBytes({}, (($info, rawBufPtr) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked);
-return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr.assumingMemoryBoundTo({}, UInt8)), rawBufPtr.count))["0"]; }))));
+return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr.assumingMemoryBoundTo({}, UInt8)), rawBufPtr.count))["0"]; })));
 return ;
 };
-$info.$setThis(_this = _cloneStruct(String._fromCodeUnitsEncodingRepair({}, codeUnits, sourceEncoding, true)[0]["0"]));
+return _cloneStruct(String._fromCodeUnitsEncodingRepair({}, codeUnits, sourceEncoding, true)[0]["0"]);
 return
 ----Swift.(file).String.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result)
 let _this = this;
@@ -6886,11 +6886,11 @@ return body({}, ptr); }));
 return _this._slowWithCStringEncodedAs({}, targetEncoding, body)
 ----Swift.(file).String.init(_:Unicode.Scalar)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(scalar.withUTF8CodeUnits({}, (($info, $0) => String._uncheckedFromUTF8({}, $0)))));
+return _cloneStruct(scalar.withUTF8CodeUnits({}, (($info, $0) => String._uncheckedFromUTF8({}, $0))));
 return
 ----Swift.(file).String.init(stringLiteral:String)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value));
+return _cloneStruct(value);
 return
 ----Swift.(file).String.debugDescription
 let _this = this;
@@ -6925,7 +6925,7 @@ let _this = this;
 return _this._joinedSeparator({}, separator)
 ----Swift.(file).String.init(_:T)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(value.description));
+return _cloneStruct(value.description);
 return
 ----Swift.(file).String.description
 let _this = this;
@@ -7328,7 +7328,7 @@ let _this = this;
 _this._storage.append({$setThis: $val => _this._storage = $val}, string)
 ----Swift.(file).String.init(stringInterpolation:DefaultStringInterpolation)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(stringInterpolation.make({}, )));
+return _cloneStruct(stringInterpolation.make({}, ));
 return
 ----Swift.(file).Substring.init(stringInterpolation:DefaultStringInterpolation)
 let _this = this;
@@ -7338,7 +7338,7 @@ return
 let _this = this;
 preconditionFileLine({}, () => Int.infix_62_61({}, count, 0), () => "Negative count not allowed", '?3', '?3');
 if(!((Int.infix_62({}, count, 1)))) {
-$info.$setThis(_this = _cloneStruct((Int.infix_61_61({}, count, 0) ? "" : repeatedValue)));
+return _cloneStruct((Int.infix_61_61({}, count, 0) ? "" : repeatedValue));
 return ;
 };
 let result = _create(String, 'init', {}, );
@@ -7350,7 +7350,7 @@ if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, repeatedValue);
 }
 };
-$info.$setThis(_this = _cloneStruct(result));
+return _cloneStruct(result);
 return
 ----Swift.(file).StringProtocol.hasPrefix(_:Prefix)
 let _this = this;
@@ -7360,7 +7360,7 @@ let _this = this;
 return _this.reversed({}, ).startsWithSwift({}, suffix.reversed({}, ))
 ----Swift.(file).String.init(_:T,radix:Int,uppercase:Bool)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(((function(){throw '!unclarifiedGeneric:T'})()).prototype._descriptionRadixUppercase$get.call(value, {}, radix, uppercase)));
+return _cloneStruct(((function(){throw '!unclarifiedGeneric:T'})()).prototype._descriptionRadixUppercase.call(value, {}, radix, uppercase));
 return
 ----Swift.(file)._StringObject.RawBitPattern
 
@@ -7638,16 +7638,16 @@ return
 let _this = this;
 const $ifLet0, str_1
 if((($ifLet0 = _injectIntoOptional(other))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
-$info.$setThis(_this = _cloneStruct(str_1));
+return _cloneStruct(str_1);
 return ;
 };
-$info.$setThis(_this = _cloneStruct(other.description));
+return _cloneStruct(other.description);
 return
 ----Swift.(file).String.init(_:S)
 let _this = this;
 const $ifLet0, str_1
 if((($ifLet0 = _injectIntoOptional(characters))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
-$info.$setThis(_this = _cloneStruct(str_1));
+return _cloneStruct(str_1);
 return ;
 };
 const $ifLet2, subStr_3
@@ -7655,8 +7655,8 @@ if((($ifLet2 = _injectIntoOptional(characters))||true) && $ifLet2.rawValue == 's
 _this.initSubstring({}, subStr_3);
 return ;
 };
-$info.$setThis(_this = _cloneStruct(""));
-_this.appendContentsOf({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, characters);
+return _cloneStruct("");
+_this.appendContentsOf({$setThis: $val => return _cloneStruct($val)}, characters);
 return
 ----Swift.(file).String.append(_:Character)
 let _this = this;
@@ -7858,7 +7858,7 @@ let _this = this;
 return _create(String.UnicodeScalarView.SubSequence, 'initStringUnicodeScalarView_boundsRange', {}, _this, r)
 ----Swift.(file).String.init(_:Substring)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(String._fromSubstring({}, substring)));
+return _cloneStruct(String._fromSubstring({}, substring));
 return
 ----Swift.(file).Substring.init(_:Slice<String>)
 let _this = this;
@@ -8082,7 +8082,7 @@ let _this = this;
 return _this._wholeString.unicodeScalars.subscriptRange$get({}, String.UnicodeScalarView.Index.infix_46_46_60({}, _this.startIndex, _this.endIndex))
 ----Swift.(file).String.init(_:Substring.UnicodeScalarView)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(String, 'initSubstring', {}, _create(Substring, 'initSubstringUnicodeScalarView', {}, content))));
+return _cloneStruct(_create(String, 'initSubstring', {}, _create(Substring, 'initSubstringUnicodeScalarView', {}, content)));
 return
 ----Swift.(file).Substring.UnicodeScalarView.init()
 let _this = this;
@@ -8225,7 +8225,7 @@ let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => String()/*!default_value*/, '?3', '?3');
 const result = _create(((function(){throw '!unclarifiedGeneric:Element'})()), 'initTruncatingIfNeeded', {}, _this._storage);
 _this._bitCount = UInt8.infix_38_45({}, _this._bitCount, _this._elementWidth);
-_this._storage = _UIntBuffer.Storage.prototype._fullShiftRight$get.call(_this._storage, {}, _this._elementWidth);
+_this._storage = _UIntBuffer.Storage.prototype._fullShiftRight.call(_this._storage, {}, _this._elementWidth);
 return result
 ----Swift.(file)._UIntBuffer.replaceSubrange(_:Range<_UIntBuffer<Element>.Index>,with:C)
 let _this = this;
@@ -8238,7 +8238,7 @@ const headCount = _this.distanceFromTo({}, _this.startIndex, target.lowerBound);
 const tailOffset = _this.distanceFromTo({}, _this.startIndex, target.upperBound);
 const w = ((function(){throw '!unclarifiedGeneric:Element'})()).bitWidth;
 const headBits = UInt32.infix_38({}, _this._storage, UInt32._lowBits({}, Int.infix_38_42({}, headCount, w)));
-const tailBits = _UIntBuffer.Storage.prototype._fullShiftRight$get.call(_this._storage, {}, Int.infix_38_42({}, tailOffset, w));
+const tailBits = _UIntBuffer.Storage.prototype._fullShiftRight.call(_this._storage, {}, Int.infix_38_42({}, tailOffset, w));
 _this._storage = headBits;
 UInt32.infix_124_61({}, {get: () => _this._storage, set: $val => _this._storage = $val}, UInt32.infix_38_60_60({}, replacement1._storage, Int.infix_38_42({}, headCount, w)));
 UInt32.infix_124_61({}, {get: () => _this._storage, set: $val => _this._storage = $val}, UInt32.infix_38_60_60({}, tailBits, Int.infix_38_42({}, Int.infix_38_43({}, tailOffset, growth), w)));
@@ -8811,15 +8811,15 @@ return
 ----Swift.(file).UInt8.init(ascii:<<error type>>)
 let _this = this;
 preconditionFileLine({}, () => UInt32.infix_60({}, v.value, 128), () => "Code point value does not fit into ASCII", '?3', '?3');
-$info.$setThis(_this = _cloneStruct(_create(UInt8, 'initT', {}, v.value)));
+return _cloneStruct(_create(UInt8, 'initT', {}, v.value));
 return
 ----Swift.(file).UInt32.init(_:<<error type>>)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(v.value));
+return _cloneStruct(v.value);
 return
 ----Swift.(file).UInt64.init(_:<<error type>>)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(UInt64, 'initT', {}, v.value)));
+return _cloneStruct(_create(UInt64, 'initT', {}, v.value));
 return
 ----Swift.(file)..(error_type).==infix(_:<<error type>>,_:<<error type>>)
 let _this = this;
@@ -9024,7 +9024,7 @@ const startOffset = _this.distanceFromTo({}, _this.startIndex, i);
 const newOffset = Int.infix_43({}, startOffset, n);
 preconditionFileLine({}, () => Int.infix_62_61({}, newOffset, 0), () => String()/*!default_value*/, '?3', '?3');
 preconditionFileLine({}, () => Int.infix_60_61({}, newOffset, _this.count), () => String()/*!default_value*/, '?3', '?3');
-return _create(_ValidUTF8Buffer.Index, 'init_biasedBitsUInt32', {}, UInt32.prototype._fullShiftRight$get.call(_this._biasedBits, {}, Int.infix_38_60_60({}, newOffset, 3)))
+return _create(_ValidUTF8Buffer.Index, 'init_biasedBitsUInt32', {}, UInt32.prototype._fullShiftRight.call(_this._biasedBits, {}, Int.infix_38_60_60({}, newOffset, 3)))
 ----Swift.(file)._ValidUTF8Buffer.init()
 let _this = this;
 _this._biasedBits = 0;
@@ -9038,7 +9038,7 @@ static get capacity() { return this.capacity$get()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => String()/*!default_value*/, '?3', '?3');
 const result = _ValidUTF8Buffer.Element.infix_38_45({}, _create(_ValidUTF8Buffer.Element, 'initTruncatingIfNeeded', {}, _this._biasedBits), 1);
-_this._biasedBits = UInt32.prototype._fullShiftRight$get.call(_this._biasedBits, {}, 8);
+_this._biasedBits = UInt32.prototype._fullShiftRight.call(_this._biasedBits, {}, 8);
 return result
 ----Swift.(file)._ValidUTF8Buffer.replaceSubrange(_:Range<_ValidUTF8Buffer.Index>,with:C)
 let _this = this;

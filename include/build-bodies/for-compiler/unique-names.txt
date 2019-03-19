@@ -58,3 +58,7 @@ Swift.(file).Collection.index(_:Self.Index,offsetBy:T)
 indexOffsetByT
 Swift.(file).Collection.index(_:Self.Index,offsetBy:T,limitedBy:Self.Index)
 indexOffsetByTLimitedBy
+Swift.(file).FloatingPoint.init(_:Source)
+initSource
+Swift.(file).BinaryFloatingPoint.init(_:Source)
+initSource

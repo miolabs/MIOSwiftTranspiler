@@ -14215,12 +14215,14 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.init(_:Int1)*/
     /*Swift.(file).Bool.init(_:Int1)*/
     MIO_Mixin_Bool.prototype.initInt1 = function ($info, v) {
-        return v;
+        throw 'unsupported method Swift.(file).Bool.init(_:Int1) in ' + this.constructor.name;
     };
     /*Swift.(file).Bool.init(_:Bool)*/
     /*Swift.(file).Bool.init(_:Bool)*/
     MIO_Mixin_Bool.prototype.initBool = function ($info, value) {
-        return value;
+        var _this = this;
+        return _cloneStruct(value);
+        return;
     };
     /*Swift.(file).Bool.random(using:T)*/
     /*Swift.(file).Bool.random(using:T)*/
@@ -14243,12 +14245,14 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.init(_builtinBooleanLiteral:Int1)*/
     /*Swift.(file)._ExpressibleByBuiltinBooleanLiteral.init(_builtinBooleanLiteral:Int1)*/
     MIO_Mixin_Bool.prototype.init_builtinBooleanLiteralInt1 = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Bool.init(_builtinBooleanLiteral:Int1) in ' + this.constructor.name;
     };
     /*Swift.(file).Bool.init(booleanLiteral:Bool)*/
     /*Swift.(file).ExpressibleByBooleanLiteral.init(booleanLiteral:Self.BooleanLiteralType)*/
     MIO_Mixin_Bool.prototype.initBooleanLiteral = function ($info, value) {
-        return value;
+        var _this = this;
+        return _cloneStruct(value);
+        return;
     };
     /*Swift.(file).Bool.description*/
     MIO_Mixin_Bool.prototype.description$get = function () {
@@ -14290,7 +14294,20 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.init(_:String)*/
     /*Swift.(file).LosslessStringConvertible.init(_:String)*/
     MIO_Mixin_Bool.prototype.initString = function ($info, description) {
-        return description;
+        var _this = this;
+        if ((String.infix_61_61({}, description, "true"))) {
+            return _cloneStruct(true);
+        }
+        else {
+            if ((String.infix_61_61({}, description, "false"))) {
+                return _cloneStruct(false);
+            }
+            else {
+                return (this.$failed = true);
+            }
+        }
+        ;
+        return;
     };
     /*Swift.(file).Bool.!prefix(_:Bool)*/
     /*Swift.(file).Bool.!prefix(_:Bool)*/
@@ -14318,7 +14335,7 @@ var MIO_Mixin_Bool = /** @class */ (function () {
     /*Swift.(file).Bool.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Bool.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Bool.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Bool.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -16639,8 +16656,8 @@ var _HashTable = /** @class */ (function () {
     _HashTable.scaleForCapacity = function ($info, capacity) {
         var _this = this;
         var capacity = /*dot_syntax_base_ignored*/ max({}, capacity, 1);
-        var minimumEntries = /*dot_syntax_base_ignored*/ max({}, _create(Int, 'initDouble', {}, Double.prototype.rounded$get.call(Double.infix_47({}, _create(Double, 'initInt', {}, capacity), _this.maxLoadFactor), {}, FloatingPointRoundingRule.up)), Int.infix_43({}, capacity, 1));
-        var exponent = Int.infix_43({}, Int.prototype._binaryLogarithm$get.call(Int.infix_45({}, /*dot_syntax_base_ignored*/ max({}, minimumEntries, 2), 1), {}), 1);
+        var minimumEntries = /*dot_syntax_base_ignored*/ max({}, _create(Int, 'initDouble', {}, Double.prototype.rounded.call(Double.infix_47({}, _create(Double, 'initInt', {}, capacity), _this.maxLoadFactor), {}, FloatingPointRoundingRule.up)), Int.infix_43({}, capacity, 1));
+        var exponent = Int.infix_43({}, Int.prototype._binaryLogarithm.call(Int.infix_45({}, /*dot_syntax_base_ignored*/ max({}, minimumEntries, 2), 1), {}), 1);
         var scale = _create(Int8, 'initTruncatingIfNeeded', {}, exponent);
         return scale;
     };
@@ -20186,22 +20203,22 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.init(minimumCapacity:Int)*/
     /*Swift.(file).Set.init(minimumCapacity:Int)*/
     MIO_Mixin_Set.prototype.initMinimumCapacityInt = function ($info, minimumCapacity) {
-        return minimumCapacity;
+        throw 'unsupported method Swift.(file).Set.init(minimumCapacity:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.init(_native:_NativeSet<Element>)*/
     /*Swift.(file).Set.init(_native:_NativeSet<Element>)*/
     MIO_Mixin_Set.prototype.init_native_NativeSet = function ($info, _native) {
-        return _native;
+        throw 'unsupported method Swift.(file).Set.init(_native:_NativeSet<Element>) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.init(_cocoa:_CocoaSet)*/
     /*Swift.(file).Set.init(_cocoa:_CocoaSet)*/
     MIO_Mixin_Set.prototype.init_cocoa_CocoaSet = function ($info, _cocoa) {
-        return _cocoa;
+        throw 'unsupported method Swift.(file).Set.init(_cocoa:_CocoaSet) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.init(_immutableCocoaSet:AnyObject)*/
     /*Swift.(file).Set.init(_immutableCocoaSet:AnyObject)*/
     MIO_Mixin_Set.prototype.init_immutableCocoaSetAnyObject = function ($info, _immutableCocoaSet) {
-        return _immutableCocoaSet;
+        throw 'unsupported method Swift.(file).Set.init(_immutableCocoaSet:AnyObject) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -20211,7 +20228,7 @@ var MIO_Mixin_Set = /** @class */ (function () {
     /*Swift.(file).Set.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Set.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Set.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.init(arrayLiteral:[Element])*/
     /*Swift.(file).ExpressibleByArrayLiteral.init(arrayLiteral:[Self.ArrayLiteralElement])*/
@@ -23034,17 +23051,17 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.init(_native:_NativeDictionary<Key, Value>)*/
     /*Swift.(file).Dictionary.init(_native:_NativeDictionary<Key, Value>)*/
     MIO_Mixin_Dictionary.prototype.init_native_NativeDictionary = function ($info, _native) {
-        return _native;
+        throw 'unsupported method Swift.(file).Dictionary.init(_native:_NativeDictionary<Key, Value>) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.init(_cocoa:_CocoaDictionary)*/
     /*Swift.(file).Dictionary.init(_cocoa:_CocoaDictionary)*/
     MIO_Mixin_Dictionary.prototype.init_cocoa_CocoaDictionary = function ($info, _cocoa) {
-        return _cocoa;
+        throw 'unsupported method Swift.(file).Dictionary.init(_cocoa:_CocoaDictionary) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.init(_immutableCocoaDictionary:AnyObject)*/
     /*Swift.(file).Dictionary.init(_immutableCocoaDictionary:AnyObject)*/
     MIO_Mixin_Dictionary.prototype.init_immutableCocoaDictionaryAnyObject = function ($info, _immutableCocoaDictionary) {
-        return _immutableCocoaDictionary;
+        throw 'unsupported method Swift.(file).Dictionary.init(_immutableCocoaDictionary:AnyObject) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.init()*/
     /*Swift.(file).Dictionary.init()*/
@@ -23054,22 +23071,40 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.init(minimumCapacity:Int)*/
     /*Swift.(file).Dictionary.init(minimumCapacity:Int)*/
     MIO_Mixin_Dictionary.prototype.initMinimumCapacityInt = function ($info, minimumCapacity) {
-        return minimumCapacity;
+        throw 'unsupported method Swift.(file).Dictionary.init(minimumCapacity:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.init(uniqueKeysWithValues:S)*/
     /*Swift.(file).Dictionary.init(uniqueKeysWithValues:S)*/
     MIO_Mixin_Dictionary.prototype.initUniqueKeysWithValues = function ($info, keysAndValues) {
-        return keysAndValues;
+        var _this = this;
+        var $ifLet0, d_1;
+        if ((($ifLet0 = _injectIntoOptional(keysAndValues)) || true) && $ifLet0.rawValue == 'some' && ((d_1 = $ifLet0[0]) || true)) {
+            return _cloneStruct(_cloneStruct(d_1));
+            return;
+        }
+        ;
+        var _native = _create(_NativeDictionary, 'initCapacityInt', {}, keysAndValues.underestimatedCount);
+        _native.mergeIsUniqueUniquingKeysWith({ $setThis: function ($val) { return _native = $val; } }, keysAndValues, true, (function ($info, _, _) {
+            throw _MergeError.keyCollision;
+        }));
+        _this.init_native_NativeDictionary({}, _native);
+        return;
     };
     /*Swift.(file).Dictionary.init(_:S,uniquingKeysWith:(Value, Value) throws -> Value)*/
     /*Swift.(file).Dictionary.init(_:S,uniquingKeysWith:(Value, Value) throws -> Value)*/
     MIO_Mixin_Dictionary.prototype.initUniquingKeysWithfunction_type = function ($info, keysAndValues, combine) {
-        throw 'unsupported method Swift.(file).Dictionary.init(_:S,uniquingKeysWith:(Value, Value) throws -> Value) in ' + this.constructor.name;
+        var _this = this;
+        var _native = _create(_NativeDictionary, 'initCapacityInt', {}, keysAndValues.underestimatedCount);
+        _native.mergeIsUniqueUniquingKeysWith({ $setThis: function ($val) { return _native = $val; } }, keysAndValues, true, combine);
+        _this.init_native_NativeDictionary({}, _native);
+        return;
     };
     /*Swift.(file).Dictionary.init(grouping:S,by:(S.Element) throws -> Key)*/
     /*Swift.(file).Dictionary.init(grouping:S,by:(S.Element) throws -> Key)*/
     MIO_Mixin_Dictionary.prototype.initGroupingByfunction_type = function ($info, values, keyForValue) {
-        throw 'unsupported method Swift.(file).Dictionary.init(grouping:S,by:(S.Element) throws -> Key) in ' + this.constructor.name;
+        var _this = this;
+        _this.init_native_NativeDictionary({}, _create(_NativeDictionary, 'initGroupingByfunction_type', {}, values, keyForValue));
+        return;
     };
     /*Swift.(file).Dictionary.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -23079,7 +23114,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Dictionary.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Dictionary.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.makeIterator()*/
     /*Swift.(file).Sequence.makeIterator()*/
@@ -23203,7 +23238,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.init(dictionaryLiteral:[(Key, Value)])*/
     /*Swift.(file).ExpressibleByDictionaryLiteral.init(dictionaryLiteral:[(Self.Key, Self.Value)])*/
     MIO_Mixin_Dictionary.prototype.initDictionaryLiteralArray = function ($info, _elements) {
-        return _elements;
+        throw 'unsupported method Swift.(file).Dictionary.init(dictionaryLiteral:[(Key, Value)]) in ' + this.constructor.name;
     };
     /*Swift.(file).Dictionary.subscript(_:Key,default:() -> Value)*/
     /*Swift.(file).Dictionary.subscript(_:Key,default:() -> Value)*/
@@ -23357,7 +23392,9 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     /*Swift.(file).Dictionary.init(_unsafeUninitializedCapacity:Int,allowingDuplicates:Bool,initializingWith:(UnsafeMutableBufferPointer<Key>, UnsafeMutableBufferPointer<Value>, inout Int) -> Void)*/
     /*Swift.(file).Dictionary.init(_unsafeUninitializedCapacity:Int,allowingDuplicates:Bool,initializingWith:(UnsafeMutableBufferPointer<Key>, UnsafeMutableBufferPointer<Value>, inout Int) -> Void)*/
     MIO_Mixin_Dictionary.prototype.init_unsafeUninitializedCapacityIntAllowingDuplicatesBoolInitializingWithfunction_type = function ($info, capacity, allowingDuplicates, initializer) {
-        throw 'unsupported method Swift.(file).Dictionary.init(_unsafeUninitializedCapacity:Int,allowingDuplicates:Bool,initializingWith:(UnsafeMutableBufferPointer<Key>, UnsafeMutableBufferPointer<Value>, inout Int) -> Void) in ' + this.constructor.name;
+        var _this = this;
+        _this.init_native_NativeDictionary({}, _create(_NativeDictionary, 'init_unsafeUninitializedCapacityIntAllowingDuplicatesBoolInitializingWithfunction_type', {}, capacity, allowingDuplicates, initializer));
+        return;
     };
     MIO_Mixin_Dictionary.prototype.init$vars = function () {
     };
@@ -24341,7 +24378,7 @@ var FloatingPoint$implementation = /** @class */ (function () {
     /*Swift.(file).FloatingPoint.rounded()*/
     FloatingPoint$implementation.prototype.rounded = function ($info) {
         var _this = this;
-        return _this.constructor.prototype.rounded$get.call(_this, {}, FloatingPointRoundingRule.toNearestOrAwayFromZero);
+        return _this.constructor.prototype.rounded.call(_this, {}, FloatingPointRoundingRule.toNearestOrAwayFromZero);
     };
     /*Swift.(file).FloatingPoint.round()*/
     /*Swift.(file).FloatingPoint.round()*/
@@ -24512,9 +24549,9 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
-    BinaryFloatingPoint$implementation.prototype.init = function ($info, value) {
+    BinaryFloatingPoint$implementation.prototype.initSource = function ($info, value) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_this.constructor._convertFrom({}, value)["0"]));
+        return _cloneStruct(_this.constructor._convertFrom({}, value)["0"]);
         return;
     };
     /*Swift.(file).BinaryFloatingPoint.init(exactly:Source)*/
@@ -24526,7 +24563,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             return (this.$failed = true);
         }
         ;
-        $info.$setThis(_this = _cloneStruct(value_));
+        return _cloneStruct(value_);
         return;
     };
     /*Swift.(file).BinaryFloatingPoint.isTotallyOrdered(belowOrEqualTo:Self)*/
@@ -24565,9 +24602,9 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Source)*/
-    BinaryFloatingPoint$implementation.prototype.init = function ($info, value) {
+    BinaryFloatingPoint$implementation.prototype.initSource = function ($info, value) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_this.constructor._convertFrom({}, value)["0"]));
+        return _cloneStruct(_this.constructor._convertFrom({}, value)["0"]);
         return;
     };
     /*Swift.(file).BinaryFloatingPoint.init(exactly:Source)*/
@@ -24579,7 +24616,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
             return (this.$failed = true);
         }
         ;
-        $info.$setThis(_this = _cloneStruct(value_));
+        return _cloneStruct(value_);
         return;
     };
     /*Swift.(file).BinaryFloatingPoint.random(in:Range<Self>,using:T)*/
@@ -24601,7 +24638,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
                 rand = ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).infix_38({}, generator.next({ $setThis: function ($val) { return generator = $val; } }), ((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()).infix_45({}, maxSignificand, _create(((function () { throw '!unclarifiedGeneric:Self.RawSignificand'; })()), 'initIntegerLiteral', {}, 1)));
             }
             ;
-            var unitRandom = _this.infix_42({}, _create(_this, 'init', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
+            var unitRandom = _this.infix_42({}, _create(_this, 'initSource', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
             var randFloat = _this.infix_43({}, _this.infix_42({}, delta, unitRandom), range.lowerBound);
             if ((_this.infix_61_61({}, randFloat, range.upperBound))) {
                 return _this.randomInUsing({}, range, { get: function () { return generator; }, set: function ($val) { return generator = $val; } });
@@ -24647,7 +24684,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
                 ;
             }
             ;
-            var unitRandom = _this.infix_42({}, _create(_this, 'init', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
+            var unitRandom = _this.infix_42({}, _create(_this, 'initSource', {}, rand), _this.infix_47({}, _this.ulpOfOne, _create(_this, 'initIntegerLiteral', {}, 2)));
             var randFloat = _this.infix_43({}, _this.infix_42({}, delta, unitRandom), range.lowerBound);
             return randFloat;
         })();
@@ -24683,12 +24720,12 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).Float.init(_:FPIEEE32)*/
     /*Swift.(file).Float.init(_:FPIEEE32)*/
     MIO_Mixin_Float.prototype.initFPIEEE32 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Float.init(_:FPIEEE32) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Float.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Float.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -24698,7 +24735,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).Float.init(_:S)*/
     /*Swift.(file).LosslessStringConvertible.init(_:String)*/
     MIO_Mixin_Float.prototype.initString = function ($info, _text) {
-        return _text;
+        throw 'unsupported method Swift.(file).Float.init(_:S) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.description*/
     MIO_Mixin_Float.prototype.description$get = function () {
@@ -24761,7 +24798,7 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).Float.init(bitPattern:UInt32)*/
     /*Swift.(file).Float.init(bitPattern:UInt32)*/
     MIO_Mixin_Float.prototype.initBitPatternUInt32 = function ($info, bitPattern) {
-        return bitPattern;
+        throw 'unsupported method Swift.(file).Float.init(bitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.sign*/
     MIO_Mixin_Float.prototype.sign$get = function () {
@@ -25103,22 +25140,22 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).Float.init(floatLiteral:Float)*/
     /*Swift.(file).ExpressibleByFloatLiteral.init(floatLiteral:Self.FloatLiteralType)*/
     MIO_Mixin_Float.prototype.initFloatLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float.init(floatLiteral:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Float.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(integerLiteral:Int64)*/
     /*Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self.IntegerLiteralType)*/
     MIO_Mixin_Float.prototype.initIntegerLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float.init(integerLiteral:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(_builtinFloatLiteral:FPIEEE80)*/
     /*Swift.(file)._ExpressibleByBuiltinFloatLiteral.init(_builtinFloatLiteral:_MaxBuiltinFloatType)*/
     MIO_Mixin_Float.prototype.init_builtinFloatLiteral_MaxBuiltinFloatType = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float.init(_builtinFloatLiteral:FPIEEE80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -25154,42 +25191,37 @@ var MIO_Mixin_Float = /** @class */ (function () {
     /*Swift.(file).Float.init(_:Int)*/
     /*Swift.(file).FloatingPoint.init(_:Int)*/
     MIO_Mixin_Float.prototype.initInt = function ($info, v) {
-        return v;
-    };
-    /*Swift.(file).Float.init(_:Source)*/
-    /*Swift.(file).FloatingPoint.init(_:Source)*/
-    MIO_Mixin_Float.prototype.init = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float.init(_:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(_:Float)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float)*/
     MIO_Mixin_Float.prototype.initFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(exactly:Float)*/
     /*Swift.(file).Float.init(exactly:Float)*/
     MIO_Mixin_Float.prototype.initExactlyFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(_:Double)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Double)*/
     MIO_Mixin_Float.prototype.initDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(exactly:Double)*/
     /*Swift.(file).Float.init(exactly:Double)*/
     MIO_Mixin_Float.prototype.initExactlyDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(_:Float80)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float80)*/
     MIO_Mixin_Float.prototype.initFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.init(exactly:Float80)*/
     /*Swift.(file).Float.init(exactly:Float80)*/
     MIO_Mixin_Float.prototype.initExactlyFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float.+infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
@@ -25524,12 +25556,12 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).Double.init(_:FPIEEE64)*/
     /*Swift.(file).Double.init(_:FPIEEE64)*/
     MIO_Mixin_Double.prototype.initFPIEEE64 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Double.init(_:FPIEEE64) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Double.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Double.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -25539,7 +25571,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).Double.init(_:S)*/
     /*Swift.(file).LosslessStringConvertible.init(_:String)*/
     MIO_Mixin_Double.prototype.initString = function ($info, _text) {
-        return _text;
+        throw 'unsupported method Swift.(file).Double.init(_:S) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.description*/
     MIO_Mixin_Double.prototype.description$get = function () {
@@ -25602,7 +25634,7 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).Double.init(bitPattern:UInt64)*/
     /*Swift.(file).Double.init(bitPattern:UInt64)*/
     MIO_Mixin_Double.prototype.initBitPatternUInt64 = function ($info, bitPattern) {
-        return bitPattern;
+        throw 'unsupported method Swift.(file).Double.init(bitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.sign*/
     MIO_Mixin_Double.prototype.sign$get = function () {
@@ -25944,22 +25976,22 @@ var MIO_Mixin_Double = /** @class */ (function () {
     /*Swift.(file).Double.init(floatLiteral:Double)*/
     /*Swift.(file).ExpressibleByFloatLiteral.init(floatLiteral:Self.FloatLiteralType)*/
     MIO_Mixin_Double.prototype.initFloatLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Double.init(floatLiteral:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Double.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Double.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(integerLiteral:Int64)*/
     /*Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self.IntegerLiteralType)*/
     MIO_Mixin_Double.prototype.initIntegerLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Double.init(integerLiteral:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(_builtinFloatLiteral:FPIEEE80)*/
     /*Swift.(file)._ExpressibleByBuiltinFloatLiteral.init(_builtinFloatLiteral:_MaxBuiltinFloatType)*/
     MIO_Mixin_Double.prototype.init_builtinFloatLiteral_MaxBuiltinFloatType = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Double.init(_builtinFloatLiteral:FPIEEE80) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -25997,40 +26029,35 @@ var MIO_Mixin_Double = /** @class */ (function () {
     MIO_Mixin_Double.prototype.initInt = function ($info, v) {
         return v;
     };
-    /*Swift.(file).Double.init(_:Source)*/
-    /*Swift.(file).FloatingPoint.init(_:Source)*/
-    MIO_Mixin_Double.prototype.init = function ($info, value) {
-        return value;
-    };
     /*Swift.(file).Double.init(_:Float)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float)*/
     MIO_Mixin_Double.prototype.initFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(exactly:Float)*/
     /*Swift.(file).Double.init(exactly:Float)*/
     MIO_Mixin_Double.prototype.initExactlyFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(_:Double)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Double)*/
     MIO_Mixin_Double.prototype.initDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(exactly:Double)*/
     /*Swift.(file).Double.init(exactly:Double)*/
     MIO_Mixin_Double.prototype.initExactlyDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(_:Float80)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float80)*/
     MIO_Mixin_Double.prototype.initFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.init(exactly:Float80)*/
     /*Swift.(file).Double.init(exactly:Float80)*/
     MIO_Mixin_Double.prototype.initExactlyFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Double.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Double.+infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
@@ -26365,12 +26392,12 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).Float80.init(_:FPIEEE80)*/
     /*Swift.(file).Float80.init(_:FPIEEE80)*/
     MIO_Mixin_Float80.prototype.initFPIEEE80 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Float80.init(_:FPIEEE80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_:S)*/
     /*Swift.(file).LosslessStringConvertible.init(_:String)*/
     MIO_Mixin_Float80.prototype.initString = function ($info, _text) {
-        return _text;
+        throw 'unsupported method Swift.(file).Float80.init(_:S) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.description*/
     MIO_Mixin_Float80.prototype.description$get = function () {
@@ -26750,22 +26777,22 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).Float80.init(floatLiteral:Float80)*/
     /*Swift.(file).ExpressibleByFloatLiteral.init(floatLiteral:Self.FloatLiteralType)*/
     MIO_Mixin_Float80.prototype.initFloatLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float80.init(floatLiteral:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Float80.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float80.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(integerLiteral:Int64)*/
     /*Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self.IntegerLiteralType)*/
     MIO_Mixin_Float80.prototype.initIntegerLiteral = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float80.init(integerLiteral:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_builtinFloatLiteral:FPIEEE80)*/
     /*Swift.(file)._ExpressibleByBuiltinFloatLiteral.init(_builtinFloatLiteral:_MaxBuiltinFloatType)*/
     MIO_Mixin_Float80.prototype.init_builtinFloatLiteral_MaxBuiltinFloatType = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float80.init(_builtinFloatLiteral:FPIEEE80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -26801,42 +26828,37 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     /*Swift.(file).Float80.init(_:Int)*/
     /*Swift.(file).FloatingPoint.init(_:Int)*/
     MIO_Mixin_Float80.prototype.initInt = function ($info, v) {
-        return v;
-    };
-    /*Swift.(file).Float80.init(_:Source)*/
-    /*Swift.(file).FloatingPoint.init(_:Source)*/
-    MIO_Mixin_Float80.prototype.init = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).Float80.init(_:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_:Float)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float)*/
     MIO_Mixin_Float80.prototype.initFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(exactly:Float)*/
     /*Swift.(file).Float80.init(exactly:Float)*/
     MIO_Mixin_Float80.prototype.initExactlyFloat = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_:Double)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Double)*/
     MIO_Mixin_Float80.prototype.initDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(exactly:Double)*/
     /*Swift.(file).Float80.init(exactly:Double)*/
     MIO_Mixin_Float80.prototype.initExactlyDouble = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(_:Float80)*/
     /*Swift.(file).BinaryFloatingPoint.init(_:Float80)*/
     MIO_Mixin_Float80.prototype.initFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.init(exactly:Float80)*/
     /*Swift.(file).Float80.init(exactly:Float80)*/
     MIO_Mixin_Float80.prototype.initExactlyFloat80 = function ($info, other) {
-        return other;
+        throw 'unsupported method Swift.(file).Float80.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Float80.+infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
@@ -26990,7 +27012,7 @@ var BinaryInteger$implementation = /** @class */ (function () {
     /*Swift.(file).BinaryInteger.init()*/
     BinaryInteger$implementation.prototype.init = function ($info) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initIntegerLiteral', {}, 0)));
+        return _cloneStruct(_create(_this.constructor, 'initIntegerLiteral', {}, 0));
         return;
     };
     /*Swift.(file).BinaryInteger.signum()*/
@@ -27233,14 +27255,14 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     /*Swift.(file).FixedWidthInteger.init(littleEndian:Self)*/
     FixedWidthInteger$implementation.prototype.initLittleEndian = function ($info, value) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(value));
+        return _cloneStruct(value);
         return;
     };
     /*Swift.(file).FixedWidthInteger.init(bigEndian:Self)*/
     /*Swift.(file).FixedWidthInteger.init(bigEndian:Self)*/
     FixedWidthInteger$implementation.prototype.initBigEndian = function ($info, value) {
         var _this = this;
-        $info.$setThis(_this = _cloneStruct(_this.constructor.prototype.byteSwapped$get.call(value)));
+        return _cloneStruct(_this.constructor.prototype.byteSwapped$get.call(value));
         return;
     };
     /*Swift.(file).FixedWidthInteger.littleEndian*/
@@ -27374,7 +27396,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
             fatalErrorFileLine({}, function () { return (("") + (((function () { throw '!unclarifiedGeneric:T'; })())) + (" value cannot be converted to ") + (_this.constructor) + (" because it is outside the representable range")); }, '?3', '?3');
         }
         ;
-        return _this = _cloneStruct(value_1);
+        return _cloneStruct(value_1);
         return;
     };
     /*Swift.(file).FixedWidthInteger.init(exactly:T)*/
@@ -27387,7 +27409,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
             return (this.$failed = true);
         }
         ;
-        return _this = _cloneStruct(value_1);
+        return _cloneStruct(value_1);
         return;
     };
     /*Swift.(file).FixedWidthInteger.init(clamping:Other)*/
@@ -27395,14 +27417,14 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     FixedWidthInteger$implementation.prototype.initClamping = function ($info, source) {
         var _this = this;
         if ((_slowPath({}, ((function () { throw '!unclarifiedGeneric:Other'; })()).infix_60({}, source, _this.constructor.min)))) {
-            return _this = _cloneStruct(_this.constructor.min);
+            return _cloneStruct(_this.constructor.min);
         }
         else {
             if ((_slowPath({}, ((function () { throw '!unclarifiedGeneric:Other'; })()).infix_62({}, source, _this.constructor.max)))) {
-                return _this = _cloneStruct(_this.constructor.max);
+                return _cloneStruct(_this.constructor.max);
             }
             else {
-                return _this = _cloneStruct(_create(_this.constructor, 'initTruncatingIfNeeded', {}, source));
+                return _cloneStruct(_create(_this.constructor, 'initTruncatingIfNeeded', {}, source));
             }
         }
         ;
@@ -27413,7 +27435,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     FixedWidthInteger$implementation.prototype.initTruncatingIfNeeded = function ($info, source) {
         var _this = this;
         if ((Int.infix_60_61({}, _this.constructor.bitWidth, Int.bitWidth))) {
-            return _this = _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, ((function () { throw '!unclarifiedGeneric:T'; })()).prototype._lowWord$get.call(source)));
+            return _cloneStruct(_create(_this.constructor, 'init_truncatingBitsUInt', {}, ((function () { throw '!unclarifiedGeneric:T'; })()).prototype._lowWord$get.call(source)));
         }
         else {
             var neg = ((function () { throw '!unclarifiedGeneric:T'; })()).infix_60({}, source, _create(((function () { throw '!unclarifiedGeneric:T'; })()), 'initIntegerLiteral', {}, 0));
@@ -27435,7 +27457,7 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
                 }
             }
             ;
-            return _this = _cloneStruct(result_4);
+            return _cloneStruct(result_4);
         }
         ;
         return;
@@ -27494,35 +27516,35 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     /*Swift.(file).FixedWidthInteger.addWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.addWithOverflow = function ($info, lhs, rhs) {
         var _this = this;
-        var $tuple = _this.prototype.addingReportingOverflow$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        var $tuple = _this.prototype.addingReportingOverflow.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
         return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.subtractWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.subtractWithOverflow = function ($info, lhs, rhs) {
         var _this = this;
-        var $tuple = _this.prototype.subtractingReportingOverflow$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        var $tuple = _this.prototype.subtractingReportingOverflow.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
         return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.multiplyWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.multiplyWithOverflow = function ($info, lhs, rhs) {
         var _this = this;
-        var $tuple = _this.prototype.multipliedReportingOverflowBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        var $tuple = _this.prototype.multipliedReportingOverflowBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
         return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.divideWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.divideWithOverflow = function ($info, lhs, rhs) {
         var _this = this;
-        var $tuple = _this.prototype.dividedReportingOverflowBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        var $tuple = _this.prototype.dividedReportingOverflowBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
         return { 0: partialValue, 1: overflow };
     };
     /*Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.remainderWithOverflow(_:Self,_:Self)*/
     FixedWidthInteger$implementation.remainderWithOverflow = function ($info, lhs, rhs) {
         var _this = this;
-        var $tuple = _this.prototype.remainderReportingOverflowDividingBy$get.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
+        var $tuple = _this.prototype.remainderReportingOverflowDividingBy.call(lhs, {}, rhs), partialValue = $tuple && $tuple[0], overflow = $tuple && $tuple[1];
         return { 0: partialValue, 1: overflow };
     };
     FixedWidthInteger$implementation._convertFrom = function ($info, number) {
@@ -29175,10 +29197,10 @@ var _SmallString = /** @class */ (function () {
     _SmallString.prototype.subscript$get = function ($info, idx) {
         var _this = this;
         if ((Int.infix_60({}, idx, 8))) {
-            return UInt64.prototype._uncheckedGetByteAt$get.call(_this.leadingRawBits, {}, idx);
+            return UInt64.prototype._uncheckedGetByteAt.call(_this.leadingRawBits, {}, idx);
         }
         else {
-            return UInt64.prototype._uncheckedGetByteAt$get.call(_this.trailingRawBits, {}, Int.infix_38_45({}, idx, 8));
+            return UInt64.prototype._uncheckedGetByteAt.call(_this.trailingRawBits, {}, Int.infix_38_45({}, idx, 8));
         }
         ;
     }; /*Swift.(file)._SmallString.subscript(_:Int)*/
@@ -30289,7 +30311,7 @@ var _UIntBuffer = /** @class */ (function () {
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         var result = _create(((function () { throw '!unclarifiedGeneric:Element'; })()), 'initTruncatingIfNeeded', {}, _this._storage);
         _this._bitCount = UInt8.infix_38_45({}, _this._bitCount, _this._elementWidth);
-        _this._storage = _UIntBuffer.Storage.prototype._fullShiftRight$get.call(_this._storage, {}, _this._elementWidth);
+        _this._storage = _UIntBuffer.Storage.prototype._fullShiftRight.call(_this._storage, {}, _this._elementWidth);
         return result;
     };
     /*Swift.(file)._UIntBuffer.replaceSubrange(_:Range<_UIntBuffer<Element>.Index>,with:C)*/
@@ -30305,7 +30327,7 @@ var _UIntBuffer = /** @class */ (function () {
         var tailOffset = _this.distanceFromTo({}, _this.startIndex, target.upperBound);
         var w = ((function () { throw '!unclarifiedGeneric:Element'; })()).bitWidth;
         var headBits = UInt32.infix_38({}, _this._storage, UInt32._lowBits({}, Int.infix_38_42({}, headCount, w)));
-        var tailBits = _UIntBuffer.Storage.prototype._fullShiftRight$get.call(_this._storage, {}, Int.infix_38_42({}, tailOffset, w));
+        var tailBits = _UIntBuffer.Storage.prototype._fullShiftRight.call(_this._storage, {}, Int.infix_38_42({}, tailOffset, w));
         _this._storage = headBits;
         UInt32.infix_124_61({}, { get: function () { return _this._storage; }, set: function ($val) { return _this._storage = $val; } }, UInt32.infix_38_60_60({}, replacement1._storage, Int.infix_38_42({}, headCount, w)));
         UInt32.infix_124_61({}, { get: function () { return _this._storage; }, set: function ($val) { return _this._storage = $val; } }, UInt32.infix_38_60_60({}, tailBits, Int.infix_38_42({}, Int.infix_38_43({}, tailOffset, growth), w)));
@@ -33891,7 +33913,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
         var newOffset = Int.infix_43({}, startOffset, n);
         preconditionFileLine({}, function () { return Int.infix_62_61({}, newOffset, 0); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         preconditionFileLine({}, function () { return Int.infix_60_61({}, newOffset, _this.count); }, function () { return String(); } /*!default_value*/, '?3', '?3');
-        return _create(_ValidUTF8Buffer.Index, 'init_biasedBitsUInt32', {}, UInt32.prototype._fullShiftRight$get.call(_this._biasedBits, {}, Int.infix_38_60_60({}, newOffset, 3)));
+        return _create(_ValidUTF8Buffer.Index, 'init_biasedBitsUInt32', {}, UInt32.prototype._fullShiftRight.call(_this._biasedBits, {}, Int.infix_38_60_60({}, newOffset, 3)));
     };
     /*Swift.(file)._ValidUTF8Buffer.init()*/
     /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -33936,7 +33958,7 @@ var _ValidUTF8Buffer = /** @class */ (function () {
         var _this = this;
         preconditionFileLine({}, function () { return Bool.prefix_33({}, _this.isEmpty); }, function () { return String(); } /*!default_value*/, '?3', '?3');
         var result = _ValidUTF8Buffer.Element.infix_38_45({}, _create(_ValidUTF8Buffer.Element, 'initTruncatingIfNeeded', {}, _this._biasedBits), 1);
-        _this._biasedBits = UInt32.prototype._fullShiftRight$get.call(_this._biasedBits, {}, 8);
+        _this._biasedBits = UInt32.prototype._fullShiftRight.call(_this._biasedBits, {}, 8);
         return result;
     };
     /*Swift.(file)._ValidUTF8Buffer.replaceSubrange(_:Range<_ValidUTF8Buffer.Index>,with:C)*/
@@ -34811,7 +34833,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(_buffer:Array<Element>._Buffer)*/
     /*Swift.(file).Array.init(_buffer:Array<Element>._Buffer)*/
     MIO_Mixin_Array.prototype.init_bufferArray_Buffer = function ($info, _buffer) {
-        return _buffer;
+        throw 'unsupported method Swift.(file).Array.init(_buffer:Array<Element>._Buffer) in ' + this.constructor.name;
     };
     /*Swift.(file).Array.capacity*/
     MIO_Mixin_Array.prototype.capacity$get = function () {
@@ -34977,7 +34999,9 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(arrayLiteral:[Element])*/
     /*Swift.(file).ExpressibleByArrayLiteral.init(arrayLiteral:[Self.ArrayLiteralElement])*/
     MIO_Mixin_Array.prototype.initArrayLiteralArray = function ($info, _elements) {
-        return _elements;
+        var _this = this;
+        return _cloneStruct(_cloneStruct(_elements));
+        return;
     };
     /*Swift.(file).Array.init()*/
     /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -35020,7 +35044,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
     /*Swift.(file).Array.init(_uninitializedCount:Int)*/
     MIO_Mixin_Array.prototype.init_uninitializedCountInt = function ($info, count) {
-        return count;
+        throw 'unsupported method Swift.(file).Array.init(_uninitializedCount:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Array.reserveCapacity(_:Int)*/
     /*Swift.(file)._ArrayProtocol.reserveCapacity(_:Int)*/
@@ -35115,10 +35139,33 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.description*/
     MIO_Mixin_Array.prototype.description$get = function () {
         var _this = this;
-        return _this._makeCollectionDescriptionWithTypeName({}, nil /*!default_value*/);
+        var result = "";
+        String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, "[");
+        var first = true;
+        {
+            var $item$generator_1 = _cloneStruct(_this.makeIterator({}));
+            while (true) {
+                var $ifLet0, item_1;
+                if (!((($ifLet0 = $item$generator_1.next({ $setThis: function ($val) { return $item$generator_1 = $val; } })) || true) && $ifLet0.rawValue == 'some' && ((item_1 = $ifLet0[0]) || true)))
+                    break;
+                if ((first)) {
+                    first = false;
+                }
+                else {
+                    String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, ", ");
+                }
+                ;
+                String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, (("") + (item_1) + ("")));
+            }
+        }
+        ;
+        String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, "]");
+        return result;
     };
     Object.defineProperty(MIO_Mixin_Array.prototype, "description", {
-        get: function () { return this.description$get(); },
+        get: function () {
+            return this.description$get();
+        },
         enumerable: true,
         configurable: true
     });
@@ -35249,7 +35296,9 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(_immutableCocoaArray:AnyObject)*/
     /*Swift.(file).Array.init(_immutableCocoaArray:AnyObject)*/
     MIO_Mixin_Array.prototype.init_immutableCocoaArrayAnyObject = function ($info, _immutableCocoaArray) {
-        return _immutableCocoaArray;
+        var _this = this;
+        return _cloneStruct(_cloneStruct(_bridgeCocoaArray({}, _immutableCocoaArray)));
+        return;
     };
     /*Swift.(file).Array.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -35259,7 +35308,7 @@ var MIO_Mixin_Array = /** @class */ (function () {
     /*Swift.(file).Array.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Array.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Array.init(from:Decoder) in ' + this.constructor.name;
     };
     MIO_Mixin_Array.prototype.init$vars = function () {
     };
@@ -38017,42 +38066,42 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_UInt8.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt8.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(bitPattern:Int8)*/
     /*Swift.(file).UInt8.init(bitPattern:Int8)*/
     MIO_Mixin_UInt8.prototype.initBitPatternInt8 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt8.init(bitPattern:Int8) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(_:Float)*/
     /*Swift.(file).UInt8.init(_:Float)*/
     MIO_Mixin_UInt8.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(exactly:Float)*/
     /*Swift.(file).UInt8.init(exactly:Float)*/
     MIO_Mixin_UInt8.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(_:Double)*/
     /*Swift.(file).UInt8.init(_:Double)*/
     MIO_Mixin_UInt8.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(exactly:Double)*/
     /*Swift.(file).UInt8.init(exactly:Double)*/
     MIO_Mixin_UInt8.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(_:Float80)*/
     /*Swift.(file).UInt8.init(_:Float80)*/
     MIO_Mixin_UInt8.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(exactly:Float80)*/
     /*Swift.(file).UInt8.init(exactly:Float80)*/
     MIO_Mixin_UInt8.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.==infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -38120,7 +38169,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(_:Int8)*/
     /*Swift.(file).UInt8.init(_:Int8)*/
     MIO_Mixin_UInt8.prototype.initInt8 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).UInt8.init(_:Int8) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.&=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -38201,7 +38250,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_UInt8.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).UInt8.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.multipliedFullWidth(by:UInt8)*/
     /*Swift.(file).FixedWidthInteger.multipliedFullWidth(by:Self)*/
@@ -38237,7 +38286,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_UInt8.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).UInt8.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -38262,42 +38311,42 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt16)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt16)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternUInt16 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:UInt16) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int16)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int16)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternInt16 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:Int16) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt32)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt32)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternUInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int32)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int32)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int)*/
     /*Swift.(file).UInt8.init(truncatingBitPattern:Int)*/
     MIO_Mixin_UInt8.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt8.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.&infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -38401,7 +38450,7 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
     /*Swift.(file).UInt8.init(ascii:Unicode.Scalar)*/
     MIO_Mixin_UInt8.prototype.initAsciiUnicodeScalar = function ($info, v) {
-        return v;
+        throw 'unsupported method Swift.(file).UInt8.init(ascii:Unicode.Scalar) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt8.customMirror*/
     MIO_Mixin_UInt8.prototype.customMirror$get = function () {
@@ -38764,42 +38813,42 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Int8.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int8.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(bitPattern:UInt8)*/
     /*Swift.(file).Int8.init(bitPattern:UInt8)*/
     MIO_Mixin_Int8.prototype.initBitPatternUInt8 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int8.init(bitPattern:UInt8) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(_:Float)*/
     /*Swift.(file).Int8.init(_:Float)*/
     MIO_Mixin_Int8.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(exactly:Float)*/
     /*Swift.(file).Int8.init(exactly:Float)*/
     MIO_Mixin_Int8.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(_:Double)*/
     /*Swift.(file).Int8.init(_:Double)*/
     MIO_Mixin_Int8.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(exactly:Double)*/
     /*Swift.(file).Int8.init(exactly:Double)*/
     MIO_Mixin_Int8.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(_:Float80)*/
     /*Swift.(file).Int8.init(_:Float80)*/
     MIO_Mixin_Int8.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(exactly:Float80)*/
     /*Swift.(file).Int8.init(exactly:Float80)*/
     MIO_Mixin_Int8.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.==infix(_:Int8,_:Int8)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -38867,7 +38916,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.init(_:Int8)*/
     /*Swift.(file).Int8.init(_:Int8)*/
     MIO_Mixin_Int8.prototype.initInt8 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Int8.init(_:Int8) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.&=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -38948,7 +38997,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_Int8.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).Int8.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.magnitude*/
     MIO_Mixin_Int8.prototype.magnitude$get = function () {
@@ -38994,7 +39043,7 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Int8.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Int8.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -39019,42 +39068,42 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt16)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt16)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternUInt16 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:UInt16) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:Int16)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:Int16)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternInt16 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:Int16) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt32)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt32)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternUInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:Int32)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:Int32)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.init(truncatingBitPattern:Int)*/
     /*Swift.(file).Int8.init(truncatingBitPattern:Int)*/
     MIO_Mixin_Int8.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int8.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Int8.&infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -39514,42 +39563,42 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_UInt16.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt16.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(bitPattern:Int16)*/
     /*Swift.(file).UInt16.init(bitPattern:Int16)*/
     MIO_Mixin_UInt16.prototype.initBitPatternInt16 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt16.init(bitPattern:Int16) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(_:Float)*/
     /*Swift.(file).UInt16.init(_:Float)*/
     MIO_Mixin_UInt16.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(exactly:Float)*/
     /*Swift.(file).UInt16.init(exactly:Float)*/
     MIO_Mixin_UInt16.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(_:Double)*/
     /*Swift.(file).UInt16.init(_:Double)*/
     MIO_Mixin_UInt16.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(exactly:Double)*/
     /*Swift.(file).UInt16.init(exactly:Double)*/
     MIO_Mixin_UInt16.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(_:Float80)*/
     /*Swift.(file).UInt16.init(_:Float80)*/
     MIO_Mixin_UInt16.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(exactly:Float80)*/
     /*Swift.(file).UInt16.init(exactly:Float80)*/
     MIO_Mixin_UInt16.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.==infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -39617,7 +39666,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.init(_:Int16)*/
     /*Swift.(file).UInt16.init(_:Int16)*/
     MIO_Mixin_UInt16.prototype.initInt16 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).UInt16.init(_:Int16) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.&=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -39698,7 +39747,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_UInt16.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).UInt16.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.multipliedFullWidth(by:UInt16)*/
     /*Swift.(file).FixedWidthInteger.multipliedFullWidth(by:Self)*/
@@ -39734,7 +39783,7 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_UInt16.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).UInt16.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -39759,32 +39808,32 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt32)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt32)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternUInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int32)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int32)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int)*/
     /*Swift.(file).UInt16.init(truncatingBitPattern:Int)*/
     MIO_Mixin_UInt16.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt16.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt16.&infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -40238,42 +40287,42 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Int16.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int16.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(bitPattern:UInt16)*/
     /*Swift.(file).Int16.init(bitPattern:UInt16)*/
     MIO_Mixin_Int16.prototype.initBitPatternUInt16 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int16.init(bitPattern:UInt16) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(_:Float)*/
     /*Swift.(file).Int16.init(_:Float)*/
     MIO_Mixin_Int16.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(exactly:Float)*/
     /*Swift.(file).Int16.init(exactly:Float)*/
     MIO_Mixin_Int16.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(_:Double)*/
     /*Swift.(file).Int16.init(_:Double)*/
     MIO_Mixin_Int16.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(exactly:Double)*/
     /*Swift.(file).Int16.init(exactly:Double)*/
     MIO_Mixin_Int16.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(_:Float80)*/
     /*Swift.(file).Int16.init(_:Float80)*/
     MIO_Mixin_Int16.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(exactly:Float80)*/
     /*Swift.(file).Int16.init(exactly:Float80)*/
     MIO_Mixin_Int16.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.==infix(_:Int16,_:Int16)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -40341,7 +40390,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.init(_:Int16)*/
     /*Swift.(file).Int16.init(_:Int16)*/
     MIO_Mixin_Int16.prototype.initInt16 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Int16.init(_:Int16) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.&=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -40422,7 +40471,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_Int16.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).Int16.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.magnitude*/
     MIO_Mixin_Int16.prototype.magnitude$get = function () {
@@ -40468,7 +40517,7 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Int16.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Int16.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -40493,32 +40542,32 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt32)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt32)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternUInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(truncatingBitPattern:Int32)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:Int32)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternInt32 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.init(truncatingBitPattern:Int)*/
     /*Swift.(file).Int16.init(truncatingBitPattern:Int)*/
     MIO_Mixin_Int16.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int16.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Int16.&infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -40970,42 +41019,42 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_UInt32.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt32.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(bitPattern:Int32)*/
     /*Swift.(file).UInt32.init(bitPattern:Int32)*/
     MIO_Mixin_UInt32.prototype.initBitPatternInt32 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt32.init(bitPattern:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(_:Float)*/
     /*Swift.(file).UInt32.init(_:Float)*/
     MIO_Mixin_UInt32.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(exactly:Float)*/
     /*Swift.(file).UInt32.init(exactly:Float)*/
     MIO_Mixin_UInt32.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(_:Double)*/
     /*Swift.(file).UInt32.init(_:Double)*/
     MIO_Mixin_UInt32.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(exactly:Double)*/
     /*Swift.(file).UInt32.init(exactly:Double)*/
     MIO_Mixin_UInt32.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(_:Float80)*/
     /*Swift.(file).UInt32.init(_:Float80)*/
     MIO_Mixin_UInt32.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(exactly:Float80)*/
     /*Swift.(file).UInt32.init(exactly:Float80)*/
     MIO_Mixin_UInt32.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.==infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -41073,7 +41122,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(_:Int32)*/
     /*Swift.(file).UInt32.init(_:Int32)*/
     MIO_Mixin_UInt32.prototype.initInt32 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).UInt32.init(_:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.&=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -41154,7 +41203,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_UInt32.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).UInt32.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.multipliedFullWidth(by:UInt32)*/
     /*Swift.(file).FixedWidthInteger.multipliedFullWidth(by:Self)*/
@@ -41190,7 +41239,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_UInt32.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).UInt32.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -41215,22 +41264,22 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).UInt32.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_UInt32.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).UInt32.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_UInt32.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).UInt32.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_UInt32.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.init(truncatingBitPattern:Int)*/
     /*Swift.(file).UInt32.init(truncatingBitPattern:Int)*/
     MIO_Mixin_UInt32.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt32.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.&infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -41326,7 +41375,7 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt32.init(_:Unicode.Scalar)*/
     MIO_Mixin_UInt32.prototype.initUnicodeScalar = function ($info, v) {
-        return v;
+        throw 'unsupported method Swift.(file).UInt32.init(_:Unicode.Scalar) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt32.customMirror*/
     MIO_Mixin_UInt32.prototype.customMirror$get = function () {
@@ -41687,47 +41736,47 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Int32.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int32.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(bitPattern:UInt32)*/
     /*Swift.(file).Int32.init(bitPattern:UInt32)*/
     MIO_Mixin_Int32.prototype.initBitPatternUInt32 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int32.init(bitPattern:UInt32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(bitPattern:Float)*/
     /*Swift.(file).Int32.init(bitPattern:Float)*/
     MIO_Mixin_Int32.prototype.initBitPatternFloat = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int32.init(bitPattern:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(_:Float)*/
     /*Swift.(file).Int32.init(_:Float)*/
     MIO_Mixin_Int32.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(exactly:Float)*/
     /*Swift.(file).Int32.init(exactly:Float)*/
     MIO_Mixin_Int32.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(_:Double)*/
     /*Swift.(file).Int32.init(_:Double)*/
     MIO_Mixin_Int32.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(exactly:Double)*/
     /*Swift.(file).Int32.init(exactly:Double)*/
     MIO_Mixin_Int32.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(_:Float80)*/
     /*Swift.(file).Int32.init(_:Float80)*/
     MIO_Mixin_Int32.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(exactly:Float80)*/
     /*Swift.(file).Int32.init(exactly:Float80)*/
     MIO_Mixin_Int32.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.==infix(_:Int32,_:Int32)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -41795,7 +41844,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.init(_:Int32)*/
     /*Swift.(file).Int32.init(_:Int32)*/
     MIO_Mixin_Int32.prototype.initInt32 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Int32.init(_:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.&=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -41876,7 +41925,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_Int32.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).Int32.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.magnitude*/
     MIO_Mixin_Int32.prototype.magnitude$get = function () {
@@ -41922,7 +41971,7 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Int32.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Int32.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -41947,22 +41996,22 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     /*Swift.(file).Int32.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).Int32.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_Int32.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).Int32.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_Int32.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(truncatingBitPattern:UInt)*/
     /*Swift.(file).Int32.init(truncatingBitPattern:UInt)*/
     MIO_Mixin_Int32.prototype.initTruncatingBitPatternUInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(truncatingBitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.init(truncatingBitPattern:Int)*/
     /*Swift.(file).Int32.init(truncatingBitPattern:Int)*/
     MIO_Mixin_Int32.prototype.initTruncatingBitPatternInt = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int32.init(truncatingBitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).Int32.&infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -42414,42 +42463,42 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_UInt64.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt64.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(bitPattern:Int64)*/
     /*Swift.(file).UInt64.init(bitPattern:Int64)*/
     MIO_Mixin_UInt64.prototype.initBitPatternInt64 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt64.init(bitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(_:Float)*/
     /*Swift.(file).UInt64.init(_:Float)*/
     MIO_Mixin_UInt64.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(exactly:Float)*/
     /*Swift.(file).UInt64.init(exactly:Float)*/
     MIO_Mixin_UInt64.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(_:Double)*/
     /*Swift.(file).UInt64.init(_:Double)*/
     MIO_Mixin_UInt64.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(exactly:Double)*/
     /*Swift.(file).UInt64.init(exactly:Double)*/
     MIO_Mixin_UInt64.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(_:Float80)*/
     /*Swift.(file).UInt64.init(_:Float80)*/
     MIO_Mixin_UInt64.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.init(exactly:Float80)*/
     /*Swift.(file).UInt64.init(exactly:Float80)*/
     MIO_Mixin_UInt64.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt64.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.==infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -42517,7 +42566,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.init(_:Int64)*/
     /*Swift.(file).UInt64.init(_:Int64)*/
     MIO_Mixin_UInt64.prototype.initInt64 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).UInt64.init(_:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.&=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -42598,7 +42647,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_UInt64.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).UInt64.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.multipliedFullWidth(by:UInt64)*/
     /*Swift.(file).FixedWidthInteger.multipliedFullWidth(by:Self)*/
@@ -42634,7 +42683,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_UInt64.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).UInt64.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -42750,7 +42799,7 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
     /*Swift.(file).UInt64.init(_:Unicode.Scalar)*/
     MIO_Mixin_UInt64.prototype.initUnicodeScalar = function ($info, v) {
-        return v;
+        throw 'unsupported method Swift.(file).UInt64.init(_:Unicode.Scalar) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt64.customMirror*/
     MIO_Mixin_UInt64.prototype.customMirror$get = function () {
@@ -43113,47 +43162,47 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Int64.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int64.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(bitPattern:UInt64)*/
     /*Swift.(file).Int64.init(bitPattern:UInt64)*/
     MIO_Mixin_Int64.prototype.initBitPatternUInt64 = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int64.init(bitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(bitPattern:Double)*/
     /*Swift.(file).Int64.init(bitPattern:Double)*/
     MIO_Mixin_Int64.prototype.initBitPatternDouble = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int64.init(bitPattern:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(_:Float)*/
     /*Swift.(file).Int64.init(_:Float)*/
     MIO_Mixin_Int64.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(exactly:Float)*/
     /*Swift.(file).Int64.init(exactly:Float)*/
     MIO_Mixin_Int64.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(_:Double)*/
     /*Swift.(file).Int64.init(_:Double)*/
     MIO_Mixin_Int64.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(exactly:Double)*/
     /*Swift.(file).Int64.init(exactly:Double)*/
     MIO_Mixin_Int64.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(_:Float80)*/
     /*Swift.(file).Int64.init(_:Float80)*/
     MIO_Mixin_Int64.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.init(exactly:Float80)*/
     /*Swift.(file).Int64.init(exactly:Float80)*/
     MIO_Mixin_Int64.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int64.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.==infix(_:Int64,_:Int64)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -43221,7 +43270,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.init(_:Int64)*/
     /*Swift.(file).Int64.init(_:Int64)*/
     MIO_Mixin_Int64.prototype.initInt64 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Int64.init(_:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.&=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -43302,7 +43351,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_Int64.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).Int64.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.magnitude*/
     MIO_Mixin_Int64.prototype.magnitude$get = function () {
@@ -43348,7 +43397,7 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     /*Swift.(file).Int64.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Int64.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Int64.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Int64.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -43822,42 +43871,42 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_UInt.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(bitPattern:Int)*/
     /*Swift.(file).UInt.init(bitPattern:Int)*/
     MIO_Mixin_UInt.prototype.initBitPatternInt = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).UInt.init(bitPattern:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(_:Float)*/
     /*Swift.(file).UInt.init(_:Float)*/
     MIO_Mixin_UInt.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(exactly:Float)*/
     /*Swift.(file).UInt.init(exactly:Float)*/
     MIO_Mixin_UInt.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(_:Double)*/
     /*Swift.(file).UInt.init(_:Double)*/
     MIO_Mixin_UInt.prototype.initDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(_:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(exactly:Double)*/
     /*Swift.(file).UInt.init(exactly:Double)*/
     MIO_Mixin_UInt.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(_:Float80)*/
     /*Swift.(file).UInt.init(_:Float80)*/
     MIO_Mixin_UInt.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(exactly:Float80)*/
     /*Swift.(file).UInt.init(exactly:Float80)*/
     MIO_Mixin_UInt.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.==infix(_:UInt,_:UInt)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -43925,7 +43974,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(_:Int64)*/
     /*Swift.(file).UInt.init(_:Int64)*/
     MIO_Mixin_UInt.prototype.initInt64 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).UInt.init(_:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.&=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -44006,7 +44055,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_UInt.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).UInt.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.multipliedFullWidth(by:UInt)*/
     /*Swift.(file).FixedWidthInteger.multipliedFullWidth(by:Self)*/
@@ -44031,7 +44080,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(_:Word)*/
     /*Swift.(file).UInt.init(_:Word)*/
     MIO_Mixin_UInt.prototype.initWord = function ($info, _v) {
-        return _v;
+        throw 'unsupported method Swift.(file).UInt.init(_:Word) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.toIntMax()*/
     /*Swift.(file).UInt.toIntMax()*/
@@ -44047,7 +44096,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_UInt.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).UInt.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -44057,7 +44106,9 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(bitPattern:OpaquePointer?)*/
     /*Swift.(file).UInt.init(bitPattern:OpaquePointer?)*/
     MIO_Mixin_UInt.prototype.initBitPatternOptional = function ($info, pointer) {
-        return pointer;
+        var _this = this;
+        _this.initBitPatternOptional({}, _create(UnsafeRawPointer, 'initOptional', {}, pointer));
+        return;
     };
     /*Swift.(file).UInt.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -44077,12 +44128,12 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).UInt.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_UInt.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).UInt.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_UInt.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).UInt.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.&infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -44198,12 +44249,12 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     /*Swift.(file).UInt.init(bitPattern:ObjectIdentifier)*/
     /*Swift.(file).UInt.init(bitPattern:ObjectIdentifier)*/
     MIO_Mixin_UInt.prototype.initBitPatternObjectIdentifier = function ($info, objectID) {
-        return objectID;
+        throw 'unsupported method Swift.(file).UInt.init(bitPattern:ObjectIdentifier) in ' + this.constructor.name;
     };
     /*Swift.(file).UInt.init(bitPattern:P?)*/
     /*Swift.(file).UInt.init(bitPattern:P?)*/
     MIO_Mixin_UInt.prototype.initBitPatternOptional = function ($info, pointer) {
-        return pointer;
+        throw 'unsupported method Swift.(file).UInt.init(bitPattern:P?) in ' + this.constructor.name;
     };
     MIO_Mixin_UInt.prototype.init$vars = function () {
     };
@@ -44547,22 +44598,22 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_builtinIntegerLiteral:IntLiteral)*/
     /*Swift.(file)._ExpressibleByBuiltinIntegerLiteral.init(_builtinIntegerLiteral:IntLiteral)*/
     MIO_Mixin_Int.prototype.init_builtinIntegerLiteralIntLiteral = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int.init(_builtinIntegerLiteral:IntLiteral) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(bitPattern:UInt)*/
     /*Swift.(file).Int.init(bitPattern:UInt)*/
     MIO_Mixin_Int.prototype.initBitPatternUInt = function ($info, x) {
-        return x;
+        throw 'unsupported method Swift.(file).Int.init(bitPattern:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(_:Float)*/
     /*Swift.(file).Int.init(_:Float)*/
     MIO_Mixin_Int.prototype.initFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(_:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(exactly:Float)*/
     /*Swift.(file).Int.init(exactly:Float)*/
     MIO_Mixin_Int.prototype.initExactlyFloat = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(exactly:Float) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(_:Double)*/
     /*Swift.(file).Int.init(_:Double)*/
@@ -44572,17 +44623,17 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(exactly:Double)*/
     /*Swift.(file).Int.init(exactly:Double)*/
     MIO_Mixin_Int.prototype.initExactlyDouble = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(exactly:Double) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(_:Float80)*/
     /*Swift.(file).Int.init(_:Float80)*/
     MIO_Mixin_Int.prototype.initFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(_:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(exactly:Float80)*/
     /*Swift.(file).Int.init(exactly:Float80)*/
     MIO_Mixin_Int.prototype.initExactlyFloat80 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(exactly:Float80) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.==infix(_:Int,_:Int)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
@@ -44650,7 +44701,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_:Int64)*/
     /*Swift.(file).Int.init(_:Int64)*/
     MIO_Mixin_Int.prototype.initInt64 = function ($info, _value) {
-        return _value;
+        throw 'unsupported method Swift.(file).Int.init(_:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.&=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
@@ -44731,7 +44782,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_truncatingBits:UInt)*/
     /*Swift.(file).FixedWidthInteger.init(_truncatingBits:UInt)*/
     MIO_Mixin_Int.prototype.init_truncatingBitsUInt = function ($info, bits) {
-        return bits;
+        throw 'unsupported method Swift.(file).Int.init(_truncatingBits:UInt) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.magnitude*/
     MIO_Mixin_Int.prototype.magnitude$get = function () {
@@ -44766,7 +44817,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(_:Word)*/
     /*Swift.(file).Int.init(_:Word)*/
     MIO_Mixin_Int.prototype.initWord = function ($info, _v) {
-        return _v;
+        throw 'unsupported method Swift.(file).Int.init(_:Word) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.toUIntMax()*/
     /*Swift.(file).Int.toUIntMax()*/
@@ -44782,7 +44833,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_Int.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).Int.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -44792,7 +44843,9 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(bitPattern:OpaquePointer?)*/
     /*Swift.(file).Int.init(bitPattern:OpaquePointer?)*/
     MIO_Mixin_Int.prototype.initBitPatternOptional = function ($info, pointer) {
-        return pointer;
+        var _this = this;
+        _this.initBitPatternOptional({}, _create(UnsafeRawPointer, 'initOptional', {}, pointer));
+        return;
     };
     /*Swift.(file).Int.hash(into:Hasher)*/
     /*Swift.(file).Hashable.hash(into:Hasher)*/
@@ -44812,12 +44865,12 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(truncatingBitPattern:UInt64)*/
     /*Swift.(file).Int.init(truncatingBitPattern:UInt64)*/
     MIO_Mixin_Int.prototype.initTruncatingBitPatternUInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(truncatingBitPattern:UInt64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.init(truncatingBitPattern:Int64)*/
     /*Swift.(file).Int.init(truncatingBitPattern:Int64)*/
     MIO_Mixin_Int.prototype.initTruncatingBitPatternInt64 = function ($info, source) {
-        return source;
+        throw 'unsupported method Swift.(file).Int.init(truncatingBitPattern:Int64) in ' + this.constructor.name;
     };
     /*Swift.(file).Int.&infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
@@ -44945,12 +44998,14 @@ var MIO_Mixin_Int = /** @class */ (function () {
     /*Swift.(file).Int.init(bitPattern:ObjectIdentifier)*/
     /*Swift.(file).Int.init(bitPattern:ObjectIdentifier)*/
     MIO_Mixin_Int.prototype.initBitPatternObjectIdentifier = function ($info, objectID) {
-        return objectID;
+        var _this = this;
+        _this.initBitPatternUInt({}, _create(UInt, 'initBitPatternObjectIdentifier', {}, objectID));
+        return;
     };
     /*Swift.(file).Int.init(bitPattern:P?)*/
     /*Swift.(file).Int.init(bitPattern:P?)*/
     MIO_Mixin_Int.prototype.initBitPatternOptional = function ($info, pointer) {
-        return pointer;
+        throw 'unsupported method Swift.(file).Int.init(bitPattern:P?) in ' + this.constructor.name;
     };
     MIO_Mixin_Int.prototype.init$vars = function () {
     };
@@ -45754,7 +45809,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:_StringGuts)*/
     /*Swift.(file).String.init(_:_StringGuts)*/
     MIO_Mixin_String.prototype.init_StringGuts = function ($info, _guts) {
-        return _guts;
+        throw 'unsupported method Swift.(file).String.init(_:_StringGuts) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init()*/
     /*Swift.(file).RangeReplaceableCollection.init()*/
@@ -45769,7 +45824,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(from:Decoder)*/
     /*Swift.(file).Decodable.init(from:Decoder)*/
     MIO_Mixin_String.prototype.initFromDecoder = function ($info, decoder) {
-        return decoder;
+        throw 'unsupported method Swift.(file).String.init(from:Decoder) in ' + this.constructor.name;
     };
     /*Swift.(file).String.encode(to:Encoder)*/
     /*Swift.(file).Encodable.encode(to:Encoder)*/
@@ -45785,17 +45840,31 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(cString:UnsafePointer<CChar>)*/
     /*Swift.(file).StringProtocol.init(cString:UnsafePointer<CChar>)*/
     MIO_Mixin_String.prototype.initCStringUnsafePointer = function ($info, cString) {
-        return cString;
+        var _this = this;
+        var len = UTF8._nullCodeUnitOffsetIn({}, cString);
+        return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ cString._asUInt8), len))["0"]);
+        return;
     };
     /*Swift.(file).String.init(cString:UnsafePointer<UInt8>)*/
     /*Swift.(file).String.init(cString:UnsafePointer<UInt8>)*/
     MIO_Mixin_String.prototype.initCStringUnsafePointer = function ($info, cString) {
-        return cString;
+        var _this = this;
+        var len = UTF8._nullCodeUnitOffsetIn({}, cString);
+        return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ cString), len))["0"]);
+        return;
     };
     /*Swift.(file).String.init(validatingUTF8:UnsafePointer<CChar>)*/
     /*Swift.(file).String.init(validatingUTF8:UnsafePointer<CChar>)*/
     MIO_Mixin_String.prototype.initValidatingUTF8UnsafePointer = function ($info, cString) {
-        return cString;
+        var _this = this;
+        var len = UTF8._nullCodeUnitOffsetIn({}, cString);
+        var $ifLet0, str_1;
+        if (!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ cString._asUInt8), len))) || true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0]) || true))) {
+            return (this.$failed = true);
+        }
+        ;
+        return _cloneStruct(str_1);
+        return;
     };
     /*Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)*/
     /*Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)*/
@@ -45838,7 +45907,9 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(decodingCString:UnsafePointer<Encoding.CodeUnit>,as:Encoding.Type)*/
     /*Swift.(file).StringProtocol.init(decodingCString:UnsafePointer<Encoding.CodeUnit>,as:Encoding.Type)*/
     MIO_Mixin_String.prototype.initDecodingCStringUnsafePointerAs = function ($info, ptr, sourceEncoding) {
-        throw 'unsupported method Swift.(file).String.init(decodingCString:UnsafePointer<Encoding.CodeUnit>,as:Encoding.Type) in ' + this.constructor.name;
+        var _this = this;
+        return _cloneStruct(String.decodeCStringAsRepairingInvalidCodeUnits({}, _injectIntoOptional(/*pointer_to_pointer*/ ptr), sourceEncoding, true /*!default_value*/)[0]["0"]);
+        return;
     };
     /*Swift.(file).String.withCString(_:(UnsafePointer<Int8>) throws -> Result)*/
     /*Swift.(file).StringProtocol.withCString(_:(UnsafePointer<CChar>) throws -> Result)*/
@@ -45901,7 +45972,18 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(decoding:C,as:Encoding.Type)*/
     /*Swift.(file).StringProtocol.init(decoding:C,as:Encoding.Type)*/
     MIO_Mixin_String.prototype.initDecodingAs = function ($info, codeUnits, sourceEncoding) {
-        throw 'unsupported method Swift.(file).String.init(decoding:C,as:Encoding.Type) in ' + this.constructor.name;
+        var _this = this;
+        var $ifLet0, contigBytes_1;
+        if ((($ifLet0 = _injectIntoOptional(codeUnits)) || true) && $ifLet0.rawValue == 'some' && ((contigBytes_1 = $ifLet0[0]) || true) && (infix_61_61({}, _injectIntoOptional(sourceEncoding), _injectIntoOptional(UTF8))) && (contigBytes_1._providesContiguousBytesNoCopy)) {
+            return _cloneStruct(contigBytes_1.withUnsafeBytes({}, (function ($info, rawBufPtr) {
+                var ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked);
+                return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ ptr.assumingMemoryBoundTo({}, UInt8)), rawBufPtr.count))["0"];
+            })));
+            return;
+        }
+        ;
+        return _cloneStruct(String._fromCodeUnitsEncodingRepair({}, codeUnits, sourceEncoding, true)[0]["0"]);
+        return;
     };
     /*Swift.(file).String.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result)*/
     /*Swift.(file).StringProtocol.withCString(encodedAs:Encoding.Type,_:(UnsafePointer<Encoding.CodeUnit>) throws -> Result)*/
@@ -45919,12 +46001,14 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_builtinUnicodeScalarLiteral:Int32)*/
     /*Swift.(file)._ExpressibleByBuiltinUnicodeScalarLiteral.init(_builtinUnicodeScalarLiteral:Int32)*/
     MIO_Mixin_String.prototype.init_builtinUnicodeScalarLiteralInt32 = function ($info, value) {
-        return value;
+        throw 'unsupported method Swift.(file).String.init(_builtinUnicodeScalarLiteral:Int32) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(_:Unicode.Scalar)*/
     /*Swift.(file).String.init(_:Unicode.Scalar)*/
     MIO_Mixin_String.prototype.initUnicodeScalar = function ($info, scalar) {
-        return scalar;
+        var _this = this;
+        return _cloneStruct(scalar.withUTF8CodeUnits({}, (function ($info, $0) { return String._uncheckedFromUTF8({}, $0); })));
+        return;
     };
     /*Swift.(file).String.init(_builtinExtendedGraphemeClusterLiteral:RawPointer,utf8CodeUnitCount:Word,isASCII:Int1)*/
     /*Swift.(file)._ExpressibleByBuiltinExtendedGraphemeClusterLiteral.init(_builtinExtendedGraphemeClusterLiteral:RawPointer,utf8CodeUnitCount:Word,isASCII:Int1)*/
@@ -45939,7 +46023,9 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(stringLiteral:String)*/
     /*Swift.(file).ExpressibleByStringLiteral.init(stringLiteral:Self.StringLiteralType)*/
     MIO_Mixin_String.prototype.initStringLiteral = function ($info, value) {
-        return value;
+        var _this = this;
+        return _cloneStruct(value);
+        return;
     };
     /*Swift.(file).String.debugDescription*/
     MIO_Mixin_String.prototype.debugDescription$get = function () {
@@ -45996,7 +46082,9 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:T)*/
     /*Swift.(file).String.init(_:T)*/
     MIO_Mixin_String.prototype.initT = function ($info, value) {
-        return value;
+        var _this = this;
+        return _cloneStruct(value.description);
+        return;
     };
     /*Swift.(file).String.description*/
     MIO_Mixin_String.prototype.description$get = function () {
@@ -46012,7 +46100,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_cocoaString:AnyObject)*/
     /*Swift.(file).String.init(_cocoaString:AnyObject)*/
     MIO_Mixin_String.prototype.init_cocoaStringAnyObject = function ($info, _cocoaString) {
-        return _cocoaString;
+        throw 'unsupported method Swift.(file).String.init(_cocoaString:AnyObject) in ' + this.constructor.name;
     };
     /*Swift.(file).String.startIndex*/
     MIO_Mixin_String.prototype.startIndex$get = function () {
@@ -46103,12 +46191,33 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(stringInterpolation:DefaultStringInterpolation)*/
     /*Swift.(file).ExpressibleByStringInterpolation.init(stringInterpolation:Self.StringInterpolation)*/
     MIO_Mixin_String.prototype.initStringInterpolation = function ($info, stringInterpolation) {
-        return stringInterpolation;
+        var _this = this;
+        return _cloneStruct(stringInterpolation.make({}));
+        return;
     };
     /*Swift.(file).String.init(repeating:String,count:Int)*/
     /*Swift.(file).String.init(repeating:String,count:Int)*/
     MIO_Mixin_String.prototype.initRepeatingStringCountInt = function ($info, repeatedValue, count) {
-        throw 'unsupported method Swift.(file).String.init(repeating:String,count:Int) in ' + this.constructor.name;
+        var _this = this;
+        preconditionFileLine({}, function () { return Int.infix_62_61({}, count, 0); }, function () { return "Negative count not allowed"; }, '?3', '?3');
+        if (!((Int.infix_62({}, count, 1)))) {
+            return _cloneStruct((Int.infix_61_61({}, count, 0) ? "" : repeatedValue));
+            return;
+        }
+        ;
+        var result = _create(String, 'init', {});
+        {
+            var $generator_10 = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}));
+            while (true) {
+                var $ifLet0;
+                if (!((($ifLet0 = $generator_10.next({ $setThis: function ($val) { return $generator_10 = $val; } })) || true) && $ifLet0.rawValue == 'some'))
+                    break;
+                String.infix_43_61({}, { get: function () { return result; }, set: function ($val) { return result = $val; } }, repeatedValue);
+            }
+        }
+        ;
+        return _cloneStruct(result);
+        return;
     };
     /*Swift.(file).String.isEmpty*/
     MIO_Mixin_String.prototype.isEmpty$get = function () {
@@ -46134,12 +46243,16 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:T,radix:Int,uppercase:Bool)*/
     /*Swift.(file).String.init(_:T,radix:Int,uppercase:Bool)*/
     MIO_Mixin_String.prototype.initRadixIntUppercaseBool = function ($info, value, radix, uppercase) {
-        throw 'unsupported method Swift.(file).String.init(_:T,radix:Int,uppercase:Bool) in ' + this.constructor.name;
+        var _this = this;
+        return _cloneStruct(((function () { throw '!unclarifiedGeneric:T'; })()).prototype._descriptionRadixUppercase.call(value, {}, radix, uppercase));
+        return;
     };
     /*Swift.(file).String.init(repeating:Character,count:Int)*/
     /*Swift.(file).RangeReplaceableCollection.init(repeating:Self.Element,count:Int)*/
     MIO_Mixin_String.prototype.initRepeatingCountInt = function ($info, repeatedValue, count) {
-        throw 'unsupported method Swift.(file).String.init(repeating:Character,count:Int) in ' + this.constructor.name;
+        var _this = this;
+        _this.initRepeatingStringCountInt({}, repeatedValue._str, count);
+        return;
     };
     /*Swift.(file).String.init(_:S)*/
     /*Swift.(file).LosslessStringConvertible.init(_:String)*/
@@ -46260,7 +46373,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:String.UnicodeScalarView)*/
     /*Swift.(file).String.init(_:String.UnicodeScalarView)*/
     MIO_Mixin_String.prototype.initStringUnicodeScalarView = function ($info, unicodeScalars) {
-        return unicodeScalars;
+        throw 'unsupported method Swift.(file).String.init(_:String.UnicodeScalarView) in ' + this.constructor.name;
     };
     /*Swift.(file).String.unicodeScalars*/
     MIO_Mixin_String.prototype.unicodeScalars$get = function () {
@@ -46285,7 +46398,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:String.UTF16View)*/
     /*Swift.(file).String.init(_:String.UTF16View)*/
     MIO_Mixin_String.prototype.initStringUTF16View = function ($info, utf16) {
-        return utf16;
+        throw 'unsupported method Swift.(file).String.init(_:String.UTF16View) in ' + this.constructor.name;
     };
     /*Swift.(file).String.utf8*/
     MIO_Mixin_String.prototype.utf8$get = function () {
@@ -46310,27 +46423,31 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(_:String.UTF8View)*/
     /*Swift.(file).String.init(_:String.UTF8View)*/
     MIO_Mixin_String.prototype.initStringUTF8View = function ($info, utf8) {
-        return utf8;
+        throw 'unsupported method Swift.(file).String.init(_:String.UTF8View) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(_:Substring)*/
     /*Swift.(file).String.init(_:Substring)*/
     MIO_Mixin_String.prototype.initSubstring = function ($info, substring) {
-        return substring;
+        var _this = this;
+        return _cloneStruct(String._fromSubstring({}, substring));
+        return;
     };
     /*Swift.(file).String.init(_:Substring.UTF8View)*/
     /*Swift.(file).String.init(_:Substring.UTF8View)*/
     MIO_Mixin_String.prototype.initSubstringUTF8View = function ($info, codeUnits) {
-        return codeUnits;
+        throw 'unsupported method Swift.(file).String.init(_:Substring.UTF8View) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(_:Substring.UTF16View)*/
     /*Swift.(file).String.init(_:Substring.UTF16View)*/
     MIO_Mixin_String.prototype.initSubstringUTF16View = function ($info, codeUnits) {
-        return codeUnits;
+        throw 'unsupported method Swift.(file).String.init(_:Substring.UTF16View) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(_:Substring.UnicodeScalarView)*/
     /*Swift.(file).String.init(_:Substring.UnicodeScalarView)*/
     MIO_Mixin_String.prototype.initSubstringUnicodeScalarView = function ($info, content) {
-        return content;
+        var _this = this;
+        return _cloneStruct(_create(String, 'initSubstring', {}, _create(Substring, 'initSubstringUnicodeScalarView', {}, content)));
+        return;
     };
     /*Swift.(file).String.subscript(_:Range<String.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
@@ -46371,27 +46488,27 @@ var MIO_Mixin_String = /** @class */ (function () {
     /*Swift.(file).String.init(describing:Subject)*/
     /*Swift.(file).String.init(describing:Subject)*/
     MIO_Mixin_String.prototype.initDescribing = function ($info, instance) {
-        return instance;
+        throw 'unsupported method Swift.(file).String.init(describing:Subject) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(describing:Subject)*/
     /*Swift.(file).String.init(describing:Subject)*/
     MIO_Mixin_String.prototype.initDescribing = function ($info, instance) {
-        return instance;
+        throw 'unsupported method Swift.(file).String.init(describing:Subject) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(describing:Subject)*/
     /*Swift.(file).String.init(describing:Subject)*/
     MIO_Mixin_String.prototype.initDescribing = function ($info, instance) {
-        return instance;
+        throw 'unsupported method Swift.(file).String.init(describing:Subject) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(describing:Subject)*/
     /*Swift.(file).String.init(describing:Subject)*/
     MIO_Mixin_String.prototype.initDescribing = function ($info, instance) {
-        return instance;
+        throw 'unsupported method Swift.(file).String.init(describing:Subject) in ' + this.constructor.name;
     };
     /*Swift.(file).String.init(reflecting:Subject)*/
     /*Swift.(file).String.init(reflecting:Subject)*/
     MIO_Mixin_String.prototype.initReflecting = function ($info, subject) {
-        return subject;
+        throw 'unsupported method Swift.(file).String.init(reflecting:Subject) in ' + this.constructor.name;
     };
     MIO_Mixin_String.prototype.init$vars = function () {
     };
@@ -47335,10 +47452,10 @@ var _SliceBuffer = /** @class */ (function () {
             var i_5 = subrange.lowerBound;
             var j_4 = newValues.startIndex;
             {
-                var $generator_10 = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}));
+                var $generator_11 = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}));
                 while (true) {
                     var $ifLet4;
-                    if (!((($ifLet4 = $generator_10.next({ $setThis: function ($val) { return $generator_10 = $val; } })) || true) && $ifLet4.rawValue == 'some'))
+                    if (!((($ifLet4 = $generator_11.next({ $setThis: function ($val) { return $generator_11 = $val; } })) || true) && $ifLet4.rawValue == 'some'))
                         break;
                     _elements.subscript$set({ $setThis: function ($val) { return _elements = _cloneStruct($val); } }, newValues.subscript$get({}, j_4), i_5);
                     Int.infix_43_61({}, { get: function () { return i_5; }, set: function ($val) { return i_5 = $val; } }, 1);

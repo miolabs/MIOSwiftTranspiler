@@ -243,6 +243,29 @@ if(!((($ifLet0 = iterator.next({$setThis: $val => iterator = $val}, ))||true) &&
 result.append({$setThis: $val => result = $val}, _element_1);
 };
 return result
+----Swift.(file).Array.description
+let _this = this;
+let result = "";
+String.infix_43_61({}, {get: () => result, set: $val => result = $val}, "[");
+let first = true;
+{
+let $item$generator = _cloneStruct(_this.makeIterator({}, ));
+while(true) {
+const $ifLet0, item_1;
+if(!((($ifLet0 = $item$generator.next({$setThis: $val => $item$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((item_1 = $ifLet0[0])||true))) break
+if((first)) {
+first = false;
+}
+else {
+String.infix_43_61({}, {get: () => result, set: $val => result = $val}, ", ");
+};
+String.infix_43_61({}, {get: () => result, set: $val => result = $val}, (("") + (item_1) + ("")));
+}
+};
+String.infix_43_61({}, {get: () => result, set: $val => result = $val}, "]");
+return result;
+}
+get description() { return this.description$get()
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => expression({}, ), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)

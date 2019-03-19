@@ -311,29 +311,36 @@ extension Array: RangeReplaceableCollection  {
     }
   }
 }
-----Swift.(file).Array.description
-extension Array: CustomStringConvertible, CustomDebugStringConvertible  {
-  var result = ""
-  if let type = type {
-    result += "\(type)(["
-  } else {
-    result += "["
-  }
-
-  var first = true
-  for item in self {
-    if first {
-      first = false
-    } else {
-      result += ", "
-    }
-    result += "\(item)"
-  }
-  result += type != nil ? "])" : "]"
-  return result
-}
 ----Swift.(file).Array.init(_:S)#SUFFIX
  result
+----Swift.(file).Array.description
+extension Array: CustomStringConvertible, CustomDebugStringConvertible  {
+  public var description: String {
+    var result = ""
+    //if let type = type {
+    //  result += "\(type)(["
+    //} else {
+      result += "["
+    //}
+
+    var first = true
+    for item in self {
+      if first {
+        first = false
+      } else {
+        result += ", "
+      }
+      result += "\(item)"
+    }
+    //if type != nil {
+    //  result += "])"
+    //}
+    //else {
+      result += "]"
+    //}
+    return result
+  }
+}
 ----XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 public func XCTAssert(_ expression: @autoclosure () -> Bool, _ message: @autoclosure () -> String = "", file: StaticString = #file, line: UInt = #line) {
   precondition(expression(), message())
