@@ -1,0 +1,9 @@
+SwiftLCS - extending native protocols
+Bloom Filter - hashValue for String
+Boyer-Moore-Horspool - Swift.(file).String.index(_:String.Index,offsetBy:String.IndexDistance,limitedBy:String.Index)
+Bucket Sort - extending native protocols
+Graph - Swift.(file).Sequence.contains [_customContainsEquatableElement]
+Palindromes - String.CompareOptions.regularExpression
+QuadTree - duplicate function/var name
+Singly Linked List - Swift.(file).isKnownUniquelyReferenced(_:T?)
+Topological Sort - dictionary filter
