@@ -1,0 +1,15 @@
+/Users/bubulkowanorka/projects/swift-source/swift
+utils/build-script --release-debuginfo --ios
+
+/Users/bubulkowanorka/projects/antlr4-visitor/test
+mocha
+
+/Users/bubulkowanorka/projects/antlr4-visitor
+/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks example.swift
+/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -Xfrontend -disable-access-control -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk -target arm64-apple-ios12.1 -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks example.swift
+
+/Users/bubulkowanorka/projects/antlr4-visitor/test
+swiftc -dump-ast -O example.swift
+
+/Users/bubulkowanorka/projects/antlr4-visitor/include/build-bodies
+node build.js from-step-2
