@@ -1,24 +1,24 @@
 class ViewController extends UIViewController{
-static readonly $infoAddress = '0x7fc50908a728'
-viewDidLoad($info0x7fc50908a8d8){
+static readonly $infoAddress = '0x7fe224024128'
+viewDidLoad($info0x7fe2240242d8){
 let _this = this;
 
 super.viewDidLoad({}, );
 /*derived_to_base_expr*/_this.view[0].backgroundColor = _injectIntoOptional(UIColor.red);
 }
-init1($info0x7fc5092b0f00, nibNameOrNil, nibBundleOrNil){
+initNibNameOptionalBundleOptional($info0x7fe225b01b00, nibNameOrNil, nibBundleOrNil){
 let _this = this;
 
-super.init1({}, nibNameOrNil, nibBundleOrNil);
+super.initNibNameOptionalBundleOptional({}, nibNameOrNil, nibBundleOrNil);
 return ;
 }
-init2($info0x7fc5092b2310, aDecoder){
+initCoderNSCoder($info0x7fe225b02f10, aDecoder){
 let _this = this;
 
-super.init2({}, aDecoder);
+super.initCoderNSCoder({}, aDecoder);
 return ;
 }
-static readonly init2$failable = true
+static readonly initCoderNSCoder$failable = true
 
 init$vars() {
 if(super.init$vars)super.init$vars()
@@ -26,7 +26,7 @@ if(super.init$vars)super.init$vars()
 }
 
 class AppDelegate extends UIResponder implements UIApplicationDelegate{
-static readonly $infoAddress = '0x7fc50908e018'
+static readonly $infoAddress = '0x7fe224027a18'
 
 _window$internal
 _window$get() { return this._window$internal }
@@ -42,10 +42,10 @@ set _window($newValue) { this._window$set($newValue) }
 
 
 
-application($info0x7fc50908e688, application, launchOptions){
+applicationDidFinishLaunchingWithOptions($info0x7fe224028088, application, launchOptions){
 let _this = this;
 
-_this._window = _injectIntoOptional(_create(UIWindow, 'init3', {}, UIScreen.main.bounds));
+_this._window = _injectIntoOptional(_create(UIWindow, 'initFrameCGRect', {}, UIScreen.main.bounds));
 
 const vc = _create(ViewController, 'init', {}, );
 
@@ -56,27 +56,27 @@ _this._window[0].rootViewController = _injectIntoOptional(/*derived_to_base_expr
 _this._window[0].makeKeyAndVisible({}, );
 return true;
 }
-applicationWillResignActive($info0x7fc50908f018, application){
+applicationWillResignActive($info0x7fe224028a18, application){
 let _this = this;
 
 }
-applicationDidEnterBackground($info0x7fc50908f2b8, application){
+applicationDidEnterBackground($info0x7fe224028cb8, application){
 let _this = this;
 
 }
-applicationWillEnterForeground($info0x7fc50908f558, application){
+applicationWillEnterForeground($info0x7fe224028f58, application){
 let _this = this;
 
 }
-applicationDidBecomeActive($info0x7fc50908f7f8, application){
+applicationDidBecomeActive($info0x7fe2240291f8, application){
 let _this = this;
 
 }
-applicationWillTerminate($info0x7fc50908fa98, application){
+applicationWillTerminate($info0x7fe224029498, application){
 let _this = this;
 
 }
-init($info0x7fc5098752a0){
+init($info0x7fe22452e2a0){
 let _this = this;
 
 super.init({}, );
