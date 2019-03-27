@@ -8,6 +8,8 @@
       <excludeFolder url="file://$MODULE_DIR$/include/Darwin" />
       <excludeFolder url="file://$MODULE_DIR$/include/Foundation" />
       <excludeFolder url="file://$MODULE_DIR$/include/ObjectiveC" />
+      <excludeFolder url="file://$MODULE_DIR$/include/build-bodies/bodies" />
+      <excludeFolder url="file://$MODULE_DIR$/include/build-bodies/swift-lib" />
       <excludeFolder url="file://$MODULE_DIR$/live-preview/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/test/lib" />
       <excludeFolder url="file://$MODULE_DIR$/test/node_modules" />

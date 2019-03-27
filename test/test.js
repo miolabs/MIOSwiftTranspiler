@@ -18,7 +18,7 @@ const includeFilePaths = [...fs.readdirSync(`${root}include/util`).map(file => `
 const includes = includeFilePaths.map(file => fs.readFileSync(file)).join('\n')
 
 if(process.argv[2] === 'output-lib') {
-    fs.writeFileSync('/Users/bubulkowanorka/projects/antlr4-visitor/test/lib/lib.ts', includes)
+    fs.writeFileSync(`${__dirname}/lib/lib.ts`, includes)
 }
 else {
 
