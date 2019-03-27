@@ -19,7 +19,11 @@ function _create(Class, signature, $info, ...params) {
         obj[signature].apply(obj, params)
     }
     obj.$initialized = true
-    if(obj.$failed) return Optional.none
-    if(Class[signature + '$failable']) obj = _injectIntoOptional(obj)
+    //WRAP_OPTIONALS
+    //if(obj.$failed) return Optional.none
+    //if(Class[signature + '$failable']) obj = _injectIntoOptional(obj)
+    //!WRAP_OPTIONALS
+    if(obj.$failed) return null
+    if(Class[signature + '$failable']) obj = obj
     return obj
 }

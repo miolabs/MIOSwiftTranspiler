@@ -8,7 +8,10 @@ static _convertFrom($info, number) {
 }
 ----Swift.(file).FixedWidthInteger
 static _convertFrom($info, number) {
-    return {0: _injectIntoOptional(number), 1: true/*exact*/}
+//WRAP_OPTIONAL
+//    return {0: _injectIntoOptional(number), 1: true/*exact*/}
+//!WRAP_OPTIONAL
+    return {0: number, 1: true/*exact*/}
 }
 ----Swift.(file).BinaryInteger
 //not sure why missing; it's there in generated-by-step-2.txt

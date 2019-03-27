@@ -3,13 +3,22 @@ return this.length
 ----Swift.(file).print(_:[Any],separator:String,terminator:String)
 console.log.apply(null, #A0)
 ----Swift.(file).Dictionary.subscript(_:Dictionary<Key, Value>.Index)
-if(this.has(#AA)) return Optional.some({}, this.get(#AA))
-return Optional.none
+//WRAP_OPTIONALS
+//if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+//return Optional.none
+//!WRAP_OPTIONALS
+return this.get(#AA)
 ----Swift.(file).Dictionary.subscript(_:Key)
-if(this.has(#AA)) return Optional.some({}, this.get(#AA))
-return Optional.none
+//WRAP_OPTIONALS
+//if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+//return Optional.none
+//!WRAP_OPTIONALS
+return this.get(#AA)
 ----Swift.(file).Dictionary.subscript(_:Key)#ASS
-if(#A0.rawValue === 'none') this.delete(#A1)
+//WRAP_OPTIONALS
+//if(#A0.rawValue === 'none') this.delete(#A1)
+//!WRAP_OPTIONALS
+if(#A0 == null) this.delete(#A1)
 else this.set(#A1, _cloneStruct(#A0[0]))
 ----Swift.(file).Dictionary.count
 return this.size
@@ -17,7 +26,10 @@ return this.size
 //TODO use _create for Array
 //TODO change SwiftIterator because now only Dictionary is using it to use js Map.iterator (much faster)
 //TODO preferably move to Swift and use the proper Iterator (then remove SwiftIterator.js too)
-return new SwiftIterator((current) => _injectIntoOptional(Array.from(this)[current]))
+//WRAP_OPTIONALS
+//return new SwiftIterator((current) => _injectIntoOptional(Array.from(this)[current]))
+//!WRAP_OPTIONALS
+return new SwiftIterator((current) => Array.from(this)[current])
 ----Swift.(file).Array.subscript(_:Int)
 return this[#AA]
 ----Swift.(file).Array.subscript(_:Int)#ASS
@@ -136,8 +148,12 @@ return this.sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1)
 return String(other)
 ----Swift.(file).FixedWidthInteger.init(_:S,radix:Int)
 let result = parseInt(_text)
-if(isNaN(result)) return Optional.none
-return Optional.some({}, result)
+//WRAP_OPTIONALS
+//if(isNaN(result)) return Optional.none
+//return Optional.some({}, result)
+//!WRAP_OPTIONALS
+if(isNaN(result)) return null
+return result
 ----Swift.(file).Double.infinity
 return Infinity
 ----Swift.(file).Double.greatestFiniteMagnitude

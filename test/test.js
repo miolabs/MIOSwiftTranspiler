@@ -26,7 +26,7 @@ const todo = []
 
 const skip = ['github/swift-algorithm-club/Queue/Queue-Simple.swift', 'github/swift-algorithm-club/Rootish Array Stack/Tests/RootishArrayStack.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/AppDelegate.swift', 'github/swift-algorithm-club/Trie/Trie/Trie/ViewController.swift', 'github/swift-algorithm-club/Trie/Trie/TrieUITests/TrieUITests.swift']
 
-const suiteNames = ['local', 'github']
+const suiteNames = ['local']
 
 let isTestCache = {}
 function isTest(path) {

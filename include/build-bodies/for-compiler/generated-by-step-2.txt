@@ -11,26 +11,26 @@ return _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, _create(UInt32, 'init
 ----Swift.(file)..(error_type).encode(_:Unicode.Scalar)
 let _this = this;
 if(!((UInt32.infix_60({}, source.value, Int.infix_38_60_60({}, 1, 7))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(UInt8, 'initTruncatingIfNeeded', {}, source.value)))
+return _create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(UInt8, 'initTruncatingIfNeeded', {}, source.value))
 ----Swift.(file)..(error_type).transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)
 let _this = this;
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF16))))) {
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF16)))) {
 const c = _cloneStruct(_identityCastTo({}, content, UTF16.EncodedScalar));
 if(!((UInt32.infix_61_61({}, UInt32.infix_38({}, c._storage, 0xFF80), 0)))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(Unicode.ASCII.CodeUnit, 'initT', {}, UInt32.infix_38({}, c._storage, 0x7f))));
+return _create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(Unicode.ASCII.CodeUnit, 'initT', {}, UInt32.infix_38({}, c._storage, 0x7f)));
 }
 else {
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF8))))) {
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF8)))) {
 const c = _cloneStruct(_identityCastTo({}, content, UTF8.EncodedScalar));
 const first = c.first.unsafelyUnwrapped;
 if(!((UInt8.infix_60({}, first, 0x80)))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(Unicode.ASCII.CodeUnit, 'initT', {}, first)));
+return _create(Unicode.ASCII.EncodedScalar, 'init', {}, _create(Unicode.ASCII.CodeUnit, 'initT', {}, first));
 }
 };
 return _this.encode({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()).decode({}, content))
@@ -40,7 +40,7 @@ let input = input$inout.get()
 const $result = (() => {
 const n = input.next({$setThis: $val => input = $val}, );
 const $ifLet0, x_1
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true)) {
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, null))) && (($ifLet0 = n)||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true)) {
 if(!((_fastPath({}, Int8.infix_62_61({}, _create(Int8, 'initTruncatingIfNeeded', {}, x_1), 0))))) {
 return Unicode.ParseResult.error({}, 1);
 };
@@ -57,7 +57,7 @@ let minValue = min({}, min({}, x, y), z);
 let $value$generator = _cloneStruct(rest.makeIterator({}, ));
 while(true) {
 const $ifLet0, value_1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) break
 if(!((_.arg0 = value_1).constructor.infix_60({}, _.arg0, minValue))) continue
 minValue = value_1;
 }
@@ -71,7 +71,7 @@ let maxValue = max({}, max({}, x, y), z);
 let $value$generator = _cloneStruct(rest.makeIterator({}, ));
 while(true) {
 const $ifLet0, value_1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) break
 if(!((_.arg0 = value_1).constructor.infix_62_61({}, _.arg0, maxValue))) continue
 maxValue = value_1;
 }
@@ -91,12 +91,12 @@ return
 ----Swift.(file).EnumeratedSequence.Iterator.next()
 let _this = this;
 const $ifLet0, b_1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((b_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0 != null && ((b_1 = $ifLet0)||true))) {
+return null;
 };
 const result = {0: _this._count, 1: b_1};
 Int.infix_43_61({}, {get: () => _this._count, set: $val => _this._count = $val}, 1);
-return _injectIntoOptional(result)
+return result
 ----Swift.(file).EnumeratedSequence.makeIterator()
 let _this = this;
 return _create(EnumeratedSequence.Iterator, 'init_base', {}, _this._base.makeIterator({}, ))
@@ -107,7 +107,7 @@ return
 ----Swift.(file).AnyHashable.init(_:H)
 let _this = this;
 const $ifLet0, custom_1
-if((($ifLet0 = (((_.tmp0 = _injectIntoOptional(base)).rawValue === 'some') ? (_.tmp0[0]._toCustomAnyHashable({}, )) : Optional.none))||true) && $ifLet0.rawValue == 'some' && ((custom_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = (((_.tmp0 = base) != null) ? (_.tmp0._toCustomAnyHashable({}, )) : null))||true) && $ifLet0 != null && ((custom_1 = $ifLet0)||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(custom_1)));
 return ;
 };
@@ -183,9 +183,9 @@ return Int.infix_43({}, i, distance)
 let _this = this;
 const l = Int.infix_45({}, limit, i);
 if(((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), () => Int.infix_60({}, l, distance)) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), () => Int.infix_60({}, distance, l))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(Int.infix_43({}, i, distance))
+return Int.infix_43({}, i, distance)
 ----Swift.(file).Array.distance(from:Int,to:Int)
 let _this = this;
 return Int.infix_45({}, end, start)
@@ -206,7 +206,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -222,10 +222,10 @@ let _this = this;
 _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, Int.infix_46_46_60({}, i, i), _create(CollectionOfOne, 'init', {}, newElement))
 ----Swift.(file).Array.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val}))))
+return _this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val})))
 ----Swift.(file).Array.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer))))
+return _this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer)))
 ----Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)
 let _this = this;
 let lhs_dupl = _cloneStruct(lhs);
@@ -240,7 +240,7 @@ lhs$inout.set(lhs)
 return $result
 ----Swift.(file).Array.customMirror
 let _this = this;
-return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, _injectIntoOptional(Mirror.DisplayStyle.collection), .generated/*!default_value*/)
+return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, Mirror.DisplayStyle.collection, .generated/*!default_value*/)
 ----Swift.(file).Array.description
 let _this = this;
 return _this._makeCollectionDescriptionWithTypeName({}, nil/*!default_value*/)
@@ -256,7 +256,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element_1);
 }
 };})()
@@ -289,19 +289,19 @@ let _this = this;
 if((_fastPath({}, _this.isUniquelyReferenced({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, )))) {
 const b = _cloneStruct(_this._native);
 if((_fastPath({}, Int.infix_62_61({}, b.capacity, minimumCapacity)))) {
-return _injectIntoOptional(b);
+return b;
 };
 };
-return Optional.none
+return null
 ----Swift.(file)._ArrayBuffer.isMutableAndUniquelyReferenced()
 let _this = this;
 return _this.isUniquelyReferenced({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, )
 ----Swift.(file)._ArrayBuffer.requestNativeBuffer()
 let _this = this;
 if((Bool.prefix_33({}, _isClassOrObjCExistential({}, ((function(){throw '!unclarifiedGeneric:Element'})()))))) {
-return _injectIntoOptional(_this._native);
+return _this._native;
 };
-return (_fastPath({}, _this._storage.isNative) ? _injectIntoOptional(_this._native) : Optional.none)
+return (_fastPath({}, _this._storage.isNative) ? _this._native : null)
 ----Swift.(file)._ArrayBuffer.subscript(_:Range<Int>)#ASS
 
 let _this = this;
@@ -319,7 +319,7 @@ let _this = this;
 return _this._native.firstElementAddress
 ----Swift.(file)._ArrayBuffer.firstElementAddressIfContiguous
 let _this = this;
-return (_fastPath({}, _this._isNative) ? _injectIntoOptional(_this.firstElementAddress) : Optional.none)
+return (_fastPath({}, _this._isNative) ? _this.firstElementAddress : null)
 ----Swift.(file)._ArrayBuffer.count
 let _this = this;
 return (_fastPath({}, _this._isNative) ? _this._native.count : _this._nonNative.count)
@@ -354,7 +354,7 @@ _fixLifetime({}, _this);
 }
 const $result = (() => {
 try {;
-return body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this.firstElementAddress), _this.count));}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result;
+return body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this.firstElementAddress, _this.count));}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result;
 };
 return _create(ContiguousArray, 'initBuffer', {}, _this).withUnsafeBufferPointer({}, body)
 ----Swift.(file)._ArrayBuffer.owner
@@ -405,7 +405,7 @@ let i = newValues.startIndex;
 let $j$generator = _cloneStruct(subrange.makeIterator({}, ));
 while(true) {
 const $ifLet0, j_1;
-if(!((($ifLet0 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((j_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet0 != null && ((j_1 = $ifLet0)||true))) break
 _elements.subscript$set({$setThis: $val => _elements = _cloneStruct($val)}, newValues.subscript$get({}, i), j_1);
 newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -414,7 +414,7 @@ newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 let $j$generator = _cloneStruct(Int.infix_46_46_60({}, oldTailIndex, newTailIndex).makeIterator({}, ));
 while(true) {
 const $ifLet2, j_3;
-if(!((($ifLet2 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((j_3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = $j$generator.next({$setThis: $val => $j$generator = $val}, ))||true) && $ifLet2 != null && ((j_3 = $ifLet2)||true))) break
 UnsafeMutablePointer.infix_43({}, _elements, j_3).initializeTo({}, newValues.subscript$get({}, i));
 newValues.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -427,7 +427,7 @@ let j = newValues.startIndex;
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, newCount).makeIterator({}, ));
 while(true) {
 const $ifLet4;
-if(!((($ifLet4 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet4.rawValue == 'some')) break
+if(!((($ifLet4 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet4 != null)) break
 _elements.subscript$set({$setThis: $val => _elements = _cloneStruct($val)}, newValues.subscript$get({}, j), i);
 Int.infix_43_61({}, {get: () => i, set: $val => i = $val}, 1);
 newValues.formIndexAfter({}, {get: () => j, set: $val => j = $val});
@@ -480,9 +480,9 @@ return Int.infix_43({}, i, distance)
 let _this = this;
 const l = Int.infix_45({}, limit, i);
 if(((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), () => Int.infix_60({}, l, distance)) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), () => Int.infix_60({}, distance, l))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(Int.infix_43({}, i, distance))
+return Int.infix_43({}, i, distance)
 ----Swift.(file).ArraySlice.distance(from:Int,to:Int)
 let _this = this;
 return Int.infix_45({}, end, start)
@@ -499,7 +499,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -520,19 +520,19 @@ let _this = this;
 _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, Int.infix_46_46_60({}, i, i), _create(CollectionOfOne, 'init', {}, newElement))
 ----Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val}))))
+return _this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val})))
 ----Swift.(file).ArraySlice.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer))))
+return _this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer)))
 ----Swift.(file).ArraySlice.customMirror
 let _this = this;
-return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, _injectIntoOptional(Mirror.DisplayStyle.collection), .generated/*!default_value*/)
+return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, Mirror.DisplayStyle.collection, .generated/*!default_value*/)
 ----Swift.(file).ArraySlice.description
 let _this = this;
 return _this._makeCollectionDescriptionWithTypeName({}, nil/*!default_value*/)
 ----Swift.(file).ArraySlice.debugDescription
 let _this = this;
-return _this._makeCollectionDescriptionWithTypeName({}, _injectIntoOptional("ArraySlice"))
+return _this._makeCollectionDescriptionWithTypeName({}, "ArraySlice")
 ----Swift.(file).ArraySlice.hash(into:Hasher)
 let _this = this;
 let hasher = hasher$inout.get()
@@ -542,7 +542,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element_1);
 }
 };})()
@@ -576,14 +576,14 @@ return _this._distanceFromTo({}, start, end)
 ----Swift.(file).BidirectionalCollection.popLast()
 let _this = this;
 if(!((Bool.prefix_33({}, _this.isEmpty)))) {
-return Optional.none;
+return null;
 };
-const _element = _this.last[0];
+const _element = _this.last;
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
-return _injectIntoOptional(_element)
+return _element
 ----Swift.(file).BidirectionalCollection.removeLast()
 let _this = this;
-const _element = _this.last[0];
+const _element = _this.last;
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.indexBefore({}, _this.endIndex)))));
 return _element
 ----Swift.(file).BidirectionalCollection.removeLast(_:Int)
@@ -651,7 +651,7 @@ let count = 0;
 let $w$generator = _cloneStruct(Int.infix_46_46_60({}, 0, _this.wordCount).makeIterator({}, ));
 while(true) {
 const $ifLet0, w_1;
-if(!((($ifLet0 = $w$generator.next({$setThis: $val => $w$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((w_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $w$generator.next({$setThis: $val => $w$generator = $val}, ))||true) && $ifLet0 != null && ((w_1 = $ifLet0)||true))) break
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, _this.words.subscript$get({}, w_1).count);
 }
 };
@@ -685,15 +685,15 @@ return removed
 ----Swift.(file)._UnsafeBitset.Word.minimum
 let _this = this;
 if(!((UInt.infix_33_61({}, _this.value, 0)))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(UInt.prototype.trailingZeroBitCount$get.call(_this.value))
+return UInt.prototype.trailingZeroBitCount$get.call(_this.value)
 ----Swift.(file)._UnsafeBitset.Word.maximum
 let _this = this;
 if(!((UInt.infix_33_61({}, _this.value, 0)))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(Int.infix_38_45({}, Int.infix_38_45({}, _UnsafeBitset.Word.capacity, 1), UInt.prototype.leadingZeroBitCount$get.call(_this.value)))
+return Int.infix_38_45({}, Int.infix_38_45({}, _UnsafeBitset.Word.capacity, 1), UInt.prototype.leadingZeroBitCount$get.call(_this.value))
 ----Swift.(file)._UnsafeBitset.Word.complement
 let _this = this;
 return _create(_UnsafeBitset.Word, 'initUInt', {}, UInt.prefix_126({}, _this.value))
@@ -731,11 +731,11 @@ return UInt.infix_61_61({}, _this.value, 0)
 ----Swift.(file)._UnsafeBitset.Word.next()
 let _this = this;
 if(!((UInt.infix_33_61({}, _this.value, 0)))) {
-return Optional.none;
+return null;
 };
 const bit = UInt.prototype.trailingZeroBitCount$get.call(_this.value);
 UInt.infix_38_61({}, {get: () => _this.value, set: $val => _this.value = $val}, UInt.infix_38_45({}, _this.value, 1));
-return _injectIntoOptional(bit)
+return bit
 ----Swift.(file).Bool.init(_:Bool)
 let _this = this;
 return _cloneStruct(value);
@@ -794,7 +794,7 @@ let _this = this;
 ----Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafePointer({}, unwrapped_1);
@@ -802,7 +802,7 @@ return
 ----Swift.(file).UnsafeMutableRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initAutoreleasingUnsafeMutablePointer({}, unwrapped_1);
@@ -810,7 +810,7 @@ return
 ----Swift.(file).UnsafeRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.init({}, /*pointer_to_pointer*/unwrapped_1);
@@ -831,24 +831,24 @@ let _this = this;
 return _this.withUnsafeMutablePointerToElements({}, (($info, $0) => $0))
 ----Swift.(file).ManagedBufferPointer.storage
 let _this = this;
-return _injectIntoOptional(_this.buffer)
+return _this.buffer
 ----Swift.(file).!=infix(_:Any.Type?,_:Any.Type?)
 return Bool.prefix_33({}, infix_61_61({}, t0, t1))
 ----Swift.(file).String.init(cString:UnsafePointer<CChar>)
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
-return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len))["0"]);
+return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/cString._asUInt8, len))["0"]);
 return
 ----Swift.(file).String.init(cString:UnsafePointer<UInt8>)
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
-return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString), len))["0"]);
+return _cloneStruct(String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/cString, len))["0"]);
 return
 ----Swift.(file).String.init(validatingUTF8:UnsafePointer<CChar>)
 let _this = this;
 const len = UTF8._nullCodeUnitOffsetIn({}, cString);
 const $ifLet0, str_1
-if(!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cString._asUInt8), len)))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = String._tryFromUTF8({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/cString._asUInt8, len)))||true) && $ifLet0 != null && ((str_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 return _cloneStruct(str_1);
@@ -856,22 +856,22 @@ return
 ----Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)
 let _this = this;
 const $ifLet0, cPtr_1
-if(!((($ifLet0 = cString)||true) && $ifLet0.rawValue == 'some' && ((cPtr_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = cString)||true) && $ifLet0 != null && ((cPtr_1 = $ifLet0)||true))) {
+return null;
 };
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(encoding), _injectIntoOptional(Unicode.UTF8))))) {
+if((_fastPath({}, infix_61_61({}, encoding, Unicode.UTF8)))) {
 const ptr = _cloneStruct(_create(UnsafeRawPointer, 'init', {}, /*pointer_to_pointer*/cPtr_1).assumingMemoryBoundTo({}, UInt8));
 const len = UTF8._nullCodeUnitOffsetIn({}, ptr);
-const codeUnits = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr), len);
+const codeUnits = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/ptr, len);
 if((isRepairing)) {
-return _injectIntoOptional(String._fromUTF8Repairing({}, codeUnits));
+return String._fromUTF8Repairing({}, codeUnits);
 }
 else {
 const $ifLet2, str_3
-if(!((($ifLet2 = String._tryFromUTF8({}, codeUnits))||true) && $ifLet2.rawValue == 'some' && ((str_3 = $ifLet2[0])||true))) {
-return Optional.none;
+if(!((($ifLet2 = String._tryFromUTF8({}, codeUnits))||true) && $ifLet2 != null && ((str_3 = $ifLet2)||true))) {
+return null;
 };
-return _injectIntoOptional({0: str_3, 1: false});
+return {0: str_3, 1: false};
 };
 };
 let end = _cloneStruct(cPtr_1);
@@ -880,11 +880,11 @@ if(!((((function(){throw '!unclarifiedGeneric:Encoding.CodeUnit'})()).infix_33_6
 UnsafePointer.infix_43_61({}, {get: () => end, set: $val => end = $val}, 1);
 };
 const len = UnsafePointer.infix_45({}, end, cPtr_1);
-const codeUnits = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/cPtr_1), len);
-return _injectIntoOptional(((_.tmp0 = String._fromCodeUnitsEncodingRepair({}, codeUnits, encoding, isRepairing)).rawValue === 'some') ? (_.tmp0[0]) : null)
+const codeUnits = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/cPtr_1, len);
+return (((_.tmp0 = String._fromCodeUnitsEncodingRepair({}, codeUnits, encoding, isRepairing)) != null) ? (_.tmp0) : null)
 ----Swift.(file).String.init(decodingCString:UnsafePointer<Encoding.CodeUnit>,as:Encoding.Type)
 let _this = this;
-return _cloneStruct(String.decodeCStringAsRepairingInvalidCodeUnits({}, _injectIntoOptional(/*pointer_to_pointer*/ptr), sourceEncoding, true/*!default_value*/)[0]["0"]);
+return _cloneStruct(String.decodeCStringAsRepairingInvalidCodeUnits({}, /*pointer_to_pointer*/ptr, sourceEncoding, true/*!default_value*/)["0"]);
 return
 ----Swift.(file).OpaquePointer.init(_:UnsafePointer<T>)
 let _this = this;
@@ -893,7 +893,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeRawPointer({}, /*pointer_to_pointer*/unwrapped_1);
@@ -905,7 +905,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeMutablePointer({}, unwrapped_1);
@@ -977,16 +977,16 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).Character.isASCII
 let _this = this;
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.asciiValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.asciiValue, null)
 ----Swift.(file).Character.asciiValue
 let _this = this;
 if((_slowPath({}, Character.infix_61_61({}, _this, "\r\n")))) {
-return _injectIntoOptional(0x000A);
+return 0x000A;
 };
 if((_slowPath({}, Bool.infix_124_124({}, Bool.prefix_33({}, _this._isSingleScalar), () => UInt32.infix_62_61({}, _this._firstScalar.value, 0x80))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(UInt8, 'initT', {}, _this._firstScalar.value))
+return _create(UInt8, 'initT', {}, _this._firstScalar.value)
 ----Swift.(file).Character.isWhitespace
 let _this = this;
 return _this._firstScalar.properties.isWhitespace
@@ -1010,50 +1010,50 @@ return false;
 }
 ----Swift.(file).Character.isNumber
 let _this = this;
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this._firstScalar.properties.numericType, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this._firstScalar.properties.numericType, null)
 ----Swift.(file).Character.isWholeNumber
 let _this = this;
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.wholeNumberValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.wholeNumberValue, null)
 ----Swift.(file).Character.wholeNumberValue
 let _this = this;
 if(!((_this._isSingleScalar))) {
-return Optional.none;
+return null;
 };
 const $ifLet0, value_1
-if(!((($ifLet0 = _this._firstScalar.properties.numericValue)||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this._firstScalar.properties.numericValue)||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) {
+return null;
 };
 return _create(Int, 'initExactlyDouble', {}, value_1)
 ----Swift.(file).Character.isHexDigit
 let _this = this;
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.hexDigitValue, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this.hexDigitValue, null)
 ----Swift.(file).Character.hexDigitValue
 let _this = this;
 if(!((_this._isSingleScalar))) {
-return Optional.none;
+return null;
 };
 const value = _this._firstScalar.value;
 const $match = value
 if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0x0030, 0x0039), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, value, 0x0030)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, value, 0x0030));
 }
 else if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0x0041, 0x0046), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0x0041)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0x0041));
 }
 else if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0x0061, 0x0066), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0x0061)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0x0061));
 }
 else if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0xFF10, 0xFF19), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, value, 0xFF10)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, value, 0xFF10));
 }
 else if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0xFF21, 0xFF26), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0xFF21)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0xFF21));
 }
 else if((((ClosedRange.infix_126_61({}, UInt32.infix_46_46_46({}, 0xFF41, 0xFF46), $match))))) {
-return _injectIntoOptional(_create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0xFF41)));
+return _create(Int, 'initT', {}, UInt32.infix_38_45({}, UInt32.infix_38_43({}, value, 10), 0xFF41));
 }
 else if(((true))) {
-return Optional.none;
+return null;
 }
 ----Swift.(file).Character.isLetter
 let _this = this;
@@ -1283,11 +1283,11 @@ return other.overlaps({}, _this)
 ----Swift.(file).IndexingIterator.next()
 let _this = this;
 if(((_.arg0 = _this._position).constructor.infix_61_61({}, _.arg0, _this._elements.endIndex))) {
-return Optional.none;
+return null;
 };
 const _element = _this._elements.subscript$get({}, _this._position);
 _this._elements.formIndexAfter({}, {get: () => _this._position, set: $val => _this._position = $val});
-return _injectIntoOptional(_element)
+return _element
 ----Swift.(file).Collection.formIndex(after:Self.Index)
 let _this = this;
 let i = i$inout.get()
@@ -1313,7 +1313,7 @@ let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex_1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, distance, limit))||true) && $ifLet0 != null && ((advancedIndex_1 = $ifLet0)||true)) {
 i = advancedIndex_1;
 return true;
 };
@@ -1337,11 +1337,11 @@ let _this = this;
 let generator = generator$inout.get()
 const $result = (() => {
 if(!((Bool.prefix_33({}, _this.isEmpty)))) {
-return Optional.none;
+return null;
 };
 const random = Int.randomInUsing({}, Int.infix_46_46_60({}, 0, _this.count), {get: () => generator, set: $val => generator = $val});
 const idx = _this.indexOffsetBy({}, _this.startIndex, random);
-return _injectIntoOptional(_this.subscript$get({}, idx));})()
+return _this.subscript$get({}, idx);})()
 generator$inout.set(generator)
 return $result
 ----Swift.(file).Collection.randomElement()
@@ -1357,11 +1357,11 @@ return _create(Slice, 'initBaseBoundsRange', {}, _this, bounds)
 ----Swift.(file).Collection.popFirst()
 let _this = this;
 if(!((Bool.prefix_33({}, _this.isEmpty)))) {
-return Optional.none;
+return null;
 };
-const _element = _this.first[0];
+const _element = _this.first;
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
-return _injectIntoOptional(_element)
+return _element
 ----Swift.(file).Collection.isEmpty
 let _this = this;
 return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.endIndex)
@@ -1369,10 +1369,10 @@ return (_.arg0 = _this.startIndex).constructor.infix_61_61({}, _.arg0, _this.end
 let _this = this;
 const start = _this.startIndex;
 if(((_.arg0 = start).constructor.infix_33_61({}, _.arg0, _this.endIndex))) {
-return _injectIntoOptional(_this.subscript$get({}, start));
+return _this.subscript$get({}, start);
 }
 else {
-return Optional.none;
+return null;
 }
 ----Swift.(file).Collection.underestimatedCount
 let _this = this;
@@ -1392,7 +1392,7 @@ let i = _this.startIndex;
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, n).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 result.append({$setThis: $val => result = $val}, transform({}, _this.subscript$get({}, i)));
 _this.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 }
@@ -1486,7 +1486,7 @@ return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits
 ----Swift.(file).Collection.removeFirst()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove items from an empty collection", '?3', '?3');
-const _element = _this.first[0];
+const _element = _this.first;
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
 return _element
 ----Swift.(file).Collection.removeFirst(_:Int)
@@ -1499,33 +1499,33 @@ preconditionFileLine({}, () => Int.infix_62_61({}, _this.count, k), () => "Can't
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexOffsetBy({}, _this.startIndex, k)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))))
 ----Swift.(file).BidirectionalCollection.last
 let _this = this;
-return (_this.isEmpty ? Optional.none : _injectIntoOptional(_this.subscript$get({}, _this.indexBefore({}, _this.endIndex))))
+return (_this.isEmpty ? null : _this.subscript$get({}, _this.indexBefore({}, _this.endIndex)))
 ----Swift.(file).Collection.firstIndex(of:Self.Element)
 let _this = this;
 const $ifLet0, result_1
-if((($ifLet0 = _this._customIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customIndexOfEquatableElement({}, _element))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true)) {
 return result_1;
 };
 let i = _this.startIndex;
 while(true){
 if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex)))) break
 if(((_.arg1 = _this.subscript$get({}, i)).constructor.infix_61_61({}, _.arg1, _element))) {
-return _injectIntoOptional(i);
+return i;
 };
 _this.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 };
-return Optional.none
+return null
 ----Swift.(file).Collection.firstIndex(where:(Self.Element) throws -> Bool)
 let _this = this;
 let i = _this.startIndex;
 while(true){
 if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.endIndex)))) break
 if((predicate({}, _this.subscript$get({}, i)))) {
-return _injectIntoOptional(i);
+return i;
 };
 _this.formIndexAfter({}, {get: () => i, set: $val => i = $val});
 };
-return Optional.none
+return null
 ----Swift.(file).BidirectionalCollection.last(where:(Self.Element) throws -> Bool)
 let _this = this;
 return _this.lastIndexWhere({}, predicate).mapSwift({}, (($info, $0) => _this.subscript$get({}, $0)))
@@ -1536,14 +1536,14 @@ while(true){
 if(!(((_.arg0 = i).constructor.infix_33_61({}, _.arg0, _this.startIndex)))) break
 _this.formIndexBefore({}, {get: () => i, set: $val => i = $val});
 if((predicate({}, _this.subscript$get({}, i)))) {
-return _injectIntoOptional(i);
+return i;
 };
 };
-return Optional.none
+return null
 ----Swift.(file).BidirectionalCollection.lastIndex(of:Self.Element)
 let _this = this;
 const $ifLet0, result_1
-if((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customLastIndexOfEquatableElement({}, _element))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true)) {
 return result_1;
 };
 return _this.lastIndexWhere({}, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, _element)))
@@ -1556,7 +1556,7 @@ const maybeOffset = _this._withUnsafeMutableBufferPointerIfSupported({$setThis: 
 const unsafeBufferPivot = bufferPointer._partitionImplBy({$setThis: $val => bufferPointer = $val}, belongsInSecondPartition);
 return Int.infix_45({}, unsafeBufferPivot, bufferPointer.startIndex); }));
 const $ifLet0, offset_1
-if((($ifLet0 = maybeOffset)||true) && $ifLet0.rawValue == 'some' && ((offset_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = maybeOffset)||true) && $ifLet0 != null && ((offset_1 = $ifLet0)||true)) {
 return _this.indexOffsetBy({}, _this.startIndex, offset_1);
 }
 else {
@@ -1608,7 +1608,7 @@ return
 ----Swift.(file).CollectionOfOne.Iterator.next()
 let _this = this;
 const result = _this._elements;
-_this._elements = Optional.none;
+_this._elements = null;
 return result
 ----Swift.(file).CollectionOfOne.Indices
 
@@ -1630,7 +1630,7 @@ preconditionFileLine({}, () => Int.infix_61_61({}, i, _this.endIndex), () => Str
 return 0
 ----Swift.(file).CollectionOfOne.makeIterator()
 let _this = this;
-return _create(CollectionOfOne.Iterator, 'init_elementsOptional', {}, _injectIntoOptional(_this._element))
+return _create(CollectionOfOne.Iterator, 'init_elementsOptional', {}, _this._element)
 ----Swift.(file).CollectionOfOne.subscript(_:Int)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_61_61({}, position, 0), () => "Index out of range", '?3', '?3');
@@ -1737,9 +1737,9 @@ return Int.infix_43({}, i, distance)
 let _this = this;
 const l = Int.infix_45({}, limit, i);
 if(((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), () => Int.infix_60({}, l, distance)) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), () => Int.infix_60({}, distance, l))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(Int.infix_43({}, i, distance))
+return Int.infix_43({}, i, distance)
 ----Swift.(file).ContiguousArray.distance(from:Int,to:Int)
 let _this = this;
 return Int.infix_45({}, end, start)
@@ -1756,7 +1756,7 @@ p = $tuple[1];
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 p.initializeTo({}, repeatedValue);
 UnsafeMutablePointer.infix_43_61({}, {get: () => p, set: $val => p = $val}, 1);
 }
@@ -1772,19 +1772,19 @@ let _this = this;
 _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, Int.infix_46_46_60({}, i, i), _create(CollectionOfOne, 'init', {}, newElement))
 ----Swift.(file).ContiguousArray.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val}))))
+return _this.withUnsafeMutableBufferPointer({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, bufferPointer$inout) => body({}, {get: () => bufferPointer, set: $val => bufferPointer = $val})))
 ----Swift.(file).ContiguousArray.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer))))
+return _this.withUnsafeBufferPointer({}, (($info, bufferPointer) => body({}, bufferPointer)))
 ----Swift.(file).ContiguousArray.customMirror
 let _this = this;
-return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, _injectIntoOptional(Mirror.DisplayStyle.collection), .generated/*!default_value*/)
+return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, _this, Mirror.DisplayStyle.collection, .generated/*!default_value*/)
 ----Swift.(file).ContiguousArray.description
 let _this = this;
 return _this._makeCollectionDescriptionWithTypeName({}, nil/*!default_value*/)
 ----Swift.(file).ContiguousArray.debugDescription
 let _this = this;
-return _this._makeCollectionDescriptionWithTypeName({}, _injectIntoOptional("ContiguousArray"))
+return _this._makeCollectionDescriptionWithTypeName({}, "ContiguousArray")
 ----Swift.(file).ContiguousArray.hash(into:Hasher)
 let _this = this;
 let hasher = hasher$inout.get()
@@ -1794,7 +1794,7 @@ hasher.combine({$setThis: $val => hasher = $val}, _this.count);
 let $element$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 hasher.combine({$setThis: $val => hasher = $val}, _element_1);
 }
 };})()
@@ -1813,7 +1813,7 @@ const oldCount = lhs.count;
 const newCount = Int.infix_43({}, oldCount, numericCast({T: Int, U: Int}, rhs.count));
 const buf;
 if((_fastPath({}, Int.infix_60_61({}, newCount, lhs.capacity)))) {
-buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/UnsafeMutablePointer.infix_43({}, lhs.firstElementAddress, oldCount)), numericCast({T: Int, U: Int}, rhs.count));
+buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/UnsafeMutablePointer.infix_43({}, lhs.firstElementAddress, oldCount), numericCast({T: Int, U: Int}, rhs.count));
 lhs.count = newCount;
 }
 else {
@@ -1823,10 +1823,10 @@ lhs.count = 0;
 let $tuple = {0: newLHS, 1: lhs}
 lhs = $tuple[0]
 newLHS = $tuple[1];
-buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/UnsafeMutablePointer.infix_43({}, lhs.firstElementAddress, oldCount)), numericCast({T: Int, U: Int}, rhs.count));
+buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/UnsafeMutablePointer.infix_43({}, lhs.firstElementAddress, oldCount), numericCast({T: Int, U: Int}, rhs.count));
 };
 let $tuple = buf.initializeFrom({}, rhs), remainders = $tuple && $tuple[0], writtenUpTo = $tuple && $tuple[1];
-preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({$setThis: $val => remainders = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => "rhs underreported its count", '?3', '?3');
+preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({$setThis: $val => remainders = $val}, ), null), () => "rhs underreported its count", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_61_61({}, writtenUpTo, buf.endIndex), () => "rhs overreported its count", '?3', '?3');})()
 lhs$inout.set(lhs)
 return $result
@@ -1842,12 +1842,12 @@ return _this.count
 let _this = this;
 const ptr = _create(UnsafeRawPointer, 'init', {}, /*pointer_to_pointer*/_this.baseAddress._unsafelyUnwrappedUnchecked);
 const len = Int.infix_38_42({}, _this.count, MemoryLayout.stride);
-return body({}, _create(UnsafeRawBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(ptr), len))
+return body({}, _create(UnsafeRawBufferPointer, 'initStartOptionalCountInt', {}, ptr, len))
 ----Swift.(file).UnsafeMutableBufferPointer.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
 const ptr = _create(UnsafeRawPointer, 'initUnsafeMutablePointer', {}, _this.baseAddress._unsafelyUnwrappedUnchecked);
 const len = Int.infix_38_42({}, _this.count, MemoryLayout.stride);
-return body({}, _create(UnsafeRawBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(ptr), len))
+return body({}, _create(UnsafeRawBufferPointer, 'initStartOptionalCountInt', {}, ptr, len))
 ----Swift.(file).String.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
 return _this._withUTF8({}, (($info, $0) => body({}, _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', {}, $0))))
@@ -1861,7 +1861,7 @@ return
 ----Swift.(file).Dictionary.init(uniqueKeysWithValues:S)
 let _this = this;
 const $ifLet0, d_1
-if((($ifLet0 = _injectIntoOptional(keysAndValues))||true) && $ifLet0.rawValue == 'some' && ((d_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = keysAndValues)||true) && $ifLet0 != null && ((d_1 = $ifLet0)||true)) {
 return _cloneStruct(_cloneStruct(d_1));
 return ;
 };
@@ -1883,7 +1883,7 @@ return
 ----Swift.(file)..(error_type).bridged()
 let _this = this;
 const nsDictionary;
-if((Bool.infix_124_124({}, infix_61_61_61({}, _injectIntoOptional(_this._storage), _injectIntoOptional(_RawDictionaryStorage.empty)), () => Int.infix_61_61({}, _this.count, 0)))) {
+if((Bool.infix_124_124({}, infix_61_61_61({}, _this._storage, _RawDictionaryStorage.empty), () => Int.infix_61_61({}, _this.count, 0)))) {
 nsDictionary = _cloneStruct(_RawDictionaryStorage.empty);
 }
 else {
@@ -1914,7 +1914,7 @@ Int.infix_43_61({}, {get: () => result._offset, set: $val => result._offset = $v
 return result
 ----Swift.(file)._CocoaDictionary.validate(_:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object)), () => "Invalid index", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, index.storage.base.object, _this.object), () => "Invalid index", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_60({}, index._offset, index.storage.allKeys.count), () => "Attempt to access endIndex", '?3', '?3')
 ----Swift.(file)._CocoaDictionary.formIndex(after:_CocoaDictionary.Index,isUnique:Bool)
 let _this = this;
@@ -1931,26 +1931,26 @@ return nsd.count
 ----Swift.(file)._CocoaDictionary.contains(_:_CocoaDictionary.Key)
 let _this = this;
 const nsd = _cloneStruct(unsafeBitCastTo({}, _this.object, _NSDictionary));
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, nsd.objectForKey({}, key), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, nsd.objectForKey({}, key), null)
 ----Swift.(file)._CocoaDictionary.lookup(_:_CocoaDictionary.Key)
 let _this = this;
 const nsd = _cloneStruct(unsafeBitCastTo({}, _this.object, _NSDictionary));
 return nsd.objectForKey({}, key)
 ----Swift.(file)._CocoaDictionary.lookup(_:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object)), () => "Invalid index", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, index.storage.base.object, _this.object), () => "Invalid index", '?3', '?3');
 const key = _cloneStruct(index.storage.allKeys.subscript$get({}, index._offset));
-const value = _cloneStruct(/*dynamic_member_ref_expr*/index.storage.base.object[0]({}, key)[0]);
+const value = _cloneStruct(/*dynamic_member_ref_expr*/index.storage.base.object({}, key));
 return {0: key, 1: value}
 ----Swift.(file)._CocoaDictionary.key(at:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object)), () => "Invalid index", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, index.storage.base.object, _this.object), () => "Invalid index", '?3', '?3');
 return index.key
 ----Swift.(file)._CocoaDictionary.value(at:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object)), () => "Invalid index", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, index.storage.base.object, _this.object), () => "Invalid index", '?3', '?3');
 const key = _cloneStruct(index.storage.allKeys.subscript$get({}, index._offset));
-return /*dynamic_member_ref_expr*/index.storage.base.object[0]({}, key)[0]
+return /*dynamic_member_ref_expr*/index.storage.base.object({}, key)
 ----Swift.(file)._CocoaDictionary.mapValues(_:(Value) throws -> T)
 let _this = this;
 let result = _create(_NativeDictionary, 'initCapacityInt', {}, _this.count);
@@ -1958,7 +1958,7 @@ let result = _create(_NativeDictionary, 'initCapacityInt', {}, _this.count);
 let $generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, cocoaKey_1, cocoaValue_2;
-if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue == 'some' && ((cocoaKey_1 = $ifLet0[0][0])||true) && ((cocoaValue_2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = (((_.tmp0 = $generator.next({}, )) != null) ? (_.tmp0) : null))||true) && $ifLet0 != null && ((cocoaKey_1 = $ifLet0[0])||true) && ((cocoaValue_2 = $ifLet0[1])||true))) break
 const key = _forceBridgeFromObjectiveC({}, cocoaKey_1, ((function(){throw '!unclarifiedGeneric:Key'})()));
 const value = _forceBridgeFromObjectiveC({}, cocoaValue_2, ((function(){throw '!unclarifiedGeneric:Value'})()));
 result.insertNewKeyValue({$setThis: $val => result = $val}, key, transform({}, value));
@@ -1980,11 +1980,11 @@ let _this = this;
 return _HashTable.ageFor({}, _this.storage.base.object)
 ----Swift.(file)._CocoaDictionary.Index.==infix(_:_CocoaDictionary.Index,_:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object)), () => "Comparing indexes from different dictionaries", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, lhs.storage.base.object, rhs.storage.base.object), () => "Comparing indexes from different dictionaries", '?3', '?3');
 return Int.infix_61_61({}, lhs._offset, rhs._offset)
 ----Swift.(file)._CocoaDictionary.Index.<infix(_:_CocoaDictionary.Index,_:_CocoaDictionary.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object)), () => "Comparing indexes from different dictionaries", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, lhs.storage.base.object, rhs.storage.base.object), () => "Comparing indexes from different dictionaries", '?3', '?3');
 return Int.infix_60({}, lhs._offset, rhs._offset)
 ----Swift.(file)._CocoaDictionary.makeIterator()
 let _this = this;
@@ -1994,31 +1994,31 @@ return _create(_CocoaDictionary.Iterator, 'init_CocoaDictionary', {}, _this)
 ----Swift.(file)._CocoaDictionary.Iterator.nextKey()
 let _this = this;
 if((Int.infix_60({}, _this.itemIndex, 0))) {
-return Optional.none;
+return null;
 };
 const base = _cloneStruct(_this.base);
 if((Int.infix_61_61({}, _this.itemIndex, _this.itemCount))) {
 const stackBufCount = _this._fastEnumerationStackBuf.count;
-_this.itemCount = /*dynamic_member_ref_expr*/base.object[0]({}, _this._fastEnumerationStatePtr, _create(UnsafeMutableRawPointer, 'initUnsafeMutablePointer', {}, _this._fastEnumerationStackBufPtr).assumingMemoryBoundTo({}, AnyObject), stackBufCount);
+_this.itemCount = /*dynamic_member_ref_expr*/base.object({}, _this._fastEnumerationStatePtr, _create(UnsafeMutableRawPointer, 'initUnsafeMutablePointer', {}, _this._fastEnumerationStackBufPtr).assumingMemoryBoundTo({}, AnyObject), stackBufCount);
 if((Int.infix_61_61({}, _this.itemCount, 0))) {
 _this.itemIndex = -1;
-return Optional.none;
+return null;
 };
 _this.itemIndex = 0;
 };
-const itemsPtrUP = _cloneStruct(_create(UnsafeMutableRawPointer, 'initAutoreleasingUnsafeMutablePointer', {}, _this._fastEnumerationState.itemsPtr[0]).assumingMemoryBoundTo({}, AnyObject));
+const itemsPtrUP = _cloneStruct(_create(UnsafeMutableRawPointer, 'initAutoreleasingUnsafeMutablePointer', {}, _this._fastEnumerationState.itemsPtr).assumingMemoryBoundTo({}, AnyObject));
 const itemsPtr = _create(_UnmanagedAnyObjectArray, 'initUnsafeMutablePointer', {}, itemsPtrUP);
 const key = _cloneStruct(itemsPtr.subscript$get({}, _this.itemIndex));
 Int.infix_43_61({}, {get: () => _this.itemIndex, set: $val => _this.itemIndex = $val}, 1);
-return _injectIntoOptional(key)
+return key
 ----Swift.(file)._CocoaDictionary.Iterator.next()
 let _this = this;
 const $ifLet0, key_1
-if(!((($ifLet0 = _this.nextKey({}, ))||true) && $ifLet0.rawValue == 'some' && ((key_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this.nextKey({}, ))||true) && $ifLet0 != null && ((key_1 = $ifLet0)||true))) {
+return null;
 };
-const value = _cloneStruct(/*dynamic_member_ref_expr*/_this.base.object[0]({}, key_1)[0]);
-return _injectIntoOptional({0: key_1, 1: value})
+const value = _cloneStruct(/*dynamic_member_ref_expr*/_this.base.object({}, key_1));
+return {0: key_1, 1: value}
 ----Swift.(file).Dictionary.init(_unsafeUninitializedCapacity:Int,allowingDuplicates:Bool,initializingWith:(UnsafeMutableBufferPointer<Key>, UnsafeMutableBufferPointer<Value>, inout Int) -> Void)
 let _this = this;
 _this.init_native_NativeDictionary({}, _create(_NativeDictionary, 'init_unsafeUninitializedCapacityIntAllowingDuplicatesBoolInitializingWithfunction_type', {}, capacity, allowingDuplicates, initializer));
@@ -2027,7 +2027,7 @@ return
 let _this = this;
 _this.initCapacityInt({}, capacity);
 let initializedCount = 0;
-initializer({}, _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this._keys), capacity), _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this._values), capacity), {get: () => initializedCount, set: $val => initializedCount = $val});
+initializer({}, _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this._keys, capacity), _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this._values, capacity), {get: () => initializedCount, set: $val => initializedCount = $val});
 preconditionFileLine({}, () => Bool.infix_38_38({}, Int.infix_62_61({}, _this.count, 0), () => Int.infix_60_61({}, _this.count, capacity)), () => String()/*!default_value*/, '?3', '?3');
 _this._storage._count = initializedCount;
 let bucket = _create(_HashTable.Bucket, 'initOffsetInt', {}, Int.infix_45({}, initializedCount, 1));
@@ -2076,7 +2076,7 @@ let _this = this;
 return 0
 ----Swift.(file)._EmptyDictionarySingleton.object(forKey:AnyObject)
 let _this = this;
-return Optional.none
+return null
 ----Swift.(file)._EmptyDictionarySingleton.keyEnumerator()
 let _this = this;
 return _create(_SwiftEmptyNSEnumerator, 'init', {}, )
@@ -2084,20 +2084,20 @@ return _create(_SwiftEmptyNSEnumerator, 'init', {}, )
 let _this = this
 ----Swift.(file)._DictionaryStorage.copy(original:_RawDictionaryStorage)
 let _this = this;
-return _this.allocateScaleAgeSeed({}, original._scale, _injectIntoOptional(original._age), _injectIntoOptional(original._seed))
+return _this.allocateScaleAgeSeed({}, original._scale, original._age, original._seed)
 ----Swift.(file)._DictionaryStorage.resize(original:_RawDictionaryStorage,capacity:Int,move:Bool)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
-return _this.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, null, null)
 ----Swift.(file)._DictionaryStorage.allocate(capacity:Int)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
-return _this.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, null, null)
 ----Swift.(file)._DictionaryStorage.convert(_:<<error type>>,capacity:Int)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
 const age = _HashTable.ageFor({}, cocoa.object);
-return _this.allocateScaleAgeSeed({}, scale, _injectIntoOptional(age), Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, age, null)
 ----Swift.(file).LazyDropWhileSequence.Iterator.next()
 let _this = this;
 if((_this._predicateHasFailed)) {
@@ -2105,13 +2105,13 @@ return _this._base.next({$setThis: $val => _this._base = $val}, );
 };
 while(true){
 const $ifLet0, nextElement_1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextElement_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0 != null && ((nextElement_1 = $ifLet0)||true))) break
 if((Bool.prefix_33({}, _this._predicate({}, nextElement_1)))) {
 _this._predicateHasFailed = true;
-return _injectIntoOptional(nextElement_1);
+return nextElement_1;
 };
 };
-return Optional.none
+return null
 ----Swift.(file).LazyDropWhileSequence.makeIterator()
 let _this = this;
 return _create(LazyDropWhileSequence.Iterator, 'init_basePredicatefunction_type', {}, _this._base.makeIterator({}, ), _this._predicate)
@@ -2170,7 +2170,7 @@ let _this = this;
 return
 ----Swift.(file).EmptyCollection.Iterator.next()
 let _this = this;
-return Optional.none
+return null
 ----Swift.(file).EmptyCollection.makeIterator()
 let _this = this;
 return _create(EmptyCollection.Iterator, 'init', {}, )
@@ -2217,7 +2217,7 @@ return i
 ----Swift.(file).EmptyCollection.index(_:EmptyCollection<Element>.Index,offsetBy:Int,limitedBy:EmptyCollection<Element>.Index)
 let _this = this;
 preconditionFileLine({}, () => Bool.infix_38_38({}, Int.infix_61_61({}, i, _this.startIndex), () => Int.infix_61_61({}, limit, _this.startIndex)), () => "Index out of range", '?3', '?3');
-return (Int.infix_61_61({}, n, 0) ? _injectIntoOptional(i) : Optional.none)
+return (Int.infix_61_61({}, n, 0) ? i : null)
 ----Swift.(file).EmptyCollection.distance(from:EmptyCollection<Element>.Index,to:EmptyCollection<Element>.Index)
 let _this = this;
 preconditionFileLine({}, () => Int.infix_61_61({}, start, 0), () => "From must be startIndex (or endIndex)", '?3', '?3');
@@ -2231,12 +2231,12 @@ let _this = this;
 return Bool.prefix_33({}, (_.arg0 = lhs).constructor.infix_61_61({}, _.arg0, rhs))
 ----Swift.(file).===infix(_:AnyObject?,_:AnyObject?)
 const $match = {0: lhs, 1: rhs}
-if((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
-const l = $match[0][0]
-const r = $match[1][0]
+if((($match[0] != null && $match[1] != null))) {
+const l = $match[0]
+const r = $match[1]
 return ObjectIdentifier.infix_61_61({}, _create(ObjectIdentifier, 'initAnyObject', {}, l), _create(ObjectIdentifier, 'initAnyObject', {}, r));
 }
-else if((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
+else if((($match[0] == null && $match[1] == null))) {
 return true;
 }
 else if(((true))) {
@@ -2251,12 +2251,12 @@ return _this._base
 let _this = this;
 while(true){
 const $ifLet0, n_1
-if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((n_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0 != null && ((n_1 = $ifLet0)||true))) break
 if((_this._predicate({}, n_1))) {
-return _injectIntoOptional(n_1);
+return n_1;
 };
 };
-return Optional.none
+return null
 ----Swift.(file).LazyFilterSequence.makeIterator()
 let _this = this;
 return _create(LazyFilterSequence.Iterator, 'init_basefunction_type', {}, _this._base.makeIterator({}, ), _this._predicate)
@@ -2327,7 +2327,7 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
@@ -2348,20 +2348,20 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, numericCast({T: Int, U: Int}, n))).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 if(((_.arg0 = i_dupl).constructor.infix_61_61({}, _.arg0, limit))) {
-return Optional.none;
+return null;
 };
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
-return _injectIntoOptional(i_dupl)
+return i_dupl
 ----Swift.(file).LazyFilterCollection.formIndex(_:LazyFilterSequence<Base>.Index,offsetBy:Int,limitedBy:LazyFilterSequence<Base>.Index)
 let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex_1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0 != null && ((advancedIndex_1 = $ifLet0)||true)) {
 i = advancedIndex_1;
 return true;
 };
@@ -2403,7 +2403,7 @@ let _this = this;
 return _this.mapSwift({}, transform).joined({}, )
 ----Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)
 let _this = this;
-return _this.mapSwift({}, transform).filterSwift({}, (($info, $0) => Optional.wrappedNotEqualsOptionalNilComparisonType({}, $0, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))).mapSwift({}, (($info, $0) => $0[0]))
+return _this.mapSwift({}, transform).filterSwift({}, (($info, $0) => Optional.wrappedNotEqualsOptionalNilComparisonType({}, $0, null))).mapSwift({}, (($info, $0) => $0))
 ----Swift.(file).FlattenSequence.init(_base:Base)
 let _this = this;
 _this._base = _base;
@@ -2415,17 +2415,17 @@ return
 ----Swift.(file).FlattenSequence.Iterator.next()
 let _this = this;
 do {
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) {
-const ret = _this._inner[0].next({$setThis: $val => _this._inner[0] = $val}, );
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, ret, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) {
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, _this._inner, null)))) {
+const ret = _this._inner.next({$setThis: $val => _this._inner = $val}, );
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, ret, null)))) {
 return ret;
 };
 };
 const s = _this._base.next({$setThis: $val => _this._base = $val}, );
-if((_slowPath({}, Optional.wrappedEqualsOptionalNilComparisonType({}, s, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) {
-return Optional.none;
+if((_slowPath({}, Optional.wrappedEqualsOptionalNilComparisonType({}, s, null)))) {
+return null;
 };
-_this._inner = _injectIntoOptional(s[0].makeIterator({}, ));
+_this._inner = s.makeIterator({}, );
 } while(true)
 ----Swift.(file).FlattenSequence.makeIterator()
 let _this = this;
@@ -2446,10 +2446,10 @@ return (_.arg1 = lhs._outer).constructor.infix_60({}, _.arg1, rhs._outer);
 };
 const $ifLet0, lhsInner_1
 const $ifLet2, rhsInner_3
-if((($ifLet0 = lhs._inner)||true) && $ifLet0.rawValue == 'some' && ((lhsInner_1 = $ifLet0[0])||true) && (($ifLet2 = rhs._inner)||true) && $ifLet2.rawValue == 'some' && ((rhsInner_3 = $ifLet2[0])||true)) {
+if((($ifLet0 = lhs._inner)||true) && $ifLet0 != null && ((lhsInner_1 = $ifLet0)||true) && (($ifLet2 = rhs._inner)||true) && $ifLet2 != null && ((rhsInner_3 = $ifLet2)||true)) {
 return (_.arg2 = lhsInner_1).constructor.infix_60({}, _.arg2, rhsInner_3);
 };
-preconditionFileLine({}, () => Bool.infix_38_38({}, Optional.wrappedEqualsOptionalNilComparisonType({}, lhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => Optional.wrappedEqualsOptionalNilComparisonType({}, rhs._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))), () => String()/*!default_value*/, '?3', '?3');
+preconditionFileLine({}, () => Bool.infix_38_38({}, Optional.wrappedEqualsOptionalNilComparisonType({}, lhs._inner, null), () => Optional.wrappedEqualsOptionalNilComparisonType({}, rhs._inner, null)), () => String()/*!default_value*/, '?3', '?3');
 return false
 ----Swift.(file).FlattenSequence.Index.hash(into:Hasher)
 let _this = this;
@@ -2467,14 +2467,14 @@ while(true){
 if(!(((_.arg0 = outer).constructor.infix_33_61({}, _.arg0, end)))) break
 const innerCollection = _this._base.subscript$get({}, outer);
 if((Bool.prefix_33({}, innerCollection.isEmpty))) {
-return _create(FlattenSequence.Index, 'initOptional', {}, outer, _injectIntoOptional(innerCollection.startIndex));
+return _create(FlattenSequence.Index, 'initOptional', {}, outer, innerCollection.startIndex);
 };
 _this._base.formIndexAfter({}, {get: () => outer, set: $val => outer = $val});
 };
 return _this.endIndex
 ----Swift.(file).FlattenCollection.endIndex
 let _this = this;
-return _create(FlattenSequence.Index, 'initOptional', {}, _this._base.endIndex, Optional.none)
+return _create(FlattenSequence.Index, 'initOptional', {}, _this._base.endIndex, null)
 ----Swift.(file).FlattenCollection.index(after:FlattenSequence<Base>.Index)
 let _this = this;
 return _this._indexAfter({}, i)
@@ -2519,7 +2519,7 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
@@ -2540,20 +2540,20 @@ _this._ensureBidirectionalStep({}, step);
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, abs({}, n)).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 if((FlattenSequence.Index.infix_61_61({}, i_dupl, limit))) {
-return Optional.none;
+return null;
 };
 _this._advanceIndexStep({}, {get: () => i_dupl, set: $val => i_dupl = $val}, step);
 }
 };
-return _injectIntoOptional(i_dupl)
+return i_dupl
 ----Swift.(file).FlattenCollection.formIndex(_:FlattenSequence<Base>.Index,offsetBy:Int,limitedBy:FlattenSequence<Base>.Index)
 let _this = this;
 let i = i$inout.get()
 const $result = (() => {
 const $ifLet0, advancedIndex_1
-if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0.rawValue == 'some' && ((advancedIndex_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.indexOffsetByLimitedBy({}, i, n, limit))||true) && $ifLet0 != null && ((advancedIndex_1 = $ifLet0)||true)) {
 i = _cloneStruct(advancedIndex_1);
 return true;
 };
@@ -2563,7 +2563,7 @@ i$inout.set(i)
 return $result
 ----Swift.(file).FlattenCollection.subscript(_:FlattenSequence<Base>.Index)
 let _this = this;
-return _this._base.subscript$get({}, position._outer).subscript$get({}, position._inner[0])
+return _this._base.subscript$get({}, position._outer).subscript$get({}, position._inner)
 ----Swift.(file).FlattenCollection.subscript(_:Range<FlattenSequence<Base>.Index>)
 let _this = this;
 return _create(Slice, 'initBaseBoundsRange', {}, _this, bounds)
@@ -2875,7 +2875,7 @@ preconditionFileLine({}, () => _this.isOccupied({}, bucket), () => "Attempting t
 let _this = this;
 const word = bucket.word;
 const $ifLet0, bit_1
-if((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum)||true) && $ifLet0.rawValue == 'some' && ((bit_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).intersectingElementsAbove({}, bucket.bit).minimum)||true) && $ifLet0 != null && ((bit_1 = $ifLet0)||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_1);
 };
 return _this._firstOccupiedBucketFromWord({}, Int.infix_43({}, word, 1))
@@ -2895,7 +2895,7 @@ return _create(_HashTable.Bucket, 'initOffsetInt', {}, Int.infix_38({}, Int.infi
 let _this = this;
 let word = bucket.word;
 const $ifLet0, bit_1
-if((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum)||true) && $ifLet0.rawValue == 'some' && ((bit_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).complement.intersectingElementsBelow({}, bucket.bit).maximum)||true) && $ifLet0 != null && ((bit_1 = $ifLet0)||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_1);
 };
 let wrap = false;
@@ -2908,7 +2908,7 @@ wrap = true;
 word = Int.infix_45({}, _this.wordCount, 1);
 };
 const $ifLet2, bit_3
-if((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum)||true) && $ifLet2.rawValue == 'some' && ((bit_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _this.words.subscript$get({}, word).complement.maximum)||true) && $ifLet2 != null && ((bit_3 = $ifLet2)||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_3);
 };
 }
@@ -2916,7 +2916,7 @@ return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_3);
 let _this = this;
 let word = bucket.word;
 const $ifLet0, bit_1
-if((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum)||true) && $ifLet0.rawValue == 'some' && ((bit_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this.words.subscript$get({}, word).complement.subtractingElementsBelow({}, bucket.bit).minimum)||true) && $ifLet0 != null && ((bit_1 = $ifLet0)||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_1);
 };
 let wrap = false;
@@ -2929,7 +2929,7 @@ wrap = true;
 word = 0;
 };
 const $ifLet2, bit_3
-if((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum)||true) && $ifLet2.rawValue == 'some' && ((bit_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _this.words.subscript$get({}, word).complement.minimum)||true) && $ifLet2 != null && ((bit_3 = $ifLet2)||true)) {
 return _create(_HashTable.Bucket, 'initWordIntBitInt', {}, word, bit_3);
 };
 }
@@ -3067,7 +3067,7 @@ static get zero() { return this.zero$get()
 let _this = this;
 $info.$setThis(_this = _cloneStruct(_this.constructor.infix_45({}, _create(_this.constructor, 'initIntegerLiteral', {}, 0), _this)))
 ----Swift.(file).abs(_:T)
-if((infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:T'})())), _injectIntoOptional(((function(){throw '!unclarifiedGeneric:T.Magnitude'})()))))) {
+if((infix_61_61({}, ((function(){throw '!unclarifiedGeneric:T'})()), ((function(){throw '!unclarifiedGeneric:T.Magnitude'})())))) {
 return unsafeBitCastTo({}, ((function(){throw '!unclarifiedGeneric:T'})()).prototype.magnitude$get.call(x), ((function(){throw '!unclarifiedGeneric:T'})()));
 };
 return (((function(){throw '!unclarifiedGeneric:T'})()).infix_60({}, x, _create(((function(){throw '!unclarifiedGeneric:T'})()), 'initIntegerLiteral', {}, 0)) ? ((function(){throw '!unclarifiedGeneric:T'})()).prefix_45({}, x) : x)
@@ -3095,13 +3095,13 @@ let _this = this;
 if((Bool.prefix_33({}, _this.constructor.isSigned))) {
 if((_this.constructor.infix_62({}, _this, other))) {
 const $ifLet0, result_1
-if((($ifLet0 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, _this, other)))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, _this, other)))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true)) {
 return Int.prefix_45({}, result_1);
 };
 }
 else {
 const $ifLet2, result_3
-if((($ifLet2 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, other, _this)))||true) && $ifLet2.rawValue == 'some' && ((result_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, other, _this)))||true) && $ifLet2 != null && ((result_3 = $ifLet2)||true)) {
 return result_3;
 };
 };
@@ -3110,13 +3110,13 @@ else {
 const isNegative = _this.constructor.infix_60({}, _this, _create(_this.constructor, 'initIntegerLiteral', {}, 0));
 if((Bool.infix_61_61({}, isNegative, _this.constructor.infix_60({}, other, _create(_this.constructor, 'initIntegerLiteral', {}, 0))))) {
 const $ifLet4, result_5
-if((($ifLet4 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, other, _this)))||true) && $ifLet4.rawValue == 'some' && ((result_5 = $ifLet4[0])||true)) {
+if((($ifLet4 = _create(Int, 'initExactly', {}, _this.constructor.infix_45({}, other, _this)))||true) && $ifLet4 != null && ((result_5 = $ifLet4)||true)) {
 return result_5;
 };
 }
 else {
 const $ifLet6, result_7
-if((($ifLet6 = _create(Int, 'initExactly', {}, ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).infix_43({}, _this.constructor.prototype.magnitude$get.call(_this), _this.constructor.prototype.magnitude$get.call(other))))||true) && $ifLet6.rawValue == 'some' && ((result_7 = $ifLet6[0])||true)) {
+if((($ifLet6 = _create(Int, 'initExactly', {}, ((function(){throw '!unclarifiedGeneric:Self.Magnitude'})()).infix_43({}, _this.constructor.prototype.magnitude$get.call(_this), _this.constructor.prototype.magnitude$get.call(other))))||true) && $ifLet6 != null && ((result_7 = $ifLet6)||true)) {
 return (isNegative ? result_7 : Int.prefix_45({}, result_7));
 };
 };
@@ -3181,7 +3181,7 @@ return _this.randomInUsing({}, range, {get: () => g, set: $val => g = $val})
 ----Swift.(file).FixedWidthInteger.init(_:T)
 let _this = this;
 const $ifLet0, value_1
-if(!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"])||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = _this.constructor._convertFrom({}, source)["0"])||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) {
 fatalErrorFileLine({}, () => (("") + (((function(){throw '!unclarifiedGeneric:T'})())) + (" value cannot be converted to ") + (_this.constructor) + (" because it is outside the representable range")), '?3', '?3');
 };
 return _cloneStruct(value_1);
@@ -3190,7 +3190,7 @@ return
 let _this = this;
 const $tuple = _this.constructor._convertFrom({}, source), temporary = $tuple && $tuple[0], exact = $tuple && $tuple[1];
 const $ifLet0, value_1
-if(!((exact) && (($ifLet0 = temporary)||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) {
+if(!((exact) && (($ifLet0 = temporary)||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 return _cloneStruct(value_1);
@@ -3223,7 +3223,7 @@ const width = _create(_this.constructor, 'init_truncatingBitsUInt', {}, Int.prot
 let $word$generator = ((function(){throw '!unclarifiedGeneric:T'})()).prototype.words$get.call(source).makeIterator({}, );
 while(true) {
 const $ifLet0, word_1;
-if(!((($ifLet0 = $word$generator.next({$setThis: $val => $word$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((word_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $word$generator.next({$setThis: $val => $word$generator = $val}, ))||true) && $ifLet0 != null && ((word_1 = $ifLet0)||true))) break
 if(!((_this.constructor.infix_60({}, shift, width)))) {
 break;
 };
@@ -3370,39 +3370,39 @@ if(!((true))) break
 const $match = _this._state
 if((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.start.rawValue))) {
 const $ifLet0, nextSubSequence_1
-if((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextSubSequence_1 = $ifLet0[0])||true)) {
-_this._inner = _injectIntoOptional(nextSubSequence_1.makeIterator({}, ));
+if((($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0 != null && ((nextSubSequence_1 = $ifLet0)||true)) {
+_this._inner = nextSubSequence_1.makeIterator({}, );
 _this._state = JoinedSequence.Iterator._JoinIteratorState.generatingElements;
 }
 else {
 _this._state = JoinedSequence.Iterator._JoinIteratorState.end;
-return Optional.none;
+return null;
 };
 }
 else if((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.generatingElements.rawValue))) {
-const result = _this._inner[0].next({$setThis: $val => _this._inner[0] = $val}, );
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, result, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) {
+const result = _this._inner.next({$setThis: $val => _this._inner = $val}, );
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, result, null)))) {
 return result;
 };
-_this._inner = _injectIntoOptional(((_.tmp0 = _this._base.next({$setThis: $val => _this._base = $val}, )).rawValue === 'some') ? (_.tmp0[0].makeIterator({}, )) : null);
-if((Optional.wrappedEqualsOptionalNilComparisonType({}, _this._inner, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) {
+_this._inner = (((_.tmp0 = _this._base.next({$setThis: $val => _this._base = $val}, )) != null) ? (_.tmp0.makeIterator({}, )) : null);
+if((Optional.wrappedEqualsOptionalNilComparisonType({}, _this._inner, null))) {
 _this._state = JoinedSequence.Iterator._JoinIteratorState.end;
-return Optional.none;
+return null;
 };
 if((Bool.prefix_33({}, _this._separatorData.isEmpty))) {
-_this._separator = _injectIntoOptional(_this._separatorData.makeIterator({}, ));
+_this._separator = _this._separatorData.makeIterator({}, );
 _this._state = JoinedSequence.Iterator._JoinIteratorState.generatingSeparator;
 };
 }
 else if((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.generatingSeparator.rawValue))) {
-const result = _this._separator[0].next({$setThis: $val => _this._separator[0] = $val}, );
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, result, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) {
+const result = _this._separator.next({$setThis: $val => _this._separator = $val}, );
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, result, null)))) {
 return result;
 };
 _this._state = JoinedSequence.Iterator._JoinIteratorState.generatingElements;
 }
 else if((($match.rawValue == JoinedSequence.Iterator._JoinIteratorState.end.rawValue))) {
-return Optional.none;
+return null;
 };
 }
 ----Swift.(file).JoinedSequence.makeIterator()
@@ -3439,7 +3439,7 @@ if(!((true))) break
 const $tuple = buffer.next({$setThis: $val => buffer = $val}, ), component = $tuple && $tuple[0], type = $tuple && $tuple[1];
 hasher.combine({$setThis: $val => hasher = $val}, component.value);
 const $ifLet0, type_1
-if((($ifLet0 = type)||true) && $ifLet0.rawValue == 'some' && ((type_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = type)||true) && $ifLet0 != null && ((type_1 = $ifLet0)||true)) {
 hasher.combine({$setThis: $val => hasher = $val}, unsafeBitCastTo({}, type_1, Int));
 }
 else {
@@ -3450,10 +3450,10 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).AnyKeyPath.==infix(_:AnyKeyPath,_:AnyKeyPath)
 let _this = this;
-if((infix_61_61_61({}, _injectIntoOptional(a), _injectIntoOptional(b)))) {
+if((infix_61_61_61({}, a, b))) {
 return true;
 };
-if((infix_33_61({}, _injectIntoOptional(AnyKeyPath), _injectIntoOptional(AnyKeyPath)))) {
+if((infix_33_61({}, AnyKeyPath, AnyKeyPath))) {
 return false;
 };
 return a.withBuffer({}, (($info, $0) => { 
@@ -3473,7 +3473,7 @@ const $tuple = bBuffer.next({$setThis: $val => bBuffer = $val}, ), bComponent = 
 if((Bool.infix_124_124({}, Bool.infix_124_124({}, Bool.infix_33_61({}, aComponent.header.endOfReferencePrefix, bComponent.header.endOfReferencePrefix), () => KeyPathComponent.infix_33_61({}, aComponent.value, bComponent.value)), () => infix_33_61({}, aType, bType)))) {
 return false;
 };
-if((infix_61_61({}, aType, Optional.none))) {
+if((infix_61_61({}, aType, null))) {
 return true;
 };
 }; })); }))
@@ -3659,7 +3659,7 @@ preconditionFileLine({}, () => isKnownUniquelyReferenced({}, {get: () => buffer,
 const newSizeInBytes = Int.infix_43({}, MemoryLayout.stride, Int.infix_42({}, newMinimumCapacity, MemoryLayout.stride));
 return withUnsafeMutablePointerTo({}, {get: () => buffer, set: $val => buffer = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UnsafeMutableRawPointer, 1, (($info, $0) => { 
 const $ifLet0, reallocdObject_1
-if((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes))||true) && $ifLet0.rawValue == 'some' && ((reallocdObject_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _reallocObject({}, $0.pointee, newSizeInBytes))||true) && $ifLet0 != null && ((reallocdObject_1 = $ifLet0)||true)) {
 $0.pointee = _cloneStruct(reallocdObject_1);
 return true;
 }
@@ -3881,9 +3881,9 @@ let _this = this;
 _this.deallocate({}, )
 ----Swift.(file).UnsafeMutablePointer.initialize(from:C)
 let _this = this;
-const buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this), numericCast({T: Int, U: Int}, source.count));
+const buf = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this, numericCast({T: Int, U: Int}, source.count));
 let $tuple = source._copyContentsInitializing({}, buf), remainders = $tuple && $tuple[0], writtenUpTo = $tuple && $tuple[1];
-preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({$setThis: $val => remainders = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => "rhs underreported its count", '?3', '?3');
+preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, remainders.next({$setThis: $val => remainders = $val}, ), null), () => "rhs underreported its count", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_61_61({}, writtenUpTo, buf.endIndex), () => "rhs overreported its count", '?3', '?3')
 ----Swift.(file).UnsafeRawPointer.customPlaygroundQuickLook
 let _this = this;
@@ -3916,7 +3916,7 @@ let ptr = _cloneStruct(_this);
 let $element$generator = source.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 ptr.initializeMemoryAsRepeatingCount({}, ((function(){throw '!unclarifiedGeneric:C.Element'})()), _element_1, 1);
 UnsafeMutableRawPointer.infix_43_61({}, {get: () => ptr, set: $val => ptr = $val}, MemoryLayout.stride);
 }
@@ -3946,16 +3946,16 @@ return _this.firstIndexOf({}, _element)
 ----Swift.(file)._PlaygroundQuickLook.init(reflecting:Any)
 let _this = this;
 const $ifLet0, customized_1
-if((($ifLet0 = _injectIntoOptional(subject))||true) && $ifLet0.rawValue == 'some' && ((customized_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = subject)||true) && $ifLet0 != null && ((customized_1 = $ifLet0)||true)) {
 $info.$setThis(_this = _cloneStruct(customized_1.customPlaygroundQuickLook));
 }
 else {const $ifLet2, customized_3
-if((($ifLet2 = _injectIntoOptional(subject))||true) && $ifLet2.rawValue == 'some' && ((customized_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = subject)||true) && $ifLet2 != null && ((customized_3 = $ifLet2)||true)) {
 $info.$setThis(_this = _cloneStruct(customized_3._defaultCustomPlaygroundQuickLook));
 }
 else {
 const $ifLet4, q_5
-if((($ifLet4 = Mirror.quickLookObject({}, subject))||true) && $ifLet4.rawValue == 'some' && ((q_5 = $ifLet4[0])||true)) {
+if((($ifLet4 = Mirror.quickLookObject({}, subject))||true) && $ifLet4 != null && ((q_5 = $ifLet4)||true)) {
 $info.$setThis(_this = _cloneStruct(q_5));
 }
 else {
@@ -3966,7 +3966,7 @@ $info.$setThis(_this = _cloneStruct(_PlaygroundQuickLook._text({}, _create(Strin
 return
 ----Swift.(file).MutableCollection.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Self.Element>) throws -> R)
 let _this = this;
-return Optional.none
+return null
 ----Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)#ASS
 
 let _this = this;
@@ -4057,7 +4057,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const key = UnsafeMutablePointer.infix_43({}, _this._keys, bucket_1.offset).move({}, );
 const value = UnsafeMutablePointer.infix_43({}, _this._values, bucket_1.offset).move({}, );
 result._unsafeInsertNewKeyValue({}, key, value);
@@ -4077,7 +4077,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 result._unsafeInsertNewKeyValue({}, _this.uncheckedKeyAt({}, bucket_1), _this.uncheckedValueAt({}, bucket_1));
 }
 };
@@ -4094,7 +4094,7 @@ result._storage._count = _this.count;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const key = _this.uncheckedKeyAt({}, bucket_1);
 const value = _this.uncheckedValueAt({}, bucket_1);
 result.uncheckedInitializeAtToKeyValue({}, bucket_1, key, value);
@@ -4157,13 +4157,13 @@ return _create(_NativeDictionary.Index, 'init_native_HashTableIndex', {}, _creat
 ----Swift.(file)._NativeDictionary.index(forKey:Key)
 let _this = this;
 if((Int.infix_61_61({}, _this.count, 0))) {
-return Optional.none;
+return null;
 };
 const $tuple = _this.find({}, key), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if(!((found))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(_NativeDictionary.Index, 'init_native_HashTableIndex', {}, _create(_HashTable.Index, 'initBucket_HashTableBucketAgeInt32', {}, bucket, _this.age)))
+return _create(_NativeDictionary.Index, 'init_native_HashTableIndex', {}, _create(_HashTable.Index, 'initBucket_HashTableBucketAgeInt32', {}, bucket, _this.age))
 ----Swift.(file)._NativeDictionary.count
 let _this = this;
 return _assumeNonNegative({}, _this._storage._count)
@@ -4173,13 +4173,13 @@ return _this.find({}, key)["1"]
 ----Swift.(file)._NativeDictionary.lookup(_:Key)
 let _this = this;
 if((Int.infix_61_61({}, _this.count, 0))) {
-return Optional.none;
+return null;
 };
 const $tuple = _this.find({}, key), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if(!((found))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this.uncheckedValueAt({}, bucket))
+return _this.uncheckedValueAt({}, bucket)
 ----Swift.(file)._NativeDictionary.lookup(_:_NativeDictionary<Key, Value>.Index)
 let _this = this;
 const bucket = _cloneStruct(_this.validatedBucketFor({}, index));
@@ -4201,10 +4201,10 @@ return _this.lookup({}, key);
 let _this = this;
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key, isUnique), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if((found)) {
-let value = _injectIntoOptional(UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}, ));
+let value = UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}, );
 let $defer = () => {
 const $ifLet0, value_1
-if((($ifLet0 = value)||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = value)||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true)) {
 UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).initializeTo({}, value_1);
 }
 else {
@@ -4217,10 +4217,10 @@ try {;
 /*yield*/;}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result;
 }
 else {
-let value = Optional.none;
+let value = null;
 let $defer = () => {
 const $ifLet2, value_3
-if((($ifLet2 = value)||true) && $ifLet2.rawValue == 'some' && ((value_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = value)||true) && $ifLet2 != null && ((value_3 = $ifLet2)||true)) {
 _this._insertAtKeyValue({}, bucket, key, value_3);
 };
 }
@@ -4250,10 +4250,10 @@ const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_thi
 if((found)) {
 const oldValue = UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).move({}, );
 UnsafeMutablePointer.infix_43({}, _this._values, bucket.offset).initializeTo({}, value);
-return _injectIntoOptional(oldValue);
+return oldValue;
 };
 _this._insertAtKeyValue({}, bucket, key, value);
-return Optional.none
+return null
 ----Swift.(file)._NativeDictionary.setValue(_:Value,forKey:Key,isUnique:Bool)
 let _this = this;
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key, isUnique), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
@@ -4271,7 +4271,7 @@ UnsafeMutablePointer.infix_43({}, _this._values, a.offset).moveInitializeFromCou
 UnsafeMutablePointer.infix_43({}, _this._values, b.offset).initializeTo({}, value)
 ----Swift.(file)._NativeDictionary.isEqual(to:_NativeDictionary<Key, Value>)
 let _this = this;
-if((infix_61_61_61({}, _injectIntoOptional(_this._storage), _injectIntoOptional(other._storage)))) {
+if((infix_61_61_61({}, _this._storage, other._storage))) {
 return true;
 };
 if((Int.infix_33_61({}, _this.count, other.count))) {
@@ -4281,7 +4281,7 @@ return false;
 let $generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, key_1, value_2;
-if(!((($ifLet0 = _injectIntoOptional(((_.tmp0 = $generator.next({$setThis: $val => $generator = $val}, )).rawValue === 'some') ? (_.tmp0[0]) : null))||true) && $ifLet0.rawValue == 'some' && ((key_1 = $ifLet0[0][0])||true) && ((value_2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = (((_.tmp0 = $generator.next({$setThis: $val => $generator = $val}, )) != null) ? (_.tmp0) : null))||true) && $ifLet0 != null && ((key_1 = $ifLet0[0])||true) && ((value_2 = $ifLet0[1])||true))) break
 const $tuple = other.find({}, key_1), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if(!((found) && ((_.arg0 = other.uncheckedValueAt({}, bucket)).constructor.infix_61_61({}, _.arg0, value_2)))) {
 return false;
@@ -4303,11 +4303,11 @@ try {;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const key = _this.uncheckedKeyAt({}, bucket_1);
 const value = _this.uncheckedValueAt({}, bucket_1);
 const $ifLet2, cocoaValue_3
-if(!((($ifLet2 = other.lookup({}, _bridgeAnythingToObjectiveC({}, key)))||true) && $ifLet2.rawValue == 'some' && ((cocoaValue_3 = $ifLet2[0])||true) && ((_.arg0 = value).constructor.infix_61_61({}, _.arg0, _forceBridgeFromObjectiveC({}, cocoaValue_3, ((function(){throw '!unclarifiedGeneric:Value'})())))))) {
+if(!((($ifLet2 = other.lookup({}, _bridgeAnythingToObjectiveC({}, key)))||true) && $ifLet2 != null && ((cocoaValue_3 = $ifLet2)||true) && ((_.arg0 = value).constructor.infix_61_61({}, _.arg0, _forceBridgeFromObjectiveC({}, cocoaValue_3, ((function(){throw '!unclarifiedGeneric:Value'})())))))) {
 return false;
 };
 }
@@ -4335,14 +4335,14 @@ return {0: oldKey, 1: oldValue}
 let _this = this;
 if(!((isUnique))) {
 const scale = _this._storage._scale;
-_this._storage = /*derived_to_base_expr*/_DictionaryStorage.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none);
+_this._storage = /*derived_to_base_expr*/_DictionaryStorage.allocateScaleAgeSeed({}, scale, null, null);
 return ;
 };
 {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 UnsafeMutablePointer.infix_43({}, _this._keys, bucket_1.offset).deinitializeCount({}, 1);
 UnsafeMutablePointer.infix_43({}, _this._values, bucket_1.offset).deinitializeCount({}, 1);
 }
@@ -4358,7 +4358,7 @@ const result = _create(_NativeDictionary, 'init_RawDictionaryStorage', {}, /*der
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const key = _this.uncheckedKeyAt({}, bucket_1);
 const value = _this.uncheckedValueAt({}, bucket_1);
 result._insertAtKeyValue({}, bucket_1, key, transform({}, value));
@@ -4372,7 +4372,7 @@ let isUnique_dupl = isUnique;
 let $generator = keysAndValues.makeIterator({}, );
 while(true) {
 const $ifLet0, key_1, value_2;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((key_1 = $ifLet0[0][0])||true) && ((value_2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null && ((key_1 = $ifLet0[0])||true) && ((value_2 = $ifLet0[1])||true))) break
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key_1, isUnique_dupl), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 isUnique_dupl = true;
 if((found)) {
@@ -4398,7 +4398,7 @@ _this.init({}, );
 let $value$generator = values.makeIterator({}, );
 while(true) {
 const $ifLet0, value_1;
-if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((value_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $value$generator.next({$setThis: $val => $value$generator = $val}, ))||true) && $ifLet0 != null && ((value_1 = $ifLet0)||true))) break
 const key = keyForValue({}, value_1);
 const $tuple = _this.mutatingFindIsUnique({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, key, true), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if((found)) {
@@ -4418,26 +4418,26 @@ return _create(_NativeDictionary.Iterator, 'init_NativeDictionary', {}, _this)
 ----Swift.(file)._NativeDictionary.Iterator.nextKey()
 let _this = this;
 const $ifLet0, index_1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0 != null && ((index_1 = $ifLet0)||true))) {
+return null;
 };
-return _injectIntoOptional(_this.base.uncheckedKeyAt({}, index_1))
+return _this.base.uncheckedKeyAt({}, index_1)
 ----Swift.(file)._NativeDictionary.Iterator.nextValue()
 let _this = this;
 const $ifLet0, index_1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0 != null && ((index_1 = $ifLet0)||true))) {
+return null;
 };
-return _injectIntoOptional(_this.base.uncheckedValueAt({}, index_1))
+return _this.base.uncheckedValueAt({}, index_1)
 ----Swift.(file)._NativeDictionary.Iterator.next()
 let _this = this;
 const $ifLet0, index_1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0 != null && ((index_1 = $ifLet0)||true))) {
+return null;
 };
 const key = _this.base.uncheckedKeyAt({}, index_1);
 const value = _this.base.uncheckedValueAt({}, index_1);
-return _injectIntoOptional({0: key, 1: value})
+return {0: key, 1: value}
 ----Swift.(file)._NativeSet.capacity
 let _this = this;
 return _assumeNonNegative({}, _this._storage._capacity)
@@ -4488,7 +4488,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const _element = UnsafeMutablePointer.infix_43({}, _this._elements, bucket_1.offset).move({}, );
 result._unsafeInsertNew({}, _element);
 }
@@ -4506,7 +4506,7 @@ if((Int.infix_62({}, _this.count, 0))) {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 result._unsafeInsertNew({}, _this.uncheckedElementAt({}, bucket_1));
 }
 };
@@ -4523,7 +4523,7 @@ result._storage._count = _this.count;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const _element = _this.uncheckedElementAt({}, bucket_1);
 result.uncheckedInitializeAtTo({}, bucket_1, _element);
 }
@@ -4580,13 +4580,13 @@ return _create(_NativeSet.Index, 'init_native_HashTableIndex', {}, _create(_Hash
 ----Swift.(file)._NativeSet.index(for:Element)
 let _this = this;
 if((Int.infix_61_61({}, _this.count, 0))) {
-return Optional.none;
+return null;
 };
 const $tuple = _this.find({}, _element), bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if(!((found))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_create(_NativeSet.Index, 'init_native_HashTableIndex', {}, _create(_HashTable.Index, 'initBucket_HashTableBucketAgeInt32', {}, bucket, _this.age)))
+return _create(_NativeSet.Index, 'init_native_HashTableIndex', {}, _create(_HashTable.Index, 'initBucket_HashTableBucketAgeInt32', {}, bucket, _this.age))
 ----Swift.(file)._NativeSet.count
 let _this = this;
 return _assumeNonNegative({}, _this._storage._count)
@@ -4630,13 +4630,13 @@ bucket = _cloneStruct(b);
 if((found)) {
 const old = UnsafeMutablePointer.infix_43({}, _this._elements, bucket.offset).move({}, );
 _this.uncheckedInitializeAtTo({}, bucket, _element);
-return _injectIntoOptional(old);
+return old;
 };
 _this._unsafeInsertNewAt({}, _element, bucket);
-return Optional.none
+return null
 ----Swift.(file)._NativeSet.isEqual(to:_NativeSet<Element>)
 let _this = this;
-if((infix_61_61_61({}, _injectIntoOptional(_this._storage), _injectIntoOptional(other._storage)))) {
+if((infix_61_61_61({}, _this._storage, other._storage))) {
 return true;
 };
 if((Int.infix_33_61({}, _this.count, other.count))) {
@@ -4646,7 +4646,7 @@ return false;
 let $member$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, member_1;
-if(!((($ifLet0 = $member$generator.next({$setThis: $val => $member$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((member_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $member$generator.next({$setThis: $val => $member$generator = $val}, ))||true) && $ifLet0 != null && ((member_1 = $ifLet0)||true))) break
 if(!((other.find({}, member_1)["1"]))) {
 return false;
 };
@@ -4667,7 +4667,7 @@ try {;
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 const key = _this.uncheckedElementAt({}, bucket_1);
 const bridgedKey = _cloneStruct(_bridgeAnythingToObjectiveC({}, key));
 if(!((other.contains({}, bridgedKey)))) {
@@ -4692,14 +4692,14 @@ return old
 let _this = this;
 if(!((isUnique))) {
 const scale = _this._storage._scale;
-_this._storage = /*derived_to_base_expr*/_SetStorage.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none);
+_this._storage = /*derived_to_base_expr*/_SetStorage.allocateScaleAgeSeed({}, scale, null, null);
 return ;
 };
 {
 let $bucket$generator = _cloneStruct(_this.hashTable.makeIterator({}, ));
 while(true) {
 const $ifLet0, bucket_1;
-if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((bucket_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $bucket$generator.next({$setThis: $val => $bucket$generator = $val}, ))||true) && $ifLet0 != null && ((bucket_1 = $ifLet0)||true))) break
 UnsafeMutablePointer.infix_43({}, _this._elements, bucket_1.offset).deinitializeCount({}, 1);
 }
 };
@@ -4712,10 +4712,10 @@ return _create(_NativeSet.Iterator, 'init_NativeSet', {}, _this)
 ----Swift.(file)._NativeSet.Iterator.next()
 let _this = this;
 const $ifLet0, index_1
-if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((index_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this.iterator.next({$setThis: $val => _this.iterator = $val}, ))||true) && $ifLet0 != null && ((index_1 = $ifLet0)||true))) {
+return null;
 };
-return _injectIntoOptional(_this.base.uncheckedElementAt({}, index_1))
+return _this.base.uncheckedElementAt({}, index_1)
 ----Swift.(file)._SwiftNewtypeWrapper.hashValue
 let _this = this;
 return _this.rawValue.hashValue
@@ -4774,7 +4774,7 @@ const remaining = _this.gutsSlice.withNFCCodeUnitsIterator({}, (($info, $0) => {
 let nfc = _cloneStruct($0);
 while(true){
 const $ifLet0, cu_1
-if(!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({$setThis: $val => nfc = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu_1 = $ifLet0[0])||true))) break
+if(!((Bool.prefix_33({}, _this.outputBufferFull)) && (($ifLet0 = nfc.next({$setThis: $val => nfc = $val}, ))||true) && $ifLet0 != null && ((cu_1 = $ifLet0)||true))) break
 _this.outputBuffer.subscript$set({$setThis: $val => _this.outputBuffer = $val}, cu_1, _this.outputBufferCount);
 Int.infix_38_43_61({}, {get: () => _this.outputBufferCount, set: $val => _this.outputBufferCount = $val}, 1);
 };
@@ -4789,9 +4789,9 @@ let mutableOther = _cloneStruct(other);
 let $cu$generator = _cloneStruct(_this.makeIterator({}, ));
 while(true) {
 const $ifLet0, cu_1;
-if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0 != null && ((cu_1 = $ifLet0)||true))) break
 const $ifLet2, otherCU_3
-if(!((($ifLet2 = mutableOther.next({$setThis: $val => mutableOther = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((otherCU_3 = $ifLet2[0])||true))) {
+if(!((($ifLet2 = mutableOther.next({$setThis: $val => mutableOther = $val}, ))||true) && $ifLet2 != null && ((otherCU_3 = $ifLet2)||true))) {
 return false;
 };
 if((UInt8.infix_61_61({}, cu_1, otherCU_3))) {
@@ -4800,7 +4800,7 @@ continue;
 return (_StringComparisonResult.infix_61_61({}, expecting, _StringComparisonResult.less) ? UInt8.infix_60({}, cu_1, otherCU_3) : false);
 }
 };
-return (Optional.wrappedEqualsOptionalNilComparisonType({}, mutableOther.next({$setThis: $val => mutableOther = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})) ? _StringComparisonResult.infix_61_61({}, expecting, _StringComparisonResult.equal) : _StringComparisonResult.infix_61_61({}, expecting, _StringComparisonResult.less))
+return (Optional.wrappedEqualsOptionalNilComparisonType({}, mutableOther.next({$setThis: $val => mutableOther = $val}, ), null) ? _StringComparisonResult.infix_61_61({}, expecting, _StringComparisonResult.equal) : _StringComparisonResult.infix_61_61({}, expecting, _StringComparisonResult.less))
 ----Swift.(file).ObjectIdentifier.debugDescription
 let _this = this;
 return (("ObjectIdentifier(") + (_rawPointerToString({}, _this._value)) + (")"))
@@ -4840,14 +4840,14 @@ _this.formUnion({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, 
 return result
 ----Swift.(file).OptionSet.remove(_:Self.Element)
 let _this = this;
-const r = (_this.isSupersetOf({}, member) ? _create(Optional, 'init', {}, member) : Optional.none);
+const r = (_this.isSupersetOf({}, member) ? _create(Optional, 'init', {}, member) : null);
 _this.subtract({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, member);
 return r
 ----Swift.(file).OptionSet.update(with:Self.Element)
 let _this = this;
 const r = _this.intersection({}, newMember);
 _this.formUnion({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, newMember);
-return (r.isEmpty ? Optional.none : _injectIntoOptional(r))
+return (r.isEmpty ? null : r)
 ----Swift.(file).OptionSet.init()
 let _this = this;
 _this.initRawValue({}, _create(((function(){throw '!unclarifiedGeneric:Self.RawValue'})()), 'initIntegerLiteral', {}, 0));
@@ -4868,66 +4868,66 @@ return
 ----Swift.(file).Optional.map(_:(Wrapped) throws -> U)
 let _this = this;
 const $match = _this
-if((($match.rawValue == Optional.some().rawValue))) {
-const y = $match[0]
+if((($match != null))) {
+const y = $match
 return Optional.some({}, transform({}, y));
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
-return Optional.none;
+else if((($match == null))) {
+return null;
 }
 ----Swift.(file).Optional.flatMap(_:(Wrapped) throws -> U?)
 let _this = this;
 const $match = _this
-if((($match.rawValue == Optional.some().rawValue))) {
-const y = $match[0]
+if((($match != null))) {
+const y = $match
 return transform({}, y);
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
-return Optional.none;
+else if((($match == null))) {
+return null;
 }
 ----Swift.(file).Optional.init(nilLiteral:())
 let _this = this;
-$info.$setThis(_this = _cloneStruct(Optional.none));
+$info.$setThis(_this = _cloneStruct(null));
 return
 ----Swift.(file).Optional.unsafelyUnwrapped
 let _this = this;
 const $ifLet0, x_1
-if((($ifLet0 = _this)||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this)||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true)) {
 return x_1;
 };
 preconditionFailureFileLine({}, () => "unsafelyUnwrapped of nil optional", '?3', '?3')
 ----Swift.(file).Optional.debugDescription
 let _this = this;
 const $match = _this
-if((($match.rawValue == Optional.some().rawValue))) {
-const value = $match[0]
+if((($match != null))) {
+const value = $match
 let result = "Optional(";
 debugPrintSeparatorTerminatorTo({}, _create(Array, 'initBuffer', {}, [value]), " "/*!default_value*/, "", {get: () => result, set: $val => result = $val});
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, ")");
 return result;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return "nil";
 }
 ----Swift.(file).Optional.customMirror
 let _this = this;
 const $match = _this
-if((($match.rawValue == Optional.some().rawValue))) {
-const value = $match[0]
-return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([["some", value]]), _injectIntoOptional(Mirror.DisplayStyle.optional), .generated/*!default_value*/);
+if((($match != null))) {
+const value = $match
+return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([["some", value]]), Mirror.DisplayStyle.optional, .generated/*!default_value*/);
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
-return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([]), _injectIntoOptional(Mirror.DisplayStyle.optional), .generated/*!default_value*/);
+else if((($match == null))) {
+return _create(Mirror, 'initChildrenKeyValuePairsDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', {}, _this, new Map([]), Mirror.DisplayStyle.optional, .generated/*!default_value*/);
 }
 ----Swift.(file).Optional.==infix(_:Wrapped?,_:Wrapped?)
 let _this = this;
 const $match = {0: lhs, 1: rhs}
-if((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
-const l = $match[0][0]
-const r = $match[1][0]
+if((($match[0] != null && $match[1] != null))) {
+const l = $match[0]
+const r = $match[1]
 return (_.arg0 = l).constructor.infix_61_61({}, _.arg0, r);
 }
-else if((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
+else if((($match[0] == null && $match[1] == null))) {
 return true;
 }
 else if(((true))) {
@@ -4938,11 +4938,11 @@ let _this = this;
 let hasher = hasher$inout.get()
 const $result = (() => {
 const $match = _this
-if((($match.rawValue == Optional.none.rawValue))) {
+if((($match == null))) {
 hasher.combine({$setThis: $val => hasher = $val}, 0);
 }
-else if((($match.rawValue == Optional.some().rawValue))) {
-const wrapped = $match[0]
+else if((($match != null))) {
+const wrapped = $match
 hasher.combine({$setThis: $val => hasher = $val}, 1);
 hasher.combine({$setThis: $val => hasher = $val}, wrapped);
 };})()
@@ -4951,64 +4951,64 @@ return $result
 ----Swift.(file).Optional.~=infix(_:_OptionalNilComparisonType,_:Wrapped?)
 let _this = this;
 const $match = rhs
-if((($match.rawValue == Optional.some().rawValue))) {
+if((($match != null))) {
 return false;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return true;
 }
 ----Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)
 let _this = this;
 const $match = lhs
-if((($match.rawValue == Optional.some().rawValue))) {
+if((($match != null))) {
 return false;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return true;
 }
 ----Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)
 let _this = this;
 const $match = lhs
-if((($match.rawValue == Optional.some().rawValue))) {
+if((($match != null))) {
 return true;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return false;
 }
 ----Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)
 let _this = this;
 const $match = rhs
-if((($match.rawValue == Optional.some().rawValue))) {
+if((($match != null))) {
 return false;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return true;
 }
 ----Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)
 let _this = this;
 const $match = rhs
-if((($match.rawValue == Optional.some().rawValue))) {
+if((($match != null))) {
 return true;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return false;
 }
 ----Swift.(file).??infix(_:T?,_:() throws -> T)
 const $match = optional
-if((($match.rawValue == Optional.some().rawValue))) {
-const value = $match[0]
+if((($match != null))) {
+const value = $match
 return value;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return defaultValue({}, );
 }
 ----Swift.(file).??infix(_:T?,_:() throws -> T?)
 const $match = optional
-if((($match.rawValue == Optional.some().rawValue))) {
-const value = $match[0]
-return _injectIntoOptional(value);
+if((($match != null))) {
+const value = $match
+return value;
 }
-else if((($match.rawValue == Optional.none.rawValue))) {
+else if((($match == null))) {
 return defaultValue({}, );
 }
 ----Swift.(file).String.write(_:String)
@@ -5042,7 +5042,7 @@ return
 ----Swift.(file)._Pointer.init(_:OpaquePointer?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initOpaquePointer({}, unwrapped_1);
@@ -5054,7 +5054,7 @@ return
 ----Swift.(file)._Pointer.init(_:Self?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initRawPointer({}, unwrapped_1._rawValue);
@@ -5066,7 +5066,7 @@ return
 ----Swift.(file)._Pointer.init(_:UnsafeMutablePointer<T>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initUnsafeMutablePointer({}, unwrapped_1);
@@ -5081,7 +5081,7 @@ return _this.advancedBy({}, -1)
 let _this = this;
 let hasher = hasher$inout.get()
 const $result = (() => {
-hasher.combine({$setThis: $val => hasher = $val}, _create(UInt, 'initBitPatternOptional', {}, _injectIntoOptional(_this)));})()
+hasher.combine({$setThis: $val => hasher = $val}, _create(UInt, 'initBitPatternOptional', {}, _this));})()
 hasher$inout.set(hasher)
 return $result
 ----Swift.(file)._Pointer.debugDescription
@@ -5122,15 +5122,15 @@ return (_.arg0 = a).constructor.infix_61_61({}, _.arg0, b)
 ----Swift.(file).LazyPrefixWhileSequence.Iterator.next()
 let _this = this;
 const $ifLet0, nextElement_1
-if((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((nextElement_1 = $ifLet0[0])||true)) {
+if((Bool.prefix_33({}, _this._predicateHasFailed)) && (($ifLet0 = _this._base.next({$setThis: $val => _this._base = $val}, ))||true) && $ifLet0 != null && ((nextElement_1 = $ifLet0)||true)) {
 if((_this._predicate({}, nextElement_1))) {
-return _injectIntoOptional(nextElement_1);
+return nextElement_1;
 }
 else {
 _this._predicateHasFailed = true;
 };
 };
-return Optional.none
+return null
 ----Swift.(file).LazyPrefixWhileSequence.makeIterator()
 let _this = this;
 return _create(LazyPrefixWhileSequence.Iterator, 'init_basePredicatefunction_type', {}, _this._base.makeIterator({}, ), _this._predicate)
@@ -5189,7 +5189,7 @@ return _create(LazyPrefixWhileSequence.Index, 'init', {}, _this._base.startIndex
 ----Swift.(file).LazyPrefixWhileCollection.endIndex
 let _this = this;
 const $ifLet0, first_1
-if((($ifLet0 = _this._base.first)||true) && $ifLet0.rawValue == 'some' && ((first_1 = $ifLet0[0])||true) && (_this._predicate({}, first_1))) {
+if((($ifLet0 = _this._base.first)||true) && $ifLet0 != null && ((first_1 = $ifLet0)||true) && (_this._predicate({}, first_1))) {
 return _create(LazyPrefixWhileSequence.Index, 'initEndOf', {}, _this._base);
 };
 return _this.startIndex
@@ -5237,7 +5237,7 @@ return _create(LazyPrefixWhileSequence.Index, 'init', {}, result);
 }
 ----Swift.(file).print(_:[Any],separator:String,terminator:String)
 const $ifLet0, hook_1
-if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue == 'some' && ((hook_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0 != null && ((hook_1 = $ifLet0)||true)) {
 let output = _create(_TeeStream, 'initLeftRight', {}, "", _create(_Stdout, 'init', {}, ));
 _printSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output, set: $val => output = $val});
 hook_1({}, output.left);
@@ -5248,7 +5248,7 @@ _printSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output
 }
 ----Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)
 const $ifLet0, hook_1
-if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0.rawValue == 'some' && ((hook_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _playgroundPrintHook)||true) && $ifLet0 != null && ((hook_1 = $ifLet0)||true)) {
 let output = _create(_TeeStream, 'initLeftRight', {}, "", _create(_Stdout, 'init', {}, ));
 _debugPrintSeparatorTerminatorTo({}, items, separator, terminator, {get: () => output, set: $val => output = $val});
 hook_1({}, output.left);
@@ -5289,9 +5289,9 @@ return
 let _this = this;
 const l = _this.distanceFromTo({}, i, limit);
 if(((Int.infix_62({}, distance, 0) ? Bool.infix_38_38({}, Int.infix_62_61({}, l, 0), () => Int.infix_60({}, l, distance)) : Bool.infix_38_38({}, Int.infix_60_61({}, l, 0), () => Int.infix_60({}, distance, l))))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this.indexOffsetBy({}, i, distance))
+return _this.indexOffsetBy({}, i, distance)
 ----Swift.(file).RandomAccessCollection.indices
 let _this = this;
 return (_.arg0 = _this.startIndex).constructor.infix_46_46_60({}, _.arg0, _this.endIndex)
@@ -5405,7 +5405,7 @@ _this._current = _this._current.advancedBy({}, _create(Int, 'initIntegerLiteral'
 }
 const $result = (() => {
 try {;
-return _injectIntoOptional(_this._current);}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
+return _this._current;}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
 ----Swift.(file).PartialRangeFrom.makeIterator()
 let _this = this;
 return _create(PartialRangeFrom.Iterator, 'init_current', {}, _this.lowerBound)
@@ -5477,7 +5477,7 @@ const approximateCapacity = Int.infix_43({}, _this.count, numericCast({T: Int, U
 let $element$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _element_1);
 }
 }
@@ -5508,7 +5508,7 @@ _this.removeSubrangeRange({$setThis: $val => $info.$setThis(_this = _cloneStruct
 ----Swift.(file).RangeReplaceableCollection.removeFirst()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove first element from an empty collection", '?3', '?3');
-const firstElement = _this.first[0];
+const firstElement = _this.first;
 _this.removeFirstMultiple({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, 1);
 return firstElement
 ----Swift.(file).RangeReplaceableCollection.removeAll(keepingCapacity:Bool)
@@ -5524,7 +5524,7 @@ _this.replaceSubrangeWith({$setThis: $val => $info.$setThis(_this = _cloneStruct
 ----Swift.(file).RangeReplaceableCollection.removeFirst()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove items from an empty collection", '?3', '?3');
-const _element = _this.first[0];
+const _element = _this.first;
 $info.$setThis(_this = _cloneStruct(_this.subscriptRange$get({}, (_.arg0 = _this.indexAfter({}, _this.startIndex)).constructor.infix_46_46_60({}, _.arg0, _this.endIndex))));
 return _element
 ----Swift.(file).RangeReplaceableCollection.removeFirst(_:Int)
@@ -5544,9 +5544,9 @@ _this.removeSubrangeRange({$setThis: $val => $info.$setThis(_this = _cloneStruct
 ----Swift.(file).RangeReplaceableCollection.popLast()
 let _this = this;
 if((_this.isEmpty)) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.indexBefore({}, _this.endIndex)))
+return _this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.indexBefore({}, _this.endIndex))
 ----Swift.(file).RangeReplaceableCollection.removeLast()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove last element from an empty collection", '?3', '?3');
@@ -5554,9 +5554,9 @@ return _this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($va
 ----Swift.(file).RangeReplaceableCollection.popLast()
 let _this = this;
 if((_this.isEmpty)) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.indexBefore({}, _this.endIndex)))
+return _this.removeAt({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, _this.indexBefore({}, _this.endIndex))
 ----Swift.(file).RangeReplaceableCollection.removeLast()
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.isEmpty), () => "Can't remove last element from an empty collection", '?3', '?3');
@@ -5595,11 +5595,11 @@ _this.removeSubrange({$setThis: $val => $info.$setThis(_this = _cloneStruct($val
 let _this = this;
 $info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initBuffer', {}, _this.lazy.filterSwift({}, (($info, $0) => Bool.prefix_33({}, shouldBeRemoved({}, $0)))))))
 ----Swift.(file).getChild(of:T,type:Any.Type,index:Int)
-let nameC = Optional.none;
-let freeFunc = Optional.none;
+let nameC = null;
+let freeFunc = null;
 const value = _cloneStruct(_getChildOfTypeIndexOutNameOutFreeFunc({}, value, type, index, /**/{get: () => nameC, set: $val => nameC = $val}, /**/{get: () => freeFunc, set: $val => freeFunc = $val}));
 const _name = nameC.flatMap({}, (($info, $0) => _create(String, 'initValidatingUTF8UnsafePointer', {}, $0)));
-_injectIntoOptional(((_.tmp0 = freeFunc).rawValue === 'some') ? (_.tmp0[0]({}, nameC)) : null);
+(((_.tmp0 = freeFunc) != null) ? (_.tmp0({}, nameC)) : null);
 return {0: _name, 1: value}
 ----Swift.(file).Mirror.quickLookObject(_:Any)
 let _this = this;
@@ -5701,10 +5701,10 @@ _this.formIndexBefore({}, {get: () => l, set: $val => l = $val});
 ----Swift.(file).ReversedCollection.Iterator.next()
 let _this = this;
 if(!((_fastPath({}, (_.arg0 = _this._position).constructor.infix_33_61({}, _.arg0, _this._base.startIndex))))) {
-return Optional.none;
+return null;
 };
 _this._base.formIndexBefore({}, {get: () => _this._position, set: $val => _this._position = $val});
-return _injectIntoOptional(_this._base.subscript$get({}, _this._position))
+return _this._base.subscript$get({}, _this._position)
 ----Swift.(file).ReversedCollection.makeIterator()
 let _this = this;
 return _create(ReversedCollection.Iterator, 'init_base', {}, _this._base)
@@ -5761,7 +5761,7 @@ let _this = this;
 let it = _this._base.makeIterator({}, );
 let dropped = 0;
 while(true){
-if(!((Int.infix_60({}, dropped, _this._limit)) && (Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) break
+if(!((Int.infix_60({}, dropped, _this._limit)) && (Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), null)))) break
 Int.infix_38_43_61({}, {get: () => dropped, set: $val => dropped = $val}, 1);
 };
 return it
@@ -5780,7 +5780,7 @@ Int.infix_38_45_61({}, {get: () => _this._remaining, set: $val => _this._remaini
 return _this._base.next({$setThis: $val => _this._base = $val}, );
 }
 else {
-return Optional.none;
+return null;
 }
 ----Swift.(file).PrefixSequence.makeIterator()
 let _this = this;
@@ -5795,7 +5795,7 @@ _this._iterator = iterator;
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
 while(true){
 const $ifLet0, x_1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true) && (predicate({}, x_1)))) break
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true) && (predicate({}, x_1)))) break
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
 };
 return
@@ -5811,18 +5811,18 @@ return
 ----Swift.(file).DropWhileSequence.Iterator.next()
 let _this = this;
 const $ifLet0, next_1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((next_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0 != null && ((next_1 = $ifLet0)||true))) {
+return null;
 };
 _this._nextElement = _this._iterator.next({$setThis: $val => _this._iterator = $val}, );
-return _injectIntoOptional(next_1)
+return next_1
 ----Swift.(file).DropWhileSequence.makeIterator()
 let _this = this;
 return _create(DropWhileSequence.Iterator, 'initNextElementOptional', {}, _this._iterator, _this._nextElement)
 ----Swift.(file).DropWhileSequence.drop(while:(Base.Element) throws -> Bool)
 let _this = this;
 const $ifLet0, x_1
-if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true) && (predicate({}, x_1)))) {
+if(!((($ifLet0 = _this._nextElement)||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true) && (predicate({}, x_1)))) {
 return _this;
 };
 return _create(DropWhileSequence, 'initIteratorPredicatefunction_type', {}, _this._iterator, predicate)
@@ -5835,13 +5835,13 @@ let iterator = _this.makeIterator({}, );
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, initialCapacity).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
-result.append({$setThis: $val => result = $val}, transform({}, iterator.next({$setThis: $val => iterator = $val}, )[0]));
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
+result.append({$setThis: $val => result = $val}, transform({}, iterator.next({$setThis: $val => iterator = $val}, )));
 }
 };
 while(true){
 const $ifLet1, _element_2
-if(!((($ifLet1 = iterator.next({$setThis: $val => iterator = $val}, ))||true) && $ifLet1.rawValue == 'some' && ((_element_2 = $ifLet1[0])||true))) break
+if(!((($ifLet1 = iterator.next({$setThis: $val => iterator = $val}, ))||true) && $ifLet1 != null && ((_element_2 = $ifLet1)||true))) break
 result.append({$setThis: $val => result = $val}, transform({}, _element_2));
 };
 return _create(Array, 'initBuffer', {}, result)
@@ -5857,7 +5857,7 @@ let _this = this;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 body({}, _element_1);
 }
 }
@@ -5867,13 +5867,13 @@ let _this = this;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 if((predicate({}, _element_1))) {
-return _injectIntoOptional(_element_1);
+return _element_1;
 };
 }
 };
-return Optional.none
+return null
 ----Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)
 let _this = this;
 return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator({}, maxSplits, omittingEmptySubsequences, (($info, $0) => (_.arg0 = $0).constructor.infix_61_61({}, _.arg0, separator)))
@@ -5894,7 +5894,7 @@ let i = 0;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 if((Int.infix_60({}, ringBuffer.count, maxLength))) {
 ringBuffer.append({$setThis: $val => ringBuffer = $val}, _element_1);
 }
@@ -5930,7 +5930,7 @@ let i = ringBuffer.startIndex;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 if((Int.infix_60({}, ringBuffer.count, k))) {
 ringBuffer.append({$setThis: $val => ringBuffer = $val}, _element_1);
 }
@@ -5956,7 +5956,7 @@ let result = _create(Array, 'initArrayLiteralArray', {}, []);
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 if(!((predicate({}, _element_1)))) {
 break;
 };
@@ -5966,7 +5966,7 @@ result.append({$setThis: $val => result = $val}, _element_1);
 return result
 ----Swift.(file).Sequence.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Self.Element>) throws -> R)
 let _this = this;
-return Optional.none
+return null
 ----Swift.(file).IteratorSequence.init(_:Base)
 let _this = this;
 _this._base = base;
@@ -5981,32 +5981,32 @@ return _create(EnumeratedSequence, 'init_base', {}, _this)
 let _this = this;
 let it = _this.makeIterator({}, );
 const $ifLet0, result_1
-if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true))) {
+return null;
 };
 while(true){
 const $ifLet2, e_3
-if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e_3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2 != null && ((e_3 = $ifLet2)||true))) break
 if((areInIncreasingOrder({}, e_3, result_1))) {
 result_1 = e_3;
 };
 };
-return _injectIntoOptional(result_1)
+return result_1
 ----Swift.(file).Sequence.max(by:(Self.Element, Self.Element) throws -> Bool)
 let _this = this;
 let it = _this.makeIterator({}, );
 const $ifLet0, result_1
-if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true))) {
-return Optional.none;
+if(!((($ifLet0 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true))) {
+return null;
 };
 while(true){
 const $ifLet2, e_3
-if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e_3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = it.next({$setThis: $val => it = $val}, ))||true) && $ifLet2 != null && ((e_3 = $ifLet2)||true))) break
 if((areInIncreasingOrder({}, result_1, e_3))) {
 result_1 = e_3;
 };
 };
-return _injectIntoOptional(result_1)
+return result_1
 ----Swift.(file).Sequence.min()
 let _this = this;
 return _this.minBy({}, this.first[0].constructor.infix_60)
@@ -6020,9 +6020,9 @@ let possiblePrefixIterator = possiblePrefix.makeIterator({}, );
 let $e0$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e0_1;
-if(!((($ifLet0 = $e0$generator.next({$setThis: $val => $e0$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e0_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e0$generator.next({$setThis: $val => $e0$generator = $val}, ))||true) && $ifLet0 != null && ((e0_1 = $ifLet0)||true))) break
 const $ifLet2, e1_3
-if((($ifLet2 = possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e1_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ))||true) && $ifLet2 != null && ((e1_3 = $ifLet2)||true)) {
 if((Bool.prefix_33({}, areEquivalent({}, e0_1, e1_3)))) {
 return false;
 };
@@ -6032,7 +6032,7 @@ return true;
 };
 }
 };
-return Optional.wrappedEqualsOptionalNilComparisonType({}, possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedEqualsOptionalNilComparisonType({}, possiblePrefixIterator.next({$setThis: $val => possiblePrefixIterator = $val}, ), null)
 ----Swift.(file).Sequence.starts(with:PossiblePrefix)
 let _this = this;
 return _this.startsWithBy({}, possiblePrefix, this.first[0].constructor.infix_61_61)
@@ -6043,17 +6043,17 @@ let iter2 = other.makeIterator({}, );
 while(true){
 if(!((true))) break
 const $match = {0: iter1.next({$setThis: $val => iter1 = $val}, ), 1: iter2.next({$setThis: $val => iter2 = $val}, )}
-if((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
-const e1 = $match[0][0]
-const e2 = $match[1][0]
+if((($match[0] != null && $match[1] != null))) {
+const e1 = $match[0]
+const e2 = $match[1]
 if((Bool.prefix_33({}, areEquivalent({}, e1, e2)))) {
 return false;
 };
 }
-else if((($match[0].rawValue == 'some' && $match[1].rawValue == Optional.none.rawValue) || ($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == 'some'))) {
+else if((($match[0] != null && $match[1] == null) || ($match[0] == null && $match[1] != null))) {
 return false;
 }
-else if((($match[0].rawValue == Optional.none.rawValue && $match[1].rawValue == Optional.none.rawValue))) {
+else if((($match[0] == null && $match[1] == null))) {
 return true;
 };
 }
@@ -6067,9 +6067,9 @@ let iter2 = other.makeIterator({}, );
 while(true){
 if(!((true))) break
 const $ifLet0, e1_1
-if((($ifLet0 = iter1.next({$setThis: $val => iter1 = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e1_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = iter1.next({$setThis: $val => iter1 = $val}, ))||true) && $ifLet0 != null && ((e1_1 = $ifLet0)||true)) {
 const $ifLet2, e2_3
-if((($ifLet2 = iter2.next({$setThis: $val => iter2 = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((e2_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = iter2.next({$setThis: $val => iter2 = $val}, ))||true) && $ifLet2 != null && ((e2_3 = $ifLet2)||true)) {
 if((areInIncreasingOrder({}, e1_1, e2_3))) {
 return true;
 };
@@ -6080,7 +6080,7 @@ continue;
 };
 return false;
 };
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, iter2.next({$setThis: $val => iter2 = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}));
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, iter2.next({$setThis: $val => iter2 = $val}, ), null);
 }
 ----Swift.(file).Sequence.lexicographicallyPrecedes(_:OtherSequence)
 let _this = this;
@@ -6091,7 +6091,7 @@ let _this = this;
 let $e$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e_1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0 != null && ((e_1 = $ifLet0)||true))) break
 if((predicate({}, e_1))) {
 return true;
 };
@@ -6104,7 +6104,7 @@ return Bool.prefix_33({}, _this.containsWhere({}, (($info, $0) => Bool.prefix_33
 ----Swift.(file).Sequence.contains(_:Self.Element)
 let _this = this;
 const $ifLet0, result_1
-if((($ifLet0 = _this._customContainsEquatableElement({}, _element))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _this._customContainsEquatableElement({}, _element))||true) && $ifLet0 != null && ((result_1 = $ifLet0)||true)) {
 return result_1;
 }
 else {
@@ -6117,7 +6117,7 @@ let count = 0;
 let $e$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, e_1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0 != null && ((e_1 = $ifLet0)||true))) break
 if((predicate({}, e_1))) {
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, 1);
 };
@@ -6131,7 +6131,7 @@ let accumulator = initialResult;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 accumulator = nextPartialResult({}, accumulator, _element_1);
 }
 };
@@ -6143,7 +6143,7 @@ let accumulator = initialResult;
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 updateAccumulatingResult({}, {get: () => accumulator, set: $val => accumulator = $val}, _element_1);
 }
 };
@@ -6156,7 +6156,7 @@ const count = result.count;
 let $i$generator = _cloneStruct(Int.infix_46_46_60({}, 0, Int.infix_47({}, count, 2)).makeIterator({}, ));
 while(true) {
 const $ifLet0, i_1;
-if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0 != null && ((i_1 = $ifLet0)||true))) break
 result.swapAt({$setThis: $val => result = $val}, i_1, Int.infix_45({}, count, Int.infix_43({}, i_1, 1)));
 }
 };
@@ -6168,7 +6168,7 @@ let result = _create(Array, 'initArrayLiteralArray', {}, []);
 let $element$generator = _this.makeIterator({}, );
 while(true) {
 const $ifLet0, _element_1;
-if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((_element_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $element$generator.next({$setThis: $val => $element$generator = $val}, ))||true) && $ifLet0 != null && ((_element_1 = $ifLet0)||true))) break
 result.appendContentsOf({$setThis: $val => result = $val}, transform({}, _element_1));
 }
 };
@@ -6183,7 +6183,7 @@ _this.init({}, );
 let $e$generator = sequence.makeIterator({}, );
 while(true) {
 const $ifLet0, e_1;
-if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((e_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $e$generator.next({$setThis: $val => $e$generator = $val}, ))||true) && $ifLet0 != null && ((e_1 = $ifLet0)||true))) break
 _this.insert({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, e_1);
 }
 };
@@ -6229,7 +6229,7 @@ return _this.remove({$setThis: $val => $info.$setThis(_this = _cloneStruct($val)
 ----Swift.(file)..(error_type).bridged()
 let _this = this;
 const nsSet;
-if((Bool.infix_124_124({}, infix_61_61_61({}, _injectIntoOptional(_this._storage), _injectIntoOptional(_RawSetStorage.empty)), () => Int.infix_61_61({}, _this.count, 0)))) {
+if((Bool.infix_124_124({}, infix_61_61_61({}, _this._storage, _RawSetStorage.empty), () => Int.infix_61_61({}, _this.count, 0)))) {
 nsSet = _cloneStruct(_RawSetStorage.empty);
 }
 else {
@@ -6267,7 +6267,7 @@ Int.infix_43_61({}, {get: () => result._offset, set: $val => result._offset = $v
 return result
 ----Swift.(file)._CocoaSet.validate(_:_CocoaSet.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object)), () => "Invalid index", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, index.storage.base.object, _this.object), () => "Invalid index", '?3', '?3');
 preconditionFileLine({}, () => Int.infix_60({}, index._offset, index.storage.allKeys.count), () => "Attempt to access endIndex", '?3', '?3')
 ----Swift.(file)._CocoaSet.formIndex(after:_CocoaSet.Index,isUnique:Bool)
 let _this = this;
@@ -6284,11 +6284,11 @@ return nss.count
 ----Swift.(file)._CocoaSet.contains(_:AnyObject)
 let _this = this;
 const nss = _cloneStruct(unsafeBitCastTo({}, _this.object, _NSSet));
-return Optional.wrappedNotEqualsOptionalNilComparisonType({}, nss.member({}, _element), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))
+return Optional.wrappedNotEqualsOptionalNilComparisonType({}, nss.member({}, _element), null)
 ----Swift.(file)._CocoaSet.element(at:_CocoaSet.Index)
 let _this = this;
-const _element = _injectIntoOptional(i._element);
-return _element[0]
+const _element = i._element;
+return _element
 ----Swift.(file)._CocoaSet.Index.handleBitPattern
 let _this = this;
 return unsafeBitCastTo({}, _this.storage, UInt)
@@ -6297,11 +6297,11 @@ let _this = this;
 return _HashTable.ageFor({}, _this.storage.base.object)
 ----Swift.(file)._CocoaSet.Index.==infix(_:_CocoaSet.Index,_:_CocoaSet.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object)), () => "Comparing indexes from different sets", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, lhs.storage.base.object, rhs.storage.base.object), () => "Comparing indexes from different sets", '?3', '?3');
 return Int.infix_61_61({}, lhs._offset, rhs._offset)
 ----Swift.(file)._CocoaSet.Index.<infix(_:_CocoaSet.Index,_:_CocoaSet.Index)
 let _this = this;
-preconditionFileLine({}, () => infix_61_61_61({}, _injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object)), () => "Comparing indexes from different sets", '?3', '?3');
+preconditionFileLine({}, () => infix_61_61_61({}, lhs.storage.base.object, rhs.storage.base.object), () => "Comparing indexes from different sets", '?3', '?3');
 return Int.infix_60({}, lhs._offset, rhs._offset)
 ----Swift.(file)._CocoaSet.makeIterator()
 let _this = this;
@@ -6309,23 +6309,23 @@ return _create(_CocoaSet.Iterator, 'init_CocoaSet', {}, _this)
 ----Swift.(file)._CocoaSet.Iterator.next()
 let _this = this;
 if((Int.infix_60({}, _this.itemIndex, 0))) {
-return Optional.none;
+return null;
 };
 const base = _cloneStruct(_this.base);
 if((Int.infix_61_61({}, _this.itemIndex, _this.itemCount))) {
 const stackBufCount = _this._fastEnumerationStackBuf.count;
-_this.itemCount = /*dynamic_member_ref_expr*/base.object[0]({}, _this._fastEnumerationStatePtr, _create(UnsafeMutableRawPointer, 'initUnsafeMutablePointer', {}, _this._fastEnumerationStackBufPtr).assumingMemoryBoundTo({}, AnyObject), stackBufCount);
+_this.itemCount = /*dynamic_member_ref_expr*/base.object({}, _this._fastEnumerationStatePtr, _create(UnsafeMutableRawPointer, 'initUnsafeMutablePointer', {}, _this._fastEnumerationStackBufPtr).assumingMemoryBoundTo({}, AnyObject), stackBufCount);
 if((Int.infix_61_61({}, _this.itemCount, 0))) {
 _this.itemIndex = -1;
-return Optional.none;
+return null;
 };
 _this.itemIndex = 0;
 };
-const itemsPtrUP = _cloneStruct(_create(UnsafeMutableRawPointer, 'initAutoreleasingUnsafeMutablePointer', {}, _this._fastEnumerationState.itemsPtr[0]).assumingMemoryBoundTo({}, AnyObject));
+const itemsPtrUP = _cloneStruct(_create(UnsafeMutableRawPointer, 'initAutoreleasingUnsafeMutablePointer', {}, _this._fastEnumerationState.itemsPtr).assumingMemoryBoundTo({}, AnyObject));
 const itemsPtr = _create(_UnmanagedAnyObjectArray, 'initUnsafeMutablePointer', {}, itemsPtrUP);
 const key = _cloneStruct(itemsPtr.subscript$get({}, _this.itemIndex));
 Int.infix_43_61({}, {get: () => _this.itemIndex, set: $val => _this.itemIndex = $val}, 1);
-return _injectIntoOptional(key)
+return key
 ----Swift.(file)._EmptySetSingleton.copy(with:<<error type>>)
 let _this = this;
 return _this
@@ -6334,26 +6334,26 @@ let _this = this;
 return 0
 ----Swift.(file)._EmptySetSingleton.member(_:AnyObject)
 let _this = this;
-return Optional.none
+return null
 ----Swift.(file)._EmptySetSingleton.objectEnumerator()
 let _this = this;
 return _create(_SwiftEmptyNSEnumerator, 'init', {}, )
 ----Swift.(file)._SetStorage.copy(original:_RawSetStorage)
 let _this = this;
-return _SetStorage.allocateScaleAgeSeed({}, original._scale, _injectIntoOptional(original._age), _injectIntoOptional(original._seed))
+return _SetStorage.allocateScaleAgeSeed({}, original._scale, original._age, original._seed)
 ----Swift.(file)._SetStorage.resize(original:_RawSetStorage,capacity:Int,move:Bool)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
-return _this.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, null, null)
 ----Swift.(file)._SetStorage.allocate(capacity:Int)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
-return _this.allocateScaleAgeSeed({}, scale, Optional.none, Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, null, null)
 ----Swift.(file)._SetStorage.convert(_:<<error type>>,capacity:Int)
 let _this = this;
 const scale = _HashTable.scaleForCapacity({}, capacity);
 const age = _HashTable.ageFor({}, cocoa.object);
-return _this.allocateScaleAgeSeed({}, scale, _injectIntoOptional(age), Optional.none)
+return _this.allocateScaleAgeSeed({}, scale, age, null)
 ----Swift.(file).Hasher._State.compress(_:UInt64)
 let _this = this;
 UInt64.infix_94_61({}, {get: () => _this.v3, set: $val => _this.v3 = $val}, m);
@@ -6367,7 +6367,7 @@ UInt64.infix_94_61({}, {get: () => _this.v2, set: $val => _this.v2 = $val}, 0xff
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, 3).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 _this._round({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, );
 }
 };
@@ -6616,14 +6616,14 @@ let _this = this;
 const capacity = _this.capacity;
 withUnsafeMutableBytesOf({}, {get: () => _this._inlineStorage, set: $val => _this._inlineStorage = $val}, (($info, $0) => { 
 const rawPtr = _cloneStruct($0.baseAddress._unsafelyUnwrappedUnchecked);
-const bufPtr = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo({}, ((function(){throw '!unclarifiedGeneric:T'})()))), capacity);
+const bufPtr = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo({}, ((function(){throw '!unclarifiedGeneric:T'})())), capacity);
 bufPtr.subscript_unchecked$set({$setThis: $val => bufPtr = _cloneStruct($val)}, newValue, i); }))
 ----Swift.(file)._SmallBuffer.subscript(_:Int)
 let _this = this;
 const capacity = _this.capacity;
 return withUnsafeBytesOf({}, _this._inlineStorage, (($info, $0) => { 
 const rawPtr = _cloneStruct($0.baseAddress._unsafelyUnwrappedUnchecked);
-const bufPtr = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo({}, ((function(){throw '!unclarifiedGeneric:T'})()))), capacity);
+const bufPtr = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo({}, ((function(){throw '!unclarifiedGeneric:T'})())), capacity);
 return bufPtr.subscript_unchecked$get({}, i); }));
 
 ----Swift.(file)._SmallString.capacity
@@ -6686,12 +6686,12 @@ let _this = this;
 let raw = _this.zeroTerminatedRawCodeUnits;
 return /*dot_syntax_base_ignored*/withUnsafeBytesOf({}, {get: () => raw, set: $val => raw = $val}, (($info, rawBufPtr) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked.assumingMemoryBoundTo({}, UInt8));
-return f({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr), _this.count)); }))
+return f({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/ptr, _this.count)); }))
 ----Swift.(file)._SmallString.withMutableCapacity(_:(UnsafeMutableBufferPointer<UInt8>) throws -> Int)
 let _this = this;
 const len = withUnsafeMutableBytesOf({}, {get: () => _this._storage, set: $val => _this._storage = $val}, (($info, rawBufPtr) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked.assumingMemoryBoundTo({}, UInt8));
-return f({}, _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr), _SmallString.capacity)); }));
+return f({}, _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/ptr, _SmallString.capacity)); }));
 const $tuple = _this.zeroTerminatedRawCodeUnits, leading = $tuple && $tuple[0], trailing = $tuple && $tuple[1];
 $info.$setThis(_this = _cloneStruct(_create(_SmallString, 'initLeadingUInt64TrailingUInt64CountInt', {}, leading, trailing, len)))
 ----Swift.(file)._SmallString.init(leading:UInt64,trailing:UInt64,count:Int)
@@ -6723,7 +6723,7 @@ let writeIdx = base.count;
 let $readIdx$generator = _cloneStruct(Int.infix_46_46_60({}, 0, other.count).makeIterator({}, ));
 while(true) {
 const $ifLet0, readIdx_1;
-if(!((($ifLet0 = $readIdx$generator.next({$setThis: $val => $readIdx$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((readIdx_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $readIdx$generator.next({$setThis: $val => $readIdx$generator = $val}, ))||true) && $ifLet0 != null && ((readIdx_1 = $ifLet0)||true))) break
 result.subscript$set({$setThis: $val => result = $val}, other.subscript$get({}, readIdx_1), writeIdx);
 Int.infix_38_43_61({}, {get: () => writeIdx, set: $val => writeIdx = $val}, 1);
 }
@@ -6744,14 +6744,14 @@ let _this = this;
 _this.sortBy({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, this.first[0].constructor.infix_60)
 ----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
 let _this = this;
-const didSortUnsafeBuffer = _this._withUnsafeMutableBufferPointerIfSupported({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, buffer$inout) => _injectIntoOptional(buffer._stableSortImplBy({$setThis: $val => buffer = $val}, areInIncreasingOrder))));
-if((Optional.wrappedEqualsOptionalNilComparisonType({}, didSortUnsafeBuffer, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) {
+const didSortUnsafeBuffer = _this._withUnsafeMutableBufferPointerIfSupported({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, (($info, buffer$inout) => buffer._stableSortImplBy({$setThis: $val => buffer = $val}, areInIncreasingOrder)));
+if((Optional.wrappedEqualsOptionalNilComparisonType({}, didSortUnsafeBuffer, null))) {
 const sortedElements = _cloneStruct(_this.sortedBy({}, areInIncreasingOrder));
 {
 let $generator = _cloneStruct(zip({}, _this.indices, sortedElements.indices).makeIterator({}, ));
 while(true) {
 const $ifLet0, i_1, j_2;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i_1 = $ifLet0[0][0])||true) && ((j_2 = $ifLet0[0][1])||true))) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null && ((i_1 = $ifLet0[0])||true) && ((j_2 = $ifLet0[1])||true))) break
 _this.subscript$set({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, sortedElements.subscript$get({}, j_2), i_1);
 }
 };
@@ -6759,11 +6759,11 @@ _this.subscript$set({$setThis: $val => $info.$setThis(_this = _cloneStruct($val)
 ----Swift.(file).StaticString.utf8Start
 let _this = this;
 preconditionFileLine({}, () => _this.hasPointerRepresentation, () => "StaticString should have pointer representation", '?3', '?3');
-return _create(UnsafePointer, 'initBitPatternUInt', {}, _create(UInt, 'initWord', {}, _this._startPtrOrData))[0]
+return _create(UnsafePointer, 'initBitPatternUInt', {}, _create(UInt, 'initWord', {}, _this._startPtrOrData))
 ----Swift.(file).StaticString.unicodeScalar
 let _this = this;
 preconditionFileLine({}, () => Bool.prefix_33({}, _this.hasPointerRepresentation), () => "StaticString should have Unicode scalar representation", '?3', '?3');
-return _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, _create(UInt, 'initWord', {}, _this._startPtrOrData)))[0]
+return _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, _create(UInt, 'initWord', {}, _this._startPtrOrData)))
 ----Swift.(file).StaticString.utf8CodeUnitCount
 let _this = this;
 preconditionFileLine({}, () => _this.hasPointerRepresentation, () => "StaticString should have pointer representation", '?3', '?3');
@@ -6809,10 +6809,10 @@ return ((function(){throw '!unclarifiedGeneric:Self.Stride'})()).infix_61_61({},
 let _this = this;
 const result = _this._current["1"];
 if(((((function(){throw '!unclarifiedGeneric:Element.Stride'})()).infix_62({}, _this._stride, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (_.arg0 = result).constructor.infix_62_61({}, _.arg0, _this._end) : (_.arg1 = result).constructor.infix_60_61({}, _.arg1, _this._end)))) {
-return Optional.none;
+return null;
 };
 _this._current = ((function(){throw '!unclarifiedGeneric:Element'})())._stepAfterFromBy({}, _this._current, _this._start, _this._stride);
-return _injectIntoOptional(result)
+return result
 ----Swift.(file).StrideTo.makeIterator()
 let _this = this;
 return _create(StrideToIterator, 'init_startEndStride', {}, _this._start, _this._end, _this._stride)
@@ -6821,7 +6821,7 @@ let _this = this;
 let it = _cloneStruct(_this.makeIterator({}, ));
 let count = 0;
 while(true){
-if(!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) break
+if(!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), null)))) break
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, 1);
 };
 return count
@@ -6836,12 +6836,12 @@ const result = _this._current["1"];
 if(((((function(){throw '!unclarifiedGeneric:Element.Stride'})()).infix_62({}, _this._stride, _create(((function(){throw '!unclarifiedGeneric:Element.Stride'})()), 'initIntegerLiteral', {}, 0)) ? (_.arg0 = result).constructor.infix_62_61({}, _.arg0, _this._end) : (_.arg1 = result).constructor.infix_60_61({}, _.arg1, _this._end)))) {
 if((Bool.infix_38_38({}, (_.arg2 = result).constructor.infix_61_61({}, _.arg2, _this._end), () => Bool.prefix_33({}, _this._didReturnEnd)))) {
 _this._didReturnEnd = true;
-return _injectIntoOptional(result);
+return result;
 };
-return Optional.none;
+return null;
 };
 _this._current = ((function(){throw '!unclarifiedGeneric:Element'})())._stepAfterFromBy({}, _this._current, _this._start, _this._stride);
-return _injectIntoOptional(result)
+return result
 ----Swift.(file).StrideThrough.makeIterator()
 let _this = this;
 return _create(StrideThroughIterator, 'init_startEndStride', {}, _this._start, _this._end, _this._stride)
@@ -6850,7 +6850,7 @@ let _this = this;
 let it = _cloneStruct(_this.makeIterator({}, ));
 let count = 0;
 while(true){
-if(!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {}))))) break
+if(!((Optional.wrappedNotEqualsOptionalNilComparisonType({}, it.next({$setThis: $val => it = $val}, ), null)))) break
 Int.infix_43_61({}, {get: () => count, set: $val => count = $val}, 1);
 };
 return count
@@ -6868,17 +6868,17 @@ return
 ----Swift.(file).String.init(decoding:C,as:Encoding.Type)
 let _this = this;
 const $ifLet0, contigBytes_1
-if((($ifLet0 = _injectIntoOptional(codeUnits))||true) && $ifLet0.rawValue == 'some' && ((contigBytes_1 = $ifLet0[0])||true) && (infix_61_61({}, _injectIntoOptional(sourceEncoding), _injectIntoOptional(UTF8))) && (contigBytes_1._providesContiguousBytesNoCopy)) {
+if((($ifLet0 = codeUnits)||true) && $ifLet0 != null && ((contigBytes_1 = $ifLet0)||true) && (infix_61_61({}, sourceEncoding, UTF8)) && (contigBytes_1._providesContiguousBytesNoCopy)) {
 return _cloneStruct(contigBytes_1.withUnsafeBytes({}, (($info, rawBufPtr) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked);
-return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr.assumingMemoryBoundTo({}, UInt8)), rawBufPtr.count))["0"]; })));
+return String._fromUTF8Repairing({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/ptr.assumingMemoryBoundTo({}, UInt8), rawBufPtr.count))["0"]; })));
 return ;
 };
-return _cloneStruct(String._fromCodeUnitsEncodingRepair({}, codeUnits, sourceEncoding, true)[0]["0"]);
+return _cloneStruct(String._fromCodeUnitsEncodingRepair({}, codeUnits, sourceEncoding, true)["0"]);
 return
 ----Swift.(file).String.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result)
 let _this = this;
-if((infix_61_61({}, _injectIntoOptional(targetEncoding), _injectIntoOptional(UTF8)))) {
+if((infix_61_61({}, targetEncoding, UTF8))) {
 return _this.withCString({}, (($info, cPtr) => { 
 const ptr = _cloneStruct(_create(UnsafeRawPointer, 'init', {}, /*pointer_to_pointer*/cPtr).assumingMemoryBoundTo({}, ((function(){throw '!unclarifiedGeneric:TargetEncoding.CodeUnit'})())));
 return body({}, ptr); }));
@@ -6899,7 +6899,7 @@ let result = "\"";
 let $us$generator = _cloneStruct(_this.unicodeScalars.makeIterator({}, ));
 while(true) {
 const $ifLet0, us_1;
-if(!((($ifLet0 = $us$generator.next({$setThis: $val => $us$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((us_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $us$generator.next({$setThis: $val => $us$generator = $val}, ))||true) && $ifLet0 != null && ((us_1 = $ifLet0)||true))) break
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, us_1.escapedAsASCII({}, false));
 }
 };
@@ -7098,7 +7098,7 @@ return _this.withFastUTF8({}, (($info, wholeUTF8) => f({}, _create(UnsafeBufferP
 let _this = this;
 return _this.withFastUTF8({}, (($info, utf8) => { 
 const ptr = _cloneStruct(utf8.baseAddress._unsafelyUnwrappedUnchecked._asCChar);
-return f({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/ptr), utf8.count)); }))
+return f({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/ptr, utf8.count)); }))
 ----Swift.(file)._StringGuts.withCString(_:(UnsafePointer<Int8>) throws -> Result)
 let _this = this;
 if((_slowPath({}, Bool.prefix_33({}, _this._object.isFastZeroTerminated)))) {
@@ -7111,11 +7111,11 @@ const ptr = _cloneStruct(mbp.baseAddress._unsafelyUnwrappedUnchecked);
 if((_fastPath({}, _this.isFastUTF8))) {
 return _this.withFastUTF8({}, (($info, utf8) => { 
 if(!((Int.infix_60_61({}, utf8.count, mbp.count)))) {
-return Optional.none;
+return null;
 };
 const utf8Start = _cloneStruct(utf8.baseAddress._unsafelyUnwrappedUnchecked);
 ptr.initializeFromCount({}, utf8Start, utf8.count);
-return _injectIntoOptional(utf8.count); }));
+return utf8.count; }));
 };
 return _this._foreignCopyUTF8Into({}, mbp)
 ----Swift.(file)._StringGuts.utf8Count
@@ -7132,34 +7132,34 @@ let _this = this;
 return _create(_StringGuts.Index, 'initEncodedOffsetInt', {}, _this.count)
 ----Swift.(file)._StringGuts.startASCII
 let _this = this;
-return _create(UnsafeMutablePointer, 'initMutatingUnsafePointer', {}, _this._object.fastUTF8.baseAddress[0])
+return _create(UnsafeMutablePointer, 'initMutatingUnsafePointer', {}, _this._object.fastUTF8.baseAddress)
 ----Swift.(file)._StringGuts.startUTF16
 let _this = this;
 fatalErrorFileLine({}, () => "Not contiguous UTF-16", '?3', '?3')
 ----Swift.(file)._StringGuts.nativeCapacity
 let _this = this;
 if(!((_this.hasNativeStorage))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this._object.nativeStorage.capacity)
+return _this._object.nativeStorage.capacity
 ----Swift.(file)._StringGuts.nativeUnusedCapacity
 let _this = this;
 if(!((_this.hasNativeStorage))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this._object.nativeStorage.unusedCapacity)
+return _this._object.nativeStorage.unusedCapacity
 ----Swift.(file)._StringGuts.uniqueNativeCapacity
 let _this = this;
 if(!((_this.isUniqueNative))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this._object.nativeStorage.capacity)
+return _this._object.nativeStorage.capacity
 ----Swift.(file)._StringGuts.uniqueNativeUnusedCapacity
 let _this = this;
 if(!((_this.isUniqueNative))) {
-return Optional.none;
+return null;
 };
-return _injectIntoOptional(_this._object.nativeStorage.unusedCapacity)
+return _this._object.nativeStorage.unusedCapacity
 ----Swift.(file)._StringGuts.isUniqueNative
 let _this = this;
 if(!((_this.hasNativeStorage))) {
@@ -7183,7 +7183,7 @@ return
 let _this = this;
 if((Bool.infix_38_38({}, _this.isSmall, () => other.isSmall))) {
 const $ifLet0, smol_1
-if((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall))||true) && $ifLet0.rawValue == 'some' && ((smol_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(_SmallString, 'init_SmallStringAppending_SmallString', {}, _this.asSmall, other.asSmall))||true) && $ifLet0 != null && ((smol_1 = $ifLet0)||true)) {
 $info.$setThis(_this = _cloneStruct(_create(_StringGuts, 'init_SmallString', {}, smol_1)));
 return ;
 };
@@ -7232,7 +7232,7 @@ return _create(Int, 'initTruncatingIfNeeded', {}, UInt64.infix_38({}, _this.orde
 ----Swift.(file)..(error_type).characterStride
 let _this = this;
 const value = UInt64.infix_38_62_62({}, UInt64.infix_38({}, _this._rawBits, 0x3F00), 8);
-return (UInt64.infix_62({}, value, 0) ? _injectIntoOptional(_create(Int, 'initTruncatingIfNeeded', {}, value)) : Optional.none)
+return (UInt64.infix_62({}, value, 0) ? _create(Int, 'initTruncatingIfNeeded', {}, value) : null)
 ----Swift.(file)..(error_type).init(encodedOffset:Int,transcodedOffset:Int)
 let _this = this;
 const pos = _create(UInt64, 'initTruncatingIfNeeded', {}, encodedOffset);
@@ -7346,7 +7346,7 @@ let result = _create(String, 'init', {}, );
 let $generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0;
-if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0.rawValue == 'some')) break
+if(!((($ifLet0 = $generator.next({$setThis: $val => $generator = $val}, ))||true) && $ifLet0 != null)) break
 String.infix_43_61({}, {get: () => result, set: $val => result = $val}, repeatedValue);
 }
 };
@@ -7566,7 +7566,7 @@ let _this = this;
 return _create(UnsafePointer, 'initBitPatternUInt', {}, UInt.infix_38_43({}, _this.largeAddressBits, _StringObject.nativeBias))._unsafelyUnwrappedUnchecked
 ----Swift.(file)._StringObject.nativeUTF8
 let _this = this;
-return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this.nativeUTF8Start), _this.largeCount)
+return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this.nativeUTF8Start, _this.largeCount)
 ----Swift.(file)._StringObject.getSharedUTF8Start()
 let _this = this;
 if((_this.largeIsCocoa)) {
@@ -7576,7 +7576,7 @@ return _this.sharedStorage.start
 ----Swift.(file)._StringObject.sharedUTF8
 let _this = this;
 const start = _cloneStruct(_this.getSharedUTF8Start({}, ));
-return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/start), _this.largeCount)
+return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/start, _this.largeCount)
 ----Swift.(file)._StringObject.count
 let _this = this;
 return (_this.isSmall ? _this.smallCount : _this.largeCount)
@@ -7597,7 +7597,7 @@ let _this = this;
 if(!((_fastPath({}, _this.largeFastIsTailAllocated)))) {
 return _this.sharedUTF8;
 };
-return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this.nativeUTF8Start), _this.largeCount)
+return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this.nativeUTF8Start, _this.largeCount)
 ----Swift.(file)._StringObject.hasObjCBridgeableObject
 let _this = this;
 return Bool.prefix_33({}, _this.isImmortal)
@@ -7613,7 +7613,7 @@ return _this.largeFastIsTailAllocated
 ----Swift.(file)._StringObject.init(immortal:UnsafeBufferPointer<UInt8>,isASCII:Bool)
 let _this = this;
 const countAndFlags = _create(_StringObject.CountAndFlags, 'initImmortalCountIntIsASCIIBool', {}, bufPtr.count, isASCII);
-const biasedAddress = UInt.infix_38_45({}, _create(UInt, 'initBitPatternOptional', {}, _injectIntoOptional(bufPtr.baseAddress._unsafelyUnwrappedUnchecked)), _StringObject.nativeBias);
+const biasedAddress = UInt.infix_38_45({}, _create(UInt, 'initBitPatternOptional', {}, bufPtr.baseAddress._unsafelyUnwrappedUnchecked), _StringObject.nativeBias);
 _this.initPointerBitsUInt64DiscriminatorUInt64CountAndFlags_StringObjectCountAndFlags({}, _create(UInt64, 'initTruncatingIfNeeded', {}, biasedAddress), _StringObject.Nibbles.largeImmortal({}, ), countAndFlags);
 return
 ----Swift.(file)._StringObject.init(_:<<error type>>)
@@ -7637,7 +7637,7 @@ return
 ----Swift.(file).String.init(_:S)
 let _this = this;
 const $ifLet0, str_1
-if((($ifLet0 = _injectIntoOptional(other))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = other)||true) && $ifLet0 != null && ((str_1 = $ifLet0)||true)) {
 return _cloneStruct(str_1);
 return ;
 };
@@ -7646,12 +7646,12 @@ return
 ----Swift.(file).String.init(_:S)
 let _this = this;
 const $ifLet0, str_1
-if((($ifLet0 = _injectIntoOptional(characters))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = characters)||true) && $ifLet0 != null && ((str_1 = $ifLet0)||true)) {
 return _cloneStruct(str_1);
 return ;
 };
 const $ifLet2, subStr_3
-if((($ifLet2 = _injectIntoOptional(characters))||true) && $ifLet2.rawValue == 'some' && ((subStr_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = characters)||true) && $ifLet2 != null && ((subStr_3 = $ifLet2)||true)) {
 _this.initSubstring({}, subStr_3);
 return ;
 };
@@ -7667,12 +7667,12 @@ _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, new
 ----Swift.(file).String.append(contentsOf:S)
 let _this = this;
 const $ifLet0, str_1
-if((($ifLet0 = _injectIntoOptional(newElements))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = newElements)||true) && $ifLet0 != null && ((str_1 = $ifLet0)||true)) {
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, str_1);
 return ;
 };
 const $ifLet2, substr_3
-if((($ifLet2 = _injectIntoOptional(newElements))||true) && $ifLet2.rawValue == 'some' && ((substr_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = newElements)||true) && $ifLet2 != null && ((substr_3 = $ifLet2)||true)) {
 _this.appendContentsOf({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, substr_3);
 return ;
 };
@@ -7680,7 +7680,7 @@ return ;
 let $c$generator = newElements.makeIterator({}, );
 while(true) {
 const $ifLet4, c_5;
-if(!((($ifLet4 = $c$generator.next({$setThis: $val => $c$generator = $val}, ))||true) && $ifLet4.rawValue == 'some' && ((c_5 = $ifLet4[0])||true))) break
+if(!((($ifLet4 = $c$generator.next({$setThis: $val => $c$generator = $val}, ))||true) && $ifLet4 != null && ((c_5 = $ifLet4)||true))) break
 _this.append({$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}, c_5._str);
 }
 }
@@ -7731,13 +7731,13 @@ let _this = this;
 return _this.mutableEnd
 ----Swift.(file)._StringStorage.codeUnits
 let _this = this;
-return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this.start), _this.count)
+return _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this.start, _this.count)
 ----Swift.(file)._StringStorage.capacity
 let _this = this;
 return Int.infix_38_45({}, _this._realCapacity, 1)
 ----Swift.(file)._StringStorage.unusedStorage
 let _this = this;
-return _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/_this.mutableEnd), _this.unusedCapacity)
+return _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/_this.mutableEnd, _this.unusedCapacity)
 ----Swift.(file)._StringStorage.unusedCapacity
 let _this = this;
 return Int.infix_38_45({}, Int.infix_38_45({}, _this._realCapacity, _this.count), 1)
@@ -7754,7 +7754,7 @@ const $result = (() => {
 let srcCount = 0;
 while(true){
 const $ifLet0, cu_1
-if(!((($ifLet0 = other.next({$setThis: $val => other = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = other.next({$setThis: $val => other = $val}, ))||true) && $ifLet0 != null && ((cu_1 = $ifLet0)||true))) break
 _this.unusedStorage.subscript$set({$setThis: $val => _this.unusedStorage = _cloneStruct($val)}, cu_1, srcCount);
 Int.infix_43_61({}, {get: () => srcCount, set: $val => srcCount = $val}, 1);
 };
@@ -7789,7 +7789,7 @@ let srcCount = 0;
 let $cu$generator = replacement.makeIterator({}, );
 while(true) {
 const $ifLet0, cu_1;
-if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((cu_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $cu$generator.next({$setThis: $val => $cu$generator = $val}, ))||true) && $ifLet0 != null && ((cu_1 = $ifLet0)||true))) break
 if((UInt8.infix_62_61({}, cu_1, 0x80))) {
 isASCII = false;
 };
@@ -8094,12 +8094,12 @@ _this._slice.replaceSubrangeWith({$setThis: $val => _this._slice = $val}, target
 ----Swift.(file).Substring.init(_:S)
 let _this = this;
 const $ifLet0, str_1
-if((($ifLet0 = _injectIntoOptional(_elements))||true) && $ifLet0.rawValue == 'some' && ((str_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _elements)||true) && $ifLet0 != null && ((str_1 = $ifLet0)||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(str_1.subscriptUnboundedRange$get({}, UnboundedRange_.postfix_46_46_46))));
 return ;
 };
 const $ifLet2, subStr_3
-if((($ifLet2 = _injectIntoOptional(_elements))||true) && $ifLet2.rawValue == 'some' && ((subStr_3 = $ifLet2[0])||true)) {
+if((($ifLet2 = _elements)||true) && $ifLet2 != null && ((subStr_3 = $ifLet2)||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(subStr_3)));
 return ;
 };
@@ -8166,7 +8166,7 @@ return
 ----Swift.(file)._UIntBuffer.Iterator.next()
 let _this = this;
 if((UInt8.infix_61_61({}, _this._impl._bitCount, 0))) {
-return Optional.none;
+return null;
 };
 let $defer = () => {
 _this._impl._storage = _UIntBuffer.Storage.infix_38_62_62({}, _this._impl._storage, ((function(){throw '!unclarifiedGeneric:Element'})()).bitWidth);
@@ -8174,7 +8174,7 @@ _this._impl._bitCount = UInt8.infix_38_45({}, _this._impl._bitCount, _this._impl
 }
 const $result = (() => {
 try {;
-return _injectIntoOptional(_create(((function(){throw '!unclarifiedGeneric:Element'})()), 'initTruncatingIfNeeded', {}, _this._impl._storage));}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
+return _create(((function(){throw '!unclarifiedGeneric:Element'})()), 'initTruncatingIfNeeded', {}, _this._impl._storage);}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
 ----Swift.(file)._UIntBuffer.makeIterator()
 let _this = this;
 return _create(_UIntBuffer.Iterator, 'init_UIntBuffer', {}, _this)
@@ -8264,21 +8264,21 @@ return _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, value)
 let _this = this;
 const x = source.value;
 if((_fastPath({}, UInt32.infix_60({}, x, UInt32.infix_60_60({}, 1, 16))))) {
-return _injectIntoOptional(_create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, x, 16));
+return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, x, 16);
 };
 const x1 = UInt32.infix_45({}, x, UInt32.infix_60_60({}, 1, 16));
 let r = UInt32.infix_43({}, 0xdc00, UInt32.infix_38({}, x1, 0x3ff));
 UInt32.infix_38_60_60_61({}, {get: () => r, set: $val => r = $val}, 16);
 UInt32.infix_124_61({}, {get: () => r, set: $val => r = $val}, UInt32.infix_43({}, 0xd800, UInt32.infix_38({}, UInt32.infix_38_62_62({}, x1, 10), 0x3ff)));
-return _injectIntoOptional(_create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, r, 32))
+return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, r, 32)
 ----Swift.(file)..(error_type).transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)
 let _this = this;
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF8))))) {
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF8)))) {
 const c = _cloneStruct(_identityCastTo({}, content, UTF8.EncodedScalar));
 let b = c.count;
 b = Int.infix_38_45({}, b, 1);
 if((_fastPath({}, Int.infix_61_61({}, b, 0)))) {
-return _injectIntoOptional(_create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, UInt32.infix_38_45({}, c._biasedBits, 0x1), 0b01111111), 16));
+return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, UInt32.infix_38_45({}, c._biasedBits, 0x1), 0b01111111), 16);
 };
 let s = UInt32.infix_38_45({}, c._biasedBits, 0x01010101);
 let r = s;
@@ -8287,14 +8287,14 @@ UInt32.infix_38_62_62_61({}, {get: () => s, set: $val => s = $val}, 8);
 UInt32.infix_124_61({}, {get: () => r, set: $val => r = $val}, UInt32.infix_38({}, s, 0b0111111));
 b = Int.infix_38_45({}, b, 1);
 if((_fastPath({}, Int.infix_61_61({}, b, 0)))) {
-return _injectIntoOptional(_create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, r, 0b011111111111), 16));
+return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, r, 0b011111111111), 16);
 };
 UInt32.infix_38_60_60_61({}, {get: () => r, set: $val => r = $val}, 6);
 UInt32.infix_38_62_62_61({}, {get: () => s, set: $val => s = $val}, 8);
 UInt32.infix_124_61({}, {get: () => r, set: $val => r = $val}, UInt32.infix_38({}, s, 0b0111111));
 b = Int.infix_38_45({}, b, 1);
 if((_fastPath({}, Int.infix_61_61({}, b, 0)))) {
-return _injectIntoOptional(_create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, r, 0xFFFF), 16));
+return _create(Unicode.UTF16.EncodedScalar, 'init_storage_UIntBufferStorage_bitCountUInt8', {}, UInt32.infix_38({}, r, 0xFFFF), 16);
 };
 UInt32.infix_38_60_60_61({}, {get: () => r, set: $val => r = $val}, 6);
 UInt32.infix_38_62_62_61({}, {get: () => s, set: $val => s = $val}, 8);
@@ -8303,8 +8303,8 @@ UInt32.infix_38_61({}, {get: () => r, set: $val => r = $val}, UInt32.infix_45({}
 return _this.encode({}, _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, r));
 }
 else {
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF16))))) {
-return _injectIntoOptional(unsafeBitCastTo({}, content, UTF16.EncodedScalar));
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF16)))) {
+return unsafeBitCastTo({}, content, UTF16.EncodedScalar);
 }
 };
 return _this.encode({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()).decode({}, content))
@@ -8317,17 +8317,17 @@ return _create(Unicode.UTF32.EncodedScalar, 'init', {}, _this._replacementCodeUn
 static get encodedReplacementCharacter() { return this.encodedReplacementCharacter$get()
 ----Swift.(file)..(error_type).decode(_:Unicode.UTF32.EncodedScalar)
 let _this = this;
-return _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, source.first[0])
+return _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, source.first)
 ----Swift.(file)..(error_type).encode(_:Unicode.Scalar)
 let _this = this;
-return _injectIntoOptional(_create(Unicode.UTF32.EncodedScalar, 'init', {}, source.value))
+return _create(Unicode.UTF32.EncodedScalar, 'init', {}, source.value)
 ----Swift.(file).UTF32.Parser.parseScalar(from:I)
 let _this = this;
 let input = input$inout.get()
 const $result = (() => {
 const n = input.next({$setThis: $val => input = $val}, );
 const $ifLet0, x_1
-if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = n)||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true)) {
+if((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, n, null))) && (($ifLet0 = n)||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true)) {
 if(!((_fastPath({}, Bool.infix_38_38({}, UInt32.infix_33_61({}, UInt32.infix_38_62_62({}, x_1, 11), 0b11011), () => UInt32.infix_60_61({}, x_1, 0x10ffff)))))) {
 return Unicode.ParseResult.error({}, 1);
 };
@@ -8372,48 +8372,48 @@ return _create(Unicode.Scalar, 'init_uncheckedUInt32', {}, value);
 let _this = this;
 let c = source.value;
 if((_fastPath({}, UInt32.infix_60({}, c, Int.infix_38_60_60({}, 1, 7))))) {
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_containing_ValidUTF8BufferElement', {}, _create(UInt8, 'initT', {}, c)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_containing_ValidUTF8BufferElement', {}, _create(UInt8, 'initT', {}, c));
 };
 let o = UInt32.infix_38({}, c, 0b000111111);
 UInt32.infix_38_62_62_61({}, {get: () => c, set: $val => c = $val}, 6);
 UInt32.infix_38_60_60_61({}, {get: () => o, set: $val => o = $val}, 8);
 if((_fastPath({}, UInt32.infix_60({}, c, Int.infix_38_60_60({}, 1, 5))))) {
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b01000000111000001)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b01000000111000001));
 };
 UInt32.infix_124_61({}, {get: () => o, set: $val => o = $val}, UInt32.infix_38({}, c, 0b000111111));
 UInt32.infix_38_62_62_61({}, {get: () => c, set: $val => c = $val}, 6);
 UInt32.infix_38_60_60_61({}, {get: () => o, set: $val => o = $val}, 8);
 if((_fastPath({}, UInt32.infix_60({}, c, Int.infix_38_60_60({}, 1, 4))))) {
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b0100000011000000111100001)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b0100000011000000111100001));
 };
 UInt32.infix_124_61({}, {get: () => o, set: $val => o = $val}, UInt32.infix_38({}, c, 0b000111111));
 UInt32.infix_38_62_62_61({}, {get: () => c, set: $val => c = $val}, 6);
 UInt32.infix_38_60_60_61({}, {get: () => o, set: $val => o = $val}, 8);
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b010000001100000011000000111110001)))
+return _create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, o, c), 0b010000001100000011000000111110001))
 ----Swift.(file)..(error_type).transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)
 let _this = this;
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF16))))) {
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF16)))) {
 const c = _cloneStruct(_identityCastTo({}, content, UTF16.EncodedScalar));
 let u0 = _create(UInt16, 'initTruncatingIfNeeded', {}, c._storage);
 if((_fastPath({}, UInt16.infix_60({}, u0, 0x80)))) {
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_containing_ValidUTF8BufferElement', {}, _create(UInt8, 'initTruncatingIfNeeded', {}, u0)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_containing_ValidUTF8BufferElement', {}, _create(UInt8, 'initTruncatingIfNeeded', {}, u0));
 };
 let r = _create(UInt32, 'initT', {}, UInt16.infix_38({}, u0, 0b0111111));
 UInt32.infix_38_60_60_61({}, {get: () => r, set: $val => r = $val}, 8);
 UInt16.infix_38_62_62_61({}, {get: () => u0, set: $val => u0 = $val}, 6);
 if((_fastPath({}, UInt16.infix_60({}, u0, Int.infix_38_60_60({}, 1, 5))))) {
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, _create(UInt32, 'initT', {}, u0), r), 0b01000000111000001)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, _create(UInt32, 'initT', {}, u0), r), 0b01000000111000001));
 };
 UInt32.infix_124_61({}, {get: () => r, set: $val => r = $val}, _create(UInt32, 'initT', {}, UInt16.infix_38({}, u0, 0b0111111)));
 UInt32.infix_38_60_60_61({}, {get: () => r, set: $val => r = $val}, 8);
 if((_fastPath({}, UInt16.infix_33_61({}, UInt16.infix_38({}, u0, UInt16.infix_38_62_62({}, 0xF800, 6)), Int.infix_38_62_62({}, 0xD800, 6))))) {
 UInt16.infix_38_62_62_61({}, {get: () => u0, set: $val => u0 = $val}, 6);
-return _injectIntoOptional(_create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, _create(UInt32, 'initT', {}, u0), r), 0b0100000011000000111100001)));
+return _create(Unicode.UTF8.EncodedScalar, 'init_biasedBitsUInt32', {}, UInt32.infix_38_43({}, UInt32.infix_124({}, _create(UInt32, 'initT', {}, u0), r), 0b0100000011000000111100001));
 };
 }
 else {
-if((_fastPath({}, infix_61_61({}, _injectIntoOptional(((function(){throw '!unclarifiedGeneric:FromEncoding'})())), _injectIntoOptional(UTF8))))) {
-return _injectIntoOptional(_identityCastTo({}, content, UTF8.EncodedScalar));
+if((_fastPath({}, infix_61_61({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()), UTF8)))) {
+return _identityCastTo({}, content, UTF8.EncodedScalar);
 }
 };
 return _this.encode({}, ((function(){throw '!unclarifiedGeneric:FromEncoding'})()).decode({}, content))
@@ -8440,7 +8440,7 @@ $info.$setThis(_this = _cloneStruct(Unicode.UTF8._swift3Buffer({}, _create(Unico
 return
 ----Swift.(file)..(error_type).encode(_:<<error type>>,into:<<error type>>)
 let _this = this;
-let s = _this.encode({}, input)[0]._biasedBits;
+let s = _this.encode({}, input)._biasedBits;
 processCodeUnit({}, Unicode.UTF8.CodeUnit.infix_38_45({}, _create(UInt8, 'initTruncatingIfNeeded', {}, s), 0x01));
 UInt32.infix_38_62_62_61({}, {get: () => s, set: $val => s = $val}, 8);
 if((_fastPath({}, UInt32.infix_61_61({}, s, 0)))) {
@@ -8466,7 +8466,7 @@ $info.$setThis(_this = _cloneStruct(Unicode.UTF16._swift3Buffer({}, _create(Unic
 return
 ----Swift.(file)..(error_type).encode(_:<<error type>>,into:<<error type>>)
 let _this = this;
-let s = _this.encode({}, input)[0]._storage;
+let s = _this.encode({}, input)._storage;
 processCodeUnit({}, _create(UInt16, 'initTruncatingIfNeeded', {}, s));
 UInt32.infix_38_62_62_61({}, {get: () => s, set: $val => s = $val}, 16);
 if((_fastPath({}, UInt32.infix_61_61({}, s, 0)))) {
@@ -8509,7 +8509,7 @@ if((($match.rawValue == Unicode.ParseResult.valid().rawValue))) {
 const s = $match[0]
 const t = ((function(){throw '!unclarifiedGeneric:OutputEncoding'})()).transcodeFrom({}, s, inputEncoding);
 const $ifLet0, s_1
-if(!((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, t, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})))) && (($ifLet0 = t)||true) && $ifLet0.rawValue == 'some' && ((s_1 = $ifLet0[0])||true))) {
+if(!((_fastPath({}, Optional.wrappedNotEqualsOptionalNilComparisonType({}, t, null))) && (($ifLet0 = t)||true) && $ifLet0 != null && ((s_1 = $ifLet0)||true))) {
 };
 s_1.forEachSwift({}, processCodeUnit);
 continue;
@@ -8695,10 +8695,10 @@ let _this = this;
 function lowNibbleAsHex($info, v){
 const nibble = UInt32.infix_38({}, v, 15);
 if((UInt32.infix_60({}, nibble, 10))) {
-return _create(String, 'initUnicodeScalar', {}, _create(Unicode.Scalar, 'initUInt32', {}, UInt32.infix_43({}, nibble, 48))[0]);
+return _create(String, 'initUnicodeScalar', {}, _create(Unicode.Scalar, 'initUInt32', {}, UInt32.infix_43({}, nibble, 48)));
 }
 else {
-return _create(String, 'initUnicodeScalar', {}, _create(Unicode.Scalar, 'initUInt32', {}, UInt32.infix_43({}, UInt32.infix_45({}, nibble, 10), 65))[0]);
+return _create(String, 'initUnicodeScalar', {}, _create(Unicode.Scalar, 'initUInt32', {}, UInt32.infix_43({}, UInt32.infix_45({}, nibble, 10), 65)));
 };
 }
 if((Unicode.Scalar.infix_61_61({}, _this, "\\"))) {
@@ -8786,7 +8786,7 @@ return (("\"") + (_this.escapedAsASCII({}, true)) + ("\""))
 let _this = this;
 const scalars = _cloneStruct(description.unicodeScalars);
 const $ifLet0, v_1
-if(!((($ifLet0 = scalars.first)||true) && $ifLet0.rawValue == 'some' && ((v_1 = $ifLet0[0])||true) && (Int.infix_61_61({}, scalars.count, 1)))) {
+if(!((($ifLet0 = scalars.first)||true) && $ifLet0 != null && ((v_1 = $ifLet0)||true) && (Int.infix_61_61({}, scalars.count, 1)))) {
 return (this.$failed = true);
 };
 $info.$setThis(_this = _cloneStruct(_cloneStruct(v_1)));
@@ -8801,7 +8801,7 @@ return $result
 ----Swift.(file)..(error_type).init(_:Int)
 let _this = this;
 const $ifLet0, us_1
-if((($ifLet0 = _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, v)))||true) && $ifLet0.rawValue == 'some' && ((us_1 = $ifLet0[0])||true)) {
+if((($ifLet0 = _create(Unicode.Scalar, 'initUInt32', {}, _create(UInt32, 'initT', {}, v)))||true) && $ifLet0 != null && ((us_1 = $ifLet0)||true)) {
 $info.$setThis(_this = _cloneStruct(_cloneStruct(us_1)));
 }
 else {
@@ -8848,12 +8848,12 @@ const utf16Count = _this.utf16.count;
 if((Int.infix_62({}, utf16Count, 1))) {
 codeUnits["1"] = _this.utf16.subscript$get({}, 1);
 };
-return /*dot_syntax_base_ignored*/withUnsafePointerTo({}, {get: () => codeUnits, set: $val => codeUnits = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UInt16, 2, (($info, $0) => body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/$0), utf16Count))))))
+return /*dot_syntax_base_ignored*/withUnsafePointerTo({}, {get: () => codeUnits, set: $val => codeUnits = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UInt16, 2, (($info, $0) => body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/$0, utf16Count))))))
 ----Swift.(file)..(error_type).withUTF8CodeUnits(_:(UnsafeBufferPointer<UInt8>) throws -> Result)
 let _this = this;
-const encodedScalar = _cloneStruct(UTF8.encode({}, _this)[0]);
+const encodedScalar = _cloneStruct(UTF8.encode({}, _this));
 let $tuple = encodedScalar._bytes, codeUnits = $tuple && $tuple[0], utf8Count = $tuple && $tuple[1];
-return /*dot_syntax_base_ignored*/withUnsafePointerTo({}, {get: () => codeUnits, set: $val => codeUnits = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UInt8, 4, (($info, $0) => body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, _injectIntoOptional(/*pointer_to_pointer*/$0), utf8Count))))))
+return /*dot_syntax_base_ignored*/withUnsafePointerTo({}, {get: () => codeUnits, set: $val => codeUnits = $val}, (($info, $0) => $0.withMemoryReboundToCapacity({}, UInt8, 4, (($info, $0) => body({}, _create(UnsafeBufferPointer, 'initStartOptionalCountInt', {}, /*pointer_to_pointer*/$0, utf8Count))))))
 ----Swift.(file).Unicode.Scalar.Properties.init(_:Unicode.Scalar)
 let _this = this;
 _this._scalar = _cloneStruct(scalar);
@@ -8905,7 +8905,7 @@ return UnsafePointer.infix_43({}, _this, i)
 ----Swift.(file).UnsafeMutablePointer.init(mutating:UnsafePointer<Pointee>?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = other)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = other)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this.initMutatingUnsafePointer({}, unwrapped_1);
@@ -8919,7 +8919,7 @@ preconditionFileLine({}, () => Int.infix_62_61({}, count, 0), () => "UnsafeMutab
 let $i$generator = _cloneStruct(Int.infix_46_46_60({}, 0, count).makeIterator({}, ));
 while(true) {
 const $ifLet0, i_1;
-if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((i_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $i$generator.next({$setThis: $val => $i$generator = $val}, ))||true) && $ifLet0 != null && ((i_1 = $ifLet0)||true))) break
 _this.subscript$set({$setThis: $val => $info.$setThis(_this = _cloneStruct(_cloneStruct($val)))}, repeatedValue, i_1);
 }
 }
@@ -8946,7 +8946,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeMutableRawPointer?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this._rawValue = unwrapped_1._rawValue;
@@ -8958,7 +8958,7 @@ return
 ----Swift.(file).OpaquePointer.init(_:UnsafeRawPointer?)
 let _this = this;
 const $ifLet0, unwrapped_1
-if(!((($ifLet0 = from)||true) && $ifLet0.rawValue == 'some' && ((unwrapped_1 = $ifLet0[0])||true))) {
+if(!((($ifLet0 = from)||true) && $ifLet0 != null && ((unwrapped_1 = $ifLet0)||true))) {
 return (this.$failed = true);
 };
 _this._rawValue = unwrapped_1._rawValue;
@@ -8972,14 +8972,14 @@ return
 ----Swift.(file)._ValidUTF8Buffer.Iterator.next()
 let _this = this;
 if((UInt32.infix_61_61({}, _this._biasedBits, 0))) {
-return Optional.none;
+return null;
 };
 let $defer = () => {
 UInt32.infix_62_62_61({}, {get: () => _this._biasedBits, set: $val => _this._biasedBits = $val}, 8);
 }
 const $result = (() => {
 try {;
-return _injectIntoOptional(_ValidUTF8Buffer.Iterator.Element.infix_38_45({}, _create(_ValidUTF8Buffer.Iterator.Element, 'initTruncatingIfNeeded', {}, _this._biasedBits), 1));}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
+return _ValidUTF8Buffer.Iterator.Element.infix_38_45({}, _create(_ValidUTF8Buffer.Iterator.Element, 'initTruncatingIfNeeded', {}, _this._biasedBits), 1);}catch($error){$defer({}, );throw $error}})();$defer({}, );return $result
 ----Swift.(file)._ValidUTF8Buffer.makeIterator()
 let _this = this;
 return _create(_ValidUTF8Buffer.Iterator, 'init_ValidUTF8Buffer', {}, _this)
@@ -9049,7 +9049,7 @@ let r = _create(_ValidUTF8Buffer, 'init', {}, );
 let $x$generator = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.prefix_46_46_60({}, target.lowerBound)).makeIterator({}, ));
 while(true) {
 const $ifLet0, x_1;
-if(!((($ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet0.rawValue == 'some' && ((x_1 = $ifLet0[0])||true))) break
+if(!((($ifLet0 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet0 != null && ((x_1 = $ifLet0)||true))) break
 r.append({$setThis: $val => r = $val}, x_1);
 }
 };
@@ -9057,7 +9057,7 @@ r.append({$setThis: $val => r = $val}, x_1);
 let $x$generator = replacement.makeIterator({}, );
 while(true) {
 const $ifLet2, x_3;
-if(!((($ifLet2 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet2.rawValue == 'some' && ((x_3 = $ifLet2[0])||true))) break
+if(!((($ifLet2 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet2 != null && ((x_3 = $ifLet2)||true))) break
 r.append({$setThis: $val => r = $val}, x_3);
 }
 };
@@ -9065,7 +9065,7 @@ r.append({$setThis: $val => r = $val}, x_3);
 let $x$generator = _cloneStruct(_this.subscript$get({}, _ValidUTF8Buffer.Index.postfix_46_46_46({}, target.upperBound)).makeIterator({}, ));
 while(true) {
 const $ifLet4, x_5;
-if(!((($ifLet4 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet4.rawValue == 'some' && ((x_5 = $ifLet4[0])||true))) break
+if(!((($ifLet4 = $x$generator.next({$setThis: $val => $x$generator = $val}, ))||true) && $ifLet4 != null && ((x_5 = $ifLet4)||true))) break
 r.append({$setThis: $val => r = $val}, x_5);
 }
 };
