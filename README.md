@@ -9,15 +9,21 @@ A parent repo for apple/swift fork & MIOJSLibs. Contains additional tests and sc
 
 TODO we'll write down once Edgar gets his mac :)
 
-## **Usage:**
-
 **Building the executable for the C++ compiler**
 
-You need to do that after updating any .cpp files.
-I've found that the `--ios` flag needs to be included only once; then you can remove it (which will make it much faster).
+We need to additionally include the `--ios` flag, so that we can target UIKit.
 
 ```
 ./swift-source/swift/utils/build-script --release-debuginfo --ios
+```
+
+## **Usage:**
+
+**Rebuilding the executable after changing a .cpp file**
+
+```
+cd swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64
+ninja swift
 ```
 
 **Testing our transpiler - both local & github tests**
