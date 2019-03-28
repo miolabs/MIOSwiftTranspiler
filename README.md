@@ -1,4 +1,4 @@
-# apple/swift fork + MIOJSLibs, with tests & transpiled swift libs
+# Parent repo for our swift transpiler projects
 
 * [Initial setup](#initial-setup)
 * [Usage](#usage)
