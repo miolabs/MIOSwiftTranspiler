@@ -22,7 +22,7 @@ We need to additionally include the `--ios` flag, so that we can target UIKit.
 **Rebuilding the executable after changing a .cpp file**
 
 ```
-cd swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64
+cd ./swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64
 ninja swift
 ```
 
