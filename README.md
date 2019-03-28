@@ -68,3 +68,13 @@ node ./template-build-miojs.js
 ```
 node ./template-build-swift.js
 ```
+
+**Running templates/project**
+
+These instructions are for Visual Studio Code; not sure how to do without it.
+
+Open the folder `./MIOJSLibs/templates/project`. Then `Terminal -> New Terminal`. For the first time, run
+`npm run init`; later on you can just do `npm run tsc` to run the tsc compiler in watch mode.
+
+You also need to have the express extension installed in Visual Studio Code. Set the port as 9090 in
+express settings. Then do `cmd+p` and type `>Express: Host Current Workspace`. You can now launch the VSC debugger.
