@@ -2,6 +2,3 @@
 	path = MIOJSLibs
 	url = https://github.com/miolabs/MIOJSLibs.git
 	branch = swift-compiler
-[submodule "swift-source/swift"]
-	path = swift-source/swift
-	url = https://github.com/miolabs/swift.git
