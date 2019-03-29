@@ -12,22 +12,30 @@ A parent repo for apple/swift fork & MIOJSLibs. Contains additional tests and sc
 Clone with an additional flag `git clone --recurse-submodules https://github.com/miolabs/MIOSwiftTranspiler.git`.
 That ensures that it's cloned together with the submodule MIOJSLibs.
 
-**Cloning the swift repo (separate for now)**
+**Cloning the swift repo (separate for now) & building the executable**
 
 We've decided not to include the swift submodule, because it was failing when running the
 `./swift/utils/update-checkout --clone` for some reason. For now, you need to clone it *separately*.
 
 Go to the *parent directory* of MIOSwiftTranspiler and run `mkdir swift-source && cd swift-source`. Then
-clone our fork of the apple swift repo `git clone https://github.com/miolabs/swift.git`. Then remember to
-switch the branch `cd swift && git checkout ts-transpiler`. Finally, run the command that swift needs to work
-`cd .. && ./swift/utils/update-checkout --clone`.
+clone our fork of the apple swift repo `git clone https://github.com/miolabs/swift.git`. Then run another command
+that swift needs to work `cd .. && ./swift/utils/update-checkout --clone`.
 
-Finally, you need to build the C++ executable. We need to additionally include the `--ios` flag, so that we can target UIKit.
-Run `./swift/utils/build-script --release-debuginfo --ios`. The initial setup is complete 🎉🎉.
+Then you need to build the C++ executable. We need to additionally include the `--ios` flag, so that we can target UIKit.
+Run `./swift/utils/build-script --release-debuginfo --ios`.
+
+After the executable is built, you need to switch the branch `cd swift && git checkout ts-transpiler-synced`.
+I'm trying to keep it up to date, so that the only different file is `lib/AST/ASTDumper.cpp`. That should help us
+avoid problems related to building the executable (if the branch is not up to date, all hell breaks loose,
+because the code and libs aren't in sync).
+
+After switching the branch, you need to rebuild the executable with ninja one final time as described in Usage.
+
+The initial setup is complete 🎉🎉.
 
 ## **Usage:**
 
-**Rebuilding the executable after changing a .cpp file**
+**Rebuilding the executable after updating swift repo/changing a .cpp file**
 
 ```
 cd ./swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64
