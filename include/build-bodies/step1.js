@@ -1,7 +1,7 @@
 const execSync = require('child_process').execSync
 const fs = require('fs')
 
-const dir = '/Users/bubulkowanorka/projects/swift-source/swift/stdlib/public/core/'
+const dir = `${__dirname}/../../../swift-source/swift/stdlib/public/core/`
 
 const files = [
     'Algorithm.swift',
@@ -194,13 +194,13 @@ files.forEach(file => {
     let output
     let isUntyped
     try {
-        output = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/swift-lib/${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
+        output = execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/swift-lib/${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
     }
     catch(err) {
         output = err.stdout
     }
     try {
-        let untypedOutput = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-parse -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/swift-lib/${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
+        let untypedOutput = execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-parse -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/swift-lib/${file}'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
         if(untypedOutput.length > output.length) {
             output = untypedOutput
             isUntyped = true

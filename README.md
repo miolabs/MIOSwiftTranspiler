@@ -7,15 +7,23 @@ A parent repo for apple/swift fork & MIOJSLibs. Contains additional tests and sc
 
 ## **Initial setup:**
 
-TODO we'll write down once Edgar gets his mac :)
+**Cloning this repo**
 
-**Building the executable for the C++ compiler**
+Clone with an additional flag `git clone --recurse-submodules https://github.com/miolabs/MIOSwiftTranspiler.git`.
+That ensures that it's cloned together with the submodule MIOJSLibs.
 
-We need to additionally include the `--ios` flag, so that we can target UIKit.
+**Cloning the swift repo (separate for now)**
 
-```
-./swift-source/swift/utils/build-script --release-debuginfo --ios
-```
+We've decided not to include the swift submodule, because it was failing when running the
+`./swift/utils/update-checkout --clone` for some reason. For now, you need to clone it *separately*.
+
+Go to the *parent directory* of MIOSwiftTranspiler and run `mkdir swift-source && cd swift-source`. Then
+clone our fork of the apple swift repo `git clone https://github.com/miolabs/swift.git`. Then remember to
+switch the branch `cd swift && git checkout ts-transpiler`. Finally, run the command that swift needs to work
+`cd .. && ./swift/utils/update-checkout --clone`.
+
+Finally, you need to build the C++ executable. We need to additionally include the `--ios` flag, so that we can target UIKit.
+Run `./swift/utils/build-script --release-debuginfo --ios`. The initial setup is complete 🎉🎉.
 
 ## **Usage:**
 

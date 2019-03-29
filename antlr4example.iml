@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/MIOJSLibs/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/MIOJSLibs/templates/project/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/definition-crawler/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/include/Darwin" />
       <excludeFolder url="file://$MODULE_DIR$/include/Foundation" />

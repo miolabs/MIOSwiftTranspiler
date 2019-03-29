@@ -12,7 +12,7 @@ if(fromStep <= 1) execSync(`node ${__dirname}/step1.js`, {stdio: [0, 1, 2]})
 if(fromStep <= 2) execSync(`node ${__dirname}/step2.js`, {stdio: [0, 1, 2]})
 if(fromStep <= 3) execSync(`node ${__dirname}/step3.js`, {stdio: [0, 1, 2]})
 
-execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/../build-bodies/generate-std-lib.swift`, {stdio: [0, 1, 2]})
+execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/../build-bodies/generate-std-lib.swift`, {stdio: [0, 1, 2]})
 
 replaceInFile(`${__dirname}/../Swift/_HeapObject.ts`, contents => '//' + contents)
 replaceInFile(`${__dirname}/../Swift/_MaxBuiltinFloatType.ts`, contents => '//' + contents)
@@ -21,7 +21,7 @@ replaceInFile(`${__dirname}/../Swift/typeAliases.ts`, contents => (
         .replace('ClassHolder.AccessRecord = UnsafeValueBuffer', '//ClassHolder.AccessRecord = UnsafeValueBuffer')
 ))
 
-execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/../build-bodies/generate-imported-module.swift`, {stdio: [0, 1, 2]})
+execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/../build-bodies/generate-imported-module.swift`, {stdio: [0, 1, 2]})
 
 execSync(`node ${__dirname}/../../test/test.js output-lib`, {stdio: [0, 1, 2]})
 try{

@@ -6,7 +6,7 @@ function transpile(contents, ignoreErrors) {
     if(fs.existsSync(`${__dirname}/gowno.txt`)) fs.unlinkSync(`${__dirname}/gowno.txt`)
     let transpiled
     try{
-        transpiled = execSync(`/Users/bubulkowanorka/projects/swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -Xfrontend -disable-access-control -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/body.swift'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', fs.openSync(`${__dirname}/gowno.txt`, 'a+')]})
+        transpiled = execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -Xfrontend -disable-access-control -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks '${__dirname}/body.swift'`, {encoding: 'utf8', stdio: ['pipe', 'pipe', fs.openSync(`${__dirname}/gowno.txt`, 'a+')]})
     }catch(err){
         if(ignoreErrors) transpiled = err.stdout
         else throw err
