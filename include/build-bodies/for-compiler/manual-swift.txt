@@ -215,7 +215,7 @@ return result
 let _this = this;
 return Int.infix_43({}, _this, n)
 ----Swift.(file).abs(_:T)
-return (x.constructor.infix_60({}, x, _create(x.constructor, 'initIntegerLiteral', {}, 0)) ? x.constructor.prefix_45({}, x) : x)
+return (x.constructor.infix_60({}, x, 0) ? x.constructor.prefix_45({}, x) : x)
 ----Swift.(file).Int.distance(to:Int)
 let _this = this;
 return Int.infix_45({}, other, _this)
@@ -279,9 +279,9 @@ preconditionFileLine({}, () => (_.arg0 = expression1({}, )).constructor.infix_60
 ----XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => (_.arg0 = expression1({}, )).constructor.infix_60_61({}, _.arg0, expression2({}, )), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, expression({}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
+preconditionFileLine({}, () => Optional.wrappedEqualsOptionalNilComparisonType({}, expression({}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)
-preconditionFileLine({}, () => Optional.wrappedNotEqualsOptionalNilComparisonType({}, expression({}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}, {})), () => message({}, ), '?3', '?3')
+preconditionFileLine({}, () => Optional.wrappedNotEqualsOptionalNilComparisonType({}, expression({}, ), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {})), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)
 preconditionFileLine({}, () => Bool.infix_61_61({}, expression({}, ), true), () => message({}, ), '?3', '?3')
 ----XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)
