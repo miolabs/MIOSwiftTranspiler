@@ -170,14 +170,14 @@ catch (e) {
 } }
 //legacy for _.tmp = ...
 var _ = {};
+function 
 /*Swift.(file).min(_:T,_:T)*/
-/*Swift.(file).min(_:T,_:T)*/
-function min(x, y, $info) {
+min(x, y, $info) {
     return ((_.arg0 = y).constructor.infix_60(_.arg0, x, {}) ? y : x);
 }
+function 
 /*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
-/*Swift.(file).min(_:T,_:T,_:T,_:[T])*/
-function minMany(x, y, z, rest, $info) {
+minMany(x, y, z, rest, $info) {
     var minValue = min(min(x, y, {}), z, {});
     {
         var $value$generator_1 = _cloneStruct(rest.makeIterator({}));
@@ -193,14 +193,14 @@ function minMany(x, y, z, rest, $info) {
     ;
     return minValue;
 }
+function 
 /*Swift.(file).max(_:T,_:T)*/
-/*Swift.(file).max(_:T,_:T)*/
-function max(x, y, $info) {
+max(x, y, $info) {
     return ((_.arg0 = y).constructor.infix_62_61(_.arg0, x, {}) ? y : x);
 }
+function 
 /*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
-/*Swift.(file).max(_:T,_:T,_:T,_:[T])*/
-function maxMany(x, y, z, rest, $info) {
+maxMany(x, y, z, rest, $info) {
     var maxValue = max(max(x, y, {}), z, {});
     {
         var $value$generator_2 = _cloneStruct(rest.makeIterator({}));
@@ -216,112 +216,121 @@ function maxMany(x, y, z, rest, $info) {
     ;
     return maxValue;
 }
+function 
 /*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-/*Swift.(file).assert(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-function assertFileLine(condition, message, file, line, $info) {
+assertFileLine(condition, message, file, line, $info) {
     if ((Bool.prefix_33(condition({}), {}))) {
     }
 }
+function 
 /*Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-/*Swift.(file).precondition(_:() -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-function preconditionFileLine(condition, message, file, line, $info) {
+preconditionFileLine(condition, message, file, line, $info) {
     if ((Bool.prefix_33(condition({}), {}))) {
         assertionFailureFileLine(function () { return message({}); }, '?3', '?3', {});
     }
 }
+function 
 /*Swift.(file).assertionFailure(_:() -> String,file:StaticString,line:UInt)*/
-/*Swift.(file).assertionFailure(_:() -> String,file:StaticString,line:UInt)*/
-function assertionFailureFileLine(message, file, line, $info) {
+assertionFailureFileLine(message, file, line, $info) {
     throw message({});
 }
+function 
 /*Swift.(file).preconditionFailure(_:() -> String,file:StaticString,line:UInt)*/
-/*Swift.(file).preconditionFailure(_:() -> String,file:StaticString,line:UInt)*/
-function preconditionFailureFileLine(message, file, line, $info) {
+preconditionFailureFileLine(message, file, line, $info) {
     throw 'unsupported method Swift.(file).preconditionFailure(_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).fatalError(_:() -> String,file:StaticString,line:UInt)*/
-/*Swift.(file).fatalError(_:() -> String,file:StaticString,line:UInt)*/
-function fatalErrorFileLine(message, file, line, $info) {
+fatalErrorFileLine(message, file, line, $info) {
     throw 'unsupported method Swift.(file).fatalError(_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).unsafeBitCast(_:T,to:U.Type)*/
-/*Swift.(file).unsafeBitCast(_:T,to:U.Type)*/
-function unsafeBitCastTo(x, type, $info) {
+unsafeBitCastTo(x, type, $info) {
     throw 'unsupported method Swift.(file).unsafeBitCast(_:T,to:U.Type) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).unsafeDowncast(_:AnyObject,to:T.Type)*/
-/*Swift.(file).unsafeDowncast(_:AnyObject,to:T.Type)*/
-function unsafeDowncastTo(x, type, $info) {
+unsafeDowncastTo(x, type, $info) {
     throw 'unsupported method Swift.(file).unsafeDowncast(_:AnyObject,to:T.Type) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).getSwiftClassInstanceExtents(_:AnyClass)*/
-/*Swift.(file).getSwiftClassInstanceExtents(_:AnyClass)*/
-function getSwiftClassInstanceExtents(theClass, $info) {
+getSwiftClassInstanceExtents(theClass, $info) {
     throw 'unsupported method Swift.(file).getSwiftClassInstanceExtents(_:AnyClass) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).getObjCClassInstanceExtents(_:AnyClass)*/
-/*Swift.(file).getObjCClassInstanceExtents(_:AnyClass)*/
-function getObjCClassInstanceExtents(theClass, $info) {
+getObjCClassInstanceExtents(theClass, $info) {
     throw 'unsupported method Swift.(file).getObjCClassInstanceExtents(_:AnyClass) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).type(of:T)*/
-/*Swift.(file).type(of:T)*/
-function typeOf(value, $info) {
+typeOf(value, $info) {
     throw 'unsupported method Swift.(file).type(of:T) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).withoutActuallyEscaping(_:ClosureType,do:(ClosureType) throws -> ResultType)*/
-/*Swift.(file).withoutActuallyEscaping(_:ClosureType,do:(ClosureType) throws -> ResultType)*/
-function withoutActuallyEscapingDo(closure, body, $info) {
+withoutActuallyEscapingDo(closure, body, $info) {
     throw 'unsupported method Swift.(file).withoutActuallyEscaping(_:ClosureType,do:(ClosureType) throws -> ResultType) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).+=infix(_:_ContiguousArrayBuffer<Element>,_:C)*/
-/*Swift.(file).+=infix(_:_ContiguousArrayBuffer<Element>,_:C)*/
-function infix_43_61(lhs$inout, rhs, $info) {
+infix_43_61(lhs$inout, rhs, $info) {
     var lhs = lhs$inout.get();
     var $result = (function () {
         var oldCount = lhs.count;
@@ -348,9 +357,9 @@ function infix_43_61(lhs$inout, rhs, $info) {
     lhs$inout.set(lhs);
     return $result;
 }
+function 
 /*Swift.(file).dump(_:T,to:TargetStream,name:String?,indent:Int,maxDepth:Int,maxItems:Int)*/
-/*Swift.(file).dump(_:T,to:TargetStream,name:String?,indent:Int,maxDepth:Int,maxItems:Int)*/
-function dumpToNameIndentMaxDepthMaxItems(value, target$inout, _name, indent, maxDepth, maxItems, $info) {
+dumpToNameIndentMaxDepthMaxItems(value, target$inout, _name, indent, maxDepth, maxItems, $info) {
     var target = target$inout.get();
     var $result = (function () {
         var maxItemCounter = maxItems;
@@ -376,15 +385,15 @@ function dumpToNameIndentMaxDepthMaxItems(value, target$inout, _name, indent, ma
     target$inout.set(target);
     return $result;
 }
+function 
 /*Swift.(file).dump(_:T,name:String?,indent:Int,maxDepth:Int,maxItems:Int)*/
-/*Swift.(file).dump(_:T,name:String?,indent:Int,maxDepth:Int,maxItems:Int)*/
-function dumpNameIndentMaxDepthMaxItems(value, _name, indent, maxDepth, maxItems, $info) {
+dumpNameIndentMaxDepthMaxItems(value, _name, indent, maxDepth, maxItems, $info) {
     var stdoutStream = _create(_Stdout, 'init', {});
     return dumpToNameIndentMaxDepthMaxItems(value, { get: function () { return stdoutStream; }, set: function ($val) { return stdoutStream = $val; } }, _name, indent, maxDepth, maxItems, {});
 }
+function 
 /*Swift.(file).===infix(_:AnyObject?,_:AnyObject?)*/
-/*Swift.(file).===infix(_:AnyObject?,_:AnyObject?)*/
-function infix_61_61_61(lhs, rhs, $info) {
+infix_61_61_61(lhs, rhs, $info) {
     var $match = { 0: lhs, 1: rhs };
     if ((($match[0].rawValue == 'some' && $match[1].rawValue == 'some'))) {
         var l = $match[0][0];
@@ -398,39 +407,40 @@ function infix_61_61_61(lhs, rhs, $info) {
         return false;
     }
 }
+function 
 /*Swift.(file).!==infix(_:AnyObject?,_:AnyObject?)*/
-/*Swift.(file).!==infix(_:AnyObject?,_:AnyObject?)*/
-function infix_33_61_61(lhs, rhs, $info) {
+infix_33_61_61(lhs, rhs, $info) {
     return Bool.prefix_33(infix_61_61_61(lhs, rhs, {}), {});
 }
+function 
 /*Swift.(file).Hashable_isEqual_indirect(_:UnsafePointer<T>,_:UnsafePointer<T>)*/
-/*Swift.(file).Hashable_isEqual_indirect(_:UnsafePointer<T>,_:UnsafePointer<T>)*/
-function Hashable_isEqual_indirect(lhs, rhs, $info) {
+Hashable_isEqual_indirect(lhs, rhs, $info) {
     return (_.arg0 = lhs.pointee).constructor.infix_61_61(_.arg0, rhs.pointee, {});
 }
+function 
 /*Swift.(file).Hashable_hashValue_indirect(_:UnsafePointer<T>)*/
-/*Swift.(file).Hashable_hashValue_indirect(_:UnsafePointer<T>)*/
-function Hashable_hashValue_indirect(value, $info) {
+Hashable_hashValue_indirect(value, $info) {
     return value.pointee.hashValue;
 }
+function 
 /*Swift.(file).readLine(strippingNewline:Bool)*/
-/*Swift.(file).readLine(strippingNewline:Bool)*/
-function readLineStrippingNewline(strippingNewline, $info) {
+readLineStrippingNewline(strippingNewline, $info) {
     throw 'unsupported method Swift.(file).readLine(strippingNewline:Bool) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).abs(_:T)*/
-/*Swift.(file).abs(_:T)*/
-function abs(x, $info) {
+abs(x, $info) {
     return (x.constructor.infix_60(x, 0, {}) ? x.constructor.prefix_45(x, {}) : x);
 }
+function 
 /*Swift.(file).numericCast(_:T)*/
-/*Swift.(file).numericCast(_:T)*/
-function numericCast(x, $info) {
+numericCast(x, $info) {
     return _create($info.U, 'initT', x, {});
 }
+function 
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
-/*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
-function withExtendedLifetime(x, body, $info) {
+/*!!!DUPLICATE NAME*/
+withExtendedLifetime(x, body, $info) {
     var $defer = function () {
         _fixLifetime(x, {});
     };
@@ -447,9 +457,10 @@ function withExtendedLifetime(x, body, $info) {
     $defer({});
     return $result;
 }
+function 
 /*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
-/*Swift.(file).withExtendedLifetime(_:T,_:(T) throws -> Result)*/
-function withExtendedLifetime(x, body, $info) {
+/*!!!DUPLICATE NAME*/
+withExtendedLifetime(x, body, $info) {
     var $defer = function () {
         _fixLifetime(x, {});
     };
@@ -466,24 +477,25 @@ function withExtendedLifetime(x, body, $info) {
     $defer({});
     return $result;
 }
+function 
 /*Swift.(file).withUnsafeMutablePointer(to:T,_:(UnsafeMutablePointer<T>) throws -> Result)*/
-/*Swift.(file).withUnsafeMutablePointer(to:T,_:(UnsafeMutablePointer<T>) throws -> Result)*/
-function withUnsafeMutablePointerTo(value$inout, body, $info) {
+withUnsafeMutablePointerTo(value$inout, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafeMutablePointer(to:T,_:(UnsafeMutablePointer<T>) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result)*/
-/*Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result)*/
-function withUnsafePointerTo(value$inout, body, $info) {
+withUnsafePointerTo(value$inout, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result)*/
-/*Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result)*/
-function withUnsafePointerTo(value$inout, body, $info) {
+withUnsafePointerTo(value$inout, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafePointer(to:T,_:(UnsafePointer<T>) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).isKnownUniquelyReferenced(_:T?)*/
-/*Swift.(file).isKnownUniquelyReferenced(_:T?)*/
-function isKnownUniquelyReferenced(object$inout, $info) {
+/*!!!DUPLICATE NAME*/
+isKnownUniquelyReferenced(object$inout, $info) {
     var object = object$inout.get();
     var $result = (function () {
         return _isUnique({ get: function () { return object; }, set: function ($val) { return object = $val; } }, {});
@@ -491,9 +503,10 @@ function isKnownUniquelyReferenced(object$inout, $info) {
     object$inout.set(object);
     return $result;
 }
+function 
 /*Swift.(file).isKnownUniquelyReferenced(_:T?)*/
-/*Swift.(file).isKnownUniquelyReferenced(_:T?)*/
-function isKnownUniquelyReferenced(object$inout, $info) {
+/*!!!DUPLICATE NAME*/
+isKnownUniquelyReferenced(object$inout, $info) {
     var object = object$inout.get();
     var $result = (function () {
         return _isUnique({ get: function () { return object; }, set: function ($val) { return object = $val; } }, {});
@@ -501,9 +514,9 @@ function isKnownUniquelyReferenced(object$inout, $info) {
     object$inout.set(object);
     return $result;
 }
+function 
 /*Swift.(file).swap(_:T,_:T)*/
-/*Swift.(file).swap(_:T,_:T)*/
-function swap(a$inout, b$inout, $info) {
+swap(a$inout, b$inout, $info) {
     var a = a$inout.get();
     var b = b$inout.get();
     var $result = (function () {
@@ -515,19 +528,19 @@ function swap(a$inout, b$inout, $info) {
     b$inout.set(b);
     return $result;
 }
+function 
 /*Swift.(file).KEY_TYPE_OF_DICTIONARY_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type)*/
-/*Swift.(file).KEY_TYPE_OF_DICTIONARY_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type)*/
-function KEY_TYPE_OF_DICTIONARY_VIOLATES_HASHABLE_REQUIREMENTS(keyType, $info) {
+KEY_TYPE_OF_DICTIONARY_VIOLATES_HASHABLE_REQUIREMENTS(keyType, $info) {
     throw 'unsupported method Swift.(file).KEY_TYPE_OF_DICTIONARY_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type)*/
-/*Swift.(file).ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type)*/
-function ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS(elementType, $info) {
+ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS(elementType, $info) {
     throw 'unsupported method Swift.(file).ELEMENT_TYPE_OF_SET_VIOLATES_HASHABLE_REQUIREMENTS(_:Any.Type) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).??infix(_:T?,_:() throws -> T)*/
-/*Swift.(file).??infix(_:T?,_:() throws -> T)*/
-function infix_63_63(optional, defaultValue, $info) {
+infix_63_63(optional, defaultValue, $info) {
     var $match = optional;
     if ((($match.rawValue == Optional.some().rawValue))) {
         var value = $match[0];
@@ -537,9 +550,9 @@ function infix_63_63(optional, defaultValue, $info) {
         return defaultValue({});
     }
 }
+function 
 /*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
-/*Swift.(file).??infix(_:T?,_:() throws -> T?)*/
-function nilCoalescingOptional(optional, defaultValue, $info) {
+nilCoalescingOptional(optional, defaultValue, $info) {
     var $match = optional;
     if ((($match.rawValue == Optional.some().rawValue))) {
         var value = $match[0];
@@ -549,19 +562,19 @@ function nilCoalescingOptional(optional, defaultValue, $info) {
         return defaultValue({});
     }
 }
+function 
 /*Swift.(file).~=infix(_:T,_:T)*/
-/*Swift.(file).~=infix(_:T,_:T)*/
-function infix_126_61(a, b, $info) {
+infix_126_61(a, b, $info) {
     return (_.arg0 = a).constructor.infix_61_61(_.arg0, b, {});
 }
+function 
 /*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
-/*Swift.(file).print(_:[Any],separator:String,terminator:String)*/
-function printSeparatorTerminator(items, separator, terminator, $info) {
+printSeparatorTerminator(items, separator, terminator, $info) {
     console.log.apply(null, items);
 }
+function 
 /*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)*/
-/*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String)*/
-function debugPrintSeparatorTerminator(items, separator, terminator, $info) {
+debugPrintSeparatorTerminator(items, separator, terminator, $info) {
     var $ifLet0, hook_1;
     if ((($ifLet0 = _playgroundPrintHook) || true) && $ifLet0.rawValue == 'some' && ((hook_1 = $ifLet0[0]) || true)) {
         var output_1 = _create(_TeeStream, 'initLeftRight', "", _create(_Stdout, 'init', {}), {});
@@ -573,9 +586,9 @@ function debugPrintSeparatorTerminator(items, separator, terminator, $info) {
         _debugPrintSeparatorTerminatorTo(items, separator, terminator, { get: function () { return output_2; }, set: function ($val) { return output_2 = $val; } }, {});
     }
 }
+function 
 /*Swift.(file).print(_:[Any],separator:String,terminator:String,to:Target)*/
-/*Swift.(file).print(_:[Any],separator:String,terminator:String,to:Target)*/
-function printSeparatorTerminatorTo(items, separator, terminator, output$inout, $info) {
+printSeparatorTerminatorTo(items, separator, terminator, output$inout, $info) {
     var output = output$inout.get();
     var $result = (function () {
         _printSeparatorTerminatorTo(items, separator, terminator, { get: function () { return output; }, set: function ($val) { return output = $val; } }, {});
@@ -583,9 +596,9 @@ function printSeparatorTerminatorTo(items, separator, terminator, output$inout, 
     output$inout.set(output);
     return $result;
 }
+function 
 /*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String,to:Target)*/
-/*Swift.(file).debugPrint(_:[Any],separator:String,terminator:String,to:Target)*/
-function debugPrintSeparatorTerminatorTo(items, separator, terminator, output$inout, $info) {
+debugPrintSeparatorTerminatorTo(items, separator, terminator, output$inout, $info) {
     var output = output$inout.get();
     var $result = (function () {
         _debugPrintSeparatorTerminatorTo(items, separator, terminator, { get: function () { return output; }, set: function ($val) { return output = $val; } }, {});
@@ -593,9 +606,9 @@ function debugPrintSeparatorTerminatorTo(items, separator, terminator, output$in
     output$inout.set(output);
     return $result;
 }
+function 
 /*Swift.(file).getChild(of:T,type:Any.Type,index:Int)*/
-/*Swift.(file).getChild(of:T,type:Any.Type,index:Int)*/
-function getChildOfTypeIndex(value, type, index, $info) {
+getChildOfTypeIndex(value, type, index, $info) {
     var nameC = Optional.none;
     var freeFunc = Optional.none;
     var value = _cloneStruct(_getChildOfTypeIndexOutNameOutFreeFunc(value, type, index, /**/ { get: function () { return nameC; }, set: function ($val) { return nameC = $val; } }, /**/ { get: function () { return freeFunc; }, set: function ($val) { return freeFunc = $val; } }, {}));
@@ -603,34 +616,34 @@ function getChildOfTypeIndex(value, type, index, $info) {
     _injectIntoOptional(((_.tmp0 = freeFunc).rawValue === 'some') ? (_.tmp0[0](nameC, {})) : null);
     return { 0: _name, 1: value };
 }
+function 
 /*Swift.(file).repeatElement(_:T,count:Int)*/
-/*Swift.(file).repeatElement(_:T,count:Int)*/
-function repeatElementCount(_element, n, $info) {
+repeatElementCount(_element, n, $info) {
     return _create(Repeated, 'init_repeatingCountInt', _element, n, {});
 }
+function 
 /*Swift.(file).stride(from:T,to:T,by:T.Stride)*/
-/*Swift.(file).stride(from:T,to:T,by:T.Stride)*/
-function strideFromToBy(start, end, stride, $info) {
+strideFromToBy(start, end, stride, $info) {
     return _create(StrideTo, 'init_startEndStride', start, end, stride, {});
 }
+function 
 /*Swift.(file).stride(from:T,through:T,by:T.Stride)*/
-/*Swift.(file).stride(from:T,through:T,by:T.Stride)*/
-function strideFromThroughBy(start, end, stride, $info) {
+strideFromThroughBy(start, end, stride, $info) {
     return _create(StrideThrough, 'init_startEndStride', start, end, stride, {});
 }
+function 
 /*Swift.(file).unimplemented_utf8_32bit(_:String,file:StaticString,line:UInt)*/
-/*Swift.(file).unimplemented_utf8_32bit(_:String,file:StaticString,line:UInt)*/
-function unimplemented_utf8_32bitFileLine(message, file, line, $info) {
+unimplemented_utf8_32bitFileLine(message, file, line, $info) {
     fatalErrorFileLine(function () { return "32-bit: Unimplemented for UTF-8 support"; }, file, line, {});
 }
+function 
 /*Swift.(file).fastFill(_:UnsafeBufferPointer<UInt8>,_:UnsafeMutableBufferPointer<UInt8>)*/
-/*Swift.(file).fastFill(_:UnsafeBufferPointer<UInt8>,_:UnsafeMutableBufferPointer<UInt8>)*/
-function fastFill(sourceBuffer, outputBuffer, $info) {
+fastFill(sourceBuffer, outputBuffer, $info) {
     throw 'unsupported method Swift.(file).fastFill(_:UnsafeBufferPointer<UInt8>,_:UnsafeMutableBufferPointer<UInt8>) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).copyUTF16Segment(boundedBy:Range<Int>,into:UnsafeMutableBufferPointer<UInt16>,_:(Int) -> (Unicode.Scalar, Int))*/
-/*Swift.(file).copyUTF16Segment(boundedBy:Range<Int>,into:UnsafeMutableBufferPointer<UInt16>,_:(Int) -> (Unicode.Scalar, Int))*/
-function copyUTF16SegmentBoundedByInto(range, outputBuffer, f, $info) {
+copyUTF16SegmentBoundedByInto(range, outputBuffer, f, $info) {
     var readIndex = range.lowerBound;
     var outputWriteIndex = 0;
     var outputCount = outputBuffer.count;
@@ -671,9 +684,9 @@ function copyUTF16SegmentBoundedByInto(range, outputBuffer, f, $info) {
     ;
     return _injectIntoOptional({ 0: Int.infix_45(readIndex, range.lowerBound, {}), 1: outputWriteIndex });
 }
+function 
 /*Swift.(file).transcodeValidUTF16ToUTF8(_:UnsafeBufferPointer<UInt16>,into:UnsafeMutableBufferPointer<UInt8>)*/
-/*Swift.(file).transcodeValidUTF16ToUTF8(_:UnsafeBufferPointer<UInt16>,into:UnsafeMutableBufferPointer<UInt8>)*/
-function transcodeValidUTF16ToUTF8Into(sourceBuffer, outputBuffer, $info) {
+transcodeValidUTF16ToUTF8Into(sourceBuffer, outputBuffer, $info) {
     var readIndex = 0;
     var writeIndex = 0;
     var outputCount = outputBuffer.count;
@@ -711,19 +724,19 @@ function transcodeValidUTF16ToUTF8Into(sourceBuffer, outputBuffer, $info) {
     ;
     return _injectIntoOptional(writeIndex);
 }
+function 
 /*Swift.(file).determineCodeUnitCapacity(_:Int)*/
-/*Swift.(file).determineCodeUnitCapacity(_:Int)*/
-function determineCodeUnitCapacity(desiredCapacity, $info) {
+determineCodeUnitCapacity(desiredCapacity, $info) {
     throw 'unsupported method Swift.(file).determineCodeUnitCapacity(_:Int) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).validateUTF8(_:UnsafeBufferPointer<UInt8>)*/
-/*Swift.(file).validateUTF8(_:UnsafeBufferPointer<UInt8>)*/
-function validateUTF8(buf, $info) {
+validateUTF8(buf, $info) {
     throw 'unsupported method Swift.(file).validateUTF8(_:UnsafeBufferPointer<UInt8>) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).repairUTF8(_:UnsafeBufferPointer<UInt8>,firstKnownBrokenRange:Range<Int>)*/
-/*Swift.(file).repairUTF8(_:UnsafeBufferPointer<UInt8>,firstKnownBrokenRange:Range<Int>)*/
-function repairUTF8FirstKnownBrokenRange(input, firstKnownBrokenRange, $info) {
+repairUTF8FirstKnownBrokenRange(input, firstKnownBrokenRange, $info) {
     var result = _create(_StringGuts, 'init', {});
     var replacementCharacterCount = Unicode.Scalar._replacementCharacter.withUTF8CodeUnits((function ($0, $info) { return $0.count; }), {});
     var brokenRange = _cloneStruct(firstKnownBrokenRange);
@@ -746,19 +759,19 @@ function repairUTF8FirstKnownBrokenRange(input, firstKnownBrokenRange, $info) {
     } while (Int.infix_62(remainingInput.count, 0, {}));
     return _create(String, 'init_StringGuts', result, {});
 }
+function 
 /*Swift.(file).transcode(_:Input,from:InputEncoding.Type,to:OutputEncoding.Type,stoppingOnError:Bool,into:(OutputEncoding.CodeUnit) -> Void)*/
-/*Swift.(file).transcode(_:Input,from:InputEncoding.Type,to:OutputEncoding.Type,stoppingOnError:Bool,into:(OutputEncoding.CodeUnit) -> Void)*/
-function transcodeFromToStoppingOnErrorInto(input, inputEncoding, outputEncoding, stopOnError, processCodeUnit, $info) {
+transcodeFromToStoppingOnErrorInto(input, inputEncoding, outputEncoding, stopOnError, processCodeUnit, $info) {
     throw 'unsupported method Swift.(file).transcode(_:Input,from:InputEncoding.Type,to:OutputEncoding.Type,stoppingOnError:Bool,into:(OutputEncoding.CodeUnit) -> Void) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).transcode(_:InputEncoding.Type,_:OutputEncoding.Type,_:Input,_:(OutputEncoding.CodeUnit) -> Void,stopOnError:Bool)*/
-/*Swift.(file).transcode(_:InputEncoding.Type,_:OutputEncoding.Type,_:Input,_:(OutputEncoding.CodeUnit) -> Void,stopOnError:Bool)*/
-function transcodeStopOnError(inputEncoding, outputEncoding, input, output, stopOnError, $info) {
+transcodeStopOnError(inputEncoding, outputEncoding, input, output, stopOnError, $info) {
     throw 'unsupported method Swift.(file).transcode(_:InputEncoding.Type,_:OutputEncoding.Type,_:Input,_:(OutputEncoding.CodeUnit) -> Void,stopOnError:Bool) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).sequence(first:T,next:(T) -> T?)*/
-/*Swift.(file).sequence(first:T,next:(T) -> T?)*/
-function sequenceFirstNext(first, next, $info) {
+sequenceFirstNext(first, next, $info) {
     return sequenceStateNext({ 0: _injectIntoOptional(first), 1: true }, (function (state$inout, $info) {
         var $match = state;
         if (((true))) {
@@ -778,14 +791,14 @@ function sequenceFirstNext(first, next, $info) {
         ;
     }), {});
 }
+function 
 /*Swift.(file).sequence(state:State,next:(inout State) -> T?)*/
-/*Swift.(file).sequence(state:State,next:(inout State) -> T?)*/
-function sequenceStateNext(state, next, $info) {
+sequenceStateNext(state, next, $info) {
     return _create(UnfoldSequence, 'init_state_nextfunction_type', state, next, {});
 }
+function 
 /*Swift.(file).withVaList(_:[CVarArg],_:(CVaListPointer) -> R)*/
-/*Swift.(file).withVaList(_:[CVarArg],_:(CVaListPointer) -> R)*/
-function withVaList(args, body, $info) {
+withVaList(args, body, $info) {
     var builder = _create(__VaListBuilder, 'init', {});
     {
         var $a$generator_1 = _cloneStruct(args.makeIterator({}));
@@ -799,219 +812,255 @@ function withVaList(args, body, $info) {
     ;
     return _withVaList(builder, body, {});
 }
+function 
 /*Swift.(file).getVaList(_:[CVarArg])*/
-/*Swift.(file).getVaList(_:[CVarArg])*/
-function getVaList(args, $info) {
+getVaList(args, $info) {
     throw 'unsupported method Swift.(file).getVaList(_:[CVarArg]) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).zip(_:Sequence1,_:Sequence2)*/
-/*Swift.(file).zip(_:Sequence1,_:Sequence2)*/
-function zip(sequence1, sequence2, $info) {
+zip(sequence1, sequence2, $info) {
     return _create(Zip2Sequence, 'init', sequence1, sequence2, {});
 }
+function 
 /*Swift.(file).%infix(_:T,_:T)*/
-/*Swift.(file).%infix(_:T,_:T)*/
-function infix_37(lhs, rhs, $info) {
+infix_37(lhs, rhs, $info) {
     return lhs % rhs;
 }
+function 
 /*Swift.(file).%=infix(_:T,_:T)*/
-/*Swift.(file).%=infix(_:T,_:T)*/
-function infix_37_61(lhs$inout, rhs, $info) {
+infix_37_61(lhs$inout, rhs, $info) {
     lhs$inout.set(lhs$inout.get() % rhs);
 }
+function 
 /*Swift.(file).withUnsafeMutableBytes(of:T,_:(UnsafeMutableRawBufferPointer) throws -> Result)*/
-/*Swift.(file).withUnsafeMutableBytes(of:T,_:(UnsafeMutableRawBufferPointer) throws -> Result)*/
-function withUnsafeMutableBytesOf(value$inout, body, $info) {
+withUnsafeMutableBytesOf(value$inout, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafeMutableBytes(of:T,_:(UnsafeMutableRawBufferPointer) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result)*/
-/*Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result)*/
-function withUnsafeBytesOf(value, body, $info) {
+withUnsafeBytesOf(value, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result)*/
-/*Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result)*/
-function withUnsafeBytesOf(value, body, $info) {
+withUnsafeBytesOf(value, body, $info) {
     throw 'unsupported method Swift.(file).withUnsafeBytes(of:T,_:(UnsafeRawBufferPointer) throws -> Result) in ' + this.constructor.name;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
+function 
 /*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).==infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_61_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_61_61(lhs, rhs, $info) {
     return lhs == rhs;
 }
+function 
 /*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).!=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_33_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_33_61(lhs, rhs, $info) {
     return lhs != rhs;
 }
+function 
 /*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60(lhs, rhs, $info) {
     return lhs < rhs;
 }
+function 
 /*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).<=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_60_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_60_61(lhs, rhs, $info) {
     return lhs <= rhs;
 }
+function 
 /*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62(lhs, rhs, $info) {
     return lhs > rhs;
 }
+function 
 /*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-/*Swift.(file).>=infix(_:(A, B, C, D, E, F),_:(A, B, C, D, E, F))*/
-function infix_62_61(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+infix_62_61(lhs, rhs, $info) {
     return lhs >= rhs;
 }
 var _ArrayBody = /** @class */ (function () {
@@ -1456,6 +1505,7 @@ var ExpressibleByIntegerLiteral$implementation = /** @class */ (function () {
     }
     /*Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)*/
     /*Swift.(file).ExpressibleByIntegerLiteral.init(integerLiteral:Self)*/
+    /*!!!DUPLICATE NAME*/
     ExpressibleByIntegerLiteral$implementation.prototype.initIntegerLiteral = function (value, $info) {
         return value;
     };
@@ -1649,46 +1699,37 @@ var _DebuggerSupport = /** @class */ (function () {
     function _DebuggerSupport() {
     }
     /*Swift.(file)._DebuggerSupport.isClass(_:Any)*/
-    /*Swift.(file)._DebuggerSupport.isClass(_:Any)*/
     _DebuggerSupport.isClass = function (value, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.isClass(_:Any) in ' + this.constructor.name;
     };
-    /*Swift.(file)._DebuggerSupport.checkValue(_:Any,ifClass:(AnyObject) -> T,otherwise:() -> T)*/
     /*Swift.(file)._DebuggerSupport.checkValue(_:Any,ifClass:(AnyObject) -> T,otherwise:() -> T)*/
     _DebuggerSupport.checkValueIfClassOtherwise = function (value, ifClass, otherwise, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.checkValue(_:Any,ifClass:(AnyObject) -> T,otherwise:() -> T) in ' + this.constructor.name;
     };
     /*Swift.(file)._DebuggerSupport.asObjectIdentifier(_:Any)*/
-    /*Swift.(file)._DebuggerSupport.asObjectIdentifier(_:Any)*/
     _DebuggerSupport.asObjectIdentifier = function (value, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.asObjectIdentifier(_:Any) in ' + this.constructor.name;
     };
-    /*Swift.(file)._DebuggerSupport.asObjectAddress(_:Any)*/
     /*Swift.(file)._DebuggerSupport.asObjectAddress(_:Any)*/
     _DebuggerSupport.asObjectAddress = function (value, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.asObjectAddress(_:Any) in ' + this.constructor.name;
     };
     /*Swift.(file)._DebuggerSupport.asStringRepresentation(value:Any?,mirror:Mirror,count:Int)*/
-    /*Swift.(file)._DebuggerSupport.asStringRepresentation(value:Any?,mirror:Mirror,count:Int)*/
     _DebuggerSupport.asStringRepresentationValueMirrorCount = function (value, mirror, count, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.asStringRepresentation(value:Any?,mirror:Mirror,count:Int) in ' + this.constructor.name;
     };
-    /*Swift.(file)._DebuggerSupport.ivarCount(mirror:Mirror)*/
     /*Swift.(file)._DebuggerSupport.ivarCount(mirror:Mirror)*/
     _DebuggerSupport.ivarCountMirror = function (mirror, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.ivarCount(mirror:Mirror) in ' + this.constructor.name;
     };
     /*Swift.(file)._DebuggerSupport.shouldExpand(mirror:Mirror,collectionStatus:_DebuggerSupport.CollectionStatus,isRoot:Bool)*/
-    /*Swift.(file)._DebuggerSupport.shouldExpand(mirror:Mirror,collectionStatus:_DebuggerSupport.CollectionStatus,isRoot:Bool)*/
     _DebuggerSupport.shouldExpandMirrorCollectionStatusIsRoot = function (mirror, collectionStatus, isRoot, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.shouldExpand(mirror:Mirror,collectionStatus:_DebuggerSupport.CollectionStatus,isRoot:Bool) in ' + this.constructor.name;
     };
     /*Swift.(file)._DebuggerSupport.printForDebuggerImpl(value:Any?,mirror:Mirror,name:String?,indent:Int,maxDepth:Int,isRoot:Bool,parentCollectionStatus:_DebuggerSupport.CollectionStatus,refsAlreadySeen:Set<ObjectIdentifier>,maxItemCounter:Int,target:StreamType)*/
-    /*Swift.(file)._DebuggerSupport.printForDebuggerImpl(value:Any?,mirror:Mirror,name:String?,indent:Int,maxDepth:Int,isRoot:Bool,parentCollectionStatus:_DebuggerSupport.CollectionStatus,refsAlreadySeen:Set<ObjectIdentifier>,maxItemCounter:Int,target:StreamType)*/
     _DebuggerSupport.printForDebuggerImplValueMirrorNameIndentMaxDepthIsRootParentCollectionStatusRefsAlreadySeenMaxItemCounterTarget = function (value, mirror, _name, indent, maxDepth, isRoot, parentCollectionStatus, refsAlreadySeen$inout, maxItemCounter$inout, target$inout, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.printForDebuggerImpl(value:Any?,mirror:Mirror,name:String?,indent:Int,maxDepth:Int,isRoot:Bool,parentCollectionStatus:_DebuggerSupport.CollectionStatus,refsAlreadySeen:Set<ObjectIdentifier>,maxItemCounter:Int,target:StreamType) in ' + this.constructor.name;
     };
-    /*Swift.(file)._DebuggerSupport.stringForPrintObject(_:Any)*/
     /*Swift.(file)._DebuggerSupport.stringForPrintObject(_:Any)*/
     _DebuggerSupport.stringForPrintObject = function (value, $info) {
         throw 'unsupported method Swift.(file)._DebuggerSupport.stringForPrintObject(_:Any) in ' + this.constructor.name;
@@ -1743,7 +1784,6 @@ var _DebuggerSupport = /** @class */ (function () {
         class_1.prototype.getChildStatusChild = function (child, $info) {
             throw 'unsupported method Swift.(file)._DebuggerSupport.CollectionStatus.getChildStatus(child:Mirror) in ' + this.constructor.name;
         };
-        /*Swift.(file)._DebuggerSupport.CollectionStatus.==(_:_DebuggerSupport.CollectionStatus,_:_DebuggerSupport.CollectionStatus)*/
         /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
         class_1.infix_61_61 = function (a, b, $info) {
             return a == b;
@@ -1802,7 +1842,6 @@ var _DictionaryBuffer$implementation = /** @class */ (function () {
 var Equatable$implementation = /** @class */ (function () {
     function Equatable$implementation() {
     }
-    /*Swift.(file).Equatable.!=infix(_:Self,_:Self)*/
     /*Swift.(file).Equatable.!=infix(_:Self,_:Self)*/
     Equatable$implementation.infix_33_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -1868,7 +1907,6 @@ var FloatingPointClassification = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).FloatingPointClassification.==(_:FloatingPointClassification,_:FloatingPointClassification)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     FloatingPointClassification.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -1926,7 +1964,6 @@ var FloatingPointRoundingRule = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).FloatingPointRoundingRule.==(_:FloatingPointRoundingRule,_:FloatingPointRoundingRule)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     FloatingPointRoundingRule.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -2119,21 +2156,25 @@ var Hasher = /** @class */ (function () {
             };
             /*Swift.(file).Hasher._Core.combine(_:UInt64)*/
             /*Swift.(file).Hasher._Core.combine(_:UInt64)*/
+            /*!!!DUPLICATE NAME*/
             class_3.prototype.combine = function (value, $info) {
                 throw 'unsupported method Swift.(file).Hasher._Core.combine(_:UInt64) in ' + this.constructor.name;
             };
             /*Swift.(file).Hasher._Core.combine(_:UInt32)*/
             /*Swift.(file).Hasher._Core.combine(_:UInt32)*/
+            /*!!!DUPLICATE NAME*/
             class_3.prototype.combine = function (value, $info) {
                 throw 'unsupported method Swift.(file).Hasher._Core.combine(_:UInt32) in ' + this.constructor.name;
             };
             /*Swift.(file).Hasher._Core.combine(_:UInt16)*/
             /*Swift.(file).Hasher._Core.combine(_:UInt16)*/
+            /*!!!DUPLICATE NAME*/
             class_3.prototype.combine = function (value, $info) {
                 throw 'unsupported method Swift.(file).Hasher._Core.combine(_:UInt16) in ' + this.constructor.name;
             };
             /*Swift.(file).Hasher._Core.combine(_:UInt8)*/
             /*Swift.(file).Hasher._Core.combine(_:UInt8)*/
+            /*!!!DUPLICATE NAME*/
             class_3.prototype.combine = function (value, $info) {
                 throw 'unsupported method Swift.(file).Hasher._Core.combine(_:UInt8) in ' + this.constructor.name;
             };
@@ -2356,7 +2397,6 @@ var AdditiveArithmetic$implementation = /** @class */ (function () {
     });
     ;
     /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
-    /*Swift.(file).AdditiveArithmetic.+prefix(_:Self)*/
     AdditiveArithmetic$implementation.prefix_43 = function (x, $info) {
         return +x;
     };
@@ -2376,7 +2416,6 @@ if (typeof ExpressibleByIntegerLiteral$implementation != 'undefined')
 var SignedNumeric$implementation = /** @class */ (function () {
     function SignedNumeric$implementation() {
     }
-    /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     SignedNumeric$implementation.prefix_45 = function (operand, $info) {
         return -operand;
@@ -2408,7 +2447,6 @@ var KeyPathKind = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathKind.==(_:KeyPathKind,_:KeyPathKind)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathKind.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -2471,7 +2509,6 @@ var KeyPathComponentKind = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathComponentKind.==(_:KeyPathComponentKind,_:KeyPathComponentKind)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathComponentKind.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -2519,7 +2556,6 @@ var ComputedPropertyID = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).ComputedPropertyID.==infix(_:ComputedPropertyID,_:ComputedPropertyID)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ComputedPropertyID.infix_61_61 = function (x, y, $info) {
         return x == y;
@@ -2627,7 +2663,6 @@ var KeyPathComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathComponent.==infix(_:KeyPathComponent,_:KeyPathComponent)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathComponent.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -2893,7 +2928,6 @@ var KeyPathComputedIDKind = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathComputedIDKind.==(_:KeyPathComputedIDKind,_:KeyPathComputedIDKind)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathComputedIDKind.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -2936,7 +2970,6 @@ var KeyPathComputedIDResolution = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathComputedIDResolution.==(_:KeyPathComputedIDResolution,_:KeyPathComputedIDResolution)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathComputedIDResolution.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -3723,42 +3756,49 @@ var _AppendKeyPath$implementation = /** @class */ (function () {
     };
     /*Swift.(file)._AppendKeyPath.appending(path:KeyPath<AppendedRoot, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:KeyPath<AppendedRoot, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _tryToAppendKeyPathsRootLeaf(/*derived_to_base_expr*/ _this, /*derived_to_base_expr*/ path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<AppendedRoot, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<AppendedRoot, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _tryToAppendKeyPathsRootLeaf(/*derived_to_base_expr*/ _this, /*derived_to_base_expr*/ path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:KeyPath<Value, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:KeyPath<Value, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _appendingKeyPathsRootLeaf(/*archetype_to_super_expr*/ _this, path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<Value, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<Value, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _appendingKeyPathsRootLeaf(_this, /*derived_to_base_expr*/ path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:WritableKeyPath<Value, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:WritableKeyPath<Value, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _appendingKeyPathsRootLeaf(/*derived_to_base_expr*/ _this, /*derived_to_base_expr*/ path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<Value, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:ReferenceWritableKeyPath<Value, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _appendingKeyPathsRootLeaf(_this, /*derived_to_base_expr*/ path, {});
     };
     /*Swift.(file)._AppendKeyPath.appending(path:WritableKeyPath<Value, AppendedValue>)*/
     /*Swift.(file)._AppendKeyPath.appending(path:WritableKeyPath<Value, AppendedValue>)*/
+    /*!!!DUPLICATE NAME*/
     _AppendKeyPath$implementation.prototype.appendingPath = function (path, $info) {
         var _this = this;
         return _appendingKeyPathsRootLeaf(/*derived_to_base_expr*/ _this, /*derived_to_base_expr*/ path, {});
@@ -3778,7 +3818,6 @@ var KeyPathStructOrClass = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).KeyPathStructOrClass.==(_:KeyPathStructOrClass,_:KeyPathStructOrClass)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     KeyPathStructOrClass.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -4237,7 +4276,6 @@ var ManagedBuffer = /** @class */ (function () {
         throw 'unsupported method Swift.(file).ManagedBuffer.init(_doNotCallMe:()) in ' + this.constructor.name;
     };
     /*Swift.(file).ManagedBuffer.create(minimumCapacity:Int,makingHeaderWith:(ManagedBuffer<Header, Element>) throws -> Header)*/
-    /*Swift.(file).ManagedBuffer.create(minimumCapacity:Int,makingHeaderWith:(ManagedBuffer<Header, Element>) throws -> Header)*/
     ManagedBuffer.createMinimumCapacityMakingHeaderWith = function (minimumCapacity, factory, $info) {
         throw 'unsupported method Swift.(file).ManagedBuffer.create(minimumCapacity:Int,makingHeaderWith:(ManagedBuffer<Header, Element>) throws -> Header) in ' + this.constructor.name;
     };
@@ -4469,7 +4507,6 @@ var ManagedBufferPointer = /** @class */ (function () {
         var _this = this;
         return _isUnique({ get: function () { return _this._nativeBuffer; }, set: function ($val) { return _this._nativeBuffer = $val; } }, {});
     };
-    /*Swift.(file).ManagedBufferPointer.==infix(_:ManagedBufferPointer<Header, Element>,_:ManagedBufferPointer<Header, Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ManagedBufferPointer.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -4516,24 +4553,20 @@ var MemoryLayout = /** @class */ (function () {
     });
     ;
     /*Swift.(file).MemoryLayout.size(ofValue:T)*/
-    /*Swift.(file).MemoryLayout.size(ofValue:T)*/
     MemoryLayout.sizeOfValue = function (value, $info) {
         var _this = this;
         return MemoryLayout.size;
     };
-    /*Swift.(file).MemoryLayout.stride(ofValue:T)*/
     /*Swift.(file).MemoryLayout.stride(ofValue:T)*/
     MemoryLayout.strideOfValue = function (value, $info) {
         var _this = this;
         return MemoryLayout.stride;
     };
     /*Swift.(file).MemoryLayout.alignment(ofValue:T)*/
-    /*Swift.(file).MemoryLayout.alignment(ofValue:T)*/
     MemoryLayout.alignmentOfValue = function (value, $info) {
         var _this = this;
         return MemoryLayout.alignment;
     };
-    /*Swift.(file).MemoryLayout.offset(of:PartialKeyPath<T>)*/
     /*Swift.(file).MemoryLayout.offset(of:PartialKeyPath<T>)*/
     MemoryLayout.offsetOf = function (key, $info) {
         var _this = this;
@@ -4741,7 +4774,6 @@ var RangeExpression$implementation = /** @class */ (function () {
     function RangeExpression$implementation() {
     }
     /*Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)*/
-    /*Swift.(file).RangeExpression.~=infix(_:Self,_:Self.Bound)*/
     RangeExpression$implementation.infix_126_61 = function (pattern, value, $info) {
         var _this = this;
         return pattern.contains(value, {});
@@ -4751,7 +4783,6 @@ var RangeExpression$implementation = /** @class */ (function () {
 var UnboundedRange_ = /** @class */ (function () {
     function UnboundedRange_() {
     }
-    /*Swift.(file).UnboundedRange_....postfix(_:UnboundedRange_)*/
     /*Swift.(file).UnboundedRange_....postfix(_:UnboundedRange_)*/
     UnboundedRange_.postfix_46_46_46 = function (_, $info) {
         /*return _...*/
@@ -4853,7 +4884,6 @@ var Result = /** @class */ (function () {
         ;
         return;
     };
-    /*Swift.(file).Result.==(_:Result<Success, Failure>,_:Result<Success, Failure>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Result.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -4926,36 +4956,29 @@ var _RuntimeFunctionCounters = /** @class */ (function () {
     });
     ;
     /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNames()*/
-    /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNames()*/
     _RuntimeFunctionCounters.getRuntimeFunctionNames = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNames() in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionCountersOffsets()*/
     /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionCountersOffsets()*/
     _RuntimeFunctionCounters.getRuntimeFunctionCountersOffsets = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionCountersOffsets() in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.getNumRuntimeFunctionCounters()*/
-    /*Swift.(file)._RuntimeFunctionCounters.getNumRuntimeFunctionCounters()*/
     _RuntimeFunctionCounters.getNumRuntimeFunctionCounters = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getNumRuntimeFunctionCounters() in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.dumpObjectsRuntimeFunctionPointers()*/
     /*Swift.(file)._RuntimeFunctionCounters.dumpObjectsRuntimeFunctionPointers()*/
     _RuntimeFunctionCounters.dumpObjectsRuntimeFunctionPointers = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.dumpObjectsRuntimeFunctionPointers() in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersUpdateHandler(handler:_RuntimeFunctionCounters.RuntimeFunctionCountersUpdateHandler?)*/
-    /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersUpdateHandler(handler:_RuntimeFunctionCounters.RuntimeFunctionCountersUpdateHandler?)*/
     _RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersUpdateHandlerHandler = function (handler, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersUpdateHandler(handler:_RuntimeFunctionCounters.RuntimeFunctionCountersUpdateHandler?) in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.collectAllReferencesInsideObject(_:Any)*/
-    /*Swift.(file)._RuntimeFunctionCounters.collectAllReferencesInsideObject(_:Any)*/
     _RuntimeFunctionCounters.collectAllReferencesInsideObject = function (value, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.collectAllReferencesInsideObject(_:Any) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNameToIndex()*/
     /*Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNameToIndex()*/
     _RuntimeFunctionCounters.getRuntimeFunctionNameToIndex = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getRuntimeFunctionNameToIndex() in ' + this.constructor.name;
@@ -4966,41 +4989,33 @@ var _RuntimeFunctionCounters = /** @class */ (function () {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.init() in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.getObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState)*/
-    /*Swift.(file)._RuntimeFunctionCounters.getObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState)*/
     _RuntimeFunctionCounters.getObjectRuntimeFunctionCounters = function (object, result$inout, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.getGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState)*/
     /*Swift.(file)._RuntimeFunctionCounters.getGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState)*/
     _RuntimeFunctionCounters.getGlobalRuntimeFunctionCounters = function (result$inout, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.getGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState) in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState)*/
-    /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState)*/
     _RuntimeFunctionCounters.setGlobalRuntimeFunctionCounters = function (state$inout, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCounters(_:_RuntimeFunctionCountersState) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.setObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState)*/
     /*Swift.(file)._RuntimeFunctionCounters.setObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState)*/
     _RuntimeFunctionCounters.setObjectRuntimeFunctionCounters = function (object, state$inout, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.setObjectRuntimeFunctionCounters(_:UnsafeRawPointer,_:_RuntimeFunctionCountersState) in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersMode(enable:Bool)*/
-    /*Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersMode(enable:Bool)*/
     _RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersModeEnable = function (enable, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.setGlobalRuntimeFunctionCountersMode(enable:Bool) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.setPerObjectRuntimeFunctionCountersMode(enable:Bool)*/
     /*Swift.(file)._RuntimeFunctionCounters.setPerObjectRuntimeFunctionCountersMode(enable:Bool)*/
     _RuntimeFunctionCounters.setPerObjectRuntimeFunctionCountersModeEnable = function (enable, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.setPerObjectRuntimeFunctionCountersMode(enable:Bool) in ' + this.constructor.name;
     };
     /*Swift.(file)._RuntimeFunctionCounters.enableRuntimeFunctionCountersUpdates(mode:(globalMode: Bool, perObjectMode: Bool))*/
-    /*Swift.(file)._RuntimeFunctionCounters.enableRuntimeFunctionCountersUpdates(mode:(globalMode: Bool, perObjectMode: Bool))*/
     _RuntimeFunctionCounters.enableRuntimeFunctionCountersUpdatesMode = function (mode, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.enableRuntimeFunctionCountersUpdates(mode:(globalMode: Bool, perObjectMode: Bool)) in ' + this.constructor.name;
     };
-    /*Swift.(file)._RuntimeFunctionCounters.disableRuntimeFunctionCountersUpdates()*/
     /*Swift.(file)._RuntimeFunctionCounters.disableRuntimeFunctionCountersUpdates()*/
     _RuntimeFunctionCounters.disableRuntimeFunctionCountersUpdates = function ($info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCounters.disableRuntimeFunctionCountersUpdates() in ' + this.constructor.name;
@@ -5076,10 +5091,12 @@ var _RuntimeFunctionCountersState = /** @class */ (function () {
     };
     /*Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _RuntimeFunctionCountersState.prototype.subscript$get = function (index, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     }; /*Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _RuntimeFunctionCountersState.prototype.subscript$set = function (newValue, index, $info) {
         throw 'unsupported method Swift.(file)._RuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     };
@@ -5139,10 +5156,12 @@ var _GlobalRuntimeFunctionCountersState = /** @class */ (function () {
     };
     /*Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _GlobalRuntimeFunctionCountersState.prototype.subscript$get = function (index, $info) {
         throw 'unsupported method Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     }; /*Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _GlobalRuntimeFunctionCountersState.prototype.subscript$set = function (newValue, index, $info) {
         throw 'unsupported method Swift.(file)._GlobalRuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     };
@@ -5197,10 +5216,12 @@ var _ObjectRuntimeFunctionCountersState = /** @class */ (function () {
     };
     /*Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _ObjectRuntimeFunctionCountersState.prototype.subscript$get = function (index, $info) {
         throw 'unsupported method Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     }; /*Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int)*/
     /*Swift.(file)._RuntimeFunctionCountersStats.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     _ObjectRuntimeFunctionCountersState.prototype.subscript$set = function (newValue, index, $info) {
         throw 'unsupported method Swift.(file)._ObjectRuntimeFunctionCountersState.subscript(_:Int) in ' + this.constructor.name;
     };
@@ -5754,6 +5775,7 @@ var Sequence$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Sequence.joined(separator:String)*/
     /*Swift.(file).Sequence.joined(separator:String)*/
+    /*!!!DUPLICATE NAME*/
     Sequence$implementation.prototype.joinedSeparator = function (separator, $info) {
         var _this = this;
         var result = "";
@@ -5788,19 +5810,19 @@ var Sequence$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
-    /*Swift.(file).Sequence.+infix(_:Self,_:String)*/
     Sequence$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).Sequence.+infix(_:String,_:Self)*/
-    /*Swift.(file).Sequence.+infix(_:String,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     Sequence$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> ElementOfResult?)*/
     /*Swift.(file).Sequence.flatMap(_:(Self.Element) throws -> ElementOfResult?)*/
+    /*!!!DUPLICATE NAME*/
     Sequence$implementation.prototype.flatMap = function (transform, $info) {
         var _this = this;
         return _this._compactMap(transform, {});
@@ -6414,7 +6436,6 @@ var _KnownCocoaString = /** @class */ (function () {
     _KnownCocoaString.prototype.init_CocoaString = function (str, $info) {
         throw 'unsupported method Swift.(file)._KnownCocoaString.init(_:_CocoaString) in ' + this.constructor.name;
     };
-    /*Swift.(file)._KnownCocoaString.==(_:_KnownCocoaString,_:_KnownCocoaString)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     _KnownCocoaString.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -6485,7 +6506,6 @@ var _StringComparisonResult = /** @class */ (function () {
     _StringComparisonResult.prototype.initSignedNotationInt = function (int, $info) {
         throw 'unsupported method Swift.(file)._StringComparisonResult.init(signedNotation:Int) in ' + this.constructor.name;
     };
-    /*Swift.(file)._StringComparisonResult.==infix(_:_StringComparisonResult,_:_StringComparisonResult)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     _StringComparisonResult.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -6989,6 +7009,7 @@ var _StringGuts = /** @class */ (function () {
     };
     /*Swift.(file)._StringGuts.append(_:_StringGutsSlice)*/
     /*Swift.(file)._StringGuts.append(_:_StringGutsSlice)*/
+    /*!!!DUPLICATE NAME*/
     _StringGuts.prototype.append = function (slicedOther, $info) {
         throw 'unsupported method Swift.(file)._StringGuts.append(_:_StringGutsSlice) in ' + this.constructor.name;
     };
@@ -7567,7 +7588,6 @@ var _StringObject = /** @class */ (function () {
         throw 'unsupported method Swift.(file)._StringObject.init(_:_SmallString) in ' + this.constructor.name;
     };
     /*Swift.(file)._StringObject.getSmallCount(fromRaw:UInt64)*/
-    /*Swift.(file)._StringObject.getSmallCount(fromRaw:UInt64)*/
     _StringObject.getSmallCountFromRaw = function (x, $info) {
         var _this = this;
         return _create(Int, 'initTruncatingIfNeeded', UInt64.infix_38_62_62(UInt64.infix_38(x, 0x0F00000000000000, {}), 56, {}), {});
@@ -7583,7 +7603,6 @@ var _StringObject = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file)._StringObject.getSmallIsASCII(fromRaw:UInt64)*/
     /*Swift.(file)._StringObject.getSmallIsASCII(fromRaw:UInt64)*/
     _StringObject.getSmallIsASCIIFromRaw = function (x, $info) {
         var _this = this;
@@ -7872,30 +7891,25 @@ var _StringObject = /** @class */ (function () {
         });
         ;
         /*Swift.(file)._StringObject.Nibbles.small(isASCII:Bool)*/
-        /*Swift.(file)._StringObject.Nibbles.small(isASCII:Bool)*/
         class_11.smallIsASCII = function (isASCII, $info) {
             var _this = this;
             return (isASCII ? 0xE000000000000000 : 0xA000000000000000);
         };
-        /*Swift.(file)._StringObject.Nibbles.small(withCount:Int,isASCII:Bool)*/
         /*Swift.(file)._StringObject.Nibbles.small(withCount:Int,isASCII:Bool)*/
         class_11.smallWithCountIsASCII = function (count, isASCII, $info) {
             var _this = this;
             return UInt64.infix_124(_this.smallIsASCII(isASCII, {}), UInt64.infix_38_60_60(_create(UInt64, 'initTruncatingIfNeeded', count, {}), 56, {}), {});
         };
         /*Swift.(file)._StringObject.Nibbles.largeImmortal()*/
-        /*Swift.(file)._StringObject.Nibbles.largeImmortal()*/
         class_11.largeImmortal = function ($info) {
             var _this = this;
             return 0x8000000000000000;
         };
         /*Swift.(file)._StringObject.Nibbles.largeMortal()*/
-        /*Swift.(file)._StringObject.Nibbles.largeMortal()*/
         class_11.largeMortal = function ($info) {
             var _this = this;
             return 0x0000000000000000;
         };
-        /*Swift.(file)._StringObject.Nibbles.largeCocoa(providesFastUTF8:Bool)*/
         /*Swift.(file)._StringObject.Nibbles.largeCocoa(providesFastUTF8:Bool)*/
         class_11.largeCocoaProvidesFastUTF8 = function (providesFastUTF8, $info) {
             var _this = this;
@@ -8295,7 +8309,6 @@ var _BufferToCopy = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file)._BufferToCopy.==(_:_BufferToCopy,_:_BufferToCopy)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     _BufferToCopy.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -8423,16 +8436,13 @@ var __StringStorage = /** @class */ (function (_super) {
         throw 'unsupported method Swift.(file).__StringStorage.init() in ' + this.constructor.name;
     };
     /*Swift.(file).__StringStorage.create(realCodeUnitCapacity:Int,countAndFlags:CountAndFlags)*/
-    /*Swift.(file).__StringStorage.create(realCodeUnitCapacity:Int,countAndFlags:CountAndFlags)*/
     __StringStorage.createRealCodeUnitCapacityCountAndFlags = function (realCodeUnitCapacity, countAndFlags, $info) {
         throw 'unsupported method Swift.(file).__StringStorage.create(realCodeUnitCapacity:Int,countAndFlags:CountAndFlags) in ' + this.constructor.name;
     };
     /*Swift.(file).__StringStorage.create(capacity:Int,countAndFlags:CountAndFlags)*/
-    /*Swift.(file).__StringStorage.create(capacity:Int,countAndFlags:CountAndFlags)*/
     __StringStorage.createCapacityCountAndFlags = function (capacity, countAndFlags, $info) {
         throw 'unsupported method Swift.(file).__StringStorage.create(capacity:Int,countAndFlags:CountAndFlags) in ' + this.constructor.name;
     };
-    /*Swift.(file).__StringStorage.create(initializingFrom:UnsafeBufferPointer<UInt8>,capacity:Int,isASCII:Bool)*/
     /*Swift.(file).__StringStorage.create(initializingFrom:UnsafeBufferPointer<UInt8>,capacity:Int,isASCII:Bool)*/
     __StringStorage.createInitializingFromCapacityIsASCII = function (bufPtr, capacity, isASCII, $info) {
         var _this = this;
@@ -8443,7 +8453,6 @@ var __StringStorage = /** @class */ (function (_super) {
         storage._invariantCheck({});
         return storage;
     };
-    /*Swift.(file).__StringStorage.create(initializingFrom:UnsafeBufferPointer<UInt8>,isASCII:Bool)*/
     /*Swift.(file).__StringStorage.create(initializingFrom:UnsafeBufferPointer<UInt8>,isASCII:Bool)*/
     __StringStorage.createInitializingFromIsASCII = function (bufPtr, isASCII, $info) {
         var _this = this;
@@ -8558,6 +8567,7 @@ var __StringStorage = /** @class */ (function (_super) {
     };
     /*Swift.(file).__StringStorage.appendInPlace(_:Iter,isASCII:Bool)*/
     /*Swift.(file).__StringStorage.appendInPlace(_:Iter,isASCII:Bool)*/
+    /*!!!DUPLICATE NAME*/
     __StringStorage.prototype.appendInPlaceIsASCII = function (other$inout, isASCII, $info) {
         var _this = this;
         var other = other$inout.get();
@@ -8862,7 +8872,6 @@ var UTF8ExtraInfo = /** @class */ (function () {
     UTF8ExtraInfo.prototype.initIsASCIIBool = function (isASCII, $info) {
         throw 'unsupported method Swift.(file).UTF8ExtraInfo.init(isASCII:Bool) in ' + this.constructor.name;
     };
-    /*Swift.(file).UTF8ExtraInfo.==(_:UTF8ExtraInfo,_:UTF8ExtraInfo)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     UTF8ExtraInfo.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -8879,7 +8888,6 @@ var UTF8ValidationResult = /** @class */ (function () {
     }
     UTF8ValidationResult.success = function () { return Object.assign(new UTF8ValidationResult(), __assign({ rawValue: "success" }, Array.from(arguments))); };
     UTF8ValidationResult.error = function () { return Object.assign(new UTF8ValidationResult(), __assign({ rawValue: "error" }, Array.from(arguments))); };
-    /*Swift.(file).UTF8ValidationResult.==(_:UTF8ValidationResult,_:UTF8ValidationResult)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     UTF8ValidationResult.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -8977,17 +8985,15 @@ var _ThreadLocalStorage = /** @class */ (function () {
         throw 'unsupported method Swift.(file)._ThreadLocalStorage.init(_uBreakIterator:OpaquePointer,_uText:OpaquePointer) in ' + this.constructor.name;
     };
     /*Swift.(file)._ThreadLocalStorage.getPointer()*/
-    /*Swift.(file)._ThreadLocalStorage.getPointer()*/
     _ThreadLocalStorage.getPointer = function ($info) {
         throw 'unsupported method Swift.(file)._ThreadLocalStorage.getPointer() in ' + this.constructor.name;
     };
-    /*Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF16.CodeUnit>)*/
     /*Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF16.CodeUnit>)*/
     _ThreadLocalStorage.getUBreakIterator = function (bufPtr, $info) {
         throw 'unsupported method Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF16.CodeUnit>) in ' + this.constructor.name;
     };
     /*Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF8.CodeUnit>)*/
-    /*Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF8.CodeUnit>)*/
+    /*!!!DUPLICATE NAME*/
     _ThreadLocalStorage.getUBreakIterator = function (bufPtr, $info) {
         throw 'unsupported method Swift.(file)._ThreadLocalStorage.getUBreakIterator(_:UnsafeBufferPointer<UTF8.CodeUnit>) in ' + this.constructor.name;
     };
@@ -8999,7 +9005,6 @@ var _ThreadLocalStorage = /** @class */ (function () {
 var _UnicodeEncoding$implementation = /** @class */ (function () {
     function _UnicodeEncoding$implementation() {
     }
-    /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
     /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
     _UnicodeEncoding$implementation.transcodeFrom = function (content, _, $info) {
         throw 'unsupported method Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type) in ' + this.constructor.name;
@@ -9022,7 +9027,6 @@ var Unmanaged = /** @class */ (function () {
         return;
     };
     /*Swift.(file).Unmanaged.fromOpaque(_:UnsafeRawPointer)*/
-    /*Swift.(file).Unmanaged.fromOpaque(_:UnsafeRawPointer)*/
     Unmanaged.fromOpaque = function (value, $info) {
         var _this = this;
         return _create(Unmanaged, 'init_private', unsafeBitCastTo(value, ((function () { throw '!unclarifiedGeneric:Instance'; })()), {}), {});
@@ -9034,12 +9038,10 @@ var Unmanaged = /** @class */ (function () {
         return unsafeBitCastTo(_this._value, UnsafeMutableRawPointer, {});
     };
     /*Swift.(file).Unmanaged.passRetained(_:Instance)*/
-    /*Swift.(file).Unmanaged.passRetained(_:Instance)*/
     Unmanaged.passRetained = function (value, $info) {
         var _this = this;
         return _create(Unmanaged, 'init_private', value, {}).retain({});
     };
-    /*Swift.(file).Unmanaged.passUnretained(_:Instance)*/
     /*Swift.(file).Unmanaged.passUnretained(_:Instance)*/
     Unmanaged.passUnretained = function (value, $info) {
         var _this = this;
@@ -9103,7 +9105,6 @@ var UnicodeDecodingResult = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file).UnicodeDecodingResult.==infix(_:UnicodeDecodingResult,_:UnicodeDecodingResult)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     UnicodeDecodingResult.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -9717,71 +9718,85 @@ var KeyedEncodingContainerProtocol$implementation = /** @class */ (function () {
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:String?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:String?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:String?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Double?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Double?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Double?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Float?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Float?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Float?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int8?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int8?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int8?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int16?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int16?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int16?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int32?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int32?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int32?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int64?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int64?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int64?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt8?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt8?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt8?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt16?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt16?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt16?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt32?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt32?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt32?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt64?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt64?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt64?,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:T?,forKey:Self.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:T?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainerProtocol$implementation.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:T?,forKey:Self.Key) in ' + this.constructor.name;
     };
@@ -9817,71 +9832,85 @@ var KeyedEncodingContainer = /** @class */ (function () {
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:String,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:String,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:String,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Double,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Double,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Double,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Float,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Float,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Float,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Int,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Int,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Int,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Int8,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Int8,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Int8,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Int16,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Int16,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Int16,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Int32,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Int32,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Int32,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:Int64,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:Int64,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:Int64,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:UInt,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:UInt,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:UInt,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:UInt8,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:UInt8,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:UInt8,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:UInt16,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:UInt16,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:UInt16,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:UInt32,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:UInt32,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:UInt32,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:UInt64,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:UInt64,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:UInt64,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encode(_:T,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encode(_:T,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encode(_:T,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
@@ -9897,71 +9926,85 @@ var KeyedEncodingContainer = /** @class */ (function () {
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:String?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:String?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:String?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Double?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Double?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Double?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Float?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Float?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Float?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int8?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int8?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int8?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int16?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int16?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int16?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int32?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int32?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int32?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int64?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:Int64?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:Int64?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt8?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt8?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt8?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt16?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt16?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt16?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt32?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt32?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt32?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt64?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:UInt64?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:UInt64?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:T?,forKey:KeyedEncodingContainer<K>.Key)*/
     /*Swift.(file).KeyedEncodingContainerProtocol.encodeIfPresent(_:T?,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedEncodingContainer.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file).KeyedEncodingContainer.encodeIfPresent(_:T?,forKey:KeyedEncodingContainer<K>.Key) in ' + this.constructor.name;
     };
@@ -10002,71 +10045,85 @@ var KeyedDecodingContainerProtocol$implementation = /** @class */ (function () {
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:String.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:String.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:String.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Double.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Double.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Double.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Float.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Float.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Float.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int8.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int8.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int16.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int16.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int32.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int32.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int64.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int64.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt8.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt8.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt16.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt16.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt32.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt32.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt64.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt64.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:T.Type,forKey:Self.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:T.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainerProtocol$implementation.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:T.Type,forKey:Self.Key) in ' + this.constructor.name;
     };
@@ -10117,71 +10174,85 @@ var KeyedDecodingContainer = /** @class */ (function () {
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:String.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:String.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:String.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Double.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Double.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Double.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Float.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Float.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Float.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Int.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Int.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Int.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Int8.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Int8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Int8.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Int16.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Int16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Int16.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Int32.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Int32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Int32.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:Int64.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:Int64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:Int64.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:UInt.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:UInt.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:UInt.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:UInt8.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:UInt8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:UInt8.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:UInt16.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:UInt16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:UInt16.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:UInt32.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:UInt32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:UInt32.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:UInt64.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:UInt64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:UInt64.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decode(_:T.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decode(_:T.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decode(_:T.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
@@ -10192,71 +10263,85 @@ var KeyedDecodingContainer = /** @class */ (function () {
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:String.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:String.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:String.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Double.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Double.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Double.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Float.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Float.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Float.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int8.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int8.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int16.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int16.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int32.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int32.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int64.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:Int64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:Int64.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt8.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt8.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt8.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt16.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt16.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt16.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt32.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt32.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt32.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt64.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:UInt64.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:UInt64.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:T.Type,forKey:KeyedDecodingContainer<K>.Key)*/
     /*Swift.(file).KeyedDecodingContainerProtocol.decodeIfPresent(_:T.Type,forKey:Self.Key)*/
+    /*!!!DUPLICATE NAME*/
     KeyedDecodingContainer.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file).KeyedDecodingContainer.decodeIfPresent(_:T.Type,forKey:KeyedDecodingContainer<K>.Key) in ' + this.constructor.name;
     };
@@ -10382,71 +10467,85 @@ var UnkeyedDecodingContainer$implementation = /** @class */ (function () {
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:String.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:String.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:String.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Double.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Double.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Double.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Float.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Float.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Float.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int8.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int8.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int8.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int16.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int16.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int16.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int32.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int32.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int32.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int64.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int64.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:Int64.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt8.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt8.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt8.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt16.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt16.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt16.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt32.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt32.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt32.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt64.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt64.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:UInt64.Type) in ' + this.constructor.name;
     };
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:T.Type)*/
     /*Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:T.Type)*/
+    /*!!!DUPLICATE NAME*/
     UnkeyedDecodingContainer$implementation.prototype.decodeIfPresent = function (type, $info) {
         throw 'unsupported method Swift.(file).UnkeyedDecodingContainer.decodeIfPresent(_:T.Type) in ' + this.constructor.name;
     };
@@ -10480,7 +10579,6 @@ var CodingUserInfoKey = /** @class */ (function () {
     CodingUserInfoKey.prototype.initRawValue = function (rawValue, $info) {
         throw 'unsupported method Swift.(file).CodingUserInfoKey.init(rawValue:String) in ' + this.constructor.name;
     };
-    /*Swift.(file).CodingUserInfoKey.==infix(_:CodingUserInfoKey,_:CodingUserInfoKey)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     CodingUserInfoKey.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -10576,17 +10674,15 @@ var DecodingError = /** @class */ (function () {
     DecodingError.keyNotFound = function () { return Object.assign(new DecodingError(), __assign({ rawValue: "keyNotFound" }, Array.from(arguments))); };
     DecodingError.dataCorrupted = function () { return Object.assign(new DecodingError(), __assign({ rawValue: "dataCorrupted" }, Array.from(arguments))); };
     /*Swift.(file).DecodingError.dataCorruptedError(forKey:C.Key,in:C,debugDescription:String)*/
-    /*Swift.(file).DecodingError.dataCorruptedError(forKey:C.Key,in:C,debugDescription:String)*/
     DecodingError.dataCorruptedErrorForKeyInDebugDescription = function (key, container, debugDescription, $info) {
         throw 'unsupported method Swift.(file).DecodingError.dataCorruptedError(forKey:C.Key,in:C,debugDescription:String) in ' + this.constructor.name;
     };
-    /*Swift.(file).DecodingError.dataCorruptedError(in:UnkeyedDecodingContainer,debugDescription:String)*/
     /*Swift.(file).DecodingError.dataCorruptedError(in:UnkeyedDecodingContainer,debugDescription:String)*/
     DecodingError.dataCorruptedErrorInDebugDescription = function (container, debugDescription, $info) {
         throw 'unsupported method Swift.(file).DecodingError.dataCorruptedError(in:UnkeyedDecodingContainer,debugDescription:String) in ' + this.constructor.name;
     };
     /*Swift.(file).DecodingError.dataCorruptedError(in:SingleValueDecodingContainer,debugDescription:String)*/
-    /*Swift.(file).DecodingError.dataCorruptedError(in:SingleValueDecodingContainer,debugDescription:String)*/
+    /*!!!DUPLICATE NAME*/
     DecodingError.dataCorruptedErrorInDebugDescription = function (container, debugDescription, $info) {
         throw 'unsupported method Swift.(file).DecodingError.dataCorruptedError(in:SingleValueDecodingContainer,debugDescription:String) in ' + this.constructor.name;
     };
@@ -10714,71 +10810,85 @@ var _KeyedEncodingContainerBase = /** @class */ (function () {
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:String,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:String,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:String,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Double,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Double,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Double,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Float,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Float,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Float,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Int,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int8,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int8,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Int8,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int16,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int16,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Int16,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int32,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int32,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Int32,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int64,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int64,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:Int64,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt8,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt8,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt8,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt16,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt16,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt16,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt32,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt32,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt32,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt64,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt64,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt64,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:T,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:T,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encode(_:T,forKey:Key) in ' + this.constructor.name;
     };
@@ -10794,71 +10904,85 @@ var _KeyedEncodingContainerBase = /** @class */ (function () {
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:String?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:String?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:String?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Double?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Double?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Double?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Float?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Float?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Float?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int8?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int8?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int8?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int16?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int16?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int16?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int32?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int32?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int32?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int64?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int64?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int64?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt8?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt8?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt8?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt16?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt16?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt16?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt32?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt32?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt32?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt64?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt64?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt64?,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:T?,forKey:Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:T?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBase.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:T?,forKey:Key) in ' + this.constructor.name;
     };
@@ -10928,71 +11052,85 @@ var _KeyedEncodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:String,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:String,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:String,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Double,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Double,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Double,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Float,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Float,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Float,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Int,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Int,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Int8,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int8,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Int8,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Int16,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int16,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Int16,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Int32,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int32,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Int32,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:Int64,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:Int64,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:Int64,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt8,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt8,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt8,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt16,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt16,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt16,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt32,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt32,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt32,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt64,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:UInt64,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:UInt64,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encode(_:T,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encode(_:T,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encode(_:T,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
@@ -11008,71 +11146,85 @@ var _KeyedEncodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:String?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:String?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:String?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Double?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Double?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Double?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Float?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Float?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Float?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int8?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int8?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int8?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int16?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int16?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int16?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int32?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int32?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int32?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int64?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:Int64?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:Int64?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt8?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt8?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt8?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt16?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt16?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt16?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt32?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt32?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt32?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt64?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:UInt64?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:UInt64?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:T?,forKey:_KeyedEncodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedEncodingContainerBase.encodeIfPresent(_:T?,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.encodeIfPresentForKey = function (value, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.encodeIfPresent(_:T?,forKey:_KeyedEncodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
@@ -11098,6 +11250,7 @@ var _KeyedEncodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedEncodingContainerBox.init()*/
     /*Swift.(file)._KeyedEncodingContainerBase.init()*/
+    /*!!!DUPLICATE NAME*/
     _KeyedEncodingContainerBox.prototype.init = function ($info) {
         throw 'unsupported method Swift.(file)._KeyedEncodingContainerBox.init() in ' + this.constructor.name;
     };
@@ -11152,71 +11305,85 @@ var _KeyedDecodingContainerBase = /** @class */ (function () {
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:String.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:String.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:String.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Double.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Double.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Double.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Float.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Float.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Float.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Int.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int8.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Int8.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int16.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Int16.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int32.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Int32.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int64.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:Int64.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt8.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt8.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt16.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt16.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt32.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt32.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt64.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt64.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:T.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:T.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decode(_:T.Type,forKey:Key) in ' + this.constructor.name;
     };
@@ -11227,71 +11394,85 @@ var _KeyedDecodingContainerBase = /** @class */ (function () {
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:String.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:String.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:String.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Double.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Double.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Double.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Float.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Float.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Float.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int8.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int8.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int16.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int16.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int32.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int32.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int64.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int64.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt8.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt8.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt16.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt16.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt32.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt32.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt64.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt64.Type,forKey:Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:T.Type,forKey:Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:T.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBase.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:T.Type,forKey:Key) in ' + this.constructor.name;
     };
@@ -11376,71 +11557,85 @@ var _KeyedDecodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:String.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:String.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:String.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Double.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Double.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Double.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Float.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Float.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Float.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Int.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Int.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Int8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Int8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Int16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Int16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Int32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Int32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:Int64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:Int64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:Int64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:UInt64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:UInt64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decode(_:T.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decode(_:T.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decode(_:T.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
@@ -11451,71 +11646,85 @@ var _KeyedDecodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:String.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:String.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:String.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Double.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Double.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Double.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Float.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Float.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Float.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:Int64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:Int64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt8.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt8.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt16.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt16.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt32.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt32.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:UInt64.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:UInt64.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
     /*Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:T.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key)*/
     /*Swift.(file)._KeyedDecodingContainerBase.decodeIfPresent(_:T.Type,forKey:Key)*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.decodeIfPresentForKey = function (type, key, $info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.decodeIfPresent(_:T.Type,forKey:_KeyedDecodingContainerBox<Concrete>.Key) in ' + this.constructor.name;
     };
@@ -11541,6 +11750,7 @@ var _KeyedDecodingContainerBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._KeyedDecodingContainerBox.init()*/
     /*Swift.(file)._KeyedDecodingContainerBase.init()*/
+    /*!!!DUPLICATE NAME*/
     _KeyedDecodingContainerBox.prototype.init = function ($info) {
         throw 'unsupported method Swift.(file)._KeyedDecodingContainerBox.init() in ' + this.constructor.name;
     };
@@ -11854,6 +12064,7 @@ var _IteratorBox = /** @class */ (function (_super) {
     };
     /*Swift.(file)._IteratorBox.init()*/
     /*Swift.(file)._AnyIteratorBoxBase.init()*/
+    /*!!!DUPLICATE NAME*/
     _IteratorBox.prototype.init = function ($info) {
         throw 'unsupported method Swift.(file)._IteratorBox.init() in ' + this.constructor.name;
     };
@@ -12315,14 +12526,12 @@ var _UnsafeBitset = /** @class */ (function () {
         throw 'unsupported method Swift.(file)._UnsafeBitset.init(words:UnsafeMutablePointer<_UnsafeBitset.Word>,wordCount:Int) in ' + this.constructor.name;
     };
     /*Swift.(file)._UnsafeBitset.word(for:Int)*/
-    /*Swift.(file)._UnsafeBitset.word(for:Int)*/
     _UnsafeBitset.wordFor = function (_element, $info) {
         var _this = this;
         var _element = _create(UInt, 'initBitPatternInt', _element, {});
         var capacity = _create(UInt, 'initBitPatternInt', _UnsafeBitset.Word.capacity, {});
         return _create(Int, 'initBitPatternUInt', UInt.infix_47(_element, capacity, {}), {});
     };
-    /*Swift.(file)._UnsafeBitset.bit(for:Int)*/
     /*Swift.(file)._UnsafeBitset.bit(for:Int)*/
     _UnsafeBitset.bitFor = function (_element, $info) {
         var _this = this;
@@ -12331,18 +12540,15 @@ var _UnsafeBitset = /** @class */ (function () {
         return _create(Int, 'initBitPatternUInt', UInt.infix_37(_element, capacity, {}), {});
     };
     /*Swift.(file)._UnsafeBitset.split(_:Int)*/
-    /*Swift.(file)._UnsafeBitset.split(_:Int)*/
     _UnsafeBitset.split = function (_element, $info) {
         var _this = this;
         return { 0: _this.wordFor(_element, {}), 1: _this.bitFor(_element, {}) };
     };
     /*Swift.(file)._UnsafeBitset.join(word:Int,bit:Int)*/
-    /*Swift.(file)._UnsafeBitset.join(word:Int,bit:Int)*/
     _UnsafeBitset.joinWordBit = function (word, bit, $info) {
         var _this = this;
         return Int.infix_38_43(Int.infix_38_42(word, _UnsafeBitset.Word.capacity, {}), bit, {});
     };
-    /*Swift.(file)._UnsafeBitset.wordCount(forCapacity:Int)*/
     /*Swift.(file)._UnsafeBitset.wordCount(forCapacity:Int)*/
     _UnsafeBitset.wordCountForCapacity = function (capacity, $info) {
         var _this = this;
@@ -12709,7 +12915,6 @@ var MIO_Mixin_Bool = /** @class */ (function () {
         return;
     };
     /*Swift.(file).Bool.random(using:T)*/
-    /*Swift.(file).Bool.random(using:T)*/
     MIO_Mixin_Bool.randomUsing = function (generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -12719,7 +12924,6 @@ var MIO_Mixin_Bool = /** @class */ (function () {
         generator$inout.set(generator);
         return $result;
     };
-    /*Swift.(file).Bool.random()*/
     /*Swift.(file).Bool.random()*/
     MIO_Mixin_Bool.random = function ($info) {
         var _this = this;
@@ -12749,7 +12953,6 @@ var MIO_Mixin_Bool = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Bool.==infix(_:Bool,_:Bool)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Bool.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -12794,17 +12997,14 @@ var MIO_Mixin_Bool = /** @class */ (function () {
         return;
     };
     /*Swift.(file).Bool.!prefix(_:Bool)*/
-    /*Swift.(file).Bool.!prefix(_:Bool)*/
     MIO_Mixin_Bool.prefix_33 = function (a, $info) {
         return !a;
     };
-    /*Swift.(file).Bool.&&infix(_:Bool,_:() throws -> Bool)*/
     /*Swift.(file).Bool.&&infix(_:Bool,_:() throws -> Bool)*/
     MIO_Mixin_Bool.infix_38_38 = function (lhs, rhs, $info) {
         var _this = this;
         return (lhs ? rhs({}) : false);
     };
-    /*Swift.(file).Bool.||infix(_:Bool,_:() throws -> Bool)*/
     /*Swift.(file).Bool.||infix(_:Bool,_:() throws -> Bool)*/
     MIO_Mixin_Bool.infix_124_124 = function (lhs, rhs, $info) {
         var _this = this;
@@ -13033,6 +13233,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.makeIterator()*/
     /*Swift.(file).Collection.makeIterator()*/
+    /*!!!DUPLICATE NAME*/
     Collection$implementation.prototype.makeIterator = function ($info) {
         var _this = this;
         return _create(IndexingIterator, 'init_elements', _this, {});
@@ -13269,6 +13470,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.removeFirst(_:Int)*/
     /*Swift.(file).Collection.removeFirst(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     Collection$implementation.prototype.removeFirst = function (k, $info) {
         var _this = this;
         if ((Int.infix_61_61(k, 0, {}))) {
@@ -13331,6 +13533,7 @@ var Collection$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).Collection.subscript(_:R)*/
     /*Swift.(file).Collection.subscript(_:R)*/
+    /*!!!DUPLICATE NAME*/
     Collection$implementation.prototype.subscript$get = function (r, $info) {
         var _this = this;
         return _this.subscriptRange$get(r.relativeTo(_this, {}), {});
@@ -13349,6 +13552,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T)*/
+    /*!!!DUPLICATE NAME*/
     Collection$implementation.prototype.formIndexOffsetBy = function (i$inout, n, $info) {
         var _this = this;
         var i = i$inout.get();
@@ -13366,6 +13570,7 @@ var Collection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
     /*Swift.(file).Collection.formIndex(_:Self.Index,offsetBy:T,limitedBy:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     Collection$implementation.prototype.formIndexOffsetByLimitedBy = function (i$inout, n, limit, $info) {
         var _this = this;
         var i = i$inout.get();
@@ -13417,24 +13622,20 @@ var Comparable$implementation = /** @class */ (function () {
     function Comparable$implementation() {
     }
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
-    /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {});
     };
-    /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
-    /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     Comparable$implementation.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     /*Swift.(file).Comparable....infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_46 = function (minimum, maximum, $info) {
         var _this = this;
@@ -13442,25 +13643,21 @@ var Comparable$implementation = /** @class */ (function () {
         return _create(ClosedRange, 'initUncheckedBoundstuple_type', { 0: minimum, 1: maximum }, {});
     };
     /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
-    /*Swift.(file).Comparable...<infix(_:Self,_:Self)*/
     Comparable$implementation.infix_46_46_60 = function (minimum, maximum, $info) {
         var _this = this;
         preconditionFileLine(function () { return (_.arg0 = minimum).constructor.infix_60_61(_.arg0, maximum, {}); }, function () { return "Can't form Range with upperBound < lowerBound"; }, '?3', '?3', {});
         return _create(Range, 'initUncheckedBoundstuple_type', { 0: minimum, 1: maximum }, {});
     };
     /*Swift.(file).Comparable...<prefix(_:Self)*/
-    /*Swift.(file).Comparable...<prefix(_:Self)*/
     Comparable$implementation.prefix_46_46_60 = function (maximum, $info) {
         var _this = this;
         return _create(PartialRangeUpTo, 'init', maximum, {});
     };
     /*Swift.(file).Comparable....prefix(_:Self)*/
-    /*Swift.(file).Comparable....prefix(_:Self)*/
     Comparable$implementation.prefix_46_46_46 = function (maximum, $info) {
         var _this = this;
         return _create(PartialRangeThrough, 'init', maximum, {});
     };
-    /*Swift.(file).Comparable....postfix(_:Self)*/
     /*Swift.(file).Comparable....postfix(_:Self)*/
     Comparable$implementation.postfix_46_46_46 = function (minimum, $info) {
         var _this = this;
@@ -13516,6 +13713,7 @@ var OpaquePointer = /** @class */ (function () {
     };
     /*Swift.(file).OpaquePointer.init(_:UnsafeMutablePointer<T>?)*/
     /*Swift.(file).OpaquePointer.init(_:UnsafeMutablePointer<T>?)*/
+    /*!!!DUPLICATE NAME*/
     OpaquePointer.prototype.initOptional = function (from, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -13526,7 +13724,6 @@ var OpaquePointer = /** @class */ (function () {
         _this.initUnsafeMutablePointer(unwrapped_1, {});
         return;
     };
-    /*Swift.(file).OpaquePointer.==infix(_:OpaquePointer,_:OpaquePointer)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     OpaquePointer.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -13566,6 +13763,7 @@ var OpaquePointer = /** @class */ (function () {
     };
     /*Swift.(file).OpaquePointer.init(_:UnsafeMutableRawPointer?)*/
     /*Swift.(file).OpaquePointer.init(_:UnsafeMutableRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     OpaquePointer.prototype.initOptional = function (from, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -13585,6 +13783,7 @@ var OpaquePointer = /** @class */ (function () {
     };
     /*Swift.(file).OpaquePointer.init(_:UnsafeRawPointer?)*/
     /*Swift.(file).OpaquePointer.init(_:UnsafeRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     OpaquePointer.prototype.initOptional = function (from, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -13665,7 +13864,6 @@ var _MergeError = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    /*Swift.(file)._MergeError.==(_:_MergeError,_:_MergeError)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     _MergeError.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -13964,6 +14162,7 @@ var __CocoaDictionary = /** @class */ (function () {
     };
     /*Swift.(file).__CocoaDictionary.lookup(_:__CocoaDictionary.Index)*/
     /*Swift.(file)._DictionaryBuffer.lookup(_:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     __CocoaDictionary.prototype.lookup = function (index, $info) {
         var _this = this;
         preconditionFileLine(function () { return infix_61_61_61(_injectIntoOptional(index.storage.base.object), _injectIntoOptional(_this.object), {}); }, function () { return "Invalid index"; }, '?3', '?3', {});
@@ -14078,14 +14277,12 @@ var __CocoaDictionary = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).__CocoaDictionary.Index.==infix(_:__CocoaDictionary.Index,_:__CocoaDictionary.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_21.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 preconditionFileLine(function () { return infix_61_61_61(_injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object), {}); }, function () { return "Comparing indexes from different dictionaries"; }, '?3', '?3', {});
                 return Int.infix_61_61(lhs._offset, rhs._offset, {});
             };
-            /*Swift.(file).__CocoaDictionary.Index.<infix(_:__CocoaDictionary.Index,_:__CocoaDictionary.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_21.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -14379,12 +14576,10 @@ var _DictionaryStorage = /** @class */ (function (_super) {
         throw 'unsupported method Swift.(file)._DictionaryStorage.getObjects(_:UnsafeMutablePointer<AnyObject>?,andKeys:UnsafeMutablePointer<AnyObject>?,count:Int) in ' + this.constructor.name;
     };
     /*Swift.(file)._DictionaryStorage.copy(original:__RawDictionaryStorage)*/
-    /*Swift.(file)._DictionaryStorage.copy(original:__RawDictionaryStorage)*/
     _DictionaryStorage.copyOriginal = function (original, $info) {
         var _this = this;
         return _this.allocateScaleAgeSeed(original._scale, _injectIntoOptional(original._age), _injectIntoOptional(original._seed), {});
     };
-    /*Swift.(file)._DictionaryStorage.resize(original:__RawDictionaryStorage,capacity:Int,move:Bool)*/
     /*Swift.(file)._DictionaryStorage.resize(original:__RawDictionaryStorage,capacity:Int,move:Bool)*/
     _DictionaryStorage.resizeOriginalCapacityMove = function (original, capacity, move, $info) {
         var _this = this;
@@ -14392,18 +14587,15 @@ var _DictionaryStorage = /** @class */ (function (_super) {
         return _this.allocateScaleAgeSeed(scale, Optional.none, Optional.none, {});
     };
     /*Swift.(file)._DictionaryStorage.allocate(capacity:Int)*/
-    /*Swift.(file)._DictionaryStorage.allocate(capacity:Int)*/
     _DictionaryStorage.allocateCapacity = function (capacity, $info) {
         var _this = this;
         var scale = _HashTable.scaleForCapacity(capacity, {});
         return _this.allocateScaleAgeSeed(scale, Optional.none, Optional.none, {});
     };
     /*Swift.(file)._DictionaryStorage.convert(_:__CocoaDictionary,capacity:Int)*/
-    /*Swift.(file)._DictionaryStorage.convert(_:__CocoaDictionary,capacity:Int)*/
     _DictionaryStorage.convertCapacity = function (cocoa, capacity, $info) {
         throw 'unsupported method Swift.(file)._DictionaryStorage.convert(_:__CocoaDictionary,capacity:Int) in ' + this.constructor.name;
     };
-    /*Swift.(file)._DictionaryStorage.allocate(scale:Int8,age:Int32?,seed:Int?)*/
     /*Swift.(file)._DictionaryStorage.allocate(scale:Int8,age:Int32?,seed:Int?)*/
     _DictionaryStorage.allocateScaleAgeSeed = function (scale, age, seed, $info) {
         throw 'unsupported method Swift.(file)._DictionaryStorage.allocate(scale:Int8,age:Int32?,seed:Int?) in ' + this.constructor.name;
@@ -14458,7 +14650,6 @@ var AnyHashable = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).AnyHashable.==infix(_:AnyHashable,_:AnyHashable)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     AnyHashable.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -14567,7 +14758,6 @@ var __BridgingHashBuffer = /** @class */ (function (_super) {
     function __BridgingHashBuffer() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    /*Swift.(file).__BridgingHashBuffer.allocate(owner:AnyObject,hashTable:_HashTable)*/
     /*Swift.(file).__BridgingHashBuffer.allocate(owner:AnyObject,hashTable:_HashTable)*/
     __BridgingHashBuffer.allocateOwnerHashTable = function (owner, hashTable, $info) {
         throw 'unsupported method Swift.(file).__BridgingHashBuffer.allocate(owner:AnyObject,hashTable:_HashTable) in ' + this.constructor.name;
@@ -14690,13 +14880,11 @@ var _HashTable = /** @class */ (function () {
     });
     ;
     /*Swift.(file)._HashTable.capacity(forScale:Int8)*/
-    /*Swift.(file)._HashTable.capacity(forScale:Int8)*/
     _HashTable.capacityForScale = function (scale, $info) {
         var _this = this;
         var bucketCount = Int.infix_38_60_60(1, scale, {});
         return _create(Int, 'initDouble', Double.infix_42(_create(Double, 'initInt', bucketCount, {}), _this.maxLoadFactor, {}), {});
     };
-    /*Swift.(file)._HashTable.scale(forCapacity:Int)*/
     /*Swift.(file)._HashTable.scale(forCapacity:Int)*/
     _HashTable.scaleForCapacity = function (capacity, $info) {
         var _this = this;
@@ -14707,13 +14895,11 @@ var _HashTable = /** @class */ (function () {
         return scale;
     };
     /*Swift.(file)._HashTable.age(for:AnyObject)*/
-    /*Swift.(file)._HashTable.age(for:AnyObject)*/
     _HashTable.ageFor = function (cocoa, $info) {
         var _this = this;
         var hash = _create(ObjectIdentifier, 'initAnyObject', cocoa, {}).hashValue;
         return _create(Int32, 'initTruncatingIfNeeded', hash, {});
     };
-    /*Swift.(file)._HashTable.hashSeed(for:AnyObject,scale:Int8)*/
     /*Swift.(file)._HashTable.hashSeed(for:AnyObject,scale:Int8)*/
     _HashTable.hashSeedForScale = function (object, scale, $info) {
         var _this = this;
@@ -14961,13 +15147,11 @@ var _HashTable = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file)._HashTable.Bucket.==infix(_:_HashTable.Bucket,_:_HashTable.Bucket)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_25.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 return Int.infix_61_61(lhs.offset, rhs.offset, {});
             };
-            /*Swift.(file)._HashTable.Bucket.<infix(_:_HashTable.Bucket,_:_HashTable.Bucket)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_25.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -15007,14 +15191,12 @@ var _HashTable = /** @class */ (function () {
             class_26.prototype.initBucket_HashTableBucketAgeInt32 = function (bucket, age, $info) {
                 throw 'unsupported method Swift.(file)._HashTable.Index.init(bucket:_HashTable.Bucket,age:Int32) in ' + this.constructor.name;
             };
-            /*Swift.(file)._HashTable.Index.==infix(_:_HashTable.Index,_:_HashTable.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_26.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 preconditionFileLine(function () { return Int32.infix_61_61(lhs.age, rhs.age, {}); }, function () { return "Can't compare indices belonging to different collections"; }, '?3', '?3', {});
                 return _HashTable.Bucket.infix_61_61(lhs.bucket, rhs.bucket, {});
             };
-            /*Swift.(file)._HashTable.Index.<infix(_:_HashTable.Index,_:_HashTable.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_26.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -15202,7 +15384,6 @@ var JoinedSequence = /** @class */ (function () {
                 enumerable: true,
                 configurable: true
             });
-            /*Swift.(file).JoinedSequence.Iterator._JoinIteratorState.==(_:JoinedSequence<Base>.Iterator._JoinIteratorState,_:JoinedSequence<Base>.Iterator._JoinIteratorState)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_29.infix_61_61 = function (a, b, $info) {
                 return a == b;
@@ -15307,7 +15488,6 @@ var AnyKeyPath = /** @class */ (function () {
         hasher$inout.set(hasher);
         return $result;
     };
-    /*Swift.(file).AnyKeyPath.==infix(_:AnyKeyPath,_:AnyKeyPath)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     AnyKeyPath.infix_61_61 = function (a, b, $info) {
         var _this = this;
@@ -15408,7 +15588,6 @@ var KeyPath = /** @class */ (function (_super) {
         configurable: true
     });
     ;
-    /*Swift.(file).KeyPath.appendedType(with:KeyPath<Value, AppendedValue>.Type)*/
     /*Swift.(file).KeyPath.appendedType(with:KeyPath<Value, AppendedValue>.Type)*/
     KeyPath.appendedTypeWith = function (t, $info) {
         var _this = this;
@@ -15569,6 +15748,7 @@ var LazySequenceProtocol$implementation = /** @class */ (function () {
     };
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
     /*Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> ElementOfResult?)*/
+    /*!!!DUPLICATE NAME*/
     LazySequenceProtocol$implementation.prototype.flatMap = function (transform, $info) {
         var _this = this;
         return _this.compactMap(transform, {});
@@ -15632,11 +15812,13 @@ var MutableCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
+    /*!!!DUPLICATE NAME*/
     MutableCollection$implementation.prototype.subscriptRange$get = function (bounds, $info) {
         var _this = this;
         return _create(Slice, 'initBaseBoundsRange', _this, bounds, {});
     }; /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
+    /*!!!DUPLICATE NAME*/
     MutableCollection$implementation.prototype.subscriptRange$set = function (newValue, bounds, $info) {
         var _this = this;
         _writeBackMutableSliceBoundsSlice({ get: function () { return _this; }, set: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, bounds, newValue, {});
@@ -15655,11 +15837,13 @@ var MutableCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
+    /*!!!DUPLICATE NAME*/
     MutableCollection$implementation.prototype.subscriptRange$get = function (r, $info) {
         var _this = this;
         return _this.subscriptRange$get(r.relativeTo(_this, {}), {});
     }; /*Swift.(file).MutableCollection.subscript(_:R)*/
     /*Swift.(file).MutableCollection.subscript(_:R)*/
+    /*!!!DUPLICATE NAME*/
     MutableCollection$implementation.prototype.subscriptRange$set = function (newValue, r, $info) {
         var _this = this;
         _this.subscriptRange$set(newValue, r.relativeTo(_this, {}), { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -15942,6 +16126,7 @@ var _NativeDictionary = /** @class */ (function () {
     };
     /*Swift.(file)._NativeDictionary.validatedBucket(for:Dictionary<Key, Value>.Index)*/
     /*Swift.(file)._NativeDictionary.validatedBucket(for:Dictionary<Key, Value>.Index)*/
+    /*!!!DUPLICATE NAME*/
     _NativeDictionary.prototype.validatedBucketFor = function (index, $info) {
         var _this = this;
         if (!((index._isNative))) {
@@ -16048,6 +16233,7 @@ var _NativeDictionary = /** @class */ (function () {
     };
     /*Swift.(file)._NativeDictionary.lookup(_:_NativeDictionary<Key, Value>.Index)*/
     /*Swift.(file)._DictionaryBuffer.lookup(_:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     _NativeDictionary.prototype.lookup = function (index, $info) {
         var _this = this;
         var bucket = _cloneStruct(_this.validatedBucketFor(index, {}));
@@ -16269,6 +16455,7 @@ var _NativeDictionary = /** @class */ (function () {
     };
     /*Swift.(file)._NativeDictionary.isEqual(to:__CocoaDictionary)*/
     /*Swift.(file)._NativeDictionary.isEqual(to:__CocoaDictionary)*/
+    /*!!!DUPLICATE NAME*/
     _NativeDictionary.prototype.isEqualTo = function (other, $info) {
         throw 'unsupported method Swift.(file)._NativeDictionary.isEqual(to:__CocoaDictionary) in ' + this.constructor.name;
     };
@@ -16704,6 +16891,7 @@ var _NativeSet = /** @class */ (function () {
     };
     /*Swift.(file)._NativeSet.validatedBucket(for:Set<Element>.Index)*/
     /*Swift.(file)._NativeSet.validatedBucket(for:Set<Element>.Index)*/
+    /*!!!DUPLICATE NAME*/
     _NativeSet.prototype.validatedBucketFor = function (index, $info) {
         var _this = this;
         if (!((index._isNative))) {
@@ -16863,6 +17051,7 @@ var _NativeSet = /** @class */ (function () {
     };
     /*Swift.(file)._NativeSet.isEqual(to:__CocoaSet)*/
     /*Swift.(file)._NativeSet.isEqual(to:__CocoaSet)*/
+    /*!!!DUPLICATE NAME*/
     _NativeSet.prototype.isEqualTo = function (other, $info) {
         throw 'unsupported method Swift.(file)._NativeSet.isEqual(to:__CocoaSet) in ' + this.constructor.name;
     };
@@ -16999,12 +17188,10 @@ var ObjectIdentifier = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).ObjectIdentifier.==infix(_:ObjectIdentifier,_:ObjectIdentifier)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ObjectIdentifier.infix_61_61 = function (x, y, $info) {
         return x._value === y._value;
     };
-    /*Swift.(file).ObjectIdentifier.<infix(_:ObjectIdentifier,_:ObjectIdentifier)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     ObjectIdentifier.infix_60 = function (lhs, rhs, $info) {
         var _this = this;
@@ -17142,7 +17329,6 @@ var Optional = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Optional.==infix(_:Wrapped?,_:Wrapped?)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Optional.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -17190,7 +17376,6 @@ var Optional = /** @class */ (function () {
     });
     ;
     /*Swift.(file).Optional.~=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
-    /*Swift.(file).Optional.~=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.infix_126_61 = function (lhs, rhs, $info) {
         var _this = this;
         var $match = rhs;
@@ -17201,7 +17386,6 @@ var Optional = /** @class */ (function () {
             return true;
         }
     };
-    /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     /*Swift.(file).Optional.==infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     Optional.wrappedEqualsOptionalNilComparisonType = function (lhs, rhs, $info) {
         var _this = this;
@@ -17214,7 +17398,6 @@ var Optional = /** @class */ (function () {
         }
     };
     /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
-    /*Swift.(file).Optional.!=infix(_:Wrapped?,_:_OptionalNilComparisonType)*/
     Optional.wrappedNotEqualsOptionalNilComparisonType = function (lhs, rhs, $info) {
         var _this = this;
         var $match = lhs;
@@ -17226,7 +17409,6 @@ var Optional = /** @class */ (function () {
         }
     };
     /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
-    /*Swift.(file).Optional.==infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.optionalNilComparisonTypeEqualsWrapped = function (lhs, rhs, $info) {
         var _this = this;
         var $match = rhs;
@@ -17237,7 +17419,6 @@ var Optional = /** @class */ (function () {
             return true;
         }
     };
-    /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     /*Swift.(file).Optional.!=infix(_:_OptionalNilComparisonType,_:Wrapped?)*/
     Optional.optionalNilComparisonTypeNotEqualsWrapped = function (lhs, rhs, $info) {
         var _this = this;
@@ -17376,12 +17557,10 @@ if (typeof RawRepresentable$implementation != 'undefined')
 var Never = /** @class */ (function () {
     function Never() {
     }
-    /*Swift.(file).Never.==(_:Never,_:Never)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Never.infix_61_61 = function (a, b, $info) {
         return a == b;
     };
-    /*Swift.(file).Never.<infix(_:Never,_:Never)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     Never.infix_60 = function (lhs, rhs, $info) {
         var _this = this;
@@ -17681,6 +17860,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
     /*Swift.(file).RangeReplaceableCollection.insert(contentsOf:C,at:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     RangeReplaceableCollection$implementation.prototype.insertContentsOfAt = function (newElements, i, $info) {
         var _this = this;
         _this.replaceSubrangeWith((_.arg0 = i).constructor.infix_46_46_60(_.arg0, i, {}), newElements, { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -17761,6 +17941,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
     /*Swift.(file).RangeReplaceableCollection.replaceSubrange(_:R,with:C)*/
+    /*!!!DUPLICATE NAME*/
     RangeReplaceableCollection$implementation.prototype.replaceSubrangeWith = function (subrange, newElements, $info) {
         var _this = this;
         _this.replaceSubrangeWith(subrange.relativeTo(_this, {}), newElements, { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -17816,7 +17997,6 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         throw 'unsupported method Swift.(file).RangeReplaceableCollection.removeLast(_:Int) in ' + this.constructor.name;
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
-    /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         var lhs_dupl = lhs;
@@ -17824,7 +18004,7 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         return lhs_dupl;
     };
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Other,_:Self)*/
-    /*Swift.(file).RangeReplaceableCollection.+infix(_:Other,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     RangeReplaceableCollection$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -17832,7 +18012,6 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         result.appendContentsOf(rhs, { $setThis: function ($val) { return result = $val; } });
         return result;
     };
-    /*Swift.(file).RangeReplaceableCollection.+=infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+=infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -17843,7 +18022,6 @@ var RangeReplaceableCollection$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     /*Swift.(file).RangeReplaceableCollection.+infix(_:Self,_:Other)*/
     RangeReplaceableCollection$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
@@ -17992,7 +18170,6 @@ var MIO_Mixin_Set = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Set.==infix(_:Set<Element>,_:Set<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Set.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -18139,51 +18316,60 @@ var MIO_Mixin_Set = /** @class */ (function () {
     ;
     /*Swift.(file).Set.subtract(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.subtract(_:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.subtract = function (other, $info) {
         var _this = this;
         _this.formIntersection(_this.symmetricDifference(other, {}), { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
     };
     /*Swift.(file).Set.isSubset(of:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isSubset(of:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.isSubsetOf = function (other, $info) {
         var _this = this;
         return (_.arg0 = _this.intersection(other, {})).constructor.infix_61_61(_.arg0, _this, {});
     };
     /*Swift.(file).Set.isSuperset(of:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isSuperset(of:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.isSupersetOf = function (other, $info) {
         var _this = this;
         return other.isSubsetOf(_this, {});
     };
     /*Swift.(file).Set.isDisjoint(with:Set<Element>)*/
     /*Swift.(file).SetAlgebra.isDisjoint(with:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.isDisjointWith = function (other, $info) {
         var _this = this;
         return _this.intersection(other, {}).isEmpty;
     };
     /*Swift.(file).Set.subtracting(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.subtracting(_:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.subtracting = function (other, $info) {
         var _this = this;
         return _this.intersection(_this.symmetricDifference(other, {}), {});
     };
     /*Swift.(file).Set.isStrictSuperset(of:Set<Element>)*/
     /*Swift.(file).Set.isStrictSuperset(of:Set<Element>)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.isStrictSupersetOf = function (other, $info) {
         throw 'unsupported method Swift.(file).Set.isStrictSuperset(of:Set<Element>) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.isStrictSubset(of:Set<Element>)*/
     /*Swift.(file).Set.isStrictSubset(of:Set<Element>)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.isStrictSubsetOf = function (other, $info) {
         throw 'unsupported method Swift.(file).Set.isStrictSubset(of:Set<Element>) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.intersection(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.intersection(_:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.intersection = function (other, $info) {
         throw 'unsupported method Swift.(file).Set.intersection(_:Set<Element>) in ' + this.constructor.name;
     };
     /*Swift.(file).Set.formSymmetricDifference(_:Set<Element>)*/
     /*Swift.(file).SetAlgebra.formSymmetricDifference(_:Self)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.formSymmetricDifference = function (other, $info) {
         throw 'unsupported method Swift.(file).Set.formSymmetricDifference(_:Set<Element>) in ' + this.constructor.name;
     };
@@ -18226,12 +18412,14 @@ var MIO_Mixin_Set = /** @class */ (function () {
     };
     /*Swift.(file).Set.update(with:ConcreteElement)*/
     /*Swift.(file).Set.update(with:ConcreteElement)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.updateWith = function (newMember, $info) {
         var _this = this;
         return _this.updateWith(_create(AnyHashable, 'init', newMember, {}), { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }).mapSwift((function ($0, $info) { return $0.base; }), {});
     };
     /*Swift.(file).Set.remove(_:ConcreteElement)*/
     /*Swift.(file).Set.remove(_:ConcreteElement)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Set.prototype.remove = function (member, $info) {
         var _this = this;
         return _this.remove(_create(AnyHashable, 'init', member, {}), { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }).mapSwift((function ($0, $info) { return $0.base; }), {});
@@ -18269,12 +18457,10 @@ var MIO_Mixin_Set = /** @class */ (function () {
             class_33.prototype.init_cocoa__CocoaSetIndex = function (index, $info) {
                 throw 'unsupported method Swift.(file).Set.Index.init(_cocoa:__CocoaSet.Index) in ' + this.constructor.name;
             };
-            /*Swift.(file).Set.Index.==infix(_:Set<Element>.Index,_:Set<Element>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_33.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).Set.Index.<infix(_:Set<Element>.Index,_:Set<Element>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_33.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -18751,6 +18937,7 @@ var __CocoaSet = /** @class */ (function () {
     };
     /*Swift.(file).__CocoaSet.member(for:AnyObject)*/
     /*Swift.(file).__CocoaSet.member(for:AnyObject)*/
+    /*!!!DUPLICATE NAME*/
     __CocoaSet.prototype.memberFor = function (_element, $info) {
         var _this = this;
         var nss = _cloneStruct(unsafeBitCastTo(_this.object, _NSSet, {}));
@@ -18895,14 +19082,12 @@ var __CocoaSet = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).__CocoaSet.Index.==infix(_:__CocoaSet.Index,_:__CocoaSet.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_38.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 preconditionFileLine(function () { return infix_61_61_61(_injectIntoOptional(lhs.storage.base.object), _injectIntoOptional(rhs.storage.base.object), {}); }, function () { return "Comparing indexes from different sets"; }, '?3', '?3', {});
                 return Int.infix_61_61(lhs._offset, rhs._offset, {});
             };
-            /*Swift.(file).__CocoaSet.Index.<infix(_:__CocoaSet.Index,_:__CocoaSet.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_38.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -19174,12 +19359,10 @@ var _SetStorage = /** @class */ (function (_super) {
         throw 'unsupported method Swift.(file)._SetStorage.member(_:AnyObject) in ' + this.constructor.name;
     };
     /*Swift.(file)._SetStorage.copy(original:__RawSetStorage)*/
-    /*Swift.(file)._SetStorage.copy(original:__RawSetStorage)*/
     _SetStorage.copyOriginal = function (original, $info) {
         var _this = this;
         return _SetStorage.allocateScaleAgeSeed(original._scale, _injectIntoOptional(original._age), _injectIntoOptional(original._seed), {});
     };
-    /*Swift.(file)._SetStorage.resize(original:__RawSetStorage,capacity:Int,move:Bool)*/
     /*Swift.(file)._SetStorage.resize(original:__RawSetStorage,capacity:Int,move:Bool)*/
     _SetStorage.resizeOriginalCapacityMove = function (original, capacity, move, $info) {
         var _this = this;
@@ -19187,18 +19370,15 @@ var _SetStorage = /** @class */ (function (_super) {
         return _this.allocateScaleAgeSeed(scale, Optional.none, Optional.none, {});
     };
     /*Swift.(file)._SetStorage.allocate(capacity:Int)*/
-    /*Swift.(file)._SetStorage.allocate(capacity:Int)*/
     _SetStorage.allocateCapacity = function (capacity, $info) {
         var _this = this;
         var scale = _HashTable.scaleForCapacity(capacity, {});
         return _this.allocateScaleAgeSeed(scale, Optional.none, Optional.none, {});
     };
     /*Swift.(file)._SetStorage.convert(_:__CocoaSet,capacity:Int)*/
-    /*Swift.(file)._SetStorage.convert(_:__CocoaSet,capacity:Int)*/
     _SetStorage.convertCapacity = function (cocoa, capacity, $info) {
         throw 'unsupported method Swift.(file)._SetStorage.convert(_:__CocoaSet,capacity:Int) in ' + this.constructor.name;
     };
-    /*Swift.(file)._SetStorage.allocate(scale:Int8,age:Int32?,seed:Int?)*/
     /*Swift.(file)._SetStorage.allocate(scale:Int8,age:Int32?,seed:Int?)*/
     _SetStorage.allocateScaleAgeSeed = function (scale, age, seed, $info) {
         throw 'unsupported method Swift.(file)._SetStorage.allocate(scale:Int8,age:Int32?,seed:Int?) in ' + this.constructor.name;
@@ -19390,30 +19570,27 @@ var Strideable$implementation = /** @class */ (function () {
     function Strideable$implementation() {
     }
     /*Swift.(file).Strideable.+infix(_:Self,_:Self.Stride)*/
-    /*Swift.(file).Strideable.+infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         return lhs.advancedBy(rhs, {});
     };
     /*Swift.(file).Strideable.+infix(_:Self.Stride,_:Self)*/
-    /*Swift.(file).Strideable.+infix(_:Self.Stride,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     Strideable$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         return rhs.advancedBy(lhs, {});
     };
-    /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.-infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         return lhs.advancedBy(((function () { throw '!unclarifiedGeneric:Self.Stride'; })()).prefix_45(rhs, {}), {});
     };
     /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
-    /*Swift.(file).Strideable.-infix(_:Self,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     Strideable$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         return rhs.distanceTo(lhs, {});
     };
-    /*Swift.(file).Strideable.+=infix(_:Self,_:Self.Stride)*/
     /*Swift.(file).Strideable.+=infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -19425,7 +19602,6 @@ var Strideable$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).Strideable.-=infix(_:Self,_:Self.Stride)*/
-    /*Swift.(file).Strideable.-=infix(_:Self,_:Self.Stride)*/
     Strideable$implementation.infix_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -19436,12 +19612,10 @@ var Strideable$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
-    /*Swift.(file).Strideable.<infix(_:Self,_:Self)*/
     Strideable$implementation.infix_60 = function (x, y, $info) {
         var _this = this;
         return ((function () { throw '!unclarifiedGeneric:Self.Stride'; })()).infix_62(x.distanceTo(y, {}), 0, {});
     };
-    /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     /*Swift.(file).Strideable.==infix(_:Self,_:Self)*/
     Strideable$implementation.infix_61_61 = function (x, y, $info) {
         var _this = this;
@@ -19729,12 +19903,10 @@ var _CountingIndex = /** @class */ (function () {
     _CountingIndex.prototype.initBaseOffsetOptional = function (base, offset, $info) {
         throw 'unsupported method Swift.(file)._CountingIndex.init(base:Base,offset:Int?) in ' + this.constructor.name;
     };
-    /*Swift.(file)._CountingIndex.==(_:_CountingIndex<Base>,_:_CountingIndex<Base>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     _CountingIndex.infix_61_61 = function (a, b, $info) {
         return a == b;
     };
-    /*Swift.(file)._CountingIndex.<infix(_:_CountingIndex<Base>,_:_CountingIndex<Base>)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     _CountingIndex.infix_60 = function (lhs, rhs, $info) {
         var _this = this;
@@ -19828,7 +20000,6 @@ var Mirror = /** @class */ (function () {
         throw 'unsupported method Swift.(file).Mirror.init(internalReflecting:Any,subjectType:Any.Type?,customAncestor:Mirror?) in ' + this.constructor.name;
     };
     /*Swift.(file).Mirror.quickLookObject(_:Any)*/
-    /*Swift.(file).Mirror.quickLookObject(_:Any)*/
     Mirror.quickLookObject = function (subject, $info) {
         var _this = this;
         var object = _getQuickLookObject(subject, {});
@@ -19917,7 +20088,6 @@ var Mirror = /** @class */ (function () {
             enumerable: true,
             configurable: true
         });
-        /*Swift.(file).Mirror._DefaultDescendantRepresentation.==(_:Mirror._DefaultDescendantRepresentation,_:Mirror._DefaultDescendantRepresentation)*/
         /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
         class_41.infix_61_61 = function (a, b, $info) {
             return a == b;
@@ -20002,7 +20172,6 @@ var Mirror = /** @class */ (function () {
             enumerable: true,
             configurable: true
         });
-        /*Swift.(file).Mirror.DisplayStyle.==(_:Mirror.DisplayStyle,_:Mirror.DisplayStyle)*/
         /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
         class_43.infix_61_61 = function (a, b, $info) {
             return a == b;
@@ -20103,7 +20272,6 @@ var SIMD$implementation = /** @class */ (function () {
         return;
     };
     /*Swift.(file).SIMD.==infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.==infix(_:Self,_:Self)*/
     SIMD$implementation.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
         var result = true;
@@ -20193,7 +20361,6 @@ var SIMD$implementation = /** @class */ (function () {
     });
     ;
     /*Swift.(file).SIMD..==infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD..==infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_61_61 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(SIMDMask, 'init', {});
@@ -20209,7 +20376,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD..!=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD..!=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_33_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20275,7 +20441,6 @@ var SIMD$implementation = /** @class */ (function () {
         return;
     };
     /*Swift.(file).SIMD..<infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD..<infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_60 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(SIMDMask, 'init', {});
@@ -20291,7 +20456,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD..<=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD..<=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_60_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20309,31 +20473,32 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD..==infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..==infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_61_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_61_61(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..!=infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..!=infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_33_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_33_61(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..==infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..==infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_61_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_61_61(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD..!=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..!=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_33_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_33_61(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.replace(with:Self.Scalar,where:SIMDMask<Self.MaskStorage>)*/
     /*Swift.(file).SIMD.replace(with:Self.Scalar,where:SIMDMask<Self.MaskStorage>)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.replaceWithWhere = function (other, mask, $info) {
         var _this = this;
         _this.replaceWithWhere(_create(_this.constructor, 'initRepeating', other, {}), mask, { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -20348,66 +20513,65 @@ var SIMD$implementation = /** @class */ (function () {
     };
     /*Swift.(file).SIMD.replacing(with:Self.Scalar,where:SIMDMask<Self.MaskStorage>)*/
     /*Swift.(file).SIMD.replacing(with:Self.Scalar,where:SIMDMask<Self.MaskStorage>)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.replacingWithWhere = function (other, mask, $info) {
         var _this = this;
         return _this.replacingWithWhere(_create(_this.constructor, 'initRepeating', other, {}), mask, {});
     };
-    /*Swift.(file).SIMD..>=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD..>=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = rhs).constructor.infix_46_60_61(_.arg0, lhs, {});
     };
     /*Swift.(file).SIMD..>infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD..>infix(_:Self,_:Self)*/
     SIMD$implementation.infix_46_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = rhs).constructor.infix_46_60(_.arg0, lhs, {});
     };
     /*Swift.(file).SIMD..<infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..<infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_60 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_60(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..<=infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..<=infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_60_61(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..>=infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..>=infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_62_61(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..>infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD..>infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_46_62(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD..<infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..<infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_60 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_60(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD..<=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..<=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_60_61(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD..>=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..>=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_62_61(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD..>infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD..>infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_46_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_46_62(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
@@ -20425,7 +20589,6 @@ var SIMD$implementation = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     SIMD$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
@@ -20448,14 +20611,13 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>)*/
-    /*Swift.(file).SIMD.random(in:Range<Self.Scalar>)*/
     SIMD$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return _this.randomInUsing(range, { get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>,using:T)*/
-    /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>,using:T)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -20477,7 +20639,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>)*/
-    /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
@@ -20489,7 +20651,6 @@ var SIMD$implementation = /** @class */ (function () {
         return _create(_this, 'init', {});
     };
     ;
-    /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>,using:T)*/
     SIMD$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
@@ -20512,14 +20673,13 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.random(in:Range<Self.Scalar>)*/
-    /*Swift.(file).SIMD.random(in:Range<Self.Scalar>)*/
     SIMD$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return _this.randomInUsing(range, { get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>,using:T)*/
-    /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>,using:T)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -20541,7 +20701,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>)*/
-    /*Swift.(file).SIMD.random(in:ClosedRange<Self.Scalar>)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
@@ -20614,7 +20774,6 @@ var SIMD$implementation = /** @class */ (function () {
     });
     ;
     /*Swift.(file).SIMD.~prefix(_:Self)*/
-    /*Swift.(file).SIMD.~prefix(_:Self)*/
     SIMD$implementation.prefix_126 = function (rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20630,7 +20789,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.&infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20648,7 +20806,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.^infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.^infix(_:Self,_:Self)*/
     SIMD$implementation.infix_94 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20664,7 +20821,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.|infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.|infix(_:Self,_:Self)*/
     SIMD$implementation.infix_124 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20682,7 +20838,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.&<<infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&<<infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_60_60 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20698,7 +20853,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.&>>infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&>>infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_62_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20716,7 +20870,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.&+infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&+infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_43 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20732,7 +20885,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.&-infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&-infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_45 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20750,7 +20902,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.&*infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&*infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_42 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20766,7 +20917,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD./infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD./infix(_:Self,_:Self)*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20784,7 +20934,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.%infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.%infix(_:Self,_:Self)*/
     SIMD$implementation.infix_37 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20800,7 +20949,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.+infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.+infix(_:Self,_:Self)*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20818,7 +20966,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.-infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.-infix(_:Self,_:Self)*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20835,7 +20982,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.*infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.*infix(_:Self,_:Self)*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -20851,7 +20997,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD./infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD./infix(_:Self,_:Self)*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
@@ -20920,127 +21065,126 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.&infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.^infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.^infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_94 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_94(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.|infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.|infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_124 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_124(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&<<infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&<<infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_60_60 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38_60_60(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&>>infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&>>infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_62_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38_62_62(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&+infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&+infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_43 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38_43(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&-infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&-infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_45 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38_45(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&*infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.&*infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_42 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_38_42(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD./infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD./infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_47(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.%infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.%infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_37 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_37(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.&infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.^infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.^infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_94 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_94(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.|infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.|infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_124 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_124(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&<<infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&<<infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_60_60 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38_60_60(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&>>infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&>>infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_62_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38_62_62(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&+infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&+infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_43 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38_43(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&-infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&-infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_45 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38_45(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&*infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&*infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_42 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_38_42(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD./infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD./infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_47(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.%infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.%infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_37 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_37(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.&=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21050,7 +21194,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.^=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.^=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_94_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21062,7 +21205,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.|=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.|=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_124_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21072,7 +21214,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.&<<=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&<<=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21084,7 +21225,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&>>=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&>>=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21094,7 +21234,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.&+=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&+=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21106,7 +21245,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&-=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.&-=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21116,7 +21254,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.&*=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.&*=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_38_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21128,7 +21265,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD./=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD./=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_47_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21138,7 +21274,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.%=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.%=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_37_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21150,7 +21285,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21161,7 +21296,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.^=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.^=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_94_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21172,7 +21307,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.|=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.|=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_124_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21183,7 +21318,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&<<=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&<<=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21194,7 +21329,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&>>=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&>>=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21205,7 +21340,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&+=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&+=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21216,7 +21351,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&-=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&-=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21227,7 +21362,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.&*=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.&*=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_38_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21238,7 +21373,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD./=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD./=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21249,7 +21384,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.%=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.%=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_37_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21259,7 +21394,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.+infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.+infix(_:Self,_:Self)*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
@@ -21277,7 +21411,6 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.-infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.-infix(_:Self,_:Self)*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         var result = _create(_this, 'init', {});
@@ -21293,7 +21426,6 @@ var SIMD$implementation = /** @class */ (function () {
         ;
         return result;
     };
-    /*Swift.(file).SIMD.*infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.*infix(_:Self,_:Self)*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
@@ -21311,42 +21443,41 @@ var SIMD$implementation = /** @class */ (function () {
         return result;
     };
     /*Swift.(file).SIMD.+infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.+infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.-infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.-infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.*infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.*infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.+infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.+infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.-infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.-infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.*infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.*infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
-    /*Swift.(file).SIMD.+=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.+=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21358,7 +21489,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.-=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.-=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21368,7 +21498,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.*=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.*=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21380,7 +21509,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.+=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.+=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21391,7 +21520,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.-=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.-=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21402,7 +21531,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.*=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.*=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21412,62 +21541,60 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.-prefix(_:Self)*/
     /*Swift.(file).SIMD.-prefix(_:Self)*/
     SIMD$implementation.prefix_45 = function (rhs, $info) {
         var _this = this;
         return (_.arg0 = rhs).constructor.infix_45(0, _.arg0, {});
     };
     /*Swift.(file).SIMD.+infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.+infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.-infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.-infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.*infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD.*infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD./infix(_:Self.Scalar,_:Self)*/
-    /*Swift.(file).SIMD./infix(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = _create(_this, 'initRepeating', lhs, {})).constructor.infix_47(_.arg0, rhs, {});
     };
     /*Swift.(file).SIMD.+infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.+infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.-infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.-infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD.*infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.*infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42 = function (lhs, rhs, $info) {
         var _this = this;
         fatalErrorFileLine(function () { return String(); } /*!default_value*/, '?3', '?3', {});
     };
     /*Swift.(file).SIMD./infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD./infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = lhs).constructor.infix_47(_.arg0, _create(_this, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMD.+=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.+=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21477,7 +21604,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD.-=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD.-=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21489,7 +21615,6 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.*=infix(_:Self,_:Self)*/
-    /*Swift.(file).SIMD.*=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21499,7 +21624,6 @@ var SIMD$implementation = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMD./=infix(_:Self,_:Self)*/
     /*Swift.(file).SIMD./=infix(_:Self,_:Self)*/
     SIMD$implementation.infix_47_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21511,7 +21635,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.+=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.+=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21522,7 +21646,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.-=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.-=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_45_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21533,7 +21657,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD.*=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD.*=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_42_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21544,7 +21668,7 @@ var SIMD$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMD./=infix(_:Self,_:Self.Scalar)*/
-    /*Swift.(file).SIMD./=infix(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.infix_47_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21556,12 +21680,14 @@ var SIMD$implementation = /** @class */ (function () {
     };
     /*Swift.(file).SIMD.addingProduct(_:Self.Scalar,_:Self)*/
     /*Swift.(file).SIMD.addingProduct(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.addingProduct = function (lhs, rhs, $info) {
         var _this = this;
         return _this.addingProduct(_create(_this.constructor, 'initRepeating', lhs, {}), rhs, {});
     };
     /*Swift.(file).SIMD.addingProduct(_:Self,_:Self.Scalar)*/
     /*Swift.(file).SIMD.addingProduct(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.addingProduct = function (lhs, rhs, $info) {
         var _this = this;
         return _this.addingProduct(lhs, _create(_this.constructor, 'initRepeating', rhs, {}), {});
@@ -21574,12 +21700,14 @@ var SIMD$implementation = /** @class */ (function () {
     };
     /*Swift.(file).SIMD.addProduct(_:Self.Scalar,_:Self)*/
     /*Swift.(file).SIMD.addProduct(_:Self.Scalar,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.addProduct = function (lhs, rhs, $info) {
         var _this = this;
         $info.$setThis(_this = _cloneStruct(_this.addingProduct(lhs, rhs, {})));
     };
     /*Swift.(file).SIMD.addProduct(_:Self,_:Self.Scalar)*/
     /*Swift.(file).SIMD.addProduct(_:Self,_:Self.Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD$implementation.prototype.addProduct = function (lhs, rhs, $info) {
         var _this = this;
         $info.$setThis(_this = _cloneStruct(_this.addingProduct(lhs, rhs, {})));
@@ -21631,6 +21759,7 @@ var SIMDMask = /** @class */ (function () {
     };
     /*Swift.(file).SIMDMask.init(_:Storage)*/
     /*Swift.(file).SIMDMask.init(_:Storage)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.prototype.init = function (_storage, $info) {
         var _this = this;
         _this._storage = _storage;
@@ -21660,7 +21789,6 @@ var SIMDMask = /** @class */ (function () {
     });
     ;
     /*Swift.(file).SIMDMask.random(using:T)*/
-    /*Swift.(file).SIMDMask.random(using:T)*/
     SIMDMask.randomUsing = function (generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -21682,73 +21810,67 @@ var SIMDMask = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMDMask.random()*/
-    /*Swift.(file).SIMDMask.random()*/
     SIMDMask.random = function ($info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return SIMDMask.randomUsing({ get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).SIMDMask..!prefix(_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..!prefix(_:SIMDMask<Storage>)*/
     SIMDMask.prefix_46_33 = function (rhs, $info) {
         var _this = this;
         return _create(SIMDMask, 'init', ((function () { throw '!unclarifiedGeneric:Storage'; })()).prefix_126(rhs._storage, {}), {});
     };
-    /*Swift.(file).SIMDMask..&infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     /*Swift.(file).SIMDMask..&infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_38 = function (lhs, rhs, $info) {
         var _this = this;
         return _create(SIMDMask, 'init', (_.arg0 = lhs._storage).constructor.infix_38(_.arg0, rhs._storage, {}), {});
     };
     /*Swift.(file).SIMDMask..^infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..^infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_94 = function (lhs, rhs, $info) {
         var _this = this;
         return _create(SIMDMask, 'init', (_.arg0 = lhs._storage).constructor.infix_94(_.arg0, rhs._storage, {}), {});
     };
-    /*Swift.(file).SIMDMask..|infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     /*Swift.(file).SIMDMask..|infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_124 = function (lhs, rhs, $info) {
         var _this = this;
         return _create(SIMDMask, 'init', (_.arg0 = lhs._storage).constructor.infix_124(_.arg0, rhs._storage, {}), {});
     };
     /*Swift.(file).SIMDMask..&infix(_:Bool,_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..&infix(_:Bool,_:SIMDMask<Storage>)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_38 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_38(_create(SIMDMask, 'initRepeating', lhs, {}), rhs, {});
     };
     /*Swift.(file).SIMDMask..^infix(_:Bool,_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..^infix(_:Bool,_:SIMDMask<Storage>)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_94 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_94(_create(SIMDMask, 'initRepeating', lhs, {}), rhs, {});
     };
     /*Swift.(file).SIMDMask..|infix(_:Bool,_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..|infix(_:Bool,_:SIMDMask<Storage>)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_124 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_124(_create(SIMDMask, 'initRepeating', lhs, {}), rhs, {});
     };
     /*Swift.(file).SIMDMask..&infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..&infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_38 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_38(lhs, _create(SIMDMask, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMDMask..^infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..^infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_94 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_94(lhs, _create(SIMDMask, 'initRepeating', rhs, {}), {});
     };
     /*Swift.(file).SIMDMask..|infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..|infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_124 = function (lhs, rhs, $info) {
         var _this = this;
         return SIMDMask.infix_46_124(lhs, _create(SIMDMask, 'initRepeating', rhs, {}), {});
     };
-    /*Swift.(file).SIMDMask..&=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     /*Swift.(file).SIMDMask..&=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_38_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21760,7 +21882,6 @@ var SIMDMask = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMDMask..^=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
-    /*Swift.(file).SIMDMask..^=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_94_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21770,7 +21891,6 @@ var SIMDMask = /** @class */ (function () {
         lhs$inout.set(lhs);
         return $result;
     };
-    /*Swift.(file).SIMDMask..|=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     /*Swift.(file).SIMDMask..|=infix(_:SIMDMask<Storage>,_:SIMDMask<Storage>)*/
     SIMDMask.infix_46_124_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -21782,7 +21902,7 @@ var SIMDMask = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMDMask..&=infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..&=infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_38_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21793,7 +21913,7 @@ var SIMDMask = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMDMask..^=infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..^=infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_94_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21804,7 +21924,7 @@ var SIMDMask = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).SIMDMask..|=infix(_:SIMDMask<Storage>,_:Bool)*/
-    /*Swift.(file).SIMDMask..|=infix(_:SIMDMask<Storage>,_:Bool)*/
+    /*!!!DUPLICATE NAME*/
     SIMDMask.infix_46_124_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
         var lhs = lhs$inout.get();
@@ -21834,12 +21954,10 @@ var AnyIndex = /** @class */ (function () {
     AnyIndex.prototype.init_box_AnyIndexBox = function (_box, $info) {
         throw 'unsupported method Swift.(file).AnyIndex.init(_box:_AnyIndexBox) in ' + this.constructor.name;
     };
-    /*Swift.(file).AnyIndex.==infix(_:AnyIndex,_:AnyIndex)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     AnyIndex.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).AnyIndex.<infix(_:AnyIndex,_:AnyIndex)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     AnyIndex.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
@@ -22093,6 +22211,7 @@ var SIMD2 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD2.init(_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD2.init(_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD2.prototype.init = function (v0, v1, $info) {
         throw 'unsupported method Swift.(file).SIMD2.init(_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22204,6 +22323,7 @@ var SIMD4 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD4.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD4.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD4.prototype.init = function (v0, v1, v2, v3, $info) {
         throw 'unsupported method Swift.(file).SIMD4.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22380,6 +22500,7 @@ var SIMD8 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD8.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD8.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD8.prototype.init = function (v0, v1, v2, v3, v4, v5, v6, v7, $info) {
         throw 'unsupported method Swift.(file).SIMD8.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22511,6 +22632,7 @@ var SIMD16 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD16.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD16.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD16.prototype.init = function (v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, $info) {
         throw 'unsupported method Swift.(file).SIMD16.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22642,6 +22764,7 @@ var SIMD32 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD32.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD32.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD32.prototype.init = function (v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, $info) {
         throw 'unsupported method Swift.(file).SIMD32.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22773,6 +22896,7 @@ var SIMD64 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD64.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD64.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD64.prototype.init = function (v0, v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15, v16, v17, v18, v19, v20, v21, v22, v23, v24, v25, v26, v27, v28, v29, v30, v31, v32, v33, v34, v35, v36, v37, v38, v39, v40, v41, v42, v43, v44, v45, v46, v47, v48, v49, v50, v51, v52, v53, v54, v55, v56, v57, v58, v59, v60, v61, v62, v63, $info) {
         throw 'unsupported method Swift.(file).SIMD64.init(_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -22904,6 +23028,7 @@ var SIMD3 = /** @class */ (function () {
     };
     /*Swift.(file).SIMD3.init(_:Scalar,_:Scalar,_:Scalar)*/
     /*Swift.(file).SIMD3.init(_:Scalar,_:Scalar,_:Scalar)*/
+    /*!!!DUPLICATE NAME*/
     SIMD3.prototype.init = function (v0, v1, v2, $info) {
         throw 'unsupported method Swift.(file).SIMD3.init(_:Scalar,_:Scalar,_:Scalar) in ' + this.constructor.name;
     };
@@ -23077,6 +23202,7 @@ var BidirectionalCollection$implementation = /** @class */ (function () {
     };
     /*Swift.(file).BidirectionalCollection.removeLast(_:Int)*/
     /*Swift.(file).BidirectionalCollection.removeLast(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     BidirectionalCollection$implementation.prototype.removeLast = function (k, $info) {
         var _this = this;
         if ((Int.infix_61_61(k, 0, {}))) {
@@ -23295,13 +23421,11 @@ var Character = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Character.==infix(_:Character,_:Character)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Character.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
         return String.infix_61_61(lhs, rhs, {});
     };
-    /*Swift.(file).Character.<infix(_:Character,_:Character)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     Character.infix_60 = function (lhs, rhs, $info) {
         var _this = this;
@@ -23888,6 +24012,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     ;
     /*Swift.(file).Dictionary.subscript(_:Key)*/
     /*Swift.(file).Dictionary.subscript(_:Key)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Dictionary.prototype.subscript$get = function (key, $info) {
         if (this.has(key))
             return Optional.some(this.get(key), {});
@@ -23942,6 +24067,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     };
     /*Swift.(file).Dictionary.merge(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
     /*Swift.(file).Dictionary.merge(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Dictionary.prototype.mergeUniquingKeysWith = function (other, combine, $info) {
         throw 'unsupported method Swift.(file).Dictionary.merge(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value) in ' + this.constructor.name;
     };
@@ -23952,6 +24078,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
     };
     /*Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
     /*Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Dictionary.prototype.mergingUniquingKeysWith = function (other, combine, $info) {
         throw 'unsupported method Swift.(file).Dictionary.merging(_:[Key : Value],uniquingKeysWith:(Value, Value) throws -> Value) in ' + this.constructor.name;
     };
@@ -23990,7 +24117,6 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Dictionary.==infix(_:[Key : Value],_:[Key : Value])*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Dictionary.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -24153,7 +24279,6 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).Dictionary.Keys.==infix(_:Dictionary<Key, Value>.Keys,_:Dictionary<Key, Value>.Keys)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_45.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
@@ -24374,12 +24499,10 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             class_49.prototype.init_cocoa__CocoaDictionaryIndex = function (index, $info) {
                 throw 'unsupported method Swift.(file).Dictionary.Index.init(_cocoa:__CocoaDictionary.Index) in ' + this.constructor.name;
             };
-            /*Swift.(file).Dictionary.Index.==infix(_:Dictionary<Key, Value>.Index,_:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_49.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).Dictionary.Index.<infix(_:Dictionary<Key, Value>.Index,_:Dictionary<Key, Value>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_49.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -24607,6 +24730,7 @@ var MIO_Mixin_Dictionary = /** @class */ (function () {
             };
             /*Swift.(file).Dictionary._Variant.lookup(_:Dictionary<Key, Value>._Variant.Index)*/
             /*Swift.(file)._DictionaryBuffer.lookup(_:Self.Index)*/
+            /*!!!DUPLICATE NAME*/
             class_53.prototype.lookup = function (index, $info) {
                 throw 'unsupported method Swift.(file).Dictionary._Variant.lookup(_:Dictionary<Key, Value>._Variant.Index) in ' + this.constructor.name;
             };
@@ -24922,13 +25046,11 @@ var FlattenSequence = /** @class */ (function () {
             class_55.prototype.initOptional = function (_outer, inner, $info) {
                 throw 'unsupported method Swift.(file).FlattenSequence.Index.init(_:Base.Index,_:Base.Element.Index?) in ' + this.constructor.name;
             };
-            /*Swift.(file).FlattenSequence.Index.==infix(_:FlattenCollection<Base>.Index,_:FlattenCollection<Base>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_55.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 return Bool.infix_38_38((_.arg0 = lhs._outer).constructor.infix_61_61(_.arg0, rhs._outer, {}), function () { return Optional.infix_61_61(lhs._inner, rhs._inner, {}); }, {});
             };
-            /*Swift.(file).FlattenSequence.Index.<infix(_:FlattenCollection<Base>.Index,_:FlattenCollection<Base>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_55.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -24995,26 +25117,21 @@ var FloatingPoint$implementation = /** @class */ (function () {
     function FloatingPoint$implementation() {
     }
     /*Swift.(file).FloatingPoint.==infix(_:Self,_:Self)*/
-    /*Swift.(file).FloatingPoint.==infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).FloatingPoint.<infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.<infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
     /*Swift.(file).FloatingPoint.<=infix(_:Self,_:Self)*/
-    /*Swift.(file).FloatingPoint.<=infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_60_61 = function (lhs, rhs, $info) {
         return lhs <= rhs;
     };
     /*Swift.(file).FloatingPoint.>infix(_:Self,_:Self)*/
-    /*Swift.(file).FloatingPoint.>infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_62 = function (lhs, rhs, $info) {
         return lhs > rhs;
     };
-    /*Swift.(file).FloatingPoint.>=infix(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.>=infix(_:Self,_:Self)*/
     FloatingPoint$implementation.infix_62_61 = function (lhs, rhs, $info) {
         return lhs >= rhs;
@@ -25043,12 +25160,14 @@ var FloatingPoint$implementation = /** @class */ (function () {
     };
     /*Swift.(file).FloatingPoint.rounded()*/
     /*Swift.(file).FloatingPoint.rounded()*/
+    /*!!!DUPLICATE NAME*/
     FloatingPoint$implementation.prototype.rounded = function ($info) {
         var _this = this;
         return _this.constructor.prototype.rounded.call(_this, FloatingPointRoundingRule.toNearestOrAwayFromZero, {});
     };
     /*Swift.(file).FloatingPoint.round()*/
     /*Swift.(file).FloatingPoint.round()*/
+    /*!!!DUPLICATE NAME*/
     FloatingPoint$implementation.prototype.round = function ($info) {
         var _this = this;
         _this.round(FloatingPointRoundingRule.toNearestOrAwayFromZero, { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -25097,7 +25216,6 @@ var FloatingPoint$implementation = /** @class */ (function () {
         return addend;
     };
     /*Swift.(file).FloatingPoint.minimum(_:Self,_:Self)*/
-    /*Swift.(file).FloatingPoint.minimum(_:Self,_:Self)*/
     FloatingPoint$implementation.minimum = function (x, y, $info) {
         var _this = this;
         if ((Bool.infix_124_124(_this.prototype.isSignalingNaN$get.call(x), function () { return _this.prototype.isSignalingNaN$get.call(y); }, {}))) {
@@ -25110,7 +25228,6 @@ var FloatingPoint$implementation = /** @class */ (function () {
         ;
         return y;
     };
-    /*Swift.(file).FloatingPoint.maximum(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.maximum(_:Self,_:Self)*/
     FloatingPoint$implementation.maximum = function (x, y, $info) {
         var _this = this;
@@ -25125,7 +25242,6 @@ var FloatingPoint$implementation = /** @class */ (function () {
         return y;
     };
     /*Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self)*/
-    /*Swift.(file).FloatingPoint.minimumMagnitude(_:Self,_:Self)*/
     FloatingPoint$implementation.minimumMagnitude = function (x, y, $info) {
         var _this = this;
         if ((Bool.infix_124_124(_this.prototype.isSignalingNaN$get.call(x), function () { return _this.prototype.isSignalingNaN$get.call(y); }, {}))) {
@@ -25138,7 +25254,6 @@ var FloatingPoint$implementation = /** @class */ (function () {
         ;
         return y;
     };
-    /*Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self)*/
     /*Swift.(file).FloatingPoint.maximumMagnitude(_:Self,_:Self)*/
     FloatingPoint$implementation.maximumMagnitude = function (x, y, $info) {
         var _this = this;
@@ -25287,7 +25402,6 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
         return;
     };
     /*Swift.(file).BinaryFloatingPoint.random(in:Range<Self>,using:T)*/
-    /*Swift.(file).BinaryFloatingPoint.random(in:Range<Self>,using:T)*/
     BinaryFloatingPoint$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -25317,14 +25431,13 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).BinaryFloatingPoint.random(in:Range<Self>)*/
-    /*Swift.(file).BinaryFloatingPoint.random(in:Range<Self>)*/
     BinaryFloatingPoint$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return _this.randomInUsing(range, { get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).BinaryFloatingPoint.random(in:ClosedRange<Self>,using:T)*/
-    /*Swift.(file).BinaryFloatingPoint.random(in:ClosedRange<Self>,using:T)*/
+    /*!!!DUPLICATE NAME*/
     BinaryFloatingPoint$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -25359,7 +25472,7 @@ var BinaryFloatingPoint$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).BinaryFloatingPoint.random(in:ClosedRange<Self>)*/
-    /*Swift.(file).BinaryFloatingPoint.random(in:ClosedRange<Self>)*/
+    /*!!!DUPLICATE NAME*/
     BinaryFloatingPoint$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
@@ -25409,26 +25522,21 @@ var BinaryInteger$implementation = /** @class */ (function () {
         return ((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).infix_61_61(((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).infix_37(_this.constructor.prototype.magnitude$get.call(_this), _this.constructor.prototype.magnitude$get.call(other), {}), 0, {});
     };
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     BinaryInteger$implementation.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
     /*Swift.(file).BinaryInteger.>>infix(_:Self,_:RHS)*/
-    /*Swift.(file).BinaryInteger.>>infix(_:Self,_:RHS)*/
     BinaryInteger$implementation.infix_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).BinaryInteger.<<infix(_:Self,_:RHS)*/
     /*Swift.(file).BinaryInteger.<<infix(_:Self,_:RHS)*/
     BinaryInteger$implementation.infix_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
@@ -25500,52 +25608,46 @@ var BinaryInteger$implementation = /** @class */ (function () {
         return (((function () { throw '!unclarifiedGeneric:Self.Magnitude'; })()).infix_60(_this.constructor.prototype.magnitude$get.call(_this), Int.prototype.magnitude$get.call(n), {}) ? _create(_this.constructor, 'initT', Int.infix_43(_create(Int, 'initT', _this, {}), n, {}), {}) : _this.constructor.infix_43(_this, _create(_this.constructor, 'initT', n, {}), {}));
     };
     /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
-    /*Swift.(file).BinaryInteger.==infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Other)*/
-    /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_33_61 = function (lhs, rhs, $info) {
         return lhs != rhs;
     };
-    /*Swift.(file).BinaryInteger.<infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.<infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
-    /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_60_61 = function (lhs, rhs, $info) {
         return lhs <= rhs;
     };
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Other)*/
-    /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_62_61 = function (lhs, rhs, $info) {
         return lhs >= rhs;
     };
-    /*Swift.(file).BinaryInteger.>infix(_:Self,_:Other)*/
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Other)*/
     BinaryInteger$implementation.infix_62 = function (lhs, rhs, $info) {
         return lhs > rhs;
     };
     /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.!=infix(_:Self,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     BinaryInteger$implementation.infix_33_61 = function (lhs, rhs, $info) {
         return lhs != rhs;
     };
     /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.<=infix(_:Self,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     BinaryInteger$implementation.infix_60_61 = function (lhs, rhs, $info) {
         return lhs <= rhs;
     };
     /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.>=infix(_:Self,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     BinaryInteger$implementation.infix_62_61 = function (lhs, rhs, $info) {
         return lhs >= rhs;
     };
     /*Swift.(file).BinaryInteger.>infix(_:Self,_:Self)*/
-    /*Swift.(file).BinaryInteger.>infix(_:Self,_:Self)*/
+    /*!!!DUPLICATE NAME*/
     BinaryInteger$implementation.infix_62 = function (lhs, rhs, $info) {
         return lhs > rhs;
     };
@@ -25629,36 +25731,33 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
     });
     ;
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
-    /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Other)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Other)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
-    /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Other)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Other)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
     };
-    /*Swift.(file).FixedWidthInteger.random(in:Range<Self>,using:T)*/
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>,using:T)*/
     FixedWidthInteger$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
@@ -25672,14 +25771,13 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).FixedWidthInteger.random(in:Range<Self>)*/
-    /*Swift.(file).FixedWidthInteger.random(in:Range<Self>)*/
     FixedWidthInteger$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return _this.randomInUsing(range, { get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>,using:T)*/
-    /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>,using:T)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.randomInUsing = function (range, generator$inout, $info) {
         var _this = this;
         var generator = generator$inout.get();
@@ -25697,33 +25795,28 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         return $result;
     };
     /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>)*/
-    /*Swift.(file).FixedWidthInteger.random(in:ClosedRange<Self>)*/
+    /*!!!DUPLICATE NAME*/
     FixedWidthInteger$implementation.randomIn = function (range, $info) {
         var _this = this;
         var g = _create(SystemRandomNumberGenerator, 'init', {});
         return _this.randomInUsing(range, { get: function () { return g; }, set: function ($val) { return g = $val; } }, {});
     };
     /*Swift.(file).FixedWidthInteger.~prefix(_:Self)*/
-    /*Swift.(file).FixedWidthInteger.~prefix(_:Self)*/
     FixedWidthInteger$implementation.prefix_126 = function (x, $info) {
         return ~x;
     };
-    /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.>>infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
     /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.>>=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
     /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Other)*/
-    /*Swift.(file).FixedWidthInteger.<<infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Other)*/
     /*Swift.(file).FixedWidthInteger.<<=infix(_:Self,_:Other)*/
     FixedWidthInteger$implementation.infix_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -25804,31 +25897,25 @@ var FixedWidthInteger$implementation = /** @class */ (function () {
         return;
     };
     /*Swift.(file).FixedWidthInteger.&+infix(_:Self,_:Self)*/
-    /*Swift.(file).FixedWidthInteger.&+infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).FixedWidthInteger.&+=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&+=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_43_61 = function (lhs$inout, rhs, $info) {
         return lhs$inout += rhs;
     };
     /*Swift.(file).FixedWidthInteger.&-infix(_:Self,_:Self)*/
-    /*Swift.(file).FixedWidthInteger.&-infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).FixedWidthInteger.&-=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&-=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_45_61 = function (lhs$inout, rhs, $info) {
         return lhs$inout -= rhs;
     };
     /*Swift.(file).FixedWidthInteger.&*infix(_:Self,_:Self)*/
-    /*Swift.(file).FixedWidthInteger.&*infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).FixedWidthInteger.&*=infix(_:Self,_:Self)*/
     /*Swift.(file).FixedWidthInteger.&*=infix(_:Self,_:Self)*/
     FixedWidthInteger$implementation.infix_38_42_61 = function (lhs$inout, rhs, $info) {
         return lhs$inout *= rhs;
@@ -26017,11 +26104,9 @@ var SignedInteger$implementation = /** @class */ (function () {
         return _this.constructor.infix_61_61(_this.constructor.infix_37(_this, other, {}), 0, {});
     };
     /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
-    /*Swift.(file).SignedInteger.&+infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     /*Swift.(file).SignedInteger.&-infix(_:Self,_:Self)*/
     SignedInteger$implementation.infix_38_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
@@ -26100,6 +26185,7 @@ var _Pointer$implementation = /** @class */ (function () {
     };
     /*Swift.(file)._Pointer.init(_:Self?)*/
     /*Swift.(file)._Pointer.init(_:Self?)*/
+    /*!!!DUPLICATE NAME*/
     _Pointer$implementation.prototype.initOptional = function (other, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -26111,11 +26197,9 @@ var _Pointer$implementation = /** @class */ (function () {
         return;
     };
     /*Swift.(file)._Pointer.==infix(_:Self,_:Self)*/
-    /*Swift.(file)._Pointer.==infix(_:Self,_:Self)*/
     _Pointer$implementation.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file)._Pointer.<infix(_:Self,_:Self)*/
     /*Swift.(file)._Pointer.<infix(_:Self,_:Self)*/
     _Pointer$implementation.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
@@ -26301,7 +26385,6 @@ var LazyPrefixWhileSequence = /** @class */ (function () {
             class_58.prototype.initEndOf = function (endOf, $info) {
                 throw 'unsupported method Swift.(file).LazyPrefixWhileSequence.Index.init(endOf:Base) in ' + this.constructor.name;
             };
-            /*Swift.(file).LazyPrefixWhileSequence.Index.==infix(_:LazyPrefixWhileCollection<Base>.Index,_:LazyPrefixWhileCollection<Base>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_58.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -26318,7 +26401,6 @@ var LazyPrefixWhileSequence = /** @class */ (function () {
                     return false;
                 }
             };
-            /*Swift.(file).LazyPrefixWhileSequence.Index.<infix(_:LazyPrefixWhileCollection<Base>.Index,_:LazyPrefixWhileCollection<Base>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_58.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -26418,16 +26500,19 @@ var RandomAccessCollection$implementation = /** @class */ (function () {
     ;
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(after:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     RandomAccessCollection$implementation.prototype.indexAfter = function (i, $info) {
         throw 'unsupported method Swift.(file).RandomAccessCollection.index(after:Self.Index) in ' + this.constructor.name;
     };
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
     /*Swift.(file).RandomAccessCollection.index(before:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     RandomAccessCollection$implementation.prototype.indexBefore = function (i, $info) {
         throw 'unsupported method Swift.(file).RandomAccessCollection.index(before:Self.Index) in ' + this.constructor.name;
     };
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Self.Index.Stride)*/
     /*Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Self.Index.Stride)*/
+    /*!!!DUPLICATE NAME*/
     RandomAccessCollection$implementation.prototype.indexOffsetBy = function (i, distance, $info) {
         throw 'unsupported method Swift.(file).RandomAccessCollection.index(_:Self.Index,offsetBy:Self.Index.Stride) in ' + this.constructor.name;
     };
@@ -26627,7 +26712,6 @@ var Range = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Range.==infix(_:Range<Bound>,_:Range<Bound>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     Range.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -26685,6 +26769,7 @@ var Range = /** @class */ (function () {
     };
     /*Swift.(file).Range.overlaps(_:ClosedRange<Bound>)*/
     /*Swift.(file).Range.overlaps(_:ClosedRange<Bound>)*/
+    /*!!!DUPLICATE NAME*/
     Range.prototype.overlaps = function (other, $info) {
         var _this = this;
         return Bool.infix_124_124(_this.contains(other.lowerBound, {}), function () { return Bool.infix_38_38(Bool.prefix_33(_this.isEmpty, {}), function () { return other.contains(_this.lowerBound, {}); }, {}); }, {});
@@ -26934,13 +27019,11 @@ var ReversedCollection = /** @class */ (function () {
             class_60.prototype.init = function (base, $info) {
                 throw 'unsupported method Swift.(file).ReversedCollection.Index.init(_:Base.Index) in ' + this.constructor.name;
             };
-            /*Swift.(file).ReversedCollection.Index.==infix(_:ReversedCollection<Base>.Index,_:ReversedCollection<Base>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_60.infix_61_61 = function (lhs, rhs, $info) {
                 var _this = this;
                 return (_.arg0 = lhs.base).constructor.infix_61_61(_.arg0, rhs.base, {});
             };
-            /*Swift.(file).ReversedCollection.Index.<infix(_:ReversedCollection<Base>.Index,_:ReversedCollection<Base>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_60.infix_60 = function (lhs, rhs, $info) {
                 var _this = this;
@@ -27131,6 +27214,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.subscript(_:Slice<Base>.Index)*/
     /*Swift.(file).MutableCollection.subscript(_:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.subscript$get = function (index, $info) {
         var _this = this;
         return _this._base.subscript$get(index, {});
@@ -27142,6 +27226,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.subscript(_:Range<Slice<Base>.Index>)*/
     /*Swift.(file).MutableCollection.subscript(_:Range<Self.Index>)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.subscriptRange$get = function (bounds, $info) {
         var _this = this;
         return _create(Slice, 'initBaseBoundsRange', _this._base, bounds, {});
@@ -27231,6 +27316,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)*/
     /*Swift.(file).Slice.replaceSubrange(_:Range<Slice<Base>.Index>,with:C)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.replaceSubrangeWith = function (subRange, newElements, $info) {
         var _this = this;
         var sliceOffset = _this._base.distanceFromTo(_this._base.startIndex, _this._startIndex, {});
@@ -27241,6 +27327,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.insert(_:Base.Element,at:Slice<Base>.Index)*/
     /*Swift.(file).Slice.insert(_:Base.Element,at:Slice<Base>.Index)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.insertAt = function (newElement, i, $info) {
         var _this = this;
         var sliceOffset = _this._base.distanceFromTo(_this._base.startIndex, _this._startIndex, {});
@@ -27251,6 +27338,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.insert(contentsOf:S,at:Slice<Base>.Index)*/
     /*Swift.(file).Slice.insert(contentsOf:S,at:Slice<Base>.Index)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.insertContentsOfAt = function (newElements, i, $info) {
         var _this = this;
         var sliceOffset = _this._base.distanceFromTo(_this._base.startIndex, _this._startIndex, {});
@@ -27261,6 +27349,7 @@ var Slice = /** @class */ (function () {
     };
     /*Swift.(file).Slice.remove(at:Slice<Base>.Index)*/
     /*Swift.(file).Slice.remove(at:Slice<Base>.Index)*/
+    /*!!!DUPLICATE NAME*/
     Slice.prototype.removeAt = function (i, $info) {
         var _this = this;
         var sliceOffset = _this._base.distanceFromTo(_this._base.startIndex, _this._startIndex, {});
@@ -27600,34 +27689,28 @@ var StringProtocol$implementation = /** @class */ (function () {
         throw 'unsupported method Swift.(file).StringProtocol.hash(into:Hasher) in ' + this.constructor.name;
     };
     /*Swift.(file).StringProtocol.==infix(_:Self,_:RHS)*/
-    /*Swift.(file).StringProtocol.==infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.!=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_33_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_61_61(_.arg0, rhs, {}), {});
     };
     /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
-    /*Swift.(file).StringProtocol.<infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).StringProtocol.>infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.>infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
         return (_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {});
     };
     /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
-    /*Swift.(file).StringProtocol.<=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     /*Swift.(file).StringProtocol.>=infix(_:Self,_:RHS)*/
     StringProtocol$implementation.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -27635,12 +27718,14 @@ var StringProtocol$implementation = /** @class */ (function () {
     };
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
     /*Swift.(file).StringProtocol.hasPrefix(_:Prefix)*/
+    /*!!!DUPLICATE NAME*/
     StringProtocol$implementation.prototype.hasPrefix = function (prefix, $info) {
         var _this = this;
         return _this.startsWithSwift(prefix, {});
     };
     /*Swift.(file).StringProtocol.hasSuffix(_:Suffix)*/
     /*Swift.(file).StringProtocol.hasSuffix(_:Suffix)*/
+    /*!!!DUPLICATE NAME*/
     StringProtocol$implementation.prototype.hasSuffix = function (suffix, $info) {
         var _this = this;
         return _this.reversed({}).startsWithSwift(suffix.reversed({}), {});
@@ -27777,6 +27862,7 @@ var Substring = /** @class */ (function () {
     };
     /*Swift.(file).Substring.replaceSubrange(_:Range<Substring.Index>,with:Substring)*/
     /*Swift.(file).Substring.replaceSubrange(_:Range<Substring.Index>,with:Substring)*/
+    /*!!!DUPLICATE NAME*/
     Substring.prototype.replaceSubrangeWith = function (bounds, newElements, $info) {
         var _this = this;
         _this.replaceSubrangeWith(bounds, newElements._slice, { $setThis: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } });
@@ -28664,12 +28750,10 @@ var _UIntBuffer = /** @class */ (function () {
                 _this.bitOffset = bitOffset;
                 return;
             };
-            /*Swift.(file)._UIntBuffer.Index.==infix(_:_UIntBuffer<Element>.Index,_:_UIntBuffer<Element>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_65.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file)._UIntBuffer.Index.<infix(_:_UIntBuffer<Element>.Index,_:_UIntBuffer<Element>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_65.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -28816,7 +28900,6 @@ var UnsafeMutablePointer = /** @class */ (function () {
         _this.initUnsafeMutablePointer(unwrapped_1, {});
         return;
     };
-    /*Swift.(file).UnsafeMutablePointer.allocate(capacity:Int)*/
     /*Swift.(file).UnsafeMutablePointer.allocate(capacity:Int)*/
     UnsafeMutablePointer.allocateCapacity = function (count, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutablePointer.allocate(capacity:Int) in ' + this.constructor.name;
@@ -29011,6 +29094,7 @@ var UnsafeRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeRawPointer.init(_:UnsafeMutableRawPointer?)*/
     /*Swift.(file).UnsafeRawPointer.init(_:UnsafeMutableRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeRawPointer.prototype.initOptional = function (other, $info) {
         throw 'unsupported method Swift.(file).UnsafeRawPointer.init(_:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
@@ -29021,6 +29105,7 @@ var UnsafeRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeRawPointer.init(_:UnsafeMutablePointer<T>?)*/
     /*Swift.(file).UnsafeRawPointer.init(_:UnsafeMutablePointer<T>?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeRawPointer.prototype.initOptional = function (other, $info) {
         throw 'unsupported method Swift.(file).UnsafeRawPointer.init(_:UnsafeMutablePointer<T>?) in ' + this.constructor.name;
     };
@@ -29062,6 +29147,7 @@ var UnsafeRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)*/
     /*Swift.(file).UnsafeRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeRawPointer.prototype.initOptional = function (other, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -29142,7 +29228,6 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
         throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.init(mutating:UnsafeRawPointer?) in ' + this.constructor.name;
     };
     /*Swift.(file).UnsafeMutableRawPointer.allocate(byteCount:Int,alignment:Int)*/
-    /*Swift.(file).UnsafeMutableRawPointer.allocate(byteCount:Int,alignment:Int)*/
     UnsafeMutableRawPointer.allocateByteCountAlignment = function (byteCount, alignment, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.allocate(byteCount:Int,alignment:Int) in ' + this.constructor.name;
     };
@@ -29211,6 +29296,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)*/
     /*Swift.(file).UnsafeMutableRawPointer.init(_:AutoreleasingUnsafeMutablePointer<T>?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawPointer.prototype.initOptional = function (other, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -29233,6 +29319,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableRawPointer.init(_:UnsafeRawPointer?)*/
     /*Swift.(file).UnsafeMutableRawPointer.init(_:UnsafeRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawPointer.prototype.initOptional = function (from, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.init(_:UnsafeRawPointer?) in ' + this.constructor.name;
     };
@@ -29243,6 +29330,7 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableRawPointer.init(_:UnsafePointer<T>?)*/
     /*Swift.(file).UnsafeMutableRawPointer.init(_:UnsafePointer<T>?)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawPointer.prototype.initOptional = function (from, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawPointer.init(_:UnsafePointer<T>?) in ' + this.constructor.name;
     };
@@ -29267,7 +29355,6 @@ var UnsafeMutableRawPointer = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int)*/
     /*Swift.(file).UnsafeMutableRawPointer.allocate(bytes:Int,alignedTo:Int)*/
     UnsafeMutableRawPointer.allocateBytesAlignedTo = function (size, alignment, $info) {
         var _this = this;
@@ -29441,12 +29528,10 @@ var Unicode = /** @class */ (function () {
             class_66.prototype.initInt = function (v, $info) {
                 throw 'unsupported method Swift.(file).Unicode.Scalar.init(_:Int) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.Scalar.==infix(_:Unicode.Scalar,_:Unicode.Scalar)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_66.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).Unicode.Scalar.<infix(_:Unicode.Scalar,_:Unicode.Scalar)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_66.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -30193,17 +30278,14 @@ var Unicode = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).Unicode.ASCII.decode(_:Unicode.ASCII.EncodedScalar)*/
             /*Swift.(file)._UnicodeEncoding.decode(_:Self.EncodedScalar)*/
             class_69.decode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.ASCII.decode(_:Unicode.ASCII.EncodedScalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.ASCII.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_69.encode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.ASCII.encode(_:Unicode.Scalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.ASCII.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             class_69.transcodeFrom = function (content, _, $info) {
                 throw 'unsupported method Swift.(file).Unicode.ASCII.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type) in ' + this.constructor.name;
@@ -30246,17 +30328,14 @@ var Unicode = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).Unicode.UTF16.decode(_:Unicode.UTF16.EncodedScalar)*/
             /*Swift.(file)._UnicodeEncoding.decode(_:Self.EncodedScalar)*/
             class_71.decode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.decode(_:Unicode.UTF16.EncodedScalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_71.encode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.encode(_:Unicode.Scalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             class_71.transcodeFrom = function (content, _, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type) in ' + this.constructor.name;
@@ -30268,40 +30347,34 @@ var Unicode = /** @class */ (function () {
             };
             /*Swift.(file).Unicode.UTF16.decode(_:I)*/
             /*Swift.(file).UnicodeCodec.decode(_:I)*/
+            /*!!!DUPLICATE NAME*/
             class_71.prototype.decode = function (input$inout, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.decode(_:I) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.encode(_:Unicode.Scalar,into:(Unicode.UTF16.CodeUnit) -> Void)*/
             /*Swift.(file).UnicodeCodec.encode(_:Unicode.Scalar,into:(Self.CodeUnit) -> Void)*/
             class_71.encodeInto = function (input, processCodeUnit, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.encode(_:Unicode.Scalar,into:(Unicode.UTF16.CodeUnit) -> Void) in ' + this.constructor.name;
             };
             /*Swift.(file).Unicode.UTF16.width(_:Unicode.Scalar)*/
-            /*Swift.(file).Unicode.UTF16.width(_:Unicode.Scalar)*/
             class_71.width = function (x, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.width(_:Unicode.Scalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.leadSurrogate(_:Unicode.Scalar)*/
             /*Swift.(file).Unicode.UTF16.leadSurrogate(_:Unicode.Scalar)*/
             class_71.leadSurrogate = function (x, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.leadSurrogate(_:Unicode.Scalar) in ' + this.constructor.name;
             };
             /*Swift.(file).Unicode.UTF16.trailSurrogate(_:Unicode.Scalar)*/
-            /*Swift.(file).Unicode.UTF16.trailSurrogate(_:Unicode.Scalar)*/
             class_71.trailSurrogate = function (x, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.trailSurrogate(_:Unicode.Scalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit)*/
             /*Swift.(file).Unicode.UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit)*/
             class_71.isLeadSurrogate = function (x, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.isLeadSurrogate(_:Unicode.UTF16.CodeUnit) in ' + this.constructor.name;
             };
             /*Swift.(file).Unicode.UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit)*/
-            /*Swift.(file).Unicode.UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit)*/
             class_71.isTrailSurrogate = function (x, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.isTrailSurrogate(_:Unicode.UTF16.CodeUnit) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF16.transcodedLength(of:Input,decodedAs:Encoding.Type,repairingIllFormedSequences:Bool)*/
             /*Swift.(file).Unicode.UTF16.transcodedLength(of:Input,decodedAs:Encoding.Type,repairingIllFormedSequences:Bool)*/
             class_71.transcodedLengthOfDecodedAsRepairingIllFormedSequences = function (input, sourceEncoding, repairingIllFormedSequences, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF16.transcodedLength(of:Input,decodedAs:Encoding.Type,repairingIllFormedSequences:Bool) in ' + this.constructor.name;
@@ -30511,7 +30584,6 @@ var Unicode = /** @class */ (function () {
         class_75.prototype.initRawValue__swift_stdlib_UCharCategory = function (rawValue, $info) {
             throw 'unsupported method Swift.(file).Unicode.GeneralCategory.init(rawValue:__swift_stdlib_UCharCategory) in ' + this.constructor.name;
         };
-        /*Swift.(file).Unicode.GeneralCategory.==(_:Unicode.GeneralCategory,_:Unicode.GeneralCategory)*/
         /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
         class_75.infix_61_61 = function (a, b, $info) {
             return a == b;
@@ -30753,12 +30825,10 @@ var Unicode = /** @class */ (function () {
             class_76.prototype.initRawValue = function (rawValue, $info) {
                 throw 'unsupported method Swift.(file).Unicode.CanonicalCombiningClass.init(rawValue:UInt8) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.CanonicalCombiningClass.==infix(_:Unicode.CanonicalCombiningClass,_:Unicode.CanonicalCombiningClass)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_76.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).Unicode.CanonicalCombiningClass.<infix(_:Unicode.CanonicalCombiningClass,_:Unicode.CanonicalCombiningClass)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_76.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -30814,7 +30884,6 @@ var Unicode = /** @class */ (function () {
             class_77.prototype.initRawValue__swift_stdlib_UNumericType = function (rawValue, $info) {
                 throw 'unsupported method Swift.(file).Unicode.NumericType.init(rawValue:__swift_stdlib_UNumericType) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.NumericType.==(_:Unicode.NumericType,_:Unicode.NumericType)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_77.infix_61_61 = function (a, b, $info) {
                 return a == b;
@@ -30854,17 +30923,14 @@ var Unicode = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).Unicode.UTF8.decode(_:Unicode.UTF8.EncodedScalar)*/
             /*Swift.(file)._UnicodeEncoding.decode(_:Self.EncodedScalar)*/
             class_78.decode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.decode(_:Unicode.UTF8.EncodedScalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF8.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_78.encode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.encode(_:Unicode.Scalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF8.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             /*Swift.(file)._UnicodeEncoding.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type)*/
             class_78.transcodeFrom = function (content, _, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.transcode(_:FromEncoding.EncodedScalar,from:FromEncoding.Type) in ' + this.constructor.name;
@@ -30876,15 +30942,14 @@ var Unicode = /** @class */ (function () {
             };
             /*Swift.(file).Unicode.UTF8.decode(_:I)*/
             /*Swift.(file).UnicodeCodec.decode(_:I)*/
+            /*!!!DUPLICATE NAME*/
             class_78.prototype.decode = function (input$inout, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.decode(_:I) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF8.encode(_:Unicode.Scalar,into:(Unicode.UTF8.CodeUnit) -> Void)*/
             /*Swift.(file).UnicodeCodec.encode(_:Unicode.Scalar,into:(Self.CodeUnit) -> Void)*/
             class_78.encodeInto = function (input, processCodeUnit, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.encode(_:Unicode.Scalar,into:(Unicode.UTF8.CodeUnit) -> Void) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF8.isContinuation(_:Unicode.UTF8.CodeUnit)*/
             /*Swift.(file).Unicode.UTF8.isContinuation(_:Unicode.UTF8.CodeUnit)*/
             class_78.isContinuation = function (_byte, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF8.isContinuation(_:Unicode.UTF8.CodeUnit) in ' + this.constructor.name;
@@ -30930,7 +30995,6 @@ var Unicode = /** @class */ (function () {
                 enumerable: true,
                 configurable: true
             });
-            /*Swift.(file).Unicode.UTF32.==(_:Unicode.UTF32,_:Unicode.UTF32)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_81.infix_61_61 = function (a, b, $info) {
                 return a == b;
@@ -30960,12 +31024,10 @@ var Unicode = /** @class */ (function () {
                 configurable: true
             });
             ;
-            /*Swift.(file).Unicode.UTF32.decode(_:Unicode.UTF32.EncodedScalar)*/
             /*Swift.(file)._UnicodeEncoding.decode(_:Self.EncodedScalar)*/
             class_81.decode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF32.decode(_:Unicode.UTF32.EncodedScalar) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF32.encode(_:Unicode.Scalar)*/
             /*Swift.(file)._UnicodeEncoding.encode(_:Unicode.Scalar)*/
             class_81.encode = function (source, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF32.encode(_:Unicode.Scalar) in ' + this.constructor.name;
@@ -30977,10 +31039,10 @@ var Unicode = /** @class */ (function () {
             };
             /*Swift.(file).Unicode.UTF32.decode(_:I)*/
             /*Swift.(file).UnicodeCodec.decode(_:I)*/
+            /*!!!DUPLICATE NAME*/
             class_81.prototype.decode = function (input$inout, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF32.decode(_:I) in ' + this.constructor.name;
             };
-            /*Swift.(file).Unicode.UTF32.encode(_:Unicode.Scalar,into:(Unicode.UTF32.CodeUnit) -> Void)*/
             /*Swift.(file).UnicodeCodec.encode(_:Unicode.Scalar,into:(Self.CodeUnit) -> Void)*/
             class_81.encodeInto = function (input, processCodeUnit, $info) {
                 throw 'unsupported method Swift.(file).Unicode.UTF32.encode(_:Unicode.Scalar,into:(Unicode.UTF32.CodeUnit) -> Void) in ' + this.constructor.name;
@@ -31355,12 +31417,10 @@ var _ValidUTF8Buffer = /** @class */ (function () {
                 _this._biasedBits = _biasedBits;
                 return;
             };
-            /*Swift.(file)._ValidUTF8Buffer.Index.==infix(_:_ValidUTF8Buffer.Index,_:_ValidUTF8Buffer.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_84.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file)._ValidUTF8Buffer.Index.<infix(_:_ValidUTF8Buffer.Index,_:_ValidUTF8Buffer.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_84.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -32859,25 +32919,21 @@ var MIO_Mixin_Float = /** @class */ (function () {
     MIO_Mixin_Float.prototype.negate = function ($info) {
         $info.$setThis(-this);
     };
-    /*Swift.(file).Float.+=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Float.-=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Float.*=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Float./=infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint./=infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() / rhs);
@@ -33032,7 +33088,6 @@ var MIO_Mixin_Float = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Float.-prefix(_:Float)*/
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Float.prefix_45 = function (x, $info) {
@@ -33073,25 +33128,21 @@ var MIO_Mixin_Float = /** @class */ (function () {
     MIO_Mixin_Float.prototype.initExactlyFloat80 = function (other, $info) {
         throw 'unsupported method Swift.(file).Float.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Float.+infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Float.-infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Float.*infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Float./infix(_:Float,_:Float)*/
     /*Swift.(file).FloatingPoint./infix(_:Self,_:Self)*/
     MIO_Mixin_Float.infix_47 = function (lhs, rhs, $info) {
         return lhs / rhs;
@@ -33689,25 +33740,21 @@ var MIO_Mixin_Double = /** @class */ (function () {
     MIO_Mixin_Double.prototype.negate = function ($info) {
         $info.$setThis(-this);
     };
-    /*Swift.(file).Double.+=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Double.-=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Double.*=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Double./=infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint./=infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() / rhs);
@@ -33862,7 +33909,6 @@ var MIO_Mixin_Double = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Double.-prefix(_:Double)*/
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Double.prefix_45 = function (x, $info) {
@@ -33903,25 +33949,21 @@ var MIO_Mixin_Double = /** @class */ (function () {
     MIO_Mixin_Double.prototype.initExactlyFloat80 = function (other, $info) {
         throw 'unsupported method Swift.(file).Double.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Double.+infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Double.-infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Double.*infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Double./infix(_:Double,_:Double)*/
     /*Swift.(file).FloatingPoint./infix(_:Self,_:Self)*/
     MIO_Mixin_Double.infix_47 = function (lhs, rhs, $info) {
         return lhs / rhs;
@@ -34484,25 +34526,21 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     MIO_Mixin_Float80.prototype.negate = function ($info) {
         $info.$setThis(-this);
     };
-    /*Swift.(file).Float80.+=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Float80.-=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Float80.*=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Float80./=infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint./=infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() / rhs);
@@ -34657,7 +34695,6 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Float80.-prefix(_:Float80)*/
     /*Swift.(file).FloatingPoint.-prefix(_:Self)*/
     /*Swift.(file).SignedNumeric.-prefix(_:Self)*/
     MIO_Mixin_Float80.prefix_45 = function (x, $info) {
@@ -34698,25 +34735,21 @@ var MIO_Mixin_Float80 = /** @class */ (function () {
     MIO_Mixin_Float80.prototype.initExactlyFloat80 = function (other, $info) {
         throw 'unsupported method Swift.(file).Float80.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Float80.+infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Float80.-infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Float80.*infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Float80./infix(_:Float80,_:Float80)*/
     /*Swift.(file).FloatingPoint./infix(_:Self,_:Self)*/
     MIO_Mixin_Float80.infix_47 = function (lhs, rhs, $info) {
         return lhs / rhs;
@@ -34884,35 +34917,29 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     MIO_Mixin_UInt8.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).UInt8.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt8.==infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).UInt8.<infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).UInt8.+=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).UInt8.-=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).UInt8.*=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).UInt8./=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -34942,7 +34969,6 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     MIO_Mixin_UInt8.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).UInt8.multipliedReportingOverflow(by:UInt8) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt8.%=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -34952,27 +34978,22 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
     MIO_Mixin_UInt8.prototype.initInt8 = function (_value, $info) {
         throw 'unsupported method Swift.(file).UInt8.init(_:Int8) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt8.&=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).UInt8.|=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).UInt8.^=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).UInt8.&>>=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).UInt8.&<<=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -35089,72 +35110,59 @@ var MIO_Mixin_UInt8 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UInt8.&infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).UInt8.|infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).UInt8.^infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).UInt8.&>>infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).UInt8.&<<infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).UInt8./infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).UInt8.%infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).UInt8.+infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).UInt8.-infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).UInt8.*infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).UInt8.<=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).UInt8.>=infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).UInt8.>infix(_:UInt8,_:UInt8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt8.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -35550,35 +35558,29 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     MIO_Mixin_Int8.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).Int8.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int8.==infix(_:Int8,_:Int8)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).Int8.<infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).Int8.+=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Int8.-=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Int8.*=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Int8./=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -35608,7 +35610,6 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     MIO_Mixin_Int8.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).Int8.multipliedReportingOverflow(by:Int8) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int8.%=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -35618,27 +35619,22 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
     MIO_Mixin_Int8.prototype.initInt8 = function (_value, $info) {
         throw 'unsupported method Swift.(file).Int8.init(_:Int8) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int8.&=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).Int8.|=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).Int8.^=infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).Int8.&>>=infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).Int8.&<<=infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -35760,72 +35756,59 @@ var MIO_Mixin_Int8 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Int8.&infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).Int8.|infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).Int8.^infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).Int8.&>>infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).Int8.&<<infix(_:Int8,_:Int8)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).Int8./infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).Int8.%infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).Int8.+infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Int8.-infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Int8.*infix(_:Int8,_:Int8)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Int8.<=infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).Int8.>=infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Int8.>infix(_:Int8,_:Int8)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int8.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -36219,35 +36202,29 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     MIO_Mixin_UInt16.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).UInt16.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt16.==infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).UInt16.<infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).UInt16.+=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).UInt16.-=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).UInt16.*=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).UInt16./=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -36277,7 +36254,6 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     MIO_Mixin_UInt16.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).UInt16.multipliedReportingOverflow(by:UInt16) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt16.%=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -36287,27 +36263,22 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
     MIO_Mixin_UInt16.prototype.initInt16 = function (_value, $info) {
         throw 'unsupported method Swift.(file).UInt16.init(_:Int16) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt16.&=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).UInt16.|=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).UInt16.^=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).UInt16.&>>=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).UInt16.&<<=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -36419,72 +36390,59 @@ var MIO_Mixin_UInt16 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UInt16.&infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).UInt16.|infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).UInt16.^infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).UInt16.&>>infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).UInt16.&<<infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).UInt16./infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).UInt16.%infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).UInt16.+infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).UInt16.-infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).UInt16.*infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).UInt16.<=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).UInt16.>=infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).UInt16.>infix(_:UInt16,_:UInt16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt16.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -36880,35 +36838,29 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     MIO_Mixin_Int16.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).Int16.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int16.==infix(_:Int16,_:Int16)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).Int16.<infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).Int16.+=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Int16.-=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Int16.*=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Int16./=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -36938,7 +36890,6 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     MIO_Mixin_Int16.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).Int16.multipliedReportingOverflow(by:Int16) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int16.%=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -36948,27 +36899,22 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
     MIO_Mixin_Int16.prototype.initInt16 = function (_value, $info) {
         throw 'unsupported method Swift.(file).Int16.init(_:Int16) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int16.&=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).Int16.|=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).Int16.^=infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).Int16.&>>=infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).Int16.&<<=infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -37090,72 +37036,59 @@ var MIO_Mixin_Int16 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Int16.&infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).Int16.|infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).Int16.^infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).Int16.&>>infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).Int16.&<<infix(_:Int16,_:Int16)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).Int16./infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).Int16.%infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).Int16.+infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Int16.-infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Int16.*infix(_:Int16,_:Int16)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Int16.<=infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).Int16.>=infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Int16.>infix(_:Int16,_:Int16)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int16.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -37549,35 +37482,29 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     MIO_Mixin_UInt32.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).UInt32.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt32.==infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).UInt32.<infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).UInt32.+=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).UInt32.-=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).UInt32.*=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).UInt32./=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -37607,7 +37534,6 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     MIO_Mixin_UInt32.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).UInt32.multipliedReportingOverflow(by:UInt32) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt32.%=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -37617,27 +37543,22 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
     MIO_Mixin_UInt32.prototype.initInt32 = function (_value, $info) {
         throw 'unsupported method Swift.(file).UInt32.init(_:Int32) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt32.&=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).UInt32.|=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).UInt32.^=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).UInt32.&>>=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).UInt32.&<<=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -37754,72 +37675,59 @@ var MIO_Mixin_UInt32 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UInt32.&infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).UInt32.|infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).UInt32.^infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).UInt32.&>>infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).UInt32.&<<infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).UInt32./infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).UInt32.%infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).UInt32.+infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).UInt32.-infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).UInt32.*infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).UInt32.<=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).UInt32.>=infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).UInt32.>infix(_:UInt32,_:UInt32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt32.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -38218,35 +38126,29 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     MIO_Mixin_Int32.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).Int32.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int32.==infix(_:Int32,_:Int32)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).Int32.<infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).Int32.+=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Int32.-=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Int32.*=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Int32./=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -38276,7 +38178,6 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     MIO_Mixin_Int32.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).Int32.multipliedReportingOverflow(by:Int32) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int32.%=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -38286,27 +38187,22 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
     MIO_Mixin_Int32.prototype.initInt32 = function (_value, $info) {
         throw 'unsupported method Swift.(file).Int32.init(_:Int32) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int32.&=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).Int32.|=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).Int32.^=infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).Int32.&>>=infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).Int32.&<<=infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -38428,72 +38324,59 @@ var MIO_Mixin_Int32 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Int32.&infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).Int32.|infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).Int32.^infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).Int32.&>>infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).Int32.&<<infix(_:Int32,_:Int32)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).Int32./infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).Int32.%infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).Int32.+infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Int32.-infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Int32.*infix(_:Int32,_:Int32)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Int32.<=infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).Int32.>=infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Int32.>infix(_:Int32,_:Int32)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int32.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -38887,35 +38770,29 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     MIO_Mixin_UInt64.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).UInt64.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt64.==infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).UInt64.<infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).UInt64.+=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).UInt64.-=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).UInt64.*=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).UInt64./=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -38945,7 +38822,6 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     MIO_Mixin_UInt64.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).UInt64.multipliedReportingOverflow(by:UInt64) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt64.%=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -38955,27 +38831,22 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
     MIO_Mixin_UInt64.prototype.initInt64 = function (_value, $info) {
         throw 'unsupported method Swift.(file).UInt64.init(_:Int64) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt64.&=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).UInt64.|=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).UInt64.^=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).UInt64.&>>=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).UInt64.&<<=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -39092,72 +38963,59 @@ var MIO_Mixin_UInt64 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UInt64.&infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).UInt64.|infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).UInt64.^infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).UInt64.&>>infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).UInt64.&<<infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).UInt64./infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).UInt64.%infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).UInt64.+infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).UInt64.-infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).UInt64.*infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).UInt64.<=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).UInt64.>=infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).UInt64.>infix(_:UInt64,_:UInt64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt64.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -39558,35 +39416,29 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     MIO_Mixin_Int64.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).Int64.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int64.==infix(_:Int64,_:Int64)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).Int64.<infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).Int64.+=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Int64.-=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Int64.*=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Int64./=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -39616,7 +39468,6 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     MIO_Mixin_Int64.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).Int64.multipliedReportingOverflow(by:Int64) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int64.%=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -39626,27 +39477,22 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
     MIO_Mixin_Int64.prototype.initInt64 = function (_value, $info) {
         throw 'unsupported method Swift.(file).Int64.init(_:Int64) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int64.&=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).Int64.|=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).Int64.^=infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).Int64.&>>=infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).Int64.&<<=infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -39768,72 +39614,59 @@ var MIO_Mixin_Int64 = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Int64.&infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).Int64.|infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).Int64.^infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).Int64.&>>infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).Int64.&<<infix(_:Int64,_:Int64)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).Int64./infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).Int64.%infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).Int64.+infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Int64.-infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Int64.*infix(_:Int64,_:Int64)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Int64.<=infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).Int64.>=infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Int64.>infix(_:Int64,_:Int64)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int64.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -40229,35 +40062,29 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     MIO_Mixin_UInt.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).UInt.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt.==infix(_:UInt,_:UInt)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).UInt.<infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).UInt.+=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).UInt.-=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).UInt.*=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).UInt./=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -40287,7 +40114,6 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     MIO_Mixin_UInt.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).UInt.multipliedReportingOverflow(by:UInt) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt.%=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -40297,27 +40123,22 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     MIO_Mixin_UInt.prototype.initInt64 = function (_value, $info) {
         throw 'unsupported method Swift.(file).UInt.init(_:Int64) in ' + this.constructor.name;
     };
-    /*Swift.(file).UInt.&=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).UInt.|=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).UInt.^=infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).UInt.&>>=infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).UInt.&<<=infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -40423,6 +40244,7 @@ var MIO_Mixin_UInt = /** @class */ (function () {
     };
     /*Swift.(file).UInt.init(bitPattern:P?)*/
     /*Swift.(file).UInt.init(bitPattern:P?)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_UInt.prototype.initBitPatternOptional = function (pointer, $info) {
         throw 'unsupported method Swift.(file).UInt.init(bitPattern:P?) in ' + this.constructor.name;
     };
@@ -40451,72 +40273,59 @@ var MIO_Mixin_UInt = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).UInt.&infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).UInt.|infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).UInt.^infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).UInt.&>>infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).UInt.&<<infix(_:UInt,_:UInt)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).UInt./infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).UInt.%infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).UInt.+infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).UInt.-infix(_:UInt,_:UInt)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).UInt.*infix(_:UInt,_:UInt)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).UInt.<=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).UInt.>=infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).UInt.>infix(_:UInt,_:UInt)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_UInt.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -40913,35 +40722,29 @@ var MIO_Mixin_Int = /** @class */ (function () {
     MIO_Mixin_Int.prototype.initExactlyFloat80 = function (source, $info) {
         throw 'unsupported method Swift.(file).Int.init(exactly:Float80) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int.==infix(_:Int,_:Int)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).Int.<infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
     };
-    /*Swift.(file).Int.+=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.+=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_43_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() + rhs);
     };
-    /*Swift.(file).Int.-=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.-=infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_45_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() - rhs);
     };
-    /*Swift.(file).Int.*=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.*=infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_42_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() * rhs);
     };
-    /*Swift.(file).Int./=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger./=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_47_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set((lhs$inout.get() / rhs) | 0);
@@ -40971,7 +40774,6 @@ var MIO_Mixin_Int = /** @class */ (function () {
     MIO_Mixin_Int.prototype.multipliedReportingOverflowBy = function (other, $info) {
         throw 'unsupported method Swift.(file).Int.multipliedReportingOverflow(by:Int) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int.%=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.%=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_37_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() % rhs);
@@ -40981,27 +40783,22 @@ var MIO_Mixin_Int = /** @class */ (function () {
     MIO_Mixin_Int.prototype.initInt64 = function (_value, $info) {
         throw 'unsupported method Swift.(file).Int.init(_:Int64) in ' + this.constructor.name;
     };
-    /*Swift.(file).Int.&=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.&=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() & rhs);
     };
-    /*Swift.(file).Int.|=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.|=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_124_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() | rhs);
     };
-    /*Swift.(file).Int.^=infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.^=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_94_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() ^ rhs);
     };
-    /*Swift.(file).Int.&>>=infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&>>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_62_62_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() >> rhs);
     };
-    /*Swift.(file).Int.&<<=infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&<<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_60_60_61 = function (lhs$inout, rhs, $info) {
         lhs$inout.set(lhs$inout.get() << rhs);
@@ -41119,6 +40916,7 @@ var MIO_Mixin_Int = /** @class */ (function () {
     };
     /*Swift.(file).Int.init(bitPattern:P?)*/
     /*Swift.(file).Int.init(bitPattern:P?)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_Int.prototype.initBitPatternOptional = function (pointer, $info) {
         throw 'unsupported method Swift.(file).Int.init(bitPattern:P?) in ' + this.constructor.name;
     };
@@ -41147,72 +40945,59 @@ var MIO_Mixin_Int = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).Int.&infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.&infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38 = function (lhs, rhs, $info) {
         return lhs & rhs;
     };
-    /*Swift.(file).Int.|infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.|infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_124 = function (lhs, rhs, $info) {
         return lhs | rhs;
     };
-    /*Swift.(file).Int.^infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.^infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_94 = function (lhs, rhs, $info) {
         return lhs ^ rhs;
     };
-    /*Swift.(file).Int.&>>infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&>>infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_62_62 = function (lhs, rhs, $info) {
         return lhs >> rhs;
     };
-    /*Swift.(file).Int.&<<infix(_:Int,_:Int)*/
     /*Swift.(file).FixedWidthInteger.&<<infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_38_60_60 = function (lhs, rhs, $info) {
         return lhs << rhs;
     };
-    /*Swift.(file).Int./infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger./infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_47 = function (lhs, rhs, $info) {
         return (lhs / rhs) | 0;
     };
-    /*Swift.(file).Int.%infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.%infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_37 = function (lhs, rhs, $info) {
         return lhs % rhs;
     };
-    /*Swift.(file).Int.+infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.+infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.+infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_43 = function (lhs, rhs, $info) {
         return lhs + rhs;
     };
-    /*Swift.(file).Int.-infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.-infix(_:Self,_:Self)*/
     /*Swift.(file).AdditiveArithmetic.-infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_45 = function (lhs, rhs, $info) {
         return lhs - rhs;
     };
-    /*Swift.(file).Int.*infix(_:Int,_:Int)*/
     /*Swift.(file).BinaryInteger.*infix(_:Self,_:Self)*/
     /*Swift.(file).Numeric.*infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_42 = function (lhs, rhs, $info) {
         return lhs * rhs;
     };
-    /*Swift.(file).Int.<=infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.<=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_60_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = rhs).constructor.infix_60(_.arg0, lhs, {}), {});
     };
-    /*Swift.(file).Int.>=infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>=infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62_61 = function (lhs, rhs, $info) {
         var _this = this;
         return Bool.prefix_33((_.arg0 = lhs).constructor.infix_60(_.arg0, rhs, {}), {});
     };
-    /*Swift.(file).Int.>infix(_:Int,_:Int)*/
     /*Swift.(file).Comparable.>infix(_:Self,_:Self)*/
     MIO_Mixin_Int.infix_62 = function (lhs, rhs, $info) {
         var _this = this;
@@ -41813,7 +41598,6 @@ var UnsafeMutableBufferPointer = /** @class */ (function () {
         throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.deallocate() in ' + this.constructor.name;
     };
     /*Swift.(file).UnsafeMutableBufferPointer.allocate(capacity:Int)*/
-    /*Swift.(file).UnsafeMutableBufferPointer.allocate(capacity:Int)*/
     UnsafeMutableBufferPointer.allocateCapacity = function (count, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableBufferPointer.allocate(capacity:Int) in ' + this.constructor.name;
     };
@@ -42083,6 +41867,7 @@ var UnsafeBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeBufferPointer.init(rebasing:Slice<UnsafeMutableBufferPointer<Element>>)*/
     /*Swift.(file).UnsafeBufferPointer.init(rebasing:Slice<UnsafeMutableBufferPointer<Element>>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeBufferPointer.prototype.initRebasingSlice = function (slice, $info) {
         throw 'unsupported method Swift.(file).UnsafeBufferPointer.init(rebasing:Slice<UnsafeMutableBufferPointer<Element>>) in ' + this.constructor.name;
     };
@@ -42167,7 +41952,6 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
         var _this = this;
         return body(_create(UnsafeRawBufferPointer, 'initUnsafeMutableRawBufferPointer', _this, {}), {});
     };
-    /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(count:Int)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(count:Int)*/
     UnsafeMutableRawBufferPointer.allocateCount = function (count, $info) {
         var _this = this;
@@ -42273,7 +42057,6 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     });
     ;
     /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(byteCount:Int,alignment:Int)*/
-    /*Swift.(file).UnsafeMutableRawBufferPointer.allocate(byteCount:Int,alignment:Int)*/
     UnsafeMutableRawBufferPointer.allocateByteCountAlignment = function (byteCount, alignment, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.allocate(byteCount:Int,alignment:Int) in ' + this.constructor.name;
     };
@@ -42299,6 +42082,7 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:C)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:C)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawBufferPointer.prototype.copyBytesFrom = function (source, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.copyBytes(from:C) in ' + this.constructor.name;
     };
@@ -42364,19 +42148,23 @@ var UnsafeMutableRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawBufferPointer.prototype.subscript$get = function (bounds, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>) in ' + this.constructor.name;
     }; /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawBufferPointer.prototype.subscript$set = function (newValue, bounds, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>) in ' + this.constructor.name;
     };
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawBufferPointer.prototype.subscript$get = function (bounds, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>) in ' + this.constructor.name;
     }; /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeMutableRawBufferPointer.prototype.subscript$set = function (newValue, bounds, $info) {
         throw 'unsupported method Swift.(file).UnsafeMutableRawBufferPointer.subscript(_:Range<Int>) in ' + this.constructor.name;
     };
@@ -42515,6 +42303,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     };
     /*Swift.(file).UnsafeRawBufferPointer.init(rebasing:Slice<UnsafeMutableRawBufferPointer>)*/
     /*Swift.(file).UnsafeRawBufferPointer.init(rebasing:Slice<UnsafeMutableRawBufferPointer>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeRawBufferPointer.prototype.initRebasingSlice = function (slice, $info) {
         throw 'unsupported method Swift.(file).UnsafeRawBufferPointer.init(rebasing:Slice<UnsafeMutableRawBufferPointer>) in ' + this.constructor.name;
     };
@@ -42545,6 +42334,7 @@ var UnsafeRawBufferPointer = /** @class */ (function () {
     ;
     /*Swift.(file).UnsafeRawBufferPointer.subscript(_:Range<Int>)*/
     /*Swift.(file).UnsafeRawBufferPointer.subscript(_:Range<Int>)*/
+    /*!!!DUPLICATE NAME*/
     UnsafeRawBufferPointer.prototype.subscript$get = function (bounds, $info) {
         throw 'unsupported method Swift.(file).UnsafeRawBufferPointer.subscript(_:Range<Int>) in ' + this.constructor.name;
     };
@@ -43403,14 +43193,12 @@ var MIO_Mixin_Array = /** @class */ (function () {
         return _injectIntoOptional(_this.withUnsafeBufferPointer((function (bufferPointer, $info) { return body(bufferPointer, {}); }), {}));
     };
     /*Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)*/
-    /*Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)*/
     MIO_Mixin_Array.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         var lhs_dupl = _cloneStruct(lhs);
         lhs_dupl.appendContentsOf(rhs, { $setThis: function ($val) { return lhs_dupl = $val; } });
         return lhs_dupl;
     };
-    /*Swift.(file).Array.+=infix(_:Array<Element>,_:Array<Element>)*/
     /*Swift.(file).Array.+=infix(_:Array<Element>,_:Array<Element>)*/
     MIO_Mixin_Array.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -43525,7 +43313,6 @@ var MIO_Mixin_Array = /** @class */ (function () {
             }
         }
     };
-    /*Swift.(file).Array.==infix(_:Array<Element>,_:Array<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_Array.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -43978,7 +43765,6 @@ var ArraySlice = /** @class */ (function () {
     ArraySlice.prototype.replaceSubrangeWith = function (subrange, newElements, $info) {
         throw 'unsupported method Swift.(file).ArraySlice.replaceSubrange(_:Range<Int>,with:C) in ' + this.constructor.name;
     };
-    /*Swift.(file).ArraySlice.==infix(_:ArraySlice<Element>,_:ArraySlice<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ArraySlice.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -44106,6 +43892,7 @@ var AutoreleasingUnsafeMutablePointer = /** @class */ (function () {
     };
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>?)*/
     /*Swift.(file).AutoreleasingUnsafeMutablePointer.init(_:UnsafePointer<U>?)*/
+    /*!!!DUPLICATE NAME*/
     AutoreleasingUnsafeMutablePointer.prototype.initOptional = function (from, $info) {
         var _this = this;
         var $ifLet0, unwrapped_1;
@@ -44542,7 +44329,6 @@ var ContiguousArray = /** @class */ (function () {
     ContiguousArray.prototype.replaceSubrangeWith = function (subrange, newElements, $info) {
         throw 'unsupported method Swift.(file).ContiguousArray.replaceSubrange(_:Range<Int>,with:C) in ' + this.constructor.name;
     };
-    /*Swift.(file).ContiguousArray.==infix(_:ContiguousArray<Element>,_:ContiguousArray<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ContiguousArray.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -44819,7 +44605,6 @@ var ClosedRange = /** @class */ (function () {
         var _this = this;
         return _create(Slice, 'initBaseBoundsRange', _this, bounds, {});
     };
-    /*Swift.(file).ClosedRange.==infix(_:ClosedRange<Bound>,_:ClosedRange<Bound>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     ClosedRange.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -44905,6 +44690,7 @@ var ClosedRange = /** @class */ (function () {
     };
     /*Swift.(file).ClosedRange.overlaps(_:Range<Bound>)*/
     /*Swift.(file).ClosedRange.overlaps(_:Range<Bound>)*/
+    /*!!!DUPLICATE NAME*/
     ClosedRange.prototype.overlaps = function (other, $info) {
         var _this = this;
         return other.overlaps(_this, {});
@@ -44950,7 +44736,6 @@ var ClosedRange = /** @class */ (function () {
             configurable: true
         });
         class_173.inRange = function () { return Object.assign(new ClosedRange.Index(), __assign({ rawValue: "inRange" }, Array.from(arguments))); };
-        /*Swift.(file).ClosedRange.Index.==infix(_:ClosedRange<Bound>.Index,_:ClosedRange<Bound>.Index)*/
         /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
         class_173.infix_61_61 = function (lhs, rhs, $info) {
             var _this = this;
@@ -44967,7 +44752,6 @@ var ClosedRange = /** @class */ (function () {
                 return false;
             }
         };
-        /*Swift.(file).ClosedRange.Index.<infix(_:ClosedRange<Bound>.Index,_:ClosedRange<Bound>.Index)*/
         /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
         class_173.infix_60 = function (lhs, rhs, $info) {
             var _this = this;
@@ -45179,6 +44963,7 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
+    /*!!!DUPLICATE NAME*/
     _ContiguousArrayBuffer.prototype.subscript$get = function (bounds, $info) {
         var _this = this;
         return _create(Slice, 'initBaseBoundsRange', _this, bounds, {});
@@ -45191,6 +44976,7 @@ var _ContiguousArrayBuffer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Range<Self.Index>)*/
     /*Swift.(file).Collection.subscript(_:Range<Self.Index>)*/
+    /*!!!DUPLICATE NAME*/
     _ContiguousArrayBuffer.prototype.subscript$set = function (newValue, bounds, $info) {
         var _this = this;
         _writeBackMutableSliceBoundsSlice({ get: function () { return _this; }, set: function ($val) { return $info.$setThis(_this = _cloneStruct($val)); } }, bounds, newValue, {});
@@ -45506,7 +45292,6 @@ var EmptyCollection = /** @class */ (function () {
         preconditionFileLine(function () { return Int.infix_61_61(end, 0, {}); }, function () { return "To must be endIndex (or startIndex)"; }, '?3', '?3', {});
         return 0;
     };
-    /*Swift.(file).EmptyCollection.==infix(_:EmptyCollection<Element>,_:EmptyCollection<Element>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     EmptyCollection.infix_61_61 = function (lhs, rhs, $info) {
         var _this = this;
@@ -45798,7 +45583,6 @@ var FloatingPointSign = /** @class */ (function () {
         configurable: true
     });
     ;
-    /*Swift.(file).FloatingPointSign.==infix(_:FloatingPointSign,_:FloatingPointSign)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     FloatingPointSign.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -46431,6 +46215,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.init(cString:UnsafePointer<UInt8>)*/
     /*Swift.(file).String.init(cString:UnsafePointer<UInt8>)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.initCStringUnsafePointer = function (cString, $info) {
         var _this = this;
         var len = UTF8._nullCodeUnitOffsetIn(cString, {});
@@ -46450,7 +46235,6 @@ var MIO_Mixin_String = /** @class */ (function () {
         return _cloneStruct(str_1);
         return;
     };
-    /*Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)*/
     /*Swift.(file).String.decodeCString(_:UnsafePointer<Encoding.CodeUnit>?,as:Encoding.Type,repairingInvalidCodeUnits:Bool)*/
     MIO_Mixin_String.decodeCStringAsRepairingInvalidCodeUnits = function (cString, encoding, isRepairing, $info) {
         var _this = this;
@@ -46620,14 +46404,12 @@ var MIO_Mixin_String = /** @class */ (function () {
     });
     ;
     /*Swift.(file).String.+infix(_:String,_:String)*/
-    /*Swift.(file).String.+infix(_:String,_:String)*/
     MIO_Mixin_String.infix_43 = function (lhs, rhs, $info) {
         var _this = this;
         var result = lhs;
         result.append(rhs, { $setThis: function ($val) { return result = $val; } });
         return result;
     };
-    /*Swift.(file).String.+=infix(_:String,_:String)*/
     /*Swift.(file).String.+=infix(_:String,_:String)*/
     MIO_Mixin_String.infix_43_61 = function (lhs$inout, rhs, $info) {
         var _this = this;
@@ -46747,12 +46529,10 @@ var MIO_Mixin_String = /** @class */ (function () {
         var _this = this;
         return _create(IndexingIterator, 'init_elements', _this, {});
     };
-    /*Swift.(file).String.==infix(_:String,_:String)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     MIO_Mixin_String.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
     };
-    /*Swift.(file).String.<infix(_:String,_:String)*/
     /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
     MIO_Mixin_String.infix_60 = function (lhs, rhs, $info) {
         return lhs < rhs;
@@ -46844,6 +46624,7 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.append(_:Character)*/
     /*Swift.(file).RangeReplaceableCollection.append(_:Self.Element)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.append = function (c, $info) {
         $info.$setThis(this + c);
     };
@@ -46855,11 +46636,13 @@ var MIO_Mixin_String = /** @class */ (function () {
     };
     /*Swift.(file).String.append(contentsOf:Substring)*/
     /*Swift.(file).String.append(contentsOf:Substring)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.appendContentsOf = function (newElements, $info) {
         throw 'unsupported method Swift.(file).String.append(contentsOf:Substring) in ' + this.constructor.name;
     };
     /*Swift.(file).String.append(contentsOf:S)*/
     /*Swift.(file).RangeReplaceableCollection.append(contentsOf:S)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.appendContentsOf = function (newElements, $info) {
         var _this = this;
         var $ifLet0, str_1;
@@ -47116,11 +46899,13 @@ var MIO_Mixin_String = /** @class */ (function () {
     ;
     /*Swift.(file).String.subscript(_:Int)*/
     /*Swift.(file).String.subscript(_:Int)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.subscript$get = function (i, $info) {
         return this[i];
     };
     /*Swift.(file).String.subscript(_:R)*/
     /*Swift.(file).String.subscript(_:R)*/
+    /*!!!DUPLICATE NAME*/
     MIO_Mixin_String.prototype.subscriptRange$get = function (bounds, $info) {
         return this.slice(bounds.lowerBound, bounds.upperBound);
     };
@@ -47305,12 +47090,10 @@ var MIO_Mixin_String = /** @class */ (function () {
             class_179.prototype.transcodedWithOffset = function (n, $info) {
                 throw 'unsupported method Swift.(file).String.Index.transcoded(withOffset:Int) in ' + this.constructor.name;
             };
-            /*Swift.(file).String.Index.==infix(_:String.Index,_:String.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_179.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).String.Index.<infix(_:String.Index,_:String.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_179.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -47343,6 +47126,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             };
             /*Swift.(file).String.Index.samePosition(in:String.UTF16View)*/
             /*Swift.(file).String.Index.samePosition(in:String.UTF16View)*/
+            /*!!!DUPLICATE NAME*/
             class_179.prototype.samePositionIn = function (utf16, $info) {
                 var _this = this;
                 return _create(String.UTF16View.Index, 'initStringIndexWithinStringUTF16View', _this, utf16, {});
@@ -47354,6 +47138,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             };
             /*Swift.(file).String.Index.samePosition(in:String)*/
             /*Swift.(file).String.Index.samePosition(in:String)*/
+            /*!!!DUPLICATE NAME*/
             class_179.prototype.samePositionIn = function (characters, $info) {
                 throw 'unsupported method Swift.(file).String.Index.samePosition(in:String) in ' + this.constructor.name;
             };
@@ -47364,6 +47149,7 @@ var MIO_Mixin_String = /** @class */ (function () {
             };
             /*Swift.(file).String.Index.samePosition(in:String.UnicodeScalarView)*/
             /*Swift.(file).String.Index.samePosition(in:String.UnicodeScalarView)*/
+            /*!!!DUPLICATE NAME*/
             class_179.prototype.samePositionIn = function (unicodeScalars, $info) {
                 throw 'unsupported method Swift.(file).String.Index.samePosition(in:String.UnicodeScalarView) in ' + this.constructor.name;
             };
@@ -48024,7 +47810,6 @@ var CollectionDifference = /** @class */ (function () {
         ;
         return count;
     };
-    /*Swift.(file).CollectionDifference.==(_:CollectionDifference<ChangeElement>,_:CollectionDifference<ChangeElement>)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     CollectionDifference.infix_61_61 = function (a, b, $info) {
         return a == b;
@@ -48068,7 +47853,6 @@ var CollectionDifference = /** @class */ (function () {
             }
             class_185.insert = function () { return Object.assign(new CollectionDifference.Change(), __assign({ rawValue: "insert" }, Array.from(arguments))); };
             class_185.remove = function () { return Object.assign(new CollectionDifference.Change(), __assign({ rawValue: "remove" }, Array.from(arguments))); };
-            /*Swift.(file).CollectionDifference.Change.==(_:CollectionDifference<ChangeElement>.Change,_:CollectionDifference<ChangeElement>.Change)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_185.infix_61_61 = function (a, b, $info) {
                 return a == b;
@@ -48193,7 +47977,6 @@ var CollectionDifference = /** @class */ (function () {
                 enumerable: true,
                 configurable: true
             });
-            /*Swift.(file).CollectionDifference.CodingKeys.==(_:CollectionDifference<ChangeElement>.CodingKeys,_:CollectionDifference<ChangeElement>.CodingKeys)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_187.infix_61_61 = function (a, b, $info) {
                 return a == b;
@@ -48258,12 +48041,10 @@ var CollectionDifference = /** @class */ (function () {
             class_188.prototype.init_offsetInt = function (offset, $info) {
                 throw 'unsupported method Swift.(file).CollectionDifference.Index.init(_offset:Int) in ' + this.constructor.name;
             };
-            /*Swift.(file).CollectionDifference.Index.==infix(_:CollectionDifference<ChangeElement>.Index,_:CollectionDifference<ChangeElement>.Index)*/
             /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
             class_188.infix_61_61 = function (lhs, rhs, $info) {
                 return lhs == rhs;
             };
-            /*Swift.(file).CollectionDifference.Index.<infix(_:CollectionDifference<ChangeElement>.Index,_:CollectionDifference<ChangeElement>.Index)*/
             /*Swift.(file).Comparable.<infix(_:Self,_:Self)*/
             class_188.infix_60 = function (lhs, rhs, $info) {
                 return lhs < rhs;
@@ -48820,6 +48601,7 @@ var _ArrayBuffer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     _ArrayBuffer.prototype.subscript$get = function (i, $info) {
         var _this = this;
         return _this.getElementWasNativeTypeChecked(i, _this._isNativeTypeChecked, {});
@@ -48828,6 +48610,7 @@ var _ArrayBuffer = /** @class */ (function () {
     /*Swift.(file).RandomAccessCollection.subscript(_:Self.Index)*/
     /*Swift.(file).Collection.subscript(_:Self.Index)*/
     /*Swift.(file).BidirectionalCollection.subscript(_:Self.Index)*/
+    /*!!!DUPLICATE NAME*/
     _ArrayBuffer.prototype.subscript$set = function (newValue, i, $info) {
         var _this = this;
         if ((_fastPath(_this._isNative, {}))) {
@@ -49746,11 +49529,9 @@ var NSObject = /** @class */ (function () {
     function NSObject() {
     }
     /*ObjectiveC.(file).NSObject.load()*/
-    /*ObjectiveC.(file).NSObject.load()*/
     NSObject.load = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.load() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.initialize()*/
     /*ObjectiveC.(file).NSObject.initialize()*/
     NSObject.initialize = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.initialize() in ' + this.constructor.name;
@@ -49760,21 +49541,17 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.init = function ($info) {
     };
     /*ObjectiveC.(file).NSObject.alloc(with:NSZone?)*/
-    /*ObjectiveC.(file).NSObject.alloc(with:NSZone?)*/
     NSObject.allocWith = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.alloc(with:NSZone?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?)*/
     NSObject.allocWithZone = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.allocWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.alloc()*/
-    /*ObjectiveC.(file).NSObject.alloc()*/
     NSObject.alloc = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.alloc() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.finalize()*/
     /*ObjectiveC.(file).NSObject.finalize()*/
     NSObject.finalize = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.finalize() in ' + this.constructor.name;
@@ -49785,7 +49562,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.finalize() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copy()*/
-    /*ObjectiveC.(file).NSObject.copy()*/
     NSObject.copy = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.copy() in ' + this.constructor.name;
     };
@@ -49794,7 +49570,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.copy = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.copy() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.mutableCopy()*/
     /*ObjectiveC.(file).NSObject.mutableCopy()*/
     NSObject.mutableCopy = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy() in ' + this.constructor.name;
@@ -49805,46 +49580,37 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.copy(with:NSZone?)*/
-    /*ObjectiveC.(file).NSObject.copy(with:NSZone?)*/
     NSObject.copyWith = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.copy(with:NSZone?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?)*/
     NSObject.copyWithZone = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.copyWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?)*/
-    /*ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?)*/
     NSObject.mutableCopyWith = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopy(with:NSZone?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?)*/
     /*ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?)*/
     NSObject.mutableCopyWithZone = function (zone, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.mutableCopyWithZone(_:NSZone?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instancesRespond(to:Selector?)*/
-    /*ObjectiveC.(file).NSObject.instancesRespond(to:Selector?)*/
     NSObject.instancesRespondTo = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instancesRespond(to:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?)*/
     NSObject.instancesRespondToSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instancesRespondToSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
-    /*ObjectiveC.(file).NSObject.conforms(to:Protocol)*/
     NSObject.conformsTo = function (protocol, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.conforms(to:Protocol) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol)*/
-    /*ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol)*/
     NSObject.conformsToProtocol = function (protocol, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.conformsToProtocol(_:Protocol) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.method(for:Selector?)*/
     NSObject.methodFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.method(for:Selector?) in ' + this.constructor.name;
@@ -49855,7 +49621,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.method(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
-    /*ObjectiveC.(file).NSObject.methodForSelector(_:Selector?)*/
     NSObject.methodForSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodForSelector(_:Selector?) in ' + this.constructor.name;
     };
@@ -49865,16 +49630,13 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethod(for:Selector?)*/
-    /*ObjectiveC.(file).NSObject.instanceMethod(for:Selector?)*/
     NSObject.instanceMethodFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethod(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?)*/
-    /*ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?)*/
     NSObject.instanceMethodForSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodForSelector(_:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?)*/
     NSObject.doesNotRecognizeSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?) in ' + this.constructor.name;
@@ -49885,7 +49647,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.doesNotRecognizeSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
-    /*ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?)*/
     NSObject.forwardingTargetFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?) in ' + this.constructor.name;
     };
@@ -49894,7 +49655,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.forwardingTargetFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTarget(for:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?)*/
     NSObject.forwardingTargetForSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?) in ' + this.constructor.name;
@@ -49905,7 +49665,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardingTargetForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
-    /*ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?)*/
     NSObject.forwardInvocation = function (anInvocation, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
@@ -49914,7 +49673,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.forwardInvocation = function (anInvocation, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.forwardInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     /*ObjectiveC.(file).NSObject.methodSignature(for:Selector?)*/
     NSObject.methodSignatureFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodSignature(for:Selector?) in ' + this.constructor.name;
@@ -49925,7 +49683,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodSignature(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
-    /*ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?)*/
     NSObject.methodSignatureForSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
@@ -49935,16 +49692,13 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.methodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?)*/
-    /*ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?)*/
     NSObject.instanceMethodSignatureFor = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodSignature(for:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?)*/
-    /*ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?)*/
     NSObject.instanceMethodSignatureForSelector = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.instanceMethodSignatureForSelector(_:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     /*ObjectiveC.(file).NSObject.allowsWeakReference()*/
     NSObject.allowsWeakReference = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.allowsWeakReference() in ' + this.constructor.name;
@@ -49955,7 +49709,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.allowsWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainWeakReference()*/
-    /*ObjectiveC.(file).NSObject.retainWeakReference()*/
     NSObject.retainWeakReference = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.retainWeakReference() in ' + this.constructor.name;
     };
@@ -49965,41 +49718,33 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.retainWeakReference() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isSubclass(of:AnyClass)*/
-    /*ObjectiveC.(file).NSObject.isSubclass(of:AnyClass)*/
     NSObject.isSubclassOf = function (aClass, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isSubclass(of:AnyClass) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass)*/
     NSObject.isSubclassOfClass = function (aClass, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isSubclassOfClass(_:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?)*/
-    /*ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?)*/
     NSObject.resolveClassMethod = function (sel, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.resolveClassMethod(_:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?)*/
     NSObject.resolveInstanceMethod = function (sel, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.resolveInstanceMethod(_:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.hash()*/
-    /*ObjectiveC.(file).NSObject.hash()*/
     NSObject.hash = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.hash() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.superclass()*/
     /*ObjectiveC.(file).NSObject.superclass()*/
     NSObject.superclass = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.superclass() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.description()*/
-    /*ObjectiveC.(file).NSObject.description()*/
     NSObject.description = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.description() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.debugDescription()*/
     /*ObjectiveC.(file).NSObject.debugDescription()*/
     NSObject.debugDescription = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.debugDescription() in ' + this.constructor.name;
@@ -50010,7 +49755,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.isEqual(_:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
-    /*ObjectiveC.(file).NSObject.isEqual(_:Any?)*/
     NSObject.isEqual = function (object, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isEqual(_:Any?) in ' + this.constructor.name;
     };
@@ -50019,7 +49763,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.perform = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?)*/
     NSObject.perform = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?) in ' + this.constructor.name;
@@ -50030,7 +49773,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
-    /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?)*/
     NSObject.performWith = function (aSelector, object, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?) in ' + this.constructor.name;
     };
@@ -50039,7 +49781,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performWithWith = function (aSelector, object1, object2, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     /*ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?)*/
     NSObject.performWithWith = function (aSelector, object1, object2, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.perform(_:Selector?,with:Any?,with:Any?) in ' + this.constructor.name;
@@ -50050,7 +49791,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.isProxy() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isProxy()*/
-    /*ObjectiveC.(file).NSObject.isProxy()*/
     NSObject.isProxy = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isProxy() in ' + this.constructor.name;
     };
@@ -50060,7 +49800,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.isKind(of:AnyClass) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
-    /*ObjectiveC.(file).NSObject.isKind(of:AnyClass)*/
     NSObject.isKindOf = function (aClass, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isKind(of:AnyClass) in ' + this.constructor.name;
     };
@@ -50069,7 +49808,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.isMemberOf = function (aClass, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isMember(of:AnyClass) in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     /*ObjectiveC.(file).NSObject.isMember(of:AnyClass)*/
     NSObject.isMemberOf = function (aClass, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.isMember(of:AnyClass) in ' + this.constructor.name;
@@ -50085,7 +49823,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.responds(to:Selector?) in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
-    /*ObjectiveC.(file).NSObject.responds(to:Selector?)*/
     NSObject.respondsTo = function (aSelector, $info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.responds(to:Selector?) in ' + this.constructor.name;
     };
@@ -50099,7 +49836,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.release = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.release() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.release()*/
     /*ObjectiveC.(file).NSObject.release()*/
     NSObject.release = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.release() in ' + this.constructor.name;
@@ -50115,7 +49851,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.retainCount() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.retainCount()*/
-    /*ObjectiveC.(file).NSObject.retainCount()*/
     NSObject.retainCount = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.retainCount() in ' + this.constructor.name;
     };
@@ -50125,11 +49860,9 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.zone() in ' + this.constructor.name;
     };
     /*ObjectiveC.(file).NSObject.zone()*/
-    /*ObjectiveC.(file).NSObject.zone()*/
     NSObject.zone = function ($info) {
         throw 'unsupported method ObjectiveC.(file).NSObject.zone() in ' + this.constructor.name;
     };
-    /*ObjectiveC.(file).NSObject.==infix(_:NSObject,_:NSObject)*/
     /*Swift.(file).Equatable.==infix(_:Self,_:Self)*/
     NSObject.infix_61_61 = function (lhs, rhs, $info) {
         return lhs == rhs;
@@ -50150,7 +49883,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method ObjectiveC.(file).NSObject.hash(into:Hasher) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
-    /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard)*/
     NSObject.tableView = function (tableView, rows, pboard, $info) {
         throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard) in ' + this.constructor.name;
     };
@@ -50159,7 +49891,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.tableView = function (tableView, rows, pboard, $info) {
         throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],to:NSPasteboard) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     /*AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard)*/
     NSObject.tableView1 = function (tableView, rows, pboard, $info) {
         throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard) in ' + this.constructor.name;
@@ -50170,7 +49901,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.tableView(_:NSTableView,writeRows:[Any],toPasteboard:NSPasteboard) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
-    /*AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification)*/
     NSObject.textStorageWillProcessEditing = function (notification, $info) {
         throw 'unsupported method AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification) in ' + this.constructor.name;
     };
@@ -50179,7 +49909,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.textStorageWillProcessEditing = function (notification, $info) {
         throw 'unsupported method AppKit.(file).NSObject.textStorageWillProcessEditing(_:Notification) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     /*AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification)*/
     NSObject.textStorageDidProcessEditing = function (notification, $info) {
         throw 'unsupported method AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification) in ' + this.constructor.name;
@@ -50190,7 +49919,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.textStorageDidProcessEditing(_:Notification) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
-    /*AppKit.(file).NSObject.panel(_:Any,isValidFilename:String)*/
     NSObject.panel = function (sender, filename, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,isValidFilename:String) in ' + this.constructor.name;
     };
@@ -50199,7 +49927,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.panel = function (sender, filename, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,isValidFilename:String) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String)*/
     NSObject.panel1 = function (sender, path, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String) in ' + this.constructor.name;
@@ -50210,7 +49937,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,directoryDidChange:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
-    /*AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool)*/
     NSObject.panel2 = function (sender, name1, name2, caseSensitive, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool) in ' + this.constructor.name;
     };
@@ -50219,7 +49945,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.panel2 = function (sender, name1, name2, caseSensitive, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,compareFilename:String,with:String,caseSensitive:Bool) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     /*AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String)*/
     NSObject.panel3 = function (sender, filename, $info) {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String) in ' + this.constructor.name;
@@ -50230,7 +49955,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.panel(_:Any,shouldShowFilename:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.awakeFromNib()*/
-    /*AppKit.(file).NSObject.awakeFromNib()*/
     NSObject.awakeFromNib = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.awakeFromNib() in ' + this.constructor.name;
     };
@@ -50239,7 +49963,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.awakeFromNib = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.awakeFromNib() in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     /*AppKit.(file).NSObject.prepareForInterfaceBuilder()*/
     NSObject.prepareForInterfaceBuilder = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.prepareForInterfaceBuilder() in ' + this.constructor.name;
@@ -50250,7 +49973,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.prepareForInterfaceBuilder() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
-    /*AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String)*/
     NSObject.fontManager = function (sender, fontName, $info) {
         throw 'unsupported method AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String) in ' + this.constructor.name;
     };
@@ -50260,36 +49982,29 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.fontManager(_:Any,willIncludeFont:String) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:Any?,with:NSBindingName)*/
-    /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:Any?,with:NSBindingName)*/
     NSObject.setDefaultPlaceholder = function (placeholder, marker, binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,for:Any?,with:NSBindingName) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:Any?,withBinding:NSBindingName)*/
     /*AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:Any?,withBinding:NSBindingName)*/
     NSObject.setDefaultPlaceholder1 = function (placeholder, marker, binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.setDefaultPlaceholder(_:Any?,forMarker:Any?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.defaultPlaceholder(for:Any?,with:NSBindingName)*/
-    /*AppKit.(file).NSObject.defaultPlaceholder(for:Any?,with:NSBindingName)*/
     NSObject.defaultPlaceholder = function (marker, binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholder(for:Any?,with:NSBindingName) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.defaultPlaceholder(forMarker:Any?,withBinding:NSBindingName)*/
     /*AppKit.(file).NSObject.defaultPlaceholder(forMarker:Any?,withBinding:NSBindingName)*/
     NSObject.defaultPlaceholder1 = function (marker, binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholder(forMarker:Any?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.defaultPlaceholderForMarker(_:Any?,withBinding:NSBindingName)*/
-    /*AppKit.(file).NSObject.defaultPlaceholderForMarker(_:Any?,withBinding:NSBindingName)*/
     NSObject.defaultPlaceholderForMarker = function (marker, binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.defaultPlaceholderForMarker(_:Any?,withBinding:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.exposeBinding(_:NSBindingName)*/
-    /*AppKit.(file).NSObject.exposeBinding(_:NSBindingName)*/
     NSObject.exposeBinding = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.exposeBinding(_:NSBindingName) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName)*/
     NSObject.valueClassForBinding = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName) in ' + this.constructor.name;
@@ -50300,7 +50015,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.valueClassForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
-    /*AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.bind = function (binding, observable, keyPath, options, $info) {
         throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
@@ -50309,7 +50023,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.bind = function (binding, observable, keyPath, options, $info) {
         throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,to:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     /*AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?)*/
     NSObject.bind1 = function (binding, observable, keyPath, options, $info) {
         throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
@@ -50320,7 +50033,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.bind(_:NSBindingName,toObject:Any,withKeyPath:String,options:[NSBindingOption : Any]?) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
-    /*AppKit.(file).NSObject.unbind(_:NSBindingName)*/
     NSObject.unbind = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.unbind(_:NSBindingName) in ' + this.constructor.name;
     };
@@ -50329,7 +50041,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.unbind = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.unbind(_:NSBindingName) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     /*AppKit.(file).NSObject.infoForBinding(_:NSBindingName)*/
     NSObject.infoForBinding = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.infoForBinding(_:NSBindingName) in ' + this.constructor.name;
@@ -50340,7 +50051,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.infoForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
-    /*AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName)*/
     NSObject.optionDescriptionsForBinding = function (binding, $info) {
         throw 'unsupported method AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
@@ -50350,11 +50060,9 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.optionDescriptionsForBinding(_:NSBindingName) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.exposedBindings()*/
-    /*AppKit.(file).NSObject.exposedBindings()*/
     NSObject.exposedBindings = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.exposedBindings() in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     /*AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL)*/
     NSObject.namesOfPromisedFilesDropped = function (dropDestination, $info) {
         throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL) in ' + this.constructor.name;
@@ -50365,7 +50073,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDropped(atDestination:URL) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
-    /*AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL)*/
     NSObject.namesOfPromisedFilesDroppedAtDestination = function (dropDestination, $info) {
         throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL) in ' + this.constructor.name;
     };
@@ -50374,7 +50081,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.namesOfPromisedFilesDroppedAtDestination = function (dropDestination, $info) {
         throw 'unsupported method AppKit.(file).NSObject.namesOfPromisedFilesDroppedAtDestination(_:URL) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     /*AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool)*/
     NSObject.draggingSourceOperationMask = function (flag, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool) in ' + this.constructor.name;
@@ -50385,7 +50091,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMask(forLocal:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
-    /*AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool)*/
     NSObject.draggingSourceOperationMaskForLocal = function (flag, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool) in ' + this.constructor.name;
     };
@@ -50394,7 +50099,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.draggingSourceOperationMaskForLocal = function (flag, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggingSourceOperationMaskForLocal(_:Bool) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint)*/
     NSObject.draggedImage = function (_image, screenPoint, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint) in ' + this.constructor.name;
@@ -50405,7 +50109,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,beganAt:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
-    /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation)*/
     NSObject.draggedImage1 = function (_image, screenPoint, operation, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation) in ' + this.constructor.name;
     };
@@ -50414,7 +50117,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.draggedImage1 = function (_image, screenPoint, operation, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,operation:NSDragOperation) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint)*/
     NSObject.draggedImage2 = function (_image, screenPoint, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint) in ' + this.constructor.name;
@@ -50425,7 +50127,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,movedTo:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
-    /*AppKit.(file).NSObject.ignoreModifierKeysWhileDragging()*/
     NSObject.ignoreModifierKeysWhileDragging = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.ignoreModifierKeysWhileDragging() in ' + this.constructor.name;
     };
@@ -50434,7 +50135,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.ignoreModifierKeysWhileDragging = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.ignoreModifierKeysWhileDragging() in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     /*AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool)*/
     NSObject.draggedImage3 = function (_image, screenPoint, flag, $info) {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool) in ' + this.constructor.name;
@@ -50445,7 +50145,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.draggedImage(_:NSImage?,endedAt:NSPoint,deposited:Bool) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
-    /*AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.accessibilitySetOverrideValue = function (value, attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
@@ -50454,7 +50153,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilitySetOverrideValue = function (value, attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilitySetOverrideValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityAttributeNames()*/
     NSObject.accessibilityAttributeNames = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeNames() in ' + this.constructor.name;
@@ -50465,7 +50163,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
-    /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityAttributeValue = function (attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
@@ -50474,7 +50171,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityAttributeValue = function (attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     /*AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityIsAttributeSettable = function (attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute) in ' + this.constructor.name;
@@ -50485,7 +50181,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIsAttributeSettable(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
-    /*AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute)*/
     NSObject.accessibilitySetValue = function (value, attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
@@ -50494,7 +50189,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilitySetValue = function (value, attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilitySetValue(_:Any?,forAttribute:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     /*AppKit.(file).NSObject.accessibilityParameterizedAttributeNames()*/
     NSObject.accessibilityParameterizedAttributeNames = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityParameterizedAttributeNames() in ' + this.constructor.name;
@@ -50505,7 +50199,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityParameterizedAttributeNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
-    /*AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?)*/
     NSObject.accessibilityAttributeValue1 = function (attribute, parameter, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?) in ' + this.constructor.name;
     };
@@ -50514,7 +50207,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityAttributeValue1 = function (attribute, parameter, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityAttributeValue(_:NSAccessibility.ParameterizedAttribute,forParameter:Any?) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityActionNames()*/
     /*AppKit.(file).NSObject.accessibilityActionNames()*/
     NSObject.accessibilityActionNames = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityActionNames() in ' + this.constructor.name;
@@ -50525,7 +50217,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityActionNames() in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
-    /*AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action)*/
     NSObject.accessibilityActionDescription = function (action, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
@@ -50534,7 +50225,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityActionDescription = function (action, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityActionDescription(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     /*AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action)*/
     NSObject.accessibilityPerformAction = function (action, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action) in ' + this.constructor.name;
@@ -50545,7 +50235,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityPerformAction(_:NSAccessibility.Action) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
-    /*AppKit.(file).NSObject.accessibilityIsIgnored()*/
     NSObject.accessibilityIsIgnored = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIsIgnored() in ' + this.constructor.name;
     };
@@ -50554,7 +50243,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityIsIgnored = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIsIgnored() in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     /*AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint)*/
     NSObject.accessibilityHitTest = function (point, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint) in ' + this.constructor.name;
@@ -50565,7 +50253,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityHitTest(_:NSPoint) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
-    /*AppKit.(file).NSObject.accessibilityIndex(ofChild:Any)*/
     NSObject.accessibilityIndex = function (child, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIndex(ofChild:Any) in ' + this.constructor.name;
     };
@@ -50574,7 +50261,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityIndex = function (child, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIndex(ofChild:Any) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     /*AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any)*/
     NSObject.accessibilityIndexOfChild = function (child, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any) in ' + this.constructor.name;
@@ -50585,7 +50271,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityIndexOfChild(_:Any) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
-    /*AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute)*/
     NSObject.accessibilityArrayAttributeCount = function (attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
@@ -50594,7 +50279,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.accessibilityArrayAttributeCount = function (attribute, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeCount(_:NSAccessibility.Attribute) in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     /*AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int)*/
     NSObject.accessibilityArrayAttributeValues = function (attribute, index, maxCount, $info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int) in ' + this.constructor.name;
@@ -50605,17 +50289,14 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityArrayAttributeValues(_:NSAccessibility.Attribute,index:Int,maxCount:Int) in ' + this.constructor.name;
     };
     /*AppKit.(file).NSObject.accessibilityFocusedUIElement()*/
-    /*AppKit.(file).NSObject.accessibilityFocusedUIElement()*/
     NSObject.accessibilityFocusedUIElement = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityFocusedUIElement() in ' + this.constructor.name;
     };
-    /*AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed()*/
     /*AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed()*/
     NSObject.accessibilityNotifiesWhenDestroyed = function ($info) {
         throw 'unsupported method AppKit.(file).NSObject.accessibilityNotifiesWhenDestroyed() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqual(to:Any)*/
     NSObject.scriptingIsEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqual(to:Any) in ' + this.constructor.name;
     };
@@ -50625,16 +50306,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqual(to:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.scriptingIsEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqualTo(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
     /*Foundation.(file).NSObject.scriptingIsEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.scriptingIsEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsEqualTo(_:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
     /*Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any)*/
     NSObject.scriptingIsLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any) in ' + this.constructor.name;
@@ -50645,16 +50326,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqual(to:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.scriptingIsLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
     /*Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.scriptingIsLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThanOrEqualTo(_:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
     /*Foundation.(file).NSObject.scriptingIsLessThan(_:Any)*/
     NSObject.scriptingIsLessThan = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThan(_:Any) in ' + this.constructor.name;
@@ -50665,7 +50346,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsLessThan(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any)*/
     NSObject.scriptingIsGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any) in ' + this.constructor.name;
     };
@@ -50675,16 +50355,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqual(to:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.scriptingIsGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
     /*Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.scriptingIsGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThanOrEqualTo(_:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
     /*Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any)*/
     NSObject.scriptingIsGreaterThan = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any) in ' + this.constructor.name;
@@ -50695,7 +50375,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingIsGreaterThan(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
-    /*Foundation.(file).NSObject.scriptingBegins(with:Any)*/
     NSObject.scriptingBeginsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingBegins(with:Any) in ' + this.constructor.name;
     };
@@ -50705,16 +50384,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingBegins(with:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.scriptingBeginsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingBeginsWith(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
     /*Foundation.(file).NSObject.scriptingBeginsWith(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.scriptingBeginsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingBeginsWith(_:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
     /*Foundation.(file).NSObject.scriptingEnds(with:Any)*/
     NSObject.scriptingEndsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingEnds(with:Any) in ' + this.constructor.name;
@@ -50725,16 +50404,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingEnds(with:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
-    /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.scriptingEndsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingEndsWith(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
     /*Foundation.(file).NSObject.scriptingEndsWith(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.scriptingEndsWith = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingEndsWith(_:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
     /*Foundation.(file).NSObject.scriptingContains(_:Any)*/
     NSObject.scriptingContains = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingContains(_:Any) in ' + this.constructor.name;
@@ -50745,7 +50424,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingContains(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isEqual(to:Any?)*/
     NSObject.isEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isEqual(to:Any?) in ' + this.constructor.name;
     };
@@ -50755,16 +50433,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isEqual(to:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.isEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isEqualTo(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
     /*Foundation.(file).NSObject.isEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.isEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isEqualTo(_:Any?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
     /*Foundation.(file).NSObject.isLessThanOrEqual(to:Any?)*/
     NSObject.isLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqual(to:Any?) in ' + this.constructor.name;
@@ -50775,16 +50453,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqual(to:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.isLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
     /*Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.isLessThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLessThanOrEqualTo(_:Any?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
     /*Foundation.(file).NSObject.isLessThan(_:Any?)*/
     NSObject.isLessThan = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLessThan(_:Any?) in ' + this.constructor.name;
@@ -50795,7 +50473,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isLessThan(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?)*/
     NSObject.isGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?) in ' + this.constructor.name;
     };
@@ -50805,16 +50482,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqual(to:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.isGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
     /*Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.isGreaterThanOrEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThanOrEqualTo(_:Any?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
     /*Foundation.(file).NSObject.isGreaterThan(_:Any?)*/
     NSObject.isGreaterThan = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThan(_:Any?) in ' + this.constructor.name;
@@ -50825,7 +50502,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isGreaterThan(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqual(to:Any?)*/
     NSObject.isNotEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isNotEqual(to:Any?) in ' + this.constructor.name;
     };
@@ -50835,16 +50511,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isNotEqual(to:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
-    /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.isNotEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isNotEqualTo(_:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
     /*Foundation.(file).NSObject.isNotEqualTo(_:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.isNotEqualTo = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isNotEqualTo(_:Any?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.doesContain(_:Any)*/
     /*Foundation.(file).NSObject.doesContain(_:Any)*/
     NSObject.doesContain = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.doesContain(_:Any) in ' + this.constructor.name;
@@ -50855,7 +50531,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.doesContain(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.isLike(_:String)*/
-    /*Foundation.(file).NSObject.isLike(_:String)*/
     NSObject.isLike = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLike(_:String) in ' + this.constructor.name;
     };
@@ -50864,7 +50539,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.isLike = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isLike(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
     /*Foundation.(file).NSObject.isCaseInsensitiveLike(_:String)*/
     NSObject.isCaseInsensitiveLike = function (object, $info) {
         throw 'unsupported method Foundation.(file).NSObject.isCaseInsensitiveLike(_:String) in ' + this.constructor.name;
@@ -50875,7 +50549,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.isCaseInsensitiveLike(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier)*/
     NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function (specifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
@@ -50885,21 +50558,20 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.indicesOfObjects(byEvaluatingObjectSpecifier:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.indicesOfObjectsByEvaluatingObjectSpecifier = function (specifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
     /*Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.indicesOfObjectsByEvaluatingObjectSpecifier = function (specifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.indicesOfObjectsByEvaluatingObjectSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.objectSpecifier()*/
     /*Foundation.(file).NSObject.objectSpecifier()*/
     NSObject.objectSpecifier = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.objectSpecifier() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String)*/
     NSObject.valueAtInPropertyWithKey = function (index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
@@ -50910,7 +50582,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String)*/
     NSObject.valueAtIndexInPropertyWithKey = function (index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
@@ -50920,7 +50591,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.valueAtIndex(_:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String)*/
     NSObject.valueWithNameInPropertyWithKey = function (_name, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String) in ' + this.constructor.name;
     };
@@ -50930,16 +50600,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(withName:String,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valueWithNameInPropertyWithKey = function (_name, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valueWithNameInPropertyWithKey = function (_name, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueWithName(_:String,inPropertyWithKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String)*/
     NSObject.valueWithUniqueIDInPropertyWithKey = function (uniqueID, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String) in ' + this.constructor.name;
@@ -50950,16 +50620,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(withUniqueID:Any,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valueWithUniqueIDInPropertyWithKey = function (uniqueID, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valueWithUniqueIDInPropertyWithKey = function (uniqueID, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueWithUniqueID(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String)*/
     NSObject.insertValueAtInPropertyWithKey = function (value, index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
@@ -50970,7 +50640,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,at:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String)*/
     NSObject.insertValueAtIndexInPropertyWithKey = function (value, index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
@@ -50979,7 +50648,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.insertValueAtIndexInPropertyWithKey = function (value, index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,atIndex:Int,inPropertyWithKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String)*/
     NSObject.removeValueAtFromPropertyWithKey = function (index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
@@ -50990,7 +50658,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.removeValue(at:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
-    /*Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String)*/
     NSObject.removeValueAtIndexFromPropertyWithKey = function (index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
     };
@@ -50999,7 +50666,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.removeValueAtIndexFromPropertyWithKey = function (index, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeValueAtIndex(_:Int,fromPropertyWithKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
     /*Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any)*/
     NSObject.replaceValueAtInPropertyWithKeyWithValue = function (index, key, value, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
@@ -51010,7 +50676,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replaceValue(at:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
-    /*Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any)*/
     NSObject.replaceValueAtIndexInPropertyWithKeyWithValue = function (index, key, value, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
     };
@@ -51019,7 +50684,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.replaceValueAtIndexInPropertyWithKeyWithValue = function (index, key, value, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replaceValueAtIndex(_:Int,inPropertyWithKey:String,withValue:Any) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
     /*Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String)*/
     NSObject.insertValueInPropertyWithKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
@@ -51030,7 +50694,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.insertValue(_:Any,inPropertyWithKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String)*/
     NSObject.coerceValueForKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
@@ -51040,16 +50703,13 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.coerceValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classCode()*/
-    /*Foundation.(file).NSObject.classCode()*/
     NSObject.classCode = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classCode() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.className()*/
-    /*Foundation.(file).NSObject.className()*/
     NSObject.className = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.className() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
     /*Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier)*/
     NSObject.scriptingValueFor = function (objectSpecifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier) in ' + this.constructor.name;
@@ -51060,7 +50720,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.scriptingValue(for:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
-    /*Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier)*/
     NSObject.scriptingValueForSpecifier = function (objectSpecifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
@@ -51069,7 +50728,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.scriptingValueForSpecifier = function (objectSpecifier, $info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingValueForSpecifier(_:NSScriptObjectSpecifier) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
     /*Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any])*/
     NSObject.copyScriptingValueForKeyWithProperties = function (value, key, properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any]) in ' + this.constructor.name;
@@ -51080,7 +50738,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.copyScriptingValue(_:Any,forKey:String,withProperties:[String : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
-    /*Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
     NSObject.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function (objectClass, key, contentsValue, properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
     };
@@ -51089,7 +50746,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.newScriptingObjectOfForValueForKeyWithContentsValueProperties = function (objectClass, key, contentsValue, properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.newScriptingObject(of:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
     /*Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any])*/
     NSObject.newScriptingObjectOfClassForValueForKeyWithContentsValueProperties = function (objectClass, key, contentsValue, properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
@@ -51100,17 +50756,14 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.newScriptingObjectOfClass(_:AnyClass,forValueForKey:String,withContentsValue:Any?,properties:[String : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.scriptingProperties()*/
-    /*Foundation.(file).NSObject.scriptingProperties()*/
     NSObject.scriptingProperties = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.scriptingProperties() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
     /*Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?)*/
     NSObject.setScriptingProperties = function (scriptingProperties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setScriptingProperties(_:[String : Any]?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
-    /*Foundation.(file).NSObject.inverse(forRelationshipKey:String)*/
     NSObject.inverseForRelationshipKey = function (relationshipKey, $info) {
         throw 'unsupported method Foundation.(file).NSObject.inverse(forRelationshipKey:String) in ' + this.constructor.name;
     };
@@ -51120,36 +50773,32 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.inverse(forRelationshipKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
-    /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.inverseForRelationshipKey = function (relationshipKey, $info) {
         throw 'unsupported method Foundation.(file).NSObject.inverseForRelationshipKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
     /*Foundation.(file).NSObject.inverseForRelationshipKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.inverseForRelationshipKey = function (relationshipKey, $info) {
         throw 'unsupported method Foundation.(file).NSObject.inverseForRelationshipKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.classDescription()*/
     /*Foundation.(file).NSObject.classDescription()*/
     NSObject.classDescription = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classDescription() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attributeKeys()*/
-    /*Foundation.(file).NSObject.attributeKeys()*/
     NSObject.attributeKeys = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.attributeKeys() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
     /*Foundation.(file).NSObject.toOneRelationshipKeys()*/
     NSObject.toOneRelationshipKeys = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.toOneRelationshipKeys() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
-    /*Foundation.(file).NSObject.toManyRelationshipKeys()*/
     NSObject.toManyRelationshipKeys = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.toManyRelationshipKeys() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
     /*Foundation.(file).NSObject.replacementObject(for:NSPortCoder)*/
     NSObject.replacementObjectFor = function (coder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSPortCoder) in ' + this.constructor.name;
@@ -51160,7 +50809,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSPortCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
-    /*Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder)*/
     NSObject.replacementObjectForPortCoder = function (coder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder) in ' + this.constructor.name;
     };
@@ -51170,21 +50818,20 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForPortCoder(_:NSPortCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classForPortCoder()*/
-    /*Foundation.(file).NSObject.classForPortCoder()*/
     NSObject.classForPortCoder = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classForPortCoder() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.replacementObjectFor = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSArchiver) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
     /*Foundation.(file).NSObject.replacementObject(for:NSArchiver)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.replacementObjectFor = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSArchiver) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
     /*Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver)*/
     NSObject.replacementObjectForArchiver = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver) in ' + this.constructor.name;
@@ -51195,11 +50842,9 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForArchiver(_:NSArchiver) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classForArchiver()*/
-    /*Foundation.(file).NSObject.classForArchiver()*/
     NSObject.classForArchiver = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classForArchiver() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
     /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
     NSObject.performSelectorOnMainThreadWithWaitUntilDoneModes = function (aSelector, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
@@ -51210,7 +50855,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
     NSObject.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function (aSelector, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
@@ -51219,7 +50863,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDoneModes = function (aSelector, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
     /*Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool)*/
     NSObject.performSelectorOnMainThreadWithWaitUntilDone = function (aSelector, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
@@ -51230,7 +50873,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(onMainThread:Selector,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool)*/
     NSObject.performSelectorOnMainThreadWithObjectWaitUntilDone = function (aSelector, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
@@ -51239,7 +50881,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performSelectorOnMainThreadWithObjectWaitUntilDone = function (aSelector, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorOnMainThread(_:Selector,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
     /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?)*/
     NSObject.performOnWithWaitUntilDoneModes = function (aSelector, thr, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
@@ -51250,7 +50891,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?)*/
     NSObject.performSelectorOnThreadWithObjectWaitUntilDoneModes = function (aSelector, thr, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
@@ -51259,7 +50899,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDoneModes = function (aSelector, thr, arg, wait, array, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool,modes:[String]?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
     /*Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool)*/
     NSObject.performOnWithWaitUntilDone = function (aSelector, thr, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
@@ -51270,7 +50909,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,on:Thread,with:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool)*/
     NSObject.performSelectorOnThreadWithObjectWaitUntilDone = function (aSelector, thr, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
@@ -51279,7 +50917,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performSelectorOnThreadWithObjectWaitUntilDone = function (aSelector, thr, arg, wait, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,onThread:Thread,withObject:Any?,waitUntilDone:Bool) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
     /*Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?)*/
     NSObject.performSelectorInBackgroundWith = function (aSelector, arg, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?) in ' + this.constructor.name;
@@ -51290,7 +50927,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(inBackground:Selector,with:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
-    /*Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?)*/
     NSObject.performSelectorInBackgroundWithObject = function (aSelector, arg, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?) in ' + this.constructor.name;
     };
@@ -51300,21 +50936,20 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.performSelectorInBackground(_:Selector,withObject:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
-    /*Foundation.(file).NSObject.classForKeyedUnarchiver()*/
     NSObject.classForKeyedUnarchiver = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classForKeyedUnarchiver() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.replacementObjectFor = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
     /*Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.replacementObjectFor = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSKeyedArchiver) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
     /*Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver)*/
     NSObject.replacementObjectForKeyedArchiver = function (archiver, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver) in ' + this.constructor.name;
@@ -51325,52 +50960,44 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForKeyedArchiver(_:NSKeyedArchiver) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
-    /*Foundation.(file).NSObject.classFallbacksForKeyedArchiver()*/
     NSObject.classFallbacksForKeyedArchiver = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classFallbacksForKeyedArchiver() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.classForKeyedArchiver()*/
     /*Foundation.(file).NSObject.classForKeyedArchiver()*/
     NSObject.classForKeyedArchiver = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classForKeyedArchiver() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
-    /*Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String)*/
     NSObject.setKeysTriggerChangeNotificationsForDependentKey = function (keys, dependentKey, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setKeys(_:[Any],triggerChangeNotificationsForDependentKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
     /*Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String)*/
     NSObject.keyPathsForValuesAffectingValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.keyPathsForValuesAffectingValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.keyPathsForValuesAffectingValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.keyPathsForValuesAffectingValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
     /*Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String)*/
     NSObject.automaticallyNotifiesObserversForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.automaticallyNotifiesObservers(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
-    /*Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.automaticallyNotifiesObserversForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.automaticallyNotifiesObserversForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.observationInfo()*/
     /*Foundation.(file).NSObject.observationInfo()*/
     NSObject.observationInfo = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.observationInfo() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?)*/
     NSObject.setObservationInfo = function (observationInfo, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setObservationInfo(_:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String)*/
     NSObject.willChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String) in ' + this.constructor.name;
     };
@@ -51380,16 +51007,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.willChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
     /*Foundation.(file).NSObject.willChangeValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.willChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
     /*Foundation.(file).NSObject.didChangeValue(forKey:String)*/
     NSObject.didChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String) in ' + this.constructor.name;
@@ -51400,16 +51027,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.didChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
     /*Foundation.(file).NSObject.didChangeValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.didChangeValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
     /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
     NSObject.willChangeValuesAtForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
@@ -51420,7 +51047,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
     NSObject.willChangeValuesAtIndexesForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
     };
@@ -51429,7 +51055,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.willChangeValuesAtIndexesForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
     /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String)*/
     NSObject.didChangeValuesAtForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
@@ -51440,7 +51065,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAt:IndexSet,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
-    /*Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String)*/
     NSObject.didChangeValuesAtIndexesForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
     };
@@ -51449,7 +51073,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.didChangeValuesAtIndexesForKey = function (changeKind, indexes, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChange(_:NSKeyValueChange,valuesAtIndexes:IndexSet,forKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
     /*Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
     NSObject.willChangeValueForKeyWithSetMutationUsing = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
@@ -51460,7 +51083,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
     NSObject.willChangeValueForKeyWithSetMutationUsingObjects = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
     };
@@ -51469,7 +51091,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.willChangeValueForKeyWithSetMutationUsingObjects = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.willChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
     /*Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>)*/
     NSObject.didChangeValueForKeyWithSetMutationUsing = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
@@ -51480,7 +51101,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValue(forKey:String,withSetMutation:NSKeyValueSetMutationKind,using:Set<AnyHashable>) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
-    /*Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>)*/
     NSObject.didChangeValueForKeyWithSetMutationUsingObjects = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
     };
@@ -51489,7 +51109,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.didChangeValueForKeyWithSetMutationUsingObjects = function (key, mutationKind, objects, $info) {
         throw 'unsupported method Foundation.(file).NSObject.didChangeValueForKey(_:String,withSetMutation:NSKeyValueSetMutationKind,usingObjects:Set<AnyHashable>) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
     /*Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?)*/
     NSObject.addObserverForKeyPathOptionsContext = function (observer, keyPath, options, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
@@ -51500,7 +51119,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.addObserver(_:NSObject,forKeyPath:String,options:NSKeyValueObservingOptions,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?)*/
     NSObject.removeObserverForKeyPathContext = function (observer, keyPath, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
@@ -51509,7 +51127,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.removeObserverForKeyPathContext = function (observer, keyPath, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
     /*Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String)*/
     NSObject.removeObserverForKeyPath = function (observer, keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String) in ' + this.constructor.name;
@@ -51520,7 +51137,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.removeObserver(_:NSObject,forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
     NSObject.observeValueForKeyPathOfChangeContext = function (keyPath, object, change, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
@@ -51529,7 +51145,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.observeValueForKeyPathOfChangeContext = function (keyPath, object, change, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.observeValue(forKeyPath:String?,of:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
     /*Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?)*/
     NSObject.observeValueForKeyPathOfObjectChangeContext = function (keyPath, object, change, context, $info) {
         throw 'unsupported method Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
@@ -51540,12 +51155,10 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.observeValueForKeyPath(_:String?,ofObject:Any?,change:[NSKeyValueChangeKey : Any]?,context:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.useStoredAccessor()*/
-    /*Foundation.(file).NSObject.useStoredAccessor()*/
     NSObject.useStoredAccessor = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.useStoredAccessor() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.storedValue(forKey:String)*/
-    /*Foundation.(file).NSObject.storedValue(forKey:String)*/
     NSObject.storedValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.storedValue(forKey:String) in ' + this.constructor.name;
     };
@@ -51555,16 +51168,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.storedValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.storedValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.storedValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
     /*Foundation.(file).NSObject.storedValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.storedValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.storedValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
     /*Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String)*/
     NSObject.takeStoredValueForKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String) in ' + this.constructor.name;
@@ -51575,7 +51188,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.takeStoredValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKey:String)*/
     NSObject.takeValueForKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
@@ -51584,7 +51196,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.takeValueForKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
     /*Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String)*/
     NSObject.takeValueForKeyPath = function (value, keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
@@ -51595,7 +51206,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.takeValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
-    /*Foundation.(file).NSObject.handleQuery(withUnboundKey:String)*/
     NSObject.handleQueryWithUnboundKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.handleQuery(withUnboundKey:String) in ' + this.constructor.name;
     };
@@ -51605,16 +51215,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.handleQuery(withUnboundKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
-    /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.handleQueryWithUnboundKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
     /*Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.handleQueryWithUnboundKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.handleQueryWithUnboundKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
     /*Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String)*/
     NSObject.handleTakeValueForUnboundKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String) in ' + this.constructor.name;
@@ -51625,7 +51235,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.handleTakeValue(_:Any?,forUnboundKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
-    /*Foundation.(file).NSObject.unableToSetNil(forKey:String)*/
     NSObject.unableToSetNilForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.unableToSetNil(forKey:String) in ' + this.constructor.name;
     };
@@ -51635,16 +51244,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.unableToSetNil(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
-    /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.unableToSetNilForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.unableToSetNilForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
     /*Foundation.(file).NSObject.unableToSetNilForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.unableToSetNilForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.unableToSetNilForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.values(forKeys:[Any])*/
     /*Foundation.(file).NSObject.values(forKeys:[Any])*/
     NSObject.valuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.values(forKeys:[Any]) in ' + this.constructor.name;
@@ -51655,16 +51264,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.values(forKeys:[Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
-    /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valuesForKeys(_:[Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
     /*Foundation.(file).NSObject.valuesForKeys(_:[Any])*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valuesForKeys(_:[Any]) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
     /*Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any])*/
     NSObject.takeValuesFrom = function (properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any]) in ' + this.constructor.name;
@@ -51675,7 +51284,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.takeValues(from:[AnyHashable : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
-    /*Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any])*/
     NSObject.takeValuesFromDictionary = function (properties, $info) {
         throw 'unsupported method Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any]) in ' + this.constructor.name;
     };
@@ -51685,7 +51293,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.takeValuesFromDictionary(_:[AnyHashable : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.value(forKey:String)*/
-    /*Foundation.(file).NSObject.value(forKey:String)*/
     NSObject.valueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(forKey:String) in ' + this.constructor.name;
     };
@@ -51695,16 +51302,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForKey(_:String)*/
     /*Foundation.(file).NSObject.valueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
     /*Foundation.(file).NSObject.setValue(_:Any?,forKey:String)*/
     NSObject.setValueForKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKey:String) in ' + this.constructor.name;
@@ -51715,7 +51322,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String)*/
     NSObject.validateValueForKey = function (ioValue, inKey, $info) {
         throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String) in ' + this.constructor.name;
     };
@@ -51725,7 +51331,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKey:String)*/
     NSObject.mutableArrayValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKey:String) in ' + this.constructor.name;
     };
@@ -51735,16 +51340,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableArrayValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
     /*Foundation.(file).NSObject.mutableArrayValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableArrayValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
     /*Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String)*/
     NSObject.mutableOrderedSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String) in ' + this.constructor.name;
@@ -51755,17 +51360,17 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableOrderedSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableOrderedSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKey:String)*/
     NSObject.mutableSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKey:String) in ' + this.constructor.name;
     };
@@ -51775,16 +51380,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
     /*Foundation.(file).NSObject.mutableSetValueForKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableSetValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.value(forKeyPath:String)*/
     /*Foundation.(file).NSObject.value(forKeyPath:String)*/
     NSObject.valueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(forKeyPath:String) in ' + this.constructor.name;
@@ -51795,16 +51400,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForKeyPath(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
     /*Foundation.(file).NSObject.valueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForKeyPath(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
     /*Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String)*/
     NSObject.setValueForKeyPath = function (value, keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
@@ -51815,7 +51420,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
-    /*Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String)*/
     NSObject.validateValueForKeyPath = function (ioValue, inKeyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String) in ' + this.constructor.name;
     };
@@ -51825,7 +51429,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.validateValue(_:AutoreleasingUnsafeMutablePointer<AnyObject?>,forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String)*/
     NSObject.mutableArrayValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String) in ' + this.constructor.name;
     };
@@ -51835,16 +51438,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValue(forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableArrayValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
     /*Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableArrayValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableArrayValueForKeyPath(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
     /*Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String)*/
     NSObject.mutableOrderedSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String) in ' + this.constructor.name;
@@ -51855,17 +51458,17 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValue(forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableOrderedSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
     /*Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableOrderedSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableOrderedSetValueForKeyPath(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
-    /*Foundation.(file).NSObject.mutableSetValue(forKeyPath:String)*/
     NSObject.mutableSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKeyPath:String) in ' + this.constructor.name;
     };
@@ -51875,16 +51478,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValue(forKeyPath:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
-    /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.mutableSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
     /*Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.mutableSetValueForKeyPath = function (keyPath, $info) {
         throw 'unsupported method Foundation.(file).NSObject.mutableSetValueForKeyPath(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
     /*Foundation.(file).NSObject.value(forUndefinedKey:String)*/
     NSObject.valueForUndefinedKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.value(forUndefinedKey:String) in ' + this.constructor.name;
@@ -51895,16 +51498,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.value(forUndefinedKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
-    /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.valueForUndefinedKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForUndefinedKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
     /*Foundation.(file).NSObject.valueForUndefinedKey(_:String)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.valueForUndefinedKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.valueForUndefinedKey(_:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
     /*Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String)*/
     NSObject.setValueForUndefinedKey = function (value, key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String) in ' + this.constructor.name;
@@ -51915,7 +51518,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.setValue(_:Any?,forUndefinedKey:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
-    /*Foundation.(file).NSObject.setNilValueForKey(_:String)*/
     NSObject.setNilValueForKey = function (key, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setNilValueForKey(_:String) in ' + this.constructor.name;
     };
@@ -51925,7 +51527,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.setNilValueForKey(_:String) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String])*/
     NSObject.dictionaryWithValuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String]) in ' + this.constructor.name;
     };
@@ -51935,16 +51536,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValues(forKeys:[String]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
-    /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    /*!!!DUPLICATE NAME*/
     NSObject.dictionaryWithValuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
     /*Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String])*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.dictionaryWithValuesForKeys = function (keys, $info) {
         throw 'unsupported method Foundation.(file).NSObject.dictionaryWithValuesForKeys(_:[String]) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
     /*Foundation.(file).NSObject.setValuesForKeys(_:[String : Any])*/
     NSObject.setValuesForKeys = function (keyedValues, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValuesForKeys(_:[String : Any]) in ' + this.constructor.name;
@@ -51955,7 +51556,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.setValuesForKeys(_:[String : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
-    /*Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any])*/
     NSObject.setValuesForKeysWithDictionary = function (keyedValues, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any]) in ' + this.constructor.name;
     };
@@ -51964,7 +51564,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.setValuesForKeysWithDictionary = function (keyedValues, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setValuesForKeysWithDictionary(_:[String : Any]) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
     /*Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any])*/
     NSObject.fileManagerShouldProceedAfterError = function (fm, errorInfo, $info) {
         throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any]) in ' + this.constructor.name;
@@ -51975,7 +51574,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,shouldProceedAfterError:[AnyHashable : Any]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
-    /*Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String)*/
     NSObject.fileManagerWillProcessPath = function (fm, path, $info) {
         throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String) in ' + this.constructor.name;
     };
@@ -51984,7 +51582,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.fileManagerWillProcessPath = function (fm, path, $info) {
         throw 'unsupported method Foundation.(file).NSObject.fileManager(_:FileManager,willProcessPath:String) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
     /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
     NSObject.performWithAfterDelayInModes = function (aSelector, anArgument, delay, modes, $info) {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
@@ -51995,7 +51592,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode])*/
     NSObject.performSelectorWithObjectAfterDelayInModes = function (aSelector, anArgument, delay, modes, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
     };
@@ -52004,7 +51600,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.performSelectorWithObjectAfterDelayInModes = function (aSelector, anArgument, delay, modes, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval,inModes:[RunLoop.Mode]) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
     /*Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval)*/
     NSObject.performWithAfterDelay = function (aSelector, anArgument, delay, $info) {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
@@ -52015,7 +51610,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.perform(_:Selector,with:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
-    /*Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval)*/
     NSObject.performSelectorWithObjectAfterDelay = function (aSelector, anArgument, delay, $info) {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
     };
@@ -52025,27 +51619,24 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.performSelector(_:Selector,withObject:Any?,afterDelay:TimeInterval) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?)*/
     NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function (aTarget, aSelector, anArgument, $info) {
         throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any,selector:Selector,object:Any?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.cancelPreviousPerformRequestsWithTargetSelectorObject = function (aTarget, aSelector, anArgument, $info) {
         throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any,selector:Selector,object:Any?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
     /*Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any)*/
     NSObject.cancelPreviousPerformRequestsWithTarget = function (aTarget, $info) {
         throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequests(withTarget:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
-    /*Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.cancelPreviousPerformRequestsWithTarget = function (aTarget, $info) {
         throw 'unsupported method Foundation.(file).NSObject.cancelPreviousPerformRequestsWithTarget(_:Any) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
     NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function (error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
@@ -52055,16 +51646,16 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function (error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.attemptRecoveryFromErrorOptionIndexDelegateDidRecoverSelectorContextInfo = function (error, recoveryOptionIndex, delegate, didRecoverSelector, contextInfo, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int,delegate:Any?,didRecoverSelector:Selector?,contextInfo:UnsafeMutableRawPointer?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
     /*Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int)*/
     NSObject.attemptRecoveryFromErrorOptionIndex = function (error, recoveryOptionIndex, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int) in ' + this.constructor.name;
@@ -52075,51 +51666,47 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecovery(fromError:Error,optionIndex:Int) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
-    /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.attemptRecoveryFromErrorOptionIndex = function (error, recoveryOptionIndex, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
     /*Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.attemptRecoveryFromErrorOptionIndex = function (error, recoveryOptionIndex, $info) {
         throw 'unsupported method Foundation.(file).NSObject.attemptRecoveryFromError(_:Error,optionIndex:Int) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
     /*Foundation.(file).NSObject.autoContentAccessingProxy()*/
     NSObject.autoContentAccessingProxy = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.autoContentAccessingProxy() in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.pose(as:AnyClass)*/
-    /*Foundation.(file).NSObject.pose(as:AnyClass)*/
     NSObject.poseAs = function (aClass, $info) {
         throw 'unsupported method Foundation.(file).NSObject.pose(as:AnyClass) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
     /*Foundation.(file).NSObject.poseAsClass(_:AnyClass)*/
     NSObject.poseAsClass = function (aClass, $info) {
         throw 'unsupported method Foundation.(file).NSObject.poseAsClass(_:AnyClass) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.version()*/
-    /*Foundation.(file).NSObject.version()*/
     NSObject.version = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.version() in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.setVersion(_:Int)*/
     /*Foundation.(file).NSObject.setVersion(_:Int)*/
     NSObject.setVersion = function (aVersion, $info) {
         throw 'unsupported method Foundation.(file).NSObject.setVersion(_:Int) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
-    /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.replacementObjectFor = function (aCoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
     /*Foundation.(file).NSObject.replacementObject(for:NSCoder)*/
+    /*!!!DUPLICATE NAME*/
     NSObject.prototype.replacementObjectFor = function (aCoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObject(for:NSCoder) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
     /*Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder)*/
     NSObject.replacementObjectForCoder = function (aCoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder) in ' + this.constructor.name;
@@ -52130,7 +51717,6 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.replacementObjectForCoder(_:NSCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
-    /*Foundation.(file).NSObject.awakeAfter(using:NSCoder)*/
     NSObject.awakeAfterUsing = function (aDecoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.awakeAfter(using:NSCoder) in ' + this.constructor.name;
     };
@@ -52139,7 +51725,6 @@ var NSObject = /** @class */ (function () {
     NSObject.prototype.awakeAfterUsing = function (aDecoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.awakeAfter(using:NSCoder) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
     /*Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder)*/
     NSObject.awakeAfterUsingCoder = function (aDecoder, $info) {
         throw 'unsupported method Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder) in ' + this.constructor.name;
@@ -52150,11 +51735,9 @@ var NSObject = /** @class */ (function () {
         throw 'unsupported method Foundation.(file).NSObject.awakeAfterUsingCoder(_:NSCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSObject.classForCoder()*/
-    /*Foundation.(file).NSObject.classForCoder()*/
     NSObject.classForCoder = function ($info) {
         throw 'unsupported method Foundation.(file).NSObject.classForCoder() in ' + this.constructor.name;
     };
-    /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     /*CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?)*/
     NSObject.provideImageData = function (data, rowbytes, x, y, width, height, info, $info) {
         throw 'unsupported method CoreImage.(file).NSObject.provideImageData(_:UnsafeMutableRawPointer,bytesPerRow:Int,origin:Int,_:Int,size:Int,_:Int,userInfo:Any?) in ' + this.constructor.name;
@@ -52182,29 +51765,32 @@ if (typeof CustomDebugStringConvertible$implementation != 'undefined')
     _mixin(NSObject, CustomDebugStringConvertible$implementation, false);
 if (typeof _KeyValueCodingAndObserving$implementation != 'undefined')
     _mixin(NSObject, _KeyValueCodingAndObserving$implementation, false);
+function 
 /*Darwin.(file).arc4random()*/
-/*Darwin.(file).arc4random()*/
-function arc4random($info) {
+arc4random($info) {
     return arc4random_uniform(Math.pow(2, 32), {});
 }
+function 
 /*Darwin.(file).arc4random_uniform(_:UInt32)*/
-/*Darwin.(file).arc4random_uniform(_:UInt32)*/
-function arc4random_uniform(__upper_bound, $info) {
+arc4random_uniform(__upper_bound, $info) {
     return Math.floor(Math.random() * __upper_bound);
 }
+function 
 /*Darwin.(file).ceil(_:T)*/
-/*Darwin.(file).ceil(_:T)*/
-function ceil(x, $info) {
+/*!!!DUPLICATE NAME*/
+ceil(x, $info) {
     return Math.ceil(x);
 }
+function 
 /*Darwin.(file).floor(_:T)*/
-/*Darwin.(file).floor(_:T)*/
-function floor(x, $info) {
+/*!!!DUPLICATE NAME*/
+floor(x, $info) {
     return Math.floor(x);
 }
+function 
 /*Darwin.(file).pow(_:Float80,_:Float80)*/
-/*Darwin.(file).pow(_:Float80,_:Float80)*/
-function pow(lhs, rhs, $info) {
+/*!!!DUPLICATE NAME*/
+pow(lhs, rhs, $info) {
     return Math.pow(lhs, rhs);
 }
 /*Darwin.(file).pow(_:Float,_:Float)*/
@@ -52212,9 +51798,10 @@ function pow(lhs, rhs, $info) {
 /*function pow1($info0x7ff1c68c4ed0, lhs, rhs) {
 return this.pow(lhs, rhs)
 }*/
+function 
 /*Darwin.(file).sqrt(_:T)*/
-/*Darwin.(file).sqrt(_:T)*/
-function sqrt(x, $info) {
+/*!!!DUPLICATE NAME*/
+sqrt(x, $info) {
     return Math.sqrt(x);
 }
 var NSException = /** @class */ (function (_super) {
@@ -52227,7 +51814,6 @@ var NSException = /** @class */ (function (_super) {
     NSException.prototype.initNameNSExceptionNameReasonOptionalUserInfoOptional = function (_name, reason, userInfo, $info) {
         throw 'unsupported method Foundation.(file).NSException.init(name:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
     };
-    /*Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
     /*Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?)*/
     NSException.exceptionWithNameReasonUserInfo = function (_name, reason, userInfo, $info) {
         throw 'unsupported method Foundation.(file).NSException.exceptionWithName(_:NSExceptionName,reason:String?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
@@ -52262,7 +51848,6 @@ var NSException = /** @class */ (function (_super) {
         throw 'unsupported method Foundation.(file).NSException.init(coder:NSCoder) in ' + this.constructor.name;
     };
     /*Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer)*/
-    /*Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer)*/
     NSException.raiseFormatArguments = function (_name, format, argList, $info) {
         throw 'unsupported method Foundation.(file).NSException.raise(_:NSExceptionName,format:String,arguments:CVaListPointer) in ' + this.constructor.name;
     };
@@ -52277,99 +51862,99 @@ if (typeof NSCopying$implementation != 'undefined')
     _mixin(NSException, NSCopying$implementation, false);
 if (typeof NSCoding$implementation != 'undefined')
     _mixin(NSException, NSCoding$implementation, false);
+function 
 /*XCTest.(file).XCTSelfTestMain()*/
-/*XCTest.(file).XCTSelfTestMain()*/
-function XCTSelfTestMain($info) {
+XCTSelfTestMain($info) {
     throw 'unsupported method XCTest.(file).XCTSelfTestMain() in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
-function XCTFailFileLine(message, file, line, $info) {
+XCTFailFileLine(message, file, line, $info) {
     assertionFailureFileLine(function () { return message; }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNilFileLine(expression, message, file, line, $info) {
+XCTAssertNilFileLine(expression, message, file, line, $info) {
     preconditionFileLine(function () { return Optional.wrappedEqualsOptionalNilComparisonType(expression({}), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNotNil(_:() throws -> Any?,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNotNilFileLine(expression, message, file, line, $info) {
+XCTAssertNotNilFileLine(expression, message, file, line, $info) {
     preconditionFileLine(function () { return Optional.wrappedNotEqualsOptionalNilComparisonType(expression({}), _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssert(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertFileLine(expression, message, file, line, $info) {
+XCTAssertFileLine(expression, message, file, line, $info) {
     preconditionFileLine(function () { return expression({}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertTrue(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertTrueFileLine(expression, message, file, line, $info) {
+XCTAssertTrueFileLine(expression, message, file, line, $info) {
     preconditionFileLine(function () { return Bool.infix_61_61(expression({}), true, {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertFalse(_:() throws -> Bool,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertFalseFileLine(expression, message, file, line, $info) {
+XCTAssertFalseFileLine(expression, message, file, line, $info) {
     preconditionFileLine(function () { return Bool.prefix_33(expression({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertEqualFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertEqualFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_61_61(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNotEqualFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertNotEqualFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_33_61(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertEqualAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
+XCTAssertEqualAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertEqualWithAccuracyAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
+XCTAssertEqualWithAccuracyAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertEqualWithAccuracy(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNotEqualAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
+XCTAssertNotEqualAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertNotEqual(_:() throws -> T,_:() throws -> T,accuracy:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNotEqualWithAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
+XCTAssertNotEqualWithAccuracyFileLine(expression1, expression2, accuracy, message, file, line, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertNotEqualWithAccuracy(_:() throws -> T,_:() throws -> T,_:T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertGreaterThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertGreaterThanFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertGreaterThanFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_62(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertGreaterThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertGreaterThanOrEqualFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertGreaterThanOrEqualFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_62_61(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertLessThan(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertLessThanFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertLessThanFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_60(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertLessThanOrEqual(_:() throws -> T,_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertLessThanOrEqualFileLine(expression1, expression2, message, file, line, $info) {
+XCTAssertLessThanOrEqualFileLine(expression1, expression2, message, file, line, $info) {
     preconditionFileLine(function () { return (_.arg0 = expression1({})).constructor.infix_60_61(_.arg0, expression2({}), {}); }, function () { return message({}); }, '?3', '?3', {});
 }
+function 
 /*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
-/*XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void)*/
-function XCTAssertThrowsErrorFileLine(expression, message, file, line, errorHandler, $info) {
+XCTAssertThrowsErrorFileLine(expression, message, file, line, errorHandler, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertThrowsError(_:() throws -> T,_:() -> String,file:StaticString,line:UInt,_:(Error) -> Void) in ' + this.constructor.name;
 }
+function 
 /*XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-/*XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt)*/
-function XCTAssertNoThrowFileLine(expression, message, file, line, $info) {
+XCTAssertNoThrowFileLine(expression, message, file, line, $info) {
     throw 'unsupported method XCTest.(file).XCTAssertNoThrow(_:() throws -> T,_:() -> String,file:StaticString,line:UInt) in ' + this.constructor.name;
 }
 var XCTActivity$implementation = /** @class */ (function () {
@@ -52394,7 +51979,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(uniformTypeIdentifier:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?)*/
     XCTAttachment.attachmentWithUniformTypeIdentifierNamePayloadUserInfo = function (identifier, _name, payload, userInfo, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithUniformTypeIdentifier(_:String?,name:String?,payload:Data?,userInfo:[AnyHashable : Any]?) in ' + this.constructor.name;
     };
@@ -52414,7 +51998,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(data:Data) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data)*/
     XCTAttachment.attachmentWithData = function (payload, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithData(_:Data) in ' + this.constructor.name;
     };
@@ -52423,7 +52006,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initDataDataUniformTypeIdentifierString = function (payload, identifier, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(data:Data,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithDataUniformTypeIdentifier = function (payload, identifier, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithData(_:Data,uniformTypeIdentifier:String) in ' + this.constructor.name;
@@ -52434,7 +52016,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(string:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithString(_:String)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithString(_:String)*/
     XCTAttachment.attachmentWithString = function (string, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithString(_:String) in ' + this.constructor.name;
     };
@@ -52443,7 +52024,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initArchivableObjectNSSecureCoding = function (object, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding)*/
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding)*/
     XCTAttachment.attachmentWithArchivableObject = function (object, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding) in ' + this.constructor.name;
@@ -52454,7 +52034,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(archivableObject:NSSecureCoding,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithArchivableObjectUniformTypeIdentifier = function (object, identifier, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithArchivableObject(_:NSSecureCoding,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
@@ -52463,7 +52042,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initPlistObjectprotocol_composition_type = function (object, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(plistObject:Any) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any)*/
     /*XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any)*/
     XCTAttachment.attachmentWithPlistObject = function (object, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithPlistObject(_:Any) in ' + this.constructor.name;
@@ -52479,7 +52057,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(contentsOfFileAtURL:URL) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL)*/
     XCTAttachment.attachmentWithContentsOfFileAtURL = function (url, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL) in ' + this.constructor.name;
     };
@@ -52493,7 +52070,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initContentsOfFileAtURLURLUniformTypeIdentifierString = function (url, identifier, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(contentsOfFileAtURL:URL,uniformTypeIdentifier:String) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String)*/
     /*XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String)*/
     XCTAttachment.attachmentWithContentsOfFileAtURLUniformTypeIdentifier = function (url, identifier, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithContentsOfFileAtURL(_:URL,uniformTypeIdentifier:String) in ' + this.constructor.name;
@@ -52509,7 +52085,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(compressedContentsOfDirectoryAtURL:URL) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL)*/
     XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL = function (url, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithCompressedContentsOfDirectoryAtURL(_:URL) in ' + this.constructor.name;
     };
@@ -52518,7 +52093,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initImageNSImage = function (_image, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(image:NSImage) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage)*/
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage)*/
     XCTAttachment.attachmentWithImage = function (_image, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage) in ' + this.constructor.name;
@@ -52529,7 +52103,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(image:NSImage,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality)*/
     XCTAttachment.attachmentWithImageQuality = function (_image, quality, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithImage(_:NSImage,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
     };
@@ -52539,7 +52112,6 @@ var XCTAttachment = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot)*/
-    /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot)*/
     XCTAttachment.attachmentWithScreenshot = function (screenshot, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot) in ' + this.constructor.name;
     };
@@ -52548,7 +52120,6 @@ var XCTAttachment = /** @class */ (function (_super) {
     XCTAttachment.prototype.initScreenshotXCUIScreenshotQualityXCTAttachmentImageQuality = function (screenshot, quality, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.init(screenshot:XCUIScreenshot,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
     /*XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality)*/
     XCTAttachment.attachmentWithScreenshotQuality = function (screenshot, quality, $info) {
         throw 'unsupported method XCTest.(file).XCTAttachment.attachmentWithScreenshot(_:XCUIScreenshot,quality:XCTAttachment.ImageQuality) in ' + this.constructor.name;
@@ -52648,7 +52219,6 @@ var XCTContext = /** @class */ (function (_super) {
     XCTContext.prototype.init = function ($info) {
     };
     /*XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result)*/
-    /*XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result)*/
     XCTContext.runActivityNamedBlock = function (_name, block, $info) {
         throw 'unsupported method XCTest.(file).XCTContext.runActivity(named:String,block:(XCTActivity) throws -> Result) in ' + this.constructor.name;
     };
@@ -52717,21 +52287,17 @@ var XCTWaiter = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
-    /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.waitForTimeout = function (expectations, seconds, $info) {
         throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval)*/
     XCTWaiter.waitForExpectationsTimeout = function (expectations, seconds, $info) {
         throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
-    /*XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.waitForTimeoutEnforceOrder = function (expectations, seconds, enforceOrderOfFulfillment, $info) {
         throw 'unsupported method XCTest.(file).XCTWaiter.wait(for:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     /*XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool)*/
     XCTWaiter.waitForExpectationsTimeoutEnforceOrder = function (expectations, seconds, enforceOrderOfFulfillment, $info) {
         throw 'unsupported method XCTest.(file).XCTWaiter.waitForExpectations(_:[XCTestExpectation],timeout:TimeInterval,enforceOrder:Bool) in ' + this.constructor.name;
@@ -52858,7 +52424,6 @@ var XCTestCase = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTestCase.init(invocation:NSInvocation?) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?)*/
-    /*XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?)*/
     XCTestCase.testCaseWithInvocation = function (invocation, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.testCaseWithInvocation(_:NSInvocation?) in ' + this.constructor.name;
     };
@@ -52872,7 +52437,6 @@ var XCTestCase = /** @class */ (function (_super) {
     XCTestCase.prototype.initSelectorSelector = function (selector, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.init(selector:Selector) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector)*/
     /*XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector)*/
     XCTestCase.testCaseWithSelector = function (selector, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.testCaseWithSelector(_:Selector) in ' + this.constructor.name;
@@ -52894,6 +52458,7 @@ var XCTestCase = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCase.prototype.recordFailureWithDescriptionInFileAtLineExpected = function (description, filePath, lineNumber, expected, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.recordFailureWithDescription(_:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
@@ -52938,6 +52503,7 @@ var XCTestCase = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool)*/
     /*XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCase.prototype.addUIInterruptionMonitorWithDescriptionHandler = function (handlerDescription, handler, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.addUIInterruptionMonitorWithDescription(_:String,handler:(XCUIElement) -> Bool) in ' + this.constructor.name;
     };
@@ -52964,11 +52530,9 @@ var XCTestCase = /** @class */ (function (_super) {
         }
     };
     /*XCTest.(file).XCTestCase.setUp()*/
-    /*XCTest.(file).XCTestCase.setUp()*/
     XCTestCase.setUp = function ($info) {
         throw 'unsupported method XCTest.(file).XCTestCase.setUp() in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTestCase.tearDown()*/
     /*XCTest.(file).XCTestCase.tearDown()*/
     XCTestCase.tearDown = function ($info) {
         throw 'unsupported method XCTest.(file).XCTestCase.tearDown() in ' + this.constructor.name;
@@ -53045,6 +52609,7 @@ var XCTestCase = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCase.prototype.expectationForNotificationObjectHandler = function (notificationName, objectToObserve, handler, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,handler:XCTNSNotificationExpectation.Handler?) in ' + this.constructor.name;
     };
@@ -53055,6 +52620,7 @@ var XCTestCase = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,notificationCenter:NotificationCenter,handler:XCTNSNotificationExpectation.Handler?)*/
     /*XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,notificationCenter:NotificationCenter,handler:XCTNSNotificationExpectation.Handler?)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCase.prototype.expectationForNotificationObjectNotificationCenterHandler = function (notificationName, objectToObserve, notificationCenter, handler, $info) {
         throw 'unsupported method XCTest.(file).XCTestCase.expectationForNotification(_:NSNotification.Name,object:Any?,notificationCenter:NotificationCenter,handler:XCTNSNotificationExpectation.Handler?) in ' + this.constructor.name;
     };
@@ -53261,7 +52827,6 @@ var XCTestProbe = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /*XCTest.(file).XCTestProbe.isTesting()*/
-    /*XCTest.(file).XCTestProbe.isTesting()*/
     XCTestProbe.isTesting = function ($info) {
         throw 'unsupported method XCTest.(file).XCTestProbe.isTesting() in ' + this.constructor.name;
     };
@@ -53290,7 +52855,6 @@ var XCTestRun = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTestRun.init(test:XCTest) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestRun.testRunWithTest(_:XCTest)*/
-    /*XCTest.(file).XCTestRun.testRunWithTest(_:XCTest)*/
     XCTestRun.testRunWithTest = function (test, $info) {
         throw 'unsupported method XCTest.(file).XCTestRun.testRunWithTest(_:XCTest) in ' + this.constructor.name;
     };
@@ -53316,6 +52880,7 @@ var XCTestRun = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool)*/
+    /*!!!DUPLICATE NAME*/
     XCTestRun.prototype.recordFailureWithDescriptionInFileAtLineExpected = function (description, filePath, lineNumber, expected, $info) {
         throw 'unsupported method XCTest.(file).XCTestRun.recordFailureWithDescription(_:String,inFile:String?,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
@@ -53336,7 +52901,6 @@ var XCTestSuite = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTestSuite.init(forBundlePath:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String)*/
-    /*XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String)*/
     XCTestSuite.testSuiteForBundlePath = function (bundlePath, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForBundlePath(_:String) in ' + this.constructor.name;
     };
@@ -53345,7 +52909,6 @@ var XCTestSuite = /** @class */ (function (_super) {
     XCTestSuite.prototype.initForTestCaseWithNameString = function (_name, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.init(forTestCaseWithName:String) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String)*/
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String)*/
     XCTestSuite.testSuiteForTestCaseWithName = function (_name, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForTestCaseWithName(_:String) in ' + this.constructor.name;
@@ -53356,7 +52919,6 @@ var XCTestSuite = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCTestSuite.init(forTestCaseClass:AnyClass) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass)*/
-    /*XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass)*/
     XCTestSuite.testSuiteForTestCaseClass = function (testCaseClass, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteForTestCaseClass(_:AnyClass) in ' + this.constructor.name;
     };
@@ -53365,7 +52927,6 @@ var XCTestSuite = /** @class */ (function (_super) {
     XCTestSuite.prototype.initNameString = function (_name, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.init(name:String) in ' + this.constructor.name;
     };
-    /*XCTest.(file).XCTestSuite.testSuiteWithName(_:String)*/
     /*XCTest.(file).XCTestSuite.testSuiteWithName(_:String)*/
     XCTestSuite.testSuiteWithName = function (_name, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuite.testSuiteWithName(_:String) in ' + this.constructor.name;
@@ -53411,6 +52972,7 @@ var XCTestSuiteRun = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestSuiteRun.init(test:XCTest)*/
     /*XCTest.(file).XCTestRun.init(test:XCTest)*/
+    /*!!!DUPLICATE NAME*/
     XCTestSuiteRun.prototype.initTestXCTest = function (test, $info) {
         throw 'unsupported method XCTest.(file).XCTestSuiteRun.init(test:XCTest) in ' + this.constructor.name;
     };
@@ -53481,6 +53043,7 @@ var XCUICoordinate = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
+    /*!!!DUPLICATE NAME*/
     XCUICoordinate.prototype.scrollByDeltaXDeltaY = function (deltaX, deltaY, $info) {
         throw 'unsupported method XCTest.(file).XCUICoordinate.scrollByDeltaX(_:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
@@ -53501,6 +53064,7 @@ var XCUICoordinate = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval)*/
     /*XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval)*/
+    /*!!!DUPLICATE NAME*/
     XCUICoordinate.prototype.pressForDuration = function (duration, $info) {
         throw 'unsupported method XCTest.(file).XCUICoordinate.pressForDuration(_:TimeInterval) in ' + this.constructor.name;
     };
@@ -53967,6 +53531,7 @@ var XCTestCaseRun = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
     /*XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCaseRun.prototype.recordFailureInTestWithDescriptionInFileAtLineExpected = function (testCase, description, filePath, lineNumber, expected, $info) {
         throw 'unsupported method XCTest.(file).XCTestCaseRun.recordFailureInTest(_:XCTestCase,withDescription:String,inFile:String,atLine:Int,expected:Bool) in ' + this.constructor.name;
     };
@@ -53981,6 +53546,7 @@ var XCTestCaseRun = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestCaseRun.init(test:XCTest)*/
     /*XCTest.(file).XCTestRun.init(test:XCTest)*/
+    /*!!!DUPLICATE NAME*/
     XCTestCaseRun.prototype.initTestXCTest = function (test, $info) {
         throw 'unsupported method XCTest.(file).XCTestCaseRun.init(test:XCTest) in ' + this.constructor.name;
     };
@@ -54002,6 +53568,7 @@ var XCTestLog = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer)*/
     /*XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer)*/
+    /*!!!DUPLICATE NAME*/
     XCTestLog.prototype.testLogWithFormatArguments = function (format, _arguments, $info) {
         throw 'unsupported method XCTest.(file).XCTestLog.testLogWithFormat(_:String?,arguments:CVaListPointer) in ' + this.constructor.name;
     };
@@ -54061,6 +53628,7 @@ var XCUIElement = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector)*/
     /*XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.prototype.coordinateWithNormalizedOffset = function (normalizedOffset, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.coordinateWithNormalizedOffset(_:CGVector) in ' + this.constructor.name;
     };
@@ -54075,12 +53643,11 @@ var XCUIElement = /** @class */ (function (_super) {
         throw 'unsupported method XCTest.(file).XCUIElement.typeText(_:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void)*/
-    /*XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void)*/
     XCUIElement.performWithKeyModifiersBlock = function (flags, block, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.perform(withKeyModifiers:XCUIElement.KeyModifierFlags,block:() -> Void) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void)*/
-    /*XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.performWithKeyModifiersBlock = function (flags, block, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.performWithKeyModifiers(_:XCUIElement.KeyModifierFlags,block:() -> Void) in ' + this.constructor.name;
     };
@@ -54126,6 +53693,7 @@ var XCUIElement = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
     /*XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.prototype.scrollByDeltaXDeltaY = function (deltaX, deltaY, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.scrollByDeltaX(_:CGFloat,deltaY:CGFloat) in ' + this.constructor.name;
     };
@@ -54146,6 +53714,7 @@ var XCUIElement = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval)*/
     /*XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.prototype.pressForDuration = function (duration, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.pressForDuration(_:TimeInterval) in ' + this.constructor.name;
     };
@@ -54166,6 +53735,7 @@ var XCUIElement = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat)*/
     /*XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.prototype.adjustToNormalizedSliderPosition = function (normalizedSliderPosition, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.adjustToNormalizedSliderPosition(_:CGFloat) in ' + this.constructor.name;
     };
@@ -54176,6 +53746,7 @@ var XCUIElement = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags)*/
     /*XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElement.prototype.typeKeyModifierFlags = function (key, modifierFlags, $info) {
         throw 'unsupported method XCTest.(file).XCUIElement.typeKey(_:XCUIKeyboardKey,modifierFlags:XCUIElement.KeyModifierFlags) in ' + this.constructor.name;
     };
@@ -54813,11 +54384,13 @@ var XCUIElementQuery = /** @class */ (function (_super) {
     };
     /*XCTest.(file).XCUIElementQuery.matching(identifier:String)*/
     /*XCTest.(file).XCUIElementQuery.matching(identifier:String)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElementQuery.prototype.matchingIdentifier = function (identifier, $info) {
         throw 'unsupported method XCTest.(file).XCUIElementQuery.matching(identifier:String) in ' + this.constructor.name;
     };
     /*XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String)*/
     /*XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String)*/
+    /*!!!DUPLICATE NAME*/
     XCUIElementQuery.prototype.matchingIdentifier = function (identifier, $info) {
         throw 'unsupported method XCTest.(file).XCUIElementQuery.matchingIdentifier(_:String) in ' + this.constructor.name;
     };

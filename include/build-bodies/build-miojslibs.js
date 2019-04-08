@@ -36,21 +36,23 @@ for(let className in UIKit) {
             if(isOptional) console.log('!optional', propName)
             else if(optionalParams.some(optionalParam => !!optionalParam)) console.log('!optionalParams', propName)
             delete mio.prototype[propName]
+            if(instance) delete instance[propName]
         }
         else if(instance && propName in instance) {
             if(isOptional) console.log('!optional', propName)
             else if(optionalParams.some(optionalParam => !!optionalParam)) console.log('!optionalParams', propName)
             delete instance[propName]
+            if(mio.prototype) delete mio.prototype[propName]
         }
     }
 
     for(let propName in mio) {
-        if(propName[0] !== '_' && mio.hasOwnProperty(propName)) console.log('!superfluous', propName)
+        if(propName[0] !== '_' && propName !== 'constructor' && mio.hasOwnProperty(propName)) console.log('!superfluous', propName)
     }
     if(mio.prototype) for(let propName in mio.prototype) {
-        if(propName[0] !== '_' && mio.prototype.hasOwnProperty(propName)) console.log('!superfluous', propName)
+        if(propName[0] !== '_' && propName !== 'constructor' && mio.prototype.hasOwnProperty(propName)) console.log('!superfluous', propName)
     }
     if(instance) for(let propName in instance) {
-        if(propName[0] !== '_' && instance.hasOwnProperty(propName)) console.log('!superfluous', propName)
+        if(propName[0] !== '_' && propName !== 'constructor' && instance.hasOwnProperty(propName)) console.log('!superfluous', propName)
     }
 }
