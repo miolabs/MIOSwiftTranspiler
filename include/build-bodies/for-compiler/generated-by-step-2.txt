@@ -222,10 +222,10 @@ let _this = this;
 _this.replaceSubrangeWith(Int.infix_46_46_60(i, i, {}), _create(CollectionOfOne, 'init', newElement, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).Array.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
+return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info?) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
 ----Swift.(file).Array.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info) => body(bufferPointer, {})), {}))
+return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info?) => body(bufferPointer, {})), {}))
 ----Swift.(file).Array.+infix(_:Array<Element>,_:Array<Element>)
 let _this = this;
 let lhs_dupl = _cloneStruct(lhs);
@@ -268,10 +268,10 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).Array.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeMutableBufferPointer((($0$inout, $info) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
+return _this.withUnsafeMutableBufferPointer((($0$inout, $info?) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).Array.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeBufferPointer((($0, $info) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
+return _this.withUnsafeBufferPointer((($0, $info?) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
 ----Swift.(file).Array.init(_immutableCocoaArray:AnyObject)
 let _this = this;
 return _cloneStruct(_cloneStruct(_bridgeCocoaArray(_immutableCocoaArray, {})));
@@ -524,10 +524,10 @@ let _this = this;
 _this.replaceSubrangeWith(Int.infix_46_46_60(i, i, {}), _create(CollectionOfOne, 'init', newElement, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).ArraySlice.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
+return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info?) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
 ----Swift.(file).ArraySlice.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info) => body(bufferPointer, {})), {}))
+return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info?) => body(bufferPointer, {})), {}))
 ----Swift.(file).ArraySlice.customMirror
 let _this = this;
 return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', _this, _this, _injectIntoOptional(Mirror.DisplayStyle.collection), .generated/*!default_value*/, {})
@@ -554,10 +554,10 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).ArraySlice.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeMutableBufferPointer((($0$inout, $info) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
+return _this.withUnsafeMutableBufferPointer((($0$inout, $info?) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).ArraySlice.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeBufferPointer((($0, $info) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
+return _this.withUnsafeBufferPointer((($0, $info?) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
 ----Swift.(file)._ArrayProtocol.filter(_:(Self.Element) throws -> Bool)
 let _this = this;
 return _this._filter(isIncluded, {})
@@ -830,17 +830,17 @@ return
 ----Swift.(file).ManagedBufferPointer.init(_:Int)
 let _this = this;
 _this.init_uncheckedBufferClassAnyClassMinimumCapacityInt(__BridgingBufferStorage, count, {});
-_this.withUnsafeMutablePointerToHeader((($0, $info) => $0.initializeTo(_create(_BridgingBufferHeader, 'initInt', count, {}), {})), {});
+_this.withUnsafeMutablePointerToHeader((($0, $info?) => $0.initializeTo(_create(_BridgingBufferHeader, 'initInt', count, {}), {})), {});
 return
 ----Swift.(file).ManagedBufferPointer.count
 let _this = this;
 return _this.header.count
 ----Swift.(file).ManagedBufferPointer.subscript(_:Int)
 let _this = this;
-return _this.withUnsafeMutablePointerToElements((($0, $info) => $0.subscript$get(i, {})), {})
+return _this.withUnsafeMutablePointerToElements((($0, $info?) => $0.subscript$get(i, {})), {})
 ----Swift.(file).ManagedBufferPointer.baseAddress
 let _this = this;
-return _this.withUnsafeMutablePointerToElements((($0, $info) => $0), {})
+return _this.withUnsafeMutablePointerToElements((($0, $info?) => $0), {})
 ----Swift.(file).ManagedBufferPointer.storage
 let _this = this;
 return _injectIntoOptional(_this.buffer)
@@ -1471,7 +1471,7 @@ let _this = this;
 preconditionFileLine(() => Int.infix_62_61(maxSplits, 0, {}), () => "Must take zero or more splits", '?3', '?3', {});
 let result = _create(Array, 'initArrayLiteralArray', [], {});
 let subSequenceStart = _this.startIndex;
-function appendSubsequenceEnd(end, $info){
+function appendSubsequenceEnd(end, $info?){
 if((Bool.infix_38_38((_.arg0 = subSequenceStart).constructor.infix_61_61(_.arg0, end, {}), () => omittingEmptySubsequences, {}))) {
 return false;
 };
@@ -1503,7 +1503,7 @@ result.append(_this.subscriptRange$get((_.arg4 = subSequenceStart).constructor.i
 return result
 ----Swift.(file).Collection.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)
 let _this = this;
-return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator(maxSplits, omittingEmptySubsequences, (($0, $info) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, separator, {})), {})
+return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator(maxSplits, omittingEmptySubsequences, (($0, $info?) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, separator, {})), {})
 ----Swift.(file).Collection.removeFirst()
 let _this = this;
 preconditionFileLine(() => Bool.prefix_33(_this.isEmpty, {}), () => "Can't remove items from an empty collection", '?3', '?3', {});
@@ -1549,7 +1549,7 @@ _this.formIndexAfter({get: () => i, set: $val => i = $val}, {});
 return Optional.none
 ----Swift.(file).BidirectionalCollection.last(where:(Self.Element) throws -> Bool)
 let _this = this;
-return _this.lastIndexWhere(predicate, {}).mapSwift((($0, $info) => _this.subscript$get($0, {})), {})
+return _this.lastIndexWhere(predicate, {}).mapSwift((($0, $info?) => _this.subscript$get($0, {})), {})
 ----Swift.(file).BidirectionalCollection.lastIndex(where:(Self.Element) throws -> Bool)
 let _this = this;
 let i = _this.endIndex;
@@ -1567,13 +1567,13 @@ const $ifLet0, result_1
 if((($ifLet0 = _this._customLastIndexOfEquatableElement(_element, {}))||true) && $ifLet0.rawValue == 'some' && ((result_1 = $ifLet0[0])||true)) {
 return result_1;
 };
-return _this.lastIndexWhere((($0, $info) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, _element, {})), {})
+return _this.lastIndexWhere((($0, $info?) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, _element, {})), {})
 ----Swift.(file).MutableCollection.partition(by:(Self.Element) throws -> Bool)
 let _this = this;
 return _this._halfStablePartitionIsSuffixElement(belongsInSecondPartition, {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).MutableCollection.partition(by:(Self.Element) throws -> Bool)
 let _this = this;
-const maybeOffset = _this._withUnsafeMutableBufferPointerIfSupported(((bufferPointer$inout, $info) => { 
+const maybeOffset = _this._withUnsafeMutableBufferPointerIfSupported(((bufferPointer$inout, $info?) => { 
 const unsafeBufferPivot = bufferPointer._partitionImplBy(belongsInSecondPartition, {$setThis: $val => bufferPointer = $val});
 return Int.infix_45(unsafeBufferPivot, bufferPointer.startIndex, {}); }), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))});
 const $ifLet0, offset_1
@@ -1656,7 +1656,7 @@ return _create(CollectionOfOne.Iterator, 'init_elementsOptional', _injectIntoOpt
 let _this = this;
 preconditionFileLine(() => Int.infix_61_61(position, 0, {}), () => "Index out of range", '?3', '?3', {});
 /*yield*/;
-}subscript$_modify(position, $info){
+}subscript$_modify(position, $info?){
 let _this = this;
 preconditionFileLine(() => Int.infix_61_61(position, 0, {}), () => "Index out of range", '?3', '?3', {});
 /*yield*/
@@ -1804,10 +1804,10 @@ let _this = this;
 _this.replaceSubrangeWith(Int.infix_46_46_60(i, i, {}), _create(CollectionOfOne, 'init', newElement, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).ContiguousArray.withContiguousMutableStorageIfAvailable(_:(inout UnsafeMutableBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
+return _injectIntoOptional(_this.withUnsafeMutableBufferPointer(((bufferPointer$inout, $info?) => body({get: () => bufferPointer, set: $val => bufferPointer = $val}, {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}))
 ----Swift.(file).ContiguousArray.withContiguousStorageIfAvailable(_:(UnsafeBufferPointer<Element>) throws -> R)
 let _this = this;
-return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info) => body(bufferPointer, {})), {}))
+return _injectIntoOptional(_this.withUnsafeBufferPointer(((bufferPointer, $info?) => body(bufferPointer, {})), {}))
 ----Swift.(file).ContiguousArray.customMirror
 let _this = this;
 return _create(Mirror, 'initUnlabeledChildrenDisplayStyleOptionalAncestorRepresentationMirrorAncestorRepresentation', _this, _this, _injectIntoOptional(Mirror.DisplayStyle.collection), .generated/*!default_value*/, {})
@@ -1838,10 +1838,10 @@ hasher$inout.set(hasher)
 return $result
 ----Swift.(file).ContiguousArray.withUnsafeMutableBytes(_:(UnsafeMutableRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeMutableBufferPointer((($0$inout, $info) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
+return _this.withUnsafeMutableBufferPointer((($0$inout, $info?) => body(_create(UnsafeMutableRawBufferPointer, 'initUnsafeMutableBufferPointer', $0, {}), {})), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).ContiguousArray.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
-return _this.withUnsafeBufferPointer((($0, $info) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
+return _this.withUnsafeBufferPointer((($0, $info?) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
 ----Swift.(file).+=infix(_:_ContiguousArrayBuffer<Element>,_:C)
 let lhs = lhs$inout.get()
 const $result = (() => {
@@ -1892,10 +1892,10 @@ let _this = this;
 return body(_create(UnsafeRawBufferPointer, 'initUnsafeMutableRawBufferPointer', _this, {}), {})
 ----Swift.(file).String.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
-return _this._withUTF8((($0, $info) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
+return _this._withUTF8((($0, $info?) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
 ----Swift.(file).Substring.withUnsafeBytes(_:(UnsafeRawBufferPointer) throws -> R)
 let _this = this;
-return _this._withUTF8((($0, $info) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
+return _this._withUTF8((($0, $info?) => body(_create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {}), {})), {})
 ----Swift.(file).Dictionary.init()
 let _this = this;
 _this.init_native_NativeDictionary(_create(_NativeDictionary, 'init', {}), {});
@@ -1908,7 +1908,7 @@ return _cloneStruct(_cloneStruct(d_1));
 return ;
 };
 let _native = _create(_NativeDictionary, 'initCapacityInt', keysAndValues.underestimatedCount, {});
-_native.mergeIsUniqueUniquingKeysWith(keysAndValues, true, ((_, _, $info) => { 
+_native.mergeIsUniqueUniquingKeysWith(keysAndValues, true, ((_, _, $info?) => { 
 throw _MergeError.keyCollision; }), {$setThis: $val => _native = $val});
 _this.init_native_NativeDictionary(_native, {});
 return
@@ -2634,13 +2634,13 @@ let _this = this;
 return _create(LazyFilterSequence, 'init_basefunction_type', _this._elements, isIncluded, {})
 ----Swift.(file).LazyFilterSequence.filter(_:(LazyFilterSequence<Base>.Element) -> Bool)
 let _this = this;
-return _create(LazyFilterSequence, 'init_basefunction_type', _this._base, (($0, $info) => Bool.infix_38_38(isIncluded($0, {}), () => _this._predicate($0, {}), {})), {})
+return _create(LazyFilterSequence, 'init_basefunction_type', _this._base, (($0, $info?) => Bool.infix_38_38(isIncluded($0, {}), () => _this._predicate($0, {}), {})), {})
 ----Swift.(file).LazySequenceProtocol.flatMap(_:(Self.Elements.Element) -> SegmentOfResult)
 let _this = this;
 return _this.mapSwift(transform, {}).joined( {})
 ----Swift.(file).LazySequenceProtocol.compactMap(_:(Self.Elements.Element) -> ElementOfResult?)
 let _this = this;
-return _this.mapSwift(transform, {}).filterSwift((($0, $info) => Optional.wrappedNotEqualsOptionalNilComparisonType($0, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}), {})), {}).mapSwift((($0, $info) => $0[0]), {})
+return _this.mapSwift(transform, {}).filterSwift((($0, $info?) => Optional.wrappedNotEqualsOptionalNilComparisonType($0, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}), {})), {}).mapSwift((($0, $info?) => $0[0]), {})
 ----Swift.(file).FlattenSequence.init(_base:Base)
 let _this = this;
 _this._base = _base;
@@ -3631,7 +3631,7 @@ let _this = this;
 let hasher = hasher$inout.get()
 const $result = (() => {
 _create(ObjectIdentifier, 'initprotocol_composition_type', AnyKeyPath, {}).hashInto({get: () => hasher, set: $val => hasher = $val}, {});
-return _this.withBuffer((($0, $info) => { 
+return _this.withBuffer((($0, $info?) => { 
 let buffer = _cloneStruct($0);
 if((buffer.data.isEmpty)) {
 return ;
@@ -3658,9 +3658,9 @@ return true;
 if((infix_33_61(_injectIntoOptional(AnyKeyPath), _injectIntoOptional(AnyKeyPath), {}))) {
 return false;
 };
-return a.withBuffer((($0, $info) => { 
+return a.withBuffer((($0, $info?) => { 
 let aBuffer = _cloneStruct($0);
-return b.withBuffer((($0, $info) => { 
+return b.withBuffer((($0, $info?) => { 
 let bBuffer = _cloneStruct($0);
 if((Bool.infix_33_61(aBuffer.hasReferencePrefix, bBuffer.hasReferencePrefix, {}))) {
 return false;
@@ -3840,10 +3840,10 @@ try {;
 return body(x, {});}catch($error){$defer( {});throw $error}})();$defer( {});return $result
 ----Swift.(file).ManagedBuffer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)
 let _this = this;
-return _this.withUnsafeMutablePointers(((v, _, $info) => body(v, {})), {})
+return _this.withUnsafeMutablePointers(((v, _, $info?) => body(v, {})), {})
 ----Swift.(file).ManagedBuffer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)
 let _this = this;
-return _this.withUnsafeMutablePointers((($0, $1, $info) => body($1, {})), {})
+return _this.withUnsafeMutablePointers((($0, $1, $info?) => body($1, {})), {})
 ----Swift.(file).ManagedBuffer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)
 let _this = this;
 let $defer = () => {
@@ -3855,7 +3855,7 @@ return body(_this.headerAddress, _this.firstElementAddress, {});}catch($error){$
 ----Swift.(file).ManagedBufferPointer.init(bufferClass:AnyClass,minimumCapacity:Int,makingHeaderWith:(AnyObject, (AnyObject) -> Int) throws -> Header)
 let _this = this;
 $info.$setThis(_this = _cloneStruct(_create(ManagedBufferPointer, 'initBufferClassAnyClassMinimumCapacityInt', bufferClass, minimumCapacity, {})));
-_this.withUnsafeMutablePointerToHeader((($0, $info) => $0.initializeTo(factory(_this.buffer, (($0, $info) => _create(ManagedBufferPointer, 'initUnsafeBufferObjectAnyObject', $0, {}).capacity), {}), {})), {});
+_this.withUnsafeMutablePointerToHeader((($0, $info?) => $0.initializeTo(factory(_this.buffer, (($0, $info?) => _create(ManagedBufferPointer, 'initUnsafeBufferObjectAnyObject', $0, {}).capacity), {}), {})), {});
 _.discardAssignment = _this.header;
 return
 ----Swift.(file).ManagedBufferPointer.init(bufferClass:AnyClass,minimumCapacity:Int)
@@ -3871,10 +3871,10 @@ let _this = this;
 return Int.infix_47(Int.infix_38_45(_this._capacityInBytes, ManagedBufferPointer._elementOffset, {}), MemoryLayout.stride, {})
 ----Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToHeader(_:(UnsafeMutablePointer<Header>) throws -> R)
 let _this = this;
-return _this.withUnsafeMutablePointers(((v, _, $info) => body(v, {})), {})
+return _this.withUnsafeMutablePointers(((v, _, $info?) => body(v, {})), {})
 ----Swift.(file).ManagedBufferPointer.withUnsafeMutablePointerToElements(_:(UnsafeMutablePointer<Element>) throws -> R)
 let _this = this;
-return _this.withUnsafeMutablePointers((($0, $1, $info) => body($1, {})), {})
+return _this.withUnsafeMutablePointers((($0, $1, $info?) => body($1, {})), {})
 ----Swift.(file).ManagedBufferPointer.withUnsafeMutablePointers(_:(UnsafeMutablePointer<Header>, UnsafeMutablePointer<Element>) throws -> R)
 let _this = this;
 let $defer = () => {
@@ -3972,10 +3972,10 @@ let _this = this;
 return _create(LazyMapSequence, 'init_baseTransformfunction_type', _this._elements, transform, {})
 ----Swift.(file).LazyMapSequence.map(_:(Element) -> ElementOfResult)
 let _this = this;
-return _create(LazyMapSequence, 'init_baseTransformfunction_type', _this._base, (($0, $info) => transform(_this._transform($0, {}), {})), {})
+return _create(LazyMapSequence, 'init_baseTransformfunction_type', _this._base, (($0, $info?) => transform(_this._transform($0, {}), {})), {})
 ----Swift.(file).LazyMapCollection.map(_:(Element) -> ElementOfResult)
 let _this = this;
-return _create(LazyMapCollection, 'init_baseTransformfunction_type', _this._base, (($0, $info) => transform(_this._transform($0, {}), {})), {})
+return _create(LazyMapCollection, 'init_baseTransformfunction_type', _this._base, (($0, $info?) => transform(_this._transform($0, {}), {})), {})
 ----Swift.(file).MemoryLayout.size(ofValue:T)
 let _this = this;
 return MemoryLayout.size
@@ -4174,7 +4174,7 @@ const children = _cloneStruct(_create(Mirror, 'initReflectingprotocol_compositio
 const position;
 const $ifLet2, label_3
 if((($ifLet2 = e_1)||true) && $ifLet2 instanceof String && ((label_3 = $ifLet2)||true)) {
-position = _cloneStruct(infix_63_63(children.firstIndexWhere((($0, $info) => Optional.infix_61_61($0["0"], _injectIntoOptional(label_3), {})), {}), () => children.endIndex, {}));
+position = _cloneStruct(infix_63_63(children.firstIndexWhere((($0, $info?) => Optional.infix_61_61($0["0"], _injectIntoOptional(label_3), {})), {}), () => children.endIndex, {}));
 }
 else {const $ifLet4, offset_5
 if((($ifLet4 = _injectIntoOptional(e_1))||true) && $ifLet4.rawValue == 'some' && ((offset_5 = $ifLet4[0])||true)) {
@@ -4453,7 +4453,7 @@ return _this.uncheckedValueAt(bucket, {})
 ----Swift.(file)._NativeDictionary.subscript(_:Key,isUnique:Bool)
 let _this = this;
 return _this.lookup(key, {});
-}subscriptIsUnique$_modify(key, isUnique, $info){
+}subscriptIsUnique$_modify(key, isUnique, $info?){
 let _this = this;
 const $tuple = _this.mutatingFindIsUnique(key, isUnique, {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})/*destructure_tuple_expr (**NULL EXPRESSION**), (**NULL EXPRESSION**)*/, bucket = $tuple && $tuple[0], found = $tuple && $tuple[1];
 if((found)) {
@@ -5823,12 +5823,12 @@ const suffixStart = _this._halfStablePartitionIsSuffixElement(shouldBeRemoved, {
 _this.removeSubrange(((function(){throw '!unclarifiedGeneric:Self.Index'})()).postfix_46_46_46(suffixStart, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).RangeReplaceableCollection.removeAll(where:(Self.Element) throws -> Bool)
 let _this = this;
-$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initBuffer', _this.lazy.filterSwift((($0, $info) => Bool.prefix_33(shouldBeRemoved($0, {}), {})), {}), {})))
+$info.$setThis(_this = _cloneStruct(_create(_this.constructor, 'initBuffer', _this.lazy.filterSwift((($0, $info?) => Bool.prefix_33(shouldBeRemoved($0, {}), {})), {}), {})))
 ----Swift.(file).getChild(of:T,type:Any.Type,index:Int)
 let nameC = Optional.none;
 let freeFunc = Optional.none;
 const value = _cloneStruct(_getChildOfTypeIndexOutNameOutFreeFunc(value, type, index, /**/{get: () => nameC, set: $val => nameC = $val}, /**/{get: () => freeFunc, set: $val => freeFunc = $val}, {}));
-const _name = nameC.flatMap((($0, $info) => _create(String, 'initValidatingUTF8UnsafePointer', $0, {})), {});
+const _name = nameC.flatMap((($0, $info?) => _create(String, 'initValidatingUTF8UnsafePointer', $0, {})), {});
 _injectIntoOptional(((_.tmp0 = freeFunc).rawValue === 'some') ? (_.tmp0[0](nameC, {})) : null);
 return {0: _name, 1: value}
 ----Swift.(file).Mirror.quickLookObject(_:Any)
@@ -6051,7 +6051,7 @@ _this.subscript$set(container.decode(((function(){throw '!unclarifiedGeneric:Sel
 return
 ----Swift.(file).SIMD.description
 let _this = this;
-return String.infix_43(String.infix_43((("") + (_this.constructor) + ("(")), _this.indices.mapSwift((($0, $info) => (("") + (_this.subscript$get($0, {})) + (""))), {}).joinedSeparator(", ", {}), {}), ")", {})
+return String.infix_43(String.infix_43((("") + (_this.constructor) + ("(")), _this.indices.mapSwift((($0, $info?) => (("") + (_this.subscript$get($0, {})) + (""))), {}).joinedSeparator(", ", {}), {}), ")", {})
 ----Swift.(file).SIMD..==infix(_:Self,_:Self)
 let _this = this;
 let result = _create(SIMDMask, 'init', {});
@@ -7140,7 +7140,7 @@ return _injectIntoOptional(_element_1);
 return Optional.none
 ----Swift.(file).Sequence.split(separator:Self.Element,maxSplits:Int,omittingEmptySubsequences:Bool)
 let _this = this;
-return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator(maxSplits, omittingEmptySubsequences, (($0, $info) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, separator, {})), {})
+return _this.splitMaxSplitsOmittingEmptySubsequencesWhereSeparator(maxSplits, omittingEmptySubsequences, (($0, $info?) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, separator, {})), {})
 ----Swift.(file).Sequence.split(maxSplits:Int,omittingEmptySubsequences:Bool,whereSeparator:(Self.Element) throws -> Bool)
 let _this = this;
 preconditionFileLine(() => Int.infix_62_61(maxSplits, 0, {}), () => "Must take zero or more splits", '?3', '?3', {});
@@ -7362,7 +7362,7 @@ return true;
 return false
 ----Swift.(file).Sequence.allSatisfy(_:(Self.Element) throws -> Bool)
 let _this = this;
-return Bool.prefix_33(_this.containsWhere((($0, $info) => Bool.prefix_33(predicate($0, {}), {})), {}), {})
+return Bool.prefix_33(_this.containsWhere((($0, $info?) => Bool.prefix_33(predicate($0, {}), {})), {}), {})
 ----Swift.(file).Sequence.contains(_:Self.Element)
 let _this = this;
 const $ifLet0, result_1
@@ -7370,7 +7370,7 @@ if((($ifLet0 = _this._customContainsEquatableElement(_element, {}))||true) && $i
 return result_1;
 }
 else {
-return _this.containsWhere((($0, $info) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, _element, {})), {});
+return _this.containsWhere((($0, $info?) => (_.arg0 = $0).constructor.infix_61_61(_.arg0, _element, {})), {});
 }
 ----Swift.(file).Sequence.reduce(_:Result,_:(Result, Self.Element) throws -> Result)
 let _this = this;
@@ -7470,10 +7470,10 @@ const $tuple = _this.insert(_create(AnyHashable, 'init', newMember, {}), {$setTh
 return {0: inserted, 1: memberAfterInsert.base}
 ----Swift.(file).Set.update(with:ConcreteElement)
 let _this = this;
-return _this.updateWith(_create(AnyHashable, 'init', newMember, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}).mapSwift((($0, $info) => $0.base), {})
+return _this.updateWith(_create(AnyHashable, 'init', newMember, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}).mapSwift((($0, $info?) => $0.base), {})
 ----Swift.(file).Set.remove(_:ConcreteElement)
 let _this = this;
-return _this.remove(_create(AnyHashable, 'init', member, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}).mapSwift((($0, $info) => $0.base), {})
+return _this.remove(_create(AnyHashable, 'init', member, {}), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))}).mapSwift((($0, $info?) => $0.base), {})
 ----Swift.(file)..(error_type).bridged()
 let _this = this;
 const nsSet;
@@ -7862,14 +7862,14 @@ return Int.infix_47(_this.byteCapacity, _this.stride, {})
 
 let _this = this;
 const capacity = _this.capacity;
-withUnsafeMutableBytesOf({get: () => _this._inlineStorage, set: $val => _this._inlineStorage = $val}, (($0, $info) => { 
+withUnsafeMutableBytesOf({get: () => _this._inlineStorage, set: $val => _this._inlineStorage = $val}, (($0, $info?) => { 
 const rawPtr = _cloneStruct($0.baseAddress._unsafelyUnwrappedUnchecked);
 const bufPtr = _create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo(((function(){throw '!unclarifiedGeneric:T'})()), {})), capacity, {});
 bufPtr.subscript_unchecked$set(newValue, i, {$setThis: $val => bufPtr = _cloneStruct($val)}); }), {})
 ----Swift.(file)._SmallBuffer.subscript(_:Int)
 let _this = this;
 const capacity = _this.capacity;
-return withUnsafeBytesOf(_this._inlineStorage, (($0, $info) => { 
+return withUnsafeBytesOf(_this._inlineStorage, (($0, $info?) => { 
 const rawPtr = _cloneStruct($0.baseAddress._unsafelyUnwrappedUnchecked);
 const bufPtr = _create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/rawPtr.assumingMemoryBoundTo(((function(){throw '!unclarifiedGeneric:T'})()), {})), capacity, {});
 return bufPtr.subscript_unchecked$get(i, {}); }), {});
@@ -7926,18 +7926,18 @@ return UInt64.prototype._uncheckedGetByteAt.call(_this.trailingRawBits, Int.infi
 
 ----Swift.(file)._SmallString.subscript(_:Range<_SmallString.Index>)
 let _this = this;
-return _this.withUTF8(((utf8, $info) => { 
+return _this.withUTF8(((utf8, $info?) => { 
 const rebased = _create(UnsafeBufferPointer, 'initRebasingSlice', utf8.subscriptRange$get(bounds, {}), {});
 return _create(_SmallString, 'initUnsafeBufferPointer', rebased, {})._unsafelyUnwrappedUnchecked; }), {})
 ----Swift.(file)._SmallString.withUTF8(_:(UnsafeBufferPointer<UInt8>) throws -> Result)
 let _this = this;
 let raw = _this.zeroTerminatedRawCodeUnits;
-return /*dot_syntax_base_ignored*/withUnsafeBytesOf({get: () => raw, set: $val => raw = $val}, ((rawBufPtr, $info) => { 
+return /*dot_syntax_base_ignored*/withUnsafeBytesOf({get: () => raw, set: $val => raw = $val}, ((rawBufPtr, $info?) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked.assumingMemoryBoundTo(UInt8, {}));
 return f(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/ptr), _this.count, {}), {}); }), {})
 ----Swift.(file)._SmallString.withMutableCapacity(_:(UnsafeMutableBufferPointer<UInt8>) throws -> Int)
 let _this = this;
-const len = withUnsafeMutableBytesOf({get: () => _this._storage, set: $val => _this._storage = $val}, ((rawBufPtr, $info) => { 
+const len = withUnsafeMutableBytesOf({get: () => _this._storage, set: $val => _this._storage = $val}, ((rawBufPtr, $info?) => { 
 const ptr = _cloneStruct(rawBufPtr.baseAddress._unsafelyUnwrappedUnchecked.assumingMemoryBoundTo(UInt8, {}));
 return f(_create(UnsafeMutableBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/ptr), _SmallString.capacity, {}), {}); }), {});
 const $tuple = _this.zeroTerminatedRawCodeUnits, leading = $tuple && $tuple[0], trailing = $tuple && $tuple[1];
@@ -7996,7 +7996,7 @@ let _this = this;
 _this.sortBy(this.first[0].constructor.infix_60, {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))})
 ----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
 let _this = this;
-const didSortUnsafeBuffer = _this._withUnsafeMutableBufferPointerIfSupported(((buffer$inout, $info) => _injectIntoOptional(buffer._stableSortImplBy(areInIncreasingOrder, {$setThis: $val => buffer = $val}))), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))});
+const didSortUnsafeBuffer = _this._withUnsafeMutableBufferPointerIfSupported(((buffer$inout, $info?) => _injectIntoOptional(buffer._stableSortImplBy(areInIncreasingOrder, {$setThis: $val => buffer = $val}))), {$setThis: $val => $info.$setThis(_this = _cloneStruct($val))});
 if((Optional.wrappedEqualsOptionalNilComparisonType(didSortUnsafeBuffer, _create(_OptionalNilComparisonType, 'initNilLiteraltuple_type', {}), {}))) {
 const sortedElements = _cloneStruct(_this.sortedBy(areInIncreasingOrder, {}));
 {
@@ -8044,7 +8044,7 @@ $info.$setThis(_this = _cloneStruct(_cloneStruct(value)));
 return
 ----Swift.(file).StaticString.description
 let _this = this;
-return _this.withUTF8Buffer((($0, $info) => String._uncheckedFromUTF8($0, {})), {})
+return _this.withUTF8Buffer((($0, $info?) => String._uncheckedFromUTF8($0, {})), {})
 ----Swift.(file).StaticString.debugDescription
 let _this = this;
 return _this.description.debugDescription
@@ -8125,24 +8125,24 @@ return ;
 };
 const $ifLet0, contigBytes_1
 if((($ifLet0 = _injectIntoOptional(codeUnits))||true) && $ifLet0.rawValue == 'some' && ((contigBytes_1 = $ifLet0[0])||true) && (contigBytes_1._providesContiguousBytesNoCopy)) {
-return _cloneStruct(contigBytes_1.withUnsafeBytes(((rawBufPtr, $info) => String._fromUTF8Repairing(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(((_.tmp0 = rawBufPtr.baseAddress).rawValue === 'some') ? (_.tmp0[0].assumingMemoryBoundTo(UInt8, {})) : null), rawBufPtr.count, {}), {})["0"]), {}));
+return _cloneStruct(contigBytes_1.withUnsafeBytes(((rawBufPtr, $info?) => String._fromUTF8Repairing(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(((_.tmp0 = rawBufPtr.baseAddress).rawValue === 'some') ? (_.tmp0[0].assumingMemoryBoundTo(UInt8, {})) : null), rawBufPtr.count, {}), {})["0"]), {}));
 return ;
 };
-return _cloneStruct(_create(Array, 'initBuffer', codeUnits, {}).withUnsafeBufferPointer((($0, $info) => { 
+return _cloneStruct(_create(Array, 'initBuffer', codeUnits, {}).withUnsafeBufferPointer((($0, $info?) => { 
 const raw = _create(UnsafeRawBufferPointer, 'initUnsafeBufferPointer', $0, {});
 return String._fromUTF8Repairing(raw.bindMemoryTo(UInt8, {}), {})["0"]; }), {}));
 return
 ----Swift.(file).String.withCString(encodedAs:TargetEncoding.Type,_:(UnsafePointer<TargetEncoding.CodeUnit>) throws -> Result)
 let _this = this;
 if((infix_61_61(_injectIntoOptional(targetEncoding), _injectIntoOptional(UTF8), {}))) {
-return _this.withCString(((cPtr, $info) => { 
+return _this.withCString(((cPtr, $info?) => { 
 const ptr = _cloneStruct(_create(UnsafeRawPointer, 'init', /*pointer_to_pointer*/cPtr, {}).assumingMemoryBoundTo(((function(){throw '!unclarifiedGeneric:TargetEncoding.CodeUnit'})()), {}));
 return body(ptr, {}); }), {});
 };
 return _this._slowWithCStringEncodedAs(targetEncoding, body, {})
 ----Swift.(file).String.init(_:Unicode.Scalar)
 let _this = this;
-return _cloneStruct(scalar.withUTF8CodeUnits((($0, $info) => String._uncheckedFromUTF8($0, {})), {}));
+return _cloneStruct(scalar.withUTF8CodeUnits((($0, $info?) => String._uncheckedFromUTF8($0, {})), {}));
 return
 ----Swift.(file).String.init(stringLiteral:String)
 let _this = this;
@@ -8341,10 +8341,10 @@ try {;
 return f(_this._object.fastUTF8, {});}catch($error){$defer( {});throw $error}})();$defer( {});return $result
 ----Swift.(file)._StringGuts.withFastUTF8(range:Range<Int>,_:(UnsafeBufferPointer<UInt8>) throws -> R)
 let _this = this;
-return _this.withFastUTF8(((wholeUTF8, $info) => f(_create(UnsafeBufferPointer, 'initRebasingSlice', wholeUTF8.subscriptRange$get(range, {}), {}), {})), {})
+return _this.withFastUTF8(((wholeUTF8, $info?) => f(_create(UnsafeBufferPointer, 'initRebasingSlice', wholeUTF8.subscriptRange$get(range, {}), {}), {})), {})
 ----Swift.(file)._StringGuts.withFastCChar(_:(UnsafeBufferPointer<CChar>) throws -> R)
 let _this = this;
-return _this.withFastUTF8(((utf8, $info) => { 
+return _this.withFastUTF8(((utf8, $info?) => { 
 const ptr = _cloneStruct(utf8.baseAddress._unsafelyUnwrappedUnchecked._asCChar);
 return f(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/ptr), utf8.count, {}), {}); }), {})
 ----Swift.(file)._StringGuts.withCString(_:(UnsafePointer<Int8>) throws -> Result)
@@ -8352,12 +8352,12 @@ let _this = this;
 if((_slowPath(Bool.prefix_33(_this._object.isFastZeroTerminated, {}), {}))) {
 return _this._slowWithCString(body, {});
 };
-return _this.withFastCChar((($0, $info) => body($0.baseAddress._unsafelyUnwrappedUnchecked, {})), {})
+return _this.withFastCChar((($0, $info?) => body($0.baseAddress._unsafelyUnwrappedUnchecked, {})), {})
 ----Swift.(file)._StringGuts.copyUTF8(into:UnsafeMutableBufferPointer<UInt8>)
 let _this = this;
 const ptr = _cloneStruct(mbp.baseAddress._unsafelyUnwrappedUnchecked);
 if((_fastPath(_this.isFastUTF8, {}))) {
-return _this.withFastUTF8(((utf8, $info) => { 
+return _this.withFastUTF8(((utf8, $info?) => { 
 if(!((Int.infix_60_61(utf8.count, mbp.count, {})))) {
 return Optional.none;
 };
@@ -9159,13 +9159,13 @@ let _this = this;
 return _create(Substring.UTF16View, 'initStringUTF16View_boundsRange', _this, r, {})
 ----Swift.(file).repairUTF8(_:UnsafeBufferPointer<UInt8>,firstKnownBrokenRange:Range<Int>)
 let result = _create(_StringGuts, 'init', {});
-const replacementCharacterCount = Unicode.Scalar._replacementCharacter.withUTF8CodeUnits((($0, $info) => $0.count), {});
+const replacementCharacterCount = Unicode.Scalar._replacementCharacter.withUTF8CodeUnits((($0, $info?) => $0.count), {});
 let brokenRange = _cloneStruct(firstKnownBrokenRange);
 let remainingInput = _cloneStruct(input);
 do {
 const goodChunk = _cloneStruct(remainingInput.subscript$get(Int.prefix_46_46_60(brokenRange.startIndex, {}), {}));
 result.appendInPlaceIsASCII(_create(UnsafeBufferPointer, 'initRebasingSlice', goodChunk, {}), false, {$setThis: $val => result = $val});
-Unicode.Scalar._replacementCharacter.withUTF8CodeUnits((($0, $info) => result.appendInPlaceIsASCII($0, false, {$setThis: $val => result = $val})), {});
+Unicode.Scalar._replacementCharacter.withUTF8CodeUnits((($0, $info?) => result.appendInPlaceIsASCII($0, false, {$setThis: $val => result = $val})), {});
 remainingInput = _create(UnsafeBufferPointer, 'initRebasingSlice', remainingInput.subscript$get(Int.postfix_46_46_46(brokenRange.endIndex, {}), {}), {});
 const $match = validateUTF8(remainingInput, {})
 if((($match.rawValue == UTF8ValidationResult.success().rawValue))) {
@@ -9240,7 +9240,7 @@ return result
 ----Swift.(file).Substring.index(_:Substring.Index,offsetBy:Int,limitedBy:Substring.Index)
 let _this = this;
 const result = _this._slice.indexOffsetByLimitedBy(i, n, limit, {});
-preconditionFileLine(() => infix_63_63(result.mapSwift((($0, $info) => String.Index.infix_46_46_46(_this._slice._startIndex, _this._slice.endIndex, {}).contains($0, {})), {}), () => true, {}), () => "Operation results in an invalid index", '?3', '?3', {});
+preconditionFileLine(() => infix_63_63(result.mapSwift((($0, $info?) => String.Index.infix_46_46_46(_this._slice._startIndex, _this._slice.endIndex, {}).contains($0, {})), {}), () => true, {}), () => "Operation results in an invalid index", '?3', '?3', {});
 return result
 ----Swift.(file).Substring.distance(from:Substring.Index,to:Substring.Index)
 let _this = this;
@@ -9498,7 +9498,7 @@ let _this = this;
 return _create(Substring, 'initSlice', _this._slice.subscriptRange$get(r, {}), {})
 ----Swift.(file).__SwiftNativeNSArrayWithContiguousStorage.objectAt(_:Int)
 let _this = this;
-return _this.withUnsafeBufferOfObjects(((objects, $info) => { 
+return _this.withUnsafeBufferOfObjects(((objects, $info?) => { 
 preconditionFileLine(() => _isValidArraySubscriptCount(index, objects.count, {}), () => "Array index out of range", '?3', '?3', {});
 return objects.subscript$get(index, {}); }), {})
 ----Swift.(file).__SwiftNativeNSArrayWithContiguousStorage.copy(with:<<error type>>)
@@ -9765,7 +9765,7 @@ return _injectIntoOptional(_identityCastTo(content, UTF8.EncodedScalar, {}));
 };
 return _this.encode(((function(){throw '!unclarifiedGeneric:FromEncoding'})()).decode(content, {}), {})
 ----Swift.(file).sequence(first:T,next:(T) -> T?)
-return sequenceStateNext({0: _injectIntoOptional(first), 1: true}, ((state$inout, $info) => { 
+return sequenceStateNext({0: _injectIntoOptional(first), 1: true}, ((state$inout, $info?) => { 
 const $match = state
 if(((true))) {
 const value = $match[0]
@@ -9809,7 +9809,7 @@ return _create(String.Index, 'init_encodedOffsetInt', idx._encodedOffset, {});
 if((_slowPath(_this.isForeign, {}))) {
 return _this.foreignScalarAlign(idx, {});
 };
-return _this.withFastUTF8(((utf8, $info) => { 
+return _this.withFastUTF8(((utf8, $info?) => { 
 const i = _scalarAlign(utf8, idx._encodedOffset, {});
 if((Int.infix_61_61(i, idx._encodedOffset, {}))) {
 return idx;
@@ -9817,11 +9817,11 @@ return idx;
 return _create(_StringGuts.Index, 'init_encodedOffsetInt', i, {}); }), {})
 ----Swift.(file)._StringGuts.fastUTF8ScalarLength(startingAt:Int)
 let _this = this;
-const len = _utf8ScalarLength(_this.withFastUTF8((($0, $info) => $0.subscript$get(i, {})), {}), {});
+const len = _utf8ScalarLength(_this.withFastUTF8((($0, $info?) => $0.subscript$get(i, {})), {}), {});
 return len
 ----Swift.(file)._StringGuts.fastUTF8ScalarLength(endingAt:Int)
 let _this = this;
-return _this.withFastUTF8(((utf8, $info) => { 
+return _this.withFastUTF8(((utf8, $info?) => { 
 let len = 1;
 while(true){
 if(!((_isContinuation(utf8.subscript$get(Int.infix_38_45(i, len, {}), {}), {})))) break
@@ -9830,7 +9830,7 @@ Int.infix_43_61({get: () => len, set: $val => len = $val}, 1, {});
 return len; }), {})
 ----Swift.(file)._StringGuts.fastUTF8Scalar(startingAt:Int)
 let _this = this;
-return _this.withFastUTF8((($0, $info) => _decodeScalarStartingAt($0, i, {})["0"]), {})
+return _this.withFastUTF8((($0, $info?) => _decodeScalarStartingAt($0, i, {})["0"]), {})
 ----Swift.(file)._StringGuts.isOnUnicodeScalarBoundary(_:String.Index)
 let _this = this;
 if(!((Int.infix_61_61(i.transcodedOffset, 0, {})))) {
@@ -9840,7 +9840,7 @@ if((Bool.infix_124_124(String.Index.infix_61_61(i, _this.startIndex, {}), () => 
 return true;
 };
 if((_fastPath(_this.isFastUTF8, {}))) {
-return _this.withFastUTF8((($0, $info) => Bool.prefix_33(_isContinuation($0.subscript$get(i._encodedOffset, {}), {}), {})), {});
+return _this.withFastUTF8((($0, $info?) => Bool.prefix_33(_isContinuation($0.subscript$get(i._encodedOffset, {}), {}), {})), {});
 };
 return String.Index.infix_61_61(i, _this.foreignScalarAlign(i, {}), {})
 ----Swift.(file)._StringGuts.foreignErrorCorrectedScalar(startingAt:String.Index)
@@ -9902,18 +9902,18 @@ if((Int.infix_61_61(Int.infix_38_45(start, end, {}), 1, {}))) {
 return _create(Character, 'initString', _create(String, 'initUnicodeScalar', _this.foreignErrorCorrectedScalarStartingAt(_create(String.Index, 'init_encodedOffsetInt', start, {}), {})["0"], {}), {});
 };
 let cus = _create(Array, 'initRepeatingCountInt', 0, count, {});
-cus.withUnsafeMutableBufferPointer((($0$inout, $info) => _cocoaStringCopyCharactersFromRangeInto(_this._object.cocoaObject, Int.infix_46_46_60(start, end, {}), $0.baseAddress._unsafelyUnwrappedUnchecked, {})), {$setThis: $val => cus = $val});
-return cus.withUnsafeBufferPointer((($0, $info) => _create(Character, 'initString', String._uncheckedFromUTF16($0, {}), {})), {})
+cus.withUnsafeMutableBufferPointer((($0$inout, $info?) => _cocoaStringCopyCharactersFromRangeInto(_this._object.cocoaObject, Int.infix_46_46_60(start, end, {}), $0.baseAddress._unsafelyUnwrappedUnchecked, {})), {$setThis: $val => cus = $val});
+return cus.withUnsafeBufferPointer((($0, $info?) => _create(Character, 'initString', String._uncheckedFromUTF16($0, {}), {})), {})
 ----Swift.(file)._StringGuts.errorCorrectedScalar(startingAt:Int)
 let _this = this;
 if((_fastPath(_this.isFastUTF8, {}))) {
-return _this.withFastUTF8((($0, $info) => _decodeScalarStartingAt($0, i, {})), {});
+return _this.withFastUTF8((($0, $info?) => _decodeScalarStartingAt($0, i, {})), {});
 };
 return _this.foreignErrorCorrectedScalarStartingAt(_create(String.Index, 'init_encodedOffsetInt', i, {}), {})
 ----Swift.(file)._StringGuts.errorCorrectedCharacter(startingAt:Int,endingAt:Int)
 let _this = this;
 if((_fastPath(_this.isFastUTF8, {}))) {
-return _this.withFastUTF8Range(Int.infix_46_46_60(start, end, {}), ((utf8, $info) => _create(Character, 'initUncheckedString', String._uncheckedFromUTF8(utf8, {}), {})), {});
+return _this.withFastUTF8Range(Int.infix_46_46_60(start, end, {}), ((utf8, $info?) => _create(Character, 'initUncheckedString', String._uncheckedFromUTF8(utf8, {}), {})), {});
 };
 return _this.foreignErrorCorrectedGraphemeStartingAtEndingAt(start, end, {})
 ----Swift.(file).Unicode.Scalar.init(_value:UInt32)
@@ -9948,7 +9948,7 @@ $info.$setThis(_this = _cloneStruct(_cloneStruct(v)));
 return
 ----Swift.(file)..(error_type).escaped(asASCII:Bool)
 let _this = this;
-function lowNibbleAsHex(v, $info){
+function lowNibbleAsHex(v, $info?){
 const nibble = UInt32.infix_38(v, 15, {});
 if((UInt32.infix_60(nibble, 10, {}))) {
 return _create(String, 'initUnicodeScalar', _create(Unicode.Scalar, 'initUInt32', UInt32.infix_43(nibble, 48, {}), {})[0], {});
@@ -10104,13 +10104,13 @@ const utf16Count = _this.utf16.count;
 if((Int.infix_62(utf16Count, 1, {}))) {
 codeUnits["1"] = _this.utf16.subscript$get(1, {});
 };
-return /*dot_syntax_base_ignored*/withUnsafePointerTo({get: () => codeUnits, set: $val => codeUnits = $val}, (($0, $info) => $0.withMemoryReboundToCapacity(UInt16, 2, (($0, $info) => body(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/$0), utf16Count, {}), {})), {})), {})
+return /*dot_syntax_base_ignored*/withUnsafePointerTo({get: () => codeUnits, set: $val => codeUnits = $val}, (($0, $info?) => $0.withMemoryReboundToCapacity(UInt16, 2, (($0, $info?) => body(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/$0), utf16Count, {}), {})), {})), {})
 ----Swift.(file)..(error_type).withUTF8CodeUnits(_:(UnsafeBufferPointer<UInt8>) throws -> Result)
 let _this = this;
 const encodedScalar = _cloneStruct(UTF8.encode(_this, {})[0]);
 let $tuple = encodedScalar._bytes/*destructure_tuple_expr (**NULL EXPRESSION**), (**NULL EXPRESSION**)*/, codeUnits = $tuple && $tuple[0], utf8Count = $tuple && $tuple[1];
 codeUnits = UInt64.prototype.littleEndian$get.call(codeUnits);
-return /*dot_syntax_base_ignored*/withUnsafePointerTo({get: () => codeUnits, set: $val => codeUnits = $val}, (($0, $info) => $0.withMemoryReboundToCapacity(UInt8, 4, (($0, $info) => body(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/$0), utf8Count, {}), {})), {})), {})
+return /*dot_syntax_base_ignored*/withUnsafePointerTo({get: () => codeUnits, set: $val => codeUnits = $val}, (($0, $info?) => $0.withMemoryReboundToCapacity(UInt8, 4, (($0, $info?) => body(_create(UnsafeBufferPointer, 'initStartOptionalCountInt', _injectIntoOptional(/*pointer_to_pointer*/$0), utf8Count, {}), {})), {})), {})
 ----Swift.(file).Unicode.Scalar.Properties.init(_:Unicode.Scalar)
 let _this = this;
 _this._scalar = _cloneStruct(scalar);
@@ -10191,7 +10191,7 @@ _this.subscript$set(repeatedValue, i_1, {$setThis: $val => $info.$setThis(_this 
 ----Swift.(file).UnsafeMutablePointer.subscript(_:Int)
 let _this = this;
 return _create(UnsafePointer, 'init', /*pointer_to_pointer*/UnsafeMutablePointer.infix_43(_this, i, {}), {});
-}subscript$unsafeMutableAddress(i, $info){
+}subscript$unsafeMutableAddress(i, $info?){
 let _this = this;
 return UnsafeMutablePointer.infix_43(_this, i, {})
 ----Swift.(file).UnsafeRawPointer.assumingMemoryBound(to:T.Type)

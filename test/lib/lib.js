@@ -51862,11 +51862,84 @@ if (typeof NSCopying$implementation != 'undefined')
     _mixin(NSException, NSCopying$implementation, false);
 if (typeof NSCoding$implementation != 'undefined')
     _mixin(NSException, NSCoding$implementation, false);
+var XCTPerformanceMetric_WallClockTime;
 function 
 /*XCTest.(file).XCTSelfTestMain()*/
 XCTSelfTestMain($info) {
     throw 'unsupported method XCTest.(file).XCTSelfTestMain() in ' + this.constructor.name;
 }
+var XCT_UI_TESTING_AVAILABLE;
+var XCTestErrorDomain;
+var XCTestObserverClassKey;
+var XCTestScopeAll;
+var XCTestScopeKey;
+var XCTestScopeNone;
+var XCTestScopeSelf;
+var XCTestToolKey;
+var XCTestedUnitPath;
+var XCUIElementAttributeNameChildren;
+var XCUIElementAttributeNameElementType;
+var XCUIElementAttributeNameEnabled;
+var XCUIElementAttributeNameFrame;
+var XCUIElementAttributeNameHasFocus;
+var XCUIElementAttributeNameHorizontalSizeClass;
+var XCUIElementAttributeNameIdentifier;
+var XCUIElementAttributeNameLabel;
+var XCUIElementAttributeNamePlaceholderValue;
+var XCUIElementAttributeNameSelected;
+var XCUIElementAttributeNameTitle;
+var XCUIElementAttributeNameValue;
+var XCUIElementAttributeNameVerticalSizeClass;
+var XCUIIdentifierCloseWindow;
+var XCUIIdentifierFullScreenWindow;
+var XCUIIdentifierMinimizeWindow;
+var XCUIIdentifierZoomWindow;
+var XCUIKeyboardKeyCapsLock;
+var XCUIKeyboardKeyClear;
+var XCUIKeyboardKeyCommand;
+var XCUIKeyboardKeyControl;
+var XCUIKeyboardKeyDelete;
+var XCUIKeyboardKeyDownArrow;
+var XCUIKeyboardKeyEnd;
+var XCUIKeyboardKeyEnter;
+var XCUIKeyboardKeyEscape;
+var XCUIKeyboardKeyF1;
+var XCUIKeyboardKeyF10;
+var XCUIKeyboardKeyF11;
+var XCUIKeyboardKeyF12;
+var XCUIKeyboardKeyF13;
+var XCUIKeyboardKeyF14;
+var XCUIKeyboardKeyF15;
+var XCUIKeyboardKeyF16;
+var XCUIKeyboardKeyF17;
+var XCUIKeyboardKeyF18;
+var XCUIKeyboardKeyF19;
+var XCUIKeyboardKeyF2;
+var XCUIKeyboardKeyF3;
+var XCUIKeyboardKeyF4;
+var XCUIKeyboardKeyF5;
+var XCUIKeyboardKeyF6;
+var XCUIKeyboardKeyF7;
+var XCUIKeyboardKeyF8;
+var XCUIKeyboardKeyF9;
+var XCUIKeyboardKeyForwardDelete;
+var XCUIKeyboardKeyHelp;
+var XCUIKeyboardKeyHome;
+var XCUIKeyboardKeyLeftArrow;
+var XCUIKeyboardKeyOption;
+var XCUIKeyboardKeyPageDown;
+var XCUIKeyboardKeyPageUp;
+var XCUIKeyboardKeyReturn;
+var XCUIKeyboardKeyRightArrow;
+var XCUIKeyboardKeyRightCommand;
+var XCUIKeyboardKeyRightControl;
+var XCUIKeyboardKeyRightOption;
+var XCUIKeyboardKeyRightShift;
+var XCUIKeyboardKeySecondaryFn;
+var XCUIKeyboardKeyShift;
+var XCUIKeyboardKeySpace;
+var XCUIKeyboardKeyTab;
+var XCUIKeyboardKeyUpArrow;
 function 
 /*XCTest.(file).XCTFail(_:String,file:StaticString,line:UInt)*/
 XCTFailFileLine(message, file, line, $info) {

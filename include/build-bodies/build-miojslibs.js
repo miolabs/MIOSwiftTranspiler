@@ -9,6 +9,7 @@ global.window = {addEventListener: () => {}}
 global.navigator = {userAgent: '', platform: '', appName: ''}
 
 const miojslibs = require('../../MIOJSLibs/packages/miojslibs/dist/js/miojslibs.js')
+const miojslibsMapping = require('./miojslibs-mapping.json')
 
 let UIKit = execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk -target arm64-apple-ios12.2 -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/print-members-uikit.swift`, {encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe']})
 eval('UIKit = {' + UIKit + '}')
@@ -20,12 +21,15 @@ for(let className in UIKit) {
     let mio = miojslibs[className]
     let swift = UIKit[className]
     let instance = null
+    let classMapping = miojslibsMapping[className]
     try {instance = new mio()} catch(err){}
 
     for(let i = 0; i < swift.length; i += 3) {
         let propName = swift[i]
         let isOptional = swift[i + 1]
         let optionalParams = swift[i + 2]
+
+        if(classMapping && classMapping[propName]) propName = classMapping[propName]
 
         if(propName in mio) {
             if(isOptional) console.log('!optional', propName)
