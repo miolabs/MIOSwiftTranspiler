@@ -1,18 +1,18 @@
 ----Swift.(file).Array
-subscript$set($info, el, index) {
+subscript$set(el, index, $info) {
     this[index] = _cloneStruct(el)
 }
 ----Swift.(file).BinaryFloatingPoint
-static _convertFrom($info, number) {
+static _convertFrom(number, $info) {
     return {0: number, 1: true/*exact*/}
 }
 ----Swift.(file).FixedWidthInteger
-static _convertFrom($info, number) {
+static _convertFrom(number, $info) {
     return {0: _injectIntoOptional(number), 1: true/*exact*/}
 }
 ----Swift.(file).BinaryInteger
 //not sure why missing; it's there in generated-by-step-2.txt
-initT($info, from) {
+initT(from, $info) {
     return from
 }
 ----closing dashes needed for the last definition to be processed

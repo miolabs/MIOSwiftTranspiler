@@ -3,10 +3,10 @@ return this.length
 ----Swift.(file).print(_:[Any],separator:String,terminator:String)
 console.log.apply(null, #A0)
 ----Swift.(file).Dictionary.subscript(_:Dictionary<Key, Value>.Index)
-if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+if(this.has(#AA)) return Optional.some(this.get(#AA), {})
 return Optional.none
 ----Swift.(file).Dictionary.subscript(_:Key)
-if(this.has(#AA)) return Optional.some({}, this.get(#AA))
+if(this.has(#AA)) return Optional.some(this.get(#AA), {})
 return Optional.none
 ----Swift.(file).Dictionary.subscript(_:Key)#ASS
 if(#A0.rawValue === 'none') this.delete(#A1)
@@ -95,7 +95,7 @@ return #A0._value === #A1._value
 ----Darwin.(file).arc4random_uniform(_:UInt32)
 return Math.floor(Math.random() * #AA)
 ----Darwin.(file).arc4random()
-return arc4random_uniform(null, Math.pow(2, 32))
+return arc4random_uniform(Math.pow(2, 32), {})
 ----Darwin.(file).ceil(_:T)
 return Math.ceil(#A0)
 ----Darwin.(file).floor(_:T)
@@ -131,13 +131,13 @@ return i - 1
 return i + n
 ----Swift.(file).MutableCollection.sort(by:(Self.Element, Self.Element) throws -> Bool)
 //TODO move to swift
-return this.sort((a, b) => areInIncreasingOrder(null, a, b) ? -1 : 1)
+return this.sort((a, b) => areInIncreasingOrder(a, b, {}) ? -1 : 1)
 ----Swift.(file).String.init(_:S)
 return String(other)
 ----Swift.(file).FixedWidthInteger.init(_:S,radix:Int)
 let result = parseInt(_text)
 if(isNaN(result)) return Optional.none
-return Optional.some({}, result)
+return Optional.some(result, {})
 ----Swift.(file).Double.infinity
 return Infinity
 ----Swift.(file).Double.greatestFiniteMagnitude
