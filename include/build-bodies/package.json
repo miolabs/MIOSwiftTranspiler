@@ -1,0 +1,6 @@
+{
+  "name": "build",
+  "devDependencies": {
+    "ts-morph": "^1.3.3"
+  }
+}
