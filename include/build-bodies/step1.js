@@ -5,6 +5,9 @@ const dir = `${__dirname}/../../../swift-source/swift/stdlib/public/core/`
 
 const files = fs.readdirSync(dir)
 
+if(!fs.existsSync(`${__dirname}/swift-lib`)) fs.mkdirSync(`${__dirname}/swift-lib`)
+if(!fs.existsSync(`${__dirname}/bodies`)) fs.mkdirSync(`${__dirname}/bodies`)
+
 files.forEach(file => {
     let contents = fs.readFileSync(`${dir}${file}`, 'utf8')
     if(file.endsWith('.swift')) contents = '"-print-ranges"\n' + contents

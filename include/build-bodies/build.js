@@ -38,6 +38,10 @@ execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/sw
 execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebInfoAssert/swift-macosx-x86_64/bin/swiftc -dump-ast -O -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk -target arm64-apple-ios12.2 -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks ${__dirname}/generate-imported-module-uikit.swift`, {stdio: [0, 1, 2]})
 }
 
+if(fromStep <= 6) {
+execSync(`node ${__dirname}/build-mit.js`, {stdio: [0, 1, 2]})
+}
+
 execSync(`node ${__dirname}/../../test/test.js output-lib`, {stdio: [0, 1, 2]})
 try{
 execSync(`tsc ${__dirname}/../../test/lib/lib.ts`, {stdio: [0, 1, 2]})
