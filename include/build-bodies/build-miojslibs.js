@@ -17,6 +17,7 @@ let UIKit = execSync(`${__dirname}/../../../swift-source/build/Ninja-RelWithDebI
 eval('UIKit = {' + UIKit + '}')
 
 let optionals = []
+let renames = []
 
 for(let className in UIKit) {
     if(!miojslibs[className]) continue
@@ -28,12 +29,19 @@ for(let className in UIKit) {
     let classMapping = miojslibsMapping[className]
     try {instance = new mio()} catch(err){}
 
+    let sourceFileI = miojslibsFiles.findIndex(file => file.match(`export (enum|class) ${className}[^a-zA-Z0-9]`))
+    if(sourceFileI < 0) throw "file not found for " + className
+    let sourceFile = miojslibsFileNames[sourceFileI]
+
     for(let i = 0; i < swift.length; i += 3) {
         let propName = swift[i]
         let isOptional = swift[i + 1]
         let optionalParams = swift[i + 2]
 
-        if(classMapping && classMapping[propName]) propName = classMapping[propName]
+        if(classMapping && classMapping[propName]) {
+            renames.push({chain: ["getSourceFile", sourceFile, "getClass", className, "getInstanceMethod", classMapping[propName]], rename: propName})
+            propName = classMapping[propName]
+        }
 
         let found = false
         if(propName in mio) {
@@ -50,8 +58,7 @@ for(let className in UIKit) {
         }
 
         if(found) {
-            let sourceFileI = miojslibsFiles.findIndex(file => file.match(`export (enum|class) ${className}[^a-zA-Z0-9]`))
-            if(isOptional) optionals.push(["getSourceFile", miojslibsFileNames[sourceFileI], "getClass", className, "getInstanceProperty", propName])
+            if(isOptional) optionals.push(["getSourceFile", sourceFile, "getClass", className, "getInstanceProperty", propName])
             else for(let opI = 0; opI < optionalParams.length; opI++) {
                 if(!optionalParams[opI]) continue
                 optionals.push(["getSourceFile", className + ".ts", "getClass", className, "getInstanceMethod", propName, "getParameters", "", "0", null])
@@ -71,3 +78,4 @@ for(let className in UIKit) {
 }
 
 fs.writeFileSync(`${__dirname}/miojslibs-optionals.json`, JSON.stringify(optionals))
+fs.writeFileSync(`${__dirname}/miojslibs-renames.json`, JSON.stringify(renames))

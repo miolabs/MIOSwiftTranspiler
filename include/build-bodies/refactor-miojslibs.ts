@@ -1,5 +1,6 @@
-import { Project, BinaryExpression, PropertyDeclaration, ParameterDeclaration, ClassInstancePropertyTypes } from "ts-morph"
+import { Project, BinaryExpression, PropertyDeclaration, ParameterDeclaration, ClassInstancePropertyTypes, ReferencedSymbol } from "ts-morph"
 const optionals = require("./miojslibs-optionals.json")
+const renames = require("./miojslibs-renames.json")
 
 const project = new Project({
   tsConfigFilePath: `${__dirname}/../../MIOJSLibs/tsconfig.json`,
@@ -8,22 +9,24 @@ const project = new Project({
   }
 })
 
+function getReferences(chain: string[]): ReferencedSymbol[] {
+  let chained: any = project
+  for(let i = 0; i < chain.length; i += 2) {
+    if(typeof chain[i + 1] === 'string') chained = chained[chain[i]](chain[i + 1])
+    else chained = chained[chain[i]]
+  }
+
+  let property = chained as ParameterDeclaration | ClassInstancePropertyTypes
+  //console.log(chain)
+  return property.findReferences()
+}
+
 let replacements = []
 
 for(let optional of optionals) {
-  let chained: any = project
-  for(let i = 0; i < optional.length; i += 2) {
-    console.log(optional[i], optional[i + 1])
-    if(typeof optional[i + 1] === 'string') chained = chained[optional[i]](optional[i + 1])
-    else chained = chained[optional[i]]
-  }
-  let property = chained as ParameterDeclaration | ClassInstancePropertyTypes
+  for(const referencedSymbol of getReferences(optional)) {
+    for(let reference of referencedSymbol.getReferences()) {
 
-  for (const referencedSymbol of property.findReferences()) {
-    let references = referencedSymbol.getReferences()
-    for (let i = references.length - 1; i >= 0; i--) {
-      let reference = references[i]
-  
       let isDeclaration = reference.getNode().getParent().getKindName() === 'PropertyDeclaration'
       if (isDeclaration) {
         let declaration = reference.getNode().getParent() as PropertyDeclaration
@@ -64,9 +67,21 @@ for(let optional of optionals) {
   }
 }
 
+for(let rename of renames) {
+  for(const referencedSymbol of getReferences(rename.chain)) {
+    for(let reference of referencedSymbol.getReferences()) {
+      replacements.push({
+        file: reference.getSourceFile().getFilePath(),
+        range: [reference.getNode().getStart(), reference.getNode().getEnd()],
+        text: rename.rename
+      })
+    }
+  }
+}
+
 replacements.sort((a, b) => a.range[0] < b.range[1] ? 1 : -1)
 
-console.log(replacements)
+//console.log(replacements)
 
 for(let replacement of replacements) {
   let file = project.getSourceFile(replacement.file)
