@@ -1,4 +1,5 @@
 import { Project, BinaryExpression, PropertyDeclaration, ParameterDeclaration, ClassInstancePropertyTypes, ReferencedSymbol } from "ts-morph"
+import fs = require('fs')
 const optionals = require("./miojslibs-optionals.json")
 const renames = require("./miojslibs-renames.json")
 
@@ -89,4 +90,13 @@ for(let replacement of replacements) {
   file.replaceText(replacement.range, replacement.text)
 }
 
-project.emit()
+for(let sourceFile of project.getSourceFiles()) {
+  let path = sourceFile.getFilePath()
+  let i = path.indexOf('/MIOJSLibs/source/')
+  if(i < 0) continue
+  path = path.slice(i + '/MIOJSLibs/source/'.length)
+  path = `${__dirname}/../../MIOJSLibs/source-swift-transpiler/${path}`
+  let dir = path.slice(0, path.lastIndexOf('/'))
+  if(!fs.existsSync(dir)) fs.mkdirSync(dir)
+  fs.writeFileSync(path, sourceFile.getText())
+}
