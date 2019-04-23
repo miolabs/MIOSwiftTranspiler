@@ -88,7 +88,8 @@ function _create(Class, signature) {
     for (var _i = 2; _i < arguments.length; _i++) {
         params[_i - 2] = arguments[_i];
     }
-    params[params.length - 1].$setThis = function ($val) { return obj = $val; };
+    if (params[params.length - 1])
+        params[params.length - 1].$setThis = function ($val) { return obj = $val; };
     var obj;
     if (Class.$mixin) {
         if (!Class.prototype[signature])
@@ -51862,6 +51863,102 @@ if (typeof NSCopying$implementation != 'undefined')
     _mixin(NSException, NSCopying$implementation, false);
 if (typeof NSCoding$implementation != 'undefined')
     _mixin(NSException, NSCoding$implementation, false);
+var Operation = /** @class */ (function (_super) {
+    __extends(Operation, _super);
+    function Operation() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /*Foundation.(file).Operation.start()*/
+    /*Foundation.(file).Operation.start()*/
+    Operation.prototype.start = function ($info) {
+        throw 'unsupported method Foundation.(file).Operation.start() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.main()*/
+    /*Foundation.(file).Operation.main()*/
+    Operation.prototype.main = function ($info) {
+        throw 'unsupported method Foundation.(file).Operation.main() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.cancel()*/
+    /*Foundation.(file).Operation.cancel()*/
+    Operation.prototype.cancel = function ($info) {
+        throw 'unsupported method Foundation.(file).Operation.cancel() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.addDependency(_:Operation)*/
+    /*Foundation.(file).Operation.addDependency(_:Operation)*/
+    Operation.prototype.addDependency = function (op, $info) {
+        throw 'unsupported method Foundation.(file).Operation.addDependency(_:Operation) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.removeDependency(_:Operation)*/
+    /*Foundation.(file).Operation.removeDependency(_:Operation)*/
+    Operation.prototype.removeDependency = function (op, $info) {
+        throw 'unsupported method Foundation.(file).Operation.removeDependency(_:Operation) in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.waitUntilFinished()*/
+    /*Foundation.(file).Operation.waitUntilFinished()*/
+    Operation.prototype.waitUntilFinished = function ($info) {
+        throw 'unsupported method Foundation.(file).Operation.waitUntilFinished() in ' + this.constructor.name;
+    };
+    /*Foundation.(file).Operation.init()*/
+    /*ObjectiveC.(file).NSObject.init()*/
+    Operation.prototype.init = function ($info) {
+    };
+    Operation.prototype.init$vars = function () {
+        if (_super.prototype.init$vars)
+            _super.prototype.init$vars.call(this);
+    };
+    var _145;
+    Operation.QueuePriority = (_145 = /** @class */ (function () {
+            function class_189() {
+            }
+            /*Foundation.(file).Operation.QueuePriority.init(rawValue:Int)*/
+            /*Foundation.(file).Operation.QueuePriority.init(rawValue:Int)*/
+            class_189.prototype.initRawValueInt = function (rawValue, $info) {
+                throw 'unsupported method Foundation.(file).Operation.QueuePriority.init(rawValue:Int) in ' + this.constructor.name;
+            };
+            /*Foundation.(file).Operation.QueuePriority.rawValue*/
+            class_189.prototype.rawValue$get = function () {
+                throw 'unsupported variable Foundation.(file).Operation.QueuePriority.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_189.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
+            Object.defineProperty(class_189, "veryLow", {
+                get: function () { return Object.assign(new Operation.QueuePriority(), __assign({ rawValue: -8 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_189, "low", {
+                get: function () { return Object.assign(new Operation.QueuePriority(), __assign({ rawValue: -4 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_189, "normal", {
+                get: function () { return Object.assign(new Operation.QueuePriority(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_189, "high", {
+                get: function () { return Object.assign(new Operation.QueuePriority(), __assign({ rawValue: 4 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_189, "veryHigh", {
+                get: function () { return Object.assign(new Operation.QueuePriority(), __assign({ rawValue: 8 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            class_189.prototype.init$vars = function () {
+            };
+            return class_189;
+        }()),
+        _145.initRawValueInt$failable = true,
+        _145);
+    return Operation;
+}(NSObject));
+_mixin(Operation.QueuePriority, _DefaultEnumImplementation, false);
 var XCTPerformanceMetric_WallClockTime;
 function 
 /*XCTest.(file).XCTSelfTestMain()*/
@@ -52201,58 +52298,19 @@ var XCTAttachment = /** @class */ (function (_super) {
         if (_super.prototype.init$vars)
             _super.prototype.init$vars.call(this);
     };
-    var _145, _146;
+    var _146, _147;
     XCTAttachment.initCoderNSCoder$failable = true;
-    XCTAttachment.ImageQuality = (_145 = /** @class */ (function () {
-            function class_189() {
+    XCTAttachment.ImageQuality = (_146 = /** @class */ (function () {
+            function class_190() {
             }
             /*XCTest.(file).XCTAttachment.ImageQuality.init(rawValue:Int)*/
             /*XCTest.(file).XCTAttachment.ImageQuality.init(rawValue:Int)*/
-            class_189.prototype.initRawValueInt = function (rawValue, $info) {
+            class_190.prototype.initRawValueInt = function (rawValue, $info) {
                 throw 'unsupported method XCTest.(file).XCTAttachment.ImageQuality.init(rawValue:Int) in ' + this.constructor.name;
             };
             /*XCTest.(file).XCTAttachment.ImageQuality.rawValue*/
-            class_189.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCTAttachment.ImageQuality.rawValue in ' + this.constructor.name;
-            };
-            Object.defineProperty(class_189.prototype, "rawValue", {
-                get: function () { return this.rawValue$get(); },
-                enumerable: true,
-                configurable: true
-            });
-            ;
-            Object.defineProperty(class_189, "original", {
-                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 0 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_189, "medium", {
-                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 1 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_189, "low", {
-                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 2 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            class_189.prototype.init$vars = function () {
-            };
-            return class_189;
-        }()),
-        _145.initRawValueInt$failable = true,
-        _145);
-    XCTAttachment.Lifetime = (_146 = /** @class */ (function () {
-            function class_190() {
-            }
-            /*XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int)*/
-            /*XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int)*/
-            class_190.prototype.initRawValueInt = function (rawValue, $info) {
-                throw 'unsupported method XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int) in ' + this.constructor.name;
-            };
-            /*XCTest.(file).XCTAttachment.Lifetime.rawValue*/
             class_190.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCTAttachment.Lifetime.rawValue in ' + this.constructor.name;
+                throw 'unsupported variable XCTest.(file).XCTAttachment.ImageQuality.rawValue in ' + this.constructor.name;
             };
             Object.defineProperty(class_190.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
@@ -52260,13 +52318,18 @@ var XCTAttachment = /** @class */ (function (_super) {
                 configurable: true
             });
             ;
-            Object.defineProperty(class_190, "keepAlways", {
-                get: function () { return Object.assign(new XCTAttachment.Lifetime(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+            Object.defineProperty(class_190, "original", {
+                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 0 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_190, "deleteOnSuccess", {
-                get: function () { return Object.assign(new XCTAttachment.Lifetime(), __assign({ rawValue: 1 }, Array.from(arguments))); },
+            Object.defineProperty(class_190, "medium", {
+                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 1 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_190, "low", {
+                get: function () { return Object.assign(new XCTAttachment.ImageQuality(), __assign({ rawValue: 2 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
@@ -52276,6 +52339,40 @@ var XCTAttachment = /** @class */ (function (_super) {
         }()),
         _146.initRawValueInt$failable = true,
         _146);
+    XCTAttachment.Lifetime = (_147 = /** @class */ (function () {
+            function class_191() {
+            }
+            /*XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int)*/
+            /*XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int)*/
+            class_191.prototype.initRawValueInt = function (rawValue, $info) {
+                throw 'unsupported method XCTest.(file).XCTAttachment.Lifetime.init(rawValue:Int) in ' + this.constructor.name;
+            };
+            /*XCTest.(file).XCTAttachment.Lifetime.rawValue*/
+            class_191.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCTAttachment.Lifetime.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_191.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
+            Object.defineProperty(class_191, "keepAlways", {
+                get: function () { return Object.assign(new XCTAttachment.Lifetime(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_191, "deleteOnSuccess", {
+                get: function () { return Object.assign(new XCTAttachment.Lifetime(), __assign({ rawValue: 1 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            class_191.prototype.init$vars = function () {
+            };
+            return class_191;
+        }()),
+        _147.initRawValueInt$failable = true,
+        _147);
     return XCTAttachment;
 }(NSObject));
 _mixin(XCTAttachment.ImageQuality, _DefaultEnumImplementation, false);
@@ -52383,56 +52480,56 @@ var XCTWaiter = /** @class */ (function (_super) {
         if (_super.prototype.init$vars)
             _super.prototype.init$vars.call(this);
     };
-    var _147;
-    XCTWaiter.Result = (_147 = /** @class */ (function () {
-            function class_191() {
+    var _148;
+    XCTWaiter.Result = (_148 = /** @class */ (function () {
+            function class_192() {
             }
             /*XCTest.(file).XCTWaiter.Result.init(rawValue:Int)*/
             /*XCTest.(file).XCTWaiter.Result.init(rawValue:Int)*/
-            class_191.prototype.initRawValueInt = function (rawValue, $info) {
+            class_192.prototype.initRawValueInt = function (rawValue, $info) {
                 throw 'unsupported method XCTest.(file).XCTWaiter.Result.init(rawValue:Int) in ' + this.constructor.name;
             };
             /*XCTest.(file).XCTWaiter.Result.rawValue*/
-            class_191.prototype.rawValue$get = function () {
+            class_192.prototype.rawValue$get = function () {
                 throw 'unsupported variable XCTest.(file).XCTWaiter.Result.rawValue in ' + this.constructor.name;
             };
-            Object.defineProperty(class_191.prototype, "rawValue", {
+            Object.defineProperty(class_192.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
                 enumerable: true,
                 configurable: true
             });
             ;
-            Object.defineProperty(class_191, "completed", {
+            Object.defineProperty(class_192, "completed", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 1 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_191, "timedOut", {
+            Object.defineProperty(class_192, "timedOut", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 2 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_191, "incorrectOrder", {
+            Object.defineProperty(class_192, "incorrectOrder", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 3 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_191, "invertedFulfillment", {
+            Object.defineProperty(class_192, "invertedFulfillment", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 4 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_191, "interrupted", {
+            Object.defineProperty(class_192, "interrupted", {
                 get: function () { return Object.assign(new XCTWaiter.Result(), __assign({ rawValue: 5 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            class_191.prototype.init$vars = function () {
+            class_192.prototype.init$vars = function () {
             };
-            return class_191;
+            return class_192;
         }()),
-        _147.initRawValueInt$failable = true,
-        _147);
+        _148.initRawValueInt$failable = true,
+        _148);
     return XCTWaiter;
 }(NSObject));
 _mixin(XCTWaiter.Result, _DefaultEnumImplementation, false);
@@ -52748,42 +52845,42 @@ var XCTestError = /** @class */ (function () {
     };
     XCTestError.prototype.init$vars = function () {
     };
-    var _148;
+    var _149;
     XCTestError.$struct = true;
-    XCTestError.Code = (_148 = /** @class */ (function () {
-            function class_192() {
+    XCTestError.Code = (_149 = /** @class */ (function () {
+            function class_193() {
             }
             /*XCTest.(file).XCTestError.Code.init(rawValue:Int)*/
             /*XCTest.(file).XCTestError.Code.init(rawValue:Int)*/
-            class_192.prototype.initRawValueInt = function (rawValue, $info) {
+            class_193.prototype.initRawValueInt = function (rawValue, $info) {
                 throw 'unsupported method XCTest.(file).XCTestError.Code.init(rawValue:Int) in ' + this.constructor.name;
             };
             /*XCTest.(file).XCTestError.Code.rawValue*/
-            class_192.prototype.rawValue$get = function () {
+            class_193.prototype.rawValue$get = function () {
                 throw 'unsupported variable XCTest.(file).XCTestError.Code.rawValue in ' + this.constructor.name;
             };
-            Object.defineProperty(class_192.prototype, "rawValue", {
+            Object.defineProperty(class_193.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
                 enumerable: true,
                 configurable: true
             });
             ;
-            Object.defineProperty(class_192, "timeoutWhileWaiting", {
+            Object.defineProperty(class_193, "timeoutWhileWaiting", {
                 get: function () { return Object.assign(new XCTestError.Code(), __assign({ rawValue: 0 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_192, "failureWhileWaiting", {
+            Object.defineProperty(class_193, "failureWhileWaiting", {
                 get: function () { return Object.assign(new XCTestError.Code(), __assign({ rawValue: 1 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            class_192.prototype.init$vars = function () {
+            class_193.prototype.init$vars = function () {
             };
-            return class_192;
+            return class_193;
         }()),
-        _148.initRawValueInt$failable = true,
-        _148);
+        _149.initRawValueInt$failable = true,
+        _149);
     return XCTestError;
 }());
 _mixin(XCTestError.Code, _DefaultEnumImplementation, false);
@@ -53827,457 +53924,18 @@ var XCUIElement = /** @class */ (function (_super) {
         if (_super.prototype.init$vars)
             _super.prototype.init$vars.call(this);
     };
-    var _149, _150, _151, _152;
-    XCUIElement.ElementType = (_149 = /** @class */ (function () {
-            function class_193() {
+    var _150, _151, _152, _153;
+    XCUIElement.ElementType = (_150 = /** @class */ (function () {
+            function class_194() {
             }
             /*XCTest.(file).XCUIElement.ElementType.init(rawValue:UInt)*/
             /*XCTest.(file).XCUIElement.ElementType.init(rawValue:UInt)*/
-            class_193.prototype.initRawValueUInt = function (rawValue, $info) {
+            class_194.prototype.initRawValueUInt = function (rawValue, $info) {
                 throw 'unsupported method XCTest.(file).XCUIElement.ElementType.init(rawValue:UInt) in ' + this.constructor.name;
             };
             /*XCTest.(file).XCUIElement.ElementType.rawValue*/
-            class_193.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCUIElement.ElementType.rawValue in ' + this.constructor.name;
-            };
-            Object.defineProperty(class_193.prototype, "rawValue", {
-                get: function () { return this.rawValue$get(); },
-                enumerable: true,
-                configurable: true
-            });
-            ;
-            Object.defineProperty(class_193, "any", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 0 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "other", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 1 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "application", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 2 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "group", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 3 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_window", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 4 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "sheet", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 5 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "drawer", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 6 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_alert", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 7 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "dialog", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 8 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_button", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 9 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "radioButton", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 10 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "radioGroup", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 11 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "checkBox", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 12 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "disclosureTriangle", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 13 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "popUpButton", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 14 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "comboBox", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 15 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "menuButton", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 16 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "toolbarButton", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 17 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "popover", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 18 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "keyboard", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 19 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "key", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 20 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "navigationBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 21 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "tabBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 22 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "tabGroup", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 23 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "toolbar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 24 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "statusBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 25 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "table", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 26 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "tableRow", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 27 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "tableColumn", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 28 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "outline", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 29 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "outlineRow", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 30 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "browser", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 31 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "collectionView", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 32 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "slider", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 33 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "pageIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 34 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "progressIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 35 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "activityIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 36 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "segmentedControl", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 37 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "picker", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 38 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "pickerWheel", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 39 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_switch", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 40 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "toggle", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 41 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_link", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 42 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "_image", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 43 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "icon", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 44 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "searchField", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 45 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "scrollView", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 46 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "scrollBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 47 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "staticText", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 48 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "textField", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 49 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "secureTextField", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 50 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "datePicker", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 51 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "textView", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 52 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "menu", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 53 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "menuItem", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 54 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "menuBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 55 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "menuBarItem", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 56 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "map", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 57 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "webView", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 58 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "incrementArrow", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 59 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "decrementArrow", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 60 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "timeline", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 61 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "ratingIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 62 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "valueIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 63 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "splitGroup", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 64 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "splitter", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 65 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "relevanceIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 66 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "colorWell", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 67 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "helpTag", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 68 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "matte", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 69 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "dockItem", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 70 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "ruler", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 71 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "rulerMarker", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 72 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "grid", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 73 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "levelIndicator", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 74 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "cell", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 75 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "layoutArea", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 76 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "layoutItem", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 77 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "handle", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 78 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "stepper", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 79 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "tab", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 80 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "touchBar", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 81 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            Object.defineProperty(class_193, "statusItem", {
-                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 82 }, Array.from(arguments))); },
-                enumerable: true,
-                configurable: true
-            });
-            class_193.prototype.init$vars = function () {
-            };
-            return class_193;
-        }()),
-        _149.initRawValueUInt$failable = true,
-        _149);
-    XCUIElement.SizeClass = (_150 = /** @class */ (function () {
-            function class_194() {
-            }
-            /*XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int)*/
-            /*XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int)*/
-            class_194.prototype.initRawValueInt = function (rawValue, $info) {
-                throw 'unsupported method XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int) in ' + this.constructor.name;
-            };
-            /*XCTest.(file).XCUIElement.SizeClass.rawValue*/
             class_194.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCUIElement.SizeClass.rawValue in ' + this.constructor.name;
+                throw 'unsupported variable XCTest.(file).XCUIElement.ElementType.rawValue in ' + this.constructor.name;
             };
             Object.defineProperty(class_194.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
@@ -54285,8 +53943,418 @@ var XCUIElement = /** @class */ (function (_super) {
                 configurable: true
             });
             ;
-            Object.defineProperty(class_194, "unspecified", {
-                get: function () { return Object.assign(new XCUIElement.SizeClass(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+            Object.defineProperty(class_194, "any", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "other", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 1 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "application", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 2 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "group", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 3 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_window", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 4 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "sheet", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 5 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "drawer", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 6 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_alert", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 7 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "dialog", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 8 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_button", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 9 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "radioButton", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 10 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "radioGroup", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 11 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "checkBox", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 12 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "disclosureTriangle", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 13 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "popUpButton", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 14 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "comboBox", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 15 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "menuButton", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 16 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "toolbarButton", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 17 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "popover", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 18 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "keyboard", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 19 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "key", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 20 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "navigationBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 21 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "tabBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 22 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "tabGroup", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 23 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "toolbar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 24 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "statusBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 25 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "table", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 26 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "tableRow", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 27 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "tableColumn", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 28 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "outline", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 29 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "outlineRow", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 30 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "browser", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 31 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "collectionView", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 32 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "slider", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 33 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "pageIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 34 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "progressIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 35 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "activityIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 36 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "segmentedControl", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 37 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "picker", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 38 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "pickerWheel", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 39 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_switch", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 40 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "toggle", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 41 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_link", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 42 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "_image", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 43 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "icon", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 44 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "searchField", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 45 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "scrollView", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 46 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "scrollBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 47 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "staticText", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 48 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "textField", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 49 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "secureTextField", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 50 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "datePicker", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 51 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "textView", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 52 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "menu", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 53 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "menuItem", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 54 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "menuBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 55 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "menuBarItem", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 56 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "map", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 57 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "webView", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 58 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "incrementArrow", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 59 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "decrementArrow", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 60 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "timeline", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 61 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "ratingIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 62 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "valueIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 63 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "splitGroup", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 64 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "splitter", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 65 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "relevanceIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 66 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "colorWell", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 67 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "helpTag", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 68 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "matte", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 69 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "dockItem", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 70 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "ruler", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 71 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "rulerMarker", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 72 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "grid", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 73 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "levelIndicator", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 74 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "cell", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 75 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "layoutArea", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 76 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "layoutItem", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 77 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "handle", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 78 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "stepper", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 79 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "tab", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 80 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "touchBar", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 81 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(class_194, "statusItem", {
+                get: function () { return Object.assign(new XCUIElement.ElementType(), __assign({ rawValue: 82 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
@@ -54294,19 +54362,19 @@ var XCUIElement = /** @class */ (function (_super) {
             };
             return class_194;
         }()),
-        _150.initRawValueInt$failable = true,
+        _150.initRawValueUInt$failable = true,
         _150);
-    XCUIElement.AttributeName = (_151 = /** @class */ (function () {
+    XCUIElement.SizeClass = (_151 = /** @class */ (function () {
             function class_195() {
             }
-            /*XCTest.(file).XCUIElement.AttributeName.init(rawValue:String)*/
-            /*XCTest.(file).XCUIElement.AttributeName.init(rawValue:String)*/
-            class_195.prototype.initRawValueString = function (rawValue, $info) {
-                throw 'unsupported method XCTest.(file).XCUIElement.AttributeName.init(rawValue:String) in ' + this.constructor.name;
+            /*XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int)*/
+            /*XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int)*/
+            class_195.prototype.initRawValueInt = function (rawValue, $info) {
+                throw 'unsupported method XCTest.(file).XCUIElement.SizeClass.init(rawValue:Int) in ' + this.constructor.name;
             };
-            /*XCTest.(file).XCUIElement.AttributeName.rawValue*/
+            /*XCTest.(file).XCUIElement.SizeClass.rawValue*/
             class_195.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCUIElement.AttributeName.rawValue in ' + this.constructor.name;
+                throw 'unsupported variable XCTest.(file).XCUIElement.SizeClass.rawValue in ' + this.constructor.name;
             };
             Object.defineProperty(class_195.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
@@ -54314,23 +54382,28 @@ var XCUIElement = /** @class */ (function (_super) {
                 configurable: true
             });
             ;
+            Object.defineProperty(class_195, "unspecified", {
+                get: function () { return Object.assign(new XCUIElement.SizeClass(), __assign({ rawValue: 0 }, Array.from(arguments))); },
+                enumerable: true,
+                configurable: true
+            });
             class_195.prototype.init$vars = function () {
             };
             return class_195;
         }()),
-        _151.$struct = true,
+        _151.initRawValueInt$failable = true,
         _151);
-    XCUIElement.KeyModifierFlags = (_152 = /** @class */ (function () {
+    XCUIElement.AttributeName = (_152 = /** @class */ (function () {
             function class_196() {
             }
-            /*XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt)*/
-            /*XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt)*/
-            class_196.prototype.initRawValueUInt = function (rawValue, $info) {
-                throw 'unsupported method XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt) in ' + this.constructor.name;
+            /*XCTest.(file).XCUIElement.AttributeName.init(rawValue:String)*/
+            /*XCTest.(file).XCUIElement.AttributeName.init(rawValue:String)*/
+            class_196.prototype.initRawValueString = function (rawValue, $info) {
+                throw 'unsupported method XCTest.(file).XCUIElement.AttributeName.init(rawValue:String) in ' + this.constructor.name;
             };
-            /*XCTest.(file).XCUIElement.KeyModifierFlags.rawValue*/
+            /*XCTest.(file).XCUIElement.AttributeName.rawValue*/
             class_196.prototype.rawValue$get = function () {
-                throw 'unsupported variable XCTest.(file).XCUIElement.KeyModifierFlags.rawValue in ' + this.constructor.name;
+                throw 'unsupported variable XCTest.(file).XCUIElement.AttributeName.rawValue in ' + this.constructor.name;
             };
             Object.defineProperty(class_196.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
@@ -54344,6 +54417,30 @@ var XCUIElement = /** @class */ (function (_super) {
         }()),
         _152.$struct = true,
         _152);
+    XCUIElement.KeyModifierFlags = (_153 = /** @class */ (function () {
+            function class_197() {
+            }
+            /*XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt)*/
+            /*XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt)*/
+            class_197.prototype.initRawValueUInt = function (rawValue, $info) {
+                throw 'unsupported method XCTest.(file).XCUIElement.KeyModifierFlags.init(rawValue:UInt) in ' + this.constructor.name;
+            };
+            /*XCTest.(file).XCUIElement.KeyModifierFlags.rawValue*/
+            class_197.prototype.rawValue$get = function () {
+                throw 'unsupported variable XCTest.(file).XCUIElement.KeyModifierFlags.rawValue in ' + this.constructor.name;
+            };
+            Object.defineProperty(class_197.prototype, "rawValue", {
+                get: function () { return this.rawValue$get(); },
+                enumerable: true,
+                configurable: true
+            });
+            ;
+            class_197.prototype.init$vars = function () {
+            };
+            return class_197;
+        }()),
+        _153.$struct = true,
+        _153);
     return XCUIElement;
 }(NSObject));
 _mixin(XCUIElement.ElementType, _DefaultEnumImplementation, false);
@@ -54570,51 +54667,51 @@ var XCUIApplication = /** @class */ (function (_super) {
         if (_super.prototype.init$vars)
             _super.prototype.init$vars.call(this);
     };
-    var _153;
-    XCUIApplication.State = (_153 = /** @class */ (function () {
-            function class_197() {
+    var _154;
+    XCUIApplication.State = (_154 = /** @class */ (function () {
+            function class_198() {
             }
             /*XCTest.(file).XCUIApplication.State.init(rawValue:UInt)*/
             /*XCTest.(file).XCUIApplication.State.init(rawValue:UInt)*/
-            class_197.prototype.initRawValueUInt = function (rawValue, $info) {
+            class_198.prototype.initRawValueUInt = function (rawValue, $info) {
                 throw 'unsupported method XCTest.(file).XCUIApplication.State.init(rawValue:UInt) in ' + this.constructor.name;
             };
             /*XCTest.(file).XCUIApplication.State.rawValue*/
-            class_197.prototype.rawValue$get = function () {
+            class_198.prototype.rawValue$get = function () {
                 throw 'unsupported variable XCTest.(file).XCUIApplication.State.rawValue in ' + this.constructor.name;
             };
-            Object.defineProperty(class_197.prototype, "rawValue", {
+            Object.defineProperty(class_198.prototype, "rawValue", {
                 get: function () { return this.rawValue$get(); },
                 enumerable: true,
                 configurable: true
             });
             ;
-            Object.defineProperty(class_197, "unknown", {
+            Object.defineProperty(class_198, "unknown", {
                 get: function () { return Object.assign(new XCUIApplication.State(), __assign({ rawValue: 0 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_197, "notRunning", {
+            Object.defineProperty(class_198, "notRunning", {
                 get: function () { return Object.assign(new XCUIApplication.State(), __assign({ rawValue: 1 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_197, "runningBackground", {
+            Object.defineProperty(class_198, "runningBackground", {
                 get: function () { return Object.assign(new XCUIApplication.State(), __assign({ rawValue: 3 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            Object.defineProperty(class_197, "runningForeground", {
+            Object.defineProperty(class_198, "runningForeground", {
                 get: function () { return Object.assign(new XCUIApplication.State(), __assign({ rawValue: 4 }, Array.from(arguments))); },
                 enumerable: true,
                 configurable: true
             });
-            class_197.prototype.init$vars = function () {
+            class_198.prototype.init$vars = function () {
             };
-            return class_197;
+            return class_198;
         }()),
-        _153.initRawValueUInt$failable = true,
-        _153);
+        _154.initRawValueUInt$failable = true,
+        _154);
     return XCUIApplication;
 }(XCUIElement));
 _mixin(XCUIApplication.State, _DefaultEnumImplementation, false);

@@ -25,8 +25,29 @@ function getReferences(chain: string[]): ReferencedSymbol[] {
 let replacements = []
 
 for(let optional of optionals) {
+  console.log('----------------------')
+  console.log(optional)
   for(const referencedSymbol of getReferences(optional)) {
     for(let reference of referencedSymbol.getReferences()) {
+
+      console.log('---')
+      let par = reference.getNode()
+      while(par) {
+        console.log(par.getKindName())
+        par = par.getParent()
+      }
+
+      let isParameter = reference.getNode().getParent().getKindName() === 'Parameter'
+      if(isParameter) {
+        continue
+      }
+
+      let isGetAccessor = reference.getNode().getParent().getKindName() === 'GetAccessor'
+      let isSetAccessor = reference.getNode().getParent().getKindName() === 'SetAccessor'
+      if(isGetAccessor || isSetAccessor) {
+        //TODO not yet sure how to handle GetAccessor/SetAccessor
+        continue
+      }
 
       let isDeclaration = reference.getNode().getParent().getKindName() === 'PropertyDeclaration'
       if (isDeclaration) {
